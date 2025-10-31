@@ -1,7 +1,17 @@
 import requests
-from config import BASE_URL
+from config import BASE_URL, LOG_DIR, LOG_PATH
 from datetime import datetime
+import logging
+import sys
 
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(LOG_PATH),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
 
 class Fetcher:
     
@@ -22,14 +32,18 @@ class Fetcher:
         try: 
             dt = datetime.strptime(date_str, "%d-%m-%Y")
         except ValueError:
+            logging.error(f"Invalid date format: {date_str}")
             raise ValueError(f"Invalid date format: {date_str}. Please use DD-MM-YYYY (e.g., 01-01-2000)")
         
         day, month, year = map(int, date_str.split('-'))
         if not (1 <= day <= 31):
+            logging.error(f"Invalid day: {day}")
             raise ValueError(f"Invalid day: {day}. Day must be between 1 and 31.")
         if not (1 <= month <= 12):
+            logging.error(f"Invalid month: {month}")
             raise ValueError(f"Invalid month: {month}. Month must be between 1 and 12.")
         if year < 1990 or year > datetime.now().year + 1:
+            logging.error(f"Invalid year: {year}")
             raise ValueError(f"Invalid year: {year}. Please enter a realistic year.")
         
 
@@ -56,21 +70,26 @@ class Fetcher:
             "format" : "json"
         }
 
-        response = requests.get(BASE_URL, params=params)
+        response = requests.get(BASE_URL, params=params, verify=False)
         response.raise_for_status()
         self.data = response.json()
+        if self.data:
+            logging.info(f"Fetched data for {self.query} between {self.start_date} and {self.end_date}")
         return self.data
 
     def display_results(self) -> None:
         if not self.data:
+            logging.warning("No data to display")
             return ("No data found.")
 
         articles = self.data.get("articles", [])
         if not articles:
+            logging.warning("No articles to display")
             return ("No articles found.")
         
         for article in articles[:10]:
             print(f"Title: {article['title']}")
+            print("-" * 10)
 
  
 
