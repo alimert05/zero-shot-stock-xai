@@ -1,0 +1,1 @@
+BASE_URL = url = "https://api.gdeltproject.org/api/v2/doc/doc"

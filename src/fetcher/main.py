@@ -1,8 +1,8 @@
 import requests
+from config import BASE_URL
 
 query = input("Enter company's name: ")
 
-url = "https://api.gdeltproject.org/api/v2/doc/doc"
 params = {
     "query": query,
     "mode" : "artlist",  
@@ -13,7 +13,7 @@ params = {
     "format" : "json"
 }
 
-response = requests.get(url, params=params)
+response = requests.get(BASE_URL, params=params)
 data = response.json()
 
 articles = data.get("articles", [])
