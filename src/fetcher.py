@@ -53,7 +53,6 @@ class Fetcher:
         dt = datetime.strptime(date_str, "%d-%m-%Y")
         return dt.strftime("%Y%m%d000000")
 
-
     def search(self) -> dict:
         start_norm = self.normalise_date(self.start_date)
         end_norm = self.normalise_date(self.end_date)
@@ -61,7 +60,7 @@ class Fetcher:
         params = {
             "query": self.query,
             "mode" : "artlist",  
-            "maxrecords" : 10,
+            "maxrecords" : 20,
             # "timespan" : "24h",
             "STARTDATETIME" : start_norm,
             "ENDDATETIME" : end_norm,
@@ -70,12 +69,25 @@ class Fetcher:
             "format" : "json"
         }
 
-        response = requests.get(BASE_URL, params=params, verify=False)
+        response = requests.get(BASE_URL, params=params)
         response.raise_for_status()
         self.data = response.json()
         if self.data:
             logging.info(f"Fetched data for {self.query} between {self.start_date} and {self.end_date}")
         return self.data
+    
+    def remove_dupliucates(self):
+        articles = self.data.get("articles", [])
+        seen = set()
+        unique = []
+
+        for article in articles:
+            title = article['title'].strip().lower()
+            if title and title not in seen:
+                seen.add(title)
+                unique.append(article)
+        logging.info(f"Removed duplicates: {len(article) - len(unique)} duplicates found.")
+        return unique
 
     def display_results(self) -> None:
         if not self.data:
@@ -87,9 +99,10 @@ class Fetcher:
             logging.warning("No articles to display")
             return ("No articles found.")
         
-        for article in articles[:10]:
+        unique_art = self.remove_dupliucates()
+        for article in unique_art[:10]:
             print(f"Title: {article['title']}")
-            print("-" * 10)
+            print("-" * 40)
 
  
 
