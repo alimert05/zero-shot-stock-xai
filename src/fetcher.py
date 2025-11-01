@@ -91,13 +91,10 @@ class Fetcher:
         
 
     def normalise_date(self, date_str: str) -> str:
-        try:
-            self.validate_date(date_str)
-            dt = datetime.strptime(date_str, "%d-%m-%Y")
-            return dt.strftime("%Y%m%d000000")
-        except Exception as e:
-            logging.error(f"Error normalising date: {e}")
-            raise ValueError(f"Failed to normalise date '{date_str}': {e}")
+        self.validate_date(date_str)
+        dt = datetime.strptime(date_str, "%d-%m-%Y")
+        return dt.strftime("%Y%m%d000000")
+     
 
     def search(self) -> dict:
         start_norm = self.normalise_date(self.start_date)
@@ -178,16 +175,13 @@ class Fetcher:
 
         
     def filter_language(self, articles: list, allowed_languages: list) -> list:
-        try:
-            filtered = [
-                article for article in articles
-                if article.get('language', '').lower() in [l.lower() for l in allowed_languages]
+        filtered = [
+            article for article in articles
+            if article.get('language', '').lower() in [l.lower() for l in allowed_languages]
             ]
-            logging.info(f"Filtered by language: {len(articles)} -> {len(filtered)} articles")
-            return filtered
-        except Exception as e: 
-            logging.error(f"Unexpected error in filter language: {e}")
-            return articles # if filtering fails returns unfiltered articles
+        logging.info(f"Filtered by language: {len(articles)} -> {len(filtered)} articles")
+        return filtered
+      
                 
     def remove_duplicates(self):
         try:
@@ -214,7 +208,7 @@ class Fetcher:
             return unique
         
         except Exception as e:
-            logging.error(f"Unexpected error in removing duplicates.")
+            logging.error(f"Unexpected error in removing duplicates: {e}")
             return[]
     
     def save_articles(self, articles: list) -> None:
@@ -244,75 +238,48 @@ class Fetcher:
             raise Exception(error_msg)
 
     def display_results(self) -> None:
+        
+        if not self.data:
+            logging.warning("No data to display")
+            print("No data available to display.")
+            return
+
+        articles = self.data.get("articles", [])
+        if not articles:
+            logging.warning("No articles to display")
+            print("No articles found in the response.")
+            return
+        
+        unique_art = self.remove_duplicates()
+        english_articles = self.filter_language(unique_art, ['English'])
+        financial_art = self.filter_financial_keywords(english_articles)
+        
+        if not english_articles:
+            logging.warning("No English articles found after filtering")
+            print("No English articles found. Showing all articles instead.")
+            english_articles = unique_art
+
+        if not financial_art:
+            logging.warning("No financial articles found after filtering")
+            print("No financial articles found. Showing all English articles instead.")
+            financial_art = english_articles
+
         try:
-            if not self.data:
-                logging.warning("No data to display")
-                print("No data available to display.")
-                return
-
-            articles = self.data.get("articles", [])
-            if not articles:
-                logging.warning("No articles to display")
-                print("No articles found in the response.")
-                return
-            
-            try:
-                unique_art = self.remove_duplicates()
-            except Exception as e:
-                logging.error(f"Error removing duplicates: {e}")
-                unique_art = articles
-            
-            try:
-                english_articles = self.filter_language(unique_art, ['English'])
-            except Exception as e:
-                logging.error(f"Error filtering by language: {e}")
-                english_articles = unique_art
-            
-            try:
-                financial_art = self.filter_financial_keywords(english_articles)
-            except Exception as e:
-                logging.error(f"Error filtering by financial keywords: {e}")
-                financial_art = english_articles
-        
-            if not english_articles:
-                logging.warning("No English articles found after filtering")
-                print("No English articles found. Showing all articles instead.")
-                english_articles = unique_art
-
-            if not financial_art:
-                logging.warning("No financial articles found after filtering")
-                print("No financial articles found. Showing all English articles instead.")
-                financial_art = english_articles
-
-            try:
-                self.save_articles(financial_art)
-            except Exception as e:
-                logging.error(f"Failed to save articles: {e}")
-                print(f"Warning: Could not save articles to file: {e}")
-
-            try:
-                for i, article in enumerate(financial_art, 1):
-                    try:
-                        title = article.get('title', 'No title')
-                        print(f"[{i}] Title: {title}")
-                        print("-" * 40)
-                    except Exception as e:
-                        logging.warning(f"Error displaying article {i}: {e}")
-                        continue
-                
-                logging.info(f"Displayed {len(articles)} of {len(financial_art)} financial articles")
-            
-            except Exception as e:
-                logging.error(f"Error displaying articles: {e}")
-                print("Error displaying articles")
-        
-        except KeyError as e:
-            logging.error(f"Missing expected key in data: {e}")
-            print(f"Data format error: {e}")
-        
+            self.save_articles(financial_art)
         except Exception as e:
-            logging.error(f"Unexpected error in display_results: {e}")
-            print(f"An unexpected error occurred: {e}")
+            logging.error(f"Failed to save articles: {e}")
+            print(f"Warning: Could not save articles to file")
+
+        for i, article in enumerate(financial_art, 1):
+            try:
+                title = article.get('title', 'No title')
+                print(f"[{i}] Title: {title}")
+                print("-" * 40)
+            except Exception as e:
+                logging.warning(f"Error displaying article {i}: {e}")
+                continue
+        
+        logging.info(f"Displayed {len(financial_art)} financial articles")
 
  
 
