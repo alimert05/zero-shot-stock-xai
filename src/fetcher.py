@@ -1,6 +1,7 @@
 import json
 import requests
-from config import BASE_URL, LOG_PATH, TEMP_PATH, FINANCIAL_KEYWORDS
+from config import BASE_URL, LOG_PATH, TEMP_PATH, FINANCIAL_KEYWORDS, REQUEST_TIMEOUT_LIMIT
+from requests.exceptions import Timeout, ConnectionError, HTTPError, RequestException
 from datetime import datetime
 import logging
 import sys
@@ -25,6 +26,7 @@ class Fetcher:
         self.temp_dir = TEMP_PATH
         self.output_file = os.path.join(self.temp_dir, "articles.json")
         self.financial_keywords = FINANCIAL_KEYWORDS
+        self.timeout = REQUEST_TIMEOUT_LIMIT
     
     def filter_financial_keywords(self, articles : list) -> list:
         financial_articles = []
@@ -83,13 +85,73 @@ class Fetcher:
             "format" : "json"
         }
 
-        response = requests.get(BASE_URL, params=params)
-        response.raise_for_status()
-        self.data = response.json()
-        if self.data:
-            logging.info(f"Fetched data for {self.query} between {self.start_date} and {self.end_date}")
-        return self.data
-    
+        try: 
+            logging.info(f"Sending request to {BASE_URL} with timeout={self.timeout}s")
+
+            response = requests.get(BASE_URL, params=params, timeout=self.timeout)
+            response.raise_for_status()
+
+            try: 
+                self.data = response.json()
+            except json.JSONDecodeError as e:
+                logging.error(f"Failed to parse JSON response: {e}")
+                logging.error(f"Response content: {response.text}")
+                raise Exception("API returned invalid JSON response.")
+            
+            if self.data:
+                logging.info(f"Fetched data for {self.query} between {self.start_date} and {self.end_date}")
+            else: 
+                logging.warning("API returned empty response")
+            return self.data
+
+        except Timeout:
+            error_msg = f"Request timed out after {self.timeout} seconds."
+            logging.error(error_msg)
+            raise Exception(error_msg)
+        
+        except ConnectionError as e:
+            error_msg = f"Connection error: Unable to connect to {BASE_URL}. Please check your internet connection."
+            logging.error(f"{error_msg} Details: {e}")
+            raise Exception(error_msg)
+        
+        except HTTPError as e:
+            status_code = e.response.status_code
+            
+            if status_code == 400:
+                error_msg = "Bad Request (400): Invalid query parameters. Please check your inputs."
+            elif status_code == 401:
+                error_msg = "Unauthorized (401): API key may be missing or invalid."
+            elif status_code == 403:
+                error_msg = "Forbidden (403): Access denied. Check API permissions."
+            elif status_code == 404:
+                error_msg = "Not Found (404): API endpoint not found."
+            elif status_code == 429:
+                error_msg = "Too Many Requests (429): Rate limit exceeded. Please wait and try again."
+            elif status_code == 500:
+                error_msg = "Internal Server Error (500): API server error. Try again later."
+            elif status_code == 502:
+                error_msg = "Bad Gateway (502): API gateway error. Try again later."
+            elif status_code == 503:
+                error_msg = "Service Unavailable (503): API temporarily unavailable. Try again later."
+            elif status_code == 504:
+                error_msg = "Gateway Timeout (504): API request timed out. Try again later."
+            else:
+                error_msg = f"HTTP Error {status_code}: {e}"
+            
+            logging.error(error_msg)
+            logging.error(f"Response content: {e.response.text}")
+            raise Exception(error_msg)
+        
+        except RequestException as e:
+            error_msg = f"Request failed: {type(e).__name__} - {str(e)}"
+            logging.error(error_msg)
+            raise Exception(f"An unexpected error occurred while fetching data: {e}")
+
+        
+
+
+
+
     def filter_language(self, articles: list, allowed_languages: list) -> list:
         filtered = [
             article for article in articles
