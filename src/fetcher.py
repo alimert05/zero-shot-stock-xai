@@ -81,6 +81,14 @@ class Fetcher:
             logging.info(f"Fetched data for {self.query} between {self.start_date} and {self.end_date}")
         return self.data
     
+    def filter_language(self, articles: list, allowed_languages: list) -> list:
+        filtered = [
+            article for article in articles
+            if article.get('language', '').lower() in [l.lower() for l in allowed_languages]
+        ]
+        logging.info(f"Filtered by country: {len(articles)} -> {len(filtered)} articles")
+        return filtered
+    
     def remove_dupliucates(self):
         articles = self.data.get("articles", [])
         seen = set()
@@ -120,9 +128,16 @@ class Fetcher:
             return ("No articles found.")
         
         unique_art = self.remove_dupliucates()
-        self.save_articles(unique_art)
+        uk_articles = self.filter_language(unique_art, ['English'])
+    
+        if not uk_articles:
+            logging.warning("No UK articles found after filtering")
+            print("No UK articles found. Showing all English articles instead.")
+            uk_articles = unique_art
 
-        for article in unique_art[:10]:
+        self.save_articles(uk_articles)
+
+        for article in uk_articles[:10]:
             print(f"Title: {article['title']}")
             print("-" * 40)
         logging.info(f"Displayed {len(unique_art)}")
