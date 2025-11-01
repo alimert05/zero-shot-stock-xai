@@ -1,6 +1,6 @@
 import json
 import requests
-from config import BASE_URL, LOG_PATH, TEMP_PATH
+from config import BASE_URL, LOG_PATH, TEMP_PATH, FINANCIAL_KEYWORDS
 from datetime import datetime
 import logging
 import sys
@@ -24,6 +24,16 @@ class Fetcher:
         self.data = None
         self.temp_dir = TEMP_PATH
         self.output_file = os.path.join(self.temp_dir, "articles.json")
+        self.financial_keywords = FINANCIAL_KEYWORDS
+    
+    def filter_financial_keywords(self, articles : list) -> list:
+        financial_articles = []
+
+        for article in articles:
+            if any(keyword in article.get('title', '').lower() for keyword in self.financial_keywords):
+                financial_articles.append(article)
+        logging.info(f"Filtered by financial keywords: {len(articles)} -> {len(financial_articles)} articles")
+        return financial_articles
 
 
     def get_input(self) -> str:
@@ -65,12 +75,11 @@ class Fetcher:
         params = {
             "query": self.query,
             "mode" : "artlist",  
-            "maxrecords" : 20,
+            "maxrecords" : 250,
             # "timespan" : "24h",
             "STARTDATETIME" : start_norm,
             "ENDDATETIME" : end_norm,
             "sourcelang" : "english",
-            "sourcecountry" : "UK",
             "format" : "json"
         }
 
@@ -86,10 +95,10 @@ class Fetcher:
             article for article in articles
             if article.get('language', '').lower() in [l.lower() for l in allowed_languages]
         ]
-        logging.info(f"Filtered by country: {len(articles)} -> {len(filtered)} articles")
+        logging.info(f"Filtered by language: {len(articles)} -> {len(filtered)} articles")
         return filtered
     
-    def remove_dupliucates(self):
+    def remove_duplicates(self):
         articles = self.data.get("articles", [])
         seen = set()
         unique = []
@@ -127,17 +136,23 @@ class Fetcher:
             logging.warning("No articles to display")
             return ("No articles found.")
         
-        unique_art = self.remove_dupliucates()
-        uk_articles = self.filter_language(unique_art, ['English'])
+        unique_art = self.remove_duplicates()
+        english_articles = self.filter_language(unique_art, ['English'])
+        financial_art = self.filter_financial_keywords(english_articles)
     
-        if not uk_articles:
-            logging.warning("No UK articles found after filtering")
+        if not english_articles:
+            logging.warning("No UK articles found after filtering.")
             print("No UK articles found. Showing all English articles instead.")
-            uk_articles = unique_art
+            english_articles = unique_art
 
-        self.save_articles(uk_articles)
+        if not financial_art:
+            logging.warning("No financial articles found after filtering.")
+            print("No financial articles found.")
+            financial_art = english_articles
 
-        for article in uk_articles[:10]:
+        self.save_articles(financial_art)
+
+        for article in financial_art:
             print(f"Title: {article['title']}")
             print("-" * 40)
         logging.info(f"Displayed {len(unique_art)}")
