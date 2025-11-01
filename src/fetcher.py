@@ -29,7 +29,6 @@ class Fetcher:
         self.timeout = REQUEST_TIMEOUT_LIMIT
     
     def filter_financial_keywords(self, articles : list) -> list:
-        try:
             financial_articles = []
 
             for article in articles:
@@ -43,10 +42,6 @@ class Fetcher:
             
             logging.info(f"Filtered by financial keywords: {len(articles)} -> {len(financial_articles)} articles")
             return financial_articles
-        
-        except Exception as e:
-            logging.error(f"Unexpected error in filter_financial_keywords: {e}")
-            return []
 
 
     def get_input(self) -> str:
@@ -238,7 +233,7 @@ class Fetcher:
             raise Exception(error_msg)
 
     def display_results(self) -> None:
-        
+
         if not self.data:
             logging.warning("No data to display")
             print("No data available to display.")
