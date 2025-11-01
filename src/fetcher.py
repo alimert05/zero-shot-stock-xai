@@ -1,8 +1,10 @@
+import json
 import requests
-from config import BASE_URL, LOG_DIR, LOG_PATH
+from config import BASE_URL, LOG_PATH, TEMP_PATH
 from datetime import datetime
 import logging
 import sys
+import os
 
 logging.basicConfig(
     level=logging.INFO,
@@ -20,6 +22,9 @@ class Fetcher:
         self.end_date = None
         self.query = None
         self.data = None
+        self.temp_dir = TEMP_PATH
+        self.output_file = os.path.join(self.temp_dir, "articles.json")
+
 
     def get_input(self) -> str:
         self.query = input("Enter company's name: ")
@@ -86,8 +91,23 @@ class Fetcher:
             if title and title not in seen:
                 seen.add(title)
                 unique.append(article)
-        logging.info(f"Removed duplicates: {len(article) - len(unique)} duplicates found.")
+        logging.info(f"Removed duplicates: {len(articles) - len(unique)} duplicates found.")
         return unique
+    
+    def save_articles(self, articles: list) -> None:
+        output_data = {
+            "query": self.query,
+            "start_date": self.start_date,
+            "end_date": self.end_date,
+            "fetch_timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "article_count": len(articles),
+            "articles": articles
+        }
+        
+        with open(self.output_file, 'w', encoding='utf-8') as f:
+            json.dump(output_data, f, indent=2, ensure_ascii=False)
+        
+        logging.info(f"Saved {len(articles)} articles to {self.output_file}")
 
     def display_results(self) -> None:
         if not self.data:
@@ -100,9 +120,12 @@ class Fetcher:
             return ("No articles found.")
         
         unique_art = self.remove_dupliucates()
+        self.save_articles(unique_art)
+
         for article in unique_art[:10]:
             print(f"Title: {article['title']}")
             print("-" * 40)
+        logging.info(f"Displayed {len(unique_art)}")
 
  
 
