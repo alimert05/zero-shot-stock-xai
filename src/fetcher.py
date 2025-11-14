@@ -29,19 +29,20 @@ class Fetcher:
         self.timeout = REQUEST_TIMEOUT_LIMIT
     
     def filter_financial_keywords(self, articles : list) -> list:
-            financial_articles = []
+        # TODO: improve the accuracy
+        financial_articles = []
 
-            for article in articles:
-                try:
-                    title = article.get('title', '')
-                    if title and any(keyword in title.lower() for keyword in self.financial_keywords):
-                        financial_articles.append(article)
-                except (KeyError, AttributeError, TypeError) as e:
-                    logging.warning(f"Error processing article: {e}")
-                    continue
-            
-            logging.info(f"Filtered by financial keywords: {len(articles)} -> {len(financial_articles)} articles")
-            return financial_articles
+        for article in articles:
+            try:
+                title = article.get('title', '')
+                if title and any(keyword in title.lower() for keyword in self.financial_keywords):
+                    financial_articles.append(article)
+            except (KeyError, AttributeError, TypeError) as e:
+                logging.warning(f"Error processing article: {e}")
+                continue
+        
+        logging.info(f"Filtered by financial keywords: {len(articles)} -> {len(financial_articles)} articles")
+        return financial_articles
 
 
     def get_input(self) -> str:
@@ -98,6 +99,7 @@ class Fetcher:
         params = {
             "query": self.query,
             "mode" : "artlist",  
+            # imporove max records
             "maxrecords" : 250,
             # "timespan" : "24h",
             "STARTDATETIME" : start_norm,
