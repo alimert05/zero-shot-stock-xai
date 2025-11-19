@@ -19,8 +19,7 @@ logging.basicConfig(
 """
 Dynamic Selection for Fetching Data:
 - Read URL to reach contents: on/off
-- Use XAI: on/off
-- How many headlines/news to fetch: {number_of_news}
+- How many headlines/news to fetch: {number_of_news} -> density-aware pagination
 """
 
 class Fetcher:
@@ -126,124 +125,10 @@ class Fetcher:
         all_articles = []
         filtered_articles = []
 
-        window_size_days = 7
+        # Tüm aralığı adaptif olarak tara
+        self._fetch_window(start_dt, end_dt, all_articles, filtered_articles, depth=0)
 
-        current_start = start_dt
-        window_index = 0
-
-        while current_start <= end_dt:
-            if len(filtered_articles) >= self.number_of_news:
-                logging.info(f"Reached target of {self.number_of_news} articles. Stopping.")
-                break
-
-            current_end = current_start + timedelta(days=window_size_days - 1)
-            if current_end > end_dt:
-                current_end = end_dt
-
-            start_str = current_start.strftime("%d-%m-%Y")
-            end_str = current_end.strftime("%d-%m-%Y")
-
-            start_norm = self.normalise_date(start_str)
-            end_norm = self.normalise_date(end_str).replace("000000", "235959")
-
-            window_index += 1
-            logging.info(
-                f"Window {window_index}: requesting {self.query!r} from "
-                f"{current_start.strftime('%Y-%m-%d')} to {current_end.strftime('%Y-%m-%d')}"
-            )
-
-            params = {
-                "query": self.query,
-                "mode": "artlist",
-                "maxrecords": 250,
-                "STARTDATETIME": start_norm,
-                "ENDDATETIME": end_norm,
-                "sourcelang": "english",
-                "format": "json",
-            }
-
-            try:
-                logging.info(f"Sending request to {BASE_URL} with timeout={self.timeout}s")
-                response = requests.get(BASE_URL, params=params, timeout=self.timeout)
-                response.raise_for_status()
-
-                try:
-                    batch_data = response.json()
-                except json.JSONDecodeError as e:
-                    logging.error(f"Failed to parse JSON response: {e}")
-                    logging.error(f"Response content: {response.text}")
-                    raise Exception("API returned invalid JSON response.")
-
-                batch_articles = batch_data.get("articles", [])
-                logging.info(
-                    f"Received {len(batch_articles)} raw articles for this window."
-                )
-
-                if not batch_articles:
-                    current_start = current_end + timedelta(days=1)
-                    continue
-
-                all_articles.extend(batch_articles)
-
-                unique_articles = self.remove_duplicates({"articles": all_articles})
-                english_articles = self.filter_language(unique_articles, ["English"])
-                filtered_articles = self.filter_financial_keywords(english_articles)
-
-                logging.info(
-                    f"Progress after window {window_index}: "
-                    f"Raw={len(all_articles)}, "
-                    f"Unique={len(unique_articles)}, "
-                    f"Filtered={len(filtered_articles)}/{self.number_of_news}"
-                )
-
-            except Timeout:
-                error_msg = f"Request timed out after {self.timeout} seconds."
-                logging.error(error_msg)
-                raise Exception(error_msg)
-
-            except ConnectionError as e:
-                error_msg = (
-                    f"Connection error: Unable to connect to {BASE_URL}. "
-                    f"Please check your internet connection."
-                )
-                logging.error(f"{error_msg} Details: {e}")
-                raise Exception(error_msg)
-
-            except HTTPError as e:
-                status_code = e.response.status_code
-                if status_code == 400:
-                    error_msg = "Bad Request (400): Invalid query parameters. Please check your inputs."
-                elif status_code == 401:
-                    error_msg = "Unauthorized (401): API key may be missing or invalid."
-                elif status_code == 403:
-                    error_msg = "Forbidden (403): Access denied. Check API permissions."
-                elif status_code == 404:
-                    error_msg = "Not Found (404): API endpoint not found."
-                elif status_code == 429:
-                    error_msg = "Too Many Requests (429): Rate limit exceeded. Please wait and try again."
-                elif status_code == 500:
-                    error_msg = "Internal Server Error (500): API server error. Try again later."
-                elif status_code == 502:
-                    error_msg = "Bad Gateway (502): API gateway error. Try again later."
-                elif status_code == 503:
-                    error_msg = "Service Unavailable (503): API temporarily unavailable. Try again later."
-                elif status_code == 504:
-                    error_msg = "Gateway Timeout (504): API request timed out. Try again later."
-                else:
-                    error_msg = f"HTTP Error {status_code}: {e}"
-
-                logging.error(error_msg)
-                logging.error(f"Response content: {e.response.text}")
-                raise Exception(error_msg)
-
-            except RequestException as e:
-                error_msg = f"Request failed: {type(e).__name__} - {str(e)}"
-                logging.error(error_msg)
-                raise Exception(f"An unexpected error occurred while fetching data: {e}")
-
-            current_start = current_end + timedelta(days=1)
-
-        final_articles = filtered_articles[: self.number_of_news]
+        final_articles = filtered_articles[:self.number_of_news]
         self.data = {"articles": final_articles}
 
         if len(final_articles) < self.number_of_news:
@@ -251,7 +136,154 @@ class Fetcher:
                 f"Only {len(final_articles)} articles matched filters, "
                 f"but {self.number_of_news} were requested."
             )
- 
+    
+    def _fetch_window(self, start_dt, end_dt, all_articles, filtered_articles, depth=0):
+
+        if len(filtered_articles) >= self.number_of_news:
+            return
+
+        if end_dt < start_dt:
+            return
+
+        MAX_DEPTH = 6
+        if depth > MAX_DEPTH:
+            logging.info("Max recursion depth reached, stopping further splitting.")
+            return
+
+        window_days = (end_dt - start_dt).days
+
+        start_str = start_dt.strftime("%d-%m-%Y")
+        end_str = end_dt.strftime("%d-%m-%Y")
+
+        start_norm = self.normalise_date(start_str)
+        end_norm = self.normalise_date(end_str).replace("000000", "235959")
+
+        logging.info(
+            f"[depth={depth}] Fetching window: {start_str} to {end_str} "
+            f"({window_days + 1} days)"
+        )
+
+        params = {
+            "query": self.query,
+            "mode": "artlist",
+            "maxrecords": 250,
+            "STARTDATETIME": start_norm,
+            "ENDDATETIME": end_norm,
+            "sourcelang": "english",
+            "format": "json",
+        }
+
+        try:
+            logging.info(f"Sending request to {BASE_URL} with timeout={self.timeout}s")
+            response = requests.get(BASE_URL, params=params, timeout=self.timeout)
+            response.raise_for_status()
+
+            try:
+                batch_data = response.json()
+            except json.JSONDecodeError as e:
+                logging.error(f"Failed to parse JSON response: {e}")
+                logging.error(f"Response content: {response.text}")
+                raise Exception("API returned invalid JSON response.")
+
+            batch_articles = batch_data.get("articles", [])
+            logging.info(
+                f"[depth={depth}] Received {len(batch_articles)} raw articles "
+                f"for this window."
+            )
+
+            if not batch_articles:
+                return
+
+            all_articles.extend(batch_articles)
+
+            unique_articles = self.remove_duplicates({"articles": all_articles})
+            english_articles = self.filter_language(unique_articles, ["English"])
+            new_filtered = self.filter_financial_keywords(english_articles)
+
+            filtered_articles[:] = new_filtered
+
+            logging.info(
+                f"[depth={depth}] Progress: Raw={len(all_articles)}, "
+                f"Unique={len(unique_articles)}, "
+                f"Filtered={len(filtered_articles)}/{self.number_of_news}"
+            )
+
+            if len(filtered_articles) >= self.number_of_news:
+                return
+
+            if len(batch_articles) == 250 and window_days > 0:
+                print("250 den fazla")
+                mid_dt = start_dt + (end_dt - start_dt) / 2
+                mid_dt = datetime(mid_dt.year, mid_dt.month, mid_dt.day)
+
+                if mid_dt <= start_dt or mid_dt >= end_dt:
+                    return
+
+                logging.info(
+                    f"[depth={depth}] Window appears dense (250 records). "
+                    f"Splitting into [{start_dt.strftime('%d-%m-%Y')} - "
+                    f"{mid_dt.strftime('%d-%m-%Y')}] and "
+                    f"[{(mid_dt + timedelta(days=1)).strftime('%d-%m-%Y')} - "
+                    f"{end_dt.strftime('%d-%m-%Y')}]"
+                )
+
+                self._fetch_window(start_dt, mid_dt, all_articles, filtered_articles, depth + 1)
+
+                if len(filtered_articles) < self.number_of_news:
+                    self._fetch_window(
+                        mid_dt + timedelta(days=1),
+                        end_dt,
+                        all_articles,
+                        filtered_articles,
+                        depth + 1,
+                    )
+
+        except Timeout:
+            error_msg = f"Request timed out after {self.timeout} seconds."
+            logging.error(error_msg)
+            raise Exception(error_msg)
+
+        except ConnectionError as e:
+            error_msg = (
+                f"Connection error: Unable to connect to {BASE_URL}. "
+                f"Please check your internet connection."
+            )
+            logging.error(f"{error_msg} Details: {e}")
+            raise Exception(error_msg)
+
+        except HTTPError as e:
+            status_code = e.response.status_code
+            if status_code == 400:
+                error_msg = "Bad Request (400): Invalid query parameters. Please check your inputs."
+            elif status_code == 401:
+                error_msg = "Unauthorized (401): API key may be missing or invalid."
+            elif status_code == 403:
+                error_msg = "Forbidden (403): Access denied. Check API permissions."
+            elif status_code == 404:
+                error_msg = "Not Found (404): API endpoint not found."
+            elif status_code == 429:
+                error_msg = "Too Many Requests (429): Rate limit exceeded. Please wait and try again."
+            elif status_code == 500:
+                error_msg = "Internal Server Error (500): API server error. Try again later."
+            elif status_code == 502:
+                error_msg = "Bad Gateway (502): API gateway error. Try again later."
+            elif status_code == 503:
+                error_msg = "Service Unavailable (503): API temporarily unavailable. Try again later."
+            elif status_code == 504:
+                error_msg = "Gateway Timeout (504): API request timed out. Try again later."
+            else:
+                error_msg = f"HTTP Error {status_code}: {e}"
+
+            logging.error(error_msg)
+            logging.error(f"Response content: {e.response.text}")
+            raise Exception(error_msg)
+
+        except RequestException as e:
+            error_msg = f"Request failed: {type(e).__name__} - {str(e)}"
+            logging.error(error_msg)
+            raise Exception(f"An unexpected error occurred while fetching data: {e}")
+
+
     def filter_language(self, articles: list, allowed_languages: list) -> list:
         filtered = [
             article for article in articles
