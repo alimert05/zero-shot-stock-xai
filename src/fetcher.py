@@ -2,7 +2,7 @@ import json
 import requests
 from config import BASE_URL, LOG_PATH, TEMP_PATH, FINANCIAL_KEYWORDS, REQUEST_TIMEOUT_LIMIT
 from requests.exceptions import Timeout, ConnectionError, HTTPError, RequestException
-from datetime import datetime
+from datetime import datetime, timedelta
 import logging
 import sys
 import os
@@ -16,6 +16,13 @@ logging.basicConfig(
     ]
 )
 
+"""
+Dynamic Selection for Fetching Data:
+- Read URL to reach contents: on/off
+- Use XAI: on/off
+- How many headlines/news to fetch: {number_of_news}
+"""
+
 class Fetcher:
     
     def __init__(self):
@@ -27,6 +34,7 @@ class Fetcher:
         self.output_file = os.path.join(self.temp_dir, "articles.json")
         self.financial_keywords = FINANCIAL_KEYWORDS
         self.timeout = REQUEST_TIMEOUT_LIMIT
+        self.number_of_news: int = None
     
     def filter_financial_keywords(self, articles : list) -> list:
         # TODO: improve the accuracy
@@ -58,6 +66,19 @@ class Fetcher:
             self.end_date = input("Enter end date(DD-MM-YYYY): ").strip()
             if not self.end_date:
                 raise ValueError("End date cannot be empty.")
+            
+            # input number of news
+            number_input = input("Enter number of news: ").strip()
+            if not number_input:
+                raise ValueError("Number of news cannot be emtpy.")
+
+            try:
+                self.number_of_news = int(number_input)
+                if self.number_of_news <= 0:
+                    raise ValueError("Number of news must be positive.")
+            except ValueError:
+                raise TypeError("Please enter a valid number.")
+            
             return self.query
         
         except Exception as e:
@@ -93,84 +114,144 @@ class Fetcher:
      
 
     def search(self) -> dict:
-        start_norm = self.normalise_date(self.start_date)
-        end_norm = self.normalise_date(self.end_date)
-            
-        params = {
-            "query": self.query,
-            "mode" : "artlist",  
-            # imporove max records
-            "maxrecords" : 250,
-            # "timespan" : "24h",
-            "STARTDATETIME" : start_norm,
-            "ENDDATETIME" : end_norm,
-            "sourcelang" : "english",
-            "format" : "json"
-        }
+        self.validate_date(self.start_date)
+        self.validate_date(self.end_date)
 
-        try: 
-            logging.info(f"Sending request to {BASE_URL} with timeout={self.timeout}s")
+        start_dt = datetime.strptime(self.start_date, "%d-%m-%Y")
+        end_dt = datetime.strptime(self.end_date, "%d-%m-%Y")
 
-            response = requests.get(BASE_URL, params=params, timeout=self.timeout)
-            response.raise_for_status()
+        if end_dt < start_dt:
+            raise ValueError("End date cannot be before start date.")
 
-            try: 
-                self.data = response.json()
-            except json.JSONDecodeError as e:
-                logging.error(f"Failed to parse JSON response: {e}")
-                logging.error(f"Response content: {response.text}")
-                raise Exception("API returned invalid JSON response.")
-            
-            if self.data:
-                logging.info(f"Fetched data for {self.query} between {self.start_date} and {self.end_date}")
-            else: 
-                logging.warning("API returned empty response")
-            return self.data
+        all_articles = []
+        filtered_articles = []
 
-        except Timeout:
-            error_msg = f"Request timed out after {self.timeout} seconds."
-            logging.error(error_msg)
-            raise Exception(error_msg)
-        
-        except ConnectionError as e:
-            error_msg = f"Connection error: Unable to connect to {BASE_URL}. Please check your internet connection."
-            logging.error(f"{error_msg} Details: {e}")
-            raise Exception(error_msg)
-        
-        except HTTPError as e:
-            status_code = e.response.status_code
-            
-            if status_code == 400:
-                error_msg = "Bad Request (400): Invalid query parameters. Please check your inputs."
-            elif status_code == 401:
-                error_msg = "Unauthorized (401): API key may be missing or invalid."
-            elif status_code == 403:
-                error_msg = "Forbidden (403): Access denied. Check API permissions."
-            elif status_code == 404:
-                error_msg = "Not Found (404): API endpoint not found."
-            elif status_code == 429:
-                error_msg = "Too Many Requests (429): Rate limit exceeded. Please wait and try again."
-            elif status_code == 500:
-                error_msg = "Internal Server Error (500): API server error. Try again later."
-            elif status_code == 502:
-                error_msg = "Bad Gateway (502): API gateway error. Try again later."
-            elif status_code == 503:
-                error_msg = "Service Unavailable (503): API temporarily unavailable. Try again later."
-            elif status_code == 504:
-                error_msg = "Gateway Timeout (504): API request timed out. Try again later."
-            else:
-                error_msg = f"HTTP Error {status_code}: {e}"
-            
-            logging.error(error_msg)
-            logging.error(f"Response content: {e.response.text}")
-            raise Exception(error_msg)
-        
-        except RequestException as e:
-            error_msg = f"Request failed: {type(e).__name__} - {str(e)}"
-            logging.error(error_msg)
-            raise Exception(f"An unexpected error occurred while fetching data: {e}")
+        window_size_days = 7
 
-        
+        current_start = start_dt
+        window_index = 0
+
+        while current_start <= end_dt:
+            if len(filtered_articles) >= self.number_of_news:
+                logging.info(f"Reached target of {self.number_of_news} articles. Stopping.")
+                break
+
+            current_end = current_start + timedelta(days=window_size_days - 1)
+            if current_end > end_dt:
+                current_end = end_dt
+
+            start_str = current_start.strftime("%d-%m-%Y")
+            end_str = current_end.strftime("%d-%m-%Y")
+
+            start_norm = self.normalise_date(start_str)
+            end_norm = self.normalise_date(end_str).replace("000000", "235959")
+
+            window_index += 1
+            logging.info(
+                f"Window {window_index}: requesting {self.query!r} from "
+                f"{current_start.strftime('%Y-%m-%d')} to {current_end.strftime('%Y-%m-%d')}"
+            )
+
+            params = {
+                "query": self.query,
+                "mode": "artlist",
+                "maxrecords": 250,
+                "STARTDATETIME": start_norm,
+                "ENDDATETIME": end_norm,
+                "sourcelang": "english",
+                "format": "json",
+            }
+
+            try:
+                logging.info(f"Sending request to {BASE_URL} with timeout={self.timeout}s")
+                response = requests.get(BASE_URL, params=params, timeout=self.timeout)
+                response.raise_for_status()
+
+                try:
+                    batch_data = response.json()
+                except json.JSONDecodeError as e:
+                    logging.error(f"Failed to parse JSON response: {e}")
+                    logging.error(f"Response content: {response.text}")
+                    raise Exception("API returned invalid JSON response.")
+
+                batch_articles = batch_data.get("articles", [])
+                logging.info(
+                    f"Received {len(batch_articles)} raw articles for this window."
+                )
+
+                if not batch_articles:
+                    current_start = current_end + timedelta(days=1)
+                    continue
+
+                all_articles.extend(batch_articles)
+
+                unique_articles = self.remove_duplicates({"articles": all_articles})
+                english_articles = self.filter_language(unique_articles, ["English"])
+                filtered_articles = self.filter_financial_keywords(english_articles)
+
+                logging.info(
+                    f"Progress after window {window_index}: "
+                    f"Raw={len(all_articles)}, "
+                    f"Unique={len(unique_articles)}, "
+                    f"Filtered={len(filtered_articles)}/{self.number_of_news}"
+                )
+
+            except Timeout:
+                error_msg = f"Request timed out after {self.timeout} seconds."
+                logging.error(error_msg)
+                raise Exception(error_msg)
+
+            except ConnectionError as e:
+                error_msg = (
+                    f"Connection error: Unable to connect to {BASE_URL}. "
+                    f"Please check your internet connection."
+                )
+                logging.error(f"{error_msg} Details: {e}")
+                raise Exception(error_msg)
+
+            except HTTPError as e:
+                status_code = e.response.status_code
+                if status_code == 400:
+                    error_msg = "Bad Request (400): Invalid query parameters. Please check your inputs."
+                elif status_code == 401:
+                    error_msg = "Unauthorized (401): API key may be missing or invalid."
+                elif status_code == 403:
+                    error_msg = "Forbidden (403): Access denied. Check API permissions."
+                elif status_code == 404:
+                    error_msg = "Not Found (404): API endpoint not found."
+                elif status_code == 429:
+                    error_msg = "Too Many Requests (429): Rate limit exceeded. Please wait and try again."
+                elif status_code == 500:
+                    error_msg = "Internal Server Error (500): API server error. Try again later."
+                elif status_code == 502:
+                    error_msg = "Bad Gateway (502): API gateway error. Try again later."
+                elif status_code == 503:
+                    error_msg = "Service Unavailable (503): API temporarily unavailable. Try again later."
+                elif status_code == 504:
+                    error_msg = "Gateway Timeout (504): API request timed out. Try again later."
+                else:
+                    error_msg = f"HTTP Error {status_code}: {e}"
+
+                logging.error(error_msg)
+                logging.error(f"Response content: {e.response.text}")
+                raise Exception(error_msg)
+
+            except RequestException as e:
+                error_msg = f"Request failed: {type(e).__name__} - {str(e)}"
+                logging.error(error_msg)
+                raise Exception(f"An unexpected error occurred while fetching data: {e}")
+
+            current_start = current_end + timedelta(days=1)
+
+        final_articles = filtered_articles[: self.number_of_news]
+        self.data = {"articles": final_articles}
+
+        if len(final_articles) < self.number_of_news:
+            logging.info(
+                f"Only {len(final_articles)} articles matched filters, "
+                f"but {self.number_of_news} were requested."
+            )
+ 
     def filter_language(self, articles: list, allowed_languages: list) -> list:
         filtered = [
             article for article in articles
@@ -180,10 +261,10 @@ class Fetcher:
         return filtered
       
                 
-    def remove_duplicates(self):
+    def remove_duplicates(self, data):
         try:
 
-            articles = self.data.get("articles", [])
+            articles = data.get("articles", [])
             if not articles:
                 logging.warning("No articles to check for duplicates")
                 return []
@@ -235,7 +316,9 @@ class Fetcher:
             raise Exception(error_msg)
 
     def display_results(self) -> None:
-
+        """
+        Display and save the already-filtered articles from search()
+        """
         if not self.data:
             logging.warning("No data to display")
             print("No data available to display.")
@@ -247,27 +330,17 @@ class Fetcher:
             print("No articles found in the response.")
             return
         
-        unique_art = self.remove_duplicates()
-        english_articles = self.filter_language(unique_art, ['English'])
-        financial_art = self.filter_financial_keywords(english_articles)
-        
-        if not english_articles:
-            logging.warning("No English articles found after filtering")
-            print("No English articles found. Showing all articles instead.")
-            english_articles = unique_art
-
-        if not financial_art:
-            logging.warning("No financial articles found after filtering")
-            print("No financial articles found. Showing all English articles instead.")
-            financial_art = english_articles
-
         try:
-            self.save_articles(financial_art)
+            self.save_articles(articles)
         except Exception as e:
             logging.error(f"Failed to save articles: {e}")
             print(f"Warning: Could not save articles to file")
 
-        for i, article in enumerate(financial_art, 1):
+        print(f"\n{'='*50}")
+        print(f"Displaying {len(articles)} articles:")
+        print(f"{'='*50}\n")
+        
+        for i, article in enumerate(articles, 1):
             try:
                 title = article.get('title', 'No title')
                 print(f"[{i}] Title: {title}")
@@ -276,10 +349,4 @@ class Fetcher:
                 logging.warning(f"Error displaying article {i}: {e}")
                 continue
         
-        logging.info(f"Displayed {len(financial_art)} financial articles")
-
- 
-
-
-       
-            
+        logging.info(f"Displayed {len(articles)} articles")
