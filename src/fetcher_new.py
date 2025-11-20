@@ -169,10 +169,13 @@ class Fetcher:
         start_norm = self.normalise_date(start_str)
         end_norm = self.normalise_date(end_str).replace("000000", "235959")
 
+
+
         logging.info(
             f"[depth={depth}] Fetching window: {start_str} to {end_str} "
             f"({window_days + 1} days)"
         )
+
 
         params = {
             "query": self.query,
@@ -293,7 +296,6 @@ class Fetcher:
             error_msg = f"Request failed: {type(e).__name__} - {str(e)}"
             logging.error(error_msg)
             raise Exception(f"An unexpected error occurred while fetching data: {e}")
-
 
 
     def filter_language(self, articles: list, allowed_languages: list) -> list:
