@@ -3,6 +3,7 @@ import requests
 from config import BASE_URL, LOG_PATH, TEMP_PATH, FINANCIAL_KEYWORDS, REQUEST_TIMEOUT_LIMIT
 from requests.exceptions import Timeout, ConnectionError, HTTPError, RequestException
 from datetime import datetime, timedelta
+import time
 import logging
 import sys
 import os
@@ -27,8 +28,6 @@ class Fetcher:
     def __init__(self):
         self.start_date = None
         self.end_date = None
-        self.backward_start_date = None
-        self.backward_end_date = None
         self.query = None
         self.data = None
         self.temp_dir = TEMP_PATH
@@ -36,6 +35,7 @@ class Fetcher:
         self.financial_keywords = FINANCIAL_KEYWORDS
         self.timeout = REQUEST_TIMEOUT_LIMIT
         self.number_of_news: int = None
+
         self.max_backward_days: int = None
     
     def filter_financial_keywords(self, articles : list) -> list:
@@ -70,17 +70,24 @@ class Fetcher:
                 raise ValueError("End date cannot be empty.")
             
             # input number of news
-            number_input = input("Enter number of news(default 250): ").strip()
+            number_input = input("Enter number of news (default 250): ").strip()
             if number_input:
                 self.number_of_news = int(number_input)
             else:
                 self.number_of_news = 250
 
-            # max days go backward
+            try:
+                self.number_of_news = int(number_input)
+                if self.number_of_news <= 0:
+                    raise ValueError("Number of news must be positive.")
+            except ValueError:
+                raise TypeError("Please enter a valid number.")
+            
+            # Max backward date
             max_days_input = input(f"Enter maximum backward search days (default 14): ").strip()
             if max_days_input:
                 self.max_backward_days = int(max_days_input)
-            else:
+            else: 
                 self.max_backward_days = 14
             
             return self.query
@@ -116,37 +123,73 @@ class Fetcher:
         dt = datetime.strptime(date_str, "%d-%m-%Y")
         return dt.strftime("%Y%m%d000000")
      
-
     def search(self) -> dict:
         self.validate_date(self.start_date)
         self.validate_date(self.end_date)
 
         start_dt = datetime.strptime(self.start_date, "%d-%m-%Y")
         end_dt = datetime.strptime(self.end_date, "%d-%m-%Y")
-
-        self.backward_start_date = start_dt - timedelta(days=self.max_backward_days)
-        self.backward_end_date = start_dt - timedelta(days=1)
-
-        backward_start = self.backward_start_date
-        backward_end = self.backward_end_date
-
+        fetch_start_date = start_dt - timedelta(days=1)
 
         if end_dt < start_dt:
             raise ValueError("End date cannot be before start date.")
 
         all_articles = []
-        filtered_articles = []
+        current_date = fetch_start_date
+        days_searched = 0
 
-        self._fetch_window(backward_start, backward_end, all_articles, filtered_articles, depth=0)
+        while days_searched < self.number_of_news:
+            day_start = current_date.strftime("%d-%m-%Y")
 
-        final_articles = filtered_articles[:self.number_of_news]
+            day_articles = self._fetch_single_day(day_start, day_start)
+
+            if day_articles:
+                all_articles.extend(day_articles)
+
+            self.data = {"articles": all_articles}
+            unique_articles = self.remove_duplicates()
+            english_articles = self.filter_language(unique_articles, ['English'])
+            financial_articles = self.filter_financial_keywords(english_articles)
+
+            if len(financial_articles) >= self.number_of_news:
+                break
+
+            current_date -= timedelta(days=1)
+            days_searched += 1
+        
+        self.data = {"articles": all_articles}
+        unique_articles = self.remove_duplicates()
+        english_articles = self.filter_language(unique_articles, ['English'])
+        financial_articles = self.filter_financial_keywords(english_articles)
+        final_articles = financial_articles[:self.number_of_news]
+        
         self.data = {"articles": final_articles}
+        return self.data
+    
 
-        if len(final_articles) < self.number_of_news:
-            logging.info(
-                f"Only {len(final_articles)} articles matched filters, "
-                f"but {self.number_of_news} were requested."
-            )
+    def _fetch_single_day(self, start_date: str, end_date: str) -> list:
+        """Fetch articles for a single day"""
+        start_norm = self.normalise_date(start_date)
+        end_norm = self.normalise_date(end_date).replace("000000", "235959")
+        
+        params = {
+            "query": self.query,
+            "mode": "artlist",
+            "maxrecords": 250,
+            "STARTDATETIME": start_norm,
+            "ENDDATETIME": end_norm,
+            "sourcelang": "english",
+            "format": "json"
+        }
+        
+        try:
+            response = requests.get(BASE_URL, params=params, timeout=self.timeout)
+            response.raise_for_status()
+            batch_data = response.json()
+            return batch_data.get("articles", [])
+        except:
+            return []
+
     
     def _fetch_window(self, start_dt, end_dt, all_articles, filtered_articles, depth=0):
 
@@ -273,7 +316,13 @@ class Fetcher:
             elif status_code == 404:
                 error_msg = "Not Found (404): API endpoint not found."
             elif status_code == 429:
-                error_msg = "Too Many Requests (429): Rate limit exceeded. Please wait and try again."
+                error_msg = (
+                    "Too Many Requests (429): Rate limit exceeded for this window. "
+                    "Skipping this date range to avoid hammering the API."
+                )
+                logging.warning(error_msg)
+                time.sleep(2)  # 2 saniye bekleyip sonra bu pencereyi atla
+                return
             elif status_code == 500:
                 error_msg = "Internal Server Error (500): API server error. Try again later."
             elif status_code == 502:
@@ -295,7 +344,6 @@ class Fetcher:
             raise Exception(f"An unexpected error occurred while fetching data: {e}")
 
 
-
     def filter_language(self, articles: list, allowed_languages: list) -> list:
         filtered = [
             article for article in articles
@@ -305,10 +353,10 @@ class Fetcher:
         return filtered
       
                 
-    def remove_duplicates(self, data):
+    def remove_duplicates(self):
         try:
 
-            articles = data.get("articles", [])
+            articles = self.data.get("articles", [])
             if not articles:
                 logging.warning("No articles to check for duplicates")
                 return []
@@ -339,6 +387,8 @@ class Fetcher:
                 "query": self.query,
                 "start_date": self.start_date,
                 "end_date": self.end_date,
+                "target_articles": self.number_of_news,  
+                "max_backward_days": self.max_backward_days,
                 "fetch_timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                 "article_count": len(articles),
                 "articles": articles

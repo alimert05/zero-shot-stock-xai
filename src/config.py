@@ -10,7 +10,7 @@ TEMP_PATH = DATA_PATH / "temp"
 TEMP_PATH.mkdir(parents=True, exist_ok=True)
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
-REQUEST_TIMEOUT_LIMIT = 10
+REQUEST_TIMEOUT_LIMIT = 30
 
 # API Configuration
 BASE_URL = "https://api.gdeltproject.org/api/v2/doc/doc"
