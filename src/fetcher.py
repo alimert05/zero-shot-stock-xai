@@ -1,4 +1,5 @@
 import json
+import time
 import requests
 from config import BASE_URL, LOG_PATH, TEMP_PATH, FINANCIAL_KEYWORDS, REQUEST_TIMEOUT_LIMIT
 from requests.exceptions import Timeout, ConnectionError, HTTPError, RequestException
@@ -37,23 +38,6 @@ class Fetcher:
         self.timeout = REQUEST_TIMEOUT_LIMIT
         self.number_of_news: int = None
         self.max_backward_days: int = None
-    
-    def filter_financial_keywords(self, articles : list) -> list:
-        # TODO: improve the accuracy
-        financial_articles = []
-
-        for article in articles:
-            try:
-                title = article.get('title', '')
-                if title and any(keyword in title.lower() for keyword in self.financial_keywords):
-                    financial_articles.append(article)
-            except (KeyError, AttributeError, TypeError) as e:
-                logging.warning(f"Error processing article: {e}")
-                continue
-        
-        logging.info(f"Filtered by financial keywords: {len(articles)} -> {len(financial_articles)} articles")
-        return financial_articles
-
 
     def get_input(self) -> str:
         try:
@@ -124,29 +108,46 @@ class Fetcher:
         start_dt = datetime.strptime(self.start_date, "%d-%m-%Y")
         end_dt = datetime.strptime(self.end_date, "%d-%m-%Y")
 
+        if end_dt < start_dt:
+            raise ValueError("End date cannot be before start date.")
+
         self.backward_start_date = start_dt - timedelta(days=self.max_backward_days)
         self.backward_end_date = start_dt - timedelta(days=1)
 
-        backward_start = self.backward_start_date
-        backward_end = self.backward_end_date
-
-
-        if end_dt < start_dt:
-            raise ValueError("End date cannot be before start date.")
+        logging.info(
+            f"Backward search window: "
+            f"{self.backward_start_date.strftime('%d-%m-%Y')} "
+            f"to {self.backward_end_date.strftime('%d-%m-%Y')} "
+            f"(max {self.max_backward_days} days)"
+        )
 
         all_articles = []
         filtered_articles = []
 
-        self._fetch_window(backward_start, backward_end, all_articles, filtered_articles, depth=0)
+        current_day = self.backward_end_date
+        request_counter = 0
 
+        while current_day >= self.backward_start_date and len(filtered_articles) < self.number_of_news:
+            day_str = current_day.strftime("%d-%m-%Y")
+            logging.info(f"=== Fetching day {day_str} ===")
+
+            self._fetch_window(current_day, current_day, all_articles, filtered_articles, depth=0)
+
+            request_counter += 1
+
+            if request_counter % 3 == 0:
+                logging.info("Sleeping 2 seconds to avoid rate limiting (429)...")
+                time.sleep(2)
+            
+            current_day = current_day - timedelta(days=1)
+        
         final_articles = filtered_articles[:self.number_of_news]
         self.data = {"articles": final_articles}
 
         if len(final_articles) < self.number_of_news:
-            logging.info(
-                f"Only {len(final_articles)} articles matched filters, "
-                f"but {self.number_of_news} were requested."
-            )
+            logging.info(f"Only {len(final_articles)} articles matched filters, but {self.number_of_news} were requested.")
+
+
     
     def _fetch_window(self, start_dt, end_dt, all_articles, filtered_articles, depth=0):
 
@@ -193,8 +194,8 @@ class Fetcher:
                 batch_data = response.json()
             except json.JSONDecodeError as e:
                 logging.error(f"Failed to parse JSON response: {e}")
-                logging.error(f"Response content: {response.text}")
-                raise Exception("API returned invalid JSON response.")
+                logging.warning("Skipping this window due to invalid JSON, continuing...")
+                return
 
             batch_articles = batch_data.get("articles", [])
             logging.info(
@@ -293,8 +294,24 @@ class Fetcher:
             error_msg = f"Request failed: {type(e).__name__} - {str(e)}"
             logging.error(error_msg)
             raise Exception(f"An unexpected error occurred while fetching data: {e}")
+        
+    
+    # Filters    
+    def filter_financial_keywords(self, articles : list) -> list:
+        # TODO: improve the accuracy
+        financial_articles = []
 
-
+        for article in articles:
+            try:
+                title = article.get('title', '')
+                if title and any(keyword in title.lower() for keyword in self.financial_keywords):
+                    financial_articles.append(article)
+            except (KeyError, AttributeError, TypeError) as e:
+                logging.warning(f"Error processing article: {e}")
+                continue
+        
+        logging.info(f"Filtered by financial keywords: {len(articles)} -> {len(financial_articles)} articles")
+        return financial_articles
 
     def filter_language(self, articles: list, allowed_languages: list) -> list:
         filtered = [
@@ -333,6 +350,7 @@ class Fetcher:
             logging.error(f"Unexpected error in removing duplicates: {e}")
             return[]
     
+    # Save & display results
     def save_articles(self, articles: list) -> None:
         try:
             output_data = {
