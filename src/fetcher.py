@@ -1,7 +1,8 @@
 import json
 import time
 import requests
-from config import BASE_URL, LOG_PATH, TEMP_PATH, FINANCIAL_KEYWORDS, REQUEST_TIMEOUT_LIMIT
+from gdeltdoc import GdeltDoc, Filters
+from config import BASE_URL, LOG_PATH, TEMP_PATH, FINANCIAL_KEYWORDS, REQUEST_TIMEOUT_LIMIT, THEMES
 from requests.exceptions import Timeout, ConnectionError, HTTPError, RequestException
 from datetime import datetime, timedelta
 import logging
@@ -31,13 +32,17 @@ class Fetcher:
         self.backward_start_date = None
         self.backward_end_date = None
         self.query = None
+
         self.data = None
         self.temp_dir = TEMP_PATH
         self.output_file = os.path.join(self.temp_dir, "articles.json")
+
         self.financial_keywords = FINANCIAL_KEYWORDS
         self.timeout = REQUEST_TIMEOUT_LIMIT
         self.number_of_news: int = None
         self.max_backward_days: int = None
+
+        self.gd = GdeltDoc()
 
     def get_input(self) -> str:
         try:
@@ -94,13 +99,6 @@ class Fetcher:
             logging.error(f"Invalid year: {year}")
             raise ValueError(f"Invalid year: {year}. Please enter a realistic year.")
         
-
-    def normalise_date(self, date_str: str) -> str:
-        self.validate_date(date_str)
-        dt = datetime.strptime(date_str, "%d-%m-%Y")
-        return dt.strftime("%Y%m%d000000")
-     
-
     def search(self) -> dict:
         self.validate_date(self.start_date)
         self.validate_date(self.end_date)
@@ -125,86 +123,64 @@ class Fetcher:
         filtered_articles = []
 
         current_day = self.backward_end_date
-        request_counter = 0
+        request_count = 0
 
         while current_day >= self.backward_start_date and len(filtered_articles) < self.number_of_news:
-            day_str = current_day.strftime("%d-%m-%Y")
-            logging.info(f"=== Fetching day {day_str} ===")
+            day_start = current_day
+            day_end = current_day + timedelta(days=1)
 
-            self._fetch_window(current_day, current_day, all_articles, filtered_articles, depth=0)
-
-            request_counter += 1
-
-            if request_counter % 3 == 0:
-                logging.info("Sleeping 2 seconds to avoid rate limiting (429)...")
-                time.sleep(2)
-            
-            current_day = current_day - timedelta(days=1)
-        
-        final_articles = filtered_articles[:self.number_of_news]
-        self.data = {"articles": final_articles}
-
-        if len(final_articles) < self.number_of_news:
-            logging.info(f"Only {len(final_articles)} articles matched filters, but {self.number_of_news} were requested.")
-
-
-    
-    def _fetch_window(self, start_dt, end_dt, all_articles, filtered_articles, depth=0):
-
-        if len(filtered_articles) >= self.number_of_news:
-            return
-
-        if end_dt < start_dt:
-            return
-
-        MAX_DEPTH = 6
-        if depth > MAX_DEPTH:
-            logging.info("Max recursion depth reached, stopping further splitting.")
-            return
-
-        window_days = (end_dt - start_dt).days
-
-        start_str = start_dt.strftime("%d-%m-%Y")
-        end_str = end_dt.strftime("%d-%m-%Y")
-
-        start_norm = self.normalise_date(start_str)
-        end_norm = self.normalise_date(end_str).replace("000000", "235959")
-
-        logging.info(
-            f"[depth={depth}] Fetching window: {start_str} to {end_str} "
-            f"({window_days + 1} days)"
-        )
-
-        params = {
-            "query": self.query,
-            "mode": "artlist",
-            "maxrecords": 250,
-            "STARTDATETIME": start_norm,
-            "ENDDATETIME": end_norm,
-            "sourcelang": "english",
-            "format": "json",
-        }
-
-        try:
-            logging.info(f"Sending request to {BASE_URL} with timeout={self.timeout}s")
-            response = requests.get(BASE_URL, params=params, timeout=self.timeout)
-            response.raise_for_status()
-
-            try:
-                batch_data = response.json()
-            except json.JSONDecodeError as e:
-                logging.error(f"Failed to parse JSON response: {e}")
-                logging.warning("Skipping this window due to invalid JSON, continuing...")
-                return
-
-            batch_articles = batch_data.get("articles", [])
             logging.info(
-                f"[depth={depth}] Received {len(batch_articles)} raw articles "
-                f"for this window."
+            f"Fetching day: {day_start.strftime('%Y-%m-%d')} "
+            f"to {day_end.strftime('%Y-%m-%d')} "
+            f"(current collected: {len(filtered_articles)}/{self.number_of_news})"
             )
+        
+            f = Filters(
+                    keyword=self.query,
+                    start_date=day_start,           
+                    end_date=day_end,
+                    num_records=min(250, self.number_of_news),
+                    language="English",
+                    theme = THEMES
+                )
+            
+            try:
+                request_count += 1
+                df = self.gd.article_search(f)
 
-            if not batch_articles:
-                return
+            except Timeout:
+                logging.error("Request timed out")
+                current_day -= timedelta(days=1)
+                if request_count % 3 == 0:
+                    time.sleep(2)
+                continue
+
+            except HTTPError as e:
+                logging.error(f"HTTP error: {e}")
+                current_day -= timedelta(days=1)
+                if request_count % 3 == 0:
+                    time.sleep(2)
+                continue
+
+            except Exception as e:
+                logging.error(f"Unexpected error: {e}")
+                current_day -= timedelta(days=1)
+                if request_count % 3 == 0:
+                    time.sleep(2)
+                continue
+
+            if df is None or df.empty:
+                logging.info(f"No articles returned for {day_start.strftime('%Y-%m-%d')} - {day_end.strftime('%Y-%m-%d')}.")
+                current_day -= timedelta(days=1)
+                if request_count % 3 == 0:
+                    time.sleep(2)
+                continue
+
+            batch_articles = df.to_dict(orient="records")
+            logging.info(
+                f"Received {len(batch_articles)} raw articles for "
+                f"{day_start.strftime('%Y-%m-%d')}."
+            )
 
             all_articles.extend(batch_articles)
 
@@ -215,88 +191,33 @@ class Fetcher:
             filtered_articles[:] = new_filtered
 
             logging.info(
-                f"[depth={depth}] Progress: Raw={len(all_articles)}, "
-                f"Unique={len(unique_articles)}, "
+                f"Progress after {day_start.strftime('%Y-%m-%d')}: "
+                f"Raw={len(all_articles)}, "
                 f"Filtered={len(filtered_articles)}/{self.number_of_news}"
             )
 
             if len(filtered_articles) >= self.number_of_news:
-                return
-
-            if len(batch_articles) == 250 and window_days > 0:
-                print("250 den fazla")
-                mid_dt = start_dt + (end_dt - start_dt) / 2
-                mid_dt = datetime(mid_dt.year, mid_dt.month, mid_dt.day)
-
-                if mid_dt <= start_dt or mid_dt >= end_dt:
-                    return
-
                 logging.info(
-                    f"[depth={depth}] Window appears dense (250 records). "
-                    f"Splitting into [{start_dt.strftime('%d-%m-%Y')} - "
-                    f"{mid_dt.strftime('%d-%m-%Y')}] and "
-                    f"[{(mid_dt + timedelta(days=1)).strftime('%d-%m-%Y')} - "
-                    f"{end_dt.strftime('%d-%m-%Y')}]"
+                    f"Reached target of {self.number_of_news} filtered articles."
                 )
+                break
 
-                self._fetch_window(start_dt, mid_dt, all_articles, filtered_articles, depth + 1)
-
-                if len(filtered_articles) < self.number_of_news:
-                    self._fetch_window(
-                        mid_dt + timedelta(days=1),
-                        end_dt,
-                        all_articles,
-                        filtered_articles,
-                        depth + 1,
-                    )
-
-        except Timeout:
-            error_msg = f"Request timed out after {self.timeout} seconds."
-            logging.error(error_msg)
-            raise Exception(error_msg)
-
-        except ConnectionError as e:
-            error_msg = (
-                f"Connection error: Unable to connect to {BASE_URL}. "
-                f"Please check your internet connection."
-            )
-            logging.error(f"{error_msg} Details: {e}")
-            raise Exception(error_msg)
-
-        except HTTPError as e:
-            status_code = e.response.status_code
-            if status_code == 400:
-                error_msg = "Bad Request (400): Invalid query parameters. Please check your inputs."
-            elif status_code == 401:
-                error_msg = "Unauthorized (401): API key may be missing or invalid."
-            elif status_code == 403:
-                error_msg = "Forbidden (403): Access denied. Check API permissions."
-            elif status_code == 404:
-                error_msg = "Not Found (404): API endpoint not found."
-            elif status_code == 429:
-                error_msg = "Too Many Requests (429): Rate limit exceeded. Please wait and try again."
-            elif status_code == 500:
-                error_msg = "Internal Server Error (500): API server error. Try again later."
-            elif status_code == 502:
-                error_msg = "Bad Gateway (502): API gateway error. Try again later."
-            elif status_code == 503:
-                error_msg = "Service Unavailable (503): API temporarily unavailable. Try again later."
-            elif status_code == 504:
-                error_msg = "Gateway Timeout (504): API request timed out. Try again later."
-            else:
-                error_msg = f"HTTP Error {status_code}: {e}"
-
-            logging.error(error_msg)
-            logging.error(f"Response content: {e.response.text}")
-            raise Exception(error_msg)
-
-        except RequestException as e:
-            error_msg = f"Request failed: {type(e).__name__} - {str(e)}"
-            logging.error(error_msg)
-            raise Exception(f"An unexpected error occurred while fetching data: {e}")
+            current_day -= timedelta(days=1)
+            if request_count % 3 == 0:
+                    time.sleep(2)
         
+        final_articles = filtered_articles[:self.number_of_news]
+        self.data = {"articles": final_articles}
+
+        if len(final_articles) < self.number_of_news:
+            logging.info(
+                f"Only {len(final_articles)} articles matched filters "
+                f"within {self.max_backward_days} days, "
+                f"but {self.number_of_news} were requested."
+            )
+
     
-    # Filters    
+    # Filters                
     def filter_financial_keywords(self, articles : list) -> list:
         # TODO: improve the accuracy
         financial_articles = []
@@ -357,9 +278,15 @@ class Fetcher:
                 "query": self.query,
                 "start_date": self.start_date,
                 "end_date": self.end_date,
+                "backward_start_date": self.backward_start_date.strftime("%d-%m-%Y")
+                if self.backward_start_date
+                else None,
+                "backward_end_date": self.backward_end_date.strftime("%d-%m-%Y")
+                if self.backward_end_date
+                else None,
                 "fetch_timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                 "article_count": len(articles),
-                "articles": articles
+                "articles": articles,
             }
             
             with open(self.output_file, 'w', encoding='utf-8') as f:

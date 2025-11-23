@@ -15,6 +15,22 @@ REQUEST_TIMEOUT_LIMIT = 30
 # API Configuration
 BASE_URL = "https://api.gdeltproject.org/api/v2/doc/doc"
 
+THEMES =[
+    "ECON_STOCKMARKET",
+    "ECON_CENTRALBANK",
+    "ECON_INTEREST_RATES",
+    "ECON_INFLATION",
+    # "ECON_WORLDCURRENCIES",
+    # "ECON_CURRENCY_EXCHANGE_RATE",
+    "EPU_ECONOMY",
+    # "EPU_POLICY",
+    # "EPU_CATS_FINANCIAL_REGULATION",
+    # "EPU_CATS_MONETARY_POLICY",
+    "ECON_TAXATION",
+    "ECON_IPO"
+]
+
+
 FINANCIAL_KEYWORDS = {
     # Market Performance
     'stock', 'stocks', 'share', 'shares', 'equity', 'equities', 'market', 'markets',
