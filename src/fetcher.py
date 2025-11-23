@@ -5,6 +5,7 @@ from gdeltdoc import GdeltDoc, Filters
 from config import BASE_URL, LOG_PATH, TEMP_PATH, FINANCIAL_KEYWORDS, REQUEST_TIMEOUT_LIMIT, THEMES
 from requests.exceptions import Timeout, ConnectionError, HTTPError, RequestException
 from datetime import datetime, timedelta
+import yfinance as yf
 import logging
 import sys
 import os
@@ -23,6 +24,59 @@ Dynamic Selection for Fetching Data:
 - Read URL to reach contents: on/off
 - How many headlines/news to fetch: {number_of_news} -> density-aware pagination
 """
+
+def resolve_ticker(company_name: str) -> str:
+    """
+    yfinance'ın arama API'si (Yahoo Search endpoint) kullanılarak
+    şirket adından otomatik ticker çözümü yapar.
+    """
+
+    url = "https://query2.finance.yahoo.com/v1/finance/search"
+
+    params = {
+        "q": company_name,
+        "quotesCount": 5,
+        "newsCount": 0
+    }
+
+    # YFinance'ın gönderdigi HEADERS → 429 engelini bypass eder
+    headers = {
+        "User-Agent": "Mozilla/5.0",
+        "Accept": "application/json",
+    }
+
+    for attempt in range(5):
+        try:
+            resp = requests.get(url, params=params, headers=headers, timeout=5)
+            resp.raise_for_status()
+            data = resp.json()
+
+            quotes = data.get("quotes", [])
+            if not quotes:
+                logging.warning(f"No ticker found for '{company_name}'")
+                return None
+
+            # En yüksek "score" değerini seç
+            best = sorted(quotes, key=lambda x: x.get("score", 0), reverse=True)[0]
+            symbol = best.get("symbol")
+
+            return symbol
+
+        except requests.exceptions.HTTPError as e:
+            if resp.status_code == 429:
+                wait = 2 ** attempt
+                logging.warning(f"Rate limited while resolving ticker… waiting {wait}s")
+                time.sleep(wait)
+                continue
+            else:
+                logging.error(f"HTTP error while resolving ticker: {e}")
+                return None
+        except Exception as e:
+            logging.error(f"Unexpected error resolving ticker: {e}")
+            return None
+
+    logging.error(f"Ticker resolution failed after retries for: {company_name}")
+    return None
 
 class Fetcher:
     
@@ -125,6 +179,15 @@ class Fetcher:
         current_day = self.backward_end_date
         request_count = 0
 
+        resolved = resolve_ticker(self.query)
+        if resolved:
+            logging.info(f"Resolved ticker for '{self.query}' → {resolved}")
+            self.query = f"{self.query} {resolved}"
+        else:
+            logging.info(f"Using raw company name (no ticker found) → {self.query}")
+        
+        print(self.query)
+
         while current_day >= self.backward_start_date and len(filtered_articles) < self.number_of_news:
             day_start = current_day
             day_end = current_day + timedelta(days=1)
@@ -141,7 +204,7 @@ class Fetcher:
                     end_date=day_end,
                     num_records=min(250, self.number_of_news),
                     language="English",
-                    theme = THEMES
+                    theme = "ECON_STOCKMARKET"
                 )
             
             try:
