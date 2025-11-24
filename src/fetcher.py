@@ -26,11 +26,6 @@ Dynamic Selection for Fetching Data:
 """
 
 def resolve_ticker(company_name: str) -> str:
-    """
-    yfinance'ın arama API'si (Yahoo Search endpoint) kullanılarak
-    şirket adından otomatik ticker çözümü yapar.
-    """
-
     url = "https://query2.finance.yahoo.com/v1/finance/search"
 
     params = {
@@ -39,7 +34,6 @@ def resolve_ticker(company_name: str) -> str:
         "newsCount": 0
     }
 
-    # YFinance'ın gönderdigi HEADERS → 429 engelini bypass eder
     headers = {
         "User-Agent": "Mozilla/5.0",
         "Accept": "application/json",
@@ -55,8 +49,7 @@ def resolve_ticker(company_name: str) -> str:
             if not quotes:
                 logging.warning(f"No ticker found for '{company_name}'")
                 return None
-
-            # En yüksek "score" değerini seç
+            
             best = sorted(quotes, key=lambda x: x.get("score", 0), reverse=True)[0]
             symbol = best.get("symbol")
 
@@ -197,7 +190,7 @@ class Fetcher:
             f"to {day_end.strftime('%Y-%m-%d')} "
             f"(current collected: {len(filtered_articles)}/{self.number_of_news})"
             )
-        
+            
             f = Filters(
                     keyword=self.query,
                     start_date=day_start,           
@@ -249,7 +242,8 @@ class Fetcher:
 
             unique_articles = self.remove_duplicates({"articles": all_articles})
             english_articles = self.filter_language(unique_articles, ["English"])
-            new_filtered = self.filter_financial_keywords(english_articles)
+            # financial_articles = self.filter_financial_keywords(english_articles)
+            new_filtered = self.filter_company_related(english_articles)
 
             filtered_articles[:] = new_filtered
 
@@ -280,7 +274,25 @@ class Fetcher:
             )
 
     
-    # Filters                
+    # Filters   
+
+    # Filtering news by company related    
+    def filter_company_related(self, articles : list) -> list:
+        related_articles = []
+        
+        for article in articles:
+            try:
+                title = article.get('title', '')
+                if title and any(word.lower() in title.lower() for word in self.query.split()):
+                    related_articles.append(article)
+            except (KeyError, AttributeError, TypeError) as e:
+                logging.warning(f"Error processing article: {e}")
+                continue
+
+        logging.info(f"Filtered by company related: {len(articles)} -> {len(related_articles)} articles")
+        return related_articles
+
+    # Filtering articles by financial keywords
     def filter_financial_keywords(self, articles : list) -> list:
         # TODO: improve the accuracy
         financial_articles = []
@@ -297,6 +309,7 @@ class Fetcher:
         logging.info(f"Filtered by financial keywords: {len(articles)} -> {len(financial_articles)} articles")
         return financial_articles
 
+    # Filtering articles by english 
     def filter_language(self, articles: list, allowed_languages: list) -> list:
         filtered = [
             article for article in articles
@@ -305,7 +318,7 @@ class Fetcher:
         logging.info(f"Filtered by language: {len(articles)} -> {len(filtered)} articles")
         return filtered
       
-                
+    # Filtering duplicates        
     def remove_duplicates(self, data):
         try:
 
