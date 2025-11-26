@@ -321,31 +321,45 @@ class Fetcher:
     # Filtering duplicates        
     def remove_duplicates(self, data):
         try:
-
             articles = data.get("articles", [])
             if not articles:
                 logging.warning("No articles to check for duplicates")
                 return []
             
-            seen = set()
+            seen = {}
             unique = []
 
             for article in articles:
                 try:
-                    title = article['title'].strip().lower()
-                    if title and title not in seen:
-                        seen.add(title)
-                        unique.append(article)
-                except (AttributeError, TypeError) as e:
-                    logging.warning(f"Error processing article title: {e}")
+                    title = article.get("title", "").strip().lower()
+                    domain = article.get("domain", "").strip().lower()
+
+                    if not title:
+                        continue
+
+                    # Dedupe key: domain + title
+                    key = f"{domain}||{title}"
+
+                    if key not in seen:
+                        article["coverage_count"] = 1
+                        seen[key] = article
+                    else:
+                        seen[key]["coverage_count"] += 1
+
+                except Exception as e:
+                    logging.warning(f"Error processing article: {e}")
                     continue
 
-            logging.info(f"Removed duplicates: {len(articles) - len(unique)} duplicates found.")
+            unique = list(seen.values())
+            logging.info(
+                f"Removed duplicates (domain+title): {len(articles)} -> {len(unique)}"
+            )
             return unique
-        
+
         except Exception as e:
-            logging.error(f"Unexpected error in removing duplicates: {e}")
-            return[]
+            logging.error(f"Unexpected error in duplicates: {e}")
+            return []
+
     
     # Save & display results
     def save_articles(self, articles: list) -> None:
