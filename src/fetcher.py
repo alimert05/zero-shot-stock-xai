@@ -1,5 +1,6 @@
 import json
 import time
+import math
 import requests
 from gdeltdoc import GdeltDoc, Filters
 from config import BASE_URL, LOG_PATH, TEMP_PATH, FINANCIAL_KEYWORDS, REQUEST_TIMEOUT_LIMIT, THEMES
@@ -242,9 +243,9 @@ class Fetcher:
 
             unique_articles = self.remove_duplicates({"articles": all_articles})
             english_articles = self.filter_language(unique_articles, ["English"])
-            # financial_articles = self.filter_financial_keywords(english_articles)
+            # financial_articles = self.filter_financial_keywords(english_articles) # will be tested if improve accuracy or not
             new_filtered = self.filter_company_related(english_articles)
-
+        
             filtered_articles[:] = new_filtered
 
             logging.info(
@@ -264,7 +265,9 @@ class Fetcher:
                     time.sleep(2)
         
         final_articles = filtered_articles[:self.number_of_news]
+        self.add_recency_weights(final_articles, ref_date=start_dt)
         self.data = {"articles": final_articles}
+
 
         if len(final_articles) < self.number_of_news:
             logging.info(
@@ -429,3 +432,53 @@ class Fetcher:
                 continue
         
         logging.info(f"Displayed {len(articles)} articles")
+    
+    def add_recency_weights(self, articles: list, ref_date: datetime) -> None:
+        for article in articles:
+            try:
+                seendate_str = article.get("seendate")
+                if seendate_str:
+                    seen_dt = datetime.strptime(seendate_str, "%Y%m%dT%H%M%SZ")
+                else:
+                    seen_dt = self.backward_end_date
+
+                days_ago = (ref_date.date() - seen_dt.date()).days
+
+                if days_ago < 0:
+                    days_ago = 0
+
+                # Recency weight rule: will be tested
+
+                # Option 1: Rule-based
+                # if days_ago <= 7:
+                #     recency_weight = 2.0
+                # elif days_ago <= 14:
+                #     recency_weight = 1.0
+                # else:
+                #     recency_weight = 0.0
+
+                # Option 2: Linear Decay
+                # recency_weight = max(0.0, 1.0 - (days_ago / self.max_backward_days))
+
+                # Option 3: Exponential Decay
+                # lambda_ = 0.15 # might be different value
+                # recency_weight = math.exp(-lambda_ * days_ago)
+
+                # Option 4: Pierwise Non-Linear 
+                if days_ago <= 3: # fresh news
+                    recency_weight = 1.5
+                elif days_ago <= 7: # still fresh but not important as first one
+                    recency_weight = 1.0
+                elif days_ago <= 14: # borderline
+                    recency_weight = 0.5
+                else: # not important
+                    recency_weight = 0.0
+
+
+                article["days_ago"] = days_ago
+                article["recency_weight"] = recency_weight
+
+            except Exception as e:
+                logging.warning(f"Error computing recency weight for article: {e}")
+                article["days_ago"] = None
+                article["recency_weight"] = 1.0
