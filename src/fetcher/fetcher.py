@@ -82,7 +82,7 @@ class Fetcher:
 
             return self.query
 
-        except Exception as exc:  # CLI katmanı, geniş bırakmak normal
+        except Exception as exc: 
             logger.error("Unexpected error during input: %s", exc)
             raise
 
@@ -119,15 +119,17 @@ class Fetcher:
         current_day = self.backward_end_date
         request_count = 0
 
-        # Ticker resolve
-        resolved = resolve_ticker(self.query)
-        if resolved:
-            logger.info("Resolved ticker for '%s' → %s", self.query, resolved)
-            self.query = f"{self.query} {resolved}"
-        else:
-            logger.info("Using raw company name (no ticker found) → %s", self.query)
+        company_name = self.query.strip()
+        ticker = resolve_ticker(company_name)
 
-        print(self.query)
+        if ticker:
+            logger.info("Resolved ticker for '%s' → %s", company_name, ticker)
+            gdelt_query = f"{company_name} {ticker}"
+        else:
+            logger.info("Using raw company name (no ticker found) → %s", company_name)
+            gdelt_query = company_name
+
+        logger.info("GDELT query: %s", gdelt_query)
 
         while (
             current_day >= self.backward_start_date
@@ -145,7 +147,7 @@ class Fetcher:
             )
 
             f = Filters(
-                keyword=self.query,
+                keyword=gdelt_query,
                 start_date=day_start,
                 end_date=day_end,
                 num_records=min(250, self.number_of_news),
@@ -185,10 +187,7 @@ class Fetcher:
             all_articles.extend(batch_articles)
 
             unique_articles = remove_duplicates(all_articles)
-            english_articles = filter_language(unique_articles, ["English"])
-            # financial_articles = filter_financial_keywords(english_articles, self.financial_keywords)
-            new_filtered = filter_company_related(english_articles, self.query)
-
+            new_filtered = filter_language(unique_articles, ["English"])
             filtered_articles[:] = new_filtered
 
             logger.info(
@@ -200,23 +199,38 @@ class Fetcher:
             )
 
             if len(filtered_articles) >= self.number_of_news:
-                logger.info(
-                    "Reached target of %s filtered articles.", self.number_of_news
-                )
+                logger.info("Reached target of %s filtered articles.", self.number_of_news)
                 break
 
             current_day -= timedelta(days=1)
             if request_count % 3 == 0:
                 time.sleep(2)
 
-        final_articles = filtered_articles[: self.number_of_news]
+        def _sort_key(a: dict) -> str:
+            return a.get("seendate") or ""
+
+        filtered_articles = sorted(filtered_articles, key=_sort_key, reverse=True)
+
+        prefetch_n = max(self.number_of_news * 3, 50)
+
+        candidates = filtered_articles[:prefetch_n]
+
         add_recency_weights(
-            final_articles,
+            candidates,
             ref_date=start_dt,
             backward_end_date=self.backward_end_date,
             max_backward_days=self.max_backward_days,
         )
-        enrich_articles_with_content(final_articles, timeout=self.timeout)
+
+        enrich_articles_with_content(candidates, timeout=self.timeout)
+
+        filtered_after_rules = filter_company_related(
+            candidates,
+            company_name=company_name,
+            ticker=ticker,
+        )
+
+        final_articles = filtered_after_rules[: self.number_of_news]
 
         self.data = {"articles": final_articles}
 
