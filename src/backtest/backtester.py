@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 import json
 import yfinance as yf
+from src.config import PRED_JSON_PATH
 
 
 def _parse_date(d: str) -> datetime:
@@ -82,10 +83,10 @@ def evaluate_one(predicted_label: str, actual_label: str) -> dict:
     }
 
 # will be user input later
-company_name = "Apple"
-start_date = "2023-01-01"
-end_date = "2023-01-10"
-ticker = "AAPL"  
+company_name = "eli lilly"
+start_date = "2025-01-01"
+end_date = "2025-02-01"
+ticker = "LLY"  
 
 actual_label, meta, warn = get_real_label_yfinance(ticker, start_date, end_date)
 if warn:
@@ -102,7 +103,7 @@ pred_record = {
     "end_date": end_date,
     "predicted_label": predicted_label,
 }
-store_predictions_jsonl("predictions.jsonl", pred_record)
+store_predictions_jsonl(PRED_JSON_PATH, pred_record)
 
 # evaluate
 report = evaluate_one(predicted_label, actual_label)

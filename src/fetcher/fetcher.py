@@ -10,23 +10,21 @@ from gdeltdoc import GdeltDoc, Filters
 from config import (
     LOG_PATH,
     TEMP_PATH,
-    FINANCIAL_KEYWORDS,
     REQUEST_TIMEOUT_LIMIT,
     THEMES,
 )
 from .utils import resolve_ticker, validate_date, add_recency_weights
 from .filters import (
     filter_company_related,
-    filter_financial_keywords,
     filter_language,
-    remove_duplicates,
+    remove_duplicates
 )
 from .content import enrich_articles_with_content
 
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
-    handlers=[logging.FileHandler(LOG_PATH), logging.StreamHandler(sys.stdout)],
+    handlers=[logging.FileHandler(LOG_PATH, encoding="utf-8"), logging.StreamHandler(sys.stdout)],
 )
 
 logger = logging.getLogger(__name__)
@@ -50,7 +48,6 @@ class Fetcher:
         self.temp_dir = TEMP_PATH
         self.output_file = os.path.join(self.temp_dir, "articles.json")
 
-        self.financial_keywords = FINANCIAL_KEYWORDS
         self.timeout = REQUEST_TIMEOUT_LIMIT
         self.number_of_news: int | None = None
         self.max_backward_days: int | None = None
@@ -123,7 +120,7 @@ class Fetcher:
         ticker = resolve_ticker(company_name)
 
         if ticker:
-            logger.info("Resolved ticker for '%s' → %s", company_name, ticker)
+            logger.info("Resolved ticker for '%s' -> %s", company_name, ticker)
             gdelt_query = f"{company_name} {ticker}"
         else:
             logger.info("Using raw company name (no ticker found) → %s", company_name)

@@ -48,25 +48,26 @@ def filter_company_related(articles: list[dict], company_name: str, ticker: str 
             content = article.get("content")
 
             if _is_question_headline(title) and not content:
-                article["filter_reason"] = "question_no_content"
                 dropped_question_no_content += 1
                 continue
 
             headline_has = _contains_name_or_ticker(title, company_name, ticker_re)
 
             if headline_has:
-                kept.append(article)
+                if _contains_name_or_ticker(content, company_name, ticker_re):
+                    kept.append(article)
+                else:
+                    article["content"] = None
+                    kept.append(article)
                 continue
 
             if not content:
-                article["filter_reason"] = "no_match_no_content"
                 dropped_no_match_no_content += 1
                 continue
 
             if _contains_name_or_ticker(content, company_name, ticker_re):
                 kept.append(article)
             else:
-                article["filter_reason"] = "no_match_in_content"
                 dropped_no_match_in_content += 1
 
         except (KeyError, AttributeError, TypeError) as exc:
