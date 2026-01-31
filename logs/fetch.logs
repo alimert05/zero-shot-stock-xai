@@ -12764,3 +12764,1681 @@
 2026-01-30 10:12:16,211 - INFO - Only 13 articles matched filters within 14 days, but 250 were requested.
 2026-01-30 10:12:16,213 - INFO - Saved 13 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
 2026-01-30 10:12:16,251 - INFO - Displayed 13 articles
+2026-01-30 10:25:50,108 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-01-30 10:25:50,403 - INFO - Resolved ticker for 'eli lilly' -> LLY
+2026-01-30 10:25:50,403 - INFO - GDELT query: eli lilly LLY
+2026-01-30 10:25:50,403 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-01-30 10:26:00,118 - INFO - Received 1 raw articles for 2024-12-31.
+2026-01-30 10:26:00,118 - INFO - Removed duplicates (domain+title): 1 -> 1
+2026-01-30 10:26:00,118 - INFO - Filtered by language: 1 -> 1 articles
+2026-01-30 10:26:00,119 - INFO - Progress after 2024-12-31: Raw=1, Filtered=1/250
+2026-01-30 10:26:00,119 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 1/250)
+2026-01-30 10:26:06,751 - INFO - No articles returned for 2024-12-30 - 2024-12-31.
+2026-01-30 10:26:06,751 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 1/250)
+2026-01-30 10:26:10,964 - INFO - Received 1 raw articles for 2024-12-29.
+2026-01-30 10:26:10,964 - INFO - Removed duplicates (domain+title): 2 -> 2
+2026-01-30 10:26:10,964 - INFO - Filtered by language: 2 -> 2 articles
+2026-01-30 10:26:10,964 - INFO - Progress after 2024-12-29: Raw=2, Filtered=2/250
+2026-01-30 10:26:12,965 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 2/250)
+2026-01-30 10:26:19,706 - INFO - Received 2 raw articles for 2024-12-28.
+2026-01-30 10:26:19,706 - INFO - Removed duplicates (domain+title): 4 -> 4
+2026-01-30 10:26:19,706 - INFO - Filtered by language: 4 -> 4 articles
+2026-01-30 10:26:19,706 - INFO - Progress after 2024-12-28: Raw=4, Filtered=4/250
+2026-01-30 10:26:19,707 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 4/250)
+2026-01-30 10:26:25,092 - INFO - No articles returned for 2024-12-27 - 2024-12-28.
+2026-01-30 10:26:25,092 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 4/250)
+2026-01-30 10:26:26,784 - INFO - No articles returned for 2024-12-26 - 2024-12-27.
+2026-01-30 10:26:28,788 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 4/250)
+2026-01-30 10:26:30,129 - INFO - No articles returned for 2024-12-25 - 2024-12-26.
+2026-01-30 10:26:30,129 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 4/250)
+2026-01-30 10:26:33,927 - INFO - Received 3 raw articles for 2024-12-24.
+2026-01-30 10:26:33,927 - INFO - Removed duplicates (domain+title): 7 -> 7
+2026-01-30 10:26:33,928 - INFO - Filtered by language: 7 -> 7 articles
+2026-01-30 10:26:33,928 - INFO - Progress after 2024-12-24: Raw=7, Filtered=7/250
+2026-01-30 10:26:33,928 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 7/250)
+2026-01-30 10:26:35,501 - INFO - Received 4 raw articles for 2024-12-23.
+2026-01-30 10:26:35,501 - INFO - Removed duplicates (domain+title): 11 -> 11
+2026-01-30 10:26:35,501 - INFO - Filtered by language: 11 -> 11 articles
+2026-01-30 10:26:35,501 - INFO - Progress after 2024-12-23: Raw=11, Filtered=11/250
+2026-01-30 10:26:37,502 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 11/250)
+2026-01-30 10:26:40,755 - INFO - Received 1 raw articles for 2024-12-22.
+2026-01-30 10:26:40,755 - INFO - Removed duplicates (domain+title): 12 -> 12
+2026-01-30 10:26:40,755 - INFO - Filtered by language: 12 -> 12 articles
+2026-01-30 10:26:40,756 - INFO - Progress after 2024-12-22: Raw=12, Filtered=12/250
+2026-01-30 10:26:40,756 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 12/250)
+2026-01-30 10:26:44,041 - INFO - Received 3 raw articles for 2024-12-21.
+2026-01-30 10:26:44,041 - INFO - Removed duplicates (domain+title): 15 -> 15
+2026-01-30 10:26:44,042 - INFO - Filtered by language: 15 -> 15 articles
+2026-01-30 10:26:44,042 - INFO - Progress after 2024-12-21: Raw=15, Filtered=15/250
+2026-01-30 10:26:44,042 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 15/250)
+2026-01-30 10:26:48,384 - INFO - Received 2 raw articles for 2024-12-20.
+2026-01-30 10:26:48,384 - INFO - Removed duplicates (domain+title): 17 -> 17
+2026-01-30 10:26:48,385 - INFO - Filtered by language: 17 -> 17 articles
+2026-01-30 10:26:48,385 - INFO - Progress after 2024-12-20: Raw=17, Filtered=17/250
+2026-01-30 10:26:50,385 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 17/250)
+2026-01-30 10:26:53,650 - INFO - Received 4 raw articles for 2024-12-19.
+2026-01-30 10:26:53,650 - INFO - Removed duplicates (domain+title): 21 -> 21
+2026-01-30 10:26:53,650 - INFO - Filtered by language: 21 -> 21 articles
+2026-01-30 10:26:53,650 - INFO - Progress after 2024-12-19: Raw=21, Filtered=21/250
+2026-01-30 10:26:53,650 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 21/250)
+2026-01-30 10:26:58,608 - INFO - Received 5 raw articles for 2024-12-18.
+2026-01-30 10:26:58,608 - INFO - Removed duplicates (domain+title): 26 -> 26
+2026-01-30 10:26:58,608 - INFO - Filtered by language: 26 -> 26 articles
+2026-01-30 10:26:58,609 - INFO - Progress after 2024-12-18: Raw=26, Filtered=26/250
+2026-01-30 10:26:58,609 - INFO - Enriching 26 articles with full content...
+2026-01-30 10:26:58,885 - INFO - Fetched content for article 1/26
+2026-01-30 10:26:59,768 - INFO - Fetched content for article 2/26
+2026-01-30 10:27:00,199 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst | https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst
+2026-01-30 10:27:01,201 - INFO - Fetched content for article 5/26
+2026-01-30 10:27:02,041 - INFO - Fetched content for article 6/26
+2026-01-30 10:27:02,559 - INFO - Fetched content for article 7/26
+2026-01-30 10:27:03,409 - INFO - Fetched content for article 8/26
+2026-01-30 10:27:03,919 - INFO - Fetched content for article 9/26
+2026-01-30 10:27:04,239 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/ec6b5b56230a8533 | https://biztoc.com/x/ec6b5b56230a8533
+2026-01-30 10:27:07,155 - INFO - Fetched content for article 11/26
+2026-01-30 10:27:08,137 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/756e3883f247f82e | https://biztoc.com/x/756e3883f247f82e
+2026-01-30 10:27:10,285 - INFO - Fetched content for article 15/26
+2026-01-30 10:27:11,301 - INFO - Fetched content for article 17/26
+2026-01-30 10:27:11,625 - INFO - Fetched content for article 18/26
+2026-01-30 10:27:12,616 - INFO - Fetched content for article 19/26
+2026-01-30 10:27:12,891 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254 | https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254
+2026-01-30 10:27:13,770 - INFO - Fetched content for article 21/26
+2026-01-30 10:27:15,540 - INFO - Fetched content for article 23/26
+2026-01-30 10:27:15,912 - INFO - Fetched content for article 24/26
+2026-01-30 10:27:16,190 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/ | https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/
+2026-01-30 10:27:17,055 - INFO - Fetched content for article 26/26
+2026-01-30 10:27:17,058 - INFO - filter_company_related: in=26 kept=14 | dropped(question_no_content)=4 dropped(no_match_no_content)=4 dropped(no_match_in_content)=4
+2026-01-30 10:27:17,084 - INFO - Only 14 articles matched filters within 14 days, but 250 were requested.
+2026-01-30 10:27:17,085 - INFO - Saved 14 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-01-30 10:27:17,087 - INFO - Displayed 14 articles
+2026-01-30 10:45:09,439 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-01-30 10:45:09,772 - INFO - Resolved ticker for 'eli lilly' -> LLY
+2026-01-30 10:45:09,773 - INFO - GDELT query: eli lilly LLY
+2026-01-30 10:45:09,773 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-01-30 10:45:16,318 - INFO - Received 1 raw articles for 2024-12-31.
+2026-01-30 10:45:16,318 - INFO - Removed duplicates (domain+title): 1 -> 1
+2026-01-30 10:45:16,318 - INFO - Filtered by language: 1 -> 1 articles
+2026-01-30 10:45:16,318 - INFO - Progress after 2024-12-31: Raw=1, Filtered=1/250
+2026-01-30 10:45:16,318 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 1/250)
+2026-01-30 10:45:19,409 - INFO - No articles returned for 2024-12-30 - 2024-12-31.
+2026-01-30 10:45:19,409 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 1/250)
+2026-01-30 10:45:19,980 - ERROR - Error during GDELT request: 
+2026-01-30 10:45:21,981 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 1/250)
+2026-01-30 10:45:23,406 - INFO - Received 2 raw articles for 2024-12-28.
+2026-01-30 10:45:23,406 - INFO - Removed duplicates (domain+title): 3 -> 3
+2026-01-30 10:45:23,406 - INFO - Filtered by language: 3 -> 3 articles
+2026-01-30 10:45:23,407 - INFO - Progress after 2024-12-28: Raw=3, Filtered=3/250
+2026-01-30 10:45:23,407 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 3/250)
+2026-01-30 10:45:28,619 - INFO - No articles returned for 2024-12-27 - 2024-12-28.
+2026-01-30 10:45:28,619 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 3/250)
+2026-01-30 10:45:30,085 - INFO - No articles returned for 2024-12-26 - 2024-12-27.
+2026-01-30 10:45:32,085 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 3/250)
+2026-01-30 10:45:34,622 - INFO - No articles returned for 2024-12-25 - 2024-12-26.
+2026-01-30 10:45:34,622 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 3/250)
+2026-01-30 10:45:35,214 - ERROR - Error during GDELT request: 
+2026-01-30 10:45:35,215 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 3/250)
+2026-01-30 10:45:40,387 - INFO - Received 4 raw articles for 2024-12-23.
+2026-01-30 10:45:40,387 - INFO - Removed duplicates (domain+title): 7 -> 7
+2026-01-30 10:45:40,387 - INFO - Filtered by language: 7 -> 7 articles
+2026-01-30 10:45:40,387 - INFO - Progress after 2024-12-23: Raw=7, Filtered=7/250
+2026-01-30 10:45:42,388 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 7/250)
+2026-01-30 10:45:42,970 - ERROR - Error during GDELT request: 
+2026-01-30 10:45:42,971 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 7/250)
+2026-01-30 10:46:07,534 - INFO - Received 3 raw articles for 2024-12-21.
+2026-01-30 10:46:07,534 - INFO - Removed duplicates (domain+title): 10 -> 10
+2026-01-30 10:46:07,534 - INFO - Filtered by language: 10 -> 10 articles
+2026-01-30 10:46:07,534 - INFO - Progress after 2024-12-21: Raw=10, Filtered=10/250
+2026-01-30 10:46:07,535 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 10/250)
+2026-01-30 10:46:09,311 - INFO - Received 2 raw articles for 2024-12-20.
+2026-01-30 10:46:09,311 - INFO - Removed duplicates (domain+title): 12 -> 12
+2026-01-30 10:46:09,311 - INFO - Filtered by language: 12 -> 12 articles
+2026-01-30 10:46:09,311 - INFO - Progress after 2024-12-20: Raw=12, Filtered=12/250
+2026-01-30 10:46:11,312 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 12/250)
+2026-01-30 10:46:13,380 - INFO - Received 4 raw articles for 2024-12-19.
+2026-01-30 10:46:13,380 - INFO - Removed duplicates (domain+title): 16 -> 16
+2026-01-30 10:46:13,380 - INFO - Filtered by language: 16 -> 16 articles
+2026-01-30 10:46:13,381 - INFO - Progress after 2024-12-19: Raw=16, Filtered=16/250
+2026-01-30 10:46:13,381 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 16/250)
+2026-01-30 10:46:17,151 - INFO - Received 5 raw articles for 2024-12-18.
+2026-01-30 10:46:17,151 - INFO - Removed duplicates (domain+title): 21 -> 21
+2026-01-30 10:46:17,151 - INFO - Filtered by language: 21 -> 21 articles
+2026-01-30 10:46:17,151 - INFO - Progress after 2024-12-18: Raw=21, Filtered=21/250
+2026-01-30 10:46:17,151 - INFO - Enriching 21 articles with full content...
+2026-01-30 10:46:17,436 - INFO - Fetched content for article 1/21
+2026-01-30 10:46:17,892 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst | https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst
+2026-01-30 10:46:19,016 - INFO - Fetched content for article 4/21
+2026-01-30 10:46:19,503 - INFO - Fetched content for article 5/21
+2026-01-30 10:46:19,765 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/ec6b5b56230a8533 | https://biztoc.com/x/ec6b5b56230a8533
+2026-01-30 10:46:20,586 - INFO - Fetched content for article 7/21
+2026-01-30 10:46:20,839 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/756e3883f247f82e | https://biztoc.com/x/756e3883f247f82e
+2026-01-30 10:46:22,663 - INFO - Fetched content for article 10/21
+2026-01-30 10:46:24,377 - INFO - Fetched content for article 12/21
+2026-01-30 10:46:24,683 - INFO - Fetched content for article 13/21
+2026-01-30 10:46:25,593 - INFO - Fetched content for article 14/21
+2026-01-30 10:46:25,846 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254 | https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254
+2026-01-30 10:46:26,692 - INFO - Fetched content for article 16/21
+2026-01-30 10:46:28,431 - INFO - Fetched content for article 18/21
+2026-01-30 10:46:28,835 - INFO - Fetched content for article 19/21
+2026-01-30 10:46:29,220 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/ | https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/
+2026-01-30 10:46:29,640 - INFO - Fetched content for article 21/21
+2026-01-30 10:46:29,652 - INFO - clean_articles: processed=21, cleaned=9, rejected=12
+2026-01-30 10:46:29,654 - INFO - filter_company_related: in=21 kept=12 | dropped(question_no_content)=4 dropped(no_match_no_content)=3 dropped(no_match_in_content)=2
+2026-01-30 10:46:29,654 - INFO - Only 12 articles matched filters within 14 days, but 250 were requested.
+2026-01-30 10:46:29,655 - INFO - Saved 12 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-01-30 10:46:29,656 - INFO - Displayed 12 articles
+2026-01-30 22:46:36,388 - ERROR - Unexpected error during input: End date cannot be empty.
+2026-01-30 22:46:52,829 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-01-30 22:46:53,124 - INFO - Resolved ticker for 'eli lilly' -> LLY
+2026-01-30 22:46:53,124 - INFO - GDELT query: eli lilly LLY
+2026-01-30 22:46:53,124 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-01-30 22:46:58,811 - INFO - Received 1 raw articles for 2024-12-31.
+2026-01-30 22:46:58,811 - INFO - Removed duplicates (domain+title): 1 -> 1
+2026-01-30 22:46:58,811 - INFO - Filtered by language: 1 -> 1 articles
+2026-01-30 22:46:58,811 - INFO - Progress after 2024-12-31: Raw=1, Filtered=1/250
+2026-01-30 22:46:58,811 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 1/250)
+2026-01-30 22:46:59,673 - ERROR - Error during GDELT request: 
+2026-01-30 22:46:59,675 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 1/250)
+2026-01-30 22:47:14,255 - INFO - Received 1 raw articles for 2024-12-29.
+2026-01-30 22:47:14,255 - INFO - Removed duplicates (domain+title): 2 -> 2
+2026-01-30 22:47:14,255 - INFO - Filtered by language: 2 -> 2 articles
+2026-01-30 22:47:14,255 - INFO - Progress after 2024-12-29: Raw=2, Filtered=2/250
+2026-01-30 22:47:16,256 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 2/250)
+2026-01-30 22:47:18,282 - INFO - Received 2 raw articles for 2024-12-28.
+2026-01-30 22:47:18,283 - INFO - Removed duplicates (domain+title): 4 -> 4
+2026-01-30 22:47:18,283 - INFO - Filtered by language: 4 -> 4 articles
+2026-01-30 22:47:18,283 - INFO - Progress after 2024-12-28: Raw=4, Filtered=4/250
+2026-01-30 22:47:18,283 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 4/250)
+2026-01-30 22:47:19,344 - ERROR - Error during GDELT request: 
+2026-01-30 22:47:19,345 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 4/250)
+2026-01-30 22:47:20,449 - ERROR - Error during GDELT request: 
+2026-01-30 22:47:22,451 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 4/250)
+2026-01-30 22:47:34,629 - INFO - No articles returned for 2024-12-25 - 2024-12-26.
+2026-01-30 22:47:34,630 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 4/250)
+2026-01-30 22:47:35,828 - ERROR - Error during GDELT request: 
+2026-01-30 22:47:35,830 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 4/250)
+2026-01-30 22:47:40,495 - INFO - Received 4 raw articles for 2024-12-23.
+2026-01-30 22:47:40,495 - INFO - Removed duplicates (domain+title): 8 -> 8
+2026-01-30 22:47:40,495 - INFO - Filtered by language: 8 -> 8 articles
+2026-01-30 22:47:40,495 - INFO - Progress after 2024-12-23: Raw=8, Filtered=8/250
+2026-01-30 22:47:42,496 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 8/250)
+2026-01-30 22:47:47,880 - INFO - Received 1 raw articles for 2024-12-22.
+2026-01-30 22:47:47,880 - INFO - Removed duplicates (domain+title): 9 -> 9
+2026-01-30 22:47:47,880 - INFO - Filtered by language: 9 -> 9 articles
+2026-01-30 22:47:47,880 - INFO - Progress after 2024-12-22: Raw=9, Filtered=9/250
+2026-01-30 22:47:47,880 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 9/250)
+2026-01-30 22:47:50,263 - INFO - Received 3 raw articles for 2024-12-21.
+2026-01-30 22:47:50,263 - INFO - Removed duplicates (domain+title): 12 -> 12
+2026-01-30 22:47:50,264 - INFO - Filtered by language: 12 -> 12 articles
+2026-01-30 22:47:50,264 - INFO - Progress after 2024-12-21: Raw=12, Filtered=12/250
+2026-01-30 22:47:50,264 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 12/250)
+2026-01-30 22:47:54,094 - INFO - Received 2 raw articles for 2024-12-20.
+2026-01-30 22:47:54,094 - INFO - Removed duplicates (domain+title): 14 -> 14
+2026-01-30 22:47:54,094 - INFO - Filtered by language: 14 -> 14 articles
+2026-01-30 22:47:54,094 - INFO - Progress after 2024-12-20: Raw=14, Filtered=14/250
+2026-01-30 22:47:56,095 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 14/250)
+2026-01-30 22:47:59,781 - INFO - Received 4 raw articles for 2024-12-19.
+2026-01-30 22:47:59,781 - INFO - Removed duplicates (domain+title): 18 -> 18
+2026-01-30 22:47:59,781 - INFO - Filtered by language: 18 -> 18 articles
+2026-01-30 22:47:59,781 - INFO - Progress after 2024-12-19: Raw=18, Filtered=18/250
+2026-01-30 22:47:59,781 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 18/250)
+2026-01-30 22:48:08,778 - INFO - Received 5 raw articles for 2024-12-18.
+2026-01-30 22:48:08,778 - INFO - Removed duplicates (domain+title): 23 -> 23
+2026-01-30 22:48:08,778 - INFO - Filtered by language: 23 -> 23 articles
+2026-01-30 22:48:08,779 - INFO - Progress after 2024-12-18: Raw=23, Filtered=23/250
+2026-01-30 22:48:08,779 - INFO - Enriching 23 articles with full content...
+2026-01-30 22:48:09,062 - INFO - Fetched content for article 1/23
+2026-01-30 22:48:09,964 - INFO - Fetched content for article 2/23
+2026-01-30 22:48:10,380 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst | https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst
+2026-01-30 22:48:11,591 - INFO - Fetched content for article 5/23
+2026-01-30 22:48:12,077 - INFO - Fetched content for article 6/23
+2026-01-30 22:48:12,342 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/ec6b5b56230a8533 | https://biztoc.com/x/ec6b5b56230a8533
+2026-01-30 22:48:13,450 - INFO - Fetched content for article 8/23
+2026-01-30 22:48:14,618 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/756e3883f247f82e | https://biztoc.com/x/756e3883f247f82e
+2026-01-30 22:48:16,899 - INFO - Fetched content for article 12/23
+2026-01-30 22:48:18,571 - INFO - Fetched content for article 14/23
+2026-01-30 22:48:18,812 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/investor-hub/article/best-growth-stocks/ | https://www.forbes.com/sites/investor-hub/article/best-growth-stocks/
+2026-01-30 22:48:19,699 - INFO - Fetched content for article 16/23
+2026-01-30 22:48:19,995 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254 | https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254
+2026-01-30 22:48:20,980 - INFO - Fetched content for article 18/23
+2026-01-30 22:48:22,914 - INFO - Fetched content for article 20/23
+2026-01-30 22:48:23,787 - INFO - Fetched content for article 21/23
+2026-01-30 22:48:24,055 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/ | https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/
+2026-01-30 22:48:25,197 - INFO - Fetched content for article 23/23
+2026-01-30 22:48:25,201 - INFO - filter_company_related: in=23 kept=11 | dropped(question_no_content)=4 dropped(no_match_no_content)=5 dropped(no_match_in_content)=3
+2026-01-30 22:48:25,201 - INFO - Only 11 articles matched filters within 14 days, but 250 were requested.
+2026-01-30 22:48:25,202 - INFO - Saved 11 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-01-30 22:48:25,203 - INFO - Displayed 11 articles
+2026-01-30 23:18:29,520 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-01-30 23:18:29,825 - INFO - Resolved ticker for 'eli lilly' -> LLY
+2026-01-30 23:18:29,825 - INFO - GDELT query: eli lilly LLY
+2026-01-30 23:18:29,826 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-01-30 23:18:30,753 - ERROR - Error during GDELT request: 
+2026-01-30 23:18:30,754 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 0/250)
+2026-01-30 23:18:36,365 - INFO - No articles returned for 2024-12-30 - 2024-12-31.
+2026-01-30 23:18:36,366 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 0/250)
+2026-01-30 23:18:37,196 - ERROR - Error during GDELT request: 
+2026-01-30 23:18:39,198 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 0/250)
+2026-01-30 23:18:43,836 - INFO - Received 2 raw articles for 2024-12-28.
+2026-01-30 23:18:43,836 - INFO - Removed duplicates (domain+title): 2 -> 2
+2026-01-30 23:18:43,836 - INFO - Filtered by language: 2 -> 2 articles
+2026-01-30 23:18:43,836 - INFO - Progress after 2024-12-28: Raw=2, Filtered=2/250
+2026-01-30 23:18:43,836 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 2/250)
+2026-01-30 23:18:50,239 - INFO - No articles returned for 2024-12-27 - 2024-12-28.
+2026-01-30 23:18:50,239 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 2/250)
+2026-01-30 23:18:57,763 - INFO - No articles returned for 2024-12-26 - 2024-12-27.
+2026-01-30 23:18:59,764 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 2/250)
+2026-01-30 23:19:05,457 - INFO - No articles returned for 2024-12-25 - 2024-12-26.
+2026-01-30 23:19:05,457 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 2/250)
+2026-01-30 23:19:11,839 - INFO - Received 3 raw articles for 2024-12-24.
+2026-01-30 23:19:11,839 - INFO - Removed duplicates (domain+title): 5 -> 5
+2026-01-30 23:19:11,839 - INFO - Filtered by language: 5 -> 5 articles
+2026-01-30 23:19:11,839 - INFO - Progress after 2024-12-24: Raw=5, Filtered=5/250
+2026-01-30 23:19:11,839 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 5/250)
+2026-01-30 23:19:15,713 - INFO - Received 4 raw articles for 2024-12-23.
+2026-01-30 23:19:15,713 - INFO - Removed duplicates (domain+title): 9 -> 9
+2026-01-30 23:19:15,713 - INFO - Filtered by language: 9 -> 9 articles
+2026-01-30 23:19:15,714 - INFO - Progress after 2024-12-23: Raw=9, Filtered=9/250
+2026-01-30 23:19:17,715 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 9/250)
+2026-01-30 23:19:21,070 - INFO - Received 1 raw articles for 2024-12-22.
+2026-01-30 23:19:21,070 - INFO - Removed duplicates (domain+title): 10 -> 10
+2026-01-30 23:19:21,070 - INFO - Filtered by language: 10 -> 10 articles
+2026-01-30 23:19:21,070 - INFO - Progress after 2024-12-22: Raw=10, Filtered=10/250
+2026-01-30 23:19:21,070 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 10/250)
+2026-01-30 23:19:21,708 - ERROR - Error during GDELT request: 
+2026-01-30 23:19:21,709 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 10/250)
+2026-01-30 23:19:26,722 - INFO - Received 2 raw articles for 2024-12-20.
+2026-01-30 23:19:26,723 - INFO - Removed duplicates (domain+title): 12 -> 12
+2026-01-30 23:19:26,723 - INFO - Filtered by language: 12 -> 12 articles
+2026-01-30 23:19:26,723 - INFO - Progress after 2024-12-20: Raw=12, Filtered=12/250
+2026-01-30 23:19:28,724 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 12/250)
+2026-01-30 23:19:29,363 - ERROR - Error during GDELT request: 
+2026-01-30 23:19:29,364 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 12/250)
+2026-01-30 23:19:31,710 - INFO - Received 5 raw articles for 2024-12-18.
+2026-01-30 23:19:31,711 - INFO - Removed duplicates (domain+title): 17 -> 17
+2026-01-30 23:19:31,711 - INFO - Filtered by language: 17 -> 17 articles
+2026-01-30 23:19:31,711 - INFO - Progress after 2024-12-18: Raw=17, Filtered=17/250
+2026-01-30 23:19:31,711 - INFO - Enriching 17 articles with full content...
+2026-01-30 23:19:32,235 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst | https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst
+2026-01-30 23:19:33,394 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/ | https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/
+2026-01-30 23:19:34,400 - INFO - Fetched content for article 4/17
+2026-01-30 23:19:34,963 - INFO - Fetched content for article 5/17
+2026-01-30 23:19:35,522 - INFO - Fetched content for article 6/17
+2026-01-30 23:19:36,108 - INFO - Fetched content for article 7/17
+2026-01-30 23:19:36,626 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/ec6b5b56230a8533 | https://biztoc.com/x/ec6b5b56230a8533
+2026-01-30 23:19:37,527 - INFO - Fetched content for article 9/17
+2026-01-30 23:19:40,353 - INFO - Fetched content for article 12/17
+2026-01-30 23:19:42,192 - INFO - Fetched content for article 14/17
+2026-01-30 23:19:42,537 - INFO - Fetched content for article 15/17
+2026-01-30 23:19:42,809 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/ | https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/
+2026-01-30 23:19:44,200 - INFO - Fetched content for article 17/17
+2026-01-30 23:19:44,203 - INFO - filter_company_related: in=17 kept=9 | dropped(question_no_content)=2 dropped(no_match_no_content)=4 dropped(no_match_in_content)=2
+2026-01-30 23:19:44,203 - INFO - Only 9 articles matched filters within 14 days, but 250 were requested.
+2026-01-30 23:19:44,204 - INFO - Saved 9 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-01-30 23:19:44,205 - INFO - Displayed 9 articles
+2026-01-31 00:07:56,681 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-01-31 00:07:57,001 - INFO - Resolved ticker for 'eli lilly' -> LLY
+2026-01-31 00:07:57,009 - INFO - GDELT query: eli lilly LLY
+2026-01-31 00:07:57,009 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-01-31 00:08:02,975 - INFO - Received 1 raw articles for 2024-12-31.
+2026-01-31 00:08:02,976 - INFO - Removed duplicates (domain+title): 1 -> 1
+2026-01-31 00:08:02,976 - INFO - Filtered by language: 1 -> 1 articles
+2026-01-31 00:08:02,976 - INFO - Progress after 2024-12-31: Raw=1, Filtered=1/250
+2026-01-31 00:08:02,976 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 1/250)
+2026-01-31 00:08:03,849 - ERROR - Error during GDELT request: 
+2026-01-31 00:08:03,850 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 1/250)
+2026-01-31 00:08:06,973 - INFO - Received 1 raw articles for 2024-12-29.
+2026-01-31 00:08:06,973 - INFO - Removed duplicates (domain+title): 2 -> 2
+2026-01-31 00:08:06,974 - INFO - Filtered by language: 2 -> 2 articles
+2026-01-31 00:08:06,974 - INFO - Progress after 2024-12-29: Raw=2, Filtered=2/250
+2026-01-31 00:08:08,974 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 2/250)
+2026-01-31 00:08:10,853 - INFO - Received 2 raw articles for 2024-12-28.
+2026-01-31 00:08:10,853 - INFO - Removed duplicates (domain+title): 4 -> 4
+2026-01-31 00:08:10,853 - INFO - Filtered by language: 4 -> 4 articles
+2026-01-31 00:08:10,853 - INFO - Progress after 2024-12-28: Raw=4, Filtered=4/250
+2026-01-31 00:08:10,853 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 4/250)
+2026-01-31 00:08:13,572 - INFO - No articles returned for 2024-12-27 - 2024-12-28.
+2026-01-31 00:08:13,572 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 4/250)
+2026-01-31 00:08:16,006 - INFO - No articles returned for 2024-12-26 - 2024-12-27.
+2026-01-31 00:08:18,006 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 4/250)
+2026-01-31 00:08:18,852 - ERROR - Error during GDELT request: 
+2026-01-31 00:08:18,853 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 4/250)
+2026-01-31 00:08:33,571 - INFO - Received 3 raw articles for 2024-12-24.
+2026-01-31 00:08:33,571 - INFO - Removed duplicates (domain+title): 7 -> 7
+2026-01-31 00:08:33,571 - INFO - Filtered by language: 7 -> 7 articles
+2026-01-31 00:08:33,572 - INFO - Progress after 2024-12-24: Raw=7, Filtered=7/250
+2026-01-31 00:08:33,572 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 7/250)
+2026-01-31 00:08:40,940 - INFO - Received 4 raw articles for 2024-12-23.
+2026-01-31 00:08:40,941 - INFO - Removed duplicates (domain+title): 11 -> 11
+2026-01-31 00:08:40,941 - INFO - Filtered by language: 11 -> 11 articles
+2026-01-31 00:08:40,941 - INFO - Progress after 2024-12-23: Raw=11, Filtered=11/250
+2026-01-31 00:08:42,942 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 11/250)
+2026-01-31 00:08:46,706 - INFO - Received 1 raw articles for 2024-12-22.
+2026-01-31 00:08:46,707 - INFO - Removed duplicates (domain+title): 12 -> 12
+2026-01-31 00:08:46,707 - INFO - Filtered by language: 12 -> 12 articles
+2026-01-31 00:08:46,707 - INFO - Progress after 2024-12-22: Raw=12, Filtered=12/250
+2026-01-31 00:08:46,707 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 12/250)
+2026-01-31 00:08:50,210 - INFO - Received 3 raw articles for 2024-12-21.
+2026-01-31 00:08:50,210 - INFO - Removed duplicates (domain+title): 15 -> 15
+2026-01-31 00:08:50,211 - INFO - Filtered by language: 15 -> 15 articles
+2026-01-31 00:08:50,211 - INFO - Progress after 2024-12-21: Raw=15, Filtered=15/250
+2026-01-31 00:08:50,211 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 15/250)
+2026-01-31 00:09:14,566 - INFO - Received 2 raw articles for 2024-12-20.
+2026-01-31 00:09:14,569 - INFO - Removed duplicates (domain+title): 17 -> 17
+2026-01-31 00:09:14,569 - INFO - Filtered by language: 17 -> 17 articles
+2026-01-31 00:09:14,569 - INFO - Progress after 2024-12-20: Raw=17, Filtered=17/250
+2026-01-31 00:09:16,569 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 17/250)
+2026-01-31 00:09:17,197 - ERROR - Error during GDELT request: 
+2026-01-31 00:09:17,198 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 17/250)
+2026-01-31 00:09:23,387 - INFO - Received 5 raw articles for 2024-12-18.
+2026-01-31 00:09:23,387 - INFO - Removed duplicates (domain+title): 22 -> 22
+2026-01-31 00:09:23,387 - INFO - Filtered by language: 22 -> 22 articles
+2026-01-31 00:09:23,387 - INFO - Progress after 2024-12-18: Raw=22, Filtered=22/250
+2026-01-31 00:09:23,387 - INFO - Enriching 22 articles with full content...
+2026-01-31 00:09:23,698 - INFO - Fetched content for article 1/22
+2026-01-31 00:09:24,642 - INFO - Fetched content for article 2/22
+2026-01-31 00:09:25,380 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst | https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst
+2026-01-31 00:09:26,494 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/ | https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/
+2026-01-31 00:09:27,480 - INFO - Fetched content for article 6/22
+2026-01-31 00:09:27,995 - INFO - Fetched content for article 7/22
+2026-01-31 00:09:28,493 - INFO - Fetched content for article 8/22
+2026-01-31 00:09:29,338 - INFO - Fetched content for article 9/22
+2026-01-31 00:09:29,624 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/ec6b5b56230a8533 | https://biztoc.com/x/ec6b5b56230a8533
+2026-01-31 00:09:30,491 - INFO - Fetched content for article 11/22
+2026-01-31 00:09:32,012 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/756e3883f247f82e | https://biztoc.com/x/756e3883f247f82e
+2026-01-31 00:09:34,601 - INFO - Fetched content for article 15/22
+2026-01-31 00:09:37,726 - INFO - Fetched content for article 17/22
+2026-01-31 00:09:40,038 - INFO - Fetched content for article 19/22
+2026-01-31 00:09:40,426 - INFO - Fetched content for article 20/22
+2026-01-31 00:09:40,739 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/ | https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/
+2026-01-31 00:09:41,630 - INFO - Fetched content for article 22/22
+2026-01-31 00:09:41,632 - INFO - filter_company_related: in=22 kept=11 | dropped(question_no_content)=4 dropped(no_match_no_content)=4 dropped(no_match_in_content)=3
+2026-01-31 00:09:41,633 - INFO - Only 11 articles matched filters within 14 days, but 250 were requested.
+2026-01-31 00:09:41,634 - INFO - Saved 11 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-01-31 00:09:41,639 - INFO - Displayed 11 articles
+2026-01-31 00:10:30,312 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-01-31 00:10:30,631 - INFO - Resolved ticker for 'eli lilly' -> LLY
+2026-01-31 00:10:30,631 - INFO - GDELT query: eli lilly LLY
+2026-01-31 00:10:30,631 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-01-31 00:10:33,387 - INFO - Received 1 raw articles for 2024-12-31.
+2026-01-31 00:10:33,387 - INFO - Removed duplicates (domain+title): 1 -> 1
+2026-01-31 00:10:33,388 - INFO - Filtered by language: 1 -> 1 articles
+2026-01-31 00:10:33,388 - INFO - Progress after 2024-12-31: Raw=1, Filtered=1/250
+2026-01-31 00:10:33,389 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 1/250)
+2026-01-31 00:10:35,850 - INFO - No articles returned for 2024-12-30 - 2024-12-31.
+2026-01-31 00:10:35,850 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 1/250)
+2026-01-31 00:10:38,678 - INFO - Received 1 raw articles for 2024-12-29.
+2026-01-31 00:10:38,678 - INFO - Removed duplicates (domain+title): 2 -> 2
+2026-01-31 00:10:38,679 - INFO - Filtered by language: 2 -> 2 articles
+2026-01-31 00:10:38,679 - INFO - Progress after 2024-12-29: Raw=2, Filtered=2/250
+2026-01-31 00:10:40,680 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 2/250)
+2026-01-31 00:10:42,757 - INFO - Received 2 raw articles for 2024-12-28.
+2026-01-31 00:10:42,757 - INFO - Removed duplicates (domain+title): 4 -> 4
+2026-01-31 00:10:42,757 - INFO - Filtered by language: 4 -> 4 articles
+2026-01-31 00:10:42,758 - INFO - Progress after 2024-12-28: Raw=4, Filtered=4/250
+2026-01-31 00:10:42,758 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 4/250)
+2026-01-31 00:10:47,131 - INFO - No articles returned for 2024-12-27 - 2024-12-28.
+2026-01-31 00:10:47,131 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 4/250)
+2026-01-31 00:10:48,575 - ERROR - Error during GDELT request: 
+2026-01-31 00:10:50,577 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 4/250)
+2026-01-31 00:10:52,745 - INFO - No articles returned for 2024-12-25 - 2024-12-26.
+2026-01-31 00:10:52,745 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 4/250)
+2026-01-31 00:11:01,493 - INFO - Received 3 raw articles for 2024-12-24.
+2026-01-31 00:11:01,494 - INFO - Removed duplicates (domain+title): 7 -> 7
+2026-01-31 00:11:01,495 - INFO - Filtered by language: 7 -> 7 articles
+2026-01-31 00:11:01,495 - INFO - Progress after 2024-12-24: Raw=7, Filtered=7/250
+2026-01-31 00:11:01,495 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 7/250)
+2026-01-31 00:11:11,407 - INFO - Received 4 raw articles for 2024-12-23.
+2026-01-31 00:11:11,407 - INFO - Removed duplicates (domain+title): 11 -> 11
+2026-01-31 00:11:11,407 - INFO - Filtered by language: 11 -> 11 articles
+2026-01-31 00:11:11,408 - INFO - Progress after 2024-12-23: Raw=11, Filtered=11/250
+2026-01-31 00:11:13,409 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 11/250)
+2026-01-31 00:11:21,819 - INFO - Received 1 raw articles for 2024-12-22.
+2026-01-31 00:11:21,819 - INFO - Removed duplicates (domain+title): 12 -> 12
+2026-01-31 00:11:21,819 - INFO - Filtered by language: 12 -> 12 articles
+2026-01-31 00:11:21,820 - INFO - Progress after 2024-12-22: Raw=12, Filtered=12/250
+2026-01-31 00:11:21,820 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 12/250)
+2026-01-31 00:11:24,490 - INFO - Received 3 raw articles for 2024-12-21.
+2026-01-31 00:11:24,491 - INFO - Removed duplicates (domain+title): 15 -> 15
+2026-01-31 00:11:24,491 - INFO - Filtered by language: 15 -> 15 articles
+2026-01-31 00:11:24,491 - INFO - Progress after 2024-12-21: Raw=15, Filtered=15/250
+2026-01-31 00:11:24,491 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 15/250)
+2026-01-31 00:11:29,698 - INFO - Received 2 raw articles for 2024-12-20.
+2026-01-31 00:11:29,698 - INFO - Removed duplicates (domain+title): 17 -> 17
+2026-01-31 00:11:29,699 - INFO - Filtered by language: 17 -> 17 articles
+2026-01-31 00:11:29,699 - INFO - Progress after 2024-12-20: Raw=17, Filtered=17/250
+2026-01-31 00:11:31,699 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 17/250)
+2026-01-31 00:11:57,577 - INFO - Received 4 raw articles for 2024-12-19.
+2026-01-31 00:11:57,577 - INFO - Removed duplicates (domain+title): 21 -> 21
+2026-01-31 00:11:57,577 - INFO - Filtered by language: 21 -> 21 articles
+2026-01-31 00:11:57,577 - INFO - Progress after 2024-12-19: Raw=21, Filtered=21/250
+2026-01-31 00:11:57,577 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 21/250)
+2026-01-31 00:11:59,945 - INFO - Received 5 raw articles for 2024-12-18.
+2026-01-31 00:11:59,945 - INFO - Removed duplicates (domain+title): 26 -> 26
+2026-01-31 00:11:59,945 - INFO - Filtered by language: 26 -> 26 articles
+2026-01-31 00:11:59,945 - INFO - Progress after 2024-12-18: Raw=26, Filtered=26/250
+2026-01-31 00:11:59,946 - INFO - Enriching 26 articles with full content...
+2026-01-31 00:12:00,304 - INFO - Fetched content for article 1/26
+2026-01-31 00:12:01,291 - INFO - Fetched content for article 2/26
+2026-01-31 00:12:01,728 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst | https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst
+2026-01-31 00:12:03,029 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/ | https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/
+2026-01-31 00:12:05,480 - INFO - Fetched content for article 6/26
+2026-01-31 00:12:06,397 - INFO - Fetched content for article 7/26
+2026-01-31 00:12:06,932 - INFO - Fetched content for article 8/26
+2026-01-31 00:12:07,454 - INFO - Fetched content for article 9/26
+2026-01-31 00:12:07,745 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/ec6b5b56230a8533 | https://biztoc.com/x/ec6b5b56230a8533
+2026-01-31 00:12:08,083 - INFO - Fetched content for article 11/26
+2026-01-31 00:12:09,179 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/756e3883f247f82e | https://biztoc.com/x/756e3883f247f82e
+2026-01-31 00:12:10,371 - INFO - Fetched content for article 15/26
+2026-01-31 00:12:11,630 - INFO - Fetched content for article 17/26
+2026-01-31 00:12:11,903 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/investor-hub/article/best-growth-stocks/ | https://www.forbes.com/sites/investor-hub/article/best-growth-stocks/
+2026-01-31 00:12:12,932 - INFO - Fetched content for article 19/26
+2026-01-31 00:12:13,238 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254 | https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254
+2026-01-31 00:12:14,191 - INFO - Fetched content for article 21/26
+2026-01-31 00:12:15,311 - INFO - Fetched content for article 23/26
+2026-01-31 00:12:15,715 - INFO - Fetched content for article 24/26
+2026-01-31 00:12:16,038 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/ | https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/
+2026-01-31 00:12:17,662 - INFO - Fetched content for article 26/26
+2026-01-31 00:12:17,664 - INFO - filter_company_related: in=26 kept=12 | dropped(question_no_content)=4 dropped(no_match_no_content)=6 dropped(no_match_in_content)=4
+2026-01-31 00:12:17,666 - INFO - Only 12 articles matched filters within 14 days, but 250 were requested.
+2026-01-31 00:12:17,669 - INFO - Saved 12 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-01-31 00:12:17,672 - INFO - Displayed 12 articles
+2026-01-31 00:17:56,509 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-01-31 00:17:56,856 - INFO - Resolved ticker for 'eli lilly' -> LLY
+2026-01-31 00:17:56,856 - INFO - GDELT query: eli lilly LLY
+2026-01-31 00:17:56,856 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-01-31 00:18:03,979 - INFO - Received 1 raw articles for 2024-12-31.
+2026-01-31 00:18:03,979 - INFO - Removed duplicates (domain+title): 1 -> 1
+2026-01-31 00:18:03,979 - INFO - Filtered by language: 1 -> 1 articles
+2026-01-31 00:18:03,979 - INFO - Progress after 2024-12-31: Raw=1, Filtered=1/250
+2026-01-31 00:18:03,979 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 1/250)
+2026-01-31 00:18:07,714 - INFO - No articles returned for 2024-12-30 - 2024-12-31.
+2026-01-31 00:18:07,714 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 1/250)
+2026-01-31 00:18:17,724 - INFO - Received 1 raw articles for 2024-12-29.
+2026-01-31 00:18:17,724 - INFO - Removed duplicates (domain+title): 2 -> 2
+2026-01-31 00:18:17,724 - INFO - Filtered by language: 2 -> 2 articles
+2026-01-31 00:18:17,724 - INFO - Progress after 2024-12-29: Raw=2, Filtered=2/250
+2026-01-31 00:18:19,725 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 2/250)
+2026-01-31 00:18:21,123 - INFO - Received 2 raw articles for 2024-12-28.
+2026-01-31 00:18:21,123 - INFO - Removed duplicates (domain+title): 4 -> 4
+2026-01-31 00:18:21,123 - INFO - Filtered by language: 4 -> 4 articles
+2026-01-31 00:18:21,123 - INFO - Progress after 2024-12-28: Raw=4, Filtered=4/250
+2026-01-31 00:18:21,123 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 4/250)
+2026-01-31 00:18:21,767 - ERROR - Error during GDELT request: 
+2026-01-31 00:18:21,768 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 4/250)
+2026-01-31 00:18:22,402 - ERROR - Error during GDELT request: 
+2026-01-31 00:18:24,407 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 4/250)
+2026-01-31 00:18:26,668 - INFO - No articles returned for 2024-12-25 - 2024-12-26.
+2026-01-31 00:18:26,668 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 4/250)
+2026-01-31 00:18:28,365 - INFO - Received 3 raw articles for 2024-12-24.
+2026-01-31 00:18:28,365 - INFO - Removed duplicates (domain+title): 7 -> 7
+2026-01-31 00:18:28,365 - INFO - Filtered by language: 7 -> 7 articles
+2026-01-31 00:18:28,365 - INFO - Progress after 2024-12-24: Raw=7, Filtered=7/250
+2026-01-31 00:18:28,366 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 7/250)
+2026-01-31 00:18:31,999 - INFO - Received 4 raw articles for 2024-12-23.
+2026-01-31 00:18:31,999 - INFO - Removed duplicates (domain+title): 11 -> 11
+2026-01-31 00:18:31,999 - INFO - Filtered by language: 11 -> 11 articles
+2026-01-31 00:18:32,000 - INFO - Progress after 2024-12-23: Raw=11, Filtered=11/250
+2026-01-31 00:18:34,000 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 11/250)
+2026-01-31 00:18:41,231 - INFO - Received 1 raw articles for 2024-12-22.
+2026-01-31 00:18:41,231 - INFO - Removed duplicates (domain+title): 12 -> 12
+2026-01-31 00:18:41,232 - INFO - Filtered by language: 12 -> 12 articles
+2026-01-31 00:18:41,232 - INFO - Progress after 2024-12-22: Raw=12, Filtered=12/250
+2026-01-31 00:18:41,232 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 12/250)
+2026-01-31 00:18:45,203 - INFO - Received 3 raw articles for 2024-12-21.
+2026-01-31 00:18:45,203 - INFO - Removed duplicates (domain+title): 15 -> 15
+2026-01-31 00:18:45,203 - INFO - Filtered by language: 15 -> 15 articles
+2026-01-31 00:18:45,203 - INFO - Progress after 2024-12-21: Raw=15, Filtered=15/250
+2026-01-31 00:18:45,203 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 15/250)
+2026-01-31 00:18:51,108 - INFO - Received 2 raw articles for 2024-12-20.
+2026-01-31 00:18:51,108 - INFO - Removed duplicates (domain+title): 17 -> 17
+2026-01-31 00:18:51,108 - INFO - Filtered by language: 17 -> 17 articles
+2026-01-31 00:18:51,109 - INFO - Progress after 2024-12-20: Raw=17, Filtered=17/250
+2026-01-31 00:18:53,109 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 17/250)
+2026-01-31 00:19:02,602 - INFO - Received 4 raw articles for 2024-12-19.
+2026-01-31 00:19:02,603 - INFO - Removed duplicates (domain+title): 21 -> 21
+2026-01-31 00:19:02,603 - INFO - Filtered by language: 21 -> 21 articles
+2026-01-31 00:19:02,603 - INFO - Progress after 2024-12-19: Raw=21, Filtered=21/250
+2026-01-31 00:19:02,603 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 21/250)
+2026-01-31 00:19:07,618 - INFO - Received 5 raw articles for 2024-12-18.
+2026-01-31 00:19:07,619 - INFO - Removed duplicates (domain+title): 26 -> 26
+2026-01-31 00:19:07,619 - INFO - Filtered by language: 26 -> 26 articles
+2026-01-31 00:19:07,619 - INFO - Progress after 2024-12-18: Raw=26, Filtered=26/250
+2026-01-31 00:19:07,619 - INFO - Enriching 26 articles with full content...
+2026-01-31 00:19:07,943 - INFO - Fetched content for article 1/26
+2026-01-31 00:19:08,932 - INFO - Fetched content for article 2/26
+2026-01-31 00:19:09,435 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst | https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst
+2026-01-31 00:19:10,626 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/ | https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/
+2026-01-31 00:19:11,581 - INFO - Fetched content for article 6/26
+2026-01-31 00:19:12,193 - INFO - Fetched content for article 7/26
+2026-01-31 00:19:12,730 - INFO - Fetched content for article 8/26
+2026-01-31 00:19:13,272 - INFO - Fetched content for article 9/26
+2026-01-31 00:19:13,565 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/ec6b5b56230a8533 | https://biztoc.com/x/ec6b5b56230a8533
+2026-01-31 00:19:14,548 - INFO - Fetched content for article 11/26
+2026-01-31 00:19:15,862 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/756e3883f247f82e | https://biztoc.com/x/756e3883f247f82e
+2026-01-31 00:19:16,993 - INFO - Fetched content for article 15/26
+2026-01-31 00:19:18,772 - INFO - Fetched content for article 17/26
+2026-01-31 00:19:19,037 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/investor-hub/article/best-growth-stocks/ | https://www.forbes.com/sites/investor-hub/article/best-growth-stocks/
+2026-01-31 00:19:20,031 - INFO - Fetched content for article 19/26
+2026-01-31 00:19:20,321 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254 | https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254
+2026-01-31 00:19:21,292 - INFO - Fetched content for article 21/26
+2026-01-31 00:19:22,397 - INFO - Fetched content for article 23/26
+2026-01-31 00:19:22,792 - INFO - Fetched content for article 24/26
+2026-01-31 00:19:23,089 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/ | https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/
+2026-01-31 00:19:23,545 - INFO - Fetched content for article 26/26
+2026-01-31 00:19:23,547 - INFO - filter_company_related: in=26 kept=12 | dropped(question_no_content)=4 dropped(no_match_no_content)=6 dropped(no_match_in_content)=4
+2026-01-31 00:19:23,549 - INFO - Only 12 articles matched filters within 14 days, but 250 were requested.
+2026-01-31 00:19:23,550 - INFO - Saved 12 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-01-31 00:19:23,551 - INFO - Displayed 12 articles
+2026-01-31 00:26:26,521 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-01-31 00:26:26,809 - INFO - Resolved ticker for 'eli lilly' -> LLY
+2026-01-31 00:26:26,809 - INFO - GDELT query: eli lilly LLY
+2026-01-31 00:26:26,810 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-01-31 00:26:30,885 - INFO - Received 1 raw articles for 2024-12-31.
+2026-01-31 00:26:30,885 - INFO - Removed duplicates (domain+title): 1 -> 1
+2026-01-31 00:26:30,885 - INFO - Filtered by language: 1 -> 1 articles
+2026-01-31 00:26:30,885 - INFO - Progress after 2024-12-31: Raw=1, Filtered=1/250
+2026-01-31 00:26:30,885 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 1/250)
+2026-01-31 00:26:39,445 - INFO - No articles returned for 2024-12-30 - 2024-12-31.
+2026-01-31 00:26:39,446 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 1/250)
+2026-01-31 00:26:45,436 - INFO - Received 1 raw articles for 2024-12-29.
+2026-01-31 00:26:45,436 - INFO - Removed duplicates (domain+title): 2 -> 2
+2026-01-31 00:26:45,436 - INFO - Filtered by language: 2 -> 2 articles
+2026-01-31 00:26:45,436 - INFO - Progress after 2024-12-29: Raw=2, Filtered=2/250
+2026-01-31 00:26:47,437 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 2/250)
+2026-01-31 00:26:50,866 - INFO - Received 2 raw articles for 2024-12-28.
+2026-01-31 00:26:50,866 - INFO - Removed duplicates (domain+title): 4 -> 4
+2026-01-31 00:26:50,866 - INFO - Filtered by language: 4 -> 4 articles
+2026-01-31 00:26:50,866 - INFO - Progress after 2024-12-28: Raw=4, Filtered=4/250
+2026-01-31 00:26:50,866 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 4/250)
+2026-01-31 00:26:52,780 - INFO - No articles returned for 2024-12-27 - 2024-12-28.
+2026-01-31 00:26:52,780 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 4/250)
+2026-01-31 00:27:09,257 - INFO - No articles returned for 2024-12-26 - 2024-12-27.
+2026-01-31 00:27:11,257 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 4/250)
+2026-01-31 00:27:16,095 - INFO - No articles returned for 2024-12-25 - 2024-12-26.
+2026-01-31 00:27:16,095 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 4/250)
+2026-01-31 00:27:44,980 - INFO - Received 3 raw articles for 2024-12-24.
+2026-01-31 00:27:44,980 - INFO - Removed duplicates (domain+title): 7 -> 7
+2026-01-31 00:27:44,980 - INFO - Filtered by language: 7 -> 7 articles
+2026-01-31 00:27:44,980 - INFO - Progress after 2024-12-24: Raw=7, Filtered=7/250
+2026-01-31 00:27:44,981 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 7/250)
+2026-01-31 00:27:50,155 - INFO - Received 4 raw articles for 2024-12-23.
+2026-01-31 00:27:50,155 - INFO - Removed duplicates (domain+title): 11 -> 11
+2026-01-31 00:27:50,155 - INFO - Filtered by language: 11 -> 11 articles
+2026-01-31 00:27:50,155 - INFO - Progress after 2024-12-23: Raw=11, Filtered=11/250
+2026-01-31 00:27:52,155 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 11/250)
+2026-01-31 00:27:53,936 - INFO - Received 1 raw articles for 2024-12-22.
+2026-01-31 00:27:53,936 - INFO - Removed duplicates (domain+title): 12 -> 12
+2026-01-31 00:27:53,936 - INFO - Filtered by language: 12 -> 12 articles
+2026-01-31 00:27:53,936 - INFO - Progress after 2024-12-22: Raw=12, Filtered=12/250
+2026-01-31 00:27:53,936 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 12/250)
+2026-01-31 00:28:00,281 - INFO - Received 3 raw articles for 2024-12-21.
+2026-01-31 00:28:00,281 - INFO - Removed duplicates (domain+title): 15 -> 15
+2026-01-31 00:28:00,282 - INFO - Filtered by language: 15 -> 15 articles
+2026-01-31 00:28:00,282 - INFO - Progress after 2024-12-21: Raw=15, Filtered=15/250
+2026-01-31 00:28:00,282 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 15/250)
+2026-01-31 00:28:04,663 - INFO - Received 2 raw articles for 2024-12-20.
+2026-01-31 00:28:04,663 - INFO - Removed duplicates (domain+title): 17 -> 17
+2026-01-31 00:28:04,664 - INFO - Filtered by language: 17 -> 17 articles
+2026-01-31 00:28:04,664 - INFO - Progress after 2024-12-20: Raw=17, Filtered=17/250
+2026-01-31 00:28:06,664 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 17/250)
+2026-01-31 00:28:07,838 - INFO - Received 4 raw articles for 2024-12-19.
+2026-01-31 00:28:07,838 - INFO - Removed duplicates (domain+title): 21 -> 21
+2026-01-31 00:28:07,838 - INFO - Filtered by language: 21 -> 21 articles
+2026-01-31 00:28:07,838 - INFO - Progress after 2024-12-19: Raw=21, Filtered=21/250
+2026-01-31 00:28:07,838 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 21/250)
+2026-01-31 00:28:13,607 - INFO - Received 5 raw articles for 2024-12-18.
+2026-01-31 00:28:13,607 - INFO - Removed duplicates (domain+title): 26 -> 26
+2026-01-31 00:28:13,608 - INFO - Filtered by language: 26 -> 26 articles
+2026-01-31 00:28:13,608 - INFO - Progress after 2024-12-18: Raw=26, Filtered=26/250
+2026-01-31 00:28:13,608 - INFO - Enriching 26 articles with full content...
+2026-01-31 00:28:13,916 - INFO - Fetched content for article 1/26
+2026-01-31 00:28:14,915 - INFO - Fetched content for article 2/26
+2026-01-31 00:28:15,356 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst | https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst
+2026-01-31 00:28:16,343 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/ | https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/
+2026-01-31 00:28:17,243 - INFO - Fetched content for article 6/26
+2026-01-31 00:28:17,749 - INFO - Fetched content for article 7/26
+2026-01-31 00:28:18,236 - INFO - Fetched content for article 8/26
+2026-01-31 00:28:18,735 - INFO - Fetched content for article 9/26
+2026-01-31 00:28:19,016 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/ec6b5b56230a8533 | https://biztoc.com/x/ec6b5b56230a8533
+2026-01-31 00:28:20,081 - INFO - Fetched content for article 11/26
+2026-01-31 00:28:21,202 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/756e3883f247f82e | https://biztoc.com/x/756e3883f247f82e
+2026-01-31 00:28:23,401 - INFO - Fetched content for article 15/26
+2026-01-31 00:28:26,707 - INFO - Fetched content for article 17/26
+2026-01-31 00:28:26,977 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/investor-hub/article/best-growth-stocks/ | https://www.forbes.com/sites/investor-hub/article/best-growth-stocks/
+2026-01-31 00:28:27,977 - INFO - Fetched content for article 19/26
+2026-01-31 00:28:28,278 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254 | https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254
+2026-01-31 00:28:29,309 - INFO - Fetched content for article 21/26
+2026-01-31 00:28:31,706 - INFO - Fetched content for article 23/26
+2026-01-31 00:28:32,116 - INFO - Fetched content for article 24/26
+2026-01-31 00:28:32,427 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/ | https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/
+2026-01-31 00:28:33,332 - INFO - Fetched content for article 26/26
+2026-01-31 00:28:33,335 - INFO - filter_company_related: in=26 kept=12 | dropped(question_no_content)=4 dropped(no_match_no_content)=6 dropped(no_match_in_content)=4
+2026-01-31 00:28:33,336 - INFO - Only 12 articles matched filters within 14 days, but 250 were requested.
+2026-01-31 00:28:33,337 - INFO - Saved 12 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-01-31 00:28:33,337 - INFO - Displayed 12 articles
+2026-01-31 01:15:43,209 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-01-31 01:15:43,506 - INFO - Resolved ticker for 'eli lilly' -> LLY
+2026-01-31 01:15:43,507 - INFO - GDELT query: eli lilly LLY
+2026-01-31 01:15:43,507 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-01-31 01:15:51,046 - INFO - Received 1 raw articles for 2024-12-31.
+2026-01-31 01:15:51,046 - INFO - Removed duplicates (domain+title): 1 -> 1
+2026-01-31 01:15:51,046 - INFO - Filtered by language: 1 -> 1 articles
+2026-01-31 01:15:51,046 - INFO - Progress after 2024-12-31: Raw=1, Filtered=1/250
+2026-01-31 01:15:51,046 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 1/250)
+2026-01-31 01:15:57,151 - INFO - No articles returned for 2024-12-30 - 2024-12-31.
+2026-01-31 01:15:57,151 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 1/250)
+2026-01-31 01:16:21,654 - INFO - Received 1 raw articles for 2024-12-29.
+2026-01-31 01:16:21,654 - INFO - Removed duplicates (domain+title): 2 -> 2
+2026-01-31 01:16:21,654 - INFO - Filtered by language: 2 -> 2 articles
+2026-01-31 01:16:21,654 - INFO - Progress after 2024-12-29: Raw=2, Filtered=2/250
+2026-01-31 01:16:23,654 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 2/250)
+2026-01-31 01:16:26,298 - INFO - Received 2 raw articles for 2024-12-28.
+2026-01-31 01:16:26,298 - INFO - Removed duplicates (domain+title): 4 -> 4
+2026-01-31 01:16:26,298 - INFO - Filtered by language: 4 -> 4 articles
+2026-01-31 01:16:26,298 - INFO - Progress after 2024-12-28: Raw=4, Filtered=4/250
+2026-01-31 01:16:26,299 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 4/250)
+2026-01-31 01:16:28,745 - INFO - No articles returned for 2024-12-27 - 2024-12-28.
+2026-01-31 01:16:28,745 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 4/250)
+2026-01-31 01:16:33,773 - INFO - No articles returned for 2024-12-26 - 2024-12-27.
+2026-01-31 01:16:35,773 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 4/250)
+2026-01-31 01:16:42,677 - INFO - No articles returned for 2024-12-25 - 2024-12-26.
+2026-01-31 01:16:42,678 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 4/250)
+2026-01-31 01:16:44,987 - INFO - Received 3 raw articles for 2024-12-24.
+2026-01-31 01:16:44,987 - INFO - Removed duplicates (domain+title): 7 -> 7
+2026-01-31 01:16:44,987 - INFO - Filtered by language: 7 -> 7 articles
+2026-01-31 01:16:44,988 - INFO - Progress after 2024-12-24: Raw=7, Filtered=7/250
+2026-01-31 01:16:44,988 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 7/250)
+2026-01-31 01:17:13,995 - INFO - Received 4 raw articles for 2024-12-23.
+2026-01-31 01:17:13,995 - INFO - Removed duplicates (domain+title): 11 -> 11
+2026-01-31 01:17:13,995 - INFO - Filtered by language: 11 -> 11 articles
+2026-01-31 01:17:13,996 - INFO - Progress after 2024-12-23: Raw=11, Filtered=11/250
+2026-01-31 01:17:15,996 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 11/250)
+2026-01-31 01:17:30,282 - INFO - Received 1 raw articles for 2024-12-22.
+2026-01-31 01:17:30,282 - INFO - Removed duplicates (domain+title): 12 -> 12
+2026-01-31 01:17:30,282 - INFO - Filtered by language: 12 -> 12 articles
+2026-01-31 01:17:30,282 - INFO - Progress after 2024-12-22: Raw=12, Filtered=12/250
+2026-01-31 01:17:30,282 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 12/250)
+2026-01-31 01:17:31,936 - INFO - Received 3 raw articles for 2024-12-21.
+2026-01-31 01:17:31,937 - INFO - Removed duplicates (domain+title): 15 -> 15
+2026-01-31 01:17:31,937 - INFO - Filtered by language: 15 -> 15 articles
+2026-01-31 01:17:31,937 - INFO - Progress after 2024-12-21: Raw=15, Filtered=15/250
+2026-01-31 01:17:31,937 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 15/250)
+2026-01-31 01:17:36,710 - INFO - Received 2 raw articles for 2024-12-20.
+2026-01-31 01:17:36,710 - INFO - Removed duplicates (domain+title): 17 -> 17
+2026-01-31 01:17:36,710 - INFO - Filtered by language: 17 -> 17 articles
+2026-01-31 01:17:36,710 - INFO - Progress after 2024-12-20: Raw=17, Filtered=17/250
+2026-01-31 01:17:38,711 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 17/250)
+2026-01-31 01:17:41,535 - INFO - Received 4 raw articles for 2024-12-19.
+2026-01-31 01:17:41,535 - INFO - Removed duplicates (domain+title): 21 -> 21
+2026-01-31 01:17:41,535 - INFO - Filtered by language: 21 -> 21 articles
+2026-01-31 01:17:41,535 - INFO - Progress after 2024-12-19: Raw=21, Filtered=21/250
+2026-01-31 01:17:41,535 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 21/250)
+2026-01-31 01:17:43,409 - INFO - Received 5 raw articles for 2024-12-18.
+2026-01-31 01:17:43,409 - INFO - Removed duplicates (domain+title): 26 -> 26
+2026-01-31 01:17:43,409 - INFO - Filtered by language: 26 -> 26 articles
+2026-01-31 01:17:43,409 - INFO - Progress after 2024-12-18: Raw=26, Filtered=26/250
+2026-01-31 01:17:43,410 - INFO - Enriching 26 articles with full content...
+2026-01-31 01:17:43,700 - INFO - Fetched content for article 1/26
+2026-01-31 01:17:44,568 - INFO - Fetched content for article 2/26
+2026-01-31 01:17:44,989 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst | https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst
+2026-01-31 01:17:45,964 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/ | https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/
+2026-01-31 01:17:46,808 - INFO - Fetched content for article 6/26
+2026-01-31 01:17:47,291 - INFO - Fetched content for article 7/26
+2026-01-31 01:17:47,766 - INFO - Fetched content for article 8/26
+2026-01-31 01:17:48,260 - INFO - Fetched content for article 9/26
+2026-01-31 01:17:48,524 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/ec6b5b56230a8533 | https://biztoc.com/x/ec6b5b56230a8533
+2026-01-31 01:17:49,296 - INFO - Fetched content for article 11/26
+2026-01-31 01:17:50,531 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/756e3883f247f82e | https://biztoc.com/x/756e3883f247f82e
+2026-01-31 01:17:52,599 - INFO - Fetched content for article 15/26
+2026-01-31 01:17:55,458 - INFO - Fetched content for article 17/26
+2026-01-31 01:17:55,700 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/investor-hub/article/best-growth-stocks/ | https://www.forbes.com/sites/investor-hub/article/best-growth-stocks/
+2026-01-31 01:17:56,612 - INFO - Fetched content for article 19/26
+2026-01-31 01:17:56,841 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254 | https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254
+2026-01-31 01:17:57,693 - INFO - Fetched content for article 21/26
+2026-01-31 01:17:59,904 - INFO - Fetched content for article 23/26
+2026-01-31 01:18:00,287 - INFO - Fetched content for article 24/26
+2026-01-31 01:18:00,544 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/ | https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/
+2026-01-31 01:18:01,758 - INFO - Fetched content for article 26/26
+2026-01-31 01:18:01,761 - INFO - filter_company_related: in=26 kept=12 | dropped(question_no_content)=4 dropped(no_match_no_content)=6 dropped(no_match_in_content)=4
+2026-01-31 01:18:01,762 - INFO - Only 12 articles matched filters within 14 days, but 250 were requested.
+2026-01-31 01:18:01,763 - INFO - Saved 12 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-01-31 01:18:01,764 - INFO - Displayed 12 articles
+2026-01-31 01:19:40,830 - INFO - Backward search window: 18-12-2025 to 31-12-2025 (max 14 days)
+2026-01-31 01:19:41,141 - INFO - Resolved ticker for 'apple' -> AAPL
+2026-01-31 01:19:41,141 - INFO - GDELT query: apple AAPL
+2026-01-31 01:19:41,141 - INFO - Fetching day: 2025-12-31 to 2026-01-01 (current collected: 0/250)
+2026-01-31 01:19:46,958 - INFO - Received 19 raw articles for 2025-12-31.
+2026-01-31 01:19:46,958 - INFO - Removed duplicates (domain+title): 19 -> 19
+2026-01-31 01:19:46,958 - INFO - Filtered by language: 19 -> 19 articles
+2026-01-31 01:19:46,958 - INFO - Progress after 2025-12-31: Raw=19, Filtered=19/250
+2026-01-31 01:19:46,958 - INFO - Fetching day: 2025-12-30 to 2025-12-31 (current collected: 19/250)
+2026-01-31 01:19:48,327 - INFO - Received 12 raw articles for 2025-12-30.
+2026-01-31 01:19:48,328 - INFO - Removed duplicates (domain+title): 31 -> 29
+2026-01-31 01:19:48,328 - INFO - Filtered by language: 29 -> 29 articles
+2026-01-31 01:19:48,328 - INFO - Progress after 2025-12-30: Raw=31, Filtered=29/250
+2026-01-31 01:19:48,328 - INFO - Fetching day: 2025-12-29 to 2025-12-30 (current collected: 29/250)
+2026-01-31 01:19:53,462 - INFO - Received 14 raw articles for 2025-12-29.
+2026-01-31 01:19:53,462 - INFO - Removed duplicates (domain+title): 45 -> 43
+2026-01-31 01:19:53,462 - INFO - Filtered by language: 43 -> 43 articles
+2026-01-31 01:19:53,463 - INFO - Progress after 2025-12-29: Raw=45, Filtered=43/250
+2026-01-31 01:19:55,463 - INFO - Fetching day: 2025-12-28 to 2025-12-29 (current collected: 43/250)
+2026-01-31 01:20:04,827 - INFO - Received 2 raw articles for 2025-12-28.
+2026-01-31 01:20:04,828 - INFO - Removed duplicates (domain+title): 47 -> 45
+2026-01-31 01:20:04,828 - INFO - Filtered by language: 45 -> 45 articles
+2026-01-31 01:20:04,828 - INFO - Progress after 2025-12-28: Raw=47, Filtered=45/250
+2026-01-31 01:20:04,828 - INFO - Fetching day: 2025-12-27 to 2025-12-28 (current collected: 45/250)
+2026-01-31 01:20:10,404 - INFO - Received 7 raw articles for 2025-12-27.
+2026-01-31 01:20:10,404 - INFO - Removed duplicates (domain+title): 54 -> 52
+2026-01-31 01:20:10,404 - INFO - Filtered by language: 52 -> 52 articles
+2026-01-31 01:20:10,404 - INFO - Progress after 2025-12-27: Raw=54, Filtered=52/250
+2026-01-31 01:20:10,405 - INFO - Fetching day: 2025-12-26 to 2025-12-27 (current collected: 52/250)
+2026-01-31 01:20:17,941 - INFO - Received 15 raw articles for 2025-12-26.
+2026-01-31 01:20:17,941 - INFO - Removed duplicates (domain+title): 69 -> 66
+2026-01-31 01:20:17,941 - INFO - Filtered by language: 66 -> 66 articles
+2026-01-31 01:20:17,941 - INFO - Progress after 2025-12-26: Raw=69, Filtered=66/250
+2026-01-31 01:20:19,942 - INFO - Fetching day: 2025-12-25 to 2025-12-26 (current collected: 66/250)
+2026-01-31 01:20:22,566 - INFO - Received 14 raw articles for 2025-12-25.
+2026-01-31 01:20:22,566 - INFO - Removed duplicates (domain+title): 83 -> 78
+2026-01-31 01:20:22,566 - INFO - Filtered by language: 78 -> 78 articles
+2026-01-31 01:20:22,566 - INFO - Progress after 2025-12-25: Raw=83, Filtered=78/250
+2026-01-31 01:20:22,566 - INFO - Fetching day: 2025-12-24 to 2025-12-25 (current collected: 78/250)
+2026-01-31 01:20:25,946 - INFO - Received 19 raw articles for 2025-12-24.
+2026-01-31 01:20:25,947 - INFO - Removed duplicates (domain+title): 102 -> 97
+2026-01-31 01:20:25,947 - INFO - Filtered by language: 97 -> 97 articles
+2026-01-31 01:20:25,947 - INFO - Progress after 2025-12-24: Raw=102, Filtered=97/250
+2026-01-31 01:20:25,947 - INFO - Fetching day: 2025-12-23 to 2025-12-24 (current collected: 97/250)
+2026-01-31 01:20:29,718 - INFO - Received 21 raw articles for 2025-12-23.
+2026-01-31 01:20:29,718 - INFO - Removed duplicates (domain+title): 123 -> 118
+2026-01-31 01:20:29,719 - INFO - Filtered by language: 118 -> 118 articles
+2026-01-31 01:20:29,719 - INFO - Progress after 2025-12-23: Raw=123, Filtered=118/250
+2026-01-31 01:20:31,719 - INFO - Fetching day: 2025-12-22 to 2025-12-23 (current collected: 118/250)
+2026-01-31 01:20:34,090 - INFO - Received 11 raw articles for 2025-12-22.
+2026-01-31 01:20:34,090 - INFO - Removed duplicates (domain+title): 134 -> 128
+2026-01-31 01:20:34,090 - INFO - Filtered by language: 128 -> 128 articles
+2026-01-31 01:20:34,090 - INFO - Progress after 2025-12-22: Raw=134, Filtered=128/250
+2026-01-31 01:20:34,090 - INFO - Fetching day: 2025-12-21 to 2025-12-22 (current collected: 128/250)
+2026-01-31 01:20:36,783 - INFO - Received 17 raw articles for 2025-12-21.
+2026-01-31 01:20:36,783 - INFO - Removed duplicates (domain+title): 151 -> 143
+2026-01-31 01:20:36,783 - INFO - Filtered by language: 143 -> 143 articles
+2026-01-31 01:20:36,784 - INFO - Progress after 2025-12-21: Raw=151, Filtered=143/250
+2026-01-31 01:20:36,784 - INFO - Fetching day: 2025-12-20 to 2025-12-21 (current collected: 143/250)
+2026-01-31 01:20:41,171 - INFO - Received 12 raw articles for 2025-12-20.
+2026-01-31 01:20:41,172 - INFO - Removed duplicates (domain+title): 163 -> 155
+2026-01-31 01:20:41,172 - INFO - Filtered by language: 155 -> 155 articles
+2026-01-31 01:20:41,172 - INFO - Progress after 2025-12-20: Raw=163, Filtered=155/250
+2026-01-31 01:20:43,173 - INFO - Fetching day: 2025-12-19 to 2025-12-20 (current collected: 155/250)
+2026-01-31 01:20:46,148 - INFO - Received 10 raw articles for 2025-12-19.
+2026-01-31 01:20:46,148 - INFO - Removed duplicates (domain+title): 173 -> 165
+2026-01-31 01:20:46,149 - INFO - Filtered by language: 165 -> 165 articles
+2026-01-31 01:20:46,149 - INFO - Progress after 2025-12-19: Raw=173, Filtered=165/250
+2026-01-31 01:20:46,149 - INFO - Fetching day: 2025-12-18 to 2025-12-19 (current collected: 165/250)
+2026-01-31 01:20:49,903 - INFO - Received 15 raw articles for 2025-12-18.
+2026-01-31 01:20:49,903 - INFO - Removed duplicates (domain+title): 188 -> 179
+2026-01-31 01:20:49,903 - INFO - Filtered by language: 179 -> 179 articles
+2026-01-31 01:20:49,903 - INFO - Progress after 2025-12-18: Raw=188, Filtered=179/250
+2026-01-31 01:20:49,904 - INFO - Enriching 179 articles with full content...
+2026-01-31 01:20:50,813 - INFO - Fetched content for article 1/179
+2026-01-31 01:20:51,844 - INFO - Fetched content for article 2/179
+2026-01-31 01:20:53,078 - INFO - Fetched content for article 4/179
+2026-01-31 01:20:54,083 - INFO - Fetched content for article 5/179
+2026-01-31 01:20:55,094 - INFO - Fetched content for article 6/179
+2026-01-31 01:20:56,084 - INFO - Fetched content for article 7/179
+2026-01-31 01:20:57,092 - INFO - Fetched content for article 8/179
+2026-01-31 01:20:58,101 - INFO - Fetched content for article 9/179
+2026-01-31 01:20:59,118 - INFO - Fetched content for article 10/179
+2026-01-31 01:20:59,996 - INFO - Fetched content for article 11/179
+2026-01-31 01:21:00,882 - INFO - Fetched content for article 12/179
+2026-01-31 01:21:01,737 - INFO - Fetched content for article 13/179
+2026-01-31 01:21:02,576 - INFO - Fetched content for article 14/179
+2026-01-31 01:21:03,443 - INFO - Fetched content for article 15/179
+2026-01-31 01:21:04,446 - INFO - Fetched content for article 16/179
+2026-01-31 01:21:05,460 - INFO - Fetched content for article 17/179
+2026-01-31 01:21:06,461 - INFO - Fetched content for article 18/179
+2026-01-31 01:21:07,372 - INFO - Fetched content for article 19/179
+2026-01-31 01:21:08,727 - INFO - Fetched content for article 20/179
+2026-01-31 01:21:09,744 - INFO - Fetched content for article 21/179
+2026-01-31 01:21:10,757 - INFO - Fetched content for article 22/179
+2026-01-31 01:21:12,268 - INFO - Fetched content for article 23/179
+2026-01-31 01:21:12,588 - INFO - Fetched content for article 24/179
+2026-01-31 01:21:12,886 - INFO - Fetched content for article 25/179
+2026-01-31 01:21:13,195 - INFO - Fetched content for article 26/179
+2026-01-31 01:21:14,034 - INFO - Fetched content for article 27/179
+2026-01-31 01:21:15,908 - INFO - Fetched content for article 29/179
+2026-01-31 01:21:16,904 - INFO - Fetched content for article 30/179
+2026-01-31 01:21:17,893 - INFO - Fetched content for article 31/179
+2026-01-31 01:21:18,899 - INFO - Fetched content for article 32/179
+2026-01-31 01:21:19,890 - INFO - Fetched content for article 33/179
+2026-01-31 01:21:20,884 - INFO - Fetched content for article 34/179
+2026-01-31 01:21:21,435 - INFO - Fetched content for article 35/179
+2026-01-31 01:21:23,678 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://seekingalpha.com/article/4856156-wall-street-breakfast-year-in-review | https://seekingalpha.com/article/4856156-wall-street-breakfast-year-in-review
+2026-01-31 01:21:24,662 - INFO - Fetched content for article 39/179
+2026-01-31 01:21:24,925 - INFO - Fetched content for article 40/179
+2026-01-31 01:21:25,225 - INFO - Fetched content for article 41/179
+2026-01-31 01:21:25,999 - INFO - Fetched content for article 42/179
+2026-01-31 01:21:26,813 - INFO - Fetched content for article 43/179
+2026-01-31 01:21:27,326 - INFO - Fetched content for article 45/179
+2026-01-31 01:21:28,173 - INFO - Fetched content for article 46/179
+2026-01-31 01:21:29,035 - INFO - Fetched content for article 47/179
+2026-01-31 01:21:29,900 - INFO - Fetched content for article 48/179
+2026-01-31 01:21:30,735 - INFO - Fetched content for article 49/179
+2026-01-31 01:21:31,059 - INFO - Fetched content for article 50/179
+2026-01-31 01:21:32,055 - INFO - Fetched content for article 51/179
+2026-01-31 01:21:32,905 - INFO - Fetched content for article 52/179
+2026-01-31 01:21:33,533 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.fool.com/coverage/etfs/2025/12/26/spy-vs-splg-two-ways-to-own-the-s-and-p-500/?source=iedfolrf0000001 | https://www.fool.com/coverage/etfs/2025/12/26/spy-vs-splg-two-ways-to-own-the-s-and-p-500/?source=iedfolrf0000001
+2026-01-31 01:21:35,101 - INFO - Fetched content for article 54/179
+2026-01-31 01:21:35,939 - INFO - Fetched content for article 55/179
+2026-01-31 01:21:36,234 - INFO - Fetched content for article 56/179
+2026-01-31 01:21:37,224 - INFO - Fetched content for article 57/179
+2026-01-31 01:21:38,229 - INFO - Fetched content for article 58/179
+2026-01-31 01:21:39,483 - INFO - Fetched content for article 59/179
+2026-01-31 01:21:40,318 - INFO - Fetched content for article 60/179
+2026-01-31 01:21:41,322 - INFO - Fetched content for article 61/179
+2026-01-31 01:21:42,334 - INFO - Fetched content for article 62/179
+2026-01-31 01:21:43,204 - INFO - Fetched content for article 63/179
+2026-01-31 01:21:43,725 - INFO - Fetched content for article 64/179
+2026-01-31 01:21:45,738 - INFO - Fetched content for article 65/179
+2026-01-31 01:21:46,589 - INFO - Fetched content for article 66/179
+2026-01-31 01:21:47,593 - INFO - Fetched content for article 67/179
+2026-01-31 01:21:48,611 - INFO - Fetched content for article 68/179
+2026-01-31 01:21:49,628 - INFO - Fetched content for article 69/179
+2026-01-31 01:21:50,648 - INFO - Fetched content for article 70/179
+2026-01-31 01:21:50,912 - INFO - Fetched content for article 71/179
+2026-01-31 01:21:53,333 - INFO - Fetched content for article 74/179
+2026-01-31 01:21:53,975 - INFO - Fetched content for article 75/179
+2026-01-31 01:21:54,429 - INFO - Fetched content for article 76/179
+2026-01-31 01:21:55,985 - INFO - Fetched content for article 78/179
+2026-01-31 01:21:57,034 - INFO - Fetched content for article 79/179
+2026-01-31 01:21:58,039 - INFO - Fetched content for article 80/179
+2026-01-31 01:21:59,738 - INFO - Fetched content for article 82/179
+2026-01-31 01:22:00,754 - INFO - Fetched content for article 83/179
+2026-01-31 01:22:01,796 - INFO - Fetched content for article 84/179
+2026-01-31 01:22:02,788 - INFO - Fetched content for article 85/179
+2026-01-31 01:22:03,797 - INFO - Fetched content for article 86/179
+2026-01-31 01:22:04,660 - INFO - Fetched content for article 87/179
+2026-01-31 01:22:05,656 - INFO - Fetched content for article 88/179
+2026-01-31 01:22:06,676 - INFO - Fetched content for article 89/179
+2026-01-31 01:22:07,536 - INFO - Fetched content for article 90/179
+2026-01-31 01:22:08,408 - INFO - Fetched content for article 91/179
+2026-01-31 01:22:09,034 - INFO - Fetched content for article 92/179
+2026-01-31 01:22:09,925 - INFO - Fetched content for article 93/179
+2026-01-31 01:22:10,779 - INFO - Fetched content for article 94/179
+2026-01-31 01:22:11,603 - INFO - Fetched content for article 95/179
+2026-01-31 01:22:12,454 - INFO - Fetched content for article 96/179
+2026-01-31 01:22:13,312 - INFO - Fetched content for article 97/179
+2026-01-31 01:22:14,317 - INFO - Fetched content for article 98/179
+2026-01-31 01:22:15,176 - INFO - Fetched content for article 99/179
+2026-01-31 01:22:16,195 - INFO - Fetched content for article 100/179
+2026-01-31 01:22:17,179 - INFO - Fetched content for article 101/179
+2026-01-31 01:22:18,024 - INFO - Fetched content for article 102/179
+2026-01-31 01:22:19,586 - INFO - Fetched content for article 103/179
+2026-01-31 01:22:19,934 - INFO - Fetched content for article 104/179
+2026-01-31 01:22:20,930 - INFO - Fetched content for article 105/179
+2026-01-31 01:22:21,948 - INFO - Fetched content for article 106/179
+2026-01-31 01:22:22,944 - INFO - Fetched content for article 107/179
+2026-01-31 01:22:23,943 - INFO - Fetched content for article 108/179
+2026-01-31 01:22:24,935 - INFO - Fetched content for article 109/179
+2026-01-31 01:22:25,173 - INFO - Fetched content for article 110/179
+2026-01-31 01:22:26,104 - INFO - Fetched content for article 111/179
+2026-01-31 01:22:26,976 - INFO - Fetched content for article 112/179
+2026-01-31 01:22:28,538 - INFO - Fetched content for article 113/179
+2026-01-31 01:22:30,053 - INFO - Fetched content for article 115/179
+2026-01-31 01:22:30,377 - INFO - Fetched content for article 116/179
+2026-01-31 01:22:31,220 - INFO - Fetched content for article 117/179
+2026-01-31 01:22:31,801 - INFO - Fetched content for article 118/179
+2026-01-31 01:22:32,278 - INFO - Fetched content for article 119/179
+2026-01-31 01:22:32,544 - INFO - Fetched content for article 120/179
+2026-01-31 01:22:33,546 - INFO - Fetched content for article 121/179
+2026-01-31 01:22:34,136 - INFO - Fetched content for article 122/179
+2026-01-31 01:22:34,992 - INFO - Fetched content for article 123/179
+2026-01-31 01:22:35,227 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.defenseworld.net/2025/12/22/cypress-point-wealth-management-llc-has-1-36-million-position-in-apple-inc-aapl.html | https://www.defenseworld.net/2025/12/22/cypress-point-wealth-management-llc-has-1-36-million-position-in-apple-inc-aapl.html
+2026-01-31 01:22:37,035 - INFO - Fetched content for article 126/179
+2026-01-31 01:22:39,778 - INFO - Fetched content for article 129/179
+2026-01-31 01:22:41,405 - INFO - Fetched content for article 131/179
+2026-01-31 01:22:43,154 - INFO - Fetched content for article 133/179
+2026-01-31 01:22:43,970 - INFO - Fetched content for article 134/179
+2026-01-31 01:22:44,799 - INFO - Fetched content for article 135/179
+2026-01-31 01:22:46,483 - INFO - Fetched content for article 137/179
+2026-01-31 01:22:48,281 - INFO - Fetched content for article 139/179
+2026-01-31 01:22:49,123 - INFO - Fetched content for article 140/179
+2026-01-31 01:22:51,347 - INFO - Fetched content for article 143/179
+2026-01-31 01:22:52,512 - INFO - Fetched content for article 145/179
+2026-01-31 01:22:56,367 - INFO - Fetched content for article 150/179
+2026-01-31 01:22:56,638 - INFO - Fetched content for article 151/179
+2026-01-31 01:22:57,927 - INFO - Fetched content for article 152/179
+2026-01-31 01:22:58,787 - INFO - Fetched content for article 153/179
+2026-01-31 01:22:59,688 - INFO - Fetched content for article 154/179
+2026-01-31 01:22:59,973 - INFO - Fetched content for article 155/179
+2026-01-31 01:23:00,845 - INFO - Fetched content for article 156/179
+2026-01-31 01:23:01,867 - INFO - Fetched content for article 157/179
+2026-01-31 01:23:02,857 - INFO - Fetched content for article 158/179
+2026-01-31 01:23:03,857 - INFO - Fetched content for article 159/179
+2026-01-31 01:23:04,849 - INFO - Fetched content for article 160/179
+2026-01-31 01:23:05,856 - INFO - Fetched content for article 161/179
+2026-01-31 01:23:06,692 - INFO - Fetched content for article 162/179
+2026-01-31 01:23:08,221 - INFO - Fetched content for article 164/179
+2026-01-31 01:23:09,539 - INFO - Fetched content for article 165/179
+2026-01-31 01:23:09,809 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/2570584aed3da8d9 | https://biztoc.com/x/2570584aed3da8d9
+2026-01-31 01:23:10,806 - INFO - Fetched content for article 167/179
+2026-01-31 01:23:11,832 - INFO - Fetched content for article 168/179
+2026-01-31 01:23:12,703 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.defenseworld.net/2025/12/18/hcr-wealth-advisors-boosts-position-in-apple-inc-aapl.html | https://www.defenseworld.net/2025/12/18/hcr-wealth-advisors-boosts-position-in-apple-inc-aapl.html
+2026-01-31 01:23:13,585 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.defenseworld.net/2025/12/18/apple-inc-aapl-stock-position-reduced-by-bank-of-new-hampshire.html | https://www.defenseworld.net/2025/12/18/apple-inc-aapl-stock-position-reduced-by-bank-of-new-hampshire.html
+2026-01-31 01:23:14,608 - INFO - Fetched content for article 171/179
+2026-01-31 01:23:15,432 - INFO - Fetched content for article 172/179
+2026-01-31 01:23:16,330 - INFO - Fetched content for article 173/179
+2026-01-31 01:23:16,597 - INFO - Fetched content for article 174/179
+2026-01-31 01:23:18,277 - INFO - Fetched content for article 175/179
+2026-01-31 01:23:18,543 - INFO - Fetched content for article 176/179
+2026-01-31 01:23:19,394 - INFO - Fetched content for article 177/179
+2026-01-31 01:23:20,857 - INFO - Fetched content for article 178/179
+2026-01-31 01:23:21,796 - INFO - Fetched content for article 179/179
+2026-01-31 01:23:21,827 - INFO - filter_company_related: in=179 kept=113 | dropped(question_no_content)=3 dropped(no_match_no_content)=20 dropped(no_match_in_content)=43
+2026-01-31 01:23:21,843 - INFO - Only 113 articles matched filters within 14 days, but 250 were requested.
+2026-01-31 01:23:21,846 - INFO - Saved 113 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-01-31 01:23:21,854 - INFO - Displayed 113 articles
+2026-01-31 01:35:27,388 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-01-31 01:35:27,660 - WARNING - No ticker found for 'Riot Games'
+2026-01-31 01:35:27,661 - INFO - Using raw company name (no ticker found) → Riot Games
+2026-01-31 01:35:27,661 - INFO - GDELT query: Riot Games
+2026-01-31 01:35:27,661 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-01-31 01:35:33,985 - INFO - No articles returned for 2024-12-31 - 2025-01-01.
+2026-01-31 01:35:33,985 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 0/250)
+2026-01-31 01:35:34,631 - ERROR - Error during GDELT request: 
+2026-01-31 01:35:34,632 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 0/250)
+2026-01-31 01:35:36,117 - INFO - No articles returned for 2024-12-29 - 2024-12-30.
+2026-01-31 01:35:38,117 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 0/250)
+2026-01-31 01:36:17,078 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-01-31 01:36:17,377 - INFO - Resolved ticker for 'ondas' -> ONDS
+2026-01-31 01:36:17,377 - INFO - GDELT query: ondas ONDS
+2026-01-31 01:36:17,377 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-01-31 01:36:22,315 - INFO - No articles returned for 2024-12-31 - 2025-01-01.
+2026-01-31 01:36:22,315 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 0/250)
+2026-01-31 01:36:47,857 - INFO - Received 1 raw articles for 2024-12-30.
+2026-01-31 01:36:47,857 - INFO - Removed duplicates (domain+title): 1 -> 1
+2026-01-31 01:36:47,858 - INFO - Filtered by language: 1 -> 1 articles
+2026-01-31 01:36:47,858 - INFO - Progress after 2024-12-30: Raw=1, Filtered=1/250
+2026-01-31 01:36:47,858 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 1/250)
+2026-01-31 01:37:07,541 - INFO - No articles returned for 2024-12-29 - 2024-12-30.
+2026-01-31 01:37:09,541 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 1/250)
+2026-01-31 01:37:22,593 - INFO - No articles returned for 2024-12-28 - 2024-12-29.
+2026-01-31 01:37:22,594 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 1/250)
+2026-01-31 01:37:26,827 - INFO - No articles returned for 2024-12-27 - 2024-12-28.
+2026-01-31 01:37:26,827 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 1/250)
+2026-01-31 01:37:37,675 - INFO - No articles returned for 2024-12-26 - 2024-12-27.
+2026-01-31 01:37:39,676 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 1/250)
+2026-01-31 01:37:49,344 - INFO - No articles returned for 2024-12-25 - 2024-12-26.
+2026-01-31 01:37:49,344 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 1/250)
+2026-01-31 01:38:08,978 - INFO - Received 1 raw articles for 2024-12-24.
+2026-01-31 01:38:08,979 - INFO - Removed duplicates (domain+title): 2 -> 2
+2026-01-31 01:38:08,979 - INFO - Filtered by language: 2 -> 2 articles
+2026-01-31 01:38:08,979 - INFO - Progress after 2024-12-24: Raw=2, Filtered=2/250
+2026-01-31 01:38:08,979 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 2/250)
+2026-01-31 01:38:29,941 - ERROR - Error during GDELT request: Max recursion depth is reached.
+2026-01-31 01:38:31,943 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 2/250)
+2026-01-31 01:38:54,163 - INFO - No articles returned for 2024-12-22 - 2024-12-23.
+2026-01-31 01:38:54,164 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 2/250)
+2026-01-31 01:39:03,503 - INFO - No articles returned for 2024-12-21 - 2024-12-22.
+2026-01-31 01:39:03,504 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 2/250)
+2026-01-31 01:39:36,770 - ERROR - Error during GDELT request: Max recursion depth is reached.
+2026-01-31 01:39:38,772 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 2/250)
+2026-01-31 01:39:40,515 - INFO - No articles returned for 2024-12-19 - 2024-12-20.
+2026-01-31 01:39:40,515 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 2/250)
+2026-01-31 01:39:47,613 - INFO - No articles returned for 2024-12-18 - 2024-12-19.
+2026-01-31 01:39:47,613 - INFO - Enriching 2 articles with full content...
+2026-01-31 01:39:48,366 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.tickerreport.com/banking-finance/12768600/northland-securities-issues-positive-forecast-for-ondas-nasdaqonds-stock-price.html | https://www.tickerreport.com/banking-finance/12768600/northland-securities-issues-positive-forecast-for-ondas-nasdaqonds-stock-price.html
+2026-01-31 01:39:48,844 - WARNING - HTTP error while fetching article content: 526 Server Error: <none> for url: https://www.modernreaders.com/news/2024/12/24/ondas-target-of-unusually-high-options-trading-nasdaqonds.html | https://www.modernreaders.com/news/2024/12/24/ondas-target-of-unusually-high-options-trading-nasdaqonds.html
+2026-01-31 01:39:48,845 - INFO - filter_company_related: in=2 kept=2 | dropped(question_no_content)=0 dropped(no_match_no_content)=0 dropped(no_match_in_content)=0
+2026-01-31 01:39:48,845 - INFO - Only 2 articles matched filters within 14 days, but 250 were requested.
+2026-01-31 01:39:48,846 - INFO - Saved 2 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-01-31 01:39:48,847 - INFO - Displayed 2 articles
+2026-01-31 01:41:46,112 - INFO - Backward search window: 18-12-2019 to 31-12-2019 (max 14 days)
+2026-01-31 01:41:46,414 - INFO - Resolved ticker for 'ondas' -> ONDS
+2026-01-31 01:41:46,414 - INFO - GDELT query: ondas ONDS
+2026-01-31 01:41:46,414 - INFO - Fetching day: 2019-12-31 to 2020-01-01 (current collected: 0/250)
+2026-01-31 01:41:51,156 - INFO - No articles returned for 2019-12-31 - 2020-01-01.
+2026-01-31 01:41:51,156 - INFO - Fetching day: 2019-12-30 to 2019-12-31 (current collected: 0/250)
+2026-01-31 01:42:04,407 - INFO - No articles returned for 2019-12-30 - 2019-12-31.
+2026-01-31 01:42:04,407 - INFO - Fetching day: 2019-12-29 to 2019-12-30 (current collected: 0/250)
+2026-01-31 01:42:04,975 - ERROR - Error during GDELT request: 
+2026-01-31 01:42:06,976 - INFO - Fetching day: 2019-12-28 to 2019-12-29 (current collected: 0/250)
+2026-01-31 01:42:10,250 - INFO - No articles returned for 2019-12-28 - 2019-12-29.
+2026-01-31 01:42:10,250 - INFO - Fetching day: 2019-12-27 to 2019-12-28 (current collected: 0/250)
+2026-01-31 01:42:16,174 - INFO - No articles returned for 2019-12-27 - 2019-12-28.
+2026-01-31 01:42:16,174 - INFO - Fetching day: 2019-12-26 to 2019-12-27 (current collected: 0/250)
+2026-01-31 01:42:18,701 - INFO - No articles returned for 2019-12-26 - 2019-12-27.
+2026-01-31 01:42:20,702 - INFO - Fetching day: 2019-12-25 to 2019-12-26 (current collected: 0/250)
+2026-01-31 01:42:25,955 - INFO - No articles returned for 2019-12-25 - 2019-12-26.
+2026-01-31 01:42:25,955 - INFO - Fetching day: 2019-12-24 to 2019-12-25 (current collected: 0/250)
+2026-01-31 01:42:28,013 - INFO - No articles returned for 2019-12-24 - 2019-12-25.
+2026-01-31 01:42:28,013 - INFO - Fetching day: 2019-12-23 to 2019-12-24 (current collected: 0/250)
+2026-01-31 01:42:30,986 - INFO - No articles returned for 2019-12-23 - 2019-12-24.
+2026-01-31 01:42:32,986 - INFO - Fetching day: 2019-12-22 to 2019-12-23 (current collected: 0/250)
+2026-01-31 01:42:35,267 - INFO - No articles returned for 2019-12-22 - 2019-12-23.
+2026-01-31 01:42:35,267 - INFO - Fetching day: 2019-12-21 to 2019-12-22 (current collected: 0/250)
+2026-01-31 01:42:40,040 - INFO - No articles returned for 2019-12-21 - 2019-12-22.
+2026-01-31 01:42:40,041 - INFO - Fetching day: 2019-12-20 to 2019-12-21 (current collected: 0/250)
+2026-01-31 01:42:57,760 - INFO - No articles returned for 2019-12-20 - 2019-12-21.
+2026-01-31 01:42:59,760 - INFO - Fetching day: 2019-12-19 to 2019-12-20 (current collected: 0/250)
+2026-01-31 01:43:04,198 - INFO - No articles returned for 2019-12-19 - 2019-12-20.
+2026-01-31 01:43:04,198 - INFO - Fetching day: 2019-12-18 to 2019-12-19 (current collected: 0/250)
+2026-01-31 01:43:06,828 - INFO - No articles returned for 2019-12-18 - 2019-12-19.
+2026-01-31 01:43:06,829 - INFO - Enriching 0 articles with full content...
+2026-01-31 01:43:06,829 - INFO - filter_company_related: in=0 kept=0 | dropped(question_no_content)=0 dropped(no_match_no_content)=0 dropped(no_match_in_content)=0
+2026-01-31 01:43:06,829 - INFO - Only 0 articles matched filters within 14 days, but 250 were requested.
+2026-01-31 01:43:06,829 - WARNING - No articles to display
+2026-01-31 15:57:58,370 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-01-31 15:58:03,600 - ERROR - Unexpected error resolving ticker: HTTPSConnectionPool(host='query2.finance.yahoo.com', port=443): Read timed out. (read timeout=5)
+2026-01-31 15:58:03,600 - INFO - Using raw company name (no ticker found) → eli lilly
+2026-01-31 15:58:03,601 - INFO - GDELT query: eli lilly
+2026-01-31 15:58:03,601 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-01-31 15:58:06,517 - INFO - Received 21 raw articles for 2024-12-31.
+2026-01-31 15:58:06,517 - INFO - Removed duplicates (domain+title): 21 -> 20
+2026-01-31 15:58:06,517 - INFO - Filtered by language: 20 -> 20 articles
+2026-01-31 15:58:06,517 - INFO - Progress after 2024-12-31: Raw=21, Filtered=20/250
+2026-01-31 15:58:06,518 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 20/250)
+2026-01-31 15:58:12,195 - INFO - Received 4 raw articles for 2024-12-30.
+2026-01-31 15:58:12,195 - INFO - Removed duplicates (domain+title): 25 -> 24
+2026-01-31 15:58:12,195 - INFO - Filtered by language: 24 -> 24 articles
+2026-01-31 15:58:12,195 - INFO - Progress after 2024-12-30: Raw=25, Filtered=24/250
+2026-01-31 15:58:12,195 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 24/250)
+2026-01-31 15:58:18,325 - INFO - Received 3 raw articles for 2024-12-29.
+2026-01-31 15:58:18,325 - INFO - Removed duplicates (domain+title): 28 -> 27
+2026-01-31 15:58:18,325 - INFO - Filtered by language: 27 -> 27 articles
+2026-01-31 15:58:18,325 - INFO - Progress after 2024-12-29: Raw=28, Filtered=27/250
+2026-01-31 15:58:20,326 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 27/250)
+2026-01-31 15:58:25,769 - INFO - Received 6 raw articles for 2024-12-28.
+2026-01-31 15:58:25,769 - INFO - Removed duplicates (domain+title): 34 -> 33
+2026-01-31 15:58:25,769 - INFO - Filtered by language: 33 -> 33 articles
+2026-01-31 15:58:25,769 - INFO - Progress after 2024-12-28: Raw=34, Filtered=33/250
+2026-01-31 15:58:25,770 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 33/250)
+2026-01-31 15:58:27,225 - INFO - Received 6 raw articles for 2024-12-27.
+2026-01-31 15:58:27,225 - INFO - Removed duplicates (domain+title): 40 -> 38
+2026-01-31 15:58:27,225 - INFO - Filtered by language: 38 -> 38 articles
+2026-01-31 15:58:27,226 - INFO - Progress after 2024-12-27: Raw=40, Filtered=38/250
+2026-01-31 15:58:27,226 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 38/250)
+2026-01-31 15:58:29,580 - INFO - Received 10 raw articles for 2024-12-26.
+2026-01-31 15:58:29,580 - INFO - Removed duplicates (domain+title): 50 -> 48
+2026-01-31 15:58:29,580 - INFO - Filtered by language: 48 -> 48 articles
+2026-01-31 15:58:29,580 - INFO - Progress after 2024-12-26: Raw=50, Filtered=48/250
+2026-01-31 15:58:31,580 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 48/250)
+2026-01-31 15:58:39,904 - INFO - Received 4 raw articles for 2024-12-25.
+2026-01-31 15:58:39,905 - INFO - Removed duplicates (domain+title): 54 -> 52
+2026-01-31 15:58:39,905 - INFO - Filtered by language: 52 -> 52 articles
+2026-01-31 15:58:39,905 - INFO - Progress after 2024-12-25: Raw=54, Filtered=52/250
+2026-01-31 15:58:39,905 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 52/250)
+2026-01-31 15:58:43,267 - INFO - Received 20 raw articles for 2024-12-24.
+2026-01-31 15:58:43,271 - INFO - Removed duplicates (domain+title): 74 -> 72
+2026-01-31 15:58:43,272 - INFO - Filtered by language: 72 -> 72 articles
+2026-01-31 15:58:43,272 - INFO - Progress after 2024-12-24: Raw=74, Filtered=72/250
+2026-01-31 15:58:43,273 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 72/250)
+2026-01-31 15:58:45,821 - INFO - Received 53 raw articles for 2024-12-23.
+2026-01-31 15:58:45,821 - INFO - Removed duplicates (domain+title): 127 -> 122
+2026-01-31 15:58:45,821 - INFO - Filtered by language: 122 -> 122 articles
+2026-01-31 15:58:45,821 - INFO - Progress after 2024-12-23: Raw=127, Filtered=122/250
+2026-01-31 15:58:47,821 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 122/250)
+2026-01-31 15:58:56,079 - INFO - Received 2 raw articles for 2024-12-22.
+2026-01-31 15:58:56,080 - INFO - Removed duplicates (domain+title): 129 -> 124
+2026-01-31 15:58:56,080 - INFO - Filtered by language: 124 -> 124 articles
+2026-01-31 15:58:56,080 - INFO - Progress after 2024-12-22: Raw=129, Filtered=124/250
+2026-01-31 15:58:56,080 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 124/250)
+2026-01-31 15:58:58,449 - INFO - Received 13 raw articles for 2024-12-21.
+2026-01-31 15:58:58,449 - INFO - Removed duplicates (domain+title): 142 -> 137
+2026-01-31 15:58:58,449 - INFO - Filtered by language: 137 -> 137 articles
+2026-01-31 15:58:58,449 - INFO - Progress after 2024-12-21: Raw=142, Filtered=137/250
+2026-01-31 15:58:58,449 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 137/250)
+2026-01-31 15:59:02,962 - INFO - Received 37 raw articles for 2024-12-20.
+2026-01-31 15:59:02,963 - INFO - Removed duplicates (domain+title): 179 -> 170
+2026-01-31 15:59:02,963 - INFO - Filtered by language: 170 -> 170 articles
+2026-01-31 15:59:02,963 - INFO - Progress after 2024-12-20: Raw=179, Filtered=170/250
+2026-01-31 15:59:04,963 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 170/250)
+2026-01-31 15:59:08,331 - INFO - Received 15 raw articles for 2024-12-19.
+2026-01-31 15:59:08,331 - INFO - Removed duplicates (domain+title): 194 -> 185
+2026-01-31 15:59:08,331 - INFO - Filtered by language: 185 -> 185 articles
+2026-01-31 15:59:08,331 - INFO - Progress after 2024-12-19: Raw=194, Filtered=185/250
+2026-01-31 15:59:08,331 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 185/250)
+2026-01-31 15:59:10,352 - INFO - Received 17 raw articles for 2024-12-18.
+2026-01-31 15:59:10,352 - INFO - Removed duplicates (domain+title): 211 -> 201
+2026-01-31 15:59:10,352 - INFO - Filtered by language: 201 -> 201 articles
+2026-01-31 15:59:10,352 - INFO - Progress after 2024-12-18: Raw=211, Filtered=201/250
+2026-01-31 15:59:10,354 - INFO - Enriching 201 articles with full content...
+2026-01-31 15:59:10,624 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.tmcnet.com/usubmit/2024/12/31/10125278.htm | https://www.tmcnet.com/usubmit/2024/12/31/10125278.htm
+2026-01-31 15:59:10,890 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://invezz.com/news/2024/12/31/weight-loss-drug-investments-why-2025-could-be-a-game-changer/ | https://invezz.com/news/2024/12/31/weight-loss-drug-investments-why-2025-could-be-a-game-changer/
+2026-01-31 15:59:11,182 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/forecasts/2024/12/31/novo-nordisk-a-s-nvo-price-prediction-and-forecast-2025-2030/ | https://247wallst.com/forecasts/2024/12/31/novo-nordisk-a-s-nvo-price-prediction-and-forecast-2025-2030/
+2026-01-31 15:59:12,069 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.themarketsdaily.com/2024/12/31/amazon-com-nasdaqamzn-shares-acquired-rep-marjorie-taylor-greene.html | https://www.themarketsdaily.com/2024/12/31/amazon-com-nasdaqamzn-shares-acquired-rep-marjorie-taylor-greene.html
+2026-01-31 15:59:20,947 - INFO - Fetched content for article 5/201
+2026-01-31 15:59:21,424 - WARNING - HTTP error while fetching article content: 526 Server Error: <none> for url: https://www.modernreaders.com/news/2024/12/31/rep-marjorie-taylor-greene-buys-microsoft-co-nasdaqmsft-shares.html | https://www.modernreaders.com/news/2024/12/31/rep-marjorie-taylor-greene-buys-microsoft-co-nasdaqmsft-shares.html
+2026-01-31 15:59:22,638 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://moneylife.in/article/nifty-sensex-reverse-sharp-morning-selloff/75996.html | https://moneylife.in/article/nifty-sensex-reverse-sharp-morning-selloff/75996.html
+2026-01-31 15:59:23,098 - WARNING - HTTP error while fetching article content: 526 Server Error: <none> for url: https://theenterpriseleader.com/2024/12/31/rep-marjorie-taylor-greene-purchases-shares-of-eli-lilly-and-company-nyselly.html | https://theenterpriseleader.com/2024/12/31/rep-marjorie-taylor-greene-purchases-shares-of-eli-lilly-and-company-nyselly.html
+2026-01-31 15:59:23,587 - WARNING - HTTP error while fetching article content: 526 Server Error: <none> for url: https://www.wkrb13.com/2024/12/31/gilead-sciences-nasdaqgild-stock-purchased-rep-marjorie-taylor-greene.html | https://www.wkrb13.com/2024/12/31/gilead-sciences-nasdaqgild-stock-purchased-rep-marjorie-taylor-greene.html
+2026-01-31 15:59:24,447 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.themarketsdaily.com/2024/12/31/norfolk-southern-nysensc-stock-acquired-rep-marjorie-taylor-greene.html | https://www.themarketsdaily.com/2024/12/31/norfolk-southern-nysensc-stock-acquired-rep-marjorie-taylor-greene.html
+2026-01-31 15:59:25,945 - INFO - Fetched content for article 12/201
+2026-01-31 15:59:27,591 - INFO - Fetched content for article 13/201
+2026-01-31 15:59:27,863 - INFO - Fetched content for article 14/201
+2026-01-31 15:59:28,442 - INFO - Fetched content for article 15/201
+2026-01-31 15:59:28,993 - INFO - Fetched content for article 16/201
+2026-01-31 15:59:29,571 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.journalgazette.net/local/indiana/state-government/medicaid-prior-authorization-to-be-major-topics-in-2025-indiana-session/article_32c20ec2-c6e1-11ef-a5c8-67c77effdbd1.html | https://www.journalgazette.net/local/indiana/state-government/medicaid-prior-authorization-to-be-major-topics-in-2025-indiana-session/article_32c20ec2-c6e1-11ef-a5c8-67c77effdbd1.html
+2026-01-31 15:59:29,841 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.financialexpress.com/market/stocks-to-watch-adani-enterprises-bata-india-hindalco-spicejet-lupin-dbs-bank-reliance-industries-3703896/ | https://www.financialexpress.com/market/stocks-to-watch-adani-enterprises-bata-india-hindalco-spicejet-lupin-dbs-bank-reliance-industries-3703896/
+2026-01-31 15:59:33,226 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://geneticliteracyproject.org/2023/07/14/web-of-disinformation-how-environmentalists-conspire-with-tort-lawyers-rfk-jr-and-the-church-of-scientology-to-deceive-the-public-manipulate-the-media-and-fill-there-coffers/ | https://geneticliteracyproject.org/2023/07/14/web-of-disinformation-how-environmentalists-conspire-with-tort-lawyers-rfk-jr-and-the-church-of-scientology-to-deceive-the-public-manipulate-the-media-and-fill-there-coffers/
+2026-01-31 15:59:34,443 - INFO - Fetched content for article 21/201
+2026-01-31 15:59:34,981 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.wlfi.com/news/medicaid-prior-authorization-to-be-major-topics-in-2025-session/article_7cb7e75f-137e-5e9f-9cbc-c81b7ad61322.html | https://www.wlfi.com/news/medicaid-prior-authorization-to-be-major-topics-in-2025-session/article_7cb7e75f-137e-5e9f-9cbc-c81b7ad61322.html
+2026-01-31 15:59:35,876 - INFO - Fetched content for article 23/201
+2026-01-31 15:59:37,214 - INFO - Fetched content for article 24/201
+2026-01-31 15:59:38,282 - INFO - Fetched content for article 26/201
+2026-01-31 15:59:39,148 - INFO - Fetched content for article 27/201
+2026-01-31 15:59:40,104 - INFO - Fetched content for article 28/201
+2026-01-31 15:59:40,562 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst | https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst
+2026-01-31 15:59:41,529 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/0ce26364c9c46ce0 | https://biztoc.com/x/0ce26364c9c46ce0
+2026-01-31 15:59:43,217 - INFO - Fetched content for article 32/201
+2026-01-31 15:59:44,101 - INFO - Fetched content for article 33/201
+2026-01-31 15:59:44,488 - INFO - Fetched content for article 34/201
+2026-01-31 15:59:44,936 - WARNING - HTTP error while fetching article content: 526 Server Error: <none> for url: https://www.modernreaders.com/news/2024/12/27/eli-lilly-and-company-nyselly-shares-down-0-8-heres-what-happened.html | https://www.modernreaders.com/news/2024/12/27/eli-lilly-and-company-nyselly-shares-down-0-8-heres-what-happened.html
+2026-01-31 15:59:46,686 - INFO - Fetched content for article 36/201
+2026-01-31 15:59:50,402 - INFO - Fetched content for article 39/201
+2026-01-31 15:59:57,669 - INFO - Fetched content for article 41/201
+2026-01-31 15:59:57,916 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.shanghaisun.com/news/274886519/economic-watch-exhibitions-serve-as-gateway-for-foreign-investment-to-chinas-vast-market | https://www.shanghaisun.com/news/274886519/economic-watch-exhibitions-serve-as-gateway-for-foreign-investment-to-chinas-vast-market
+2026-01-31 15:59:58,150 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.shanghaisun.com/news/274886540/exhibitions-serve-as-gateway-for-foreign-investment-to-chinas-vast-market | https://www.shanghaisun.com/news/274886540/exhibitions-serve-as-gateway-for-foreign-investment-to-chinas-vast-market
+2026-01-31 15:59:59,459 - WARNING - HTTP error while fetching article content: 526 Server Error: <none> for url: https://theenterpriseleader.com/2024/12/26/contrasting-betterlife-pharma-otcmktsbetrf-proqr-therapeutics-nasdaqprqr.html | https://theenterpriseleader.com/2024/12/26/contrasting-betterlife-pharma-otcmktsbetrf-proqr-therapeutics-nasdaqprqr.html
+2026-01-31 15:59:59,722 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.bignewsnetwork.com/news/274886540/exhibitions-serve-as-gateway-for-foreign-investment-to-chinas-vast-market | https://www.bignewsnetwork.com/news/274886540/exhibitions-serve-as-gateway-for-foreign-investment-to-chinas-vast-market
+2026-01-31 16:00:01,269 - INFO - Fetched content for article 47/201
+2026-01-31 16:00:02,244 - INFO - Fetched content for article 48/201
+2026-01-31 16:00:02,788 - INFO - Fetched content for article 49/201
+2026-01-31 16:00:03,165 - INFO - Fetched content for article 50/201
+2026-01-31 16:00:03,915 - INFO - Fetched content for article 51/201
+2026-01-31 16:00:04,503 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.mankatofreepress.com/news/business/ap-business-summarybrief-at-6-41-p-m-est/article_5e7a4863-2d2d-5245-a592-25d2a14ca7db.html | https://www.mankatofreepress.com/news/business/ap-business-summarybrief-at-6-41-p-m-est/article_5e7a4863-2d2d-5245-a592-25d2a14ca7db.html
+2026-01-31 16:00:05,318 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/ | https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/
+2026-01-31 16:00:06,193 - INFO - Fetched content for article 55/201
+2026-01-31 16:00:08,575 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.heraldbulletin.com/news/holcomb-discusses-tumultuous-8-years-as-governor/article_09f6a69d-a4af-540b-82b7-99d957d7e9e4.html | https://www.heraldbulletin.com/news/holcomb-discusses-tumultuous-8-years-as-governor/article_09f6a69d-a4af-540b-82b7-99d957d7e9e4.html
+2026-01-31 16:00:10,744 - INFO - Fetched content for article 57/201
+2026-01-31 16:00:12,341 - INFO - Fetched content for article 58/201
+2026-01-31 16:00:12,863 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/greatspeculations/2024/12/24/will-novo-nordisk-nvo-stock-recover-to-145-levels/ | https://www.forbes.com/sites/greatspeculations/2024/12/24/will-novo-nordisk-nvo-stock-recover-to-145-levels/
+2026-01-31 16:00:13,450 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.bozemandailychronicle.com/ap_news/business/ap-business-summarybrief-at-10-02-p-m-est/article_66e13a07-bdd7-5417-a3ac-b46e9e8ed323.html | https://www.bozemandailychronicle.com/ap_news/business/ap-business-summarybrief-at-10-02-p-m-est/article_66e13a07-bdd7-5417-a3ac-b46e9e8ed323.html
+2026-01-31 16:00:15,442 - INFO - Fetched content for article 63/201
+2026-01-31 16:00:17,041 - INFO - Fetched content for article 65/201
+2026-01-31 16:00:17,604 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.mankatofreepress.com/news/business/stock-market-today-wall-street-rises-at-the-start-of-a-holiday-shortened-week/article_3a9b85ce-cafb-5cdd-870e-695eaeb6d77c.html | https://www.mankatofreepress.com/news/business/stock-market-today-wall-street-rises-at-the-start-of-a-holiday-shortened-week/article_3a9b85ce-cafb-5cdd-870e-695eaeb6d77c.html
+2026-01-31 16:00:18,549 - INFO - Fetched content for article 67/201
+2026-01-31 16:00:18,779 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.investing.com/news/stock-market-news/stock-market-today-sp-500-starts-week-on-front-foot-as-tech-rides-chips-higher-3786119 | https://www.investing.com/news/stock-market-news/stock-market-today-sp-500-starts-week-on-front-foot-as-tech-rides-chips-higher-3786119
+2026-01-31 16:00:19,986 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.dailyitem.com/wire/stock-market-today-wall-street-rises-at-the-start-of-a-holiday-shortened-week/article_7d49f1f2-2a70-57ed-b769-7258693f0887.html | https://www.dailyitem.com/wire/stock-market-today-wall-street-rises-at-the-start-of-a-holiday-shortened-week/article_7d49f1f2-2a70-57ed-b769-7258693f0887.html
+2026-01-31 16:00:20,909 - INFO - Fetched content for article 71/201
+2026-01-31 16:00:22,005 - INFO - Fetched content for article 72/201
+2026-01-31 16:00:22,549 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.rmoutlook.com/jasper-fitzhugh | https://www.fitzhugh.ca/national-business/stock-market-today-wall-street-rises-at-the-start-of-a-holiday-shortened-week-9995197
+2026-01-31 16:00:24,614 - INFO - Fetched content for article 76/201
+2026-01-31 16:00:25,352 - INFO - Fetched content for article 77/201
+2026-01-31 16:00:25,626 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.airdriecityview.com/national-business/stock-market-today-wall-street-rises-at-the-start-of-a-holiday-shortened-week-9995197 | https://www.airdriecityview.com/national-business/stock-market-today-wall-street-rises-at-the-start-of-a-holiday-shortened-week-9995197
+2026-01-31 16:00:26,192 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.bdtonline.com/news/nation_world/stock-market-today-wall-street-rises-at-the-start-of-a-holiday-shortened-week/article_8656e48c-b6fc-5dfe-b96d-f4994671f750.html | https://www.bdtonline.com/news/nation_world/stock-market-today-wall-street-rises-at-the-start-of-a-holiday-shortened-week/article_8656e48c-b6fc-5dfe-b96d-f4994671f750.html
+2026-01-31 16:00:27,344 - INFO - Fetched content for article 80/201
+2026-01-31 16:00:28,798 - INFO - Fetched content for article 81/201
+2026-01-31 16:00:29,344 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.bdtonline.com/news/nation_world/ap-business-summarybrief-at-4-40-p-m-est/article_d355d063-2907-5962-be56-7a082a7f46f3.html | https://www.bdtonline.com/news/nation_world/ap-business-summarybrief-at-4-40-p-m-est/article_d355d063-2907-5962-be56-7a082a7f46f3.html
+2026-01-31 16:00:30,432 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.yakimaherald.com/news/nation_and_world/business/stock-market-today-wall-street-rises-at-the-start-of-a-holiday-shortened-week/article_9793221f-0ed8-5547-bbb2-bd10397b5267.html | https://www.yakimaherald.com/news/nation_and_world/business/stock-market-today-wall-street-rises-at-the-start-of-a-holiday-shortened-week/article_9793221f-0ed8-5547-bbb2-bd10397b5267.html
+2026-01-31 16:00:31,444 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.yakimaherald.com/news/nation_and_world/business/how-major-us-stock-indexes-fared-monday-12-23-2024/article_2e3ff698-78b9-50d9-8810-c4f62ab1ddc9.html | https://www.yakimaherald.com/news/nation_and_world/business/how-major-us-stock-indexes-fared-monday-12-23-2024/article_2e3ff698-78b9-50d9-8810-c4f62ab1ddc9.html
+2026-01-31 16:00:32,220 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.aspendailynews.com/associated_press/stock-market-today-wall-street-rises-at-the-start-of-a-holiday-shortened-week/article_cc8c27ea-dd52-5405-9b68-74b9430736d5.html | https://www.aspendailynews.com/associated_press/stock-market-today-wall-street-rises-at-the-start-of-a-holiday-shortened-week/article_cc8c27ea-dd52-5405-9b68-74b9430736d5.html
+2026-01-31 16:00:33,000 - INFO - Fetched content for article 86/201
+2026-01-31 16:00:33,793 - INFO - Fetched content for article 87/201
+2026-01-31 16:00:34,455 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.caledonianrecord.com/news/national/stock-market-today-wall-street-rises-at-the-start-of-a-holiday-shortened-week/article_5571c01b-98cd-5aa6-9ced-71ccf87a2791.html | https://www.caledonianrecord.com/news/national/stock-market-today-wall-street-rises-at-the-start-of-a-holiday-shortened-week/article_5571c01b-98cd-5aa6-9ced-71ccf87a2791.html
+2026-01-31 16:00:34,798 - INFO - Fetched content for article 89/201
+2026-01-31 16:00:35,408 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.starbeacon.com/region/stock-market-today-wall-street-rises-at-the-start-of-a-holiday-shortened-week/article_c8b49199-6d13-5aad-ab79-e4a166742d7f.html | https://www.starbeacon.com/region/stock-market-today-wall-street-rises-at-the-start-of-a-holiday-shortened-week/article_c8b49199-6d13-5aad-ab79-e4a166742d7f.html
+2026-01-31 16:00:36,167 - INFO - Fetched content for article 91/201
+2026-01-31 16:00:37,247 - INFO - Fetched content for article 92/201
+2026-01-31 16:00:37,734 - INFO - Fetched content for article 93/201
+2026-01-31 16:00:38,283 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.mankatofreepress.com/news/business/stock-market-today-wall-street-mixed-at-the-start-of-a-holiday-shortened-week/article_3a9b85ce-cafb-5cdd-870e-695eaeb6d77c.html | https://www.mankatofreepress.com/news/business/stock-market-today-wall-street-mixed-at-the-start-of-a-holiday-shortened-week/article_3a9b85ce-cafb-5cdd-870e-695eaeb6d77c.html
+2026-01-31 16:00:38,562 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.columbian.com/news/2024/dec/23/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street/ | https://www.columbian.com/news/2024/dec/23/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street/
+2026-01-31 16:00:39,522 - INFO - Fetched content for article 96/201
+2026-01-31 16:00:40,155 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.woonsocketcall.com/news/national_and_world_news/stock-market-today-wall-street-mixed-at-the-start-of-a-holiday-shortened-week/article_6bb36659-97f2-574a-91be-e0c081cd356f.html | https://www.woonsocketcall.com/news/national_and_world_news/stock-market-today-wall-street-mixed-at-the-start-of-a-holiday-shortened-week/article_6bb36659-97f2-574a-91be-e0c081cd356f.html
+2026-01-31 16:00:40,745 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.dailyindependent.com/national/stock-market-today-wall-street-mixed-at-the-start-of-a-holiday-shortened-week/article_16be9c8a-f3a0-5c07-9eee-1e032c8b6e8b.html | https://www.dailyindependent.com/national/stock-market-today-wall-street-mixed-at-the-start-of-a-holiday-shortened-week/article_16be9c8a-f3a0-5c07-9eee-1e032c8b6e8b.html
+2026-01-31 16:00:41,308 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.ivpressonline.com/business/stock-market-today-wall-street-mixed-at-the-start-of-a-holiday-shortened-week/article_7995a301-7cf5-5daf-b2ad-1de7dd528336.html | https://www.ivpressonline.com/business/stock-market-today-wall-street-mixed-at-the-start-of-a-holiday-shortened-week/article_7995a301-7cf5-5daf-b2ad-1de7dd528336.html
+2026-01-31 16:00:42,004 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.semissourian.com/business/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street-1df537e3 | https://www.semissourian.com/business/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street-1df537e3
+2026-01-31 16:00:42,575 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.yumasun.com/news/national_news/stock-market-today-wall-street-wavers-at-the-start-of-a-holiday-shortened-week/article_55668384-2e6e-548c-97cd-f71641318035.html | https://www.yumasun.com/news/national_news/stock-market-today-wall-street-wavers-at-the-start-of-a-holiday-shortened-week/article_55668384-2e6e-548c-97cd-f71641318035.html
+2026-01-31 16:00:43,582 - INFO - Fetched content for article 102/201
+2026-01-31 16:00:45,334 - INFO - Fetched content for article 103/201
+2026-01-31 16:00:46,160 - INFO - Fetched content for article 104/201
+2026-01-31 16:00:46,694 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.bdtonline.com/news/nation_world/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street/article_8656e48c-b6fc-5dfe-b96d-f4994671f750.html | https://www.bdtonline.com/news/nation_world/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street/article_8656e48c-b6fc-5dfe-b96d-f4994671f750.html
+2026-01-31 16:00:48,263 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.yakimaherald.com/news/nation_and_world/business/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street/article_9793221f-0ed8-5547-bbb2-bd10397b5267.html | https://www.yakimaherald.com/news/nation_and_world/business/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street/article_9793221f-0ed8-5547-bbb2-bd10397b5267.html
+2026-01-31 16:00:48,852 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.thedailystar.com/news/national/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street/article_1bfe24a5-42a4-5054-8e8d-81537a00ee6a.html | https://www.thedailystar.com/news/national/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street/article_1bfe24a5-42a4-5054-8e8d-81537a00ee6a.html
+2026-01-31 16:00:49,751 - INFO - Fetched content for article 109/201
+2026-01-31 16:00:50,340 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.postregister.com/news/national/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street/article_90dbd826-21a5-5db6-87a0-c2258416fb55.html | https://www.postregister.com/news/national/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street/article_90dbd826-21a5-5db6-87a0-c2258416fb55.html
+2026-01-31 16:00:50,892 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.starbeacon.com/region/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street/article_c8b49199-6d13-5aad-ab79-e4a166742d7f.html | https://www.starbeacon.com/region/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street/article_c8b49199-6d13-5aad-ab79-e4a166742d7f.html
+2026-01-31 16:00:51,838 - INFO - Fetched content for article 112/201
+2026-01-31 16:00:52,131 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://gazette.com/news/us-world/wall-st-mixed-at-start-of-holiday-shortened-week/article_d08cecbf-eb19-576b-ba4f-45b0a6738c4a.html | https://gazette.com/news/us-world/wall-st-mixed-at-start-of-holiday-shortened-week/article_d08cecbf-eb19-576b-ba4f-45b0a6738c4a.html
+2026-01-31 16:00:52,389 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.prpeak.com/the-mix/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street-9995204 | https://www.prpeak.com/the-mix/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street-9995204
+2026-01-31 16:00:53,425 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://lufkindailynews.com/anpa/us/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street/article_3f0284e4-b2f5-5f51-b141-d696bdc9615b.html | https://lufkindailynews.com/anpa/us/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street/article_3f0284e4-b2f5-5f51-b141-d696bdc9615b.html
+2026-01-31 16:00:53,705 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.stalbertgazette.com/national-business/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street-9995197 | https://www.stalbertgazette.com/national-business/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street-9995197
+2026-01-31 16:00:54,129 - INFO - Fetched content for article 117/201
+2026-01-31 16:00:54,663 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.woonsocketcall.com/news/national_and_world_news/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street/article_6bb36659-97f2-574a-91be-e0c081cd356f.html | https://www.woonsocketcall.com/news/national_and_world_news/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street/article_6bb36659-97f2-574a-91be-e0c081cd356f.html
+2026-01-31 16:00:55,208 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.register-herald.com/news/nation_world/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street/article_98d31729-a207-5c13-9891-4ed0d2fca296.html | https://www.register-herald.com/news/nation_world/stock-market-today-honda-nissan-merger-talks-shake-up-otherwise-quiet-morning-on-wall-street/article_98d31729-a207-5c13-9891-4ed0d2fca296.html
+2026-01-31 16:00:55,436 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://gazette.com/news/us-world/wall-st-futures-kick-off-week-higher-after-government-shutdown-averted/article_d08cecbf-eb19-576b-ba4f-45b0a6738c4a.html | https://gazette.com/news/us-world/wall-st-futures-kick-off-week-higher-after-government-shutdown-averted/article_d08cecbf-eb19-576b-ba4f-45b0a6738c4a.html
+2026-01-31 16:00:55,712 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/ec6b5b56230a8533 | https://biztoc.com/x/ec6b5b56230a8533
+2026-01-31 16:00:56,673 - INFO - Fetched content for article 122/201
+2026-01-31 16:00:56,888 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/johnnavin/2024/12/22/the-4-sector-etfs-showing-the-most-late-2024-weakness/ | https://www.forbes.com/sites/johnnavin/2024/12/22/the-4-sector-etfs-showing-the-most-late-2024-weakness/
+2026-01-31 16:00:59,390 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/756e3883f247f82e | https://biztoc.com/x/756e3883f247f82e
+2026-01-31 16:01:00,350 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.investing.com/news/stock-market-news/investingcoms-stocks-of-the-week-3785151 | https://www.investing.com/news/stock-market-news/investingcoms-stocks-of-the-week-3785151
+2026-01-31 16:01:01,038 - INFO - Fetched content for article 130/201
+2026-01-31 16:01:01,284 - INFO - Fetched content for article 131/201
+2026-01-31 16:01:01,560 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.ktsa.com/stock-market-today-wall-street-rises-to-turn-a-dismal-week-into-just-a-bad-one/ | https://www.ktsa.com/stock-market-today-wall-street-rises-to-turn-a-dismal-week-into-just-a-bad-one/
+2026-01-31 16:01:01,834 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.ibj.com/articles/fda-approves-lillys-zepbound-for-obstructive-sleep-apnea | https://www.ibj.com/articles/fda-approves-lillys-zepbound-for-obstructive-sleep-apnea
+2026-01-31 16:01:03,185 - INFO - Fetched content for article 134/201
+2026-01-31 16:01:03,829 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.oaoa.com/local-news/stock-market-today-wall-street-rises-to-turn-a-dismal-week-into-just-a-bad-one/ | https://www.oaoa.com/local-news/stock-market-today-wall-street-rises-to-turn-a-dismal-week-into-just-a-bad-one/
+2026-01-31 16:01:05,865 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.record-eagle.com/ap/business/stock-market-today-wall-street-rises-to-turn-a-dismal-week-into-just-a-bad/article_89c71f52-73ab-5f6a-a50d-99f54f9061f7.html | https://www.record-eagle.com/ap/business/stock-market-today-wall-street-rises-to-turn-a-dismal-week-into-just-a-bad/article_89c71f52-73ab-5f6a-a50d-99f54f9061f7.html
+2026-01-31 16:01:06,470 - INFO - Fetched content for article 140/201
+2026-01-31 16:01:07,438 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.smdailyjournal.com/business/stock-market-today-wall-street-rises-to-turn-a-dismal-week-into-just-a-bad/article_decb8f52-e39a-5ec6-ab68-2d447d1d522c.html | https://www.smdailyjournal.com/business/stock-market-today-wall-street-rises-to-turn-a-dismal-week-into-just-a-bad/article_decb8f52-e39a-5ec6-ab68-2d447d1d522c.html
+2026-01-31 16:01:11,377 - INFO - Fetched content for article 142/201
+2026-01-31 16:01:22,672 - INFO - Fetched content for article 143/201
+2026-01-31 16:01:23,507 - INFO - Fetched content for article 144/201
+2026-01-31 16:01:25,152 - INFO - Fetched content for article 146/201
+2026-01-31 16:01:26,128 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.yakimaherald.com/news/nation_and_world/business/stock-market-today-wall-street-rises-to-turn-a-dismal-week-into-just-a-bad/article_4792fe26-923a-55d5-aed6-78d3201d07ec.html | https://www.yakimaherald.com/news/nation_and_world/business/stock-market-today-wall-street-rises-to-turn-a-dismal-week-into-just-a-bad/article_4792fe26-923a-55d5-aed6-78d3201d07ec.html
+2026-01-31 16:01:26,366 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.piquenewsmagazine.com/national-business/stock-market-today-wall-street-rises-to-turn-a-dismal-week-into-just-a-bad-one-9985974 | https://www.piquenewsmagazine.com/national-business/stock-market-today-wall-street-rises-to-turn-a-dismal-week-into-just-a-bad-one-9985974
+2026-01-31 16:01:26,648 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.thereminder.ca/the-mix/stock-market-today-wall-street-rises-to-turn-a-dismal-week-into-just-a-bad-one-9985969 | https://www.thereminder.ca/the-mix/stock-market-today-wall-street-rises-to-turn-a-dismal-week-into-just-a-bad-one-9985969
+2026-01-31 16:01:26,959 - INFO - Fetched content for article 150/201
+2026-01-31 16:01:27,522 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.dailyindependent.com/national/stock-market-today-wall-street-rises-to-turn-a-dismal-week-into-just-a-bad/article_d9a1afa1-9aef-5d51-a331-22cb7e89119f.html | https://www.dailyindependent.com/national/stock-market-today-wall-street-rises-to-turn-a-dismal-week-into-just-a-bad/article_d9a1afa1-9aef-5d51-a331-22cb7e89119f.html
+2026-01-31 16:01:28,656 - INFO - Fetched content for article 152/201
+2026-01-31 16:01:28,936 - INFO - Fetched content for article 153/201
+2026-01-31 16:01:29,533 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.idahostatejournal.com/news/national/stock-market-today-wall-street-leaps-and-halves-its-losses-from-what-had-been-a/article_904c4aed-57b1-5c38-9d18-3f2fc9f76b84.html | https://www.idahostatejournal.com/news/national/stock-market-today-wall-street-leaps-and-halves-its-losses-from-what-had-been-a/article_904c4aed-57b1-5c38-9d18-3f2fc9f76b84.html
+2026-01-31 16:01:30,036 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.yumasun.com/news/national_news/stock-market-today-wall-street-leaps-and-halves-its-losses-from-what-had-been-a/article_311c0bfc-4998-54ee-8505-1da15c5c80ea.html | https://www.yumasun.com/news/national_news/stock-market-today-wall-street-leaps-and-halves-its-losses-from-what-had-been-a/article_311c0bfc-4998-54ee-8505-1da15c5c80ea.html
+2026-01-31 16:01:30,274 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://invezz.com/news/2024/12/20/novo-nordisk-stock-just-tanked-25-heres-what-happened/ | https://invezz.com/news/2024/12/20/novo-nordisk-stock-just-tanked-25-heres-what-happened/
+2026-01-31 16:01:31,018 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.yankton.net/news/national_ap/article_24b530bf-7db2-5109-b0c7-805c539a1f10.html | https://www.yankton.net/news/national_ap/article_24b530bf-7db2-5109-b0c7-805c539a1f10.html
+2026-01-31 16:01:31,568 - INFO - Fetched content for article 158/201
+2026-01-31 16:01:32,115 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.register-herald.com/news/nation_world/stock-market-today-wall-street-leaps-and-halves-its-losses-from-what-had-been-a/article_b6090496-302a-54b3-a087-a3d5d441ade4.html | https://www.register-herald.com/news/nation_world/stock-market-today-wall-street-leaps-and-halves-its-losses-from-what-had-been-a/article_b6090496-302a-54b3-a087-a3d5d441ade4.html
+2026-01-31 16:01:32,375 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.mmm-online.com/news/rx-rundown-sanofi-novartis-roche-and-more/ | https://www.mmm-online.com/news/rx-rundown-sanofi-novartis-roche-and-more/
+2026-01-31 16:01:34,521 - INFO - Fetched content for article 162/201
+2026-01-31 16:01:35,003 - WARNING - HTTP error while fetching article content: 526 Server Error: <none> for url: https://www.modernreaders.com/news/2024/12/20/eli-lilly-and-company-nyselly-stock-price-down-0-2-heres-why.html | https://www.modernreaders.com/news/2024/12/20/eli-lilly-and-company-nyselly-stock-price-down-0-2-heres-why.html
+2026-01-31 16:01:37,758 - INFO - Fetched content for article 164/201
+2026-01-31 16:01:38,938 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.fiercebiotech.com/biotech/novo-nordisk-stock-crashes-after-cagrisema-misses-phase-3-weight-loss-goal | https://www.fiercebiotech.com/biotech/novo-nordisk-stock-crashes-after-cagrisema-misses-phase-3-weight-loss-goal
+2026-01-31 16:01:44,134 - INFO - Fetched content for article 167/201
+2026-01-31 16:01:44,674 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.bozemandailychronicle.com/ap_news/business/ap-business-summarybrief-at-8-39-p-m-est/article_09c7cb66-6d7a-5660-b521-776e9143f9f7.html | https://www.bozemandailychronicle.com/ap_news/business/ap-business-summarybrief-at-8-39-p-m-est/article_09c7cb66-6d7a-5660-b521-776e9143f9f7.html
+2026-01-31 16:01:45,219 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.mankatofreepress.com/news/business/ap-business-summarybrief-at-8-39-p-m-est/article_ccee47bc-8521-5cd0-a00c-74d8f76c4e99.html | https://www.mankatofreepress.com/news/business/ap-business-summarybrief-at-8-39-p-m-est/article_ccee47bc-8521-5cd0-a00c-74d8f76c4e99.html
+2026-01-31 16:01:45,458 - INFO - Fetched content for article 170/201
+2026-01-31 16:02:15,725 - WARNING - Timeout while fetching article content: https://www.archyde.com/fda-finalizes-decision-to-end-lillys-glp-1-shortage-analysts-predict-novo-will-be-next/
+2026-01-31 16:02:16,895 - WARNING - HTTP error while fetching article content: 451 Client Error: Unavailable For Legal Reasons for url: https://www.joplinglobe.com/region/national_business/ap-business-summarybrief-at-5-44-p-m-est/article_e75c1920-31f9-5431-b26d-8da54abbedf3.html | https://www.joplinglobe.com/region/national_business/ap-business-summarybrief-at-5-44-p-m-est/article_e75c1920-31f9-5431-b26d-8da54abbedf3.html
+2026-01-31 16:02:17,785 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.themarketsdaily.com/2024/12/19/eli-lilly-and-company-nyselly-stock-price-down-0-3-time-to-sell.html | https://www.themarketsdaily.com/2024/12/19/eli-lilly-and-company-nyselly-stock-price-down-0-3-time-to-sell.html
+2026-01-31 16:02:18,029 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/investor-hub/article/best-growth-stocks/ | https://www.forbes.com/sites/investor-hub/article/best-growth-stocks/
+2026-01-31 16:02:19,814 - INFO - Fetched content for article 176/201
+2026-01-31 16:02:20,064 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.tmcnet.com/usubmit/2024/12/19/10123600.htm | https://www.tmcnet.com/usubmit/2024/12/19/10123600.htm
+2026-01-31 16:02:21,519 - INFO - Fetched content for article 178/201
+2026-01-31 16:02:22,444 - INFO - Fetched content for article 179/201
+2026-01-31 16:02:23,524 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254 | https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254
+2026-01-31 16:02:23,914 - INFO - Fetched content for article 182/201
+2026-01-31 16:02:24,155 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.tmcnet.com/usubmit/2024/12/19/10123159.htm | https://www.tmcnet.com/usubmit/2024/12/19/10123159.htm
+2026-01-31 16:02:25,578 - INFO - Fetched content for article 184/201
+2026-01-31 16:02:26,425 - INFO - Fetched content for article 185/201
+2026-01-31 16:02:28,425 - INFO - Fetched content for article 187/201
+2026-01-31 16:02:28,763 - INFO - Fetched content for article 188/201
+2026-01-31 16:02:28,990 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.fiercebiotech.com/biotech/novartis-and-bioage-take-age-related-diseases-new-550m-pact | https://www.fiercebiotech.com/biotech/novartis-and-bioage-take-age-related-diseases-new-550m-pact
+2026-01-31 16:02:29,778 - INFO - Fetched content for article 190/201
+2026-01-31 16:02:30,029 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/ | https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/
+2026-01-31 16:02:30,272 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://invezz.com/news/2024/12/18/mercks-weight-loss-pill-deal-what-it-means-for-eli-lilly/ | https://invezz.com/news/2024/12/18/mercks-weight-loss-pill-deal-what-it-means-for-eli-lilly/
+2026-01-31 16:02:32,484 - INFO - Fetched content for article 193/201
+2026-01-31 16:02:33,534 - INFO - Fetched content for article 195/201
+2026-01-31 16:02:33,895 - INFO - Fetched content for article 196/201
+2026-01-31 16:02:34,993 - INFO - Fetched content for article 197/201
+2026-01-31 16:02:35,267 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.etftrends.com/reasons-celebrate-esg-etf/ | https://www.etftrends.com/reasons-celebrate-esg-etf/
+2026-01-31 16:02:36,163 - INFO - Fetched content for article 199/201
+2026-01-31 16:03:06,444 - WARNING - Timeout while fetching article content: https://markets.businessinsider.com/news/stocks/eli-lilly-s-kisunla-approved-in-china-for-alzheimer-s-disease-treatment-1034148679
+2026-01-31 16:03:07,158 - INFO - Fetched content for article 201/201
+2026-01-31 16:03:07,169 - INFO - filter_company_related: in=201 kept=71 | dropped(question_no_content)=7 dropped(no_match_no_content)=106 dropped(no_match_in_content)=17
+2026-01-31 16:03:07,178 - INFO - Only 71 articles matched filters within 14 days, but 250 were requested.
+2026-01-31 16:03:07,181 - INFO - Saved 71 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-01-31 16:03:07,184 - INFO - Displayed 71 articles
+2026-01-31 16:07:22,482 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-01-31 16:07:22,799 - INFO - Resolved ticker for 'eli lilly' -> LLY
+2026-01-31 16:07:22,799 - INFO - GDELT query: eli lilly LLY
+2026-01-31 16:07:22,799 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-01-31 16:07:23,884 - INFO - Received 1 raw articles for 2024-12-31.
+2026-01-31 16:07:23,884 - INFO - Removed duplicates (domain+title): 1 -> 1
+2026-01-31 16:07:23,884 - INFO - Filtered by language: 1 -> 1 articles
+2026-01-31 16:07:23,884 - INFO - Progress after 2024-12-31: Raw=1, Filtered=1/250
+2026-01-31 16:07:23,884 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 1/250)
+2026-01-31 16:07:26,651 - INFO - No articles returned for 2024-12-30 - 2024-12-31.
+2026-01-31 16:07:26,651 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 1/250)
+2026-01-31 16:07:29,297 - INFO - Received 1 raw articles for 2024-12-29.
+2026-01-31 16:07:29,297 - INFO - Removed duplicates (domain+title): 2 -> 2
+2026-01-31 16:07:29,297 - INFO - Filtered by language: 2 -> 2 articles
+2026-01-31 16:07:29,298 - INFO - Progress after 2024-12-29: Raw=2, Filtered=2/250
+2026-01-31 16:07:31,298 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 2/250)
+2026-01-31 16:07:33,826 - INFO - Received 2 raw articles for 2024-12-28.
+2026-01-31 16:07:33,826 - INFO - Removed duplicates (domain+title): 4 -> 4
+2026-01-31 16:07:33,826 - INFO - Filtered by language: 4 -> 4 articles
+2026-01-31 16:07:33,826 - INFO - Progress after 2024-12-28: Raw=4, Filtered=4/250
+2026-01-31 16:07:33,826 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 4/250)
+2026-01-31 16:07:35,685 - INFO - No articles returned for 2024-12-27 - 2024-12-28.
+2026-01-31 16:07:35,685 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 4/250)
+2026-01-31 16:07:37,024 - INFO - No articles returned for 2024-12-26 - 2024-12-27.
+2026-01-31 16:07:39,025 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 4/250)
+2026-01-31 16:07:40,871 - INFO - No articles returned for 2024-12-25 - 2024-12-26.
+2026-01-31 16:07:40,872 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 4/250)
+2026-01-31 16:07:43,098 - INFO - Received 3 raw articles for 2024-12-24.
+2026-01-31 16:07:43,098 - INFO - Removed duplicates (domain+title): 7 -> 7
+2026-01-31 16:07:43,098 - INFO - Filtered by language: 7 -> 7 articles
+2026-01-31 16:07:43,098 - INFO - Progress after 2024-12-24: Raw=7, Filtered=7/250
+2026-01-31 16:07:43,098 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 7/250)
+2026-01-31 16:07:47,075 - INFO - Received 4 raw articles for 2024-12-23.
+2026-01-31 16:07:47,075 - INFO - Removed duplicates (domain+title): 11 -> 11
+2026-01-31 16:07:47,075 - INFO - Filtered by language: 11 -> 11 articles
+2026-01-31 16:07:47,075 - INFO - Progress after 2024-12-23: Raw=11, Filtered=11/250
+2026-01-31 16:07:49,076 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 11/250)
+2026-01-31 16:07:51,857 - INFO - Received 1 raw articles for 2024-12-22.
+2026-01-31 16:07:51,857 - INFO - Removed duplicates (domain+title): 12 -> 12
+2026-01-31 16:07:51,857 - INFO - Filtered by language: 12 -> 12 articles
+2026-01-31 16:07:51,857 - INFO - Progress after 2024-12-22: Raw=12, Filtered=12/250
+2026-01-31 16:07:51,857 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 12/250)
+2026-01-31 16:07:57,963 - INFO - Received 3 raw articles for 2024-12-21.
+2026-01-31 16:07:57,963 - INFO - Removed duplicates (domain+title): 15 -> 15
+2026-01-31 16:07:57,963 - INFO - Filtered by language: 15 -> 15 articles
+2026-01-31 16:07:57,963 - INFO - Progress after 2024-12-21: Raw=15, Filtered=15/250
+2026-01-31 16:07:57,963 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 15/250)
+2026-01-31 16:08:00,126 - INFO - Received 2 raw articles for 2024-12-20.
+2026-01-31 16:08:00,126 - INFO - Removed duplicates (domain+title): 17 -> 17
+2026-01-31 16:08:00,126 - INFO - Filtered by language: 17 -> 17 articles
+2026-01-31 16:08:00,126 - INFO - Progress after 2024-12-20: Raw=17, Filtered=17/250
+2026-01-31 16:08:02,127 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 17/250)
+2026-01-31 16:08:07,697 - INFO - Received 4 raw articles for 2024-12-19.
+2026-01-31 16:08:07,697 - INFO - Removed duplicates (domain+title): 21 -> 21
+2026-01-31 16:08:07,698 - INFO - Filtered by language: 21 -> 21 articles
+2026-01-31 16:08:07,698 - INFO - Progress after 2024-12-19: Raw=21, Filtered=21/250
+2026-01-31 16:08:07,698 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 21/250)
+2026-01-31 16:08:16,214 - INFO - Received 5 raw articles for 2024-12-18.
+2026-01-31 16:08:16,214 - INFO - Removed duplicates (domain+title): 26 -> 26
+2026-01-31 16:08:16,214 - INFO - Filtered by language: 26 -> 26 articles
+2026-01-31 16:08:16,214 - INFO - Progress after 2024-12-18: Raw=26, Filtered=26/250
+2026-01-31 16:08:16,215 - INFO - Enriching 26 articles with full content...
+2026-01-31 16:08:16,495 - INFO - Fetched content for article 1/26
+2026-01-31 16:08:17,345 - INFO - Fetched content for article 2/26
+2026-01-31 16:08:17,785 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst | https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst
+2026-01-31 16:08:18,707 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/ | https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/
+2026-01-31 16:08:19,517 - INFO - Fetched content for article 6/26
+2026-01-31 16:08:19,976 - INFO - Fetched content for article 7/26
+2026-01-31 16:08:20,485 - INFO - Fetched content for article 8/26
+2026-01-31 16:08:20,984 - INFO - Fetched content for article 9/26
+2026-01-31 16:08:21,223 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/ec6b5b56230a8533 | https://biztoc.com/x/ec6b5b56230a8533
+2026-01-31 16:08:22,060 - INFO - Fetched content for article 11/26
+2026-01-31 16:08:22,969 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/756e3883f247f82e | https://biztoc.com/x/756e3883f247f82e
+2026-01-31 16:08:23,966 - INFO - Fetched content for article 15/26
+2026-01-31 16:08:25,116 - INFO - Fetched content for article 17/26
+2026-01-31 16:08:25,345 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/investor-hub/article/best-growth-stocks/ | https://www.forbes.com/sites/investor-hub/article/best-growth-stocks/
+2026-01-31 16:08:26,220 - INFO - Fetched content for article 19/26
+2026-01-31 16:08:26,478 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254 | https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254
+2026-01-31 16:08:27,290 - INFO - Fetched content for article 21/26
+2026-01-31 16:08:28,382 - INFO - Fetched content for article 23/26
+2026-01-31 16:08:28,759 - INFO - Fetched content for article 24/26
+2026-01-31 16:08:29,021 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/ | https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/
+2026-01-31 16:08:45,885 - INFO - Fetched content for article 26/26
+2026-01-31 16:08:45,885 - INFO - Applying content filtering (strategy=combined, min_ratio=0.30, min_density=0.50)
+2026-01-31 16:08:45,885 - INFO - Applying combined content filtering for eli lilly (ticker: LLY)
+2026-01-31 16:08:45,889 - INFO - Content filtering complete: 26 -> 0 articles with content
+2026-01-31 16:08:45,889 - INFO - Content filtering complete: kept 0/14 articles with content (0.0%)
+2026-01-31 16:08:45,890 - INFO - filter_company_related: in=12 kept=2 | dropped(question_no_content)=4 dropped(no_match_no_content)=6 dropped(no_match_in_content)=0
+2026-01-31 16:08:45,890 - INFO - Only 2 articles matched filters within 14 days, but 250 were requested.
+2026-01-31 16:08:45,890 - INFO - Saved 2 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-01-31 16:08:45,891 - INFO - Displayed 2 articles
+2026-01-31 16:10:41,300 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-01-31 16:10:41,663 - INFO - Resolved ticker for 'eli lilly' -> LLY
+2026-01-31 16:10:41,663 - INFO - GDELT query: eli lilly LLY
+2026-01-31 16:10:41,663 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-01-31 16:10:45,067 - INFO - Received 1 raw articles for 2024-12-31.
+2026-01-31 16:10:45,068 - INFO - Removed duplicates (domain+title): 1 -> 1
+2026-01-31 16:10:45,068 - INFO - Filtered by language: 1 -> 1 articles
+2026-01-31 16:10:45,068 - INFO - Progress after 2024-12-31: Raw=1, Filtered=1/250
+2026-01-31 16:10:45,068 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 1/250)
+2026-01-31 16:10:53,780 - INFO - No articles returned for 2024-12-30 - 2024-12-31.
+2026-01-31 16:10:53,780 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 1/250)
+2026-01-31 16:11:03,496 - INFO - Received 1 raw articles for 2024-12-29.
+2026-01-31 16:11:03,496 - INFO - Removed duplicates (domain+title): 2 -> 2
+2026-01-31 16:11:03,496 - INFO - Filtered by language: 2 -> 2 articles
+2026-01-31 16:11:03,496 - INFO - Progress after 2024-12-29: Raw=2, Filtered=2/250
+2026-01-31 16:11:05,496 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 2/250)
+2026-01-31 16:11:07,796 - INFO - Received 2 raw articles for 2024-12-28.
+2026-01-31 16:11:07,796 - INFO - Removed duplicates (domain+title): 4 -> 4
+2026-01-31 16:11:07,796 - INFO - Filtered by language: 4 -> 4 articles
+2026-01-31 16:11:07,796 - INFO - Progress after 2024-12-28: Raw=4, Filtered=4/250
+2026-01-31 16:11:07,796 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 4/250)
+2026-01-31 16:11:13,586 - INFO - No articles returned for 2024-12-27 - 2024-12-28.
+2026-01-31 16:11:13,587 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 4/250)
+2026-01-31 16:11:20,887 - INFO - No articles returned for 2024-12-26 - 2024-12-27.
+2026-01-31 16:11:22,888 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 4/250)
+2026-01-31 16:11:26,488 - INFO - No articles returned for 2024-12-25 - 2024-12-26.
+2026-01-31 16:11:26,488 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 4/250)
+2026-01-31 16:11:31,039 - INFO - Received 3 raw articles for 2024-12-24.
+2026-01-31 16:11:31,039 - INFO - Removed duplicates (domain+title): 7 -> 7
+2026-01-31 16:11:31,039 - INFO - Filtered by language: 7 -> 7 articles
+2026-01-31 16:11:31,039 - INFO - Progress after 2024-12-24: Raw=7, Filtered=7/250
+2026-01-31 16:11:31,039 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 7/250)
+2026-01-31 16:11:38,222 - INFO - Received 4 raw articles for 2024-12-23.
+2026-01-31 16:11:38,222 - INFO - Removed duplicates (domain+title): 11 -> 11
+2026-01-31 16:11:38,222 - INFO - Filtered by language: 11 -> 11 articles
+2026-01-31 16:11:38,222 - INFO - Progress after 2024-12-23: Raw=11, Filtered=11/250
+2026-01-31 16:11:40,222 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 11/250)
+2026-01-31 16:11:43,723 - INFO - Received 1 raw articles for 2024-12-22.
+2026-01-31 16:11:43,724 - INFO - Removed duplicates (domain+title): 12 -> 12
+2026-01-31 16:11:43,724 - INFO - Filtered by language: 12 -> 12 articles
+2026-01-31 16:11:43,724 - INFO - Progress after 2024-12-22: Raw=12, Filtered=12/250
+2026-01-31 16:11:43,724 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 12/250)
+2026-01-31 16:11:50,725 - INFO - Received 3 raw articles for 2024-12-21.
+2026-01-31 16:11:50,725 - INFO - Removed duplicates (domain+title): 15 -> 15
+2026-01-31 16:11:50,725 - INFO - Filtered by language: 15 -> 15 articles
+2026-01-31 16:11:50,725 - INFO - Progress after 2024-12-21: Raw=15, Filtered=15/250
+2026-01-31 16:11:50,725 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 15/250)
+2026-01-31 16:11:55,577 - INFO - Received 2 raw articles for 2024-12-20.
+2026-01-31 16:11:55,577 - INFO - Removed duplicates (domain+title): 17 -> 17
+2026-01-31 16:11:55,578 - INFO - Filtered by language: 17 -> 17 articles
+2026-01-31 16:11:55,578 - INFO - Progress after 2024-12-20: Raw=17, Filtered=17/250
+2026-01-31 16:11:57,578 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 17/250)
+2026-01-31 16:11:58,837 - INFO - Received 4 raw articles for 2024-12-19.
+2026-01-31 16:11:58,837 - INFO - Removed duplicates (domain+title): 21 -> 21
+2026-01-31 16:11:58,837 - INFO - Filtered by language: 21 -> 21 articles
+2026-01-31 16:11:58,837 - INFO - Progress after 2024-12-19: Raw=21, Filtered=21/250
+2026-01-31 16:11:58,837 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 21/250)
+2026-01-31 16:12:03,317 - INFO - Received 5 raw articles for 2024-12-18.
+2026-01-31 16:12:03,318 - INFO - Removed duplicates (domain+title): 26 -> 26
+2026-01-31 16:12:03,318 - INFO - Filtered by language: 26 -> 26 articles
+2026-01-31 16:12:03,318 - INFO - Progress after 2024-12-18: Raw=26, Filtered=26/250
+2026-01-31 16:12:03,318 - INFO - Enriching 26 articles with full content...
+2026-01-31 16:12:03,600 - INFO - Fetched content for article 1/26
+2026-01-31 16:12:04,480 - INFO - Fetched content for article 2/26
+2026-01-31 16:12:04,916 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst | https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst
+2026-01-31 16:12:06,154 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/ | https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/
+2026-01-31 16:12:07,008 - INFO - Fetched content for article 6/26
+2026-01-31 16:12:07,481 - INFO - Fetched content for article 7/26
+2026-01-31 16:12:07,965 - INFO - Fetched content for article 8/26
+2026-01-31 16:12:08,461 - INFO - Fetched content for article 9/26
+2026-01-31 16:12:08,719 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/ec6b5b56230a8533 | https://biztoc.com/x/ec6b5b56230a8533
+2026-01-31 16:12:09,025 - INFO - Fetched content for article 11/26
+2026-01-31 16:12:10,000 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/756e3883f247f82e | https://biztoc.com/x/756e3883f247f82e
+2026-01-31 16:12:11,960 - INFO - Fetched content for article 15/26
+2026-01-31 16:12:13,547 - INFO - Fetched content for article 17/26
+2026-01-31 16:12:13,773 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/investor-hub/article/best-growth-stocks/ | https://www.forbes.com/sites/investor-hub/article/best-growth-stocks/
+2026-01-31 16:12:14,684 - INFO - Fetched content for article 19/26
+2026-01-31 16:12:14,898 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254 | https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254
+2026-01-31 16:12:15,837 - INFO - Fetched content for article 21/26
+2026-01-31 16:12:16,835 - INFO - Fetched content for article 23/26
+2026-01-31 16:12:17,160 - INFO - Fetched content for article 24/26
+2026-01-31 16:12:17,420 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/ | https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/
+2026-01-31 16:12:18,896 - INFO - Fetched content for article 26/26
+2026-01-31 16:12:18,898 - INFO - filter_company_related: in=26 kept=12 | dropped(question_no_content)=4 dropped(no_match_no_content)=6 dropped(no_match_in_content)=4
+2026-01-31 16:12:18,900 - INFO - Applying content filtering (strategy=combined, min_ratio=0.30, min_density=0.50)
+2026-01-31 16:12:18,900 - INFO - Applying combined content filtering for eli lilly (ticker: LLY)
+2026-01-31 16:12:18,903 - INFO - Content filtering complete: 26 -> 0 articles with content
+2026-01-31 16:12:18,903 - INFO - Content filtering complete: kept 0/13 articles with content (0.0%)
+2026-01-31 16:12:18,903 - INFO - Only 12 articles matched filters within 14 days, but 250 were requested.
+2026-01-31 16:12:18,905 - INFO - Saved 12 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-01-31 16:12:18,905 - INFO - Displayed 12 articles
+2026-01-31 16:24:46,230 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-01-31 16:24:46,546 - INFO - Resolved ticker for 'eli lilly' -> LLY
+2026-01-31 16:24:46,546 - INFO - GDELT query: eli lilly LLY
+2026-01-31 16:24:46,546 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-01-31 16:24:56,314 - INFO - Received 1 raw articles for 2024-12-31.
+2026-01-31 16:24:56,314 - INFO - Removed duplicates (domain+title): 1 -> 1
+2026-01-31 16:24:56,315 - INFO - Filtered by language: 1 -> 1 articles
+2026-01-31 16:24:56,315 - INFO - Progress after 2024-12-31: Raw=1, Filtered=1/250
+2026-01-31 16:24:56,315 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 1/250)
+2026-01-31 16:24:58,601 - INFO - No articles returned for 2024-12-30 - 2024-12-31.
+2026-01-31 16:24:58,602 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 1/250)
+2026-01-31 16:25:00,844 - INFO - Received 1 raw articles for 2024-12-29.
+2026-01-31 16:25:00,844 - INFO - Removed duplicates (domain+title): 2 -> 2
+2026-01-31 16:25:00,844 - INFO - Filtered by language: 2 -> 2 articles
+2026-01-31 16:25:00,844 - INFO - Progress after 2024-12-29: Raw=2, Filtered=2/250
+2026-01-31 16:25:02,845 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 2/250)
+2026-01-31 16:25:07,158 - INFO - Received 2 raw articles for 2024-12-28.
+2026-01-31 16:25:07,158 - INFO - Removed duplicates (domain+title): 4 -> 4
+2026-01-31 16:25:07,158 - INFO - Filtered by language: 4 -> 4 articles
+2026-01-31 16:25:07,158 - INFO - Progress after 2024-12-28: Raw=4, Filtered=4/250
+2026-01-31 16:25:07,158 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 4/250)
+2026-01-31 16:25:11,009 - INFO - No articles returned for 2024-12-27 - 2024-12-28.
+2026-01-31 16:25:11,010 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 4/250)
+2026-01-31 16:25:16,258 - INFO - No articles returned for 2024-12-26 - 2024-12-27.
+2026-01-31 16:25:18,259 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 4/250)
+2026-01-31 16:25:21,738 - INFO - No articles returned for 2024-12-25 - 2024-12-26.
+2026-01-31 16:25:21,738 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 4/250)
+2026-01-31 16:25:30,047 - INFO - Received 3 raw articles for 2024-12-24.
+2026-01-31 16:25:30,047 - INFO - Removed duplicates (domain+title): 7 -> 7
+2026-01-31 16:25:30,047 - INFO - Filtered by language: 7 -> 7 articles
+2026-01-31 16:25:30,047 - INFO - Progress after 2024-12-24: Raw=7, Filtered=7/250
+2026-01-31 16:25:30,047 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 7/250)
+2026-01-31 16:25:44,051 - INFO - Received 4 raw articles for 2024-12-23.
+2026-01-31 16:25:44,051 - INFO - Removed duplicates (domain+title): 11 -> 11
+2026-01-31 16:25:44,051 - INFO - Filtered by language: 11 -> 11 articles
+2026-01-31 16:25:44,051 - INFO - Progress after 2024-12-23: Raw=11, Filtered=11/250
+2026-01-31 16:25:46,052 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 11/250)
+2026-01-31 16:25:48,045 - INFO - Received 1 raw articles for 2024-12-22.
+2026-01-31 16:25:48,045 - INFO - Removed duplicates (domain+title): 12 -> 12
+2026-01-31 16:25:48,045 - INFO - Filtered by language: 12 -> 12 articles
+2026-01-31 16:25:48,045 - INFO - Progress after 2024-12-22: Raw=12, Filtered=12/250
+2026-01-31 16:25:48,045 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 12/250)
+2026-01-31 16:25:49,808 - INFO - Received 3 raw articles for 2024-12-21.
+2026-01-31 16:25:49,808 - INFO - Removed duplicates (domain+title): 15 -> 15
+2026-01-31 16:25:49,808 - INFO - Filtered by language: 15 -> 15 articles
+2026-01-31 16:25:49,808 - INFO - Progress after 2024-12-21: Raw=15, Filtered=15/250
+2026-01-31 16:25:49,808 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 15/250)
+2026-01-31 16:25:51,689 - INFO - Received 2 raw articles for 2024-12-20.
+2026-01-31 16:25:51,689 - INFO - Removed duplicates (domain+title): 17 -> 17
+2026-01-31 16:25:51,689 - INFO - Filtered by language: 17 -> 17 articles
+2026-01-31 16:25:51,689 - INFO - Progress after 2024-12-20: Raw=17, Filtered=17/250
+2026-01-31 16:25:53,690 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 17/250)
+2026-01-31 16:25:54,274 - ERROR - Error during GDELT request: 
+2026-01-31 16:25:54,275 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 17/250)
+2026-01-31 16:25:56,587 - INFO - Received 5 raw articles for 2024-12-18.
+2026-01-31 16:25:56,588 - INFO - Removed duplicates (domain+title): 22 -> 22
+2026-01-31 16:25:56,588 - INFO - Filtered by language: 22 -> 22 articles
+2026-01-31 16:25:56,588 - INFO - Progress after 2024-12-18: Raw=22, Filtered=22/250
+2026-01-31 16:25:56,588 - INFO - Enriching 22 articles with full content...
+2026-01-31 16:25:56,873 - INFO - Fetched content for article 1/22
+2026-01-31 16:25:57,759 - INFO - Fetched content for article 2/22
+2026-01-31 16:25:58,220 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst | https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst
+2026-01-31 16:25:59,071 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/ | https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/
+2026-01-31 16:25:59,927 - INFO - Fetched content for article 6/22
+2026-01-31 16:26:00,414 - INFO - Fetched content for article 7/22
+2026-01-31 16:26:00,909 - INFO - Fetched content for article 8/22
+2026-01-31 16:26:01,826 - INFO - Fetched content for article 9/22
+2026-01-31 16:26:02,104 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/ec6b5b56230a8533 | https://biztoc.com/x/ec6b5b56230a8533
+2026-01-31 16:26:03,108 - INFO - Fetched content for article 11/22
+2026-01-31 16:26:04,087 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/756e3883f247f82e | https://biztoc.com/x/756e3883f247f82e
+2026-01-31 16:26:05,967 - INFO - Fetched content for article 15/22
+2026-01-31 16:26:08,871 - INFO - Fetched content for article 17/22
+2026-01-31 16:26:10,914 - INFO - Fetched content for article 19/22
+2026-01-31 16:26:11,288 - INFO - Fetched content for article 20/22
+2026-01-31 16:26:11,528 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/ | https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/
+2026-01-31 16:26:12,559 - INFO - Fetched content for article 22/22
+2026-01-31 16:26:12,559 - INFO - Cleaning article content for eli lilly (ticker: LLY)
+2026-01-31 16:26:12,562 - INFO - Content cleaning complete:
+  Total articles: 22
+  Articles with content: 12
+  Articles filtered: 5
+  Articles kept all (low match): 4
+  Articles with no content after: 3
+  Sentences: 363 → 26
+2026-01-31 16:26:12,562 - INFO -   Noise reduction: 92.8%
+2026-01-31 16:26:12,563 - INFO - filter_company_related: in=22 kept=11 | dropped(question_no_content)=4 dropped(no_match_no_content)=7 dropped(no_match_in_content)=0
+2026-01-31 16:26:12,564 - INFO - Only 11 articles matched filters within 14 days, but 250 were requested.
+2026-01-31 16:26:12,565 - INFO - Saved 11 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-01-31 16:26:12,566 - INFO - Displayed 11 articles
+2026-01-31 16:32:45,840 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-01-31 16:32:46,143 - INFO - Resolved ticker for 'eli lilly' -> LLY
+2026-01-31 16:32:46,143 - INFO - GDELT query: eli lilly LLY
+2026-01-31 16:32:46,143 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-01-31 16:32:48,421 - INFO - Received 1 raw articles for 2024-12-31.
+2026-01-31 16:32:48,421 - INFO - Removed duplicates (domain+title): 1 -> 1
+2026-01-31 16:32:48,421 - INFO - Filtered by language: 1 -> 1 articles
+2026-01-31 16:32:48,421 - INFO - Progress after 2024-12-31: Raw=1, Filtered=1/250
+2026-01-31 16:32:48,421 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 1/250)
+2026-01-31 16:32:57,527 - INFO - No articles returned for 2024-12-30 - 2024-12-31.
+2026-01-31 16:32:57,527 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 1/250)
+2026-01-31 16:33:00,020 - INFO - Received 1 raw articles for 2024-12-29.
+2026-01-31 16:33:00,020 - INFO - Removed duplicates (domain+title): 2 -> 2
+2026-01-31 16:33:00,020 - INFO - Filtered by language: 2 -> 2 articles
+2026-01-31 16:33:00,021 - INFO - Progress after 2024-12-29: Raw=2, Filtered=2/250
+2026-01-31 16:33:02,021 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 2/250)
+2026-01-31 16:33:04,092 - INFO - Received 2 raw articles for 2024-12-28.
+2026-01-31 16:33:04,092 - INFO - Removed duplicates (domain+title): 4 -> 4
+2026-01-31 16:33:04,092 - INFO - Filtered by language: 4 -> 4 articles
+2026-01-31 16:33:04,092 - INFO - Progress after 2024-12-28: Raw=4, Filtered=4/250
+2026-01-31 16:33:04,092 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 4/250)
+2026-01-31 16:33:05,554 - INFO - No articles returned for 2024-12-27 - 2024-12-28.
+2026-01-31 16:33:05,554 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 4/250)
+2026-01-31 16:33:06,968 - INFO - No articles returned for 2024-12-26 - 2024-12-27.
+2026-01-31 16:33:08,969 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 4/250)
+2026-01-31 16:33:11,199 - INFO - No articles returned for 2024-12-25 - 2024-12-26.
+2026-01-31 16:33:11,199 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 4/250)
+2026-01-31 16:33:14,085 - INFO - Received 3 raw articles for 2024-12-24.
+2026-01-31 16:33:14,085 - INFO - Removed duplicates (domain+title): 7 -> 7
+2026-01-31 16:33:14,085 - INFO - Filtered by language: 7 -> 7 articles
+2026-01-31 16:33:14,085 - INFO - Progress after 2024-12-24: Raw=7, Filtered=7/250
+2026-01-31 16:33:14,085 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 7/250)
+2026-01-31 16:33:19,448 - INFO - Received 4 raw articles for 2024-12-23.
+2026-01-31 16:33:19,448 - INFO - Removed duplicates (domain+title): 11 -> 11
+2026-01-31 16:33:19,448 - INFO - Filtered by language: 11 -> 11 articles
+2026-01-31 16:33:19,448 - INFO - Progress after 2024-12-23: Raw=11, Filtered=11/250
+2026-01-31 16:33:21,448 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 11/250)
+2026-01-31 16:33:27,124 - INFO - Received 1 raw articles for 2024-12-22.
+2026-01-31 16:33:27,124 - INFO - Removed duplicates (domain+title): 12 -> 12
+2026-01-31 16:33:27,124 - INFO - Filtered by language: 12 -> 12 articles
+2026-01-31 16:33:27,124 - INFO - Progress after 2024-12-22: Raw=12, Filtered=12/250
+2026-01-31 16:33:27,124 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 12/250)
+2026-01-31 16:33:30,125 - INFO - Received 3 raw articles for 2024-12-21.
+2026-01-31 16:33:30,125 - INFO - Removed duplicates (domain+title): 15 -> 15
+2026-01-31 16:33:30,125 - INFO - Filtered by language: 15 -> 15 articles
+2026-01-31 16:33:30,125 - INFO - Progress after 2024-12-21: Raw=15, Filtered=15/250
+2026-01-31 16:33:30,125 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 15/250)
+2026-01-31 16:33:36,083 - INFO - Received 2 raw articles for 2024-12-20.
+2026-01-31 16:33:36,084 - INFO - Removed duplicates (domain+title): 17 -> 17
+2026-01-31 16:33:36,084 - INFO - Filtered by language: 17 -> 17 articles
+2026-01-31 16:33:36,084 - INFO - Progress after 2024-12-20: Raw=17, Filtered=17/250
+2026-01-31 16:33:38,084 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 17/250)
+2026-01-31 16:33:39,872 - INFO - Received 4 raw articles for 2024-12-19.
+2026-01-31 16:33:39,872 - INFO - Removed duplicates (domain+title): 21 -> 21
+2026-01-31 16:33:39,872 - INFO - Filtered by language: 21 -> 21 articles
+2026-01-31 16:33:39,872 - INFO - Progress after 2024-12-19: Raw=21, Filtered=21/250
+2026-01-31 16:33:39,872 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 21/250)
+2026-01-31 16:33:42,068 - INFO - Received 5 raw articles for 2024-12-18.
+2026-01-31 16:33:42,068 - INFO - Removed duplicates (domain+title): 26 -> 26
+2026-01-31 16:33:42,068 - INFO - Filtered by language: 26 -> 26 articles
+2026-01-31 16:33:42,068 - INFO - Progress after 2024-12-18: Raw=26, Filtered=26/250
+2026-01-31 16:33:42,069 - INFO - Enriching 26 articles with full content...
+2026-01-31 16:33:42,347 - INFO - Fetched content for article 1/26
+2026-01-31 16:33:43,198 - INFO - Fetched content for article 2/26
+2026-01-31 16:33:43,641 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst | https://seekingalpha.com/news/4391294-eli-lilly-among-best-big-pharma-2024-novo-among-worst
+2026-01-31 16:33:44,613 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/ | https://www.forbes.com/sites/michaelfoster/2024/12/24/my-top-retirement-strategy-for-14-dividends-in-2025/
+2026-01-31 16:33:45,441 - INFO - Fetched content for article 6/26
+2026-01-31 16:33:45,916 - INFO - Fetched content for article 7/26
+2026-01-31 16:33:46,400 - INFO - Fetched content for article 8/26
+2026-01-31 16:33:46,894 - INFO - Fetched content for article 9/26
+2026-01-31 16:33:47,126 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/ec6b5b56230a8533 | https://biztoc.com/x/ec6b5b56230a8533
+2026-01-31 16:33:48,451 - INFO - Fetched content for article 11/26
+2026-01-31 16:33:49,522 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/756e3883f247f82e | https://biztoc.com/x/756e3883f247f82e
+2026-01-31 16:33:50,735 - INFO - Fetched content for article 15/26
+2026-01-31 16:33:51,959 - INFO - Fetched content for article 17/26
+2026-01-31 16:33:52,188 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/investor-hub/article/best-growth-stocks/ | https://www.forbes.com/sites/investor-hub/article/best-growth-stocks/
+2026-01-31 16:33:53,097 - INFO - Fetched content for article 19/26
+2026-01-31 16:33:53,351 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254 | https://qz.com/fda-zepbound-weight-loss-hims-hers-noom-1851725254
+2026-01-31 16:33:54,232 - INFO - Fetched content for article 21/26
+2026-01-31 16:33:55,303 - INFO - Fetched content for article 23/26
+2026-01-31 16:33:55,676 - INFO - Fetched content for article 24/26
+2026-01-31 16:33:55,941 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/ | https://247wallst.com/investing/2024/12/18/this-feels-like-the-post-pandemic-rally-3-stocks-to-buy-if-it-is/
+2026-01-31 16:33:56,468 - INFO - Fetched content for article 26/26
+2026-01-31 16:33:56,468 - INFO - Cleaning article content for eli lilly (ticker: LLY)
+2026-01-31 16:33:56,471 - INFO - Content cleaning complete:
+  Total articles: 26
+  Articles with content: 14
+  Articles filtered: 9
+  Articles kept all (low match): 0
+  Articles with no content after: 5
+  Sentences: 373 → 26
+2026-01-31 16:33:56,471 - INFO -   Noise reduction: 93.0%
+2026-01-31 16:33:56,472 - INFO - filter_company_related: in=26 kept=12 | dropped(question_no_content)=4 dropped(no_match_no_content)=10 dropped(no_match_in_content)=0
+2026-01-31 16:33:56,472 - INFO - Only 12 articles matched filters within 14 days, but 250 were requested.
+2026-01-31 16:33:56,473 - INFO - Saved 12 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-01-31 16:33:56,474 - INFO - Displayed 12 articles

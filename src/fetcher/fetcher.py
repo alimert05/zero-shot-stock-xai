@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 import logging
 import sys
 import os
+import re
 
 from gdeltdoc import GdeltDoc, Filters
 
@@ -20,6 +21,7 @@ from .filters import (
     remove_duplicates
 )
 from .content import enrich_articles_with_content
+from .content_noise_reducer import clean_articles_content
 
 logging.basicConfig(
     level=logging.INFO,
@@ -221,11 +223,26 @@ class Fetcher:
 
         enrich_articles_with_content(candidates, timeout=self.timeout)
 
+        candidates = clean_articles_content(
+            candidates,
+            company_name=company_name,
+            ticker=ticker,
+            keep_all_if_low_match=False, 
+            min_sentences_threshold=2
+        )
+
         filtered_after_rules = filter_company_related(
             candidates,
             company_name=company_name,
             ticker=ticker,
         )
+
+        for article in candidates:
+            a = article.get("content")
+            if isinstance(a, str) and a:
+                a = a.replace("\r", " ").replace("\n", " ").replace("\t", " ").replace("\"", " ")
+                a = re.sub(r"\s+", " ", a).strip()
+                article["content"] = a
 
         final_articles = filtered_after_rules[: self.number_of_news]
 
