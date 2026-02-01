@@ -29,6 +29,19 @@ THEMES = [
     # "EPU_POLICY",
     "EPU_CATS_FINANCIAL_REGULATION",
     # "EPU_CATS_MONETARY_POLICY",
-    "ECON_TAXATION",
-    "ECON_IPO",
+    # "ECON_TAXATION",
+    # "ECON_IPO",
 ]
+
+# Impact Horizon Configuration
+IMPACT_HORIZON_ENABLED = True  # Set to False to disable impact horizon classification
+IMPACT_HORIZON_MODEL = "MoritzLaurer/deberta-v3-base-zeroshot-v2.0"
+IMPACT_HORIZON_DEVICE = -1  # -1 for CPU, 0 for GPU
+ 
+# Weight combination method: "weighted_avg", "multiplicative", "geometric"
+WEIGHT_COMBINE_METHOD = "weighted_avg"
+ 
+# Importance weights for weighted_avg method (should sum to 1.0)
+RECENCY_IMPORTANCE = 0.4
+HORIZON_IMPORTANCE = 0.6
+
