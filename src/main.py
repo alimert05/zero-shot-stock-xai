@@ -2,19 +2,22 @@ import atexit
 from fetcher.fetcher import Fetcher
 from predictor.finbert import run_sentiment_prediction
 from backtest.backtester import run_backtest
-from config import JSON_PATH, SENTIMENT_OUTPUT_PATH
+from config import JSON_PATH, SENTIMENT_OUTPUT_PATH, SENTIMENT_MODEL
 
 def main() -> None:
 
     fetcher = Fetcher()
     fetcher.run_fetcher()
 
-    run_sentiment_prediction(
-        articles_json_path=str(JSON_PATH),
-        output_path=str(SENTIMENT_OUTPUT_PATH),
-    )
+    if SENTIMENT_MODEL == "fingpt":
+        from predictor.fingpt import run_sentiment_prediction
+    elif SENTIMENT_MODEL == "ProsusAI/finbert":
+        from predictor.finbert import run_sentiment_prediction
 
-    # Not working well yet
+    run_sentiment_prediction(articles_json_path=str(JSON_PATH), output_path=str(SENTIMENT_OUTPUT_PATH))
+        
+
+
     run_backtest()
 
 if __name__ == "__main__":

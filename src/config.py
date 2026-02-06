@@ -28,11 +28,19 @@ IMPACT_HORIZON_DEVICE = -1
 RECENCY_IMPORTANCE = 0.4
 HORIZON_IMPORTANCE = 0.6
 
+SENTIMENT_DEVICE = 0 
+
+# finbert config
+
 SENTIMENT_MODEL = "ProsusAI/finbert"
-SENTIMENT_DEVICE = 0
-SENTIMENT_MAX_LENGTH = 512  # Max token length for FinBERT input
+SENTIMENT_MAX_LENGTH = 512  
 SENTIMENT_OUTPUT_PATH = TEMP_PATH / "sentiment_result.json"
 
+#fingpt config
+# SENTIMENT_MODEL = "fingpt"
+FINGPT_BASE_MODEL = "NousResearch/Llama-2-13b-hf"
+FINGPT_LORA_MODEL = "FinGPT/fingpt-sentiment_llama2-13b_lora"
+FINGPT_LOAD_IN_8BIT = True
 
 THEMES = [
     "ECON_STOCKMARKET",

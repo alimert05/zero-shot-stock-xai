@@ -1,726 +1,186 @@
 {
-  "query": "apple",
-  "company_name": "apple",
+  "query": "eli lilly",
+  "company_name": "eli lilly",
   "ticker": null,
-  "articles_analyzed": 47,
-  "articles_total": 47,
-  "total_weight": 24.0271,
+  "articles_analyzed": 11,
+  "articles_total": 11,
+  "total_weight": 3.917,
   "weighted_scores": {
-    "positive": 12.4014,
-    "negative": 4.5264,
-    "neutral": 7.0993
+    "positive": 1.8632,
+    "negative": 1.0077,
+    "neutral": 1.0461
   },
   "normalized_scores": {
-    "positive": 0.5161,
-    "negative": 0.1884,
-    "neutral": 0.2955
+    "positive": 0.4757,
+    "negative": 0.2573,
+    "neutral": 0.2671
   },
   "final_label": "positive",
-  "final_confidence": 0.5161,
+  "final_confidence": 0.4757,
   "article_details": [
     {
-      "title": "2024 Stock Market News : Economy Avoids Hard Landing",
-      "final_weight": 0.9871,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.830220639705658,
-        "negative": 0.011480815708637238,
-        "neutral": 0.15829859673976898
-      },
-      "weighted_scores": {
-        "positive": 0.8195,
-        "negative": 0.0113,
-        "neutral": 0.1563
-      }
-    },
-    {
-      "title": "The AI Stock Playbook : Wall Street Top 10 Tech Bets for 2025",
-      "final_weight": 0.9871,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.8656185269355774,
-        "negative": 0.008711613714694977,
-        "neutral": 0.12566983699798584
-      },
-      "weighted_scores": {
-        "positive": 0.8545,
-        "negative": 0.0086,
-        "neutral": 0.124
-      }
-    },
-    {
-      "title": "Jensen Huang Nvidia  Printing Money Like Apple  In Early iPhone Days , Says Tesla Bull Ross Gerber - NVIDIA ( NASDAQ : NVDA ) ",
-      "final_weight": 0.9871,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.6072642207145691,
-        "negative": 0.01401525642722845,
-        "neutral": 0.3787205219268799
-      },
-      "weighted_scores": {
-        "positive": 0.5994,
-        "negative": 0.0138,
-        "neutral": 0.3738
-      }
-    },
-    {
-      "title": "Apple Stock Has Reached Historic Levels in One Metric . It a Clear Warning Sign for 2025 . ",
-      "final_weight": 0.9387,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9208932518959045,
-        "negative": 0.045429524034261703,
-        "neutral": 0.03367724269628525
-      },
-      "weighted_scores": {
-        "positive": 0.8644,
-        "negative": 0.0426,
-        "neutral": 0.0316
-      }
-    },
-    {
-      "title": "What 14 Analyst Ratings Have To Say About Apple - Apple ( NASDAQ : AAPL ) ",
-      "final_weight": 0.8452,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.3787980079650879,
-        "negative": 0.013350989669561386,
-        "neutral": 0.6078510284423828
-      },
-      "weighted_scores": {
-        "positive": 0.3202,
-        "negative": 0.0113,
-        "neutral": 0.5138
-      }
-    },
-    {
-      "title": "Here How Much You Would Have Made Owning Apple Stock In The Last 15 Years - Apple ( NASDAQ : AAPL ) ",
-      "final_weight": 0.8452,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.11810456961393356,
-        "negative": 0.018256446346640587,
-        "neutral": 0.8636389374732971
-      },
-      "weighted_scores": {
-        "positive": 0.0998,
-        "negative": 0.0154,
-        "neutral": 0.7299
-      }
-    },
-    {
-      "title": "Wedbush Maps Apple Road to a $5 Trillion Milestone",
-      "final_weight": 0.7484,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.925524890422821,
-        "negative": 0.014487414620816708,
-        "neutral": 0.059987764805555344
-      },
-      "weighted_scores": {
-        "positive": 0.6927,
-        "negative": 0.0108,
-        "neutral": 0.0449
-      }
-    },
-    {
-      "title": "Analyst on NVIDIA ( NVDA ): Investors Should Be  Very Vigilant  Amid Rising Competition",
-      "final_weight": 0.7484,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.6044279932975769,
-        "negative": 0.00830658245831728,
-        "neutral": 0.3872653841972351
-      },
-      "weighted_scores": {
-        "positive": 0.4524,
-        "negative": 0.0062,
-        "neutral": 0.2898
-      }
-    },
-    {
-      "title": "Analyst Predicts NVIDIA ( NVDA ) Stock Will Hit $800 By 2030",
-      "final_weight": 0.7484,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.8657925724983215,
-        "negative": 0.007495300378650427,
-        "neutral": 0.12671221792697906
-      },
-      "weighted_scores": {
-        "positive": 0.648,
-        "negative": 0.0056,
-        "neutral": 0.0948
-      }
-    },
-    {
-      "title": "Equities Research Analyst Updated EPS Estimates for December 26th ( AAPL , ACVA , AVXL , CELH , CRVL , KMPR , MCY , NKE , PB , PYPD ) ",
-      "final_weight": 0.7484,
-      "input_source": "title-fallback",
-      "raw_scores": {
-        "positive": 0.02679581195116043,
-        "negative": 0.05064384266734123,
-        "neutral": 0.9225603938102722
-      },
-      "weighted_scores": {
-        "positive": 0.0201,
-        "negative": 0.0379,
-        "neutral": 0.6904
-      }
-    },
-    {
-      "title": "Dan Niles on Apple ( AAPL ): Data is  Somewhat Disappointing  and Stock is  Pretty Expensive",
-      "final_weight": 0.7387,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.014958533458411694,
-        "negative": 0.9425407648086548,
-        "neutral": 0.04250067472457886
-      },
-      "weighted_scores": {
-        "positive": 0.011,
-        "negative": 0.6963,
-        "neutral": 0.0314
-      }
-    },
-    {
-      "title": "Top analyst revisits Apple stock price target on march to $4 trillion",
-      "final_weight": 0.7387,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.04389497637748718,
-        "negative": 0.14607174694538116,
-        "neutral": 0.8100332617759705
-      },
-      "weighted_scores": {
-        "positive": 0.0324,
-        "negative": 0.1079,
-        "neutral": 0.5984
-      }
-    },
-    {
-      "title": "Apple $4 Trillion Dream : AI Hype or Real Growth ? ",
-      "final_weight": 0.729,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9212310910224915,
-        "negative": 0.024385914206504822,
-        "neutral": 0.05438293144106865
-      },
-      "weighted_scores": {
-        "positive": 0.6716,
-        "negative": 0.0178,
-        "neutral": 0.0396
-      }
-    },
-    {
-      "title": "Warren Buffett Sells Apple Stock and Buys a Restaurant Stock Up 3 , 100 % Since Its IPO",
+      "title": "Eli Lilly among best in Big Pharma in 2024 ; Novo among worst",
       "final_weight": 0.7097,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.8625376224517822,
-        "negative": 0.015470820479094982,
-        "neutral": 0.12199164181947708
+        "positive": 0.9011287093162537,
+        "negative": 0.026149898767471313,
+        "neutral": 0.07272148877382278
       },
       "weighted_scores": {
-        "positive": 0.6121,
-        "negative": 0.011,
-        "neutral": 0.0866
-      }
-    },
-    {
-      "title": "Analyst Says Apple ( AAPL ) Stock is Expensive Amid  Slow - Developing  Upgrade Cycle",
-      "final_weight": 0.7097,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.107542984187603,
-        "negative": 0.6493070125579834,
-        "neutral": 0.24314990639686584
-      },
-      "weighted_scores": {
-        "positive": 0.0763,
-        "negative": 0.4608,
-        "neutral": 0.1726
-      }
-    },
-    {
-      "title": "Apple Inc . ( AAPL ): Billionaire D . E . Shaw Is Bullish On This Stock Right Now",
-      "final_weight": 0.7,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.8276400566101074,
-        "negative": 0.0083476472645998,
-        "neutral": 0.16401229798793793
-      },
-      "weighted_scores": {
-        "positive": 0.5793,
-        "negative": 0.0058,
-        "neutral": 0.1148
-      }
-    },
-    {
-      "title": "Baystreet . ca - Stock Market Warning : Yields Rising",
-      "final_weight": 0.7,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.025026103481650352,
-        "negative": 0.955706000328064,
-        "neutral": 0.019267937168478966
-      },
-      "weighted_scores": {
-        "positive": 0.0175,
-        "negative": 0.669,
-        "neutral": 0.0135
-      }
-    },
-    {
-      "title": "US Stocks To Open Lower As Index Future Decline : Analysts Remain Upbeat About Santa Rally - Apple ( NASDAQ : AAPL ), Evaxion Biotech ( NASDAQ : EVAX ) ",
-      "final_weight": 0.7,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.019663695245981216,
-        "negative": 0.9707980751991272,
-        "neutral": 0.009538172744214535
-      },
-      "weighted_scores": {
-        "positive": 0.0138,
-        "negative": 0.6796,
-        "neutral": 0.0067
-      }
-    },
-    {
-      "title": "Dow Edges Higher In Thin Holiday Trading As Tesla , Apple Surge : Investor Sentiment Improves , But Greed Index Remains In  Fear  Zone - Tesla ( NASDAQ : TSLA ) ",
-      "final_weight": 0.7,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9520846009254456,
-        "negative": 0.026559986174106598,
-        "neutral": 0.02135537564754486
-      },
-      "weighted_scores": {
-        "positive": 0.6665,
+        "positive": 0.6395,
         "negative": 0.0186,
-        "neutral": 0.0149
+        "neutral": 0.0516
       }
     },
     {
-      "title": "Warren Buffett Heads Into 2025 With $325 Billion Cash Pile , His Largest in Over Three Decades : Expert Says It  Will Provide An Opportunity For The Successors To Make Their Own Mark  - Apple ( NASDAQ : AAPL ), Bank of America ( NYSE : BAC ) ",
-      "final_weight": 0.6258,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.4926309883594513,
-        "negative": 0.01534623559564352,
-        "neutral": 0.4920227825641632
-      },
-      "weighted_scores": {
-        "positive": 0.3083,
-        "negative": 0.0096,
-        "neutral": 0.3079
-      }
-    },
-    {
-      "title": "5 Tech Stocks to Buy as AI Hype Fizzles - Apple ( NASDAQ : AAPL ), CACI International ( NYSE : CACI ) ",
-      "final_weight": 0.6161,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.8795595765113831,
-        "negative": 0.018244316801428795,
-        "neutral": 0.10219606757164001
-      },
-      "weighted_scores": {
-        "positive": 0.5419,
-        "negative": 0.0112,
-        "neutral": 0.063
-      }
-    },
-    {
-      "title": "Wall Street Analysts Cant Stop Talking About These 10 AI Stocks",
+      "title": "Who Next To Join Tesla , Broadcom In $1 Trillion Club ? Over 50 % Say The World Biggest Retailer - Broadcom ( NASDAQ : AVGO ), JPMorgan Chase ( NYSE : JPM ) ",
       "final_weight": 0.5677,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.2784426212310791,
-        "negative": 0.6802973747253418,
-        "neutral": 0.04126005247235298
+        "positive": 0.062428053468465805,
+        "negative": 0.036196909844875336,
+        "neutral": 0.9013750553131104
       },
       "weighted_scores": {
-        "positive": 0.1581,
-        "negative": 0.3862,
-        "neutral": 0.0234
+        "positive": 0.0354,
+        "negative": 0.0205,
+        "neutral": 0.5117
       }
     },
     {
-      "title": "Baystreet . ca - Today Stock News on Honda , Apple , and Energy Stocks",
-      "final_weight": 0.5194,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.4767918586730957,
-        "negative": 0.4103776216506958,
-        "neutral": 0.11283052712678909
-      },
-      "weighted_scores": {
-        "positive": 0.2476,
-        "negative": 0.2132,
-        "neutral": 0.0586
-      }
-    },
-    {
-      "title": "Apple Stock Hits Record High Amid Strong Holiday Sales | Investor Business Daily",
+      "title": "Top Stock Movers Now : Broadcom , AMD , ResMed , and More",
       "final_weight": 0.5097,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.015666499733924866,
+        "negative": 0.9676679372787476,
+        "neutral": 0.016665564849972725
+      },
+      "weighted_scores": {
+        "positive": 0.008,
+        "negative": 0.4932,
+        "neutral": 0.0085
+      }
+    },
+    {
+      "title": "Dow Jones Today : Stocks Slip To Start Holiday - Shortened Week ; Honda Soars on Merger Plans",
+      "final_weight": 0.5097,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.8615816831588745,
+        "negative": 0.10415392369031906,
+        "neutral": 0.03426434472203255
+      },
+      "weighted_scores": {
+        "positive": 0.4391,
+        "negative": 0.0531,
+        "neutral": 0.0175
+      }
+    },
+    {
+      "title": "S & P 500 Gains and Losses Today : Chip Stocks Surge as Holiday Trading Week Begins",
+      "final_weight": 0.2402,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.9353635907173157,
+        "negative": 0.047560129314661026,
+        "neutral": 0.017076296731829643
+      },
+      "weighted_scores": {
+        "positive": 0.2247,
+        "negative": 0.0114,
+        "neutral": 0.0041
+      }
+    },
+    {
+      "title": "Amgen stock gains on NovoNordisk weightloss drug blunder",
+      "final_weight": 0.23,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.7759774923324585,
+        "negative": 0.19950057566165924,
+        "neutral": 0.02452186495065689
+      },
+      "weighted_scores": {
+        "positive": 0.1785,
+        "negative": 0.0459,
+        "neutral": 0.0056
+      }
+    },
+    {
+      "title": "Eli Lilly Weight - Loss Drug Wins Approval In Sleep Apnea ; Will ResMed Feel The Heat ? ",
+      "final_weight": 0.23,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.9394564628601074,
-        "negative": 0.020639363676309586,
-        "neutral": 0.03990422934293747
+        "positive": 0.9422513842582703,
+        "negative": 0.013718517497181892,
+        "neutral": 0.044030122458934784
       },
       "weighted_scores": {
-        "positive": 0.4788,
-        "negative": 0.0105,
-        "neutral": 0.0203
+        "positive": 0.2167,
+        "negative": 0.0032,
+        "neutral": 0.0101
       }
     },
     {
-      "title": "Dow Jones Today : Stocks Slip in Early Trading as Santa Clause Rally Stumbles ; Bitcoin Slumps",
-      "final_weight": 0.5092,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9386692047119141,
-        "negative": 0.014848873019218445,
-        "neutral": 0.04648185521364212
-      },
-      "weighted_scores": {
-        "positive": 0.478,
-        "negative": 0.0076,
-        "neutral": 0.0237
-      }
-    },
-    {
-      "title": "Apple stock touches intraday high after nod of confidence from Wall Street",
-      "final_weight": 0.5092,
+      "title": "Why Novo Nordisk Stock Got Destroyed Today , but Eli Lilly and Viking Stocks Are Up",
+      "final_weight": 0.23,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.9372779726982117,
-        "negative": 0.03123050555586815,
-        "neutral": 0.03149149566888809
+        "positive": 0.0453287772834301,
+        "negative": 0.6646486520767212,
+        "neutral": 0.2900225520133972
       },
       "weighted_scores": {
-        "positive": 0.4773,
-        "negative": 0.0159,
-        "neutral": 0.016
+        "positive": 0.0104,
+        "negative": 0.1529,
+        "neutral": 0.0667
       }
     },
     {
-      "title": "Tesla Stock Leads Magnificent Seven Shares Higher",
-      "final_weight": 0.5092,
+      "title": "Market movers : Stocks seeing action on Friday - and why",
+      "final_weight": 0.23,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.25545328855514526,
-        "negative": 0.26952946186065674,
-        "neutral": 0.4750171899795532
+        "positive": 0.10065118968486786,
+        "negative": 0.8807545304298401,
+        "neutral": 0.018594395369291306
       },
       "weighted_scores": {
-        "positive": 0.1301,
-        "negative": 0.1372,
-        "neutral": 0.2419
+        "positive": 0.0231,
+        "negative": 0.2026,
+        "neutral": 0.0043
       }
     },
     {
-      "title": "Apple Stock And Two Other 2024 Winners Are On Fund Manager Radars",
-      "final_weight": 0.2402,
+      "title": "15 Billion Reasons to Love Eli Lilly Stock Right Now",
+      "final_weight": 0.23,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.36339402198791504,
-        "negative": 0.02627120539546013,
-        "neutral": 0.6103347539901733
+        "positive": 0.08073531836271286,
+        "negative": 0.01881394535303116,
+        "neutral": 0.9004507064819336
       },
       "weighted_scores": {
-        "positive": 0.0873,
-        "negative": 0.0063,
-        "neutral": 0.1466
+        "positive": 0.0186,
+        "negative": 0.0043,
+        "neutral": 0.2071
       }
     },
     {
-      "title": "US close : Stocks push higher despite mixed economic data",
-      "final_weight": 0.2402,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.053439389914274216,
-        "negative": 0.023720206692814827,
-        "neutral": 0.9228403568267822
-      },
-      "weighted_scores": {
-        "positive": 0.0128,
-        "negative": 0.0057,
-        "neutral": 0.2217
-      }
-    },
-    {
-      "title": "Dan Niles Says Apple ( AAPL ) New iPhone Features Werent  Particularly Good , Highlights Slowing Growth",
-      "final_weight": 0.2402,
+      "title": "Eli Lilly Kisunla approved in China for Alzheimer Disease treatment",
+      "final_weight": 0.23,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.278929203748703,
-        "negative": 0.27883443236351013,
-        "neutral": 0.44223636388778687
+        "positive": 0.30036360025405884,
+        "negative": 0.009011373855173588,
+        "neutral": 0.690625011920929
       },
       "weighted_scores": {
-        "positive": 0.067,
-        "negative": 0.067,
-        "neutral": 0.1062
-      }
-    },
-    {
-      "title": "S & P 500 Gains and Losses Today : Index Drops as Fed Cuts Rates but Signals Caution",
-      "final_weight": 0.2402,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.680567741394043,
-        "negative": 0.29745540022850037,
-        "neutral": 0.021976809948682785
-      },
-      "weighted_scores": {
-        "positive": 0.1635,
-        "negative": 0.0714,
-        "neutral": 0.0053
-      }
-    },
-    {
-      "title": "Stock Market Today : Dow Dives 1 , 123 Points After Fed",
-      "final_weight": 0.2402,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.12823261320590973,
-        "negative": 0.00871296226978302,
-        "neutral": 0.8630544543266296
-      },
-      "weighted_scores": {
-        "positive": 0.0308,
+        "positive": 0.0691,
         "negative": 0.0021,
-        "neutral": 0.2073
-      }
-    },
-    {
-      "title": "Apple could hit a $4 trillion market cap by early 2025",
-      "final_weight": 0.23,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.47575363516807556,
-        "negative": 0.4606786072254181,
-        "neutral": 0.06356777250766754
-      },
-      "weighted_scores": {
-        "positive": 0.1094,
-        "negative": 0.106,
-        "neutral": 0.0146
-      }
-    },
-    {
-      "title": "This ETF Holds Lots of Wide Moat Stocks",
-      "final_weight": 0.23,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.10362589359283447,
-        "negative": 0.03233686462044716,
-        "neutral": 0.864037275314331
-      },
-      "weighted_scores": {
-        "positive": 0.0238,
-        "negative": 0.0074,
-        "neutral": 0.1987
-      }
-    },
-    {
-      "title": "Top 10 AI Stocks to Watch Right Now - Insider Monkey",
-      "final_weight": 0.23,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.15574738383293152,
-        "negative": 0.8041844367980957,
-        "neutral": 0.0400681309401989
-      },
-      "weighted_scores": {
-        "positive": 0.0358,
-        "negative": 0.185,
-        "neutral": 0.0092
-      }
-    },
-    {
-      "title": "MicroStrategy Stock Is Up 400 % This Year What You Need to Know About the Bitcoin Proxy",
-      "final_weight": 0.23,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.7994359135627747,
-        "negative": 0.04052867367863655,
-        "neutral": 0.1600354164838791
-      },
-      "weighted_scores": {
-        "positive": 0.1839,
-        "negative": 0.0093,
-        "neutral": 0.0368
-      }
-    },
-    {
-      "title": "How to target a £100 , 000 second income starting with just £1 , 000",
-      "final_weight": 0.23,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.3090953826904297,
-        "negative": 0.01922791823744774,
-        "neutral": 0.6716766953468323
-      },
-      "weighted_scores": {
-        "positive": 0.0711,
-        "negative": 0.0044,
-        "neutral": 0.1545
-      }
-    },
-    {
-      "title": "Jim Cramer on Apple Inc . ( AAPL ):  I Say Own It Dont Trade It . . . It So Far The Biggest Position In Our Trust  ",
-      "final_weight": 0.23,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.14428947865962982,
-        "negative": 0.11545790731906891,
-        "neutral": 0.7402526140213013
-      },
-      "weighted_scores": {
-        "positive": 0.0332,
-        "negative": 0.0266,
-        "neutral": 0.1703
-      }
-    },
-    {
-      "title": "US close : Stocks higher following November PCE reading",
-      "final_weight": 0.23,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.042118851095438004,
-        "negative": 0.026967067271471024,
-        "neutral": 0.930914044380188
-      },
-      "weighted_scores": {
-        "positive": 0.0097,
-        "negative": 0.0062,
-        "neutral": 0.2141
-      }
-    },
-    {
-      "title": "Apple shares hit new all - time intraday and closing highs",
-      "final_weight": 0.23,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.7916784882545471,
-        "negative": 0.026249948889017105,
-        "neutral": 0.18207156658172607
-      },
-      "weighted_scores": {
-        "positive": 0.1821,
-        "negative": 0.006,
-        "neutral": 0.0419
-      }
-    },
-    {
-      "title": "If an investor put $5 , 000 in Nvidia shares 5 years ago , here what theyd have now",
-      "final_weight": 0.23,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.5559431910514832,
-        "negative": 0.012192860245704651,
-        "neutral": 0.4318638741970062
-      },
-      "weighted_scores": {
-        "positive": 0.1279,
-        "negative": 0.0028,
-        "neutral": 0.0993
-      }
-    },
-    {
-      "title": "Apple Inc . ( NASDAQ : AAPL ) Shares Sold by RCS Financial Planning LLC",
-      "final_weight": 0.23,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.02275676652789116,
-        "negative": 0.028536181896924973,
-        "neutral": 0.9487070441246033
-      },
-      "weighted_scores": {
-        "positive": 0.0052,
-        "negative": 0.0066,
-        "neutral": 0.2182
-      }
-    },
-    {
-      "title": "Apple Stock Up Despite Lackluster iPhone 16 Sales | Investor Business Daily",
-      "final_weight": 0.23,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9173703789710999,
-        "negative": 0.06626105308532715,
-        "neutral": 0.016368582844734192
-      },
-      "weighted_scores": {
-        "positive": 0.211,
-        "negative": 0.0152,
-        "neutral": 0.0038
-      }
-    },
-    {
-      "title": "Dow Jones Today : Stocks Inch Higher as Investors Await Fed Decision on Interest Rates ; Nvidia Shares Surge After Slump",
-      "final_weight": 0.23,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.009021497331559658,
-        "negative": 0.9758318662643433,
-        "neutral": 0.015146618708968163
-      },
-      "weighted_scores": {
-        "positive": 0.0021,
-        "negative": 0.2244,
-        "neutral": 0.0035
-      }
-    },
-    {
-      "title": "5 Things to Know Before the Stock Market Opens",
-      "final_weight": 0.23,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.3234361410140991,
-        "negative": 0.6435983777046204,
-        "neutral": 0.03296547755599022
-      },
-      "weighted_scores": {
-        "positive": 0.0744,
-        "negative": 0.148,
-        "neutral": 0.0076
-      }
-    },
-    {
-      "title": "As bitcoin soars , luxury brands consider accepting crypto payments",
-      "final_weight": 0.23,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.20098355412483215,
-        "negative": 0.009043047204613686,
-        "neutral": 0.7899734377861023
-      },
-      "weighted_scores": {
-        "positive": 0.0462,
-        "negative": 0.0021,
-        "neutral": 0.1817
-      }
-    },
-    {
-      "title": "As bitcoin soars , luxury brands consider accepting crypto payments",
-      "final_weight": 0.23,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.22914794087409973,
-        "negative": 0.008665231056511402,
-        "neutral": 0.7621867656707764
-      },
-      "weighted_scores": {
-        "positive": 0.0527,
-        "negative": 0.002,
-        "neutral": 0.1753
+        "neutral": 0.1588
       }
     }
   ]
