@@ -20911,3 +20911,619 @@
 2026-02-06 05:32:13,200 - INFO - [11/11] (headline+content) Eli Lilly Kisunla approved in China for Alzheimer  -> pos=0.3004 neg=0.0090 neu=0.6906 (w=0.230)
 2026-02-06 05:32:13,200 - INFO - Sentiment prediction complete: label=positive confidence=0.4757 (11 articles analyzed)
 2026-02-06 05:32:13,202 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\sentiment_result.json
+2026-02-06 06:02:36,407 - INFO - Running DeBERTa NLI sentiment on 11 articles (company=eli lilly, ticker=None)
+2026-02-06 06:02:41,010 - INFO - Loading DeBERTa NLI zero-shot classifier...
+2026-02-06 06:02:41,860 - INFO - DeBERTa NLI model loaded successfully
+2026-02-06 06:02:42,166 - INFO - [1/11] (headline+content) Eli Lilly among best in Big Pharma in 2024 ; Novo  -> pos=0.2223 neg=0.0125 neu=0.7653 (w=0.710)
+2026-02-06 06:02:42,251 - INFO - [2/11] (content-only) Who Next To Join Tesla , Broadcom In $1 Trillion C -> pos=0.0084 neg=0.0019 neu=0.9898 (w=0.568)
+2026-02-06 06:02:42,436 - INFO - [3/11] (content-only) Top Stock Movers Now : Broadcom , AMD , ResMed , a -> pos=0.0154 neg=0.9554 neu=0.0292 (w=0.510)
+2026-02-06 06:02:42,474 - INFO - [4/11] (content-only) Dow Jones Today : Stocks Slip To Start Holiday - S -> pos=0.9978 neg=0.0010 neu=0.0013 (w=0.510)
+2026-02-06 06:02:42,509 - INFO - [5/11] (content-only) S & P 500 Gains and Losses Today : Chip Stocks Sur -> pos=0.8478 neg=0.0270 neu=0.1252 (w=0.240)
+2026-02-06 06:02:42,543 - INFO - [6/11] (content-only) Amgen stock gains on NovoNordisk weightloss drug b -> pos=0.9805 neg=0.0050 neu=0.0146 (w=0.230)
+2026-02-06 06:02:42,577 - INFO - [7/11] (headline+content) Eli Lilly Weight - Loss Drug Wins Approval In Slee -> pos=0.4383 neg=0.0371 neu=0.5246 (w=0.230)
+2026-02-06 06:02:42,616 - INFO - [8/11] (headline+content) Why Novo Nordisk Stock Got Destroyed Today , but E -> pos=0.8749 neg=0.0429 neu=0.0821 (w=0.230)
+2026-02-06 06:02:42,651 - INFO - [9/11] (content-only) Market movers : Stocks seeing action on Friday - a -> pos=0.0024 neg=0.9906 neu=0.0071 (w=0.230)
+2026-02-06 06:02:42,687 - INFO - [10/11] (headline+content) 15 Billion Reasons to Love Eli Lilly Stock Right N -> pos=0.9991 neg=0.0004 neu=0.0005 (w=0.230)
+2026-02-06 06:02:42,736 - INFO - [11/11] (headline+content) Eli Lilly Kisunla approved in China for Alzheimer  -> pos=0.0232 neg=0.0033 neu=0.9736 (w=0.230)
+2026-02-06 06:02:42,736 - INFO - Sentiment prediction complete: label=positive confidence=0.4202 (11 articles analyzed)
+2026-02-06 06:02:42,737 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\deberta_result.json
+2026-02-06 06:03:11,744 - INFO - Running FinGPT sentiment on 11 articles (company=eli lilly, ticker=None)
+2026-02-06 06:03:16,671 - INFO - Loading FinGPT: base=NousResearch/Llama-2-13b-hf, lora=FinGPT/fingpt-sentiment_llama2-13b_lora, 8bit=True, device=cuda:0
+2026-02-06 06:03:32,499 - INFO - FinGPT model loaded successfully
+2026-02-06 06:03:33,013 - INFO - [1/11] (headline+content) Eli Lilly among best in Big Pharma in 2024 ; Novo  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.710)
+2026-02-06 06:03:33,325 - INFO - [2/11] (content-only) Who Next To Join Tesla , Broadcom In $1 Trillion C -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.568)
+2026-02-06 06:03:33,625 - INFO - [3/11] (content-only) Top Stock Movers Now : Broadcom , AMD , ResMed , a -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.510)
+2026-02-06 06:03:33,966 - INFO - [4/11] (content-only) Dow Jones Today : Stocks Slip To Start Holiday - S -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.510)
+2026-02-06 06:03:34,294 - INFO - [5/11] (content-only) S & P 500 Gains and Losses Today : Chip Stocks Sur -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.240)
+2026-02-06 06:03:34,596 - INFO - [6/11] (content-only) Amgen stock gains on NovoNordisk weightloss drug b -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.230)
+2026-02-06 06:03:34,896 - INFO - [7/11] (headline+content) Eli Lilly Weight - Loss Drug Wins Approval In Slee -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.230)
+2026-02-06 06:03:35,183 - INFO - [8/11] (headline+content) Why Novo Nordisk Stock Got Destroyed Today , but E -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.230)
+2026-02-06 06:03:35,480 - INFO - [9/11] (content-only) Market movers : Stocks seeing action on Friday - a -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.230)
+2026-02-06 06:03:35,763 - INFO - [10/11] (headline+content) 15 Billion Reasons to Love Eli Lilly Stock Right N -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.230)
+2026-02-06 06:03:36,083 - INFO - [11/11] (headline+content) Eli Lilly Kisunla approved in China for Alzheimer  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.230)
+2026-02-06 06:03:36,083 - INFO - Sentiment prediction complete: label=positive confidence=0.5230 (11 articles analyzed)
+2026-02-06 06:03:36,084 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\fingpt_result.json
+2026-02-06 06:03:51,417 - INFO - Running FinBERT sentiment on 11 articles (company=eli lilly, ticker=None)
+2026-02-06 06:03:56,071 - INFO - Loading FinBERT sentiment model...
+2026-02-06 06:03:57,093 - INFO - FinBERT model loaded successfully
+2026-02-06 06:03:57,177 - INFO - [1/11] (headline+content) Eli Lilly among best in Big Pharma in 2024 ; Novo  -> pos=0.9011 neg=0.0261 neu=0.0727 (w=0.710)
+2026-02-06 06:03:57,183 - INFO - [2/11] (content-only) Who Next To Join Tesla , Broadcom In $1 Trillion C -> pos=0.0624 neg=0.0362 neu=0.9014 (w=0.568)
+2026-02-06 06:03:57,188 - INFO - [3/11] (content-only) Top Stock Movers Now : Broadcom , AMD , ResMed , a -> pos=0.0157 neg=0.9677 neu=0.0167 (w=0.510)
+2026-02-06 06:03:57,195 - INFO - [4/11] (content-only) Dow Jones Today : Stocks Slip To Start Holiday - S -> pos=0.8616 neg=0.1042 neu=0.0343 (w=0.510)
+2026-02-06 06:03:57,199 - INFO - [5/11] (content-only) S & P 500 Gains and Losses Today : Chip Stocks Sur -> pos=0.9354 neg=0.0476 neu=0.0171 (w=0.240)
+2026-02-06 06:03:57,203 - INFO - [6/11] (content-only) Amgen stock gains on NovoNordisk weightloss drug b -> pos=0.7760 neg=0.1995 neu=0.0245 (w=0.230)
+2026-02-06 06:03:57,208 - INFO - [7/11] (headline+content) Eli Lilly Weight - Loss Drug Wins Approval In Slee -> pos=0.9423 neg=0.0137 neu=0.0440 (w=0.230)
+2026-02-06 06:03:57,212 - INFO - [8/11] (headline+content) Why Novo Nordisk Stock Got Destroyed Today , but E -> pos=0.0453 neg=0.6646 neu=0.2900 (w=0.230)
+2026-02-06 06:03:57,216 - INFO - [9/11] (content-only) Market movers : Stocks seeing action on Friday - a -> pos=0.1007 neg=0.8808 neu=0.0186 (w=0.230)
+2026-02-06 06:03:57,223 - INFO - [10/11] (headline+content) 15 Billion Reasons to Love Eli Lilly Stock Right N -> pos=0.0807 neg=0.0188 neu=0.9005 (w=0.230)
+2026-02-06 06:03:57,229 - INFO - [11/11] (headline+content) Eli Lilly Kisunla approved in China for Alzheimer  -> pos=0.3004 neg=0.0090 neu=0.6906 (w=0.230)
+2026-02-06 06:03:57,229 - INFO - Sentiment prediction complete: label=positive confidence=0.4757 (11 articles analyzed)
+2026-02-06 06:03:57,240 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\finbert_result.json
+2026-02-06 11:25:29,468 - INFO - Running DeBERTa NLI sentiment on 11 articles (company=eli lilly, ticker=None)
+2026-02-06 11:25:46,515 - INFO - Loading DeBERTa NLI zero-shot classifier...
+2026-02-06 11:25:47,755 - INFO - DeBERTa NLI model loaded successfully
+2026-02-06 11:25:48,404 - INFO - [1/11] (headline+content) Eli Lilly among best in Big Pharma in 2024 ; Novo  -> pos=0.2223 neg=0.0125 neu=0.7653 (w=0.710)
+2026-02-06 11:25:48,490 - INFO - [2/11] (content-only) Who Next To Join Tesla , Broadcom In $1 Trillion C -> pos=0.0084 neg=0.0019 neu=0.9898 (w=0.568)
+2026-02-06 11:25:48,679 - INFO - [3/11] (content-only) Top Stock Movers Now : Broadcom , AMD , ResMed , a -> pos=0.0154 neg=0.9554 neu=0.0292 (w=0.510)
+2026-02-06 11:25:48,714 - INFO - [4/11] (content-only) Dow Jones Today : Stocks Slip To Start Holiday - S -> pos=0.9978 neg=0.0010 neu=0.0013 (w=0.510)
+2026-02-06 11:25:48,749 - INFO - [5/11] (content-only) S & P 500 Gains and Losses Today : Chip Stocks Sur -> pos=0.8478 neg=0.0270 neu=0.1252 (w=0.240)
+2026-02-06 11:25:48,785 - INFO - [6/11] (content-only) Amgen stock gains on NovoNordisk weightloss drug b -> pos=0.9805 neg=0.0050 neu=0.0146 (w=0.230)
+2026-02-06 11:25:48,819 - INFO - [7/11] (headline+content) Eli Lilly Weight - Loss Drug Wins Approval In Slee -> pos=0.4383 neg=0.0371 neu=0.5246 (w=0.230)
+2026-02-06 11:25:48,853 - INFO - [8/11] (headline+content) Why Novo Nordisk Stock Got Destroyed Today , but E -> pos=0.8749 neg=0.0429 neu=0.0821 (w=0.230)
+2026-02-06 11:25:48,886 - INFO - [9/11] (content-only) Market movers : Stocks seeing action on Friday - a -> pos=0.0024 neg=0.9906 neu=0.0071 (w=0.230)
+2026-02-06 11:25:48,917 - INFO - [10/11] (headline+content) 15 Billion Reasons to Love Eli Lilly Stock Right N -> pos=0.9991 neg=0.0004 neu=0.0005 (w=0.230)
+2026-02-06 11:25:48,951 - INFO - [11/11] (headline+content) Eli Lilly Kisunla approved in China for Alzheimer  -> pos=0.0232 neg=0.0033 neu=0.9736 (w=0.230)
+2026-02-06 11:25:48,951 - INFO - Sentiment prediction complete: label=positive confidence=0.4202 (11 articles analyzed)
+2026-02-06 11:25:48,952 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\zeroshot_result.json
+2026-02-06 11:55:03,884 - INFO - Running BART Large MNLI sentiment on 11 articles (company=eli lilly, ticker=None)
+2026-02-06 11:55:03,885 - INFO - Loading BART Large MNLI zero-shot classifier...
+2026-02-06 11:55:05,887 - INFO - DeBERTa NLI model loaded successfully
+2026-02-06 11:55:06,126 - INFO - [1/11] (headline+content) Eli Lilly among best in Big Pharma in 2024 ; Novo  -> pos=0.9730 neg=0.0037 neu=0.0232 (w=0.710)
+2026-02-06 11:55:06,179 - INFO - [2/11] (content-only) Who Next To Join Tesla , Broadcom In $1 Trillion C -> pos=0.7162 neg=0.1938 neu=0.0900 (w=0.568)
+2026-02-06 11:55:06,224 - INFO - [3/11] (content-only) Top Stock Movers Now : Broadcom , AMD , ResMed , a -> pos=0.6029 neg=0.2764 neu=0.1207 (w=0.510)
+2026-02-06 11:55:06,291 - INFO - [4/11] (content-only) Dow Jones Today : Stocks Slip To Start Holiday - S -> pos=0.9669 neg=0.0060 neu=0.0271 (w=0.510)
+2026-02-06 11:55:06,332 - INFO - [5/11] (content-only) S & P 500 Gains and Losses Today : Chip Stocks Sur -> pos=0.9716 neg=0.0045 neu=0.0239 (w=0.240)
+2026-02-06 11:55:06,366 - INFO - [6/11] (content-only) Amgen stock gains on NovoNordisk weightloss drug b -> pos=0.9536 neg=0.0118 neu=0.0346 (w=0.230)
+2026-02-06 11:55:06,406 - INFO - [7/11] (headline+content) Eli Lilly Weight - Loss Drug Wins Approval In Slee -> pos=0.9189 neg=0.0401 neu=0.0410 (w=0.230)
+2026-02-06 11:55:06,440 - INFO - [8/11] (headline+content) Why Novo Nordisk Stock Got Destroyed Today , but E -> pos=0.3437 neg=0.6337 neu=0.0226 (w=0.230)
+2026-02-06 11:55:06,486 - INFO - [9/11] (content-only) Market movers : Stocks seeing action on Friday - a -> pos=0.0051 neg=0.9826 neu=0.0123 (w=0.230)
+2026-02-06 11:55:06,536 - INFO - [10/11] (headline+content) 15 Billion Reasons to Love Eli Lilly Stock Right N -> pos=0.9976 neg=0.0011 neu=0.0013 (w=0.230)
+2026-02-06 11:55:06,603 - INFO - [11/11] (headline+content) Eli Lilly Kisunla approved in China for Alzheimer  -> pos=0.9814 neg=0.0054 neu=0.0132 (w=0.230)
+2026-02-06 11:55:06,603 - INFO - Sentiment prediction complete: label=positive confidence=0.7906 (11 articles analyzed)
+2026-02-06 11:55:06,604 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\zeroshot_result.json
+2026-02-06 11:55:40,285 - INFO - Running RoBERTa Large MNLI sentiment on 11 articles (company=eli lilly, ticker=None)
+2026-02-06 11:55:40,285 - INFO - Loading RoBERTa Large MNLI zero-shot classifier...
+2026-02-06 11:55:41,049 - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2026-02-06 11:55:59,542 - INFO - DeBERTa NLI model loaded successfully
+2026-02-06 11:55:59,674 - INFO - [1/11] (headline+content) Eli Lilly among best in Big Pharma in 2024 ; Novo  -> pos=0.7722 neg=0.0257 neu=0.2021 (w=0.710)
+2026-02-06 11:55:59,717 - INFO - [2/11] (content-only) Who Next To Join Tesla , Broadcom In $1 Trillion C -> pos=0.0287 neg=0.8885 neu=0.0828 (w=0.568)
+2026-02-06 11:55:59,749 - INFO - [3/11] (content-only) Top Stock Movers Now : Broadcom , AMD , ResMed , a -> pos=0.1806 neg=0.4735 neu=0.3459 (w=0.510)
+2026-02-06 11:55:59,803 - INFO - [4/11] (content-only) Dow Jones Today : Stocks Slip To Start Holiday - S -> pos=0.9152 neg=0.0175 neu=0.0673 (w=0.510)
+2026-02-06 11:55:59,837 - INFO - [5/11] (content-only) S & P 500 Gains and Losses Today : Chip Stocks Sur -> pos=0.8728 neg=0.0300 neu=0.0972 (w=0.240)
+2026-02-06 11:55:59,864 - INFO - [6/11] (content-only) Amgen stock gains on NovoNordisk weightloss drug b -> pos=0.5023 neg=0.1648 neu=0.3329 (w=0.230)
+2026-02-06 11:55:59,896 - INFO - [7/11] (headline+content) Eli Lilly Weight - Loss Drug Wins Approval In Slee -> pos=0.4355 neg=0.1947 neu=0.3697 (w=0.230)
+2026-02-06 11:55:59,922 - INFO - [8/11] (headline+content) Why Novo Nordisk Stock Got Destroyed Today , but E -> pos=0.2977 neg=0.1493 neu=0.5529 (w=0.230)
+2026-02-06 11:55:59,954 - INFO - [9/11] (content-only) Market movers : Stocks seeing action on Friday - a -> pos=0.0132 neg=0.9504 neu=0.0363 (w=0.230)
+2026-02-06 11:55:59,985 - INFO - [10/11] (headline+content) 15 Billion Reasons to Love Eli Lilly Stock Right N -> pos=0.9820 neg=0.0034 neu=0.0146 (w=0.230)
+2026-02-06 11:56:00,038 - INFO - [11/11] (headline+content) Eli Lilly Kisunla approved in China for Alzheimer  -> pos=0.5988 neg=0.1005 neu=0.3007 (w=0.230)
+2026-02-06 11:56:00,039 - INFO - Sentiment prediction complete: label=positive confidence=0.5063 (11 articles analyzed)
+2026-02-06 11:56:00,039 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\zeroshot_result.json
+2026-02-06 11:56:34,924 - INFO - Running DeBERTa Large MNLI sentiment on 11 articles (company=eli lilly, ticker=None)
+2026-02-06 11:56:34,924 - INFO - Loading DeBERTa Large MNLI zero-shot classifier...
+2026-02-06 11:56:37,355 - INFO - DeBERTa NLI model loaded successfully
+2026-02-06 11:56:37,645 - INFO - [1/11] (headline+content) Eli Lilly among best in Big Pharma in 2024 ; Novo  -> pos=0.9094 neg=0.0384 neu=0.0522 (w=0.710)
+2026-02-06 11:56:37,736 - INFO - [2/11] (content-only) Who Next To Join Tesla , Broadcom In $1 Trillion C -> pos=0.5381 neg=0.3694 neu=0.0925 (w=0.568)
+2026-02-06 11:56:37,928 - INFO - [3/11] (content-only) Top Stock Movers Now : Broadcom , AMD , ResMed , a -> pos=0.5895 neg=0.3731 neu=0.0374 (w=0.510)
+2026-02-06 11:56:38,017 - INFO - [4/11] (content-only) Dow Jones Today : Stocks Slip To Start Holiday - S -> pos=0.9083 neg=0.0390 neu=0.0527 (w=0.510)
+2026-02-06 11:56:38,082 - INFO - [5/11] (content-only) S & P 500 Gains and Losses Today : Chip Stocks Sur -> pos=0.9214 neg=0.0453 neu=0.0333 (w=0.240)
+2026-02-06 11:56:38,150 - INFO - [6/11] (content-only) Amgen stock gains on NovoNordisk weightloss drug b -> pos=0.7085 neg=0.1888 neu=0.1027 (w=0.230)
+2026-02-06 11:56:38,215 - INFO - [7/11] (headline+content) Eli Lilly Weight - Loss Drug Wins Approval In Slee -> pos=0.8180 neg=0.1249 neu=0.0571 (w=0.230)
+2026-02-06 11:56:38,282 - INFO - [8/11] (headline+content) Why Novo Nordisk Stock Got Destroyed Today , but E -> pos=0.3017 neg=0.6314 neu=0.0668 (w=0.230)
+2026-02-06 11:56:38,349 - INFO - [9/11] (content-only) Market movers : Stocks seeing action on Friday - a -> pos=0.0097 neg=0.9808 neu=0.0095 (w=0.230)
+2026-02-06 11:56:38,427 - INFO - [10/11] (headline+content) 15 Billion Reasons to Love Eli Lilly Stock Right N -> pos=0.9963 neg=0.0016 neu=0.0021 (w=0.230)
+2026-02-06 11:56:38,511 - INFO - [11/11] (headline+content) Eli Lilly Kisunla approved in China for Alzheimer  -> pos=0.8108 neg=0.0886 neu=0.1006 (w=0.230)
+2026-02-06 11:56:38,511 - INFO - Sentiment prediction complete: label=positive confidence=0.7082 (11 articles analyzed)
+2026-02-06 11:56:38,512 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\zeroshot_result.json
+2026-02-06 11:57:39,289 - INFO - Running DeBERTa Large MNLI sentiment on 11 articles (company=eli lilly, ticker=None)
+2026-02-06 11:57:39,289 - INFO - Loading DeBERTa Large MNLI zero-shot classifier...
+2026-02-06 11:57:41,317 - INFO - DeBERTa NLI model loaded successfully
+2026-02-06 11:57:41,575 - INFO - [1/11] (headline+content) Eli Lilly among best in Big Pharma in 2024 ; Novo  -> pos=0.9094 neg=0.0384 neu=0.0522 (w=0.710)
+2026-02-06 11:57:41,667 - INFO - [2/11] (content-only) Who Next To Join Tesla , Broadcom In $1 Trillion C -> pos=0.5381 neg=0.3694 neu=0.0925 (w=0.568)
+2026-02-06 11:57:41,863 - INFO - [3/11] (content-only) Top Stock Movers Now : Broadcom , AMD , ResMed , a -> pos=0.5895 neg=0.3731 neu=0.0374 (w=0.510)
+2026-02-06 11:57:41,953 - INFO - [4/11] (content-only) Dow Jones Today : Stocks Slip To Start Holiday - S -> pos=0.9083 neg=0.0390 neu=0.0527 (w=0.510)
+2026-02-06 11:57:42,064 - INFO - [5/11] (content-only) S & P 500 Gains and Losses Today : Chip Stocks Sur -> pos=0.9214 neg=0.0453 neu=0.0333 (w=0.240)
+2026-02-06 11:57:42,137 - INFO - [6/11] (content-only) Amgen stock gains on NovoNordisk weightloss drug b -> pos=0.7085 neg=0.1888 neu=0.1027 (w=0.230)
+2026-02-06 11:57:42,200 - INFO - [7/11] (headline+content) Eli Lilly Weight - Loss Drug Wins Approval In Slee -> pos=0.8180 neg=0.1249 neu=0.0571 (w=0.230)
+2026-02-06 11:57:42,267 - INFO - [8/11] (headline+content) Why Novo Nordisk Stock Got Destroyed Today , but E -> pos=0.3017 neg=0.6314 neu=0.0668 (w=0.230)
+2026-02-06 11:57:42,335 - INFO - [9/11] (content-only) Market movers : Stocks seeing action on Friday - a -> pos=0.0097 neg=0.9808 neu=0.0095 (w=0.230)
+2026-02-06 11:57:42,404 - INFO - [10/11] (headline+content) 15 Billion Reasons to Love Eli Lilly Stock Right N -> pos=0.9963 neg=0.0016 neu=0.0021 (w=0.230)
+2026-02-06 11:57:42,488 - INFO - [11/11] (headline+content) Eli Lilly Kisunla approved in China for Alzheimer  -> pos=0.8108 neg=0.0886 neu=0.1006 (w=0.230)
+2026-02-06 11:57:42,488 - INFO - Sentiment prediction complete: label=positive confidence=0.7082 (11 articles analyzed)
+2026-02-06 11:57:42,489 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\zeroshot_result.json
+2026-02-06 11:57:57,335 - INFO - Prediction window: 31 days
+2026-02-06 11:57:57,335 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-02-06 11:57:57,726 - INFO - Resolved ticker for 'apple' -> AAPL
+2026-02-06 11:57:57,726 - INFO - GDELT query: apple AAPL
+2026-02-06 11:57:57,726 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-02-06 11:58:06,076 - INFO - Received 10 raw articles for 2024-12-31.
+2026-02-06 11:58:06,077 - INFO - Removed duplicates (domain+title): 10 -> 8
+2026-02-06 11:58:06,077 - INFO - Filtered by language: 8 -> 8 articles
+2026-02-06 11:58:06,077 - INFO - Progress after 2024-12-31: Raw=10, Filtered=8/250
+2026-02-06 11:58:06,077 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 8/250)
+2026-02-06 11:58:08,526 - INFO - Received 4 raw articles for 2024-12-30.
+2026-02-06 11:58:08,526 - INFO - Removed duplicates (domain+title): 14 -> 11
+2026-02-06 11:58:08,527 - INFO - Filtered by language: 11 -> 11 articles
+2026-02-06 11:58:08,527 - INFO - Progress after 2024-12-30: Raw=14, Filtered=11/250
+2026-02-06 11:58:08,527 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 11/250)
+2026-02-06 11:58:14,278 - INFO - Received 1 raw articles for 2024-12-29.
+2026-02-06 11:58:14,279 - INFO - Removed duplicates (domain+title): 15 -> 11
+2026-02-06 11:58:14,279 - INFO - Filtered by language: 11 -> 11 articles
+2026-02-06 11:58:14,279 - INFO - Progress after 2024-12-29: Raw=15, Filtered=11/250
+2026-02-06 11:58:16,279 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 11/250)
+2026-02-06 11:58:18,379 - INFO - Received 3 raw articles for 2024-12-28.
+2026-02-06 11:58:18,379 - INFO - Removed duplicates (domain+title): 18 -> 14
+2026-02-06 11:58:18,379 - INFO - Filtered by language: 14 -> 14 articles
+2026-02-06 11:58:18,379 - INFO - Progress after 2024-12-28: Raw=18, Filtered=14/250
+2026-02-06 11:58:18,379 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 14/250)
+2026-02-06 11:58:24,102 - INFO - Received 15 raw articles for 2024-12-27.
+2026-02-06 11:58:24,102 - INFO - Removed duplicates (domain+title): 33 -> 28
+2026-02-06 11:58:24,102 - INFO - Filtered by language: 28 -> 28 articles
+2026-02-06 11:58:24,102 - INFO - Progress after 2024-12-27: Raw=33, Filtered=28/250
+2026-02-06 11:58:24,102 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 28/250)
+2026-02-06 11:58:27,522 - INFO - Received 11 raw articles for 2024-12-26.
+2026-02-06 11:58:27,523 - INFO - Removed duplicates (domain+title): 44 -> 39
+2026-02-06 11:58:27,523 - INFO - Filtered by language: 39 -> 39 articles
+2026-02-06 11:58:27,523 - INFO - Progress after 2024-12-26: Raw=44, Filtered=39/250
+2026-02-06 11:58:29,523 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 39/250)
+2026-02-06 11:58:36,903 - INFO - Received 1 raw articles for 2024-12-25.
+2026-02-06 11:58:36,904 - INFO - Removed duplicates (domain+title): 45 -> 40
+2026-02-06 11:58:36,904 - INFO - Filtered by language: 40 -> 40 articles
+2026-02-06 11:58:36,904 - INFO - Progress after 2024-12-25: Raw=45, Filtered=40/250
+2026-02-06 11:58:36,904 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 40/250)
+2026-02-06 11:58:40,623 - INFO - Received 10 raw articles for 2024-12-24.
+2026-02-06 11:58:40,623 - INFO - Removed duplicates (domain+title): 55 -> 48
+2026-02-06 11:58:40,623 - INFO - Filtered by language: 48 -> 48 articles
+2026-02-06 11:58:40,623 - INFO - Progress after 2024-12-24: Raw=55, Filtered=48/250
+2026-02-06 11:58:40,623 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 48/250)
+2026-02-06 11:58:45,474 - INFO - Received 9 raw articles for 2024-12-23.
+2026-02-06 11:58:45,475 - INFO - Removed duplicates (domain+title): 64 -> 56
+2026-02-06 11:58:45,475 - INFO - Filtered by language: 56 -> 56 articles
+2026-02-06 11:58:45,475 - INFO - Progress after 2024-12-23: Raw=64, Filtered=56/250
+2026-02-06 11:58:47,476 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 56/250)
+2026-02-06 11:58:48,664 - INFO - Received 3 raw articles for 2024-12-22.
+2026-02-06 11:58:48,665 - INFO - Removed duplicates (domain+title): 67 -> 59
+2026-02-06 11:58:48,665 - INFO - Filtered by language: 59 -> 59 articles
+2026-02-06 11:58:48,665 - INFO - Progress after 2024-12-22: Raw=67, Filtered=59/250
+2026-02-06 11:58:48,665 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 59/250)
+2026-02-06 11:59:02,331 - INFO - Received 4 raw articles for 2024-12-21.
+2026-02-06 11:59:02,331 - INFO - Removed duplicates (domain+title): 71 -> 63
+2026-02-06 11:59:02,331 - INFO - Filtered by language: 63 -> 63 articles
+2026-02-06 11:59:02,331 - INFO - Progress after 2024-12-21: Raw=71, Filtered=63/250
+2026-02-06 11:59:02,331 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 63/250)
+2026-02-06 11:59:07,344 - INFO - Received 5 raw articles for 2024-12-20.
+2026-02-06 11:59:07,344 - INFO - Removed duplicates (domain+title): 76 -> 68
+2026-02-06 11:59:07,345 - INFO - Filtered by language: 68 -> 68 articles
+2026-02-06 11:59:07,345 - INFO - Progress after 2024-12-20: Raw=76, Filtered=68/250
+2026-02-06 11:59:09,345 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 68/250)
+2026-02-06 11:59:12,960 - INFO - Received 10 raw articles for 2024-12-19.
+2026-02-06 11:59:12,960 - INFO - Removed duplicates (domain+title): 86 -> 77
+2026-02-06 11:59:12,960 - INFO - Filtered by language: 77 -> 77 articles
+2026-02-06 11:59:12,961 - INFO - Progress after 2024-12-19: Raw=86, Filtered=77/250
+2026-02-06 11:59:12,961 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 77/250)
+2026-02-06 11:59:15,176 - INFO - Received 13 raw articles for 2024-12-18.
+2026-02-06 11:59:15,181 - INFO - Removed duplicates (domain+title): 99 -> 86
+2026-02-06 11:59:15,181 - INFO - Filtered by language: 86 -> 86 articles
+2026-02-06 11:59:15,181 - INFO - Progress after 2024-12-18: Raw=99, Filtered=86/250
+2026-02-06 11:59:15,182 - INFO - Enriching 86 articles with full content...
+2026-02-06 11:59:16,943 - INFO - Fetched content for article 1/86
+2026-02-06 11:59:18,262 - INFO - Fetched content for article 2/86
+2026-02-06 11:59:19,560 - INFO - Fetched content for article 3/86
+2026-02-06 11:59:20,433 - INFO - Fetched content for article 4/86
+2026-02-06 11:59:20,893 - INFO - Fetched content for article 5/86
+2026-02-06 11:59:23,376 - INFO - Fetched content for article 7/86
+2026-02-06 11:59:23,756 - INFO - Fetched content for article 8/86
+2026-02-06 11:59:24,879 - INFO - Fetched content for article 9/86
+2026-02-06 11:59:26,490 - INFO - Fetched content for article 10/86
+2026-02-06 11:59:28,563 - INFO - Fetched content for article 14/86
+2026-02-06 11:59:29,031 - INFO - Fetched content for article 15/86
+2026-02-06 11:59:30,387 - INFO - Fetched content for article 17/86
+2026-02-06 11:59:30,641 - INFO - Fetched content for article 18/86
+2026-02-06 11:59:32,448 - INFO - Fetched content for article 19/86
+2026-02-06 11:59:32,755 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/32c14a35eb9cb8ee | https://biztoc.com/x/32c14a35eb9cb8ee
+2026-02-06 11:59:33,190 - INFO - Fetched content for article 21/86
+2026-02-06 11:59:33,481 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/personal-finance/2024/12/27/were-in-our-50s-with-a-large-holding-in-apple-stock-should-we-use-an-exchange-fund-to-diversify/ | https://247wallst.com/personal-finance/2024/12/27/were-in-our-50s-with-a-large-holding-in-apple-stock-should-we-use-an-exchange-fund-to-diversify/
+2026-02-06 11:59:34,321 - INFO - Fetched content for article 23/86
+2026-02-06 11:59:36,053 - INFO - Fetched content for article 24/86
+2026-02-06 11:59:36,472 - INFO - Fetched content for article 25/86
+2026-02-06 11:59:36,766 - INFO - Fetched content for article 26/86
+2026-02-06 11:59:37,025 - INFO - Fetched content for article 27/86
+2026-02-06 11:59:37,303 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.themarketsdaily.com/2024/12/27/equities-research-analysts-updated-eps-estimates-for-december-26th-aapl-acva-avxl-celh-crvl-kmpr-mcy-nke-pb-pypd.html | https://www.themarketsdaily.com/2024/12/27/equities-research-analysts-updated-eps-estimates-for-december-26th-aapl-acva-avxl-celh-crvl-kmpr-mcy-nke-pb-pypd.html
+2026-02-06 11:59:37,537 - INFO - Fetched content for article 29/86
+2026-02-06 11:59:37,836 - INFO - Fetched content for article 30/86
+2026-02-06 11:59:38,311 - INFO - Fetched content for article 31/86
+2026-02-06 11:59:39,142 - INFO - Fetched content for article 32/86
+2026-02-06 11:59:39,651 - INFO - Fetched content for article 33/86
+2026-02-06 11:59:40,494 - INFO - Fetched content for article 34/86
+2026-02-06 11:59:40,745 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/dfff216e6d8ae010 | https://biztoc.com/x/dfff216e6d8ae010
+2026-02-06 11:59:41,189 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/9583572110a7bfcd | https://biztoc.com/x/9583572110a7bfcd
+2026-02-06 11:59:42,791 - INFO - Fetched content for article 37/86
+2026-02-06 11:59:43,828 - INFO - Fetched content for article 39/86
+2026-02-06 11:59:44,287 - INFO - Fetched content for article 40/86
+2026-02-06 11:59:45,431 - INFO - Fetched content for article 41/86
+2026-02-06 11:59:45,920 - INFO - Fetched content for article 42/86
+2026-02-06 11:59:47,035 - INFO - Fetched content for article 43/86
+2026-02-06 11:59:47,373 - INFO - Fetched content for article 44/86
+2026-02-06 11:59:49,296 - INFO - Fetched content for article 46/86
+2026-02-06 11:59:49,550 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/97a8dfca8839489f | https://biztoc.com/x/97a8dfca8839489f
+2026-02-06 11:59:54,369 - INFO - Fetched content for article 48/86
+2026-02-06 11:59:55,727 - INFO - Fetched content for article 49/86
+2026-02-06 11:59:56,081 - INFO - Fetched content for article 50/86
+2026-02-06 11:59:56,328 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/apple-appl-ai-intelligence-4-trillion-market-cap-2025-1851727371 | https://qz.com/apple-appl-ai-intelligence-4-trillion-market-cap-2025-1851727371
+2026-02-06 11:59:58,832 - INFO - Fetched content for article 52/86
+2026-02-06 11:59:59,118 - INFO - Fetched content for article 53/86
+2026-02-06 11:59:59,616 - INFO - Fetched content for article 54/86
+2026-02-06 12:00:00,650 - INFO - Fetched content for article 56/86
+2026-02-06 12:00:03,052 - INFO - Fetched content for article 57/86
+2026-02-06 12:00:03,292 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/christmas-holiday-deals-no-major-earnings-this-week-1851725678 | https://qz.com/christmas-holiday-deals-no-major-earnings-this-week-1851725678
+2026-02-06 12:00:06,528 - INFO - Fetched content for article 59/86
+2026-02-06 12:00:06,814 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/21/is-it-time-to-buy-sound-hound/ | https://247wallst.com/investing/2024/12/21/is-it-time-to-buy-sound-hound/
+2026-02-06 12:00:08,013 - INFO - Fetched content for article 62/86
+2026-02-06 12:00:22,385 - INFO - Fetched content for article 63/86
+2026-02-06 12:00:22,673 - INFO - Fetched content for article 64/86
+2026-02-06 12:00:24,322 - INFO - Fetched content for article 65/86
+2026-02-06 12:00:24,622 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.defenseworld.net/2024/12/20/apple-inc-nasdaqaapl-shares-sold-by-rcs-financial-planning-llc.html | https://www.defenseworld.net/2024/12/20/apple-inc-nasdaqaapl-shares-sold-by-rcs-financial-planning-llc.html
+2026-02-06 12:00:25,527 - INFO - Fetched content for article 67/86
+2026-02-06 12:00:25,786 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/19/billionaire-investor-dan-loeb-looks-beyond-magnificent-7-for-hedge-fund-returns/ | https://247wallst.com/investing/2024/12/19/billionaire-investor-dan-loeb-looks-beyond-magnificent-7-for-hedge-fund-returns/
+2026-02-06 12:00:26,064 - INFO - Fetched content for article 69/86
+2026-02-06 12:00:28,392 - INFO - Fetched content for article 71/86
+2026-02-06 12:00:29,785 - INFO - Fetched content for article 73/86
+2026-02-06 12:00:31,021 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.hellenicshippingnews.com/as-bitcoin-soars-luxury-brands-consider-accepting-crypto-payments/ | https://www.hellenicshippingnews.com/as-bitcoin-soars-luxury-brands-consider-accepting-crypto-payments/
+2026-02-06 12:00:31,358 - INFO - Fetched content for article 76/86
+2026-02-06 12:00:32,136 - INFO - Fetched content for article 78/86
+2026-02-06 12:00:33,570 - INFO - Fetched content for article 79/86
+2026-02-06 12:00:35,082 - INFO - Fetched content for article 80/86
+2026-02-06 12:00:36,429 - INFO - Fetched content for article 82/86
+2026-02-06 12:00:36,935 - INFO - Fetched content for article 83/86
+2026-02-06 12:00:38,029 - INFO - Fetched content for article 84/86
+2026-02-06 12:00:38,669 - INFO - Fetched content for article 85/86
+2026-02-06 12:00:40,217 - INFO - Fetched content for article 86/86
+2026-02-06 12:00:40,217 - INFO - Cleaning article content for apple (ticker: AAPL)
+2026-02-06 12:00:40,238 - INFO - Content cleaning complete:
+  Total articles: 86
+  Articles with content: 60
+  Articles filtered: 41
+  Articles kept all (low match): 0
+  Articles with no content after: 19
+  Sentences: 1780 → 180
+2026-02-06 12:00:40,238 - INFO -   Noise reduction: 89.9%
+2026-02-06 12:00:40,240 - INFO - filter_company_related: in=86 kept=48 | dropped(question_no_content)=6 dropped(no_match_no_content)=32 dropped(no_match_in_content)=0
+2026-02-06 12:00:40,241 - INFO - Adding impact horizon data to 48 articles (prediction window: 31 days)
+2026-02-06 12:00:40,241 - INFO - Loading DeBERTa zero-shot classifier...
+2026-02-06 12:00:41,203 - INFO - DeBERTa classifier loaded successfully
+2026-02-06 12:00:42,139 - INFO - Processed 10/48 articles
+2026-02-06 12:00:42,653 - INFO - Processed 20/48 articles
+2026-02-06 12:00:43,053 - INFO - Processed 30/48 articles
+2026-02-06 12:00:43,476 - INFO - Processed 40/48 articles
+2026-02-06 12:00:43,801 - INFO - Impact horizon classification complete
+2026-02-06 12:00:43,802 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-02-06 12:00:43,802 - INFO - Only 48 articles matched filters within 14 days, but 250 were requested.
+2026-02-06 12:00:43,813 - INFO - Saved 48 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-02-06 12:00:43,818 - INFO - Displayed 48 articles
+2026-02-06 12:00:43,827 - INFO - Running DeBERTa Large MNLI sentiment on 48 articles (company=apple, ticker=None)
+2026-02-06 12:00:43,827 - INFO - Loading DeBERTa Large MNLI zero-shot classifier...
+2026-02-06 12:00:45,682 - INFO - DeBERTa NLI model loaded successfully
+2026-02-06 12:00:45,811 - INFO - [1/48] (content-only) 2024 Stock Market News : Economy Avoids Hard Landi -> pos=0.9728 neg=0.0099 neu=0.0174 (w=0.987)
+2026-02-06 12:00:45,898 - INFO - [2/48] (content-only) The AI Stock Playbook : Wall Street Top 10 Tech Be -> pos=0.9028 neg=0.0328 neu=0.0644 (w=0.987)
+2026-02-06 12:00:46,001 - INFO - [3/48] (headline+content) Jensen Huang Nvidia  Printing Money Like Apple  In -> pos=0.9143 neg=0.0657 neu=0.0200 (w=0.987)
+2026-02-06 12:00:46,095 - INFO - [4/48] (headline+content) Apple Stock Has Reached Historic Levels in One Met -> pos=0.0571 neg=0.9218 neu=0.0210 (w=0.939)
+2026-02-06 12:00:46,211 - INFO - [5/48] (headline+content) What 14 Analyst Ratings Have To Say About Apple -  -> pos=0.4907 neg=0.3169 neu=0.1923 (w=0.845)
+2026-02-06 12:00:46,287 - INFO - [6/48] (headline+content) Here How Much You Would Have Made Owning Apple Sto -> pos=0.9376 neg=0.0246 neu=0.0378 (w=0.845)
+2026-02-06 12:00:46,422 - INFO - [7/48] (headline+content) Wedbush Maps Apple Road to a $5 Trillion Milestone -> pos=0.9911 neg=0.0050 neu=0.0039 (w=0.748)
+2026-02-06 12:00:46,487 - INFO - [8/48] (content-only) Analyst on NVIDIA ( NVDA ): Investors Should Be  V -> pos=0.6655 neg=0.2014 neu=0.1332 (w=0.748)
+2026-02-06 12:00:46,552 - INFO - [9/48] (content-only) Analyst Predicts NVIDIA ( NVDA ) Stock Will Hit $8 -> pos=0.5652 neg=0.2796 neu=0.1553 (w=0.748)
+2026-02-06 12:00:46,616 - INFO - [10/48] (title-fallback) Equities Research Analyst Updated EPS Estimates fo -> pos=0.7386 neg=0.1735 neu=0.0879 (w=0.748)
+2026-02-06 12:00:46,757 - INFO - [11/48] (headline+content) Dan Niles on Apple ( AAPL ): Data is  Somewhat Dis -> pos=0.0120 neg=0.9728 neu=0.0152 (w=0.739)
+2026-02-06 12:00:46,820 - INFO - [12/48] (headline+content) Top analyst revisits Apple stock price target on m -> pos=0.8784 neg=0.0730 neu=0.0486 (w=0.739)
+2026-02-06 12:00:46,960 - INFO - [13/48] (headline+content) Apple $4 Trillion Dream : AI Hype or Real Growth ? -> pos=0.7352 neg=0.1737 neu=0.0911 (w=0.729)
+2026-02-06 12:00:47,023 - INFO - [14/48] (headline+content) Warren Buffett Sells Apple Stock and Buys a Restau -> pos=0.7576 neg=0.1949 neu=0.0474 (w=0.710)
+2026-02-06 12:00:47,164 - INFO - [15/48] (headline+content) Analyst Says Apple ( AAPL ) Stock is Expensive Ami -> pos=0.0099 neg=0.9774 neu=0.0127 (w=0.710)
+2026-02-06 12:00:47,302 - INFO - [16/48] (headline+content) Apple Inc . ( AAPL ): Billionaire D . E . Shaw Is  -> pos=0.9891 neg=0.0059 neu=0.0050 (w=0.700)
+2026-02-06 12:00:47,366 - INFO - [17/48] (content-only) Baystreet . ca - Stock Market Warning : Yields Ris -> pos=0.9407 neg=0.0426 neu=0.0166 (w=0.700)
+2026-02-06 12:00:47,433 - INFO - [18/48] (headline+content) US Stocks To Open Lower As Index Future Decline :  -> pos=0.7777 neg=0.1742 neu=0.0481 (w=0.700)
+2026-02-06 12:00:47,499 - INFO - [19/48] (headline+content) Dow Edges Higher In Thin Holiday Trading As Tesla  -> pos=0.9571 neg=0.0224 neu=0.0205 (w=0.700)
+2026-02-06 12:00:47,565 - INFO - [20/48] (headline+content) Warren Buffett Heads Into 2025 With $325 Billion C -> pos=0.5833 neg=0.3145 neu=0.1022 (w=0.626)
+2026-02-06 12:00:47,631 - INFO - [21/48] (headline+content) 5 Tech Stocks to Buy as AI Hype Fizzles - Apple (  -> pos=0.9890 neg=0.0054 neu=0.0056 (w=0.616)
+2026-02-06 12:00:47,778 - INFO - [22/48] (content-only) Wall Street Analysts Cant Stop Talking About These -> pos=0.0839 neg=0.8291 neu=0.0870 (w=0.568)
+2026-02-06 12:00:47,845 - INFO - [23/48] (headline+content) Baystreet . ca - Today Stock News on Honda , Apple -> pos=0.9576 neg=0.0211 neu=0.0213 (w=0.519)
+2026-02-06 12:00:47,909 - INFO - [24/48] (headline+content) Apple Stock Hits Record High Amid Strong Holiday S -> pos=0.9872 neg=0.0064 neu=0.0064 (w=0.510)
+2026-02-06 12:00:47,977 - INFO - [25/48] (content-only) Top trending global stocks of 2024 -> pos=0.9838 neg=0.0071 neu=0.0091 (w=0.510)
+2026-02-06 12:00:48,118 - INFO - [26/48] (content-only) Dow Jones Today : Stocks Slip in Early Trading as  -> pos=0.9601 neg=0.0197 neu=0.0203 (w=0.509)
+2026-02-06 12:00:48,183 - INFO - [27/48] (headline+content) Apple stock touches intraday high after nod of con -> pos=0.9936 neg=0.0022 neu=0.0042 (w=0.509)
+2026-02-06 12:00:48,246 - INFO - [28/48] (content-only) Tesla Stock Leads Magnificent Seven Shares Higher -> pos=0.9173 neg=0.0292 neu=0.0535 (w=0.509)
+2026-02-06 12:00:48,315 - INFO - [29/48] (headline+content) Apple Stock And Two Other 2024 Winners Are On Fund -> pos=0.9916 neg=0.0036 neu=0.0048 (w=0.240)
+2026-02-06 12:00:48,380 - INFO - [30/48] (content-only) US close : Stocks push higher despite mixed econom -> pos=0.4156 neg=0.4929 neu=0.0915 (w=0.240)
+2026-02-06 12:00:48,494 - INFO - [31/48] (headline+content) Dan Niles Says Apple ( AAPL ) New iPhone Features  -> pos=0.1093 neg=0.8459 neu=0.0448 (w=0.240)
+2026-02-06 12:00:48,561 - INFO - [32/48] (content-only) S & P 500 Gains and Losses Today : Index Drops as  -> pos=0.9593 neg=0.0186 neu=0.0221 (w=0.240)
+2026-02-06 12:00:48,630 - INFO - [33/48] (content-only) Stock Market Today : Dow Dives 1 , 123 Points Afte -> pos=0.9224 neg=0.0359 neu=0.0417 (w=0.240)
+2026-02-06 12:00:48,698 - INFO - [34/48] (headline+content) Apple could hit a $4 trillion market cap by early  -> pos=0.8671 neg=0.0545 neu=0.0785 (w=0.230)
+2026-02-06 12:00:48,764 - INFO - [35/48] (content-only) This ETF Holds Lots of Wide Moat Stocks -> pos=0.4678 neg=0.3248 neu=0.2074 (w=0.230)
+2026-02-06 12:00:48,900 - INFO - [36/48] (content-only) Top 10 AI Stocks to Watch Right Now - Insider Monk -> pos=0.8514 neg=0.0828 neu=0.0658 (w=0.230)
+2026-02-06 12:00:48,969 - INFO - [37/48] (content-only) MicroStrategy Stock Is Up 400 % This Year What You -> pos=0.9245 neg=0.0386 neu=0.0370 (w=0.230)
+2026-02-06 12:00:49,036 - INFO - [38/48] (content-only) How to target a £100 , 000 second income starting  -> pos=0.9834 neg=0.0066 neu=0.0100 (w=0.230)
+2026-02-06 12:00:49,200 - INFO - [39/48] (headline+content) Jim Cramer on Apple Inc . ( AAPL ):  I Say Own It  -> pos=0.9406 neg=0.0364 neu=0.0230 (w=0.230)
+2026-02-06 12:00:49,267 - INFO - [40/48] (content-only) US close : Stocks higher following November PCE re -> pos=0.4088 neg=0.4891 neu=0.1021 (w=0.230)
+2026-02-06 12:00:49,353 - INFO - [41/48] (headline+content) Apple shares hit new all - time intraday and closi -> pos=0.9848 neg=0.0081 neu=0.0072 (w=0.230)
+2026-02-06 12:00:49,422 - INFO - [42/48] (content-only) If an investor put $5 , 000 in Nvidia shares 5 yea -> pos=0.9786 neg=0.0112 neu=0.0102 (w=0.230)
+2026-02-06 12:00:49,490 - INFO - [43/48] (headline+content) Apple Inc . ( NASDAQ : AAPL ) Shares Sold by RCS F -> pos=0.6652 neg=0.1895 neu=0.1453 (w=0.230)
+2026-02-06 12:00:49,559 - INFO - [44/48] (headline+content) Apple Stock Up Despite Lackluster iPhone 16 Sales  -> pos=0.9391 neg=0.0361 neu=0.0248 (w=0.230)
+2026-02-06 12:00:49,647 - INFO - [45/48] (content-only) Dow Jones Today : Stocks Inch Higher as Investors  -> pos=0.0953 neg=0.8518 neu=0.0528 (w=0.230)
+2026-02-06 12:00:49,713 - INFO - [46/48] (content-only) 5 Things to Know Before the Stock Market Opens -> pos=0.9285 neg=0.0592 neu=0.0123 (w=0.230)
+2026-02-06 12:00:49,778 - INFO - [47/48] (content-only) As bitcoin soars , luxury brands consider acceptin -> pos=0.8463 neg=0.0823 neu=0.0714 (w=0.230)
+2026-02-06 12:00:49,842 - INFO - [48/48] (content-only) As bitcoin soars , luxury brands consider acceptin -> pos=0.9084 neg=0.0399 neu=0.0517 (w=0.230)
+2026-02-06 12:00:49,843 - INFO - Sentiment prediction complete: label=positive confidence=0.7355 (48 articles analyzed)
+2026-02-06 12:00:49,844 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\zeroshot_result.json
+2026-02-06 12:14:03,127 - INFO - Running RoBERTa Large MNLI sentiment on 48 articles (company=apple, ticker=None)
+2026-02-06 12:14:03,128 - INFO - Loading RoBERTa Large MNLI zero-shot classifier...
+2026-02-06 12:14:04,397 - INFO - DeBERTa NLI model loaded successfully
+2026-02-06 12:14:04,511 - INFO - [1/48] (content-only) 2024 Stock Market News : Economy Avoids Hard Landi -> pos=0.7949 neg=0.0523 neu=0.1529 (w=0.987)
+2026-02-06 12:14:04,543 - INFO - [2/48] (content-only) The AI Stock Playbook : Wall Street Top 10 Tech Be -> pos=0.8535 neg=0.0218 neu=0.1247 (w=0.987)
+2026-02-06 12:14:04,584 - INFO - [3/48] (headline+content) Jensen Huang Nvidia  Printing Money Like Apple  In -> pos=0.9222 neg=0.0258 neu=0.0521 (w=0.987)
+2026-02-06 12:14:04,610 - INFO - [4/48] (headline+content) Apple Stock Has Reached Historic Levels in One Met -> pos=0.0072 neg=0.9795 neu=0.0133 (w=0.939)
+2026-02-06 12:14:04,674 - INFO - [5/48] (headline+content) What 14 Analyst Ratings Have To Say About Apple -  -> pos=0.5589 neg=0.0919 neu=0.3492 (w=0.845)
+2026-02-06 12:14:04,715 - INFO - [6/48] (headline+content) Here How Much You Would Have Made Owning Apple Sto -> pos=0.7632 neg=0.0693 neu=0.1675 (w=0.845)
+2026-02-06 12:14:04,790 - INFO - [7/48] (headline+content) Wedbush Maps Apple Road to a $5 Trillion Milestone -> pos=0.9156 neg=0.0098 neu=0.0746 (w=0.748)
+2026-02-06 12:14:04,816 - INFO - [8/48] (content-only) Analyst on NVIDIA ( NVDA ): Investors Should Be  V -> pos=0.3573 neg=0.1918 neu=0.4509 (w=0.748)
+2026-02-06 12:14:04,842 - INFO - [9/48] (content-only) Analyst Predicts NVIDIA ( NVDA ) Stock Will Hit $8 -> pos=0.2553 neg=0.3647 neu=0.3801 (w=0.748)
+2026-02-06 12:14:04,869 - INFO - [10/48] (title-fallback) Equities Research Analyst Updated EPS Estimates fo -> pos=0.3183 neg=0.2852 neu=0.3965 (w=0.748)
+2026-02-06 12:14:04,944 - INFO - [11/48] (headline+content) Dan Niles on Apple ( AAPL ): Data is  Somewhat Dis -> pos=0.0393 neg=0.7303 neu=0.2304 (w=0.739)
+2026-02-06 12:14:04,971 - INFO - [12/48] (headline+content) Top analyst revisits Apple stock price target on m -> pos=0.6859 neg=0.1103 neu=0.2039 (w=0.739)
+2026-02-06 12:14:05,047 - INFO - [13/48] (headline+content) Apple $4 Trillion Dream : AI Hype or Real Growth ? -> pos=0.2180 neg=0.0625 neu=0.7196 (w=0.729)
+2026-02-06 12:14:05,072 - INFO - [14/48] (headline+content) Warren Buffett Sells Apple Stock and Buys a Restau -> pos=0.0805 neg=0.7135 neu=0.2060 (w=0.710)
+2026-02-06 12:14:05,148 - INFO - [15/48] (headline+content) Analyst Says Apple ( AAPL ) Stock is Expensive Ami -> pos=0.0506 neg=0.8146 neu=0.1349 (w=0.710)
+2026-02-06 12:14:05,225 - INFO - [16/48] (headline+content) Apple Inc . ( AAPL ): Billionaire D . E . Shaw Is  -> pos=0.8025 neg=0.0557 neu=0.1418 (w=0.700)
+2026-02-06 12:14:05,251 - INFO - [17/48] (content-only) Baystreet . ca - Stock Market Warning : Yields Ris -> pos=0.1855 neg=0.5260 neu=0.2884 (w=0.700)
+2026-02-06 12:14:05,281 - INFO - [18/48] (headline+content) US Stocks To Open Lower As Index Future Decline :  -> pos=0.1651 neg=0.2490 neu=0.5859 (w=0.700)
+2026-02-06 12:14:05,313 - INFO - [19/48] (headline+content) Dow Edges Higher In Thin Holiday Trading As Tesla  -> pos=0.8684 neg=0.0279 neu=0.1038 (w=0.700)
+2026-02-06 12:14:05,346 - INFO - [20/48] (headline+content) Warren Buffett Heads Into 2025 With $325 Billion C -> pos=0.5120 neg=0.2388 neu=0.2492 (w=0.626)
+2026-02-06 12:14:05,386 - INFO - [21/48] (headline+content) 5 Tech Stocks to Buy as AI Hype Fizzles - Apple (  -> pos=0.9471 neg=0.0079 neu=0.0450 (w=0.616)
+2026-02-06 12:14:05,475 - INFO - [22/48] (content-only) Wall Street Analysts Cant Stop Talking About These -> pos=0.0482 neg=0.8361 neu=0.1157 (w=0.568)
+2026-02-06 12:14:05,503 - INFO - [23/48] (headline+content) Baystreet . ca - Today Stock News on Honda , Apple -> pos=0.8033 neg=0.0297 neu=0.1670 (w=0.519)
+2026-02-06 12:14:05,534 - INFO - [24/48] (headline+content) Apple Stock Hits Record High Amid Strong Holiday S -> pos=0.9500 neg=0.0127 neu=0.0372 (w=0.510)
+2026-02-06 12:14:05,560 - INFO - [25/48] (content-only) Top trending global stocks of 2024 -> pos=0.9669 neg=0.0078 neu=0.0252 (w=0.510)
+2026-02-06 12:14:05,635 - INFO - [26/48] (content-only) Dow Jones Today : Stocks Slip in Early Trading as  -> pos=0.9091 neg=0.0174 neu=0.0735 (w=0.509)
+2026-02-06 12:14:05,686 - INFO - [27/48] (headline+content) Apple stock touches intraday high after nod of con -> pos=0.9111 neg=0.0063 neu=0.0826 (w=0.509)
+2026-02-06 12:14:05,711 - INFO - [28/48] (content-only) Tesla Stock Leads Magnificent Seven Shares Higher -> pos=0.8816 neg=0.0052 neu=0.1131 (w=0.509)
+2026-02-06 12:14:05,742 - INFO - [29/48] (headline+content) Apple Stock And Two Other 2024 Winners Are On Fund -> pos=0.9787 neg=0.0039 neu=0.0175 (w=0.240)
+2026-02-06 12:14:05,766 - INFO - [30/48] (content-only) US close : Stocks push higher despite mixed econom -> pos=0.2467 neg=0.2741 neu=0.4792 (w=0.240)
+2026-02-06 12:14:05,831 - INFO - [31/48] (headline+content) Dan Niles Says Apple ( AAPL ) New iPhone Features  -> pos=0.0696 neg=0.6476 neu=0.2828 (w=0.240)
+2026-02-06 12:14:05,858 - INFO - [32/48] (content-only) S & P 500 Gains and Losses Today : Index Drops as  -> pos=0.9326 neg=0.0199 neu=0.0475 (w=0.240)
+2026-02-06 12:14:05,890 - INFO - [33/48] (content-only) Stock Market Today : Dow Dives 1 , 123 Points Afte -> pos=0.8257 neg=0.0321 neu=0.1422 (w=0.240)
+2026-02-06 12:14:05,913 - INFO - [34/48] (headline+content) Apple could hit a $4 trillion market cap by early  -> pos=0.7212 neg=0.0568 neu=0.2220 (w=0.230)
+2026-02-06 12:14:05,944 - INFO - [35/48] (content-only) This ETF Holds Lots of Wide Moat Stocks -> pos=0.2803 neg=0.1389 neu=0.5808 (w=0.230)
+2026-02-06 12:14:06,019 - INFO - [36/48] (content-only) Top 10 AI Stocks to Watch Right Now - Insider Monk -> pos=0.2340 neg=0.2675 neu=0.4985 (w=0.230)
+2026-02-06 12:14:06,052 - INFO - [37/48] (content-only) MicroStrategy Stock Is Up 400 % This Year What You -> pos=0.6267 neg=0.1153 neu=0.2580 (w=0.230)
+2026-02-06 12:14:06,092 - INFO - [38/48] (content-only) How to target a £100 , 000 second income starting  -> pos=0.7987 neg=0.0238 neu=0.1775 (w=0.230)
+2026-02-06 12:14:06,183 - INFO - [39/48] (headline+content) Jim Cramer on Apple Inc . ( AAPL ):  I Say Own It  -> pos=0.6131 neg=0.1239 neu=0.2630 (w=0.230)
+2026-02-06 12:14:06,209 - INFO - [40/48] (content-only) US close : Stocks higher following November PCE re -> pos=0.3259 neg=0.2588 neu=0.4152 (w=0.230)
+2026-02-06 12:14:06,261 - INFO - [41/48] (headline+content) Apple shares hit new all - time intraday and closi -> pos=0.9374 neg=0.0140 neu=0.0486 (w=0.230)
+2026-02-06 12:14:06,293 - INFO - [42/48] (content-only) If an investor put $5 , 000 in Nvidia shares 5 yea -> pos=0.7983 neg=0.0283 neu=0.1735 (w=0.230)
+2026-02-06 12:14:06,319 - INFO - [43/48] (headline+content) Apple Inc . ( NASDAQ : AAPL ) Shares Sold by RCS F -> pos=0.1764 neg=0.4825 neu=0.3411 (w=0.230)
+2026-02-06 12:14:06,350 - INFO - [44/48] (headline+content) Apple Stock Up Despite Lackluster iPhone 16 Sales  -> pos=0.6710 neg=0.0583 neu=0.2707 (w=0.230)
+2026-02-06 12:14:06,389 - INFO - [45/48] (content-only) Dow Jones Today : Stocks Inch Higher as Investors  -> pos=0.0344 neg=0.8116 neu=0.1540 (w=0.230)
+2026-02-06 12:14:06,423 - INFO - [46/48] (content-only) 5 Things to Know Before the Stock Market Opens -> pos=0.9620 neg=0.0105 neu=0.0274 (w=0.230)
+2026-02-06 12:14:06,455 - INFO - [47/48] (content-only) As bitcoin soars , luxury brands consider acceptin -> pos=0.8134 neg=0.0394 neu=0.1472 (w=0.230)
+2026-02-06 12:14:06,488 - INFO - [48/48] (content-only) As bitcoin soars , luxury brands consider acceptin -> pos=0.7451 neg=0.0529 neu=0.2020 (w=0.230)
+2026-02-06 12:14:06,488 - INFO - Sentiment prediction complete: label=positive confidence=0.5580 (48 articles analyzed)
+2026-02-06 12:14:06,489 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\zeroshot_result.json
+2026-02-06 12:14:19,954 - INFO - Running BART Large MNLI sentiment on 48 articles (company=apple, ticker=None)
+2026-02-06 12:14:19,954 - INFO - Loading BART Large MNLI zero-shot classifier...
+2026-02-06 12:14:21,248 - INFO - DeBERTa NLI model loaded successfully
+2026-02-06 12:14:21,411 - INFO - [1/48] (content-only) 2024 Stock Market News : Economy Avoids Hard Landi -> pos=0.9957 neg=0.0012 neu=0.0031 (w=0.987)
+2026-02-06 12:14:21,448 - INFO - [2/48] (content-only) The AI Stock Playbook : Wall Street Top 10 Tech Be -> pos=0.9763 neg=0.0025 neu=0.0212 (w=0.987)
+2026-02-06 12:14:21,499 - INFO - [3/48] (headline+content) Jensen Huang Nvidia  Printing Money Like Apple  In -> pos=0.5352 neg=0.4068 neu=0.0580 (w=0.987)
+2026-02-06 12:14:21,540 - INFO - [4/48] (headline+content) Apple Stock Has Reached Historic Levels in One Met -> pos=0.8678 neg=0.1164 neu=0.0158 (w=0.939)
+2026-02-06 12:14:21,620 - INFO - [5/48] (headline+content) What 14 Analyst Ratings Have To Say About Apple -  -> pos=0.6742 neg=0.2464 neu=0.0794 (w=0.845)
+2026-02-06 12:14:21,672 - INFO - [6/48] (headline+content) Here How Much You Would Have Made Owning Apple Sto -> pos=0.9717 neg=0.0067 neu=0.0216 (w=0.845)
+2026-02-06 12:14:21,765 - INFO - [7/48] (headline+content) Wedbush Maps Apple Road to a $5 Trillion Milestone -> pos=0.9877 neg=0.0032 neu=0.0092 (w=0.748)
+2026-02-06 12:14:21,801 - INFO - [8/48] (content-only) Analyst on NVIDIA ( NVDA ): Investors Should Be  V -> pos=0.8897 neg=0.0405 neu=0.0697 (w=0.748)
+2026-02-06 12:14:21,834 - INFO - [9/48] (content-only) Analyst Predicts NVIDIA ( NVDA ) Stock Will Hit $8 -> pos=0.8263 neg=0.0544 neu=0.1193 (w=0.748)
+2026-02-06 12:14:21,869 - INFO - [10/48] (title-fallback) Equities Research Analyst Updated EPS Estimates fo -> pos=0.9802 neg=0.0115 neu=0.0083 (w=0.748)
+2026-02-06 12:14:21,963 - INFO - [11/48] (headline+content) Dan Niles on Apple ( AAPL ): Data is  Somewhat Dis -> pos=0.0106 neg=0.8949 neu=0.0945 (w=0.739)
+2026-02-06 12:14:22,002 - INFO - [12/48] (headline+content) Top analyst revisits Apple stock price target on m -> pos=0.9909 neg=0.0045 neu=0.0046 (w=0.739)
+2026-02-06 12:14:22,096 - INFO - [13/48] (headline+content) Apple $4 Trillion Dream : AI Hype or Real Growth ? -> pos=0.2943 neg=0.1881 neu=0.5176 (w=0.729)
+2026-02-06 12:14:22,131 - INFO - [14/48] (headline+content) Warren Buffett Sells Apple Stock and Buys a Restau -> pos=0.6151 neg=0.3568 neu=0.0280 (w=0.710)
+2026-02-06 12:14:22,224 - INFO - [15/48] (headline+content) Analyst Says Apple ( AAPL ) Stock is Expensive Ami -> pos=0.0190 neg=0.9024 neu=0.0786 (w=0.710)
+2026-02-06 12:14:22,319 - INFO - [16/48] (headline+content) Apple Inc . ( AAPL ): Billionaire D . E . Shaw Is  -> pos=0.9806 neg=0.0059 neu=0.0134 (w=0.700)
+2026-02-06 12:14:22,350 - INFO - [17/48] (content-only) Baystreet . ca - Stock Market Warning : Yields Ris -> pos=0.9334 neg=0.0406 neu=0.0260 (w=0.700)
+2026-02-06 12:14:22,389 - INFO - [18/48] (headline+content) US Stocks To Open Lower As Index Future Decline :  -> pos=0.8247 neg=0.1284 neu=0.0469 (w=0.700)
+2026-02-06 12:14:22,430 - INFO - [19/48] (headline+content) Dow Edges Higher In Thin Holiday Trading As Tesla  -> pos=0.9581 neg=0.0130 neu=0.0289 (w=0.700)
+2026-02-06 12:14:22,474 - INFO - [20/48] (headline+content) Warren Buffett Heads Into 2025 With $325 Billion C -> pos=0.8046 neg=0.1452 neu=0.0502 (w=0.626)
+2026-02-06 12:14:22,524 - INFO - [21/48] (headline+content) 5 Tech Stocks to Buy as AI Hype Fizzles - Apple (  -> pos=0.9850 neg=0.0051 neu=0.0099 (w=0.616)
+2026-02-06 12:14:22,659 - INFO - [22/48] (content-only) Wall Street Analysts Cant Stop Talking About These -> pos=0.0172 neg=0.9247 neu=0.0581 (w=0.568)
+2026-02-06 12:14:22,706 - INFO - [23/48] (headline+content) Baystreet . ca - Today Stock News on Honda , Apple -> pos=0.9480 neg=0.0114 neu=0.0406 (w=0.519)
+2026-02-06 12:14:22,752 - INFO - [24/48] (headline+content) Apple Stock Hits Record High Amid Strong Holiday S -> pos=0.9941 neg=0.0016 neu=0.0043 (w=0.510)
+2026-02-06 12:14:22,786 - INFO - [25/48] (content-only) Top trending global stocks of 2024 -> pos=0.9910 neg=0.0015 neu=0.0074 (w=0.510)
+2026-02-06 12:14:22,880 - INFO - [26/48] (content-only) Dow Jones Today : Stocks Slip in Early Trading as  -> pos=0.9930 neg=0.0024 neu=0.0046 (w=0.509)
+2026-02-06 12:14:22,909 - INFO - [27/48] (headline+content) Apple stock touches intraday high after nod of con -> pos=0.9943 neg=0.0011 neu=0.0046 (w=0.509)
+2026-02-06 12:14:22,941 - INFO - [28/48] (content-only) Tesla Stock Leads Magnificent Seven Shares Higher -> pos=0.9864 neg=0.0016 neu=0.0120 (w=0.509)
+2026-02-06 12:14:22,980 - INFO - [29/48] (headline+content) Apple Stock And Two Other 2024 Winners Are On Fund -> pos=0.9930 neg=0.0011 neu=0.0060 (w=0.240)
+2026-02-06 12:14:23,012 - INFO - [30/48] (content-only) US close : Stocks push higher despite mixed econom -> pos=0.8296 neg=0.1167 neu=0.0537 (w=0.240)
+2026-02-06 12:14:23,090 - INFO - [31/48] (headline+content) Dan Niles Says Apple ( AAPL ) New iPhone Features  -> pos=0.0187 neg=0.9209 neu=0.0605 (w=0.240)
+2026-02-06 12:14:23,121 - INFO - [32/48] (content-only) S & P 500 Gains and Losses Today : Index Drops as  -> pos=0.9587 neg=0.0132 neu=0.0281 (w=0.240)
+2026-02-06 12:14:23,159 - INFO - [33/48] (content-only) Stock Market Today : Dow Dives 1 , 123 Points Afte -> pos=0.9796 neg=0.0094 neu=0.0110 (w=0.240)
+2026-02-06 12:14:23,189 - INFO - [34/48] (headline+content) Apple could hit a $4 trillion market cap by early  -> pos=0.9906 neg=0.0023 neu=0.0072 (w=0.230)
+2026-02-06 12:14:23,233 - INFO - [35/48] (content-only) This ETF Holds Lots of Wide Moat Stocks -> pos=0.7857 neg=0.0847 neu=0.1296 (w=0.230)
+2026-02-06 12:14:23,325 - INFO - [36/48] (content-only) Top 10 AI Stocks to Watch Right Now - Insider Monk -> pos=0.0635 neg=0.7814 neu=0.1551 (w=0.230)
+2026-02-06 12:14:23,365 - INFO - [37/48] (content-only) MicroStrategy Stock Is Up 400 % This Year What You -> pos=0.9789 neg=0.0050 neu=0.0162 (w=0.230)
+2026-02-06 12:14:23,415 - INFO - [38/48] (content-only) How to target a £100 , 000 second income starting  -> pos=0.9705 neg=0.0071 neu=0.0224 (w=0.230)
+2026-02-06 12:14:23,525 - INFO - [39/48] (headline+content) Jim Cramer on Apple Inc . ( AAPL ):  I Say Own It  -> pos=0.7583 neg=0.1699 neu=0.0718 (w=0.230)
+2026-02-06 12:14:23,556 - INFO - [40/48] (content-only) US close : Stocks higher following November PCE re -> pos=0.8505 neg=0.1086 neu=0.0409 (w=0.230)
+2026-02-06 12:14:23,621 - INFO - [41/48] (headline+content) Apple shares hit new all - time intraday and closi -> pos=0.9911 neg=0.0017 neu=0.0072 (w=0.230)
+2026-02-06 12:14:23,661 - INFO - [42/48] (content-only) If an investor put $5 , 000 in Nvidia shares 5 yea -> pos=0.9470 neg=0.0108 neu=0.0422 (w=0.230)
+2026-02-06 12:14:23,690 - INFO - [43/48] (headline+content) Apple Inc . ( NASDAQ : AAPL ) Shares Sold by RCS F -> pos=0.7062 neg=0.2378 neu=0.0560 (w=0.230)
+2026-02-06 12:14:23,728 - INFO - [44/48] (headline+content) Apple Stock Up Despite Lackluster iPhone 16 Sales  -> pos=0.9316 neg=0.0250 neu=0.0434 (w=0.230)
+2026-02-06 12:14:23,777 - INFO - [45/48] (content-only) Dow Jones Today : Stocks Inch Higher as Investors  -> pos=0.4396 neg=0.4844 neu=0.0760 (w=0.230)
+2026-02-06 12:14:23,817 - INFO - [46/48] (content-only) 5 Things to Know Before the Stock Market Opens -> pos=0.9046 neg=0.0576 neu=0.0378 (w=0.230)
+2026-02-06 12:14:23,857 - INFO - [47/48] (content-only) As bitcoin soars , luxury brands consider acceptin -> pos=0.9631 neg=0.0073 neu=0.0297 (w=0.230)
+2026-02-06 12:14:23,898 - INFO - [48/48] (content-only) As bitcoin soars , luxury brands consider acceptin -> pos=0.9544 neg=0.0165 neu=0.0290 (w=0.230)
+2026-02-06 12:14:23,898 - INFO - Sentiment prediction complete: label=positive confidence=0.7862 (48 articles analyzed)
+2026-02-06 12:14:23,899 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\zeroshot_result.json
+2026-02-06 12:15:05,621 - INFO - Running FinBERT sentiment on 48 articles (company=apple, ticker=None)
+2026-02-06 12:15:05,621 - INFO - Loading FinBERT sentiment model...
+2026-02-06 12:15:06,731 - INFO - FinBERT model loaded successfully
+2026-02-06 12:15:06,823 - INFO - [1/48] (content-only) 2024 Stock Market News : Economy Avoids Hard Landi -> pos=0.8302 neg=0.0115 neu=0.1583 (w=0.987)
+2026-02-06 12:15:06,827 - INFO - [2/48] (content-only) The AI Stock Playbook : Wall Street Top 10 Tech Be -> pos=0.8656 neg=0.0087 neu=0.1257 (w=0.987)
+2026-02-06 12:15:06,834 - INFO - [3/48] (headline+content) Jensen Huang Nvidia  Printing Money Like Apple  In -> pos=0.6073 neg=0.0140 neu=0.3787 (w=0.987)
+2026-02-06 12:15:06,844 - INFO - [4/48] (headline+content) Apple Stock Has Reached Historic Levels in One Met -> pos=0.9209 neg=0.0454 neu=0.0337 (w=0.939)
+2026-02-06 12:15:06,852 - INFO - [5/48] (headline+content) What 14 Analyst Ratings Have To Say About Apple -  -> pos=0.3788 neg=0.0134 neu=0.6079 (w=0.845)
+2026-02-06 12:15:06,859 - INFO - [6/48] (headline+content) Here How Much You Would Have Made Owning Apple Sto -> pos=0.1181 neg=0.0183 neu=0.8636 (w=0.845)
+2026-02-06 12:15:06,868 - INFO - [7/48] (headline+content) Wedbush Maps Apple Road to a $5 Trillion Milestone -> pos=0.9255 neg=0.0145 neu=0.0600 (w=0.748)
+2026-02-06 12:15:06,875 - INFO - [8/48] (content-only) Analyst on NVIDIA ( NVDA ): Investors Should Be  V -> pos=0.6044 neg=0.0083 neu=0.3873 (w=0.748)
+2026-02-06 12:15:06,879 - INFO - [9/48] (content-only) Analyst Predicts NVIDIA ( NVDA ) Stock Will Hit $8 -> pos=0.8658 neg=0.0075 neu=0.1267 (w=0.748)
+2026-02-06 12:15:06,883 - INFO - [10/48] (title-fallback) Equities Research Analyst Updated EPS Estimates fo -> pos=0.0268 neg=0.0506 neu=0.9226 (w=0.748)
+2026-02-06 12:15:06,894 - INFO - [11/48] (headline+content) Dan Niles on Apple ( AAPL ): Data is  Somewhat Dis -> pos=0.0150 neg=0.9425 neu=0.0425 (w=0.739)
+2026-02-06 12:15:06,899 - INFO - [12/48] (headline+content) Top analyst revisits Apple stock price target on m -> pos=0.0439 neg=0.1461 neu=0.8100 (w=0.739)
+2026-02-06 12:15:06,909 - INFO - [13/48] (headline+content) Apple $4 Trillion Dream : AI Hype or Real Growth ? -> pos=0.9212 neg=0.0244 neu=0.0544 (w=0.729)
+2026-02-06 12:15:06,913 - INFO - [14/48] (headline+content) Warren Buffett Sells Apple Stock and Buys a Restau -> pos=0.8625 neg=0.0155 neu=0.1220 (w=0.710)
+2026-02-06 12:15:06,924 - INFO - [15/48] (headline+content) Analyst Says Apple ( AAPL ) Stock is Expensive Ami -> pos=0.1075 neg=0.6493 neu=0.2431 (w=0.710)
+2026-02-06 12:15:06,934 - INFO - [16/48] (headline+content) Apple Inc . ( AAPL ): Billionaire D . E . Shaw Is  -> pos=0.8276 neg=0.0083 neu=0.1640 (w=0.700)
+2026-02-06 12:15:06,938 - INFO - [17/48] (content-only) Baystreet . ca - Stock Market Warning : Yields Ris -> pos=0.0250 neg=0.9557 neu=0.0193 (w=0.700)
+2026-02-06 12:15:06,943 - INFO - [18/48] (headline+content) US Stocks To Open Lower As Index Future Decline :  -> pos=0.0197 neg=0.9708 neu=0.0095 (w=0.700)
+2026-02-06 12:15:06,948 - INFO - [19/48] (headline+content) Dow Edges Higher In Thin Holiday Trading As Tesla  -> pos=0.9521 neg=0.0266 neu=0.0214 (w=0.700)
+2026-02-06 12:15:06,953 - INFO - [20/48] (headline+content) Warren Buffett Heads Into 2025 With $325 Billion C -> pos=0.4926 neg=0.0153 neu=0.4920 (w=0.626)
+2026-02-06 12:15:06,959 - INFO - [21/48] (headline+content) 5 Tech Stocks to Buy as AI Hype Fizzles - Apple (  -> pos=0.8796 neg=0.0182 neu=0.1022 (w=0.616)
+2026-02-06 12:15:06,968 - INFO - [22/48] (content-only) Wall Street Analysts Cant Stop Talking About These -> pos=0.2784 neg=0.6803 neu=0.0413 (w=0.568)
+2026-02-06 12:15:06,973 - INFO - [23/48] (headline+content) Baystreet . ca - Today Stock News on Honda , Apple -> pos=0.4768 neg=0.4104 neu=0.1128 (w=0.519)
+2026-02-06 12:15:06,978 - INFO - [24/48] (headline+content) Apple Stock Hits Record High Amid Strong Holiday S -> pos=0.9395 neg=0.0206 neu=0.0399 (w=0.510)
+2026-02-06 12:15:06,982 - INFO - [25/48] (content-only) Top trending global stocks of 2024 -> pos=0.4929 neg=0.0126 neu=0.4945 (w=0.510)
+2026-02-06 12:15:06,992 - INFO - [26/48] (content-only) Dow Jones Today : Stocks Slip in Early Trading as  -> pos=0.9387 neg=0.0148 neu=0.0465 (w=0.509)
+2026-02-06 12:15:06,997 - INFO - [27/48] (headline+content) Apple stock touches intraday high after nod of con -> pos=0.9373 neg=0.0312 neu=0.0315 (w=0.509)
+2026-02-06 12:15:07,001 - INFO - [28/48] (content-only) Tesla Stock Leads Magnificent Seven Shares Higher -> pos=0.2555 neg=0.2695 neu=0.4750 (w=0.509)
+2026-02-06 12:15:07,005 - INFO - [29/48] (headline+content) Apple Stock And Two Other 2024 Winners Are On Fund -> pos=0.3634 neg=0.0263 neu=0.6103 (w=0.240)
+2026-02-06 12:15:07,010 - INFO - [30/48] (content-only) US close : Stocks push higher despite mixed econom -> pos=0.0534 neg=0.0237 neu=0.9228 (w=0.240)
+2026-02-06 12:15:07,018 - INFO - [31/48] (headline+content) Dan Niles Says Apple ( AAPL ) New iPhone Features  -> pos=0.2789 neg=0.2788 neu=0.4422 (w=0.240)
+2026-02-06 12:15:07,023 - INFO - [32/48] (content-only) S & P 500 Gains and Losses Today : Index Drops as  -> pos=0.6806 neg=0.2975 neu=0.0220 (w=0.240)
+2026-02-06 12:15:07,028 - INFO - [33/48] (content-only) Stock Market Today : Dow Dives 1 , 123 Points Afte -> pos=0.1282 neg=0.0087 neu=0.8631 (w=0.240)
+2026-02-06 12:15:07,032 - INFO - [34/48] (headline+content) Apple could hit a $4 trillion market cap by early  -> pos=0.4758 neg=0.4607 neu=0.0636 (w=0.230)
+2026-02-06 12:15:07,037 - INFO - [35/48] (content-only) This ETF Holds Lots of Wide Moat Stocks -> pos=0.1036 neg=0.0323 neu=0.8640 (w=0.230)
+2026-02-06 12:15:07,046 - INFO - [36/48] (content-only) Top 10 AI Stocks to Watch Right Now - Insider Monk -> pos=0.1557 neg=0.8042 neu=0.0401 (w=0.230)
+2026-02-06 12:15:07,050 - INFO - [37/48] (content-only) MicroStrategy Stock Is Up 400 % This Year What You -> pos=0.7994 neg=0.0405 neu=0.1600 (w=0.230)
+2026-02-06 12:15:07,056 - INFO - [38/48] (content-only) How to target a £100 , 000 second income starting  -> pos=0.3091 neg=0.0192 neu=0.6717 (w=0.230)
+2026-02-06 12:15:07,066 - INFO - [39/48] (headline+content) Jim Cramer on Apple Inc . ( AAPL ):  I Say Own It  -> pos=0.1443 neg=0.1155 neu=0.7403 (w=0.230)
+2026-02-06 12:15:07,070 - INFO - [40/48] (content-only) US close : Stocks higher following November PCE re -> pos=0.0421 neg=0.0270 neu=0.9309 (w=0.230)
+2026-02-06 12:15:07,078 - INFO - [41/48] (headline+content) Apple shares hit new all - time intraday and closi -> pos=0.7917 neg=0.0262 neu=0.1821 (w=0.230)
+2026-02-06 12:15:07,082 - INFO - [42/48] (content-only) If an investor put $5 , 000 in Nvidia shares 5 yea -> pos=0.5559 neg=0.0122 neu=0.4319 (w=0.230)
+2026-02-06 12:15:07,088 - INFO - [43/48] (headline+content) Apple Inc . ( NASDAQ : AAPL ) Shares Sold by RCS F -> pos=0.0228 neg=0.0285 neu=0.9487 (w=0.230)
+2026-02-06 12:15:07,101 - INFO - [44/48] (headline+content) Apple Stock Up Despite Lackluster iPhone 16 Sales  -> pos=0.9174 neg=0.0663 neu=0.0164 (w=0.230)
+2026-02-06 12:15:07,107 - INFO - [45/48] (content-only) Dow Jones Today : Stocks Inch Higher as Investors  -> pos=0.0090 neg=0.9758 neu=0.0151 (w=0.230)
+2026-02-06 12:15:07,112 - INFO - [46/48] (content-only) 5 Things to Know Before the Stock Market Opens -> pos=0.3234 neg=0.6436 neu=0.0330 (w=0.230)
+2026-02-06 12:15:07,117 - INFO - [47/48] (content-only) As bitcoin soars , luxury brands consider acceptin -> pos=0.2010 neg=0.0090 neu=0.7900 (w=0.230)
+2026-02-06 12:15:07,122 - INFO - [48/48] (content-only) As bitcoin soars , luxury brands consider acceptin -> pos=0.2291 neg=0.0087 neu=0.7622 (w=0.230)
+2026-02-06 12:15:07,122 - INFO - Sentiment prediction complete: label=positive confidence=0.5157 (48 articles analyzed)
+2026-02-06 12:15:07,123 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\finbert_result.json
+2026-02-06 12:15:35,970 - INFO - Running FinBERT sentiment on 48 articles (company=apple, ticker=None)
+2026-02-06 12:15:40,461 - INFO - Loading FinBERT sentiment model...
+2026-02-06 12:15:41,460 - INFO - FinBERT model loaded successfully
+2026-02-06 12:15:41,537 - INFO - [1/48] (content-only) 2024 Stock Market News : Economy Avoids Hard Landi -> pos=0.8302 neg=0.0115 neu=0.1583 (w=0.987)
+2026-02-06 12:15:41,541 - INFO - [2/48] (content-only) The AI Stock Playbook : Wall Street Top 10 Tech Be -> pos=0.8656 neg=0.0087 neu=0.1257 (w=0.987)
+2026-02-06 12:15:41,547 - INFO - [3/48] (headline+content) Jensen Huang Nvidia  Printing Money Like Apple  In -> pos=0.6073 neg=0.0140 neu=0.3787 (w=0.987)
+2026-02-06 12:15:41,556 - INFO - [4/48] (headline+content) Apple Stock Has Reached Historic Levels in One Met -> pos=0.9209 neg=0.0454 neu=0.0337 (w=0.939)
+2026-02-06 12:15:41,565 - INFO - [5/48] (headline+content) What 14 Analyst Ratings Have To Say About Apple -  -> pos=0.3788 neg=0.0134 neu=0.6079 (w=0.845)
+2026-02-06 12:15:41,571 - INFO - [6/48] (headline+content) Here How Much You Would Have Made Owning Apple Sto -> pos=0.1181 neg=0.0183 neu=0.8636 (w=0.845)
+2026-02-06 12:15:41,580 - INFO - [7/48] (headline+content) Wedbush Maps Apple Road to a $5 Trillion Milestone -> pos=0.9255 neg=0.0145 neu=0.0600 (w=0.748)
+2026-02-06 12:15:41,583 - INFO - [8/48] (content-only) Analyst on NVIDIA ( NVDA ): Investors Should Be  V -> pos=0.6044 neg=0.0083 neu=0.3873 (w=0.748)
+2026-02-06 12:15:41,588 - INFO - [9/48] (content-only) Analyst Predicts NVIDIA ( NVDA ) Stock Will Hit $8 -> pos=0.8658 neg=0.0075 neu=0.1267 (w=0.748)
+2026-02-06 12:15:41,591 - INFO - [10/48] (title-fallback) Equities Research Analyst Updated EPS Estimates fo -> pos=0.0268 neg=0.0506 neu=0.9226 (w=0.748)
+2026-02-06 12:15:41,601 - INFO - [11/48] (headline+content) Dan Niles on Apple ( AAPL ): Data is  Somewhat Dis -> pos=0.0150 neg=0.9425 neu=0.0425 (w=0.739)
+2026-02-06 12:15:41,606 - INFO - [12/48] (headline+content) Top analyst revisits Apple stock price target on m -> pos=0.0439 neg=0.1461 neu=0.8100 (w=0.739)
+2026-02-06 12:15:41,616 - INFO - [13/48] (headline+content) Apple $4 Trillion Dream : AI Hype or Real Growth ? -> pos=0.9212 neg=0.0244 neu=0.0544 (w=0.729)
+2026-02-06 12:15:41,620 - INFO - [14/48] (headline+content) Warren Buffett Sells Apple Stock and Buys a Restau -> pos=0.8625 neg=0.0155 neu=0.1220 (w=0.710)
+2026-02-06 12:15:41,629 - INFO - [15/48] (headline+content) Analyst Says Apple ( AAPL ) Stock is Expensive Ami -> pos=0.1075 neg=0.6493 neu=0.2431 (w=0.710)
+2026-02-06 12:15:41,651 - INFO - [16/48] (headline+content) Apple Inc . ( AAPL ): Billionaire D . E . Shaw Is  -> pos=0.8276 neg=0.0083 neu=0.1640 (w=0.700)
+2026-02-06 12:15:41,655 - INFO - [17/48] (content-only) Baystreet . ca - Stock Market Warning : Yields Ris -> pos=0.0250 neg=0.9557 neu=0.0193 (w=0.700)
+2026-02-06 12:15:41,661 - INFO - [18/48] (headline+content) US Stocks To Open Lower As Index Future Decline :  -> pos=0.0197 neg=0.9708 neu=0.0095 (w=0.700)
+2026-02-06 12:15:41,665 - INFO - [19/48] (headline+content) Dow Edges Higher In Thin Holiday Trading As Tesla  -> pos=0.9521 neg=0.0266 neu=0.0214 (w=0.700)
+2026-02-06 12:15:41,670 - INFO - [20/48] (headline+content) Warren Buffett Heads Into 2025 With $325 Billion C -> pos=0.4926 neg=0.0153 neu=0.4920 (w=0.626)
+2026-02-06 12:15:41,677 - INFO - [21/48] (headline+content) 5 Tech Stocks to Buy as AI Hype Fizzles - Apple (  -> pos=0.8796 neg=0.0182 neu=0.1022 (w=0.616)
+2026-02-06 12:15:41,687 - INFO - [22/48] (content-only) Wall Street Analysts Cant Stop Talking About These -> pos=0.2784 neg=0.6803 neu=0.0413 (w=0.568)
+2026-02-06 12:15:41,691 - INFO - [23/48] (headline+content) Baystreet . ca - Today Stock News on Honda , Apple -> pos=0.4768 neg=0.4104 neu=0.1128 (w=0.519)
+2026-02-06 12:15:41,696 - INFO - [24/48] (headline+content) Apple Stock Hits Record High Amid Strong Holiday S -> pos=0.9395 neg=0.0206 neu=0.0399 (w=0.510)
+2026-02-06 12:15:41,700 - INFO - [25/48] (content-only) Top trending global stocks of 2024 -> pos=0.4929 neg=0.0126 neu=0.4945 (w=0.510)
+2026-02-06 12:15:41,710 - INFO - [26/48] (content-only) Dow Jones Today : Stocks Slip in Early Trading as  -> pos=0.9387 neg=0.0148 neu=0.0465 (w=0.509)
+2026-02-06 12:15:41,715 - INFO - [27/48] (headline+content) Apple stock touches intraday high after nod of con -> pos=0.9373 neg=0.0312 neu=0.0315 (w=0.509)
+2026-02-06 12:15:41,719 - INFO - [28/48] (content-only) Tesla Stock Leads Magnificent Seven Shares Higher -> pos=0.2555 neg=0.2695 neu=0.4750 (w=0.509)
+2026-02-06 12:15:41,723 - INFO - [29/48] (headline+content) Apple Stock And Two Other 2024 Winners Are On Fund -> pos=0.3634 neg=0.0263 neu=0.6103 (w=0.240)
+2026-02-06 12:15:41,728 - INFO - [30/48] (content-only) US close : Stocks push higher despite mixed econom -> pos=0.0534 neg=0.0237 neu=0.9228 (w=0.240)
+2026-02-06 12:15:41,736 - INFO - [31/48] (headline+content) Dan Niles Says Apple ( AAPL ) New iPhone Features  -> pos=0.2789 neg=0.2788 neu=0.4422 (w=0.240)
+2026-02-06 12:15:41,740 - INFO - [32/48] (content-only) S & P 500 Gains and Losses Today : Index Drops as  -> pos=0.6806 neg=0.2975 neu=0.0220 (w=0.240)
+2026-02-06 12:15:41,745 - INFO - [33/48] (content-only) Stock Market Today : Dow Dives 1 , 123 Points Afte -> pos=0.1282 neg=0.0087 neu=0.8631 (w=0.240)
+2026-02-06 12:15:41,749 - INFO - [34/48] (headline+content) Apple could hit a $4 trillion market cap by early  -> pos=0.4758 neg=0.4607 neu=0.0636 (w=0.230)
+2026-02-06 12:15:41,754 - INFO - [35/48] (content-only) This ETF Holds Lots of Wide Moat Stocks -> pos=0.1036 neg=0.0323 neu=0.8640 (w=0.230)
+2026-02-06 12:15:41,764 - INFO - [36/48] (content-only) Top 10 AI Stocks to Watch Right Now - Insider Monk -> pos=0.1557 neg=0.8042 neu=0.0401 (w=0.230)
+2026-02-06 12:15:41,769 - INFO - [37/48] (content-only) MicroStrategy Stock Is Up 400 % This Year What You -> pos=0.7994 neg=0.0405 neu=0.1600 (w=0.230)
+2026-02-06 12:15:41,774 - INFO - [38/48] (content-only) How to target a £100 , 000 second income starting  -> pos=0.3091 neg=0.0192 neu=0.6717 (w=0.230)
+2026-02-06 12:15:41,783 - INFO - [39/48] (headline+content) Jim Cramer on Apple Inc . ( AAPL ):  I Say Own It  -> pos=0.1443 neg=0.1155 neu=0.7403 (w=0.230)
+2026-02-06 12:15:41,788 - INFO - [40/48] (content-only) US close : Stocks higher following November PCE re -> pos=0.0421 neg=0.0270 neu=0.9309 (w=0.230)
+2026-02-06 12:15:41,795 - INFO - [41/48] (headline+content) Apple shares hit new all - time intraday and closi -> pos=0.7917 neg=0.0262 neu=0.1821 (w=0.230)
+2026-02-06 12:15:41,800 - INFO - [42/48] (content-only) If an investor put $5 , 000 in Nvidia shares 5 yea -> pos=0.5559 neg=0.0122 neu=0.4319 (w=0.230)
+2026-02-06 12:15:41,804 - INFO - [43/48] (headline+content) Apple Inc . ( NASDAQ : AAPL ) Shares Sold by RCS F -> pos=0.0228 neg=0.0285 neu=0.9487 (w=0.230)
+2026-02-06 12:15:41,808 - INFO - [44/48] (headline+content) Apple Stock Up Despite Lackluster iPhone 16 Sales  -> pos=0.9174 neg=0.0663 neu=0.0164 (w=0.230)
+2026-02-06 12:15:41,814 - INFO - [45/48] (content-only) Dow Jones Today : Stocks Inch Higher as Investors  -> pos=0.0090 neg=0.9758 neu=0.0151 (w=0.230)
+2026-02-06 12:15:41,821 - INFO - [46/48] (content-only) 5 Things to Know Before the Stock Market Opens -> pos=0.3234 neg=0.6436 neu=0.0330 (w=0.230)
+2026-02-06 12:15:41,825 - INFO - [47/48] (content-only) As bitcoin soars , luxury brands consider acceptin -> pos=0.2010 neg=0.0090 neu=0.7900 (w=0.230)
+2026-02-06 12:15:41,830 - INFO - [48/48] (content-only) As bitcoin soars , luxury brands consider acceptin -> pos=0.2291 neg=0.0087 neu=0.7622 (w=0.230)
+2026-02-06 12:15:41,830 - INFO - Sentiment prediction complete: label=positive confidence=0.5157 (48 articles analyzed)
+2026-02-06 12:15:41,831 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\finbert_result.json
+2026-02-06 12:16:11,542 - INFO - Running FinGPT sentiment on 48 articles (company=apple, ticker=None)
+2026-02-06 12:16:16,297 - INFO - Loading FinGPT: base=NousResearch/Llama-2-13b-hf, lora=FinGPT/fingpt-sentiment_llama2-13b_lora, 8bit=True, device=cuda:0
+2026-02-06 12:16:37,709 - INFO - FinGPT model loaded successfully
+2026-02-06 12:16:38,385 - INFO - [1/48] (content-only) 2024 Stock Market News : Economy Avoids Hard Landi -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.987)
+2026-02-06 12:16:38,681 - INFO - [2/48] (content-only) The AI Stock Playbook : Wall Street Top 10 Tech Be -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.987)
+2026-02-06 12:16:38,979 - INFO - [3/48] (headline+content) Jensen Huang Nvidia  Printing Money Like Apple  In -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.987)
+2026-02-06 12:16:39,257 - INFO - [4/48] (headline+content) Apple Stock Has Reached Historic Levels in One Met -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.939)
+2026-02-06 12:16:39,605 - INFO - [5/48] (headline+content) What 14 Analyst Ratings Have To Say About Apple -  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.845)
+2026-02-06 12:16:39,893 - INFO - [6/48] (headline+content) Here How Much You Would Have Made Owning Apple Sto -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.845)
+2026-02-06 12:16:40,241 - INFO - [7/48] (headline+content) Wedbush Maps Apple Road to a $5 Trillion Milestone -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.748)
+2026-02-06 12:16:40,509 - INFO - [8/48] (content-only) Analyst on NVIDIA ( NVDA ): Investors Should Be  V -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.748)
+2026-02-06 12:16:40,770 - INFO - [9/48] (content-only) Analyst Predicts NVIDIA ( NVDA ) Stock Will Hit $8 -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.748)
+2026-02-06 12:16:41,042 - INFO - [10/48] (title-fallback) Equities Research Analyst Updated EPS Estimates fo -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.748)
+2026-02-06 12:16:41,393 - INFO - [11/48] (headline+content) Dan Niles on Apple ( AAPL ): Data is  Somewhat Dis -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.739)
+2026-02-06 12:16:41,660 - INFO - [12/48] (headline+content) Top analyst revisits Apple stock price target on m -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.739)
+2026-02-06 12:16:42,014 - INFO - [13/48] (headline+content) Apple $4 Trillion Dream : AI Hype or Real Growth ? -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.729)
+2026-02-06 12:16:42,284 - INFO - [14/48] (headline+content) Warren Buffett Sells Apple Stock and Buys a Restau -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.710)
+2026-02-06 12:16:42,644 - INFO - [15/48] (headline+content) Analyst Says Apple ( AAPL ) Stock is Expensive Ami -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.710)
+2026-02-06 12:16:43,001 - INFO - [16/48] (headline+content) Apple Inc . ( AAPL ): Billionaire D . E . Shaw Is  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.700)
+2026-02-06 12:16:43,278 - INFO - [17/48] (content-only) Baystreet . ca - Stock Market Warning : Yields Ris -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.700)
+2026-02-06 12:16:43,593 - INFO - [18/48] (headline+content) US Stocks To Open Lower As Index Future Decline :  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.700)
+2026-02-06 12:16:43,884 - INFO - [19/48] (headline+content) Dow Edges Higher In Thin Holiday Trading As Tesla  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.700)
+2026-02-06 12:16:44,174 - INFO - [20/48] (headline+content) Warren Buffett Heads Into 2025 With $325 Billion C -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.626)
+2026-02-06 12:16:44,471 - INFO - [21/48] (headline+content) 5 Tech Stocks to Buy as AI Hype Fizzles - Apple (  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.616)
+2026-02-06 12:16:44,843 - INFO - [22/48] (content-only) Wall Street Analysts Cant Stop Talking About These -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.568)
+2026-02-06 12:16:45,117 - INFO - [23/48] (headline+content) Baystreet . ca - Today Stock News on Honda , Apple -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.519)
+2026-02-06 12:16:45,398 - INFO - [24/48] (headline+content) Apple Stock Hits Record High Amid Strong Holiday S -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.510)
+2026-02-06 12:16:45,671 - INFO - [25/48] (content-only) Top trending global stocks of 2024 -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.510)
+2026-02-06 12:16:46,043 - INFO - [26/48] (content-only) Dow Jones Today : Stocks Slip in Early Trading as  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.509)
+2026-02-06 12:16:46,326 - INFO - [27/48] (headline+content) Apple stock touches intraday high after nod of con -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.509)
+2026-02-06 12:16:46,613 - INFO - [28/48] (content-only) Tesla Stock Leads Magnificent Seven Shares Higher -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.509)
+2026-02-06 12:16:46,890 - INFO - [29/48] (headline+content) Apple Stock And Two Other 2024 Winners Are On Fund -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.240)
+2026-02-06 12:16:47,165 - INFO - [30/48] (content-only) US close : Stocks push higher despite mixed econom -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.240)
+2026-02-06 12:16:47,499 - INFO - [31/48] (headline+content) Dan Niles Says Apple ( AAPL ) New iPhone Features  -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.240)
+2026-02-06 12:16:47,771 - INFO - [32/48] (content-only) S & P 500 Gains and Losses Today : Index Drops as  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.240)
+2026-02-06 12:16:48,052 - INFO - [33/48] (content-only) Stock Market Today : Dow Dives 1 , 123 Points Afte -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.240)
+2026-02-06 12:16:48,313 - INFO - [34/48] (headline+content) Apple could hit a $4 trillion market cap by early  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.230)
+2026-02-06 12:16:48,591 - INFO - [35/48] (content-only) This ETF Holds Lots of Wide Moat Stocks -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.230)
+2026-02-06 12:16:48,949 - INFO - [36/48] (content-only) Top 10 AI Stocks to Watch Right Now - Insider Monk -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.230)
+2026-02-06 12:16:49,219 - INFO - [37/48] (content-only) MicroStrategy Stock Is Up 400 % This Year What You -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.230)
+2026-02-06 12:16:49,505 - INFO - [38/48] (content-only) How to target a £100 , 000 second income starting  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.230)
+2026-02-06 12:16:49,878 - INFO - [39/48] (headline+content) Jim Cramer on Apple Inc . ( AAPL ):  I Say Own It  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.230)
+2026-02-06 12:16:50,157 - INFO - [40/48] (content-only) US close : Stocks higher following November PCE re -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.230)
+2026-02-06 12:16:50,461 - INFO - [41/48] (headline+content) Apple shares hit new all - time intraday and closi -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.230)
+2026-02-06 12:16:50,741 - INFO - [42/48] (content-only) If an investor put $5 , 000 in Nvidia shares 5 yea -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.230)
+2026-02-06 12:16:51,013 - INFO - [43/48] (headline+content) Apple Inc . ( NASDAQ : AAPL ) Shares Sold by RCS F -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.230)
+2026-02-06 12:16:51,296 - INFO - [44/48] (headline+content) Apple Stock Up Despite Lackluster iPhone 16 Sales  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.230)
+2026-02-06 12:16:51,581 - INFO - [45/48] (content-only) Dow Jones Today : Stocks Inch Higher as Investors  -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.230)
+2026-02-06 12:16:51,864 - INFO - [46/48] (content-only) 5 Things to Know Before the Stock Market Opens -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.230)
+2026-02-06 12:16:52,141 - INFO - [47/48] (content-only) As bitcoin soars , luxury brands consider acceptin -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.230)
+2026-02-06 12:16:52,421 - INFO - [48/48] (content-only) As bitcoin soars , luxury brands consider acceptin -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.230)
+2026-02-06 12:16:52,421 - INFO - Sentiment prediction complete: label=positive confidence=0.4775 (48 articles analyzed)
+2026-02-06 12:16:52,423 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\fingpt_result.json
