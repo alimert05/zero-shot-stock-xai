@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 import json
 import yfinance as yf
-from config import PRED_JSON_PATH, JSON_PATH, SENTIMENT_JSON_PATH
+from config import PRED_JSON_PATH, JSON_PATH, SENTIMENT_MODEL, FINBERT_PREDS, FINGPT_PREDS, ZEROSHOT_PREDS
 
 
 def _parse_date(d: str) -> datetime:
@@ -96,7 +96,14 @@ actual_label, meta, warn = get_real_label_yfinance(ticker, start_date, end_date)
 if warn:
     print(warn)
 
-with open(SENTIMENT_JSON_PATH, 'r', encoding="utf-8") as f:
+if SENTIMENT_MODEL == "fingpt":
+    json_path = FINGPT_PREDS
+elif SENTIMENT_MODEL == "ProsusAI/finbert":
+    json_path = FINBERT_PREDS
+elif SENTIMENT_MODEL == "zero-shot":
+    json_path = ZEROSHOT_PREDS
+
+with open(json_path, 'r', encoding="utf-8") as f:
     sentiment_data = json.load(f)
 
 predicted_label = sentiment_data["final_label"]

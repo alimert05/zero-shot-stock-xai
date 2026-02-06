@@ -3,36 +3,35 @@ from __future__ import annotations
 import json
 import logging
 from typing import Any
+from transformers import pipeline
+from config import SENTIMENT_DEVICE, MODEL_NAME
 
 logger = logging.getLogger(__name__)
 
-_sentiment_pipeline = None
+_deberta_pipeline = None
 
+if MODEL_NAME == "facebook/bart-large-mnli":
+    model = "BART Large MNLI"
+if MODEL_NAME == "roberta-large-mnli":
+    model = "RoBERTa Large MNLI"
+if MODEL_NAME == "microsoft/deberta-large-mnli":
+    model = "DeBERTa Large MNLI"
 
-def _get_sentiment_pipeline():
-    global _sentiment_pipeline
-    if _sentiment_pipeline is None:
+def _get_deberta_pipeline():
+    global _deberta_pipeline
+    if _deberta_pipeline is None:
         try:
-            from transformers import pipeline
-
-            logger.info("Loading FinBERT sentiment model...")
-            _sentiment_pipeline = pipeline(
-                "sentiment-analysis",
-                model="ProsusAI/finbert",
-                device=0,
+            logger.info(f"Loading {model} zero-shot classifier...")
+            _deberta_pipeline = pipeline(
+                "zero-shot-classification",
+                model= MODEL_NAME,
+                device= SENTIMENT_DEVICE,
             )
-            logger.info("FinBERT model loaded successfully")
+            logger.info(f"{model} model loaded successfully")
         except Exception as exc:
-            logger.error("Failed to load FinBERT model: %s", exc)
+            logger.error(f"Failed to load {model} model: {exc}")
             raise
-    return _sentiment_pipeline
-
-
-FINBERT_LABEL_MAP = {
-    "positive": "positive",
-    "negative": "negative",
-    "neutral": "neutral",
-}
+    return _deberta_pipeline
 
 
 def _title_matches(title: str, company_name: str, ticker: str | None) -> bool:
@@ -64,20 +63,35 @@ def _build_input_text(
     if not body:
         return ""
 
-    text = f"Sentiment for {company_name}: {body}"
+    text = f"News about {company_name}: {body}"
 
     return text[:max_chars]
 
 
-def _classify_sentiment(text: str) -> dict[str, float]:
-    pipe = _get_sentiment_pipeline()
+def _classify_sentiment(text: str, company_name: str) -> dict[str, float]:
+    pipe = _get_deberta_pipeline()
 
-    results = pipe(text, top_k=None, truncation=True, max_length=512)
+    # Company-aware zero-shot labels
+    labels = [
+        f"positive sentiment about {company_name}",
+        f"negative sentiment about {company_name}",
+        f"neutral sentiment about {company_name}",
+    ]
+
+    result = pipe(
+        text,
+        candidate_labels=labels,
+        hypothesis_template="This text expresses {}.",
+    )
 
     scores = {"positive": 0.0, "negative": 0.0, "neutral": 0.0}
-    for item in results:
-        label = FINBERT_LABEL_MAP.get(item["label"], item["label"])
-        scores[label] = item["score"]
+    for label, score in zip(result["labels"], result["scores"]):
+        if "positive" in label:
+            scores["positive"] = score
+        elif "negative" in label:
+            scores["negative"] = score
+        elif "neutral" in label:
+            scores["neutral"] = score
 
     return scores
 
@@ -99,9 +113,7 @@ def predict_sentiment(
         raise ValueError("company_name must be provided or present in articles.json query field")
 
     logger.info(
-        "Running FinBERT sentiment on %d articles (company=%s, ticker=%s)",
-        len(articles), company_name, ticker,
-    )
+        f"Running {model} sentiment on {len(articles)} articles (company={company_name}, ticker={ticker})")
 
     weighted_scores = {"positive": 0.0, "negative": 0.0, "neutral": 0.0}
     total_weight = 0.0
@@ -118,7 +130,7 @@ def predict_sentiment(
             logger.debug("Skipping article (no title and no content): %s", title[:80])
             continue
 
-        scores = _classify_sentiment(text)
+        scores = _classify_sentiment(text, company_name)
 
         for label in weighted_scores:
             weighted_scores[label] += scores[label] * final_weight
@@ -131,6 +143,7 @@ def predict_sentiment(
             source_label = "content-only"
         else:
             source_label = "title-fallback"
+
         article_sentiments.append({
             "title": title,
             "final_weight": final_weight,
@@ -204,7 +217,7 @@ def run_sentiment_prediction(
 
 def _print_summary(result: dict) -> None:
     print(f"\n{'='*50}")
-    print(f"  SENTIMENT PREDICTION RESULT (FinBERT)")
+    print(f"  SENTIMENT PREDICTION RESULT ({model})")
     print(f"{'='*50}")
     print(f"  Company : {result['company_name']}")
     if result.get("ticker"):
