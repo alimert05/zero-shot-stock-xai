@@ -1,11 +1,11 @@
 from datetime import datetime, timedelta
 import json
 import yfinance as yf
-from src.config import PRED_JSON_PATH
+from config import PRED_JSON_PATH, JSON_PATH, SENTIMENT_JSON_PATH
 
 
 def _parse_date(d: str) -> datetime:
-    return datetime.strptime(d, "%Y-%m-%d")
+    return datetime.strptime(d, "%d-%m-%Y")
 
 
 def _next_open_day_close(ticker: str, day: datetime, max_lookahead_days: int = 10) -> tuple[datetime, float]:
@@ -42,9 +42,9 @@ def get_real_label_yfinance(ticker: str, start_date: str, end_date: str, neutral
     pct = (e_px - s_px) / s_px if s_px else 0.0
 
     if pct > neutral_threshold:
-        label = "up"
+        label = "positive"
     elif pct < -neutral_threshold:
-        label = "down"
+        label = "negative"
     else:
         label = "neutral"
 
@@ -82,20 +82,25 @@ def evaluate_one(predicted_label: str, actual_label: str) -> dict:
         "correct": predicted_label == actual_label,
     }
 
-# will be user input later
-company_name = "eli lilly"
-start_date = "2025-01-01"
-end_date = "2025-02-01"
-ticker = "LLY"  
+with open(JSON_PATH, 'r', encoding="utf-8") as f:
+    query_data = json.load(f)
+
+
+company_name = query_data["query"]
+ticker = query_data["ticker"] 
+start_date = query_data["start_date"]
+end_date = query_data["end_date"]
+ 
 
 actual_label, meta, warn = get_real_label_yfinance(ticker, start_date, end_date)
 if warn:
     print(warn)
 
-# dummy pred
-predicted_label = "down"
+with open(SENTIMENT_JSON_PATH, 'r', encoding="utf-8") as f:
+    sentiment_data = json.load(f)
 
-# predicted record store
+predicted_label = sentiment_data["final_label"]
+
 pred_record = {
     "company_name": company_name,
     "ticker": ticker,
@@ -105,7 +110,16 @@ pred_record = {
 }
 store_predictions_jsonl(PRED_JSON_PATH, pred_record)
 
-# evaluate
-report = evaluate_one(predicted_label, actual_label)
-print(" Actual:", actual_label, "\n", "Pred:", predicted_label, "\n", "Correct:", report["correct"])
-# print("Meta:", meta)
+def run_backtest():
+
+    report = evaluate_one(predicted_label, actual_label)
+    print("─" * 35)
+    print("Actual:", actual_label.capitalize())
+    print("─" * 35)
+    print("Pred:", predicted_label.capitalize())
+    print("─" * 35)
+    print("Correct:", report["correct"])
+    print("─" * 35)
+    print(f"Change: {round(float(meta["pct_change"]), 5) * 100}%", warn if warn is not None else "")
+    print("─" * 35)
+

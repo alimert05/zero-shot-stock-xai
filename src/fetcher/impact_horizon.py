@@ -19,7 +19,7 @@ def _get_classifier():
             _classifier = pipeline(
                 "zero-shot-classification",
                 model="MoritzLaurer/deberta-v3-base-zeroshot-v2.0",
-                device=-1,  
+                device=0,  
             )
             logger.info("DeBERTa classifier loaded successfully")
         except Exception as exc:

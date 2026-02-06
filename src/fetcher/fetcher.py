@@ -48,6 +48,7 @@ class Fetcher:
         self.backward_start_date: datetime | None = None
         self.backward_end_date: datetime | None = None
         self.query: str | None = None
+        self.ticker: str | None = None
  
         self.data: dict | None = None
         self.temp_dir = TEMP_PATH
@@ -127,6 +128,7 @@ class Fetcher:
  
         company_name = self.query.strip()
         ticker = resolve_ticker(company_name)
+        self.ticker = ticker
  
         if ticker:
             logger.info("Resolved ticker for '%s' -> %s", company_name, ticker)
@@ -281,6 +283,7 @@ class Fetcher:
     def _build_output_payload(self, articles: list[dict]) -> dict:
         return {
             "query": self.query,
+            "ticker": self.ticker,
             "start_date": self.start_date,
             "end_date": self.end_date,
             "backward_start_date": (
