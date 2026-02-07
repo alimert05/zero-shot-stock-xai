@@ -13,8 +13,6 @@ FINBERT_PREDS = PROJECT_ROOT / "data" / "predictions" / "finbert_result.json"
 FINGPT_PREDS = PROJECT_ROOT / "data" / "predictions" / "fingpt_result.json"
 ZEROSHOT_PREDS = PROJECT_ROOT / "data" / "predictions" / "zeroshot_result.json"
 
-
-
 TEMP_PATH.mkdir(parents=True, exist_ok=True)
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -25,8 +23,9 @@ BASE_URL = "https://api.gdeltproject.org/api/v2/doc/doc"
 
 WEIGHT_COMBINE_METHOD = "weighted_avg"
 
+NOISE_REDUCTION_ENABLED = True
 IMPACT_HORIZON_ENABLED = True
-IMPACT_HORIZON_MODEL = "microsoft/deberta-large-mnli"
+IMPACT_HORIZON_MODEL = "roberta-large-mnli"
 IMPACT_HORIZON_DEVICE = 0
 
 RECENCY_IMPORTANCE = 0.4

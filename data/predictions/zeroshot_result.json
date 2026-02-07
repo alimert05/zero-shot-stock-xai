@@ -2,65 +2,50 @@
   "query": "apple",
   "company_name": "apple",
   "ticker": null,
-  "articles_analyzed": 48,
-  "articles_total": 48,
-  "total_weight": 24.5368,
+  "articles_analyzed": 46,
+  "articles_total": 46,
+  "total_weight": 24.7995,
   "weighted_scores": {
-    "positive": 19.2904,
-    "negative": 3.9812,
-    "neutral": 1.2652
+    "positive": 19.1588,
+    "negative": 4.3323,
+    "neutral": 1.3083
   },
   "normalized_scores": {
-    "positive": 0.7862,
-    "negative": 0.1623,
-    "neutral": 0.0516
+    "positive": 0.7725,
+    "negative": 0.1747,
+    "neutral": 0.0528
   },
   "final_label": "positive",
-  "final_confidence": 0.7862,
+  "final_confidence": 0.7725,
   "article_details": [
     {
+      "title": "10 stocks retail investors craved in 2024",
+      "final_weight": 1.0935,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.9423254728317261,
+        "negative": 0.015557651408016682,
+        "neutral": 0.04211684688925743
+      },
+      "weighted_scores": {
+        "positive": 1.0304,
+        "negative": 0.017,
+        "neutral": 0.0461
+      }
+    },
+    {
       "title": "2024 Stock Market News : Economy Avoids Hard Landing",
-      "final_weight": 0.9871,
+      "final_weight": 0.9387,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.9956515431404114,
-        "negative": 0.0012290463782846928,
-        "neutral": 0.0031194016337394714
+        "positive": 0.9923075437545776,
+        "negative": 0.0015439247945323586,
+        "neutral": 0.0061484891921281815
       },
       "weighted_scores": {
-        "positive": 0.9828,
-        "negative": 0.0012,
-        "neutral": 0.0031
-      }
-    },
-    {
-      "title": "The AI Stock Playbook : Wall Street Top 10 Tech Bets for 2025",
-      "final_weight": 0.9871,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9762917160987854,
-        "negative": 0.0025430263485759497,
-        "neutral": 0.021165231242775917
-      },
-      "weighted_scores": {
-        "positive": 0.9637,
-        "negative": 0.0025,
-        "neutral": 0.0209
-      }
-    },
-    {
-      "title": "Jensen Huang Nvidia  Printing Money Like Apple  In Early iPhone Days , Says Tesla Bull Ross Gerber - NVIDIA ( NASDAQ : NVDA ) ",
-      "final_weight": 0.9871,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.5352322459220886,
-        "negative": 0.40679168701171875,
-        "neutral": 0.05797614902257919
-      },
-      "weighted_scores": {
-        "positive": 0.5283,
-        "negative": 0.4015,
-        "neutral": 0.0572
+        "positive": 0.9315,
+        "negative": 0.0014,
+        "neutral": 0.0058
       }
     },
     {
@@ -79,33 +64,63 @@
       }
     },
     {
-      "title": "What 14 Analyst Ratings Have To Say About Apple - Apple ( NASDAQ : AAPL ) ",
-      "final_weight": 0.8452,
+      "title": "Jensen Huang Nvidia  Printing Money Like Apple  In Early iPhone Days , Says Tesla Bull Ross Gerber - NVIDIA ( NASDAQ : NVDA ) ",
+      "final_weight": 0.9387,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.6742182970046997,
-        "negative": 0.2463611513376236,
-        "neutral": 0.07942049950361252
+        "positive": 0.7054176926612854,
+        "negative": 0.2349023073911667,
+        "neutral": 0.059679996222257614
       },
       "weighted_scores": {
-        "positive": 0.5698,
-        "negative": 0.2082,
-        "neutral": 0.0671
+        "positive": 0.6622,
+        "negative": 0.2205,
+        "neutral": 0.056
       }
     },
     {
-      "title": "Here How Much You Would Have Made Owning Apple Stock In The Last 15 Years - Apple ( NASDAQ : AAPL ) ",
+      "title": "Analyst Predicts NVIDIA ( NVDA ) Stock Will Hit $800 By 2030",
+      "final_weight": 0.8548,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.8350355625152588,
+        "negative": 0.12242674827575684,
+        "neutral": 0.042537711560726166
+      },
+      "weighted_scores": {
+        "positive": 0.7138,
+        "negative": 0.1047,
+        "neutral": 0.0364
+      }
+    },
+    {
+      "title": "Apple stock touches intraday high after nod of confidence from Wall Street",
       "final_weight": 0.8452,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.9716938138008118,
-        "negative": 0.006728113628923893,
-        "neutral": 0.02157805860042572
+        "positive": 0.9918007254600525,
+        "negative": 0.003174712648615241,
+        "neutral": 0.005024544894695282
       },
       "weighted_scores": {
-        "positive": 0.8213,
-        "negative": 0.0057,
-        "neutral": 0.0182
+        "positive": 0.8383,
+        "negative": 0.0027,
+        "neutral": 0.0042
+      }
+    },
+    {
+      "title": "35 % of Warren Buffett $296 Billion Portfolio Is Invested in 3 Artificial Intelligence ( AI ) Stocks",
+      "final_weight": 0.8452,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.9543462991714478,
+        "negative": 0.00911843404173851,
+        "neutral": 0.03653522953391075
+      },
+      "weighted_scores": {
+        "positive": 0.8066,
+        "negative": 0.0077,
+        "neutral": 0.0309
       }
     },
     {
@@ -113,14 +128,14 @@
       "final_weight": 0.7484,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.9876531362533569,
-        "negative": 0.0031865162309259176,
-        "neutral": 0.009160356596112251
+        "positive": 0.9834828972816467,
+        "negative": 0.005197382066398859,
+        "neutral": 0.011319666169583797
       },
       "weighted_scores": {
-        "positive": 0.7392,
-        "negative": 0.0024,
-        "neutral": 0.0069
+        "positive": 0.736,
+        "negative": 0.0039,
+        "neutral": 0.0085
       }
     },
     {
@@ -128,29 +143,44 @@
       "final_weight": 0.7484,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.889740526676178,
-        "negative": 0.04054815694689751,
-        "neutral": 0.06971127539873123
+        "positive": 0.6095091700553894,
+        "negative": 0.2773531973361969,
+        "neutral": 0.11313758790493011
       },
       "weighted_scores": {
-        "positive": 0.6659,
-        "negative": 0.0303,
-        "neutral": 0.0522
+        "positive": 0.4562,
+        "negative": 0.2076,
+        "neutral": 0.0847
       }
     },
     {
-      "title": "Analyst Predicts NVIDIA ( NVDA ) Stock Will Hit $800 By 2030",
+      "title": "Apple Inc . ( AAPL ): Billionaire D . E . Shaw Is Bullish On This Stock Right Now",
+      "final_weight": 0.7484,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9743713736534119,
+        "negative": 0.006180556956678629,
+        "neutral": 0.019448107108473778
+      },
+      "weighted_scores": {
+        "positive": 0.7292,
+        "negative": 0.0046,
+        "neutral": 0.0146
+      }
+    },
+    {
+      "title": "Baystreet . ca - Stock Market Warning : Yields Rising",
       "final_weight": 0.7484,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.826331377029419,
-        "negative": 0.054412148892879486,
-        "neutral": 0.11925652623176575
+        "positive": 0.4544548988342285,
+        "negative": 0.39149248600006104,
+        "neutral": 0.15405265986919403
       },
       "weighted_scores": {
-        "positive": 0.6184,
-        "negative": 0.0407,
-        "neutral": 0.0893
+        "positive": 0.3401,
+        "negative": 0.293,
+        "neutral": 0.1153
       }
     },
     {
@@ -173,14 +203,29 @@
       "final_weight": 0.7387,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.010577480308711529,
-        "negative": 0.8948915004730225,
-        "neutral": 0.09453102201223373
+        "positive": 0.00944038201123476,
+        "negative": 0.9236042499542236,
+        "neutral": 0.0669553279876709
       },
       "weighted_scores": {
-        "positive": 0.0078,
-        "negative": 0.6611,
-        "neutral": 0.0698
+        "positive": 0.007,
+        "negative": 0.6823,
+        "neutral": 0.0495
+      }
+    },
+    {
+      "title": "What 14 Analyst Ratings Have To Say About Apple - Apple ( NASDAQ : AAPL ) ",
+      "final_weight": 0.7387,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.838101863861084,
+        "negative": 0.07699757814407349,
+        "neutral": 0.08490052819252014
+      },
+      "weighted_scores": {
+        "positive": 0.6191,
+        "negative": 0.0569,
+        "neutral": 0.0627
       }
     },
     {
@@ -199,18 +244,33 @@
       }
     },
     {
+      "title": "Here How Much You Would Have Made Owning Apple Stock In The Last 15 Years - Apple ( NASDAQ : AAPL ) ",
+      "final_weight": 0.7387,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9574636816978455,
+        "negative": 0.018966082483530045,
+        "neutral": 0.02357027679681778
+      },
+      "weighted_scores": {
+        "positive": 0.7073,
+        "negative": 0.014,
+        "neutral": 0.0174
+      }
+    },
+    {
       "title": "Apple $4 Trillion Dream : AI Hype or Real Growth ? ",
       "final_weight": 0.729,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.2943029999732971,
-        "negative": 0.18806077539920807,
-        "neutral": 0.517636239528656
+        "positive": 0.4859936237335205,
+        "negative": 0.2542979121208191,
+        "neutral": 0.2597085237503052
       },
       "weighted_scores": {
-        "positive": 0.2145,
-        "negative": 0.1371,
-        "neutral": 0.3774
+        "positive": 0.3543,
+        "negative": 0.1854,
+        "neutral": 0.1893
       }
     },
     {
@@ -233,44 +293,14 @@
       "final_weight": 0.7097,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.018964678049087524,
-        "negative": 0.9024189710617065,
-        "neutral": 0.07861629128456116
+        "positive": 0.01354785542935133,
+        "negative": 0.9482771158218384,
+        "neutral": 0.03817501664161682
       },
       "weighted_scores": {
-        "positive": 0.0135,
-        "negative": 0.6404,
-        "neutral": 0.0558
-      }
-    },
-    {
-      "title": "Apple Inc . ( AAPL ): Billionaire D . E . Shaw Is Bullish On This Stock Right Now",
-      "final_weight": 0.7,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9806400537490845,
-        "negative": 0.005941495765000582,
-        "neutral": 0.013418436981737614
-      },
-      "weighted_scores": {
-        "positive": 0.6864,
-        "negative": 0.0042,
-        "neutral": 0.0094
-      }
-    },
-    {
-      "title": "Baystreet . ca - Stock Market Warning : Yields Rising",
-      "final_weight": 0.7,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.933443009853363,
-        "negative": 0.040584105998277664,
-        "neutral": 0.025972949340939522
-      },
-      "weighted_scores": {
-        "positive": 0.6534,
-        "negative": 0.0284,
-        "neutral": 0.0182
+        "positive": 0.0096,
+        "negative": 0.673,
+        "neutral": 0.0271
       }
     },
     {
@@ -278,14 +308,14 @@
       "final_weight": 0.7,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.8246946930885315,
-        "negative": 0.12843748927116394,
-        "neutral": 0.046867769211530685
+        "positive": 0.9481562376022339,
+        "negative": 0.03540830314159393,
+        "neutral": 0.016435442492365837
       },
       "weighted_scores": {
-        "positive": 0.5773,
-        "negative": 0.0899,
-        "neutral": 0.0328
+        "positive": 0.6637,
+        "negative": 0.0248,
+        "neutral": 0.0115
       }
     },
     {
@@ -293,14 +323,14 @@
       "final_weight": 0.7,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.9580929279327393,
-        "negative": 0.013034525327384472,
-        "neutral": 0.028872545808553696
+        "positive": 0.8057976961135864,
+        "negative": 0.10914169251918793,
+        "neutral": 0.08506064862012863
       },
       "weighted_scores": {
-        "positive": 0.6707,
-        "negative": 0.0091,
-        "neutral": 0.0202
+        "positive": 0.5641,
+        "negative": 0.0764,
+        "neutral": 0.0595
       }
     },
     {
@@ -308,44 +338,14 @@
       "final_weight": 0.6258,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.8045608401298523,
-        "negative": 0.14521543681621552,
-        "neutral": 0.05022377893328667
+        "positive": 0.9770906567573547,
+        "negative": 0.014121157117187977,
+        "neutral": 0.00878813024610281
       },
       "weighted_scores": {
-        "positive": 0.5035,
-        "negative": 0.0909,
-        "neutral": 0.0314
-      }
-    },
-    {
-      "title": "5 Tech Stocks to Buy as AI Hype Fizzles - Apple ( NASDAQ : AAPL ), CACI International ( NYSE : CACI ) ",
-      "final_weight": 0.6161,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9849600195884705,
-        "negative": 0.005134990904480219,
-        "neutral": 0.009905023500323296
-      },
-      "weighted_scores": {
-        "positive": 0.6068,
-        "negative": 0.0032,
-        "neutral": 0.0061
-      }
-    },
-    {
-      "title": "Wall Street Analysts Cant Stop Talking About These 10 AI Stocks",
-      "final_weight": 0.5677,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.017192289233207703,
-        "negative": 0.9247374534606934,
-        "neutral": 0.05807024613022804
-      },
-      "weighted_scores": {
-        "positive": 0.0098,
-        "negative": 0.525,
-        "neutral": 0.033
+        "positive": 0.6115,
+        "negative": 0.0088,
+        "neutral": 0.0055
       }
     },
     {
@@ -353,14 +353,14 @@
       "final_weight": 0.5194,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.9480167627334595,
-        "negative": 0.011363863945007324,
-        "neutral": 0.040619418025016785
+        "positive": 0.6443160176277161,
+        "negative": 0.2022932469844818,
+        "neutral": 0.1533907949924469
       },
       "weighted_scores": {
-        "positive": 0.4924,
-        "negative": 0.0059,
-        "neutral": 0.0211
+        "positive": 0.3347,
+        "negative": 0.1051,
+        "neutral": 0.0797
       }
     },
     {
@@ -379,18 +379,33 @@
       }
     },
     {
+      "title": "5 Tech Stocks to Buy as AI Hype Fizzles - Apple ( NASDAQ : AAPL ), CACI International ( NYSE : CACI ) ",
+      "final_weight": 0.5097,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9100393056869507,
+        "negative": 0.05505024641752243,
+        "neutral": 0.03491043671965599
+      },
+      "weighted_scores": {
+        "positive": 0.4638,
+        "negative": 0.0281,
+        "neutral": 0.0178
+      }
+    },
+    {
       "title": "Top trending global stocks of 2024",
       "final_weight": 0.5097,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.9910435080528259,
-        "negative": 0.0015452289953827858,
-        "neutral": 0.007411295548081398
+        "positive": 0.8374423980712891,
+        "negative": 0.08312048763036728,
+        "neutral": 0.07943709194660187
       },
       "weighted_scores": {
-        "positive": 0.5051,
-        "negative": 0.0008,
-        "neutral": 0.0038
+        "positive": 0.4268,
+        "negative": 0.0424,
+        "neutral": 0.0405
       }
     },
     {
@@ -398,29 +413,14 @@
       "final_weight": 0.5092,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.9930474758148193,
-        "negative": 0.0023907998111099005,
-        "neutral": 0.004561745095998049
+        "positive": 0.9941328763961792,
+        "negative": 0.0019708764739334583,
+        "neutral": 0.003896215232089162
       },
       "weighted_scores": {
-        "positive": 0.5057,
-        "negative": 0.0012,
-        "neutral": 0.0023
-      }
-    },
-    {
-      "title": "Apple stock touches intraday high after nod of confidence from Wall Street",
-      "final_weight": 0.5092,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.994329571723938,
-        "negative": 0.0010921997018158436,
-        "neutral": 0.004578202962875366
-      },
-      "weighted_scores": {
-        "positive": 0.5063,
-        "negative": 0.0006,
-        "neutral": 0.0023
+        "positive": 0.5062,
+        "negative": 0.001,
+        "neutral": 0.002
       }
     },
     {
@@ -428,14 +428,44 @@
       "final_weight": 0.5092,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.9864001274108887,
-        "negative": 0.0015636199386790395,
-        "neutral": 0.012036246247589588
+        "positive": 0.9883606433868408,
+        "negative": 0.0017941409023478627,
+        "neutral": 0.009845220483839512
       },
       "weighted_scores": {
-        "positive": 0.5023,
-        "negative": 0.0008,
-        "neutral": 0.0061
+        "positive": 0.5033,
+        "negative": 0.0009,
+        "neutral": 0.005
+      }
+    },
+    {
+      "title": "5 Seemingly Unstoppable Stocks Id Sell Right Now",
+      "final_weight": 0.4402,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.4399154484272003,
+        "negative": 0.45109230279922485,
+        "neutral": 0.10899212956428528
+      },
+      "weighted_scores": {
+        "positive": 0.1937,
+        "negative": 0.1986,
+        "neutral": 0.048
+      }
+    },
+    {
+      "title": "If an investor put $5 , 000 in Nvidia shares 5 years ago , here what theyd have now",
+      "final_weight": 0.2662,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.9437513947486877,
+        "negative": 0.017447147518396378,
+        "neutral": 0.038801368325948715
+      },
+      "weighted_scores": {
+        "positive": 0.2512,
+        "negative": 0.0046,
+        "neutral": 0.0103
       }
     },
     {
@@ -443,14 +473,14 @@
       "final_weight": 0.2402,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.9929662942886353,
-        "negative": 0.001053362968377769,
-        "neutral": 0.005980340763926506
+        "positive": 0.9943114519119263,
+        "negative": 0.0010987264104187489,
+        "neutral": 0.004589731339365244
       },
       "weighted_scores": {
-        "positive": 0.2385,
+        "positive": 0.2388,
         "negative": 0.0003,
-        "neutral": 0.0014
+        "neutral": 0.0011
       }
     },
     {
@@ -458,59 +488,14 @@
       "final_weight": 0.2402,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.8296323418617249,
-        "negative": 0.11665911227464676,
-        "neutral": 0.0537085197865963
+        "positive": 0.031274646520614624,
+        "negative": 0.9039855599403381,
+        "neutral": 0.06473980844020844
       },
       "weighted_scores": {
-        "positive": 0.1993,
-        "negative": 0.028,
-        "neutral": 0.0129
-      }
-    },
-    {
-      "title": "Dan Niles Says Apple ( AAPL ) New iPhone Features Werent  Particularly Good , Highlights Slowing Growth",
-      "final_weight": 0.2402,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.018653053790330887,
-        "negative": 0.9208748936653137,
-        "neutral": 0.06047206372022629
-      },
-      "weighted_scores": {
-        "positive": 0.0045,
-        "negative": 0.2212,
-        "neutral": 0.0145
-      }
-    },
-    {
-      "title": "S & P 500 Gains and Losses Today : Index Drops as Fed Cuts Rates but Signals Caution",
-      "final_weight": 0.2402,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9587192535400391,
-        "negative": 0.013165241107344627,
-        "neutral": 0.02811542898416519
-      },
-      "weighted_scores": {
-        "positive": 0.2303,
-        "negative": 0.0032,
-        "neutral": 0.0068
-      }
-    },
-    {
-      "title": "Stock Market Today : Dow Dives 1 , 123 Points After Fed",
-      "final_weight": 0.2402,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.979636549949646,
-        "negative": 0.00937543623149395,
-        "neutral": 0.010987958870828152
-      },
-      "weighted_scores": {
-        "positive": 0.2353,
-        "negative": 0.0023,
-        "neutral": 0.0026
+        "positive": 0.0075,
+        "negative": 0.2171,
+        "neutral": 0.0156
       }
     },
     {
@@ -533,14 +518,14 @@
       "final_weight": 0.23,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.7857104539871216,
-        "negative": 0.08465743064880371,
-        "neutral": 0.12963207066059113
+        "positive": 0.9133776426315308,
+        "negative": 0.01280421856790781,
+        "neutral": 0.07381808757781982
       },
       "weighted_scores": {
-        "positive": 0.1807,
-        "negative": 0.0195,
-        "neutral": 0.0298
+        "positive": 0.2101,
+        "negative": 0.0029,
+        "neutral": 0.017
       }
     },
     {
@@ -548,29 +533,14 @@
       "final_weight": 0.23,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.06347519159317017,
-        "negative": 0.781423807144165,
-        "neutral": 0.15510107576847076
+        "positive": 0.5117542147636414,
+        "negative": 0.3601587414741516,
+        "neutral": 0.1280870884656906
       },
       "weighted_scores": {
-        "positive": 0.0146,
-        "negative": 0.1797,
-        "neutral": 0.0357
-      }
-    },
-    {
-      "title": "MicroStrategy Stock Is Up 400 % This Year What You Need to Know About the Bitcoin Proxy",
-      "final_weight": 0.23,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9788828492164612,
-        "negative": 0.004950281232595444,
-        "neutral": 0.01616688258945942
-      },
-      "weighted_scores": {
-        "positive": 0.2251,
-        "negative": 0.0011,
-        "neutral": 0.0037
+        "positive": 0.1177,
+        "negative": 0.0828,
+        "neutral": 0.0295
       }
     },
     {
@@ -578,14 +548,14 @@
       "final_weight": 0.23,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.9704998731613159,
-        "negative": 0.00708638783544302,
-        "neutral": 0.02241372875869274
+        "positive": 0.769227147102356,
+        "negative": 0.06697060912847519,
+        "neutral": 0.16380220651626587
       },
       "weighted_scores": {
-        "positive": 0.2232,
-        "negative": 0.0016,
-        "neutral": 0.0052
+        "positive": 0.1769,
+        "negative": 0.0154,
+        "neutral": 0.0377
       }
     },
     {
@@ -593,14 +563,14 @@
       "final_weight": 0.23,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.7582640647888184,
-        "negative": 0.16991254687309265,
-        "neutral": 0.0718233659863472
+        "positive": 0.6765867471694946,
+        "negative": 0.24778062105178833,
+        "neutral": 0.07563260942697525
       },
       "weighted_scores": {
-        "positive": 0.1744,
-        "negative": 0.0391,
-        "neutral": 0.0165
+        "positive": 0.1556,
+        "negative": 0.057,
+        "neutral": 0.0174
       }
     },
     {
@@ -608,14 +578,14 @@
       "final_weight": 0.23,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.8504619002342224,
-        "negative": 0.10859415680170059,
-        "neutral": 0.040943969041109085
+        "positive": 0.9193623661994934,
+        "negative": 0.04585763067007065,
+        "neutral": 0.03477996215224266
       },
       "weighted_scores": {
-        "positive": 0.1956,
-        "negative": 0.025,
-        "neutral": 0.0094
+        "positive": 0.2115,
+        "negative": 0.0105,
+        "neutral": 0.008
       }
     },
     {
@@ -623,29 +593,14 @@
       "final_weight": 0.23,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.9911089539527893,
-        "negative": 0.001678293920122087,
-        "neutral": 0.007212713826447725
+        "positive": 0.9913803935050964,
+        "negative": 0.001923933275975287,
+        "neutral": 0.006695721298456192
       },
       "weighted_scores": {
         "positive": 0.228,
         "negative": 0.0004,
-        "neutral": 0.0017
-      }
-    },
-    {
-      "title": "If an investor put $5 , 000 in Nvidia shares 5 years ago , here what theyd have now",
-      "final_weight": 0.23,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9470403790473938,
-        "negative": 0.010786780156195164,
-        "neutral": 0.04217284172773361
-      },
-      "weighted_scores": {
-        "positive": 0.2178,
-        "negative": 0.0025,
-        "neutral": 0.0097
+        "neutral": 0.0015
       }
     },
     {
@@ -664,18 +619,78 @@
       }
     },
     {
+      "title": "Dan Niles Says Apple ( AAPL ) New iPhone Features Werent  Particularly Good , Highlights Slowing Growth",
+      "final_weight": 0.23,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.009098903276026249,
+        "negative": 0.9631723165512085,
+        "neutral": 0.027728775516152382
+      },
+      "weighted_scores": {
+        "positive": 0.0021,
+        "negative": 0.2215,
+        "neutral": 0.0064
+      }
+    },
+    {
+      "title": "S & P 500 Gains and Losses Today : Index Drops as Fed Cuts Rates but Signals Caution",
+      "final_weight": 0.23,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.9379834532737732,
+        "negative": 0.02945198491215706,
+        "neutral": 0.03256452828645706
+      },
+      "weighted_scores": {
+        "positive": 0.2157,
+        "negative": 0.0068,
+        "neutral": 0.0075
+      }
+    },
+    {
+      "title": "Stock Market Today : Dow Dives 1 , 123 Points After Fed",
+      "final_weight": 0.23,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.8290980458259583,
+        "negative": 0.12617944180965424,
+        "neutral": 0.04472256824374199
+      },
+      "weighted_scores": {
+        "positive": 0.1907,
+        "negative": 0.029,
+        "neutral": 0.0103
+      }
+    },
+    {
+      "title": "Wall Street Analysts Cant Stop Talking About These 10 AI Stocks",
+      "final_weight": 0.23,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.6521417498588562,
+        "negative": 0.3044426143169403,
+        "neutral": 0.0434156097471714
+      },
+      "weighted_scores": {
+        "positive": 0.15,
+        "negative": 0.07,
+        "neutral": 0.01
+      }
+    },
+    {
       "title": "Apple Stock Up Despite Lackluster iPhone 16 Sales | Investor Business Daily",
       "final_weight": 0.23,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.9315872192382812,
-        "negative": 0.025020858272910118,
-        "neutral": 0.04339192062616348
+        "positive": 0.6100770235061646,
+        "negative": 0.26938313245773315,
+        "neutral": 0.12053977698087692
       },
       "weighted_scores": {
-        "positive": 0.2143,
-        "negative": 0.0058,
-        "neutral": 0.01
+        "positive": 0.1403,
+        "negative": 0.062,
+        "neutral": 0.0277
       }
     },
     {
@@ -683,59 +698,14 @@
       "final_weight": 0.23,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.4395826756954193,
-        "negative": 0.4843946695327759,
-        "neutral": 0.07602264732122421
+        "positive": 0.17254361510276794,
+        "negative": 0.6990149617195129,
+        "neutral": 0.12844139337539673
       },
       "weighted_scores": {
-        "positive": 0.1011,
-        "negative": 0.1114,
-        "neutral": 0.0175
-      }
-    },
-    {
-      "title": "5 Things to Know Before the Stock Market Opens",
-      "final_weight": 0.23,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9045645594596863,
-        "negative": 0.05763448029756546,
-        "neutral": 0.037800878286361694
-      },
-      "weighted_scores": {
-        "positive": 0.208,
-        "negative": 0.0133,
-        "neutral": 0.0087
-      }
-    },
-    {
-      "title": "As bitcoin soars , luxury brands consider accepting crypto payments",
-      "final_weight": 0.23,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9630556106567383,
-        "negative": 0.007293251808732748,
-        "neutral": 0.029651084914803505
-      },
-      "weighted_scores": {
-        "positive": 0.2215,
-        "negative": 0.0017,
-        "neutral": 0.0068
-      }
-    },
-    {
-      "title": "As bitcoin soars , luxury brands consider accepting crypto payments",
-      "final_weight": 0.23,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9544398784637451,
-        "negative": 0.01652146503329277,
-        "neutral": 0.02903871051967144
-      },
-      "weighted_scores": {
-        "positive": 0.2195,
-        "negative": 0.0038,
-        "neutral": 0.0067
+        "positive": 0.0397,
+        "negative": 0.1608,
+        "neutral": 0.0295
       }
     }
   ]

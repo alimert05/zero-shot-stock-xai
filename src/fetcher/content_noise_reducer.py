@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 import re
 import logging
 from typing import Optional, List
@@ -6,137 +7,143 @@ from typing import Optional, List
 logger = logging.getLogger(__name__)
 
 
-def _normalize_spaces(text: str) -> str:
-    return re.sub(r"\s+", " ", text or "").strip()
-
-
-def _ticker_regex(ticker: str) -> re.Pattern:
-    t = re.escape(ticker.upper())
-    return re.compile(rf"(?i)(\${t}\b|\({t}\)|\b{t}\b|\b{t}[-\.][A-Z]{{1,6}}\b)")
-
+def _get_deberta_classifier():
+    from .impact_horizon import _get_classifier
+    return _get_classifier()
 
 def _split_into_sentences(text: str) -> List[str]:
     if not text:
         return []
-    sentences = re.split(r'(?<=[.!?])\s+', text)
+    sentences = re.split(r"(?<=[.!?])\s+", text)
     return [s.strip() for s in sentences if s.strip()]
 
+def _score_sentence_relevance(
+    sentences: List[str],
+    company_name: str,
+    ticker: Optional[str],
+    threshold: float = 0.5,
+) -> List[tuple[str, float]]:
 
-def _contains_company_reference(
-    text: str, 
-    company_name: str, 
-    ticker_re: Optional[re.Pattern]
-) -> bool:
-    if not text:
-        return False
-    
-    txt = _normalize_spaces(text)
-    low = txt.lower()
-    
-    # Check company name
-    name_phrase = _normalize_spaces(company_name).lower()
-    if name_phrase and name_phrase in low:
-        return True
-    
-    # Check ticker
-    if ticker_re and ticker_re.search(txt):
-        return True
-    
-    return False
+    if not sentences:
+        return []
 
+    classifier = _get_deberta_classifier()
+
+    ticker_part = f" ({ticker})" if ticker else ""
+    labels = ["relevant", "irrelevant"]
+    hypothesis_template = (
+        f"This sentence is {{}} to {company_name}{ticker_part}, including "
+        f"products/brands, financial performance (revenue, YoY growth, margins), "
+        f"guidance, operations, regulation (FDA), and major announcements."
+    )
+
+    results = classifier(
+        sentences,
+        candidate_labels=labels,
+        hypothesis_template=hypothesis_template,
+        batch_size=16,
+    )
+
+    if isinstance(results, dict):
+        results = [results]
+
+    scored: List[tuple[str, float]] = []
+    for sentence, result in zip(sentences, results):
+        relevance_score = 0.0
+        for label, score in zip(result["labels"], result["scores"]):
+            if label == "relevant":
+                relevance_score = score
+                break
+        scored.append((sentence, relevance_score))
+
+    return scored
+
+def _filter_relevant_sentences(
+    scored_sentences: List[tuple[str, float]],
+    threshold: float = 0.5,
+) -> List[str]:
+    return [sent for sent, score in scored_sentences if score >= threshold]
 
 def reduce_content_noise(
     content: str,
     company_name: str,
     ticker: Optional[str] = None,
-    keep_all_if_low_match: bool = True,
-    min_sentences_threshold: int = 2
+    relevance_threshold: float = 0.5,
 ) -> tuple[Optional[str], dict]:
-    
+
     if not content:
         return None, {"error": "no_content"}
-    
-    ticker_re = _ticker_regex(ticker) if ticker else None
+
     sentences = _split_into_sentences(content)
-    
+
     if not sentences:
         return None, {"error": "no_sentences"}
 
-    relevant_sentences = [
-        sent for sent in sentences
-        if _contains_company_reference(sent, company_name, ticker_re)
-    ]
-    
+    scored = _score_sentence_relevance(
+        sentences, company_name, ticker, relevance_threshold
+    )
+    relevant = _filter_relevant_sentences(scored, relevance_threshold)
+
     total_sentences = len(sentences)
-    relevant_count = len(relevant_sentences)
+    relevant_count = len(relevant)
     relevance_ratio = relevant_count / total_sentences if total_sentences > 0 else 0
-    
+
     metadata = {
         "total_sentences": total_sentences,
         "relevant_sentences": relevant_count,
-        "relevance_ratio": relevance_ratio,
-        "filtered": False
+        "relevance_ratio": round(relevance_ratio, 4),
+        "stage": "deberta_only",
+        "condensed": False,
     }
-    
+
     if relevant_count == 0:
-        logger.debug(f"No relevant sentences for {company_name}, keeping article with no content")
+        logger.debug("No relevant sentences for %s after filtering", company_name)
         return None, {**metadata, "filter_action": "no_match"}
-    
-    elif relevant_count < min_sentences_threshold and keep_all_if_low_match:
-        logger.debug(
-            f"Only {relevant_count} sentences mention {company_name}, keeping all content for context"
-        )
-        return content, {**metadata, "filter_action": "kept_all_low_match"}
-    
-    else:
-        filtered_content = " ".join(relevant_sentences)
-        logger.debug(
-            f"Filtered {company_name}: kept {relevant_count}/{total_sentences} sentences ({relevance_ratio:.1%})"
-        )
-        return filtered_content, {**metadata, "filtered": True, "filter_action": "filtered"}
+
+    filtered_text = " ".join(relevant)
+    return filtered_text, {**metadata, "filter_action": "filtered"}
 
 
 def clean_articles_content(
     articles: List[dict],
     company_name: str,
     ticker: Optional[str] = None,
-    keep_all_if_low_match: bool = True,
-    min_sentences_threshold: int = 2
+    relevance_threshold: float = 0.5,
 ) -> List[dict]:
-    
+
     if not articles:
         return []
-    
+
     logger.info(
-        f"Cleaning article content for {company_name} (ticker: {ticker or 'None'})"
+        "Cleaning article content for %s (ticker: %s) — DeBERTa-only pipeline",
+        company_name,
+        ticker or "None",
     )
-    
+
     stats = {
         "total_articles": 0,
         "articles_with_content": 0,
         "articles_filtered": 0,
-        "articles_kept_all": 0,
         "articles_no_content_after": 0,
         "total_sentences_before": 0,
-        "total_sentences_after": 0
+        "total_sentences_after": 0,
     }
-    
+
     for article in articles:
         content = article.get("content")
-        
-        if not content:
-            stats["total_articles"] += 1
-            continue
-        
+
         stats["total_articles"] += 1
+
+        if not content:
+            continue
+
         stats["articles_with_content"] += 1
 
         cleaned_content, metadata = reduce_content_noise(
             content,
             company_name,
             ticker,
-            keep_all_if_low_match,
-            min_sentences_threshold
+            relevance_threshold,
         )
 
         article["content"] = cleaned_content
@@ -144,27 +151,30 @@ def clean_articles_content(
 
         stats["total_sentences_before"] += metadata.get("total_sentences", 0)
         stats["total_sentences_after"] += metadata.get("relevant_sentences", 0)
-        
-        if metadata.get("filtered"):
+
+        if metadata.get("filter_action") == "filtered":
             stats["articles_filtered"] += 1
-        elif metadata.get("filter_action") == "kept_all_low_match":
-            stats["articles_kept_all"] += 1
-        
+
         if cleaned_content is None:
             stats["articles_no_content_after"] += 1
 
     logger.info(
-        f"Content cleaning complete:\n"
-        f"  Total articles: {stats['total_articles']}\n"
-        f"  Articles with content: {stats['articles_with_content']}\n"
-        f"  Articles filtered: {stats['articles_filtered']}\n"
-        f"  Articles kept all (low match): {stats['articles_kept_all']}\n"
-        f"  Articles with no content after: {stats['articles_no_content_after']}\n"
-        f"  Sentences: {stats['total_sentences_before']} → {stats['total_sentences_after']}"
+        "Content cleaning complete:\n"
+        "  Total articles: %d\n"
+        "  Articles with content: %d\n"
+        "  Articles filtered (DeBERTa only): %d\n"
+        "  Articles with no content after: %d\n"
+        "  Sentences: %d → %d",
+        stats["total_articles"],
+        stats["articles_with_content"],
+        stats["articles_filtered"],
+        stats["articles_no_content_after"],
+        stats["total_sentences_before"],
+        stats["total_sentences_after"],
     )
-    
-    if stats['total_sentences_before'] > 0:
-        reduction = (1 - stats['total_sentences_after'] / stats['total_sentences_before']) * 100
-        logger.info(f"  Noise reduction: {reduction:.1f}%")
-    
+
+    if stats["total_sentences_before"] > 0:
+        reduction = (1 - stats["total_sentences_after"] / stats["total_sentences_before"]) * 100
+        logger.info("  Noise reduction: %.1f%%", reduction)
+
     return articles
