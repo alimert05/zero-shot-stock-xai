@@ -15,6 +15,7 @@ from config import (
     THEMES,
     IMPACT_HORIZON_ENABLED,
     WEIGHT_COMBINE_METHOD,
+    NOISE_REDUCTION_ENABLED
 )
 from .utils import resolve_ticker, validate_date, add_recency_weights
 from .filters import (
@@ -232,13 +233,20 @@ class Fetcher:
  
         enrich_articles_with_content(candidates, timeout=self.timeout)
  
-        candidates = clean_articles_content(
-            candidates,
-            company_name=company_name,
-            ticker=ticker,
-            keep_all_if_low_match=False,
-            min_sentences_threshold=2
-        )
+        # candidates = clean_articles_content(
+        #     candidates,
+        #     company_name=company_name,
+        #     ticker=ticker,
+        #     keep_all_if_low_match=False,
+        #     min_sentences_threshold=2
+        # )
+
+        if NOISE_REDUCTION_ENABLED:  # Added
+            candidates = clean_articles_content(
+                candidates,
+                company_name=company_name,
+                ticker=ticker,
+            )
  
         filtered_after_rules = filter_company_related(
             candidates,
