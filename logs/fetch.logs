@@ -22457,3 +22457,625 @@
 2026-02-07 08:51:25,925 - INFO - [46/46] (content-only) Dow Jones Today : Stocks Inch Higher as Investors  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.230)
 2026-02-07 08:51:25,925 - INFO - Sentiment prediction complete: label=positive confidence=0.4577 (46 articles analyzed)
 2026-02-07 08:51:25,927 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\fingpt_result.json
+2026-02-07 09:02:19,901 - INFO - Running FinGPT sentiment on 46 articles (company=apple, ticker=None)
+2026-02-07 09:02:20,167 - INFO - Loading FinGPT: base=NousResearch/Llama-2-13b-hf, lora=FinGPT/fingpt-sentiment_llama2-13b_lora, 8bit=True, device=cuda:0
+2026-02-07 09:02:38,039 - INFO - FinGPT model loaded successfully
+2026-02-07 09:02:38,772 - INFO - [1/46] (content-only) 10 stocks retail investors craved in 2024 -> pos=0.0500 neg=0.0500 neu=0.9000 (w=1.093)
+2026-02-07 09:02:39,110 - INFO - [2/46] (content-only) 2024 Stock Market News : Economy Avoids Hard Landi -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.939)
+2026-02-07 09:02:39,418 - INFO - [3/46] (headline+content) Apple Stock Has Reached Historic Levels in One Met -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.939)
+2026-02-07 09:02:39,725 - INFO - [4/46] (headline+content) Jensen Huang Nvidia  Printing Money Like Apple  In -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.939)
+2026-02-07 09:02:40,098 - INFO - [5/46] (content-only) Analyst Predicts NVIDIA ( NVDA ) Stock Will Hit $8 -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.855)
+2026-02-07 09:02:40,471 - INFO - [6/46] (headline+content) Apple stock touches intraday high after nod of con -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.845)
+2026-02-07 09:02:41,071 - INFO - [7/46] (content-only) 35 % of Warren Buffett $296 Billion Portfolio Is I -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.845)
+2026-02-07 09:02:41,519 - INFO - [8/46] (headline+content) Wedbush Maps Apple Road to a $5 Trillion Milestone -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.748)
+2026-02-07 09:02:41,870 - INFO - [9/46] (content-only) Analyst on NVIDIA ( NVDA ): Investors Should Be  V -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.748)
+2026-02-07 09:02:42,832 - INFO - [10/46] (headline+content) Apple Inc . ( AAPL ): Billionaire D . E . Shaw Is  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.748)
+2026-02-07 09:02:43,120 - INFO - [11/46] (content-only) Baystreet . ca - Stock Market Warning : Yields Ris -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.748)
+2026-02-07 09:02:43,407 - INFO - [12/46] (title-fallback) Equities Research Analyst Updated EPS Estimates fo -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.748)
+2026-02-07 09:02:43,925 - INFO - [13/46] (headline+content) Dan Niles on Apple ( AAPL ): Data is  Somewhat Dis -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.739)
+2026-02-07 09:02:44,310 - INFO - [14/46] (headline+content) What 14 Analyst Ratings Have To Say About Apple -  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.739)
+2026-02-07 09:02:44,619 - INFO - [15/46] (headline+content) Top analyst revisits Apple stock price target on m -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.739)
+2026-02-07 09:02:44,955 - INFO - [16/46] (headline+content) Here How Much You Would Have Made Owning Apple Sto -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.739)
+2026-02-07 09:02:45,417 - INFO - [17/46] (headline+content) Apple $4 Trillion Dream : AI Hype or Real Growth ? -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.729)
+2026-02-07 09:02:45,738 - INFO - [18/46] (headline+content) Warren Buffett Sells Apple Stock and Buys a Restau -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.710)
+2026-02-07 09:02:46,180 - INFO - [19/46] (headline+content) Analyst Says Apple ( AAPL ) Stock is Expensive Ami -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.710)
+2026-02-07 09:02:46,485 - INFO - [20/46] (headline+content) US Stocks To Open Lower As Index Future Decline :  -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.700)
+2026-02-07 09:02:46,842 - INFO - [21/46] (headline+content) Dow Edges Higher In Thin Holiday Trading As Tesla  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.700)
+2026-02-07 09:02:47,158 - INFO - [22/46] (headline+content) Warren Buffett Heads Into 2025 With $325 Billion C -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.626)
+2026-02-07 09:02:47,483 - INFO - [23/46] (headline+content) Baystreet . ca - Today Stock News on Honda , Apple -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.519)
+2026-02-07 09:02:47,839 - INFO - [24/46] (headline+content) Apple Stock Hits Record High Amid Strong Holiday S -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.510)
+2026-02-07 09:02:48,288 - INFO - [25/46] (headline+content) 5 Tech Stocks to Buy as AI Hype Fizzles - Apple (  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.510)
+2026-02-07 09:02:48,699 - INFO - [26/46] (content-only) Top trending global stocks of 2024 -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.510)
+2026-02-07 09:02:49,117 - INFO - [27/46] (content-only) Dow Jones Today : Stocks Slip in Early Trading as  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.509)
+2026-02-07 09:02:49,427 - INFO - [28/46] (content-only) Tesla Stock Leads Magnificent Seven Shares Higher -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.509)
+2026-02-07 09:02:49,797 - INFO - [29/46] (content-only) 5 Seemingly Unstoppable Stocks Id Sell Right Now -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.440)
+2026-02-07 09:02:50,193 - INFO - [30/46] (content-only) If an investor put $5 , 000 in Nvidia shares 5 yea -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.266)
+2026-02-07 09:02:50,532 - INFO - [31/46] (headline+content) Apple Stock And Two Other 2024 Winners Are On Fund -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.240)
+2026-02-07 09:02:50,867 - INFO - [32/46] (content-only) US close : Stocks push higher despite mixed econom -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.240)
+2026-02-07 09:02:51,145 - INFO - [33/46] (headline+content) Apple could hit a $4 trillion market cap by early  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.230)
+2026-02-07 09:02:51,508 - INFO - [34/46] (content-only) This ETF Holds Lots of Wide Moat Stocks -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.230)
+2026-02-07 09:02:51,871 - INFO - [35/46] (content-only) Top 10 AI Stocks to Watch Right Now - Insider Monk -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.230)
+2026-02-07 09:02:52,594 - INFO - [36/46] (content-only) How to target a £100 , 000 second income starting  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.230)
+2026-02-07 09:02:52,973 - INFO - [37/46] (headline+content) Jim Cramer on Apple Inc . ( AAPL ):  I Say Own It  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.230)
+2026-02-07 09:02:53,259 - INFO - [38/46] (content-only) US close : Stocks higher following November PCE re -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.230)
+2026-02-07 09:02:53,606 - INFO - [39/46] (headline+content) Apple shares hit new all - time intraday and closi -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.230)
+2026-02-07 09:02:53,925 - INFO - [40/46] (headline+content) Apple Inc . ( NASDAQ : AAPL ) Shares Sold by RCS F -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.230)
+2026-02-07 09:02:54,334 - INFO - [41/46] (headline+content) Dan Niles Says Apple ( AAPL ) New iPhone Features  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.230)
+2026-02-07 09:02:54,706 - INFO - [42/46] (content-only) S & P 500 Gains and Losses Today : Index Drops as  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.230)
+2026-02-07 09:02:55,121 - INFO - [43/46] (content-only) Stock Market Today : Dow Dives 1 , 123 Points Afte -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.230)
+2026-02-07 09:02:55,484 - INFO - [44/46] (content-only) Wall Street Analysts Cant Stop Talking About These -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.230)
+2026-02-07 09:02:55,772 - INFO - [45/46] (headline+content) Apple Stock Up Despite Lackluster iPhone 16 Sales  -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.230)
+2026-02-07 09:02:56,156 - INFO - [46/46] (content-only) Dow Jones Today : Stocks Inch Higher as Investors  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.230)
+2026-02-07 09:02:56,156 - INFO - Sentiment prediction complete: label=positive confidence=0.4577 (46 articles analyzed)
+2026-02-07 09:02:56,157 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\fingpt_result.json
+2026-02-07 09:18:40,911 - INFO - Prediction window: 31 days
+2026-02-07 09:18:40,911 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-02-07 09:18:41,444 - INFO - Resolved ticker for 'apple' -> AAPL
+2026-02-07 09:18:41,445 - INFO - GDELT query: apple AAPL
+2026-02-07 09:18:41,445 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-02-07 09:18:43,128 - INFO - Received 10 raw articles for 2024-12-31.
+2026-02-07 09:18:43,128 - INFO - Removed duplicates (domain+title): 10 -> 8
+2026-02-07 09:18:43,129 - INFO - Filtered by language: 8 -> 8 articles
+2026-02-07 09:18:43,129 - INFO - Progress after 2024-12-31: Raw=10, Filtered=8/250
+2026-02-07 09:18:43,129 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 8/250)
+2026-02-07 09:18:53,356 - INFO - Received 4 raw articles for 2024-12-30.
+2026-02-07 09:18:53,356 - INFO - Removed duplicates (domain+title): 14 -> 11
+2026-02-07 09:18:53,356 - INFO - Filtered by language: 11 -> 11 articles
+2026-02-07 09:18:53,356 - INFO - Progress after 2024-12-30: Raw=14, Filtered=11/250
+2026-02-07 09:18:53,357 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 11/250)
+2026-02-07 09:18:59,129 - INFO - Received 1 raw articles for 2024-12-29.
+2026-02-07 09:18:59,129 - INFO - Removed duplicates (domain+title): 15 -> 11
+2026-02-07 09:18:59,129 - INFO - Filtered by language: 11 -> 11 articles
+2026-02-07 09:18:59,130 - INFO - Progress after 2024-12-29: Raw=15, Filtered=11/250
+2026-02-07 09:19:01,130 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 11/250)
+2026-02-07 09:19:05,800 - INFO - Received 3 raw articles for 2024-12-28.
+2026-02-07 09:19:05,800 - INFO - Removed duplicates (domain+title): 18 -> 14
+2026-02-07 09:19:05,800 - INFO - Filtered by language: 14 -> 14 articles
+2026-02-07 09:19:05,800 - INFO - Progress after 2024-12-28: Raw=18, Filtered=14/250
+2026-02-07 09:19:05,800 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 14/250)
+2026-02-07 09:19:08,757 - INFO - Received 15 raw articles for 2024-12-27.
+2026-02-07 09:19:08,757 - INFO - Removed duplicates (domain+title): 33 -> 28
+2026-02-07 09:19:08,757 - INFO - Filtered by language: 28 -> 28 articles
+2026-02-07 09:19:08,757 - INFO - Progress after 2024-12-27: Raw=33, Filtered=28/250
+2026-02-07 09:19:08,757 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 28/250)
+2026-02-07 09:19:09,919 - INFO - Received 11 raw articles for 2024-12-26.
+2026-02-07 09:19:09,920 - INFO - Removed duplicates (domain+title): 44 -> 39
+2026-02-07 09:19:09,920 - INFO - Filtered by language: 39 -> 39 articles
+2026-02-07 09:19:09,920 - INFO - Progress after 2024-12-26: Raw=44, Filtered=39/250
+2026-02-07 09:19:11,921 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 39/250)
+2026-02-07 09:19:15,980 - INFO - Received 1 raw articles for 2024-12-25.
+2026-02-07 09:19:15,980 - INFO - Removed duplicates (domain+title): 45 -> 40
+2026-02-07 09:19:15,980 - INFO - Filtered by language: 40 -> 40 articles
+2026-02-07 09:19:15,980 - INFO - Progress after 2024-12-25: Raw=45, Filtered=40/250
+2026-02-07 09:19:15,980 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 40/250)
+2026-02-07 09:19:29,944 - INFO - Received 10 raw articles for 2024-12-24.
+2026-02-07 09:19:29,944 - INFO - Removed duplicates (domain+title): 55 -> 48
+2026-02-07 09:19:29,944 - INFO - Filtered by language: 48 -> 48 articles
+2026-02-07 09:19:29,944 - INFO - Progress after 2024-12-24: Raw=55, Filtered=48/250
+2026-02-07 09:19:29,944 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 48/250)
+2026-02-07 09:19:38,652 - INFO - Received 9 raw articles for 2024-12-23.
+2026-02-07 09:19:38,652 - INFO - Removed duplicates (domain+title): 64 -> 56
+2026-02-07 09:19:38,652 - INFO - Filtered by language: 56 -> 56 articles
+2026-02-07 09:19:38,652 - INFO - Progress after 2024-12-23: Raw=64, Filtered=56/250
+2026-02-07 09:19:40,653 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 56/250)
+2026-02-07 09:19:43,744 - INFO - Received 3 raw articles for 2024-12-22.
+2026-02-07 09:19:43,744 - INFO - Removed duplicates (domain+title): 67 -> 59
+2026-02-07 09:19:43,744 - INFO - Filtered by language: 59 -> 59 articles
+2026-02-07 09:19:43,744 - INFO - Progress after 2024-12-22: Raw=67, Filtered=59/250
+2026-02-07 09:19:43,745 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 59/250)
+2026-02-07 09:19:46,413 - INFO - Received 4 raw articles for 2024-12-21.
+2026-02-07 09:19:46,413 - INFO - Removed duplicates (domain+title): 71 -> 63
+2026-02-07 09:19:46,413 - INFO - Filtered by language: 63 -> 63 articles
+2026-02-07 09:19:46,413 - INFO - Progress after 2024-12-21: Raw=71, Filtered=63/250
+2026-02-07 09:19:46,413 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 63/250)
+2026-02-07 09:19:48,363 - INFO - Received 5 raw articles for 2024-12-20.
+2026-02-07 09:19:48,363 - INFO - Removed duplicates (domain+title): 76 -> 68
+2026-02-07 09:19:48,363 - INFO - Filtered by language: 68 -> 68 articles
+2026-02-07 09:19:48,363 - INFO - Progress after 2024-12-20: Raw=76, Filtered=68/250
+2026-02-07 09:19:50,364 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 68/250)
+2026-02-07 09:19:52,297 - INFO - Received 10 raw articles for 2024-12-19.
+2026-02-07 09:19:52,297 - INFO - Removed duplicates (domain+title): 86 -> 77
+2026-02-07 09:19:52,297 - INFO - Filtered by language: 77 -> 77 articles
+2026-02-07 09:19:52,297 - INFO - Progress after 2024-12-19: Raw=86, Filtered=77/250
+2026-02-07 09:19:52,298 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 77/250)
+2026-02-07 09:19:54,869 - INFO - Received 13 raw articles for 2024-12-18.
+2026-02-07 09:19:54,869 - INFO - Removed duplicates (domain+title): 99 -> 86
+2026-02-07 09:19:54,869 - INFO - Filtered by language: 86 -> 86 articles
+2026-02-07 09:19:54,869 - INFO - Progress after 2024-12-18: Raw=99, Filtered=86/250
+2026-02-07 09:19:54,870 - INFO - Enriching 86 articles with full content...
+2026-02-07 09:19:56,569 - INFO - Fetched content for article 1/86
+2026-02-07 09:19:58,116 - INFO - Fetched content for article 2/86
+2026-02-07 09:19:59,385 - INFO - Fetched content for article 3/86
+2026-02-07 09:20:01,040 - INFO - Fetched content for article 4/86
+2026-02-07 09:20:01,746 - INFO - Fetched content for article 5/86
+2026-02-07 09:20:04,602 - INFO - Fetched content for article 7/86
+2026-02-07 09:20:05,590 - INFO - Fetched content for article 8/86
+2026-02-07 09:20:06,774 - INFO - Fetched content for article 9/86
+2026-02-07 09:20:08,578 - INFO - Fetched content for article 10/86
+2026-02-07 09:20:12,060 - INFO - Fetched content for article 14/86
+2026-02-07 09:20:12,670 - INFO - Fetched content for article 15/86
+2026-02-07 09:20:14,502 - INFO - Fetched content for article 17/86
+2026-02-07 09:20:15,149 - INFO - Fetched content for article 18/86
+2026-02-07 09:20:16,719 - INFO - Fetched content for article 19/86
+2026-02-07 09:20:17,284 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/32c14a35eb9cb8ee | https://biztoc.com/x/32c14a35eb9cb8ee
+2026-02-07 09:20:17,906 - INFO - Fetched content for article 21/86
+2026-02-07 09:20:18,546 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/personal-finance/2024/12/27/were-in-our-50s-with-a-large-holding-in-apple-stock-should-we-use-an-exchange-fund-to-diversify/ | https://247wallst.com/personal-finance/2024/12/27/were-in-our-50s-with-a-large-holding-in-apple-stock-should-we-use-an-exchange-fund-to-diversify/
+2026-02-07 09:20:20,160 - INFO - Fetched content for article 23/86
+2026-02-07 09:20:22,098 - INFO - Fetched content for article 24/86
+2026-02-07 09:20:22,865 - INFO - Fetched content for article 25/86
+2026-02-07 09:20:23,616 - INFO - Fetched content for article 26/86
+2026-02-07 09:20:24,256 - INFO - Fetched content for article 27/86
+2026-02-07 09:20:24,883 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.themarketsdaily.com/2024/12/27/equities-research-analysts-updated-eps-estimates-for-december-26th-aapl-acva-avxl-celh-crvl-kmpr-mcy-nke-pb-pypd.html | https://www.themarketsdaily.com/2024/12/27/equities-research-analysts-updated-eps-estimates-for-december-26th-aapl-acva-avxl-celh-crvl-kmpr-mcy-nke-pb-pypd.html
+2026-02-07 09:20:25,529 - INFO - Fetched content for article 29/86
+2026-02-07 09:20:26,287 - INFO - Fetched content for article 30/86
+2026-02-07 09:20:27,147 - INFO - Fetched content for article 31/86
+2026-02-07 09:20:28,697 - INFO - Fetched content for article 32/86
+2026-02-07 09:20:29,474 - INFO - Fetched content for article 33/86
+2026-02-07 09:20:31,072 - INFO - Fetched content for article 34/86
+2026-02-07 09:20:31,542 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/dfff216e6d8ae010 | https://biztoc.com/x/dfff216e6d8ae010
+2026-02-07 09:20:31,997 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/9583572110a7bfcd | https://biztoc.com/x/9583572110a7bfcd
+2026-02-07 09:20:33,901 - INFO - Fetched content for article 37/86
+2026-02-07 09:20:35,833 - INFO - Fetched content for article 39/86
+2026-02-07 09:20:36,452 - INFO - Fetched content for article 40/86
+2026-02-07 09:20:37,865 - INFO - Fetched content for article 41/86
+2026-02-07 09:20:38,246 - INFO - Fetched content for article 42/86
+2026-02-07 09:20:39,641 - INFO - Fetched content for article 43/86
+2026-02-07 09:20:40,433 - INFO - Fetched content for article 44/86
+2026-02-07 09:20:43,148 - INFO - Fetched content for article 46/86
+2026-02-07 09:20:43,619 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/97a8dfca8839489f | https://biztoc.com/x/97a8dfca8839489f
+2026-02-07 09:20:45,529 - INFO - Fetched content for article 48/86
+2026-02-07 09:20:46,928 - INFO - Fetched content for article 49/86
+2026-02-07 09:20:47,692 - INFO - Fetched content for article 50/86
+2026-02-07 09:20:48,228 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/apple-appl-ai-intelligence-4-trillion-market-cap-2025-1851727371 | https://qz.com/apple-appl-ai-intelligence-4-trillion-market-cap-2025-1851727371
+2026-02-07 09:20:50,638 - INFO - Fetched content for article 52/86
+2026-02-07 09:20:51,318 - INFO - Fetched content for article 53/86
+2026-02-07 09:20:52,145 - INFO - Fetched content for article 54/86
+2026-02-07 09:20:54,074 - INFO - Fetched content for article 56/86
+2026-02-07 09:20:57,232 - INFO - Fetched content for article 57/86
+2026-02-07 09:20:57,663 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/christmas-holiday-deals-no-major-earnings-this-week-1851725678 | https://qz.com/christmas-holiday-deals-no-major-earnings-this-week-1851725678
+2026-02-07 09:21:00,102 - INFO - Fetched content for article 59/86
+2026-02-07 09:21:00,609 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/21/is-it-time-to-buy-sound-hound/ | https://247wallst.com/investing/2024/12/21/is-it-time-to-buy-sound-hound/
+2026-02-07 09:21:01,757 - INFO - Fetched content for article 62/86
+2026-02-07 09:21:07,013 - INFO - Fetched content for article 63/86
+2026-02-07 09:21:08,863 - INFO - Fetched content for article 64/86
+2026-02-07 09:21:10,840 - INFO - Fetched content for article 65/86
+2026-02-07 09:21:11,447 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.defenseworld.net/2024/12/20/apple-inc-nasdaqaapl-shares-sold-by-rcs-financial-planning-llc.html | https://www.defenseworld.net/2024/12/20/apple-inc-nasdaqaapl-shares-sold-by-rcs-financial-planning-llc.html
+2026-02-07 09:21:12,925 - INFO - Fetched content for article 67/86
+2026-02-07 09:21:13,371 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/19/billionaire-investor-dan-loeb-looks-beyond-magnificent-7-for-hedge-fund-returns/ | https://247wallst.com/investing/2024/12/19/billionaire-investor-dan-loeb-looks-beyond-magnificent-7-for-hedge-fund-returns/
+2026-02-07 09:21:14,310 - INFO - Fetched content for article 69/86
+2026-02-07 09:21:17,022 - INFO - Fetched content for article 71/86
+2026-02-07 09:21:18,461 - INFO - Fetched content for article 73/86
+2026-02-07 09:21:19,952 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.hellenicshippingnews.com/as-bitcoin-soars-luxury-brands-consider-accepting-crypto-payments/ | https://www.hellenicshippingnews.com/as-bitcoin-soars-luxury-brands-consider-accepting-crypto-payments/
+2026-02-07 09:21:21,083 - INFO - Fetched content for article 76/86
+2026-02-07 09:21:22,229 - INFO - Fetched content for article 78/86
+2026-02-07 09:21:23,692 - INFO - Fetched content for article 79/86
+2026-02-07 09:21:25,173 - INFO - Fetched content for article 80/86
+2026-02-07 09:21:27,292 - INFO - Fetched content for article 82/86
+2026-02-07 09:21:28,078 - INFO - Fetched content for article 83/86
+2026-02-07 09:21:29,510 - INFO - Fetched content for article 84/86
+2026-02-07 09:21:31,234 - INFO - Fetched content for article 85/86
+2026-02-07 09:21:33,793 - INFO - Fetched content for article 86/86
+2026-02-07 09:21:33,793 - INFO - Cleaning article content for apple (ticker: AAPL) — DeBERTa-only pipeline
+2026-02-07 09:43:44,226 - INFO - Prediction window: 31 days
+2026-02-07 09:43:44,227 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-02-07 09:43:44,837 - INFO - Resolved ticker for 'apple' -> AAPL
+2026-02-07 09:43:44,837 - INFO - GDELT query: apple AAPL
+2026-02-07 09:43:44,837 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-02-07 09:43:46,938 - INFO - Received 10 raw articles for 2024-12-31.
+2026-02-07 09:43:46,938 - INFO - Removed duplicates (domain+title): 10 -> 8
+2026-02-07 09:43:46,938 - INFO - Filtered by language: 8 -> 8 articles
+2026-02-07 09:43:46,938 - INFO - Progress after 2024-12-31: Raw=10, Filtered=8/250
+2026-02-07 09:43:46,939 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 8/250)
+2026-02-07 09:43:47,502 - ERROR - Error during GDELT request: 
+2026-02-07 09:43:47,503 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 8/250)
+2026-02-07 09:43:48,045 - ERROR - Error during GDELT request: 
+2026-02-07 09:43:50,047 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 8/250)
+2026-02-07 09:43:52,131 - INFO - Received 3 raw articles for 2024-12-28.
+2026-02-07 09:43:52,131 - INFO - Removed duplicates (domain+title): 13 -> 11
+2026-02-07 09:43:52,131 - INFO - Filtered by language: 11 -> 11 articles
+2026-02-07 09:43:52,131 - INFO - Progress after 2024-12-28: Raw=13, Filtered=11/250
+2026-02-07 09:43:52,131 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 11/250)
+2026-02-07 09:44:07,182 - INFO - Received 15 raw articles for 2024-12-27.
+2026-02-07 09:44:07,183 - INFO - Removed duplicates (domain+title): 28 -> 25
+2026-02-07 09:44:07,183 - INFO - Filtered by language: 25 -> 25 articles
+2026-02-07 09:44:07,183 - INFO - Progress after 2024-12-27: Raw=28, Filtered=25/250
+2026-02-07 09:44:07,184 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 25/250)
+2026-02-07 09:44:08,458 - INFO - Received 11 raw articles for 2024-12-26.
+2026-02-07 09:44:08,458 - INFO - Removed duplicates (domain+title): 39 -> 36
+2026-02-07 09:44:08,458 - INFO - Filtered by language: 36 -> 36 articles
+2026-02-07 09:44:08,458 - INFO - Progress after 2024-12-26: Raw=39, Filtered=36/250
+2026-02-07 09:44:10,462 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 36/250)
+2026-02-07 09:44:11,756 - INFO - Received 1 raw articles for 2024-12-25.
+2026-02-07 09:44:11,757 - INFO - Removed duplicates (domain+title): 40 -> 37
+2026-02-07 09:44:11,757 - INFO - Filtered by language: 37 -> 37 articles
+2026-02-07 09:44:11,757 - INFO - Progress after 2024-12-25: Raw=40, Filtered=37/250
+2026-02-07 09:44:11,757 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 37/250)
+2026-02-07 09:44:24,754 - INFO - Received 10 raw articles for 2024-12-24.
+2026-02-07 09:44:24,754 - INFO - Removed duplicates (domain+title): 50 -> 45
+2026-02-07 09:44:24,755 - INFO - Filtered by language: 45 -> 45 articles
+2026-02-07 09:44:24,755 - INFO - Progress after 2024-12-24: Raw=50, Filtered=45/250
+2026-02-07 09:44:24,755 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 45/250)
+2026-02-07 09:44:28,359 - INFO - Received 9 raw articles for 2024-12-23.
+2026-02-07 09:44:28,359 - INFO - Removed duplicates (domain+title): 59 -> 53
+2026-02-07 09:44:28,360 - INFO - Filtered by language: 53 -> 53 articles
+2026-02-07 09:44:28,360 - INFO - Progress after 2024-12-23: Raw=59, Filtered=53/250
+2026-02-07 09:44:30,360 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 53/250)
+2026-02-07 09:44:36,475 - INFO - Received 3 raw articles for 2024-12-22.
+2026-02-07 09:44:36,475 - INFO - Removed duplicates (domain+title): 62 -> 56
+2026-02-07 09:44:36,476 - INFO - Filtered by language: 56 -> 56 articles
+2026-02-07 09:44:36,476 - INFO - Progress after 2024-12-22: Raw=62, Filtered=56/250
+2026-02-07 09:44:36,476 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 56/250)
+2026-02-07 09:44:37,743 - INFO - Received 4 raw articles for 2024-12-21.
+2026-02-07 09:44:37,743 - INFO - Removed duplicates (domain+title): 66 -> 60
+2026-02-07 09:44:37,743 - INFO - Filtered by language: 60 -> 60 articles
+2026-02-07 09:44:37,743 - INFO - Progress after 2024-12-21: Raw=66, Filtered=60/250
+2026-02-07 09:44:37,743 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 60/250)
+2026-02-07 09:44:39,381 - INFO - Received 5 raw articles for 2024-12-20.
+2026-02-07 09:44:39,381 - INFO - Removed duplicates (domain+title): 71 -> 65
+2026-02-07 09:44:39,381 - INFO - Filtered by language: 65 -> 65 articles
+2026-02-07 09:44:39,382 - INFO - Progress after 2024-12-20: Raw=71, Filtered=65/250
+2026-02-07 09:44:41,382 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 65/250)
+2026-02-07 09:44:46,859 - INFO - Received 10 raw articles for 2024-12-19.
+2026-02-07 09:44:46,859 - INFO - Removed duplicates (domain+title): 81 -> 74
+2026-02-07 09:44:46,859 - INFO - Filtered by language: 74 -> 74 articles
+2026-02-07 09:44:46,859 - INFO - Progress after 2024-12-19: Raw=81, Filtered=74/250
+2026-02-07 09:44:46,860 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 74/250)
+2026-02-07 09:44:48,862 - INFO - Received 13 raw articles for 2024-12-18.
+2026-02-07 09:44:48,862 - INFO - Removed duplicates (domain+title): 94 -> 83
+2026-02-07 09:44:48,862 - INFO - Filtered by language: 83 -> 83 articles
+2026-02-07 09:44:48,862 - INFO - Progress after 2024-12-18: Raw=94, Filtered=83/250
+2026-02-07 09:44:48,863 - INFO - Enriching 83 articles with full content...
+2026-02-07 09:44:51,041 - INFO - Fetched content for article 1/83
+2026-02-07 09:44:52,641 - INFO - Fetched content for article 2/83
+2026-02-07 09:44:54,133 - INFO - Fetched content for article 3/83
+2026-02-07 09:44:55,591 - INFO - Fetched content for article 4/83
+2026-02-07 09:44:56,175 - INFO - Fetched content for article 5/83
+2026-02-07 09:44:59,050 - INFO - Fetched content for article 7/83
+2026-02-07 09:44:59,900 - INFO - Fetched content for article 8/83
+2026-02-07 09:45:02,096 - INFO - Fetched content for article 11/83
+2026-02-07 09:45:02,598 - INFO - Fetched content for article 12/83
+2026-02-07 09:45:04,449 - INFO - Fetched content for article 14/83
+2026-02-07 09:45:05,189 - INFO - Fetched content for article 15/83
+2026-02-07 09:45:06,790 - INFO - Fetched content for article 16/83
+2026-02-07 09:45:07,309 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/32c14a35eb9cb8ee | https://biztoc.com/x/32c14a35eb9cb8ee
+2026-02-07 09:45:08,024 - INFO - Fetched content for article 18/83
+2026-02-07 09:45:08,572 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/personal-finance/2024/12/27/were-in-our-50s-with-a-large-holding-in-apple-stock-should-we-use-an-exchange-fund-to-diversify/ | https://247wallst.com/personal-finance/2024/12/27/were-in-our-50s-with-a-large-holding-in-apple-stock-should-we-use-an-exchange-fund-to-diversify/
+2026-02-07 09:45:09,996 - INFO - Fetched content for article 20/83
+2026-02-07 09:45:11,798 - INFO - Fetched content for article 21/83
+2026-02-07 09:45:12,543 - INFO - Fetched content for article 22/83
+2026-02-07 09:45:13,258 - INFO - Fetched content for article 23/83
+2026-02-07 09:45:13,904 - INFO - Fetched content for article 24/83
+2026-02-07 09:45:14,429 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.themarketsdaily.com/2024/12/27/equities-research-analysts-updated-eps-estimates-for-december-26th-aapl-acva-avxl-celh-crvl-kmpr-mcy-nke-pb-pypd.html | https://www.themarketsdaily.com/2024/12/27/equities-research-analysts-updated-eps-estimates-for-december-26th-aapl-acva-avxl-celh-crvl-kmpr-mcy-nke-pb-pypd.html
+2026-02-07 09:45:15,089 - INFO - Fetched content for article 26/83
+2026-02-07 09:45:15,833 - INFO - Fetched content for article 27/83
+2026-02-07 09:45:16,713 - INFO - Fetched content for article 28/83
+2026-02-07 09:45:17,970 - INFO - Fetched content for article 29/83
+2026-02-07 09:45:18,794 - INFO - Fetched content for article 30/83
+2026-02-07 09:45:20,117 - INFO - Fetched content for article 31/83
+2026-02-07 09:45:20,551 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/dfff216e6d8ae010 | https://biztoc.com/x/dfff216e6d8ae010
+2026-02-07 09:45:21,005 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/9583572110a7bfcd | https://biztoc.com/x/9583572110a7bfcd
+2026-02-07 09:45:22,880 - INFO - Fetched content for article 34/83
+2026-02-07 09:45:24,603 - INFO - Fetched content for article 36/83
+2026-02-07 09:45:25,089 - INFO - Fetched content for article 37/83
+2026-02-07 09:45:26,499 - INFO - Fetched content for article 38/83
+2026-02-07 09:45:27,040 - INFO - Fetched content for article 39/83
+2026-02-07 09:45:28,167 - INFO - Fetched content for article 40/83
+2026-02-07 09:45:28,911 - INFO - Fetched content for article 41/83
+2026-02-07 09:45:31,367 - INFO - Fetched content for article 43/83
+2026-02-07 09:45:31,828 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/97a8dfca8839489f | https://biztoc.com/x/97a8dfca8839489f
+2026-02-07 09:45:34,137 - INFO - Fetched content for article 45/83
+2026-02-07 09:45:35,523 - INFO - Fetched content for article 46/83
+2026-02-07 09:45:36,350 - INFO - Fetched content for article 47/83
+2026-02-07 09:45:36,881 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/apple-appl-ai-intelligence-4-trillion-market-cap-2025-1851727371 | https://qz.com/apple-appl-ai-intelligence-4-trillion-market-cap-2025-1851727371
+2026-02-07 09:45:37,817 - INFO - Fetched content for article 49/83
+2026-02-07 09:45:38,558 - INFO - Fetched content for article 50/83
+2026-02-07 09:45:39,356 - INFO - Fetched content for article 51/83
+2026-02-07 09:45:42,672 - INFO - Fetched content for article 53/83
+2026-02-07 09:45:43,493 - INFO - Fetched content for article 54/83
+2026-02-07 09:45:43,944 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/christmas-holiday-deals-no-major-earnings-this-week-1851725678 | https://qz.com/christmas-holiday-deals-no-major-earnings-this-week-1851725678
+2026-02-07 09:45:46,345 - INFO - Fetched content for article 56/83
+2026-02-07 09:45:46,918 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/21/is-it-time-to-buy-sound-hound/ | https://247wallst.com/investing/2024/12/21/is-it-time-to-buy-sound-hound/
+2026-02-07 09:45:48,020 - INFO - Fetched content for article 59/83
+2026-02-07 09:45:51,176 - INFO - Fetched content for article 60/83
+2026-02-07 09:45:52,748 - INFO - Fetched content for article 61/83
+2026-02-07 09:45:53,699 - INFO - Fetched content for article 62/83
+2026-02-07 09:45:54,263 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.defenseworld.net/2024/12/20/apple-inc-nasdaqaapl-shares-sold-by-rcs-financial-planning-llc.html | https://www.defenseworld.net/2024/12/20/apple-inc-nasdaqaapl-shares-sold-by-rcs-financial-planning-llc.html
+2026-02-07 09:45:55,722 - INFO - Fetched content for article 64/83
+2026-02-07 09:45:56,181 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/19/billionaire-investor-dan-loeb-looks-beyond-magnificent-7-for-hedge-fund-returns/ | https://247wallst.com/investing/2024/12/19/billionaire-investor-dan-loeb-looks-beyond-magnificent-7-for-hedge-fund-returns/
+2026-02-07 09:45:56,846 - INFO - Fetched content for article 66/83
+2026-02-07 09:45:59,643 - INFO - Fetched content for article 68/83
+2026-02-07 09:46:01,102 - INFO - Fetched content for article 70/83
+2026-02-07 09:46:02,290 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.hellenicshippingnews.com/as-bitcoin-soars-luxury-brands-consider-accepting-crypto-payments/ | https://www.hellenicshippingnews.com/as-bitcoin-soars-luxury-brands-consider-accepting-crypto-payments/
+2026-02-07 09:46:03,099 - INFO - Fetched content for article 73/83
+2026-02-07 09:46:04,521 - INFO - Fetched content for article 75/83
+2026-02-07 09:46:05,923 - INFO - Fetched content for article 76/83
+2026-02-07 09:46:07,379 - INFO - Fetched content for article 77/83
+2026-02-07 09:46:09,338 - INFO - Fetched content for article 79/83
+2026-02-07 09:46:10,126 - INFO - Fetched content for article 80/83
+2026-02-07 09:46:11,712 - INFO - Fetched content for article 81/83
+2026-02-07 09:46:12,723 - INFO - Fetched content for article 82/83
+2026-02-07 09:46:15,190 - INFO - Fetched content for article 83/83
+2026-02-07 09:46:15,191 - INFO - Cleaning article content for apple (ticker: AAPL) — DeBERTa-only pipeline
+2026-02-07 09:46:15,191 - INFO - Loading DeBERTa classifier for noise reduction...
+2026-02-07 09:46:15,808 - ERROR - Failed to load DeBERTa classifier: microsoft/deberta-v3-base-mnli is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `hf auth login` or by passing `token=<your_token>`
+2026-02-07 09:53:58,548 - INFO - Prediction window: 31 days
+2026-02-07 09:53:58,549 - INFO - Backward search window: 18-12-2024 to 31-12-2024 (max 14 days)
+2026-02-07 09:53:59,086 - INFO - Resolved ticker for 'apple' -> AAPL
+2026-02-07 09:53:59,086 - INFO - GDELT query: apple AAPL
+2026-02-07 09:53:59,086 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-02-07 09:54:01,500 - INFO - Received 10 raw articles for 2024-12-31.
+2026-02-07 09:54:01,500 - INFO - Removed duplicates (domain+title): 10 -> 8
+2026-02-07 09:54:01,500 - INFO - Filtered by language: 8 -> 8 articles
+2026-02-07 09:54:01,500 - INFO - Progress after 2024-12-31: Raw=10, Filtered=8/250
+2026-02-07 09:54:01,500 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 8/250)
+2026-02-07 09:54:04,154 - INFO - Received 4 raw articles for 2024-12-30.
+2026-02-07 09:54:04,154 - INFO - Removed duplicates (domain+title): 14 -> 11
+2026-02-07 09:54:04,154 - INFO - Filtered by language: 11 -> 11 articles
+2026-02-07 09:54:04,154 - INFO - Progress after 2024-12-30: Raw=14, Filtered=11/250
+2026-02-07 09:54:04,154 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 11/250)
+2026-02-07 09:54:07,015 - INFO - Received 1 raw articles for 2024-12-29.
+2026-02-07 09:54:07,015 - INFO - Removed duplicates (domain+title): 15 -> 11
+2026-02-07 09:54:07,015 - INFO - Filtered by language: 11 -> 11 articles
+2026-02-07 09:54:07,016 - INFO - Progress after 2024-12-29: Raw=15, Filtered=11/250
+2026-02-07 09:54:09,016 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 11/250)
+2026-02-07 09:54:11,133 - INFO - Received 3 raw articles for 2024-12-28.
+2026-02-07 09:54:11,133 - INFO - Removed duplicates (domain+title): 18 -> 14
+2026-02-07 09:54:11,133 - INFO - Filtered by language: 14 -> 14 articles
+2026-02-07 09:54:11,134 - INFO - Progress after 2024-12-28: Raw=18, Filtered=14/250
+2026-02-07 09:54:11,134 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 14/250)
+2026-02-07 09:54:12,544 - INFO - Received 15 raw articles for 2024-12-27.
+2026-02-07 09:54:12,545 - INFO - Removed duplicates (domain+title): 33 -> 28
+2026-02-07 09:54:12,545 - INFO - Filtered by language: 28 -> 28 articles
+2026-02-07 09:54:12,545 - INFO - Progress after 2024-12-27: Raw=33, Filtered=28/250
+2026-02-07 09:54:12,545 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 28/250)
+2026-02-07 09:54:18,593 - INFO - Received 11 raw articles for 2024-12-26.
+2026-02-07 09:54:18,593 - INFO - Removed duplicates (domain+title): 44 -> 39
+2026-02-07 09:54:18,593 - INFO - Filtered by language: 39 -> 39 articles
+2026-02-07 09:54:18,593 - INFO - Progress after 2024-12-26: Raw=44, Filtered=39/250
+2026-02-07 09:54:20,593 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 39/250)
+2026-02-07 09:54:22,004 - INFO - Received 1 raw articles for 2024-12-25.
+2026-02-07 09:54:22,005 - INFO - Removed duplicates (domain+title): 45 -> 40
+2026-02-07 09:54:22,005 - INFO - Filtered by language: 40 -> 40 articles
+2026-02-07 09:54:22,005 - INFO - Progress after 2024-12-25: Raw=45, Filtered=40/250
+2026-02-07 09:54:22,005 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 40/250)
+2026-02-07 09:54:23,486 - INFO - Received 10 raw articles for 2024-12-24.
+2026-02-07 09:54:23,487 - INFO - Removed duplicates (domain+title): 55 -> 48
+2026-02-07 09:54:23,487 - INFO - Filtered by language: 48 -> 48 articles
+2026-02-07 09:54:23,487 - INFO - Progress after 2024-12-24: Raw=55, Filtered=48/250
+2026-02-07 09:54:23,487 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 48/250)
+2026-02-07 09:54:25,749 - INFO - Received 9 raw articles for 2024-12-23.
+2026-02-07 09:54:25,749 - INFO - Removed duplicates (domain+title): 64 -> 56
+2026-02-07 09:54:25,749 - INFO - Filtered by language: 56 -> 56 articles
+2026-02-07 09:54:25,749 - INFO - Progress after 2024-12-23: Raw=64, Filtered=56/250
+2026-02-07 09:54:27,750 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 56/250)
+2026-02-07 09:54:29,117 - INFO - Received 3 raw articles for 2024-12-22.
+2026-02-07 09:54:29,117 - INFO - Removed duplicates (domain+title): 67 -> 59
+2026-02-07 09:54:29,117 - INFO - Filtered by language: 59 -> 59 articles
+2026-02-07 09:54:29,117 - INFO - Progress after 2024-12-22: Raw=67, Filtered=59/250
+2026-02-07 09:54:29,118 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 59/250)
+2026-02-07 09:54:36,338 - INFO - Received 4 raw articles for 2024-12-21.
+2026-02-07 09:54:36,338 - INFO - Removed duplicates (domain+title): 71 -> 63
+2026-02-07 09:54:36,338 - INFO - Filtered by language: 63 -> 63 articles
+2026-02-07 09:54:36,339 - INFO - Progress after 2024-12-21: Raw=71, Filtered=63/250
+2026-02-07 09:54:36,339 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 63/250)
+2026-02-07 09:54:42,754 - INFO - Received 5 raw articles for 2024-12-20.
+2026-02-07 09:54:42,754 - INFO - Removed duplicates (domain+title): 76 -> 68
+2026-02-07 09:54:42,754 - INFO - Filtered by language: 68 -> 68 articles
+2026-02-07 09:54:42,754 - INFO - Progress after 2024-12-20: Raw=76, Filtered=68/250
+2026-02-07 09:54:44,755 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 68/250)
+2026-02-07 09:54:50,601 - INFO - Received 10 raw articles for 2024-12-19.
+2026-02-07 09:54:50,601 - INFO - Removed duplicates (domain+title): 86 -> 77
+2026-02-07 09:54:50,601 - INFO - Filtered by language: 77 -> 77 articles
+2026-02-07 09:54:50,601 - INFO - Progress after 2024-12-19: Raw=86, Filtered=77/250
+2026-02-07 09:54:50,601 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 77/250)
+2026-02-07 09:54:53,691 - INFO - Received 13 raw articles for 2024-12-18.
+2026-02-07 09:54:53,691 - INFO - Removed duplicates (domain+title): 99 -> 86
+2026-02-07 09:54:53,691 - INFO - Filtered by language: 86 -> 86 articles
+2026-02-07 09:54:53,691 - INFO - Progress after 2024-12-18: Raw=99, Filtered=86/250
+2026-02-07 09:54:53,692 - INFO - Enriching 86 articles with full content...
+2026-02-07 09:54:55,781 - INFO - Fetched content for article 1/86
+2026-02-07 09:54:57,154 - INFO - Fetched content for article 2/86
+2026-02-07 09:54:58,454 - INFO - Fetched content for article 3/86
+2026-02-07 09:54:59,845 - INFO - Fetched content for article 4/86
+2026-02-07 09:55:00,410 - INFO - Fetched content for article 5/86
+2026-02-07 09:55:03,319 - INFO - Fetched content for article 7/86
+2026-02-07 09:55:04,144 - INFO - Fetched content for article 8/86
+2026-02-07 09:55:05,330 - INFO - Fetched content for article 9/86
+2026-02-07 09:55:07,249 - INFO - Fetched content for article 10/86
+2026-02-07 09:55:09,994 - INFO - Fetched content for article 14/86
+2026-02-07 09:55:10,491 - INFO - Fetched content for article 15/86
+2026-02-07 09:55:12,166 - INFO - Fetched content for article 17/86
+2026-02-07 09:55:12,864 - INFO - Fetched content for article 18/86
+2026-02-07 09:55:14,662 - INFO - Fetched content for article 19/86
+2026-02-07 09:55:15,203 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/32c14a35eb9cb8ee | https://biztoc.com/x/32c14a35eb9cb8ee
+2026-02-07 09:55:15,741 - INFO - Fetched content for article 21/86
+2026-02-07 09:55:16,271 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/personal-finance/2024/12/27/were-in-our-50s-with-a-large-holding-in-apple-stock-should-we-use-an-exchange-fund-to-diversify/ | https://247wallst.com/personal-finance/2024/12/27/were-in-our-50s-with-a-large-holding-in-apple-stock-should-we-use-an-exchange-fund-to-diversify/
+2026-02-07 09:55:18,023 - INFO - Fetched content for article 23/86
+2026-02-07 09:55:19,883 - INFO - Fetched content for article 24/86
+2026-02-07 09:55:20,634 - INFO - Fetched content for article 25/86
+2026-02-07 09:55:21,374 - INFO - Fetched content for article 26/86
+2026-02-07 09:55:22,034 - INFO - Fetched content for article 27/86
+2026-02-07 09:55:22,585 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.themarketsdaily.com/2024/12/27/equities-research-analysts-updated-eps-estimates-for-december-26th-aapl-acva-avxl-celh-crvl-kmpr-mcy-nke-pb-pypd.html | https://www.themarketsdaily.com/2024/12/27/equities-research-analysts-updated-eps-estimates-for-december-26th-aapl-acva-avxl-celh-crvl-kmpr-mcy-nke-pb-pypd.html
+2026-02-07 09:55:23,244 - INFO - Fetched content for article 29/86
+2026-02-07 09:55:24,012 - INFO - Fetched content for article 30/86
+2026-02-07 09:55:24,896 - INFO - Fetched content for article 31/86
+2026-02-07 09:55:26,145 - INFO - Fetched content for article 32/86
+2026-02-07 09:55:26,983 - INFO - Fetched content for article 33/86
+2026-02-07 09:55:28,463 - INFO - Fetched content for article 34/86
+2026-02-07 09:55:28,911 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/dfff216e6d8ae010 | https://biztoc.com/x/dfff216e6d8ae010
+2026-02-07 09:55:29,365 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/9583572110a7bfcd | https://biztoc.com/x/9583572110a7bfcd
+2026-02-07 09:55:31,203 - INFO - Fetched content for article 37/86
+2026-02-07 09:55:33,051 - INFO - Fetched content for article 39/86
+2026-02-07 09:55:33,664 - INFO - Fetched content for article 40/86
+2026-02-07 09:55:34,906 - INFO - Fetched content for article 41/86
+2026-02-07 09:55:35,413 - INFO - Fetched content for article 42/86
+2026-02-07 09:55:36,726 - INFO - Fetched content for article 43/86
+2026-02-07 09:55:37,567 - INFO - Fetched content for article 44/86
+2026-02-07 09:55:39,910 - INFO - Fetched content for article 46/86
+2026-02-07 09:55:40,360 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/97a8dfca8839489f | https://biztoc.com/x/97a8dfca8839489f
+2026-02-07 09:55:44,290 - INFO - Fetched content for article 48/86
+2026-02-07 09:55:45,677 - INFO - Fetched content for article 49/86
+2026-02-07 09:55:46,441 - INFO - Fetched content for article 50/86
+2026-02-07 09:55:46,967 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/apple-appl-ai-intelligence-4-trillion-market-cap-2025-1851727371 | https://qz.com/apple-appl-ai-intelligence-4-trillion-market-cap-2025-1851727371
+2026-02-07 09:55:47,974 - INFO - Fetched content for article 52/86
+2026-02-07 09:55:48,725 - INFO - Fetched content for article 53/86
+2026-02-07 09:55:49,533 - INFO - Fetched content for article 54/86
+2026-02-07 09:55:51,023 - INFO - Fetched content for article 56/86
+2026-02-07 09:55:51,841 - INFO - Fetched content for article 57/86
+2026-02-07 09:55:52,266 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://qz.com/christmas-holiday-deals-no-major-earnings-this-week-1851725678 | https://qz.com/christmas-holiday-deals-no-major-earnings-this-week-1851725678
+2026-02-07 09:55:54,442 - INFO - Fetched content for article 59/86
+2026-02-07 09:55:54,992 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/21/is-it-time-to-buy-sound-hound/ | https://247wallst.com/investing/2024/12/21/is-it-time-to-buy-sound-hound/
+2026-02-07 09:55:56,112 - INFO - Fetched content for article 62/86
+2026-02-07 09:55:59,182 - INFO - Fetched content for article 63/86
+2026-02-07 09:56:00,995 - INFO - Fetched content for article 64/86
+2026-02-07 09:56:01,934 - INFO - Fetched content for article 65/86
+2026-02-07 09:56:02,496 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.defenseworld.net/2024/12/20/apple-inc-nasdaqaapl-shares-sold-by-rcs-financial-planning-llc.html | https://www.defenseworld.net/2024/12/20/apple-inc-nasdaqaapl-shares-sold-by-rcs-financial-planning-llc.html
+2026-02-07 09:56:04,125 - INFO - Fetched content for article 67/86
+2026-02-07 09:56:04,569 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/19/billionaire-investor-dan-loeb-looks-beyond-magnificent-7-for-hedge-fund-returns/ | https://247wallst.com/investing/2024/12/19/billionaire-investor-dan-loeb-looks-beyond-magnificent-7-for-hedge-fund-returns/
+2026-02-07 09:56:05,218 - INFO - Fetched content for article 69/86
+2026-02-07 09:56:07,865 - INFO - Fetched content for article 71/86
+2026-02-07 09:56:09,268 - INFO - Fetched content for article 73/86
+2026-02-07 09:56:10,451 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.hellenicshippingnews.com/as-bitcoin-soars-luxury-brands-consider-accepting-crypto-payments/ | https://www.hellenicshippingnews.com/as-bitcoin-soars-luxury-brands-consider-accepting-crypto-payments/
+2026-02-07 09:56:11,267 - INFO - Fetched content for article 76/86
+2026-02-07 09:56:12,464 - INFO - Fetched content for article 78/86
+2026-02-07 09:56:13,935 - INFO - Fetched content for article 79/86
+2026-02-07 09:56:15,351 - INFO - Fetched content for article 80/86
+2026-02-07 09:56:17,080 - INFO - Fetched content for article 82/86
+2026-02-07 09:56:17,854 - INFO - Fetched content for article 83/86
+2026-02-07 09:56:19,297 - INFO - Fetched content for article 84/86
+2026-02-07 09:56:20,268 - INFO - Fetched content for article 85/86
+2026-02-07 09:56:22,557 - INFO - Fetched content for article 86/86
+2026-02-07 09:56:22,558 - INFO - Cleaning article content for apple (ticker: AAPL) — DeBERTa-only pipeline
+2026-02-07 09:56:22,558 - INFO - Loading DeBERTa classifier for noise reduction...
+2026-02-07 09:56:23,844 - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2026-02-07 09:56:43,303 - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2026-02-07 09:56:43,592 - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2026-02-07 09:56:45,138 - INFO - DeBERTa classifier loaded successfully
+2026-02-07 09:56:58,961 - INFO - Content cleaning complete:
+  Total articles: 86
+  Articles with content: 60
+  Articles filtered (DeBERTa only): 60
+  Articles with no content after: 0
+  Sentences: 1971 → 1664
+2026-02-07 09:56:58,961 - INFO -   Noise reduction: 15.6%
+2026-02-07 09:56:58,968 - INFO - filter_company_related: in=86 kept=51 | dropped(question_no_content)=5 dropped(no_match_no_content)=15 dropped(no_match_in_content)=15
+2026-02-07 09:56:58,970 - INFO - Classifying impact horizon for 51 articles using FinBERT FLS (prediction window: 31 days)
+2026-02-07 09:56:58,971 - INFO - Loading FinBERT FLS classifier...
+2026-02-07 09:56:59,861 - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2026-02-07 09:57:10,039 - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2026-02-07 09:57:10,640 - INFO - FinBERT FLS model loaded successfully
+2026-02-07 09:57:10,923 - INFO - Horizon distribution (prediction=31 days): IMMEDIATE=47, SHORT=4, MEDIUM=0 | Total weight=33.20
+2026-02-07 09:57:10,923 - INFO - Impact horizon classification complete
+2026-02-07 09:57:10,928 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-02-07 09:57:10,928 - INFO - Only 51 articles matched filters within 14 days, but 250 were requested.
+2026-02-07 09:57:10,931 - INFO - Saved 51 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-02-07 09:57:10,932 - WARNING - Error displaying article 1: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,932 - WARNING - Error displaying article 2: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,932 - WARNING - Error displaying article 3: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,932 - WARNING - Error displaying article 4: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,933 - WARNING - Error displaying article 5: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,933 - WARNING - Error displaying article 6: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,933 - WARNING - Error displaying article 7: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,933 - WARNING - Error displaying article 8: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,933 - WARNING - Error displaying article 9: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,933 - WARNING - Error displaying article 10: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,933 - WARNING - Error displaying article 11: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,933 - WARNING - Error displaying article 12: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,933 - WARNING - Error displaying article 13: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,934 - WARNING - Error displaying article 14: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,934 - WARNING - Error displaying article 15: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,934 - WARNING - Error displaying article 16: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,934 - WARNING - Error displaying article 17: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,934 - WARNING - Error displaying article 18: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,934 - WARNING - Error displaying article 19: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,934 - WARNING - Error displaying article 20: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,934 - WARNING - Error displaying article 21: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,934 - WARNING - Error displaying article 22: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,934 - WARNING - Error displaying article 23: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,934 - WARNING - Error displaying article 24: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,935 - WARNING - Error displaying article 25: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,935 - WARNING - Error displaying article 26: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,935 - WARNING - Error displaying article 27: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,935 - WARNING - Error displaying article 28: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,935 - WARNING - Error displaying article 29: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,935 - WARNING - Error displaying article 30: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,935 - WARNING - Error displaying article 31: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,935 - WARNING - Error displaying article 32: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,935 - WARNING - Error displaying article 33: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,935 - WARNING - Error displaying article 34: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,935 - WARNING - Error displaying article 35: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,935 - WARNING - Error displaying article 36: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,936 - WARNING - Error displaying article 37: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,936 - WARNING - Error displaying article 38: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,936 - WARNING - Error displaying article 39: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,936 - WARNING - Error displaying article 40: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,936 - WARNING - Error displaying article 41: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,936 - WARNING - Error displaying article 42: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,936 - WARNING - Error displaying article 43: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,936 - WARNING - Error displaying article 44: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,936 - WARNING - Error displaying article 45: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,936 - WARNING - Error displaying article 46: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,936 - WARNING - Error displaying article 47: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,936 - WARNING - Error displaying article 48: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,936 - WARNING - Error displaying article 49: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,936 - WARNING - Error displaying article 50: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,937 - WARNING - Error displaying article 51: 'str' object has no attribute 'get'
+2026-02-07 09:57:10,937 - INFO - Displayed 51 articles
+2026-02-07 09:57:10,947 - INFO - Running FinGPT sentiment on 51 articles (company=apple, ticker=None)
+2026-02-07 09:57:11,111 - INFO - Loading FinGPT: base=NousResearch/Llama-2-13b-hf, lora=FinGPT/fingpt-sentiment_llama2-13b_lora, 8bit=True, device=cuda:0
+2026-02-07 09:57:31,000 - INFO - FinGPT model loaded successfully
+2026-02-07 09:57:31,782 - INFO - [1/51] (content-only) The AI Stock Playbook : Wall Street Top 10 Tech Be -> pos=0.9000 neg=0.0500 neu=0.0500 (w=1.177)
+2026-02-07 09:57:33,269 - INFO - [2/51] (content-only) 2024 Stock Market News : Economy Avoids Hard Landi -> pos=0.9000 neg=0.0500 neu=0.0500 (w=1.066)
+2026-02-07 09:57:33,871 - INFO - [3/51] (content-only) 10 stocks retail investors craved in 2024 -> pos=0.9000 neg=0.0500 neu=0.0500 (w=1.066)
+2026-02-07 09:57:36,183 - INFO - [4/51] (headline+content) Apple Stock Has Reached Historic Levels in One Met -> pos=0.0500 neg=0.9000 neu=0.0500 (w=1.066)
+2026-02-07 09:57:37,551 - INFO - [5/51] (headline+content) Jensen Huang Nvidia  Printing Money Like Apple  In -> pos=0.9000 neg=0.0500 neu=0.0500 (w=1.066)
+2026-02-07 09:57:40,041 - INFO - [6/51] (headline+content) Warren Buffett Sells Apple Stock and Buys a Restau -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.766)
+2026-02-07 09:57:40,627 - INFO - [7/51] (headline+content) Analyst Says Apple ( AAPL ) Stock is Expensive Ami -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.766)
+2026-02-07 09:57:41,261 - INFO - [8/51] (headline+content) Wedbush Maps Apple Road to a $5 Trillion Milestone -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.766)
+2026-02-07 09:57:41,883 - INFO - [9/51] (content-only) Analyst on NVIDIA ( NVDA ): Investors Should Be  V -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.766)
+2026-02-07 09:57:42,473 - INFO - [10/51] (headline+content) Apple Inc . ( AAPL ): Billionaire D . E . Shaw Is  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.766)
+2026-02-07 09:57:42,994 - INFO - [11/51] (content-only) Baystreet . ca - Stock Market Warning : Yields Ris -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.766)
+2026-02-07 09:57:43,594 - INFO - [12/51] (content-only) 5 Seemingly Unstoppable Stocks Id Sell Right Now -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.766)
+2026-02-07 09:57:44,703 - WARNING - FinGPT unexpected answer: '', defaulting to neutral
+2026-02-07 09:57:44,704 - INFO - [13/51] (headline+content) US Stocks To Open Lower As Index Future Decline :  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.766)
+2026-02-07 09:57:45,339 - INFO - [14/51] (headline+content) Dow Edges Higher In Thin Holiday Trading As Tesla  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.766)
+2026-02-07 09:57:45,927 - INFO - [15/51] (content-only) Analyst Predicts NVIDIA ( NVDA ) Stock Will Hit $8 -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.766)
+2026-02-07 09:57:49,212 - INFO - [16/51] (title-fallback) Equities Research Analyst Updated EPS Estimates fo -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.766)
+2026-02-07 09:57:49,801 - INFO - [17/51] (headline+content) Dan Niles on Apple ( AAPL ): Data is  Somewhat Dis -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.766)
+2026-02-07 09:57:50,387 - INFO - [18/51] (headline+content) What 14 Analyst Ratings Have To Say About Apple -  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.766)
+2026-02-07 09:57:50,991 - INFO - [19/51] (content-only) Dow Jones Today : Stocks Slip in Early Trading as  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.766)
+2026-02-07 09:57:51,621 - INFO - [20/51] (headline+content) Apple stock touches intraday high after nod of con -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.766)
+2026-02-07 09:57:52,080 - INFO - [21/51] (content-only) Tesla Stock Leads Magnificent Seven Shares Higher -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.766)
+2026-02-07 09:57:52,678 - INFO - [22/51] (content-only) 35 % of Warren Buffett $296 Billion Portfolio Is I -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.766)
+2026-02-07 09:57:54,638 - INFO - [23/51] (headline+content) Top analyst revisits Apple stock price target on m -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.766)
+2026-02-07 09:57:55,163 - INFO - [24/51] (headline+content) Here How Much You Would Have Made Owning Apple Sto -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.766)
+2026-02-07 09:57:55,753 - INFO - [25/51] (headline+content) Apple $4 Trillion Dream : AI Hype or Real Growth ? -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.766)
+2026-02-07 09:57:58,316 - INFO - [26/51] (headline+content) Apple could hit a $4 trillion market cap by early  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.578)
+2026-02-07 09:57:59,670 - INFO - [27/51] (content-only) Top 10 AI Stocks to Watch Right Now - Insider Monk -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.578)
+2026-02-07 09:58:00,440 - INFO - [28/51] (content-only) Wall Street Analysts Cant Stop Talking About These -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.578)
+2026-02-07 09:58:01,168 - INFO - [29/51] (headline+content) Baystreet . ca - Today Stock News on Honda , Apple -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.466)
+2026-02-07 09:58:01,886 - INFO - [30/51] (headline+content) Warren Buffett Heads Into 2025 With $325 Billion C -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.466)
+2026-02-07 09:58:03,656 - INFO - [31/51] (headline+content) Apple Stock And Two Other 2024 Winners Are On Fund -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.466)
+2026-02-07 09:58:04,864 - INFO - [32/51] (content-only) US close : Stocks push higher despite mixed econom -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.466)
+2026-02-07 09:58:07,384 - INFO - [33/51] (headline+content) Apple Stock Hits Record High Amid Strong Holiday S -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.466)
+2026-02-07 09:58:09,090 - INFO - [34/51] (headline+content) 5 Tech Stocks to Buy as AI Hype Fizzles - Apple (  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.466)
+2026-02-07 09:58:10,766 - INFO - [35/51] (content-only) This ETF Holds Lots of Wide Moat Stocks -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.466)
+2026-02-07 09:58:11,436 - INFO - [36/51] (content-only) MicroStrategy Stock Is Up 400 % This Year What You -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.466)
+2026-02-07 09:58:13,131 - INFO - [37/51] (content-only) Top trending global stocks of 2024 -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.466)
+2026-02-07 09:58:14,791 - INFO - [38/51] (content-only) How to target a £100 , 000 second income starting  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.466)
+2026-02-07 09:58:15,454 - INFO - [39/51] (headline+content) Jim Cramer on Apple Inc . ( AAPL ):  I Say Own It  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.466)
+2026-02-07 09:58:16,153 - INFO - [40/51] (content-only) US close : Stocks higher following November PCE re -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.466)
+2026-02-07 09:58:16,800 - INFO - [41/51] (headline+content) Apple shares hit new all - time intraday and closi -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.466)
+2026-02-07 09:58:17,476 - INFO - [42/51] (content-only) If an investor put $5 , 000 in Nvidia shares 5 yea -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.466)
+2026-02-07 09:58:20,015 - INFO - [43/51] (headline+content) Apple Inc . ( NASDAQ : AAPL ) Shares Sold by RCS F -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.466)
+2026-02-07 09:58:20,703 - INFO - [44/51] (content-only) Nvidia stock rebounds after broad market rout as a -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.466)
+2026-02-07 09:58:21,412 - INFO - [45/51] (headline+content) Dan Niles Says Apple ( AAPL ) New iPhone Features  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.466)
+2026-02-07 09:58:22,113 - INFO - [46/51] (content-only) S & P 500 Gains and Losses Today : Index Drops as  -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.466)
+2026-02-07 09:58:23,684 - INFO - [47/51] (headline+content) Apple Stock Up Despite Lackluster iPhone 16 Sales  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.466)
+2026-02-07 09:58:24,438 - INFO - [48/51] (content-only) Dow Jones Today : Stocks Inch Higher as Investors  -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.466)
+2026-02-07 09:58:25,159 - INFO - [49/51] (content-only) 5 Things to Know Before the Stock Market Opens -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.466)
+2026-02-07 09:58:26,311 - INFO - [50/51] (content-only) As bitcoin soars , luxury brands consider acceptin -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.466)
+2026-02-07 09:58:26,896 - INFO - [51/51] (content-only) As bitcoin soars , luxury brands consider acceptin -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.466)
+2026-02-07 09:58:26,896 - INFO - Sentiment prediction complete: label=positive confidence=0.6282 (51 articles analyzed)
+2026-02-07 09:58:26,897 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\fingpt_result.json
