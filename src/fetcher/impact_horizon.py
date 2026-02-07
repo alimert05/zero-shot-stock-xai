@@ -28,19 +28,16 @@ def _get_fls_pipeline():
     return _fls_pipeline
 
 
-# FLS label to horizon category (for 1-31 day prediction window)
 FLS_TO_HORIZON = {
-    "Not FLS": "IMMEDIATE",           # Historical/current → quick price reaction
-    "Specific FLS": "SHORT_TERM",     # Specific future event → days to weeks
-    "Non-specific FLS": "MEDIUM_TERM", # Vague future → weeks to month
+    "Not FLS": "IMMEDIATE",         
+    "Specific FLS": "SHORT_TERM",    
+    "Non-specific FLS": "MEDIUM_TERM",
 }
 
-# Ideal prediction window range for each horizon (in days)
-# Tuned for 1-31 day trading predictions
 HORIZON_IDEAL_RANGE = {
-    "IMMEDIATE": (1, 5),       # News already out, quick reaction
-    "SHORT_TERM": (5, 14),     # Specific upcoming events
-    "MEDIUM_TERM": (14, 31),   # Vague forward-looking statements
+    "IMMEDIATE": (1, 5),       
+    "SHORT_TERM": (5, 14),     
+    "MEDIUM_TERM": (14, 31),   
 }
 
 
@@ -50,41 +47,27 @@ def _calculate_dynamic_weight(
     min_weight: float = 0.3,
     max_weight: float = 1.5,
 ) -> float:
-    """
-    Calculate weight based on how well the horizon matches the prediction window.
-    
-    - If horizon perfectly matches prediction window → max_weight
-    - If horizon is far from prediction window → min_weight
-    - Smooth interpolation in between
-    """
     ideal_min, ideal_max = HORIZON_IDEAL_RANGE.get(horizon, (5, 14))
-    
-    # Check if prediction window falls within ideal range
+
     if ideal_min <= prediction_window_days <= ideal_max:
-        # Perfect match — return max weight
         return max_weight
-    
-    # Calculate distance from ideal range
+
     if prediction_window_days < ideal_min:
         distance = ideal_min - prediction_window_days
     else:
         distance = prediction_window_days - ideal_max
-    
-    # Normalize distance (max distance is ~30 days)
+
     max_distance = 30
     normalized_distance = min(distance / max_distance, 1.0)
-    
-    # Exponential decay from max to min weight
+
     weight = max_weight - (max_weight - min_weight) * (normalized_distance ** 0.7)
     
     return round(max(weight, min_weight), 4)
 
 
 def classify_impact_horizon(text: str, prediction_window_days: int = 7) -> dict:
-    """Classify impact horizon using FinBERT FLS with dynamic weighting."""
     pipe = _get_fls_pipeline()
-    
-    # Truncate for model (512 token limit)
+
     truncated = text[:512]
     
     result = pipe(truncated)
@@ -93,8 +76,7 @@ def classify_impact_horizon(text: str, prediction_window_days: int = 7) -> dict:
     fls_score = result[0]["score"]
     
     horizon = FLS_TO_HORIZON.get(fls_label, "SHORT_TERM")
-    
-    # Calculate dynamic weight based on prediction window
+
     horizon_weight = _calculate_dynamic_weight(horizon, prediction_window_days)
     
     return {
@@ -111,7 +93,6 @@ def add_impact_horizon_data(
     prediction_window_days: int = 7,
     combine_method: str = "weighted_avg",
 ) -> list[dict]:
-    """Add impact horizon data to articles using FinBERT FLS with dynamic weighting."""
     
     if not articles:
         return articles
@@ -124,8 +105,7 @@ def add_impact_horizon_data(
     for i, article in enumerate(articles):
         title = article.get("title", "")
         content = article.get("content") or ""
-        
-        # Combine title and content
+
         text = f"{title}. {content}".strip()
         
         if not text:
@@ -141,15 +121,14 @@ def add_impact_horizon_data(
         article["fls_confidence"] = result["fls_confidence"]
         article["impact_horizon"] = result["impact_horizon"]
         article["horizon_weight"] = result["horizon_weight"]
-        
-        # Combine with recency weight if exists
+
         recency_weight = article.get("recency_weight", 1.0)
         
         if combine_method == "multiplicative":
             article["final_weight"] = recency_weight * result["horizon_weight"]
         elif combine_method == "geometric":
             article["final_weight"] = (recency_weight * result["horizon_weight"]) ** 0.5
-        else:  # weighted_avg
+        else:  
             article["final_weight"] = 0.6 * recency_weight + 0.4 * result["horizon_weight"]
         
         article["final_weight"] = round(article["final_weight"], 4)
@@ -159,8 +138,7 @@ def add_impact_horizon_data(
             i + 1, title[:50], result["fls_label"], result["fls_confidence"],
             result["impact_horizon"], result["horizon_weight"], article["final_weight"],
         )
-    
-    # Log weight distribution summary
+
     _log_weight_summary(articles, prediction_window_days)
     
     logger.info("Impact horizon classification complete")
@@ -168,7 +146,6 @@ def add_impact_horizon_data(
 
 
 def _log_weight_summary(articles: list[dict], prediction_window_days: int) -> None:
-    """Log summary of horizon distribution and weights."""
     horizon_counts = {"IMMEDIATE": 0, "SHORT_TERM": 0, "MEDIUM_TERM": 0}
     total_weight = 0.0
     
