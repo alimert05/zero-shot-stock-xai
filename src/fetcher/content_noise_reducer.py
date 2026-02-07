@@ -6,10 +6,28 @@ from typing import Optional, List
 
 logger = logging.getLogger(__name__)
 
+_deberta_classifier = None
+
 
 def _get_deberta_classifier():
-    from .impact_horizon import _get_classifier
-    return _get_classifier()
+    global _deberta_classifier
+    if _deberta_classifier is None:
+        try:
+            from transformers import pipeline
+            from config import SENTIMENT_DEVICE
+
+            logger.info("Loading DeBERTa classifier for noise reduction...")
+            _deberta_classifier = pipeline(
+                "zero-shot-classification",
+                model="microsoft/deberta-v3-large",
+                device=SENTIMENT_DEVICE,
+                token=False
+            )
+            logger.info("DeBERTa classifier loaded successfully")
+        except Exception as exc:
+            logger.error("Failed to load DeBERTa classifier: %s", exc)
+            raise
+    return _deberta_classifier
 
 def _split_into_sentences(text: str) -> List[str]:
     if not text:
