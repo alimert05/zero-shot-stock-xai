@@ -6,10 +6,28 @@ from typing import Optional, List
 
 logger = logging.getLogger(__name__)
 
+_deberta_classifier = None
+
 
 def _get_deberta_classifier():
-    from .impact_horizon import _get_classifier
-    return _get_classifier()
+    global _deberta_classifier
+    if _deberta_classifier is None:
+        try:
+            from transformers import pipeline
+            from config import SENTIMENT_DEVICE, NOISE_REDUCTION_MODEL
+
+            logger.info("Loading DeBERTa classifier for noise reduction...")
+            _deberta_classifier = pipeline(
+                "zero-shot-classification",
+                model=NOISE_REDUCTION_MODEL,
+                device=SENTIMENT_DEVICE,
+                token=False
+            )
+            logger.info("DeBERTa classifier loaded successfully")
+        except Exception as exc:
+            logger.error("Failed to load DeBERTa classifier: %s", exc)
+            raise
+    return _deberta_classifier
 
 def _split_into_sentences(text: str) -> List[str]:
     if not text:
@@ -20,8 +38,7 @@ def _split_into_sentences(text: str) -> List[str]:
 def _score_sentence_relevance(
     sentences: List[str],
     company_name: str,
-    ticker: Optional[str],
-    threshold: float = 0.5,
+    ticker: Optional[str], 
 ) -> List[tuple[str, float]]:
 
     if not sentences:
@@ -42,6 +59,7 @@ def _score_sentence_relevance(
         candidate_labels=labels,
         hypothesis_template=hypothesis_template,
         batch_size=16,
+        multi_label=True
     )
 
     if isinstance(results, dict):
@@ -79,9 +97,7 @@ def reduce_content_noise(
     if not sentences:
         return None, {"error": "no_sentences"}
 
-    scored = _score_sentence_relevance(
-        sentences, company_name, ticker, relevance_threshold
-    )
+    scored = _score_sentence_relevance(sentences, company_name, ticker)
     relevant = _filter_relevant_sentences(scored, relevance_threshold)
 
     total_sentences = len(sentences)
@@ -92,7 +108,6 @@ def reduce_content_noise(
         "total_sentences": total_sentences,
         "relevant_sentences": relevant_count,
         "relevance_ratio": round(relevance_ratio, 4),
-        "stage": "deberta_only",
         "condensed": False,
     }
 
@@ -101,6 +116,10 @@ def reduce_content_noise(
         return None, {**metadata, "filter_action": "no_match"}
 
     filtered_text = " ".join(relevant)
+
+    if relevant_count == total_sentences:
+        return filtered_text, {**metadata, "filter_action": "no_change"}
+    
     return filtered_text, {**metadata, "filter_action": "filtered"}
 
 
@@ -124,6 +143,7 @@ def clean_articles_content(
         "total_articles": 0,
         "articles_with_content": 0,
         "articles_filtered": 0,
+        "articles_no_change": 0,
         "articles_no_content_after": 0,
         "total_sentences_before": 0,
         "total_sentences_after": 0,
@@ -154,6 +174,8 @@ def clean_articles_content(
 
         if metadata.get("filter_action") == "filtered":
             stats["articles_filtered"] += 1
+        elif metadata.get("filter_action") == "no_change":
+            stats["articles_no_change"] += 1
 
         if cleaned_content is None:
             stats["articles_no_content_after"] += 1
