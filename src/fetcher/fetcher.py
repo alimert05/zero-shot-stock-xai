@@ -5,6 +5,7 @@ import logging
 import sys
 import os
 import re
+import math
  
 from gdeltdoc import GdeltDoc, Filters
  
@@ -80,11 +81,6 @@ class Fetcher:
             number_input = input("Enter number of news(default 250): ").strip()
             self.number_of_news = int(number_input) if number_input else 250
  
-            max_days_input = input(
-                "Enter maximum backward search days (default 14): "
-            ).strip()
-            self.max_backward_days = int(max_days_input) if max_days_input else 14
- 
             return self.query
  
         except Exception as exc:
@@ -104,12 +100,14 @@ class Fetcher:
  
         if end_dt < start_dt:
             raise ValueError("End date cannot be before start date.")
- 
-        if self.max_backward_days is None:
-            self.max_backward_days = 14
 
         self.prediction_window_days = max(1, (end_dt - start_dt).days)
         logger.info("Prediction window: %d days", self.prediction_window_days)
+
+        # backward_days = clamp(⌈α × √W⌉, min=7, max=90), α=5
+        self.max_backward_days = max(7, min(90, math.ceil(5 * math.sqrt(self.prediction_window_days))))
+        logger.info("Computed max_backward_days: %d (from √W scaling, W=%d)", self.max_backward_days, self.prediction_window_days)
+
  
         self.backward_start_date = start_dt - timedelta(days=self.max_backward_days)
         self.backward_end_date = start_dt - timedelta(days=1)
@@ -232,21 +230,12 @@ class Fetcher:
         )
  
         enrich_articles_with_content(candidates, timeout=self.timeout)
- 
-        # candidates = clean_articles_content(
-        #     candidates,
-        #     company_name=company_name,
-        #     ticker=ticker,
-        #     keep_all_if_low_match=False,
-        #     min_sentences_threshold=2
-        # )
 
-        if NOISE_REDUCTION_ENABLED:  # Added
-            candidates = clean_articles_content(
-                candidates,
-                company_name=company_name,
-                ticker=ticker,
-            )
+
+        candidates = clean_articles_content(
+            candidates,
+            company_name=company_name,
+            ticker=ticker)
  
         filtered_after_rules = filter_company_related(
             candidates,
@@ -254,13 +243,11 @@ class Fetcher:
             ticker=ticker,
         )
 
-        if IMPACT_HORIZON_ENABLED and self.prediction_window_days:
-            add_impact_horizon_data(
-                filtered_after_rules,
-                prediction_window_days=self.prediction_window_days,
-                combine_method=WEIGHT_COMBINE_METHOD,
-            )
- 
+        add_impact_horizon_data(
+            filtered_after_rules,
+            prediction_window_days=self.prediction_window_days,
+            combine_method=WEIGHT_COMBINE_METHOD)
+
         for article in filtered_after_rules:
             a = article.get("content")
             if isinstance(a, str) and a:
@@ -268,7 +255,7 @@ class Fetcher:
                 a = re.sub(r"\s+", " ", a).strip()
                 article["content"] = a
 
-        if IMPACT_HORIZON_ENABLED and filtered_after_rules and "final_weight" in filtered_after_rules[0]:
+        if filtered_after_rules and "final_weight" in filtered_after_rules[0]:
             filtered_after_rules = sorted(
                 filtered_after_rules,
                 key=lambda x: x.get("final_weight", 0),
