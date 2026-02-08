@@ -8,8 +8,8 @@ from config import JSON_PATH, SENTIMENT_MODEL, FINBERT_PREDS, FINGPT_PREDS, ZERO
 
 def main() -> None:
 
-    # fetcher = Fetcher()
-    # fetcher.run_fetcher()
+    fetcher = Fetcher()
+    fetcher.run_fetcher()
 
     if SENTIMENT_MODEL == "fingpt":
         run_fingpt(articles_json_path=str(JSON_PATH), output_path=str(FINGPT_PREDS))
