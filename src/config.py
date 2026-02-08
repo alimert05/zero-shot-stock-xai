@@ -21,13 +21,13 @@ REQUEST_TIMEOUT_LIMIT = 30
 # API Configuration
 BASE_URL = "https://api.gdeltproject.org/api/v2/doc/doc"
 
-WEIGHT_COMBINE_METHOD = "weighted_avg"
+WEIGHT_COMBINE_METHOD = "geometric"
 
 NOISE_REDUCTION_ENABLED = True
 NOISE_REDUCTION_MODEL = "microsoft/deberta-large-mnli"
 
 IMPACT_HORIZON_ENABLED = True
-IMPACT_HORIZON_MODEL = "facebook/bart-large-mnli"
+IMPACT_HORIZON_MODEL = "microsoft/deberta-large-mnli" 
 IMPACT_HORIZON_DEVICE = 0
 
 RECENCY_IMPORTANCE = 0.4

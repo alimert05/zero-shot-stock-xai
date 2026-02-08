@@ -6,7 +6,7 @@
   "backward_start_date": "18-12-2024",
   "backward_end_date": "31-12-2024",
   "prediction_window_days": 31,
-  "fetch_timestamp": "2026-02-07 20:18:48",
+  "fetch_timestamp": "2026-02-08 12:32:14",
   "article_count": 46,
   "articles": [
     {
@@ -29,11 +29,34 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Specific FLS",
-      "fls_confidence": 0.7103,
-      "impact_horizon": "SHORT_TERM",
-      "horizon_weight": 0.6937,
-      "final_weight": 1.1775
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.3416
+      },
+      "impact_horizon_weight": 0.9839,
+      "final_weight": 1.2148
+    },
+    {
+      "url": "https://www.fool.com/investing/2024/12/31/apples-stock-has-reached-historic-levels-in-one-me/?source=iedfolrf0000001",
+      "url_mobile": "",
+      "title": "Apple Stock Has Reached Historic Levels in One Metric . It a Clear Warning Sign for 2025 . ",
+      "seendate": "20241231T133000Z",
+      "socialimage": "https://g.foolcdn.com/editorial/images/801516/person-giving-a-thumbs-down-to-a-computer-screen.jpg",
+      "domain": "fool.com",
+      "language": "English",
+      "sourcecountry": "United States",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 1.5,
+      "content": null,
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.3243
+      },
+      "impact_horizon_weight": 0.9839,
+      "final_weight": 1.2148
     },
     {
       "url": "https://www.investors.com:443/news/stock-market-news-2024-economy-inflation/",
@@ -55,30 +78,13 @@
         "condensed": false,
         "filter_action": "no_change"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9664,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 1.0658
-    },
-    {
-      "url": "https://www.fool.com/investing/2024/12/31/apples-stock-has-reached-historic-levels-in-one-me/?source=iedfolrf0000001",
-      "url_mobile": "",
-      "title": "Apple Stock Has Reached Historic Levels in One Metric . It a Clear Warning Sign for 2025 . ",
-      "seendate": "20241231T133000Z",
-      "socialimage": "https://g.foolcdn.com/editorial/images/801516/person-giving-a-thumbs-down-to-a-computer-screen.jpg",
-      "domain": "fool.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 1,
-      "recency_weight": 1.5,
-      "content": null,
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9635,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 1.0658
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.321
+      },
+      "impact_horizon_weight": 0.7097,
+      "final_weight": 1.0318
     },
     {
       "url": "https://www.benzinga.com/analyst-ratings/analyst-color/24/12/42736753/jensen-huangs-nvidia-printing-money-like-apple-in-early-iphone-days-says-tesla-bull-ross-gerber",
@@ -100,11 +106,13 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9662,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 1.0658
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3291
+      },
+      "impact_horizon_weight": 0.5968,
+      "final_weight": 0.9461
     },
     {
       "url": "https://www.fool.com/investing/2024/12/28/warren-buffett-sell-apple-stock-buy-stock-up-3100/?source=iedfolrf0000001",
@@ -119,37 +127,13 @@
       "days_ago": 4,
       "recency_weight": 1.0,
       "content": null,
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9848,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.7658
-    },
-    {
-      "url": "https://www.insidermonkey.com/blog/analyst-says-apple-aapl-stock-is-expensive-amid-slow-developing-upgrade-cycle-1414601/",
-      "url_mobile": "https://www.insidermonkey.com/blog/analyst-says-apple-aapl-stock-is-expensive-amid-slow-developing-upgrade-cycle-1414601/?amp=1",
-      "title": "Analyst Says Apple ( AAPL ) Stock is Expensive Amid  Slow - Developing  Upgrade Cycle",
-      "seendate": "20241228T000000Z",
-      "socialimage": "https://d2gr5kl7dt2z3t.cloudfront.net/blog/wp-content/uploads/2023/09/19155253/AAPL-insidermonkey-1695153171712.jpg",
-      "domain": "insidermonkey.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 2,
-      "days_ago": 4,
-      "recency_weight": 1.0,
-      "content": "We recently published a list ofAnalysts Are Talking About These 10 AI Stocks. In this article, we are going to take a look at where Apple Inc. (NASDAQ:AAPL) stands against other stocks analysts are talking about. He used the analogy of a child raised in a library, now ready to step out into the world. “What if they, we make them interact with sensory data, with vision data, with, uh, you know, like basically opening that door of the library and making this child walk into the real world? I think this creation of word models, like they’re called generally in the industry, where you combine multimodal information, that is not only text but is also videos, but is also sensory data. Despite high hopes, a potential plateau in performance improvements in AI systems, high energy consumption of AI data centers and transparency remain key issues tech companies will continue to grapple with in 2025. READ ALSO:7 Best Stocks to Buy For Long-Termand8 Cheap Jim Cramer Stocks to Invest In For this article, we picked 10 AI stocks currently trending based on latest news and analyst ratings. The reason is simple: our research has shown that we can outperform the market by imitating the top stock picks of the best hedge funds. Our quarterly newsletter’s strategy selects 14 small-cap and large-cap stocks every quarter and has returned 275% since May 2014, beating its benchmark by 150 percentage points(see more details here). A wide view of an Apple store, showing the range of products the company offers. “If you look at the valuation, it’s trading well north of 30 times on a PE basis, which is at or above its peers who are also taking advantage of this AI-fueled rally. When you look at the next couple of years for Apple Inc (NASDAQ:AAPL), on what looks to be a very slow-developing upgrade cycle, if there is a major upgrade cycle, you’re looking at mid to high single-digit EPS growth. So, north of 30 times PE, mid single-digit to high single-digit EPS growth—I think it’s, you know, an expensive stock.” Apple Inc (NASDAQ:AAPL) is desperately in need of new catalysts. The company’s revenue in China fell 8% in fiscal year 2024, following a 2% decline the previous year. The Chinese market accounts for about 15% of Apple’s total revenue, so this downtrend cannot be ignored. Investors had hopes for the Wearables, Home, and Accessories segment, but so far its performance has been weak. Vision Pro faces tough competition from Meta’s $500 Quest and the more affordable Quest 3S, making it hard to justify its $3,500 price tag. The failure of Apple’s HomePod, unable to compete with Amazon’s and Google’s lower-priced offerings, further highlights the challenges in this market. Apple’s iPhone 16 has not shown promising growth prospects yet and investors are still in a wait-and-see mode on the AI platform. While the company is projected to achieve 9.5% EPS growth this fiscal year and 12.3% growth in the next, much of this growth is already priced in, as the stock trades at nearly 30 times the expected EPS for the fiscal year ending September 2026. Parnassus Growth Equity Fund stated the following regarding Apple Inc. Investors reacted positively to the new iPhone 16 lineup and its advanced features, including generative artificial intelligence, greater durability and increased processing power.” Overall, AAPLranks 5thon our list of stocks analysts are talking about. While we acknowledge the potential of AAPL, our conviction lies in the belief that under the radar AI stocks hold greater promise for delivering higher returns, and doing so within a shorter time frame. If you are looking for an AI stock that is more promising than AAPL but that trades at less than 5 times its earnings, check out our report about thecheapest AI stock. This article is originally published atInsider Monkey. Cancel anytime.",
-      "content_stats": {
-        "total_sentences": 36,
-        "relevant_sentences": 27,
-        "relevance_ratio": 0.75,
-        "condensed": false,
-        "filter_action": "filtered"
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3855
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9316,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.7658
+      "impact_horizon_weight": 0.6613,
+      "final_weight": 0.8132
     },
     {
       "url": "https://wallstreetpit.com/121846-wedbush-maps-apples-road-to-a-5-trillion-milestone/",
@@ -171,37 +155,13 @@
         "condensed": false,
         "filter_action": "no_change"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9767,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.7658
-    },
-    {
-      "url": "https://www.insidermonkey.com/blog/analyst-on-nvidia-nvda-investors-should-be-very-vigilant-amid-rising-competition-1414553/",
-      "url_mobile": "https://www.insidermonkey.com/blog/analyst-on-nvidia-nvda-investors-should-be-very-vigilant-amid-rising-competition-1414553/?amp=1",
-      "title": "Analyst on NVIDIA ( NVDA ): Investors Should Be  Very Vigilant  Amid Rising Competition",
-      "seendate": "20241227T190000Z",
-      "socialimage": "https://d2gr5kl7dt2z3t.cloudfront.net/blog/wp-content/uploads/2023/09/19153615/NVDA-insidermonkey-1695152172066.jpg",
-      "domain": "insidermonkey.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 5,
-      "recency_weight": 1.0,
-      "content": "We recently published a list ofTop 10 AI Stocks That Should Be On Your Watchlist for 2025. Investors are looking for new growth horizons in the AI industry to gauge whether the current market rally can continue for the years to come. Chetan Puttagunta, Benchmark general partner, said he’s noticed a lot of innovation in the past few weeks focused on improving the efficiency of algorithms. “In the last six to eight weeks, we’ve seen a tremendous amount of innovation, especially at the model layer, and then for the last two years at the application layer, taking advantage of all the advances in the AI models. The reason is simple: our research has shown that we can outperform the market by imitating the top stock picks of the best hedge funds. Our quarterly newsletter’s strategy selects 14 small-cap and large-cap stocks every quarter and has returned 275% since May 2014, beating its benchmark by 150 percentage points(see more details here). A close-up of a colorful high-end graphics card being plugged in to a gaming computer. “I think 2025 is going to be the year where all bets are off—or rather, all gloves are off—in AI competition. Last week, atThe Information, we reported that Broadcom is now working with Apple on an AI chip for inference. An EPS surprise of 8.5% was not able to help the stock. A similar trend occurred following the second-quarter earnings after a 5.6% EPS surprise. It’s difficult to see Nvidia maintaining a mid-70s gross margin by the end of 2026. Over the last two quarters, Nvidia has already reported a drop in its gross margin from 78% to 74.5%. Then there’s competition. The chip is expected to be twice as fast with 40% more power efficiency than the previous generation, manufactured on TSMC’s (TSM) cutting-edge N3 technology. Reportedly, technology giant Apple (AAPL) will be a consumer of Amazon’s new silicon. It hit an eye-opening market capitalization of $3 trillion in June, less than four months after it eclipsed the $2 trillion mark. Enthusiasm for everything AI-related, especially for the primary chip maker whose products are essential to powering AI technology, continues to fuel the market. While we acknowledge the potential of NVDA, our conviction lies in the belief that under the radar AI stocks hold greater promise for delivering higher returns, and doing so within a shorter timeframe. If you are looking for an AI stock that is more promising than NVDA but that trades at less than 5 times its earnings, check out our report about thecheapest AI stock. This article is originally published atInsider Monkey. Cancel anytime.",
-      "content_stats": {
-        "total_sentences": 42,
-        "relevant_sentences": 22,
-        "relevance_ratio": 0.5238,
-        "condensed": false,
-        "filter_action": "filtered"
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.2938
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9565,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.7658
+      "impact_horizon_weight": 0.6452,
+      "final_weight": 0.8032
     },
     {
       "url": "https://www.insidermonkey.com/blog/apple-inc-aapl-billionaire-d-e-shaw-is-bullish-on-this-stock-right-now-1414574/",
@@ -223,11 +183,13 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9355,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.7658
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3091
+      },
+      "impact_horizon_weight": 0.6452,
+      "final_weight": 0.8032
     },
     {
       "url": "http://baystreet.ca/stockstowatch/19860/Stock-Market-Warning-Yields-Rising",
@@ -249,63 +211,13 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.8768,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.7658
-    },
-    {
-      "url": "https://www.benzinga.com/markets/futures/24/12/42699993/us-stocks-to-open-lower-as-index-future-decline-analysts-remain-upbeat-about-santa-rally",
-      "url_mobile": "",
-      "title": "US Stocks To Open Lower As Index Future Decline : Analysts Remain Upbeat About Santa Rally - Apple ( NASDAQ : AAPL ), Evaxion Biotech ( NASDAQ : EVAX ) ",
-      "seendate": "20241227T131500Z",
-      "socialimage": "https://cdn.benzinga.com/files/images/story/2024/12/27/Wall-Street_2.jpeg?&fit=crop",
-      "domain": "benzinga.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 5,
-      "recency_weight": 1.0,
-      "content": "A newsletter built for market enthusiasts by market enthusiasts. Top stories, top movers, and trade ideas delivered to your inbox every weekday before and after the market closes. U.S. stock futures tumbled on Friday in premarket hours after a mixed Thursday. All four index futures slipped in trade. Analysts say that the full ‘Santa Claus Rally’ has never been lower. The 10-year and two-year Treasury notes yielded 4.61% and 4.33%, respectively. The probability of having no change in the interest rates for the upcoming Jan. 31, 2025 decision was at 89.3%, down from 91.4% a week ago, accordingtoCME Group’s FedWatch tool. Cues From The Last Session U.S. stock markets closed mixed on Thursday, following a Christmas break. Month-to-date performance varied across indices. The Nasdaq significantly outperformed, driven by strong gains inTesla Inc.(NASDAQ:TSLA) andApple Inc.(NASDAQ:AAPL), while the Dow Jones experienced a decline of around 3.5%. Economic data released on Thursday showed a slight decrease in initial jobless claims, coming in below market expectations. This suggests a continued strong labor market. Sector performance was mixed. Healthcare, financial, and real estate sectors led gains, while consumer discretionary and communication services sectors underperformed. Insights From Analysts According to the chief market strategist at Carson Research,Ryan Detrick, the final six days of the ‘Santa Claus Rally’ has been higher five out of seven, with two small losses. But even these six days have been higher by 1.7% on average. According toCharlie Bilello, the chief market strategist at Creative Planning the S&P 500’s 57 all-time highs in 2024 was the fifth highest in its history. New unemployment claims came in at 219,000, which was a bit lower than the four-week moving average of 226,500,” he added. The Dollar Index was up 0.01% to 108.138 level. Asian markets were mixed on Friday, as Hong Kong’s Hang Seng, China’s CSI 300, and South Korea’s Kospi index declined. Whereas, Japan’s Nikkei 225, Australia’s ASX 200, and India’s S&P BSE Sensex index rose. Most European markets traded higher. Benzinga does not provide investment advice. All rights reserved. To addBenzinga Newsas your preferred source on Google,click here.",
-      "content_stats": {
-        "total_sentences": 38,
-        "relevant_sentences": 28,
-        "relevance_ratio": 0.7368,
-        "condensed": false,
-        "filter_action": "filtered"
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.314
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9647,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.7658
-    },
-    {
-      "url": "https://www.benzinga.com/24/12/42697989/dow-edges-higher-in-thin-holiday-trading-fear-declines-among-us-investors-but-fear-greed-index-remains-in-fear-zo",
-      "url_mobile": "",
-      "title": "Dow Edges Higher In Thin Holiday Trading As Tesla , Apple Surge : Investor Sentiment Improves , But Greed Index Remains In  Fear  Zone - Tesla ( NASDAQ : TSLA ) ",
-      "seendate": "20241227T103000Z",
-      "socialimage": "https://cdn.benzinga.com/files/images/story/2024/12/27/Market-Sentiment--Fear-And-Greed-Index--.jpeg?&fit=crop",
-      "domain": "benzinga.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 5,
-      "recency_weight": 1.0,
-      "content": "A newsletter built for market enthusiasts by market enthusiasts. Top stories, top movers, and trade ideas delivered to your inbox every weekday before and after the market closes. U.S. stocks settled mixed on Thursday, with the Dow Jones index closing slightly higher during the session. The market was shut on Wednesday for Christmas Day. Month to date, the S&P 500 gained 0.1%, while the Nasdaq has surged 4.2%, driven by significant gains inTesla(NASDAQ:TSLA) andApple(NASDAQ:AAPL). On the economic data front, U.S. initial jobless claims fell by 1,000 from the previous week to a reading of 219,000 during the second week of December, compared to market estimates of 224,000. Most sectors on the S&P 500 closed on a positive note, with healthcare, financial, and real estate stocks recording the biggest gains on Thursday. At a current reading of 35.1, the index remained in the “Fear” zone on Thursday, versus a prior reading of 34. The Fear & Greed Index is a measure of the current market sentiment. It is based on the premise that higher fear exerts pressure on stock prices, while higher greed has the opposite effect. The index ranges from 0 to 100, where 0 represents maximum fear and 100 signals maximum greediness. Benzinga does not provide investment advice. All rights reserved. To addBenzinga Newsas your preferred source on Google,click here.",
-      "content_stats": {
-        "total_sentences": 24,
-        "relevant_sentences": 16,
-        "relevance_ratio": 0.6667,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9534,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.7658
+      "impact_horizon_weight": 0.6452,
+      "final_weight": 0.8032
     },
     {
       "url": "https://www.insidermonkey.com/blog/analyst-predicts-nvidia-nvda-stock-will-hit-800-by-2030-1413970/",
@@ -327,56 +239,13 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.6827,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.7658
-    },
-    {
-      "url": "https://www.themarketsdaily.com/2024/12/27/equities-research-analysts-updated-eps-estimates-for-december-26th-aapl-acva-avxl-celh-crvl-kmpr-mcy-nke-pb-pypd.html",
-      "url_mobile": "",
-      "title": "Equities Research Analyst Updated EPS Estimates for December 26th ( AAPL , ACVA , AVXL , CELH , CRVL , KMPR , MCY , NKE , PB , PYPD ) ",
-      "seendate": "20241227T061500Z",
-      "socialimage": "",
-      "domain": "themarketsdaily.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 5,
-      "recency_weight": 1.0,
-      "content": null,
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9868,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.7658
-    },
-    {
-      "url": "https://www.insidermonkey.com/blog/dan-niles-on-apple-aapl-data-is-somewhat-disappointing-and-stock-is-pretty-expensive-1413968/",
-      "url_mobile": "https://www.insidermonkey.com/blog/dan-niles-on-apple-aapl-data-is-somewhat-disappointing-and-stock-is-pretty-expensive-1413968/?amp=1",
-      "title": "Dan Niles on Apple ( AAPL ): Data is  Somewhat Disappointing  and Stock is  Pretty Expensive",
-      "seendate": "20241226T223000Z",
-      "socialimage": "https://d2gr5kl7dt2z3t.cloudfront.net/blog/wp-content/uploads/2023/09/13040841/AAPL-imagemaker-1694592519294.jpg",
-      "domain": "insidermonkey.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 6,
-      "recency_weight": 1.0,
-      "content": "We recently published a list of10 AI Stocks Wall Street is Talking About. In this article, we are going to take a look at where Apple Inc. (NASDAQ:AAPL) stands against other AI stocks Wall Street is talking about. Defiance ETFs CEO and CIO Sylvia Jablonski said in a recent program on Bloomberg that there are trillions of dollars of cash waiting on the sidelines ready to be invested in AI amid demand that is at an all-time high. “There’s a biggest wealth transfer of our generation happening as we speak. And you know, Gen Z, you know, Gen Z, Millennial, Gen X kind of, you know, the younger traders are, this is where they’re allocating their funds to. So you need quantum in order for it to be efficient. You need to process that data quickly. The reason is simple: our research has shown that we can outperform the market by imitating the top stock picks of the best hedge funds. Our quarterly newsletter’s strategy selects 14 small-cap and large-cap stocks every quarter and has returned 275% since May 2014, beating its benchmark by 150 percentage points(see more details here). An Apple store displaying the latest in consumer electronics, from smartphones to wearables. Number of Hedge Fund Investors: 158 Dan Niles of Niles Investment Management said while talking to Schwab Network in a latest program that the data around Apple Inc’s (NASDAQ:AAPL) new iPhone has been “disappointing.” “Relative to three months ago, the data, if you actually take a look at it, has been somewhat disappointing, with the rollout being much slower. You don’t get a rollout in Europe until next year, hopefully in the first quarter, and for China, we still don’t know when they’re going to roll out AI features. With the stock now trading at a multiple that just keeps expanding—now in the low 30 PE range compared to the S&P at about 22 times—it’s looking pretty expensive. So for me, Apple Inc (NASDAQ:AAPL) is not one I would really be that bullish on right here. It’s just going up with the tape, but I think as we get closer to them having to report and guide, you may have an issue.” Apple Inc (NASDAQ:AAPL) has been seeing a long-term decline in mobile carrier upgrade rates, especially postpaid, for several years. This suggests that people are holding onto their devices longer, likely due to economic factors, satisfaction with current technology, or a lack of exciting new features in recent models In the latest earnings call, Apple Inc (NASDAQ:AAPL) CEO Tim Cook highlighted new features for the iPhone, such as a more comfortable watch band and sleep apnea detection, but none appeared to be major demand drivers for new customers. Mar Vista Strategic Growth Strategy stated the following regarding Apple Inc. (NASDAQ:AAPL) in itsQ3 2024 investor letter: “Apple Inc.(NASDAQ:AAPL) stock was strong in the quarter as investors viewed the company’s generative AI roadmap and iPhone 16 product cycle positively. The market was reminded of the strength of the Apple ecosystem as management demonstrated how generative AI solutions would be integrated into its iOS 18 operating system, which was broadly released in the iPhone 16 late in calendar Q3. We believe Apple’s generative AI-enabled products should spur a meaningful iPhone upgrade cycle and create new avenues of monetization through its app store and advertising offerings. We believe this will support intrinsic value growth that will range between high single digits and low double-digits over our investment horizon.” Overall, AAPLranks 4thon our list of AI stocks Wall Street is talking about. While we acknowledge the potential of AAPL, our conviction lies in the belief that under the radar AI stocks hold greater promise for delivering higher returns, and doing so within a shorter time frame. If you are looking for an AI stock that is more promising than AAPL but that trades at less than 5 times its earnings, check out our report about thecheapest AI stock. This article is originally published atInsider Monkey. Cancel anytime.",
-      "content_stats": {
-        "total_sentences": 36,
-        "relevant_sentences": 26,
-        "relevance_ratio": 0.7222,
-        "condensed": false,
-        "filter_action": "filtered"
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3165
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9556,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.7658
+      "impact_horizon_weight": 0.6452,
+      "final_weight": 0.8032
     },
     {
       "url": "https://www.benzinga.com/insights/analyst-ratings/24/12/42692271/what-14-analyst-ratings-have-to-say-about-apple",
@@ -398,63 +267,13 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9812,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.7658
-    },
-    {
-      "url": "https://www.investopedia.com/dow-jones-today-12262024-8766566",
-      "url_mobile": "",
-      "title": "Dow Jones Today : Stocks Slip in Early Trading as Santa Clause Rally Stumbles ; Bitcoin Slumps",
-      "seendate": "20241226T161500Z",
-      "socialimage": "https://www.investopedia.com/thmb/EXMCLruzLRDT2kmPAFuhifPyPes=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-2188999255-98d7adacd05b41909fa6592d4923a0af.jpg",
-      "domain": "investopedia.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 6,
-      "recency_weight": 1.0,
-      "content": "David Dee Delgado / AFP / Getty Images Stocks turned in a mixed performance on Thursday as the rally that kicked off the holiday-abbreviated trading week lost momentum. market rebounded fromlast week's downturn. Apple (AAPL), which isinching closer to becoming the first companyto ever achieve $4 trillion in market value, rose 0.3% to a record closing high, while Nvidia (NVDA), Microsoft (MSFT), Alphabet (GOOGL), Amazon (AMZN), Meta Platforms (META) and Tesla (TSLA) all lost ground. The yield on 10-year Treasurys, which is correlated with expectations about where interest rates are headed, was at 4.59%, after moving as high as 4.64% this morning and trading at its highest levels since May. The company said Thursday that it bought 217.18 bitcoins at an average price of $96,556 per bitcoin. The move comes after the company said earlier this month it was launching a Bitcoin Treasury strategy that called for allocating up to 90% of its surplus cash to the digital currency. Its shares have surged nearly 500% since the start of the year. Moody’s analystsapplaudedthe move, arguing that it would be “credit positive” if done properly. Investopedia / Photo Illustration by Alice Morgan / Getty Images This year's runup started with demand associated with thespot bitcoin exchange-traded funds(ETFs) that began trading in January, followed bya halvingthat limited supply of new bitcoin and then the hope for crypto-supportive policies after the reelection of Donald Trump, seemingly reinforced by several of his post-election appointments. While the Federal Reserve's latest projections for cutting interest rates next year shook the crypto markets, some of the aforementioned reasons for optimism remain on the table—though if the Fed slows its rate-cutting campaign, experts say, Treasury yields could remain elevated, shifting investors away from bitcoin and other risk assets. -Kyle Torpey Apple Set for 'Golden Era of Growth,' Analyst Says Wedbush analysts led by Dan Ives, long an Apple (AAPL)bull, told clients in a note Thursday that the iPhone maker could be headed for a “golden era of growth” in 2025, driven by demand forartificial intelligence (AI). The analysts raised their price target for Apple's stock by $25 to $325 and maintained an outperform rating, anticipating a multi-year iPhone upgrade cycle driven by AI that “is still being underestimated by the Street. That's a lot higher than the average analyst price target compiled by Visible Alpha at about $244. Just over half or nine of the 15 analysts polled hold buy or equivalent ratings for the stock, with four hold and two sell ratings. Apple shares were up slightly in midday trading after hitting a fresh all-time high of just over $260. Wedbush's target boost comes as the firm projects Apple could sell more than 240 million iPhones in fiscal year 2025, “as this AI-driven upgrade cycle takes hold and this will be the highest iPhone unit sales year in Apple's history.” TradingView Apple shares have gained over one-third of their value since the start of the year, as the company'smarket capitalizationnears $4 trillion. The stock has outpaced the S&P 500 in 2024. (See chart above) Wedbush expects Apple could soon reach that $4 trillion threshold, which would make it the first company in the world to do so. At present, there are only three companies with a market caps over $3 trillion, including Apple, Nvidia (NVDA), and Microsoft (MSFT). Does that mean he got something nice? Has something to give? Likes nicely wrapped boxes? Predictably, people are wondering—and watching, with the message at recent count seen some 4 million times, according to X, with thousands of responses, retweets and likes. Shares of the company, meanwhile, are up nearly 80% in 2024, though below prices seen at the top of spikeslargely inspired by Gillearlier this year. With its gains so far this week, the S&P 500 has moved into positive territory for the month. The Nasdaq is also higher for the month, while the Dow is on track to finish December with losses. TradingView S&P 500 futures were also off 0.3%. TradingView Nasdaq 100 futures slipped 0.4%. TradingView",
-      "content_stats": {
-        "total_sentences": 55,
-        "relevant_sentences": 28,
-        "relevance_ratio": 0.5091,
-        "condensed": false,
-        "filter_action": "filtered"
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3353
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9697,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.7658
-    },
-    {
-      "url": "https://finance.yahoo.com/news/apple-stock-touches-intraday-high-after-nod-of-confidence-from-wall-street-154221679.html",
-      "url_mobile": "",
-      "title": "Apple stock touches intraday high after nod of confidence from Wall Street",
-      "seendate": "20241226T161500Z",
-      "socialimage": "https://s.yimg.com/ny/api/res/1.2/4wJKpYVJFN2GTURC48Hlcw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-uploaded-images/2024-12/50bf8b80-bca9-11ef-bada-38725b6ea9b9",
-      "domain": "finance.yahoo.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 6,
-      "recency_weight": 1.0,
-      "content": null,
-      "content_stats": {
-        "total_sentences": 5,
-        "relevant_sentences": 4,
-        "relevance_ratio": 0.8,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9842,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.7658
+      "impact_horizon_weight": 0.629,
+      "final_weight": 0.7931
     },
     {
       "url": "https://www.investopedia.com/tesla-stock-leads-magnificent-seven-shares-higher-update-8766292",
@@ -476,11 +295,13 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9753,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.7658
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.308
+      },
+      "impact_horizon_weight": 0.629,
+      "final_weight": 0.7931
     },
     {
       "url": "https://biztoc.com/x/9583572110a7bfcd",
@@ -495,11 +316,13 @@
       "days_ago": 6,
       "recency_weight": 1.0,
       "content": null,
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9791,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.7658
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3798
+      },
+      "impact_horizon_weight": 0.629,
+      "final_weight": 0.7931
     },
     {
       "url": "https://www.benzinga.com/insights/news/24/12/42679436/heres-how-much-you-would-have-made-owning-apple-stock-in-the-last-15-years",
@@ -521,11 +344,202 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9813,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.7658
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3016
+      },
+      "impact_horizon_weight": 0.629,
+      "final_weight": 0.7931
+    },
+    {
+      "url": "https://www.insidermonkey.com/blog/analyst-says-apple-aapl-stock-is-expensive-amid-slow-developing-upgrade-cycle-1414601/",
+      "url_mobile": "https://www.insidermonkey.com/blog/analyst-says-apple-aapl-stock-is-expensive-amid-slow-developing-upgrade-cycle-1414601/?amp=1",
+      "title": "Analyst Says Apple ( AAPL ) Stock is Expensive Amid  Slow - Developing  Upgrade Cycle",
+      "seendate": "20241228T000000Z",
+      "socialimage": "https://d2gr5kl7dt2z3t.cloudfront.net/blog/wp-content/uploads/2023/09/19155253/AAPL-insidermonkey-1695153171712.jpg",
+      "domain": "insidermonkey.com",
+      "language": "English",
+      "sourcecountry": "United States",
+      "coverage_count": 2,
+      "days_ago": 4,
+      "recency_weight": 1.0,
+      "content": "We recently published a list ofAnalysts Are Talking About These 10 AI Stocks. In this article, we are going to take a look at where Apple Inc. (NASDAQ:AAPL) stands against other stocks analysts are talking about. He used the analogy of a child raised in a library, now ready to step out into the world. “What if they, we make them interact with sensory data, with vision data, with, uh, you know, like basically opening that door of the library and making this child walk into the real world? I think this creation of word models, like they’re called generally in the industry, where you combine multimodal information, that is not only text but is also videos, but is also sensory data. Despite high hopes, a potential plateau in performance improvements in AI systems, high energy consumption of AI data centers and transparency remain key issues tech companies will continue to grapple with in 2025. READ ALSO:7 Best Stocks to Buy For Long-Termand8 Cheap Jim Cramer Stocks to Invest In For this article, we picked 10 AI stocks currently trending based on latest news and analyst ratings. The reason is simple: our research has shown that we can outperform the market by imitating the top stock picks of the best hedge funds. Our quarterly newsletter’s strategy selects 14 small-cap and large-cap stocks every quarter and has returned 275% since May 2014, beating its benchmark by 150 percentage points(see more details here). A wide view of an Apple store, showing the range of products the company offers. “If you look at the valuation, it’s trading well north of 30 times on a PE basis, which is at or above its peers who are also taking advantage of this AI-fueled rally. When you look at the next couple of years for Apple Inc (NASDAQ:AAPL), on what looks to be a very slow-developing upgrade cycle, if there is a major upgrade cycle, you’re looking at mid to high single-digit EPS growth. So, north of 30 times PE, mid single-digit to high single-digit EPS growth—I think it’s, you know, an expensive stock.” Apple Inc (NASDAQ:AAPL) is desperately in need of new catalysts. The company’s revenue in China fell 8% in fiscal year 2024, following a 2% decline the previous year. The Chinese market accounts for about 15% of Apple’s total revenue, so this downtrend cannot be ignored. Investors had hopes for the Wearables, Home, and Accessories segment, but so far its performance has been weak. Vision Pro faces tough competition from Meta’s $500 Quest and the more affordable Quest 3S, making it hard to justify its $3,500 price tag. The failure of Apple’s HomePod, unable to compete with Amazon’s and Google’s lower-priced offerings, further highlights the challenges in this market. Apple’s iPhone 16 has not shown promising growth prospects yet and investors are still in a wait-and-see mode on the AI platform. While the company is projected to achieve 9.5% EPS growth this fiscal year and 12.3% growth in the next, much of this growth is already priced in, as the stock trades at nearly 30 times the expected EPS for the fiscal year ending September 2026. Parnassus Growth Equity Fund stated the following regarding Apple Inc. Investors reacted positively to the new iPhone 16 lineup and its advanced features, including generative artificial intelligence, greater durability and increased processing power.” Overall, AAPLranks 5thon our list of stocks analysts are talking about. While we acknowledge the potential of AAPL, our conviction lies in the belief that under the radar AI stocks hold greater promise for delivering higher returns, and doing so within a shorter time frame. If you are looking for an AI stock that is more promising than AAPL but that trades at less than 5 times its earnings, check out our report about thecheapest AI stock. This article is originally published atInsider Monkey. Cancel anytime.",
+      "content_stats": {
+        "total_sentences": 36,
+        "relevant_sentences": 27,
+        "relevance_ratio": 0.75,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3093
+      },
+      "impact_horizon_weight": 0.5484,
+      "final_weight": 0.7405
+    },
+    {
+      "url": "https://www.insidermonkey.com/blog/analyst-on-nvidia-nvda-investors-should-be-very-vigilant-amid-rising-competition-1414553/",
+      "url_mobile": "https://www.insidermonkey.com/blog/analyst-on-nvidia-nvda-investors-should-be-very-vigilant-amid-rising-competition-1414553/?amp=1",
+      "title": "Analyst on NVIDIA ( NVDA ): Investors Should Be  Very Vigilant  Amid Rising Competition",
+      "seendate": "20241227T190000Z",
+      "socialimage": "https://d2gr5kl7dt2z3t.cloudfront.net/blog/wp-content/uploads/2023/09/19153615/NVDA-insidermonkey-1695152172066.jpg",
+      "domain": "insidermonkey.com",
+      "language": "English",
+      "sourcecountry": "United States",
+      "coverage_count": 1,
+      "days_ago": 5,
+      "recency_weight": 1.0,
+      "content": "We recently published a list ofTop 10 AI Stocks That Should Be On Your Watchlist for 2025. Investors are looking for new growth horizons in the AI industry to gauge whether the current market rally can continue for the years to come. Chetan Puttagunta, Benchmark general partner, said he’s noticed a lot of innovation in the past few weeks focused on improving the efficiency of algorithms. “In the last six to eight weeks, we’ve seen a tremendous amount of innovation, especially at the model layer, and then for the last two years at the application layer, taking advantage of all the advances in the AI models. The reason is simple: our research has shown that we can outperform the market by imitating the top stock picks of the best hedge funds. Our quarterly newsletter’s strategy selects 14 small-cap and large-cap stocks every quarter and has returned 275% since May 2014, beating its benchmark by 150 percentage points(see more details here). A close-up of a colorful high-end graphics card being plugged in to a gaming computer. “I think 2025 is going to be the year where all bets are off—or rather, all gloves are off—in AI competition. Last week, atThe Information, we reported that Broadcom is now working with Apple on an AI chip for inference. An EPS surprise of 8.5% was not able to help the stock. A similar trend occurred following the second-quarter earnings after a 5.6% EPS surprise. It’s difficult to see Nvidia maintaining a mid-70s gross margin by the end of 2026. Over the last two quarters, Nvidia has already reported a drop in its gross margin from 78% to 74.5%. Then there’s competition. The chip is expected to be twice as fast with 40% more power efficiency than the previous generation, manufactured on TSMC’s (TSM) cutting-edge N3 technology. Reportedly, technology giant Apple (AAPL) will be a consumer of Amazon’s new silicon. It hit an eye-opening market capitalization of $3 trillion in June, less than four months after it eclipsed the $2 trillion mark. Enthusiasm for everything AI-related, especially for the primary chip maker whose products are essential to powering AI technology, continues to fuel the market. While we acknowledge the potential of NVDA, our conviction lies in the belief that under the radar AI stocks hold greater promise for delivering higher returns, and doing so within a shorter timeframe. If you are looking for an AI stock that is more promising than NVDA but that trades at less than 5 times its earnings, check out our report about thecheapest AI stock. This article is originally published atInsider Monkey. Cancel anytime.",
+      "content_stats": {
+        "total_sentences": 42,
+        "relevant_sentences": 22,
+        "relevance_ratio": 0.5238,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3222
+      },
+      "impact_horizon_weight": 0.5323,
+      "final_weight": 0.7296
+    },
+    {
+      "url": "https://www.benzinga.com/markets/futures/24/12/42699993/us-stocks-to-open-lower-as-index-future-decline-analysts-remain-upbeat-about-santa-rally",
+      "url_mobile": "",
+      "title": "US Stocks To Open Lower As Index Future Decline : Analysts Remain Upbeat About Santa Rally - Apple ( NASDAQ : AAPL ), Evaxion Biotech ( NASDAQ : EVAX ) ",
+      "seendate": "20241227T131500Z",
+      "socialimage": "https://cdn.benzinga.com/files/images/story/2024/12/27/Wall-Street_2.jpeg?&fit=crop",
+      "domain": "benzinga.com",
+      "language": "English",
+      "sourcecountry": "United States",
+      "coverage_count": 1,
+      "days_ago": 5,
+      "recency_weight": 1.0,
+      "content": "A newsletter built for market enthusiasts by market enthusiasts. Top stories, top movers, and trade ideas delivered to your inbox every weekday before and after the market closes. U.S. stock futures tumbled on Friday in premarket hours after a mixed Thursday. All four index futures slipped in trade. Analysts say that the full ‘Santa Claus Rally’ has never been lower. The 10-year and two-year Treasury notes yielded 4.61% and 4.33%, respectively. The probability of having no change in the interest rates for the upcoming Jan. 31, 2025 decision was at 89.3%, down from 91.4% a week ago, accordingtoCME Group’s FedWatch tool. Cues From The Last Session U.S. stock markets closed mixed on Thursday, following a Christmas break. Month-to-date performance varied across indices. The Nasdaq significantly outperformed, driven by strong gains inTesla Inc.(NASDAQ:TSLA) andApple Inc.(NASDAQ:AAPL), while the Dow Jones experienced a decline of around 3.5%. Economic data released on Thursday showed a slight decrease in initial jobless claims, coming in below market expectations. This suggests a continued strong labor market. Sector performance was mixed. Healthcare, financial, and real estate sectors led gains, while consumer discretionary and communication services sectors underperformed. Insights From Analysts According to the chief market strategist at Carson Research,Ryan Detrick, the final six days of the ‘Santa Claus Rally’ has been higher five out of seven, with two small losses. But even these six days have been higher by 1.7% on average. According toCharlie Bilello, the chief market strategist at Creative Planning the S&P 500’s 57 all-time highs in 2024 was the fifth highest in its history. New unemployment claims came in at 219,000, which was a bit lower than the four-week moving average of 226,500,” he added. The Dollar Index was up 0.01% to 108.138 level. Asian markets were mixed on Friday, as Hong Kong’s Hang Seng, China’s CSI 300, and South Korea’s Kospi index declined. Whereas, Japan’s Nikkei 225, Australia’s ASX 200, and India’s S&P BSE Sensex index rose. Most European markets traded higher. Benzinga does not provide investment advice. All rights reserved. To addBenzinga Newsas your preferred source on Google,click here.",
+      "content_stats": {
+        "total_sentences": 38,
+        "relevant_sentences": 28,
+        "relevance_ratio": 0.7368,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3006
+      },
+      "impact_horizon_weight": 0.5323,
+      "final_weight": 0.7296
+    },
+    {
+      "url": "https://www.benzinga.com/24/12/42697989/dow-edges-higher-in-thin-holiday-trading-fear-declines-among-us-investors-but-fear-greed-index-remains-in-fear-zo",
+      "url_mobile": "",
+      "title": "Dow Edges Higher In Thin Holiday Trading As Tesla , Apple Surge : Investor Sentiment Improves , But Greed Index Remains In  Fear  Zone - Tesla ( NASDAQ : TSLA ) ",
+      "seendate": "20241227T103000Z",
+      "socialimage": "https://cdn.benzinga.com/files/images/story/2024/12/27/Market-Sentiment--Fear-And-Greed-Index--.jpeg?&fit=crop",
+      "domain": "benzinga.com",
+      "language": "English",
+      "sourcecountry": "United States",
+      "coverage_count": 1,
+      "days_ago": 5,
+      "recency_weight": 1.0,
+      "content": "A newsletter built for market enthusiasts by market enthusiasts. Top stories, top movers, and trade ideas delivered to your inbox every weekday before and after the market closes. U.S. stocks settled mixed on Thursday, with the Dow Jones index closing slightly higher during the session. The market was shut on Wednesday for Christmas Day. Month to date, the S&P 500 gained 0.1%, while the Nasdaq has surged 4.2%, driven by significant gains inTesla(NASDAQ:TSLA) andApple(NASDAQ:AAPL). On the economic data front, U.S. initial jobless claims fell by 1,000 from the previous week to a reading of 219,000 during the second week of December, compared to market estimates of 224,000. Most sectors on the S&P 500 closed on a positive note, with healthcare, financial, and real estate stocks recording the biggest gains on Thursday. At a current reading of 35.1, the index remained in the “Fear” zone on Thursday, versus a prior reading of 34. The Fear & Greed Index is a measure of the current market sentiment. It is based on the premise that higher fear exerts pressure on stock prices, while higher greed has the opposite effect. The index ranges from 0 to 100, where 0 represents maximum fear and 100 signals maximum greediness. Benzinga does not provide investment advice. All rights reserved. To addBenzinga Newsas your preferred source on Google,click here.",
+      "content_stats": {
+        "total_sentences": 24,
+        "relevant_sentences": 16,
+        "relevance_ratio": 0.6667,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2891
+      },
+      "impact_horizon_weight": 0.5323,
+      "final_weight": 0.7296
+    },
+    {
+      "url": "https://www.themarketsdaily.com/2024/12/27/equities-research-analysts-updated-eps-estimates-for-december-26th-aapl-acva-avxl-celh-crvl-kmpr-mcy-nke-pb-pypd.html",
+      "url_mobile": "",
+      "title": "Equities Research Analyst Updated EPS Estimates for December 26th ( AAPL , ACVA , AVXL , CELH , CRVL , KMPR , MCY , NKE , PB , PYPD ) ",
+      "seendate": "20241227T061500Z",
+      "socialimage": "",
+      "domain": "themarketsdaily.com",
+      "language": "English",
+      "sourcecountry": "United States",
+      "coverage_count": 1,
+      "days_ago": 5,
+      "recency_weight": 1.0,
+      "content": null,
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3025
+      },
+      "impact_horizon_weight": 0.5323,
+      "final_weight": 0.7296
+    },
+    {
+      "url": "https://www.insidermonkey.com/blog/dan-niles-on-apple-aapl-data-is-somewhat-disappointing-and-stock-is-pretty-expensive-1413968/",
+      "url_mobile": "https://www.insidermonkey.com/blog/dan-niles-on-apple-aapl-data-is-somewhat-disappointing-and-stock-is-pretty-expensive-1413968/?amp=1",
+      "title": "Dan Niles on Apple ( AAPL ): Data is  Somewhat Disappointing  and Stock is  Pretty Expensive",
+      "seendate": "20241226T223000Z",
+      "socialimage": "https://d2gr5kl7dt2z3t.cloudfront.net/blog/wp-content/uploads/2023/09/13040841/AAPL-imagemaker-1694592519294.jpg",
+      "domain": "insidermonkey.com",
+      "language": "English",
+      "sourcecountry": "United States",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 1.0,
+      "content": "We recently published a list of10 AI Stocks Wall Street is Talking About. In this article, we are going to take a look at where Apple Inc. (NASDAQ:AAPL) stands against other AI stocks Wall Street is talking about. Defiance ETFs CEO and CIO Sylvia Jablonski said in a recent program on Bloomberg that there are trillions of dollars of cash waiting on the sidelines ready to be invested in AI amid demand that is at an all-time high. “There’s a biggest wealth transfer of our generation happening as we speak. And you know, Gen Z, you know, Gen Z, Millennial, Gen X kind of, you know, the younger traders are, this is where they’re allocating their funds to. So you need quantum in order for it to be efficient. You need to process that data quickly. The reason is simple: our research has shown that we can outperform the market by imitating the top stock picks of the best hedge funds. Our quarterly newsletter’s strategy selects 14 small-cap and large-cap stocks every quarter and has returned 275% since May 2014, beating its benchmark by 150 percentage points(see more details here). An Apple store displaying the latest in consumer electronics, from smartphones to wearables. Number of Hedge Fund Investors: 158 Dan Niles of Niles Investment Management said while talking to Schwab Network in a latest program that the data around Apple Inc’s (NASDAQ:AAPL) new iPhone has been “disappointing.” “Relative to three months ago, the data, if you actually take a look at it, has been somewhat disappointing, with the rollout being much slower. You don’t get a rollout in Europe until next year, hopefully in the first quarter, and for China, we still don’t know when they’re going to roll out AI features. With the stock now trading at a multiple that just keeps expanding—now in the low 30 PE range compared to the S&P at about 22 times—it’s looking pretty expensive. So for me, Apple Inc (NASDAQ:AAPL) is not one I would really be that bullish on right here. It’s just going up with the tape, but I think as we get closer to them having to report and guide, you may have an issue.” Apple Inc (NASDAQ:AAPL) has been seeing a long-term decline in mobile carrier upgrade rates, especially postpaid, for several years. This suggests that people are holding onto their devices longer, likely due to economic factors, satisfaction with current technology, or a lack of exciting new features in recent models In the latest earnings call, Apple Inc (NASDAQ:AAPL) CEO Tim Cook highlighted new features for the iPhone, such as a more comfortable watch band and sleep apnea detection, but none appeared to be major demand drivers for new customers. Mar Vista Strategic Growth Strategy stated the following regarding Apple Inc. (NASDAQ:AAPL) in itsQ3 2024 investor letter: “Apple Inc.(NASDAQ:AAPL) stock was strong in the quarter as investors viewed the company’s generative AI roadmap and iPhone 16 product cycle positively. The market was reminded of the strength of the Apple ecosystem as management demonstrated how generative AI solutions would be integrated into its iOS 18 operating system, which was broadly released in the iPhone 16 late in calendar Q3. We believe Apple’s generative AI-enabled products should spur a meaningful iPhone upgrade cycle and create new avenues of monetization through its app store and advertising offerings. We believe this will support intrinsic value growth that will range between high single digits and low double-digits over our investment horizon.” Overall, AAPLranks 4thon our list of AI stocks Wall Street is talking about. While we acknowledge the potential of AAPL, our conviction lies in the belief that under the radar AI stocks hold greater promise for delivering higher returns, and doing so within a shorter time frame. If you are looking for an AI stock that is more promising than AAPL but that trades at less than 5 times its earnings, check out our report about thecheapest AI stock. This article is originally published atInsider Monkey. Cancel anytime.",
+      "content_stats": {
+        "total_sentences": 36,
+        "relevant_sentences": 26,
+        "relevance_ratio": 0.7222,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3264
+      },
+      "impact_horizon_weight": 0.5161,
+      "final_weight": 0.7184
+    },
+    {
+      "url": "https://finance.yahoo.com/news/apple-stock-touches-intraday-high-after-nod-of-confidence-from-wall-street-154221679.html",
+      "url_mobile": "",
+      "title": "Apple stock touches intraday high after nod of confidence from Wall Street",
+      "seendate": "20241226T161500Z",
+      "socialimage": "https://s.yimg.com/ny/api/res/1.2/4wJKpYVJFN2GTURC48Hlcw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-uploaded-images/2024-12/50bf8b80-bca9-11ef-bada-38725b6ea9b9",
+      "domain": "finance.yahoo.com",
+      "language": "English",
+      "sourcecountry": "United States",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 1.0,
+      "content": null,
+      "content_stats": {
+        "total_sentences": 5,
+        "relevant_sentences": 4,
+        "relevance_ratio": 0.8,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.4987
+      },
+      "impact_horizon_weight": 0.5161,
+      "final_weight": 0.7184
     },
     {
       "url": "https://wallstreetpit.com/121765-apples-4-trillion-dream-ai-hype-or-real-growth/",
@@ -547,160 +561,13 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9818,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.7658
-    },
-    {
-      "url": "https://qz.com/apple-appl-ai-intelligence-4-trillion-market-cap-2025-1851727371",
-      "url_mobile": "",
-      "title": "Apple could hit a $4 trillion market cap by early 2025",
-      "seendate": "20241223T153000Z",
-      "socialimage": "https://i.kinja-img.com/image/upload/c_fill,h_675,pg_1,q_80,w_1200/c5eb61acbf58c4ff2cb35e9b2161d79d.jpg",
-      "domain": "qz.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 9,
-      "recency_weight": 0.5,
-      "content": null,
-      "fls_label": "Specific FLS",
-      "fls_confidence": 0.8603,
-      "impact_horizon": "SHORT_TERM",
-      "horizon_weight": 0.6937,
-      "final_weight": 0.5775
-    },
-    {
-      "url": "https://www.investopedia.com/microstrategy-stock-is-up-400-this-year-what-you-need-to-know-about-the-bitcoin-proxy-8756621",
-      "url_mobile": "",
-      "title": "MicroStrategy Stock Is Up 400 % This Year What You Need to Know About the Bitcoin Proxy",
-      "seendate": "20241223T111500Z",
-      "socialimage": "https://www.investopedia.com/thmb/efIIROSHlrME1_WH1c300fqqBWg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/MicroStrategyitschairmanMichaelSaylorandbitcoin-7ff7439c8a2543dd96b43baac69d2f55.jpg",
-      "domain": "investopedia.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 9,
-      "recency_weight": 0.5,
-      "content": "Stock Will Join Nasdaq 100 Index on Monday Mrinalini Krishna is a former Senior Editor of investing news at Investopedia. Shares of the company have gained more than 400% since the start of 2024, as bitcoin has surged to record highs above $100,000 amid optimism that the digital currency will benefit from policies that the incoming Trump administration and a crypto-supportive Congress are likely to put in place. MicroStrategy, little known to most investors before this year's rally, is now stepping further into the spotlight as itjoins the Nasdaq 100 Index, which comprises many of the largest, most actively traded companies in the world, including Nvidia (NVDA), Apple (AAPL) and Tesla (TSLA). As a result, exchange-traded funds that track the index, such as the Invesco QQQ Trust (QQQ), have to adjust their portfolios to include MicroStrategy. However, some investors have said the blockbuster stock price gains aren't sustainable, in part because of the leverage. The strategy of using leverage, however, has translated into stock price gains that have far outpaced bitcoin, which is up about 125% since the start of the year. The company, which hasn't turned a profit in any quarter this year, purchased its first batch of bitcoin in 2020, when it was trading close to $11,000. At the end of last year MicroStrategy held 189,150 bitcoins and its assumed diluted shares outstanding figure was 207,636, making the ratio 0.91. As of Dec. But then over the course of the five years, we double or quadruple the investment, because we're buying an asset which is appreciating faster than the S&P, Saylor told CNBC. The stock is currently trading around $360. The analysts say the longer tenure of the debt gives the company some cushion against immediate repayment or volatility in bitcoin prices. Not everyone is convinced MicroStrategy's performance is sustainable. Update, Dec. X. @saylor, 8:18 PM, Dec 18, 2013. Businesswire. MicroStrategy’s Michael Saylor: We want to bridge traditional capital markets with crypto economy. U.S. Securities and Exchange Commission.",
-      "content_stats": {
-        "total_sentences": 44,
-        "relevant_sentences": 18,
-        "relevance_ratio": 0.4091,
-        "condensed": false,
-        "filter_action": "filtered"
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2776
       },
-      "fls_label": "Specific FLS",
-      "fls_confidence": 0.4624,
-      "impact_horizon": "SHORT_TERM",
-      "horizon_weight": 0.6937,
-      "final_weight": 0.5775
-    },
-    {
-      "url": "https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-december-18-2024-8763275",
-      "url_mobile": "",
-      "title": "5 Things to Know Before the Stock Market Opens",
-      "seendate": "20241218T174500Z",
-      "socialimage": "https://www.investopedia.com/thmb/2ZjQwsuStWnlYHTp1LFIL5VjgmM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-2175611126-9f7c5490e6634d83b69d2d7a73bb0c80.jpg",
-      "domain": "investopedia.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 14,
-      "recency_weight": 0.5,
-      "content": "News of the day for Dec. 18, 2024 Terry Lane is a writer for Investopedia with 25 years of experience in journalism and communications. Valerie Plesch / picture alliance via Getty Images Investors are expecting today'sFederal Reservemeeting to end with the announcement of another interest-rate cut; U.S. Investors will be closely watchingtoday's interest-rate announcementafter the two-dayFederal Open Markets Committee (FOMC)meeting concludes. Officials arewidely expected to lowerthefederal funds rateby a quarter-percentage point to a range of 4.25% to 4.5%. Market watchers also are anticipating the release of the Fed's economic projections, which show where officials believe inflation and interest rates are heading. U.S. stock futures are higher ahead of the FOMC decision and comments from Fed chair Powell. Crude oil futures are 0.6% higher. Nissan shares soared about 24% and those of Honda slipped 3% in Tokyo trading Wednesday after the Japanese automakers confirmed aNikkeireport that said they arein discussions to merge.The companies intend to sign a memorandum of understanding to negotiate shared equity in a holding company that would house the combined automaker, according toNikkei, potentially putting pressure on domestic rival Toyota (TM).Meanwhile,Dow Jones Newswiresreported that Foxconn, the Taiwanese company that makes Apple (AAPL) products, has also expressed interest in taking over Nissan. as part of theCHIPS and Science Act of 2022.",
-      "content_stats": {
-        "total_sentences": 27,
-        "relevant_sentences": 11,
-        "relevance_ratio": 0.4074,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "fls_label": "Specific FLS",
-      "fls_confidence": 0.5376,
-      "impact_horizon": "SHORT_TERM",
-      "horizon_weight": 0.6937,
-      "final_weight": 0.5775
-    },
-    {
-      "url": "http://baystreet.ca/stockstowatch/19857/Todays-Stock-News-on-Honda-Apple-and-Energy-Stocks",
-      "url_mobile": "/amp/articles/stockstowatch.aspx?articleid=106916",
-      "title": "Baystreet . ca - Today Stock News on Honda , Apple , and Energy Stocks",
-      "seendate": "20241224T171500Z",
-      "socialimage": "http://baystreet.ca/images/articlegroups/original/7/private/apple.jpg",
-      "domain": "baystreet.ca",
-      "language": "English",
-      "sourcecountry": "Canada",
-      "coverage_count": 1,
-      "days_ago": 8,
-      "recency_weight": 0.5,
-      "content": "NSANY stock already last week on Dec. 17 in anticipation of the news. The merger would create the third-largest automaker as measured by sales. The deal creates operational headwinds. Apple (AAPL) closed at a fresh all-time high on Monday. At 3.931 trillion dollars in market cap, the $4 trillion level is next. While the rise is inevitable, AAPL stock risks pulling back. The firm’s iPhone does not offer compelling features that would ignite an upgrade supercycle among its customers. Wait for WTI crude prices to stabilize. The stock trades at a 13.11 times P/E multiple.",
-      "content_stats": {
-        "total_sentences": 19,
-        "relevant_sentences": 10,
-        "relevance_ratio": 0.5263,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9378,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
-    },
-    {
-      "url": "https://www.benzinga.com/markets/24/12/42668097/warren-buffett-heads-into-2025-with-325-billion-cash-pile-his-largest-in-over-three-decades-expert-says-it-will-provide-an-opportunity-for-the-successors-to-make-their-own-mark",
-      "url_mobile": "",
-      "title": "Warren Buffett Heads Into 2025 With $325 Billion Cash Pile , His Largest in Over Three Decades : Expert Says It  Will Provide An Opportunity For The Successors To Make Their Own Mark  - Apple ( NASDAQ : AAPL ), Bank of America ( NYSE : BAC ) ",
-      "seendate": "20241224T140000Z",
-      "socialimage": "https://cdn.benzinga.com/files/images/story/2024/12/24/1--Transformation-Of-Berkshire-Hathaway.jpeg?&fit=crop",
-      "domain": "benzinga.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 8,
-      "recency_weight": 0.5,
-      "content": "A newsletter built for market enthusiasts by market enthusiasts. Top stories, top movers, and trade ideas delivered to your inbox every weekday before and after the market closes. Warren Buffettis entering 2025 with the largest cash reserve atBerkshire Hathaway(NYSE:BRK) (NYSE:BRK) in over three decades. What Happened: The conglomerate’s cash holdings have reached a staggering $325 billion, marking the highest percentage of total assets since 1990, CNBCreportedon Tuesday. This cash accumulation comes as Buffett, 94, finds few attractive investment opportunities amid a highly valued market. The “Buffett indicator,” which compares the total market value of U.S. stocks to GDP, has soared to 209%, a level not seen since the 1929 market peak, according to Oppenheimer data. Throughout 2024, Buffett sold significant portions of his largest holdings, includingApple Inc.(NASDAQ:AAPL) andBank of America Corp.(NYSE:BAC), offloading $133 billion in stocks during the year’s first three quarters. AnalystKevin Healfrom Argus Research suggests that some of the cash could be used for investments in distressed situations, allowing successors to leave their mark. This will also provide an opportunity for the successors to make their own mark when Mr. Buffett ocially hands over the reins. Why It Matters: This substantial cash reserve positions Berkshire Hathaway for strategic maneuvers in the coming years. Recently, Buffett’s investment activities have shown a shift. This move, totaling around $405 million, raised Berkshire’s ownership to 28% of Occidental, valued at approximately $12 billion. Benzinga does not provide investment advice. All rights reserved. To addBenzinga Newsas your preferred source on Google,click here.",
-      "content_stats": {
-        "total_sentences": 21,
-        "relevant_sentences": 16,
-        "relevance_ratio": 0.7619,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.4952,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
-    },
-    {
-      "url": "https://www.investors.com:443/research/apple-stock-meta-taiwan-semi-stock/",
-      "url_mobile": "",
-      "title": "Apple Stock And Two Other 2024 Winners Are On Fund Manager Radars",
-      "seendate": "20241224T023000Z",
-      "socialimage": "https://www.investors.com/wp-content/uploads/2024/09/Stock-Apple-iPhone16f-company.jpg",
-      "domain": "investors.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 8,
-      "recency_weight": 0.5,
-      "content": "Investors are not alone as they look toward 2025 by looking back on the leaders of 2024. Big funds are leaning toward leaders such as Apple (AAPL), which outperformed during the year as well. IBD's screen of stocks funds are buying shows Taiwan Semiconductor (TSM,) Meta Platforms (META) and Apple among those getting the most demand.",
-      "content_stats": {
-        "total_sentences": 4,
-        "relevant_sentences": 3,
-        "relevance_ratio": 0.75,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9693,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
+      "impact_horizon_weight": 0.5,
+      "final_weight": 0.7071
     },
     {
       "url": "https://www.sharecast.com/news/market-report-us-close/us-close-stocks-push-higher-despite-mixed-economic-data--18379740.html",
@@ -722,11 +589,13 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.6807,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.3036
+      },
+      "impact_horizon_weight": 0.871,
+      "final_weight": 0.6599
     },
     {
       "url": "https://www.investors.com:443/news/technology/apple-stock-record-high-strong-holiday-sales/",
@@ -748,11 +617,97 @@
         "condensed": false,
         "filter_action": "no_change"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9755,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.3317
+      },
+      "impact_horizon_weight": 0.8548,
+      "final_weight": 0.6538
+    },
+    {
+      "url": "http://baystreet.ca/stockstowatch/19857/Todays-Stock-News-on-Honda-Apple-and-Energy-Stocks",
+      "url_mobile": "/amp/articles/stockstowatch.aspx?articleid=106916",
+      "title": "Baystreet . ca - Today Stock News on Honda , Apple , and Energy Stocks",
+      "seendate": "20241224T171500Z",
+      "socialimage": "http://baystreet.ca/images/articlegroups/original/7/private/apple.jpg",
+      "domain": "baystreet.ca",
+      "language": "English",
+      "sourcecountry": "Canada",
+      "coverage_count": 1,
+      "days_ago": 8,
+      "recency_weight": 0.5,
+      "content": "NSANY stock already last week on Dec. 17 in anticipation of the news. The merger would create the third-largest automaker as measured by sales. The deal creates operational headwinds. Apple (AAPL) closed at a fresh all-time high on Monday. At 3.931 trillion dollars in market cap, the $4 trillion level is next. While the rise is inevitable, AAPL stock risks pulling back. The firm’s iPhone does not offer compelling features that would ignite an upgrade supercycle among its customers. Wait for WTI crude prices to stabilize. The stock trades at a 13.11 times P/E multiple.",
+      "content_stats": {
+        "total_sentences": 19,
+        "relevant_sentences": 10,
+        "relevance_ratio": 0.5263,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3017
+      },
+      "impact_horizon_weight": 0.5968,
+      "final_weight": 0.5462
+    },
+    {
+      "url": "https://www.benzinga.com/markets/24/12/42668097/warren-buffett-heads-into-2025-with-325-billion-cash-pile-his-largest-in-over-three-decades-expert-says-it-will-provide-an-opportunity-for-the-successors-to-make-their-own-mark",
+      "url_mobile": "",
+      "title": "Warren Buffett Heads Into 2025 With $325 Billion Cash Pile , His Largest in Over Three Decades : Expert Says It  Will Provide An Opportunity For The Successors To Make Their Own Mark  - Apple ( NASDAQ : AAPL ), Bank of America ( NYSE : BAC ) ",
+      "seendate": "20241224T140000Z",
+      "socialimage": "https://cdn.benzinga.com/files/images/story/2024/12/24/1--Transformation-Of-Berkshire-Hathaway.jpeg?&fit=crop",
+      "domain": "benzinga.com",
+      "language": "English",
+      "sourcecountry": "United States",
+      "coverage_count": 1,
+      "days_ago": 8,
+      "recency_weight": 0.5,
+      "content": "A newsletter built for market enthusiasts by market enthusiasts. Top stories, top movers, and trade ideas delivered to your inbox every weekday before and after the market closes. Warren Buffettis entering 2025 with the largest cash reserve atBerkshire Hathaway(NYSE:BRK) (NYSE:BRK) in over three decades. What Happened: The conglomerate’s cash holdings have reached a staggering $325 billion, marking the highest percentage of total assets since 1990, CNBCreportedon Tuesday. This cash accumulation comes as Buffett, 94, finds few attractive investment opportunities amid a highly valued market. The “Buffett indicator,” which compares the total market value of U.S. stocks to GDP, has soared to 209%, a level not seen since the 1929 market peak, according to Oppenheimer data. Throughout 2024, Buffett sold significant portions of his largest holdings, includingApple Inc.(NASDAQ:AAPL) andBank of America Corp.(NYSE:BAC), offloading $133 billion in stocks during the year’s first three quarters. AnalystKevin Healfrom Argus Research suggests that some of the cash could be used for investments in distressed situations, allowing successors to leave their mark. This will also provide an opportunity for the successors to make their own mark when Mr. Buffett ocially hands over the reins. Why It Matters: This substantial cash reserve positions Berkshire Hathaway for strategic maneuvers in the coming years. Recently, Buffett’s investment activities have shown a shift. This move, totaling around $405 million, raised Berkshire’s ownership to 28% of Occidental, valued at approximately $12 billion. Benzinga does not provide investment advice. All rights reserved. To addBenzinga Newsas your preferred source on Google,click here.",
+      "content_stats": {
+        "total_sentences": 21,
+        "relevant_sentences": 16,
+        "relevance_ratio": 0.7619,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3074
+      },
+      "impact_horizon_weight": 0.5968,
+      "final_weight": 0.5462
+    },
+    {
+      "url": "https://www.investors.com:443/research/apple-stock-meta-taiwan-semi-stock/",
+      "url_mobile": "",
+      "title": "Apple Stock And Two Other 2024 Winners Are On Fund Manager Radars",
+      "seendate": "20241224T023000Z",
+      "socialimage": "https://www.investors.com/wp-content/uploads/2024/09/Stock-Apple-iPhone16f-company.jpg",
+      "domain": "investors.com",
+      "language": "English",
+      "sourcecountry": "United States",
+      "coverage_count": 1,
+      "days_ago": 8,
+      "recency_weight": 0.5,
+      "content": "Investors are not alone as they look toward 2025 by looking back on the leaders of 2024. Big funds are leaning toward leaders such as Apple (AAPL), which outperformed during the year as well. IBD's screen of stocks funds are buying shows Taiwan Semiconductor (TSM,) Meta Platforms (META) and Apple among those getting the most demand.",
+      "content_stats": {
+        "total_sentences": 4,
+        "relevant_sentences": 3,
+        "relevance_ratio": 0.75,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3091
+      },
+      "impact_horizon_weight": 0.5968,
+      "final_weight": 0.5462
     },
     {
       "url": "https://www.benzinga.com/24/12/42656752/5-tech-stocks-to-buy-as-ai-hype-fizzles",
@@ -774,11 +729,34 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9797,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.2768
+      },
+      "impact_horizon_weight": 0.5806,
+      "final_weight": 0.5388
+    },
+    {
+      "url": "https://qz.com/apple-appl-ai-intelligence-4-trillion-market-cap-2025-1851727371",
+      "url_mobile": "",
+      "title": "Apple could hit a $4 trillion market cap by early 2025",
+      "seendate": "20241223T153000Z",
+      "socialimage": "https://i.kinja-img.com/image/upload/c_fill,h_675,pg_1,q_80,w_1200/c5eb61acbf58c4ff2cb35e9b2161d79d.jpg",
+      "domain": "qz.com",
+      "language": "English",
+      "sourcecountry": "United States",
+      "coverage_count": 1,
+      "days_ago": 9,
+      "recency_weight": 0.5,
+      "content": null,
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3308
+      },
+      "impact_horizon_weight": 0.5806,
+      "final_weight": 0.5388
     },
     {
       "url": "https://www.investopedia.com/microstrategy-stock-is-up-400-this-year-what-you-need-to-know-about-the-bitcoin-proxy-8756621",
@@ -792,19 +770,21 @@
       "coverage_count": 1,
       "days_ago": 9,
       "recency_weight": 0.5,
-      "content": "Tom Hancock, GMO U.S. quality ETF portfolio manager, said in a latest program on CNBC that the NASDAQ has become “risky” bet amid a lot of volatility. “It’s become not really an index; it’s become a single bet. So it it’s a very risky thing to invest in. It’s not what I think you would want from a sort of diversified investor. It’s probably going to give you more volatile returns next year, and I’d a little bit worry that the AI rally has extended itself. He thinks AI stocks have become a “hype trade” and any “hiccup” in the economy could result in these stocks crashing. Hancock believes AI gains are now set to broaden out to smaller companies that have not received a lot of attention so far. READ ALSO7 Best Stocks to Buy For Long-Termand8 Cheap Jim Cramer Stocks to Invest In For this article we picked 10 AI stocks currently trending based on latest news. The reason is simple: our research has shown that we can outperform the market by imitating the top stock picks of the best hedge funds. Our quarterly newsletter’s strategy selects 14 small-cap and large-cap stocks every quarter and has returned 275% since May 2014, beating its benchmark by 150 percentage points(see more details here). The firm sees significant potential in the application-specific integrated circuit (ASIC) market, largely driven by the rapid growth of artificial intelligence. The research firm highlighted that companies involved in AI compute, networking, and storage benefited in 2024 due to strong infrastructure development, resulting in notable share price outperformance and positive earnings revisions. The firm sees significant potential in the application-specific integrated circuit (ASIC) market, largely driven by the rapid growth of artificial intelligence. The research firm highlighted that companies involved in AI compute, networking, and storage benefited in 2024 due to strong infrastructure development, resulting in notable share price outperformance and positive earnings revisions. We believe Marvell has among the broadest range of intellectual property in technological areas (e.g., high-bandwidth data switching and storage applications) that position it well for the growing requirements of data centers, wireless networks and autos. Several of the company’s product lines (e.g., custom silicon, optical connectivity and switching) are benefiting from the growth of AI data centers. And we believe a significant opportunity exists for the company to help design and manufacture cost-effective custom data center chips that would help cloud providers reduce their reliance on expensive graphics processing units (GPUs). And ultimately, those are AI products. I believe that the market itself is doing a bit of a repricing, but you know, ultimately we’re talking about the future of transportation here. And when we look out, ultimately, we believe the dominant automotive platform will be EVs paired with autonomy. The legacy OEMs are either cutting or removing both their EV and autonomy programs. How? What about the $30,000 price tag claim? Musk has indicated that the Cybercab will have a production cost of approximately $30,000. Operating within the robotaxi fleet is projected to cost around $0.20 per mile. With a production cost of $30,000, the retail price of the Cybercab is likely to exceed this figure. For instance, if the Cybercab is priced at $30,000 per unit, that translates to $15,000 per seat. Regarding operational costs, while the Cybercab is expected to cost $0.20 per mile, charging the Model 3 is estimated at under $0.10 per mile, leaving a significant margin to cover maintenance and downtime. What are these challenges? Meanwhile, competitors are rolling out more advanced models. Chinese competitor BYD is also gaining ground in Europe, despite talk of tariffs. In short, the market seems to be pricing in a lot of positive optionality for this company in the near-to-intermediate term (and particularly a fully autonomous fleet of electric vehicles in the medium term). What exists today is an automobile manufacturer limited to the higher-income segment that is increasingly challenged to sell vehicles when interest rates are not zero. “You have to be a little careful with these sort of first-party benchmarks, but they believe that they will compete well versus a subset of Nvidia’s parts. But the issue is those parts that they’re competing at with Nvidia are already here, right? So, I mean, it’s growing off of that. But I can clearly see where the dollars are really flowing in the space. According to Goldman Sachs Research, global data center demand could surge by 160% by 2030. In the U.S., data centers are projected to use 8% of total power by 2030, up from 3% in 2022. McKinsey estimates that adding the required U.S. capacity will need over $500 billion in infrastructure investment by the decade’s end. However, the stock could face the impact of what Nvidia is facing today: too high expectations. The company has narrowly exceeded revenue expectations by less than 5% in most cases. Some analysts suggest Broadcom’s growth rates will moderate to below 20% CAGR starting the first quarter of 2025. In fiscal Q4, it was +50% topline growth. The market won’t be kind to the stock when the revenue growth rate slows. Broadcom has about $58 billion in net debt, which is relatively high. With an enticing combination of custom chip offerings as well as networking assets, Broadcom remains one of the best positioned companies as part of the AI revolution. The company’s dominant market position in its end markets, along with durable growth, strong margins and best-in-class capital allocation, presents an opportunity to compound capital over time.” Number of Hedge Fund Investors: 158 Investment firm J.P. Morgan recently said that the latest Wave7 Research survey indicates Apple’s (NASDAQ:AAPL) iPhone 16 is lagging in market share compared to the previous cycle, potentially due to limited awareness of Apple Intelligence. “Recent surveys from Wave7 Research into US sales trends across various carriers in Oct/Nov-24 highlight that average share for iPhone 16 cycle continues to track lower y/y (relative to share for iPhone 15 in the same period) despite better than seasonal trends in the latest month of survey data,” J.P. “The survey highlights that the lower momentum, reflected in the lower market share y/y, is likely led by the (still) lower consumer awareness for Apple Inc (NASDAQ:AAPL) Intelligence, despite expectations for the feature set to be a key driver for an upgrade cycle.” Chatterjee maintains an Overweight rating on Apple shares. Apple Inc (NASDAQ:AAPL) has been seeing a long-term decline in mobile carrier upgrade rates, especially postpaid, for several years. This suggests that people are holding onto their devices longer, likely due to economic factors, satisfaction with current technology, or a lack of exciting new features in recent models. In the latest earnings call, Apple Inc (NASDAQ:AAPL) CEO Tim Cook highlighted new features for the iPhone, such as a more comfortable watch band and sleep apnea detection, but none appeared to be major demand drivers for new customers. Parnassus Growth Equity Fund stated the following regarding Apple Inc. Investors reacted positively to the new iPhone 16 lineup and its advanced features, including generative artificial intelligence, greater durability and increased processing power.” HeadlineNASDAQ:ADINASDAQ:AMDNASDAQ:AAPLNASDAQ:NVDANASDAQ:METANASDAQ:GOOGNASDAQ:AVGONASDAQ:AMZNDaily NewsletterApple Inc (NASDAQ:AAPL)Tesla Inc. Cancel anytime.",
+      "content": "Stock Will Join Nasdaq 100 Index on Monday Mrinalini Krishna is a former Senior Editor of investing news at Investopedia. Shares of the company have gained more than 400% since the start of 2024, as bitcoin has surged to record highs above $100,000 amid optimism that the digital currency will benefit from policies that the incoming Trump administration and a crypto-supportive Congress are likely to put in place. MicroStrategy, little known to most investors before this year's rally, is now stepping further into the spotlight as itjoins the Nasdaq 100 Index, which comprises many of the largest, most actively traded companies in the world, including Nvidia (NVDA), Apple (AAPL) and Tesla (TSLA). As a result, exchange-traded funds that track the index, such as the Invesco QQQ Trust (QQQ), have to adjust their portfolios to include MicroStrategy. However, some investors have said the blockbuster stock price gains aren't sustainable, in part because of the leverage. The strategy of using leverage, however, has translated into stock price gains that have far outpaced bitcoin, which is up about 125% since the start of the year. The company, which hasn't turned a profit in any quarter this year, purchased its first batch of bitcoin in 2020, when it was trading close to $11,000. At the end of last year MicroStrategy held 189,150 bitcoins and its assumed diluted shares outstanding figure was 207,636, making the ratio 0.91. As of Dec. But then over the course of the five years, we double or quadruple the investment, because we're buying an asset which is appreciating faster than the S&P, Saylor told CNBC. The stock is currently trading around $360. The analysts say the longer tenure of the debt gives the company some cushion against immediate repayment or volatility in bitcoin prices. Not everyone is convinced MicroStrategy's performance is sustainable. Update, Dec. X. @saylor, 8:18 PM, Dec 18, 2013. Businesswire. MicroStrategy’s Michael Saylor: We want to bridge traditional capital markets with crypto economy. U.S. Securities and Exchange Commission.",
       "content_stats": {
-        "total_sentences": 123,
-        "relevant_sentences": 59,
-        "relevance_ratio": 0.4797,
+        "total_sentences": 44,
+        "relevant_sentences": 18,
+        "relevance_ratio": 0.4091,
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.8965,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.2971
+      },
+      "impact_horizon_weight": 0.5806,
+      "final_weight": 0.5388
     },
     {
       "url": "https://www.fool.co.uk/2024/12/22/how-to-target-a-100000-second-income-starting-with-just-1000/",
@@ -826,11 +806,13 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9636,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3009
+      },
+      "impact_horizon_weight": 0.5645,
+      "final_weight": 0.5313
     },
     {
       "url": "https://www.insidermonkey.com/blog/jim-cramer-on-apple-inc-aapl-i-say-own-it-dont-trade-it-its-so-far-the-biggest-position-in-our-trust-1411514/",
@@ -852,11 +834,13 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9752,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3102
+      },
+      "impact_horizon_weight": 0.5484,
+      "final_weight": 0.5236
     },
     {
       "url": "https://www.sharecast.com/news/market-report-us-close/us-close-stocks-higher-following-november-pce-reading--18365704.html",
@@ -878,11 +862,13 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9784,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.2944
+      },
+      "impact_horizon_weight": 0.5484,
+      "final_weight": 0.5236
     },
     {
       "url": "https://macdailynews.com/2024/12/20/apple-shares-hit-new-all-time-intraday-and-closing-highs-241220/",
@@ -904,11 +890,13 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9736,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3137
+      },
+      "impact_horizon_weight": 0.5323,
+      "final_weight": 0.5159
     },
     {
       "url": "https://www.fool.com.au/2024/12/21/if-an-investor-put-5000-in-nvidia-shares-5-years-ago-heres-what-theyd-have-now/",
@@ -930,11 +918,13 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.956,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.2771
+      },
+      "impact_horizon_weight": 0.5323,
+      "final_weight": 0.5159
     },
     {
       "url": "https://www.defenseworld.net/2024/12/20/apple-inc-nasdaqaapl-shares-sold-by-rcs-financial-planning-llc.html",
@@ -949,63 +939,13 @@
       "days_ago": 12,
       "recency_weight": 0.5,
       "content": null,
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9887,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
-    },
-    {
-      "url": "https://www.insidermonkey.com/blog/dan-niles-says-apple-aapl-new-iphone-features-werent-particularly-good-highlights-slowing-growth-1410223/",
-      "url_mobile": "https://www.insidermonkey.com/blog/dan-niles-says-apple-aapl-new-iphone-features-werent-particularly-good-highlights-slowing-growth-1410223/?amp=1",
-      "title": "Dan Niles Says Apple ( AAPL ) New iPhone Features Werent  Particularly Good , Highlights Slowing Growth",
-      "seendate": "20241219T184500Z",
-      "socialimage": "https://d2gr5kl7dt2z3t.cloudfront.net/blog/wp-content/uploads/2023/09/19155253/AAPL-insidermonkey-1695153171712.jpg",
-      "domain": "insidermonkey.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 13,
-      "recency_weight": 0.5,
-      "content": "We recently published a list ofWall Street Analysts Can’t Stop Talking About These 10 AI Stocks. In this article, we are going to take a look at where Apple Inc (NASDAQ:AAPL) stands against other stocks Wall Street analysts can’t stop talking about. Henry Ajder, Latent Space Advisory founder, said in a latest program on CNBC that lack of fresh data remains a key challenge for the performance of AI systems after a period of “huge” developments and fast learning. “I think data is the real problem here. We have a finite amount of data available on the internet and a limited number of sources for live, fresh data. Ajder believes there won’t be a complete “halt” to the progress in AI systems but in 2025 we are expected to see a slowdown. READ ALSO:7 Best Stocks to Buy For Long-Termand8 Cheap Jim Cramer Stocks to Invest In For this article we picked 10 AI stocks currently trending based on latest news. The reason is simple: our research has shown that we can outperform the market by imitating the top stock picks of the best hedge funds. Our quarterly newsletter’s strategy selects 14 small-cap and large-cap stocks every quarter and has returned 275% since May 2014, beating its benchmark by 150 percentage points(see more details here). A wide view of an Apple store, showing the range of products the company offers. He explained his case: “The company has grown revenues cumulatively, if you include this year’s calendar year, at 5% over the last 3 years. And every product, you know, people go, ‘Oh my God, Vision Pro is going to be terrific,’ and then you figure out, no, nobody’s going to wear ski goggles on their head. Then you look at what’s going on with the iPhone and the features they’ve rolled out, which surprised me because they weren’t particularly good to start with. They’re going to get upgraded in December in the US, but then you have to wait for next year for it to be upgraded in the rest of the world. And you’ve got a company that’s also trading at a 33 P/E for 5% revenue growth over the past three years combined. So that’s the other one where if people finally go, ‘You know what? It’s market share losses to people like Huawei that have resurged in China.’” Parnassus Growth Equity Fund stated the following regarding Apple Inc. Investors reacted positively to the new iPhone 16 lineup and its advanced features, including generative artificial intelligence, greater durability and increased processing power.” Overall, AAPLranks 6thon our list of stocks Wall Street analysts can’t stop talking about. While we acknowledge the potential of AAPL, our conviction lies in the belief that under the radar AI stocks hold greater promise for delivering higher returns, and doing so within a shorter time frame. If you are looking for an AI stock that is more promising than AAPL but that trades at less than 5 times its earnings, check out our report about thecheapest AI stock. This article is originally published atInsider Monkey. Cancel anytime.",
-      "content_stats": {
-        "total_sentences": 32,
-        "relevant_sentences": 22,
-        "relevance_ratio": 0.6875,
-        "condensed": false,
-        "filter_action": "filtered"
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3395
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9241,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
-    },
-    {
-      "url": "https://www.investopedia.com/sandp-500-gains-losses-today-index-drops-fed-cuts-rates-signals-caution-tesla-broadcom-8763705",
-      "url_mobile": "",
-      "title": "S & P 500 Gains and Losses Today : Index Drops as Fed Cuts Rates but Signals Caution",
-      "seendate": "20241219T031500Z",
-      "socialimage": "https://www.investopedia.com/thmb/gyXLS6XcOCoWOCaIMkF1KLXtI9A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-2190484741-c29990ca004a4fbfb76ef2e78de3a42a.jpg",
-      "domain": "investopedia.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 13,
-      "recency_weight": 0.5,
-      "content": "Michael Bromberg is a finance editor with a decade of experience. Michael received a Bachelor of Arts in literature from the University of Wisconsin-Madison and a master's in linguistics from the Universidad de Antioquia in Medellin, Colombia. Cheng Xin/Getty Images Major U.S. equities indexes plunged as the Federal Reserve concluded its final policy meeting of the year. Thecentral bank loweredbenchmark interest rates by a quarter of a percentage point, as expected, but policymakers suggested that persistent inflation could require a more restrained approach in 2025. After trading higher for much of the day, the S&P 500 changed course following the rate-cut announcement and as Fed Chair Jerome Powell addressed the press, ending with a daily loss of 3%. The Dow finished the session down 2.6%, extending its streak of down days to double digits for the first time in four decades. The Nasdaq dropped 3.6% as concerns about the interest-rate outlook weighed on the tech sector. Analysts have touted tailwinds for the electric vehicle company's autonomous driving and artificial intelligence initiatives under the incoming presidential administration. The pullback for the stock on Wednesday followed reports that Tesla CEO Elon Musk and his SpaceX business are the subject of federal reviews related to national security concerns. While the company has seen metrics improve for its markets on the East Coast and in Central Business Districts, underperformance has persisted in West Coast and suburban markets, pointing to an uneven recovery for office real estate that presents a challenge for REITs with geographically diverse workplace property portfolios. The Apple (AAPL) suppliertopped sales and profit forecastsfor its fiscal first quarter of 2025 and lifted its full-year guidance, pointing to robust demand for its cloud, data center infrastructure, and digital commerce products. Shares of several healthcare companies bounced higher on Wednesday, clawing back some of the heavy losses posted in recent sessions as political headwinds against thepharmacy benefit management (PBM)business gathered force. Although the industry has been the subject of bipartisan criticism and could be required to transform its business model, analysts suggested that growth outlook remains healthy.",
-      "content_stats": {
-        "total_sentences": 26,
-        "relevant_sentences": 14,
-        "relevance_ratio": 0.5385,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9775,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
+      "impact_horizon_weight": 0.5323,
+      "final_weight": 0.5159
     },
     {
       "url": "https://www.kiplinger.com/investing/stocks/stock-market-today-dow-dives-1-123-points-after-fed",
@@ -1027,11 +967,13 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9644,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3228
+      },
+      "impact_horizon_weight": 0.5161,
+      "final_weight": 0.508
     },
     {
       "url": "https://www.insidermonkey.com/blog/wall-street-analysts-cant-stop-talking-about-these-10-ai-stocks-1408082/",
@@ -1053,11 +995,13 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.4319,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.2851
+      },
+      "impact_horizon_weight": 0.5,
+      "final_weight": 0.5
     },
     {
       "url": "https://www.investors.com:443/news/technology/apple-stock-lackluster-iphone-16-sales/",
@@ -1071,7 +1015,7 @@
       "coverage_count": 2,
       "days_ago": 14,
       "recency_weight": 0.5,
-      "content": "Despite hopes that artificial intelligence features would drive iPhone 16 sales, Apple's (AAPL) latest smartphones continue to underperform compared with last year's models, a Wall Street analyst says. Still, Apple stock is near record high territory. In a client note Wednesday, JPMorgan analyst Samik Chatterjee said U.S.",
+      "content": "Despite hopes that artificial intelligence features would drive iPhone 16 sales, Apple's (AAPL) latest smartphones continue to underperform compared with last year's models, a Wall Street analyst says. Still, Apple stock is near record high territory. In a client note Wednesday, JPMorgan analyst Samik Chatterjee said U.S. sales of the iPhone 16 are tracking below the iPhone 15 so far.…",
       "content_stats": {
         "total_sentences": 4,
         "relevant_sentences": 4,
@@ -1079,37 +1023,41 @@
         "condensed": false,
         "filter_action": "no_change"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9553,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3361
+      },
+      "impact_horizon_weight": 0.5,
+      "final_weight": 0.5
     },
     {
-      "url": "https://www.investopedia.com/dow-jones-today-12182024-8763276",
+      "url": "https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-december-18-2024-8763275",
       "url_mobile": "",
-      "title": "Dow Jones Today : Stocks Inch Higher as Investors Await Fed Decision on Interest Rates ; Nvidia Shares Surge After Slump",
+      "title": "5 Things to Know Before the Stock Market Opens",
       "seendate": "20241218T174500Z",
-      "socialimage": "https://www.investopedia.com/thmb/SZ49Tbrcn41Ozv93HhBWRnzQUyg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-21884945241-756fe739aad64129ae822222f0732329.jpg",
+      "socialimage": "https://www.investopedia.com/thmb/2ZjQwsuStWnlYHTp1LFIL5VjgmM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-2175611126-9f7c5490e6634d83b69d2d7a73bb0c80.jpg",
       "domain": "investopedia.com",
       "language": "English",
       "sourcecountry": "United States",
       "coverage_count": 1,
       "days_ago": 14,
       "recency_weight": 0.5,
-      "content": "Spencer Platt / Getty Images Stocks tumbled Wednesday after the Federal Reserve cut its benchmark lending rate, as had been expected, but indicated it will slow down the pace of future reductions. Stocks retreated immediately afterthe Fed announcementthis afternoon, and the losses accelerated during Fed Chair Jerome Powell's press conference.Powell saidthat inflation has been higher than expected while unemployment has been lower than anticipated, which sets the Fed up to take a cautious approach when it comes to future decisions on interest rates. The yield on 10-year Treasurys, which is tied to expectations about where interest rates are headed, rose to 4.51%, up from 4.39% before the Fed's announcement and trading at its highest level since May. The S&P 500's Consumer Discretionary and Real Estate sectors fell 4.7% and 4%, respectively. The Russell 2000 index of small-cap stocks slid 4.4%. Tesla (TSLA) was down 8.3%, giving back some of the post-election gains that have sent the stock to a series of record highs, while Apple (AAPL), Microsoft (MSFT), Amazon (AMZN), Alphabet (GOOGL), Meta Platforms (META) and Broadcom (AVGO) also lost ground. The stock dropped an additional 15% in after-hours trading. The memory chip maker and Nvidia (NVDA) partner projected fiscal second-quarter revenue of $7.9 billion, give or take $200 million, below the analyst consensus of $8.93 billion compiled by Visible Alpha. The company's forecast for dilutedearnings per share (EPS)of between $1.16 to $1.36 was also below estimates. In its fiscal first quarter, which ended Nov. Revenue rose 84% to a record $8.71 billion, just below analysts' estimates and just above the midpoint of management's earlier guidance. They were up nearly 22% for 2024 through Wednesday’s close. -Kara Greenberg S&P 500 and Dow Post Biggest One-Day Losses Since August Stocks had their worst day in months on Wednesday after the Fed policymakers scaled back their forecast for future rate cuts and noted their uncertainty about the path of inflation had increased over the past few months. The Dow and the S&P 500 each suffered their largest daily declinessince August 5, tumbling 2.6% and 3%, respectively. That was the day theyen carry trade, a leveraged investment strategy that was enormously popular on Wall Street, backfired and caused the worst stock market rout since 2022. We thought it was the best decision to foster achievement of both of our goals, maximum employment and price stability, Powell said. We see the risks as two-sided. Move too slowly and needlessly undermine economic activity in the labor market, or move too quickly and needlessly undermine our progress on inflation. So we're trying to steer between those two risks, and on balance, we decided to go ahead with a further cut. Powell Says Economy and Policy are Both in a Good Place Fed Chair Jerome Powell, speaking to reporters after the December meeting of the Fed's policy committee, said that the U.S. economy and monetary policy are both in a good place. He said that growth has been higher than expected lately, while unemployment has been lower than anticipated. At the same time, inflation has been higher than expected, even as the Fed has made progress in its efforts to tame it. Powell said the central bank is still working to balance its dual mandate of maximum employment and low inflation. With employment remaining stable and inflation staying stubborn, central bankers can be less aggressive in the upcoming year. We can, therefore, be more cautious as we consider further adjustments to our policy rate. Fed Cuts Key Rate But Expects to Slow Pace of Further Easing The Federal Reserve cut itsfederal funds rateby a quarter percentage point to a range of 4.25% to 4.5%. This is the third cut central bankers have made in as many meetings and brings the fed funds rate range to a full percentage point lower than it was at the start of the year. There was one dissenting vote to the policy move, cast by Cleveland Federal Reserve President Beth Hammack. Members of the policy-setting Federal Open Market Committee are now projecting just two additional cuts next year, according to the latest Summary of Economic Projections, compared to the four cuts they had previously expected. You can follow our coverage of the Fed decision, including Chair Jerome Powell's press conference, in theFed Meeting Live Blog. So why have these three major indexes, each containing the stocks of some of America’s largest companies, diverged lately? The killing of a UnitedHealth Group executive earlier this month has put a spotlight on the business of health care, weighing on stocks in the sector and, subsequently, the price-weighted Dow. Read thefull article here. The firm, which counts Apple (AAPL) as a customer, reported fiscal 2025 first-quarter adjustedearnings per share (EPS)of $2.00, with revenue falling nearly 17% year-over-year to $6.99 billion. Both beat consensus forecasts of analysts polled by Visible Alpha. It anticipates revenue of $27.3 billion, versus its previous estimate of $27.0 billion. The stock has now gained 16% since the start of the year, lagging the S&P 500's 27% increase over the period. Shares in the AI investor favorite were up 3.6% at around $135 in recent trading. The stock is down 13% from its record high last month but is still up about 175% since the start of 2024, asanalysts remain bullishon the company’s prospects heading into next year. Since setting a record high, the stock traded mostly sideways before falling below the 50-day moving average late last week, potentially setting the stage for further consolidation. Read the fulltechnical analysis piece here. Analysts had expected EUR48 million in net income on revenue of EUR437.2 million, according to estimates compiled by Visible Alpha. The stock is up 23% since the start of the year, lagging the 27% gain of the S&P 500 index. -Aaron McDade DJIA Levels to Watch as Index Rides 9-Day Losing Streak The Dow Jones Industrial Average enters trading Wednesday on a nine-day losing streak, the longest stretch of consecutive daily declines for the blue chip index since 1978. The slump, which equates to nearly 1,600points, comes after the index closed above the closely watched 45,000 level for the first time on Dec. 4 following an extended post-election rally fueled by expectations of a market-friendly White House and Congress. Despite the recent losing streak, the index is still up 15% in 2024. However, that return significantly underperforms theS&P 500’s27% gain and theNasdaq Composite’s34% jump over the same period due to the Dow's smaller exposure tomega captech companies. The index has continued to trend lower after running into resistance near the top trendline of an ascending channel earlier this month, raising the possibility of a potential breakdown. Read the fulltechnical analysis piece here. S&P 500 futures were up 0.3%. TradingView Nasdaq 100 futures also gained 0.3%. TradingView",
+      "content": "News of the day for Dec. 18, 2024 Terry Lane is a writer for Investopedia with 25 years of experience in journalism and communications. Valerie Plesch / picture alliance via Getty Images Investors are expecting today'sFederal Reservemeeting to end with the announcement of another interest-rate cut; U.S. Investors will be closely watchingtoday's interest-rate announcementafter the two-dayFederal Open Markets Committee (FOMC)meeting concludes. Officials arewidely expected to lowerthefederal funds rateby a quarter-percentage point to a range of 4.25% to 4.5%. Market watchers also are anticipating the release of the Fed's economic projections, which show where officials believe inflation and interest rates are heading. U.S. stock futures are higher ahead of the FOMC decision and comments from Fed chair Powell. Crude oil futures are 0.6% higher. Nissan shares soared about 24% and those of Honda slipped 3% in Tokyo trading Wednesday after the Japanese automakers confirmed aNikkeireport that said they arein discussions to merge.The companies intend to sign a memorandum of understanding to negotiate shared equity in a holding company that would house the combined automaker, according toNikkei, potentially putting pressure on domestic rival Toyota (TM).Meanwhile,Dow Jones Newswiresreported that Foxconn, the Taiwanese company that makes Apple (AAPL) products, has also expressed interest in taking over Nissan. as part of theCHIPS and Science Act of 2022.",
       "content_stats": {
-        "total_sentences": 83,
-        "relevant_sentences": 52,
-        "relevance_ratio": 0.6265,
+        "total_sentences": 27,
+        "relevant_sentences": 11,
+        "relevance_ratio": 0.4074,
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9573,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3194
+      },
+      "impact_horizon_weight": 0.5,
+      "final_weight": 0.5
     },
     {
       "url": "https://ghanaiantimes.com.gh/as-bitcoin-soars-luxury-brands-consider-accepting-crypto-payments/",
@@ -1131,11 +1079,13 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9741,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3035
+      },
+      "impact_horizon_weight": 0.5,
+      "final_weight": 0.5
     },
     {
       "url": "https://www.thedailystar.net/business/global-economy/news/bitcoin-soars-luxury-brands-consider-accepting-crypto-payments-3779081",
@@ -1157,11 +1107,153 @@
         "condensed": false,
         "filter_action": "filtered"
       },
-      "fls_label": "Not FLS",
-      "fls_confidence": 0.9726,
-      "impact_horizon": "IMMEDIATE",
-      "horizon_weight": 0.4144,
-      "final_weight": 0.4658
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3832
+      },
+      "impact_horizon_weight": 0.5,
+      "final_weight": 0.5
+    },
+    {
+      "url": "https://www.investopedia.com/dow-jones-today-12262024-8766566",
+      "url_mobile": "",
+      "title": "Dow Jones Today : Stocks Slip in Early Trading as Santa Clause Rally Stumbles ; Bitcoin Slumps",
+      "seendate": "20241226T161500Z",
+      "socialimage": "https://www.investopedia.com/thmb/EXMCLruzLRDT2kmPAFuhifPyPes=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-2188999255-98d7adacd05b41909fa6592d4923a0af.jpg",
+      "domain": "investopedia.com",
+      "language": "English",
+      "sourcecountry": "United States",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 1.0,
+      "content": "David Dee Delgado / AFP / Getty Images Stocks turned in a mixed performance on Thursday as the rally that kicked off the holiday-abbreviated trading week lost momentum. market rebounded fromlast week's downturn. Apple (AAPL), which isinching closer to becoming the first companyto ever achieve $4 trillion in market value, rose 0.3% to a record closing high, while Nvidia (NVDA), Microsoft (MSFT), Alphabet (GOOGL), Amazon (AMZN), Meta Platforms (META) and Tesla (TSLA) all lost ground. The yield on 10-year Treasurys, which is correlated with expectations about where interest rates are headed, was at 4.59%, after moving as high as 4.64% this morning and trading at its highest levels since May. The company said Thursday that it bought 217.18 bitcoins at an average price of $96,556 per bitcoin. The move comes after the company said earlier this month it was launching a Bitcoin Treasury strategy that called for allocating up to 90% of its surplus cash to the digital currency. Its shares have surged nearly 500% since the start of the year. Moody’s analystsapplaudedthe move, arguing that it would be “credit positive” if done properly. Investopedia / Photo Illustration by Alice Morgan / Getty Images This year's runup started with demand associated with thespot bitcoin exchange-traded funds(ETFs) that began trading in January, followed bya halvingthat limited supply of new bitcoin and then the hope for crypto-supportive policies after the reelection of Donald Trump, seemingly reinforced by several of his post-election appointments. While the Federal Reserve's latest projections for cutting interest rates next year shook the crypto markets, some of the aforementioned reasons for optimism remain on the table—though if the Fed slows its rate-cutting campaign, experts say, Treasury yields could remain elevated, shifting investors away from bitcoin and other risk assets. -Kyle Torpey Apple Set for 'Golden Era of Growth,' Analyst Says Wedbush analysts led by Dan Ives, long an Apple (AAPL)bull, told clients in a note Thursday that the iPhone maker could be headed for a “golden era of growth” in 2025, driven by demand forartificial intelligence (AI). The analysts raised their price target for Apple's stock by $25 to $325 and maintained an outperform rating, anticipating a multi-year iPhone upgrade cycle driven by AI that “is still being underestimated by the Street. That's a lot higher than the average analyst price target compiled by Visible Alpha at about $244. Just over half or nine of the 15 analysts polled hold buy or equivalent ratings for the stock, with four hold and two sell ratings. Apple shares were up slightly in midday trading after hitting a fresh all-time high of just over $260. Wedbush's target boost comes as the firm projects Apple could sell more than 240 million iPhones in fiscal year 2025, “as this AI-driven upgrade cycle takes hold and this will be the highest iPhone unit sales year in Apple's history.” TradingView Apple shares have gained over one-third of their value since the start of the year, as the company'smarket capitalizationnears $4 trillion. The stock has outpaced the S&P 500 in 2024. (See chart above) Wedbush expects Apple could soon reach that $4 trillion threshold, which would make it the first company in the world to do so. At present, there are only three companies with a market caps over $3 trillion, including Apple, Nvidia (NVDA), and Microsoft (MSFT). Does that mean he got something nice? Has something to give? Likes nicely wrapped boxes? Predictably, people are wondering—and watching, with the message at recent count seen some 4 million times, according to X, with thousands of responses, retweets and likes. Shares of the company, meanwhile, are up nearly 80% in 2024, though below prices seen at the top of spikeslargely inspired by Gillearlier this year. With its gains so far this week, the S&P 500 has moved into positive territory for the month. The Nasdaq is also higher for the month, while the Dow is on track to finish December with losses. TradingView S&P 500 futures were also off 0.3%. TradingView Nasdaq 100 futures slipped 0.4%. TradingView",
+      "content_stats": {
+        "total_sentences": 55,
+        "relevant_sentences": 28,
+        "relevance_ratio": 0.5091,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.2866
+      },
+      "impact_horizon_weight": 0.0669,
+      "final_weight": 0.2587
+    },
+    {
+      "url": "https://www.insidermonkey.com/blog/top-10-ai-stocks-to-watch-right-now-1410644/",
+      "url_mobile": "https://www.insidermonkey.com/blog/top-10-ai-stocks-to-watch-right-now-1410644/?amp=1",
+      "title": "Top 10 AI Stocks to Watch Right Now - Insider Monkey",
+      "seendate": "20241223T124500Z",
+      "socialimage": "https://d2gr5kl7dt2z3t.cloudfront.net/blog/wp-content/uploads/2022/06/22081724/pexels-alphatradezone-5831269.jpg",
+      "domain": "insidermonkey.com",
+      "language": "English",
+      "sourcecountry": "United States",
+      "coverage_count": 1,
+      "days_ago": 9,
+      "recency_weight": 0.5,
+      "content": "Tom Hancock, GMO U.S. quality ETF portfolio manager, said in a latest program on CNBC that the NASDAQ has become “risky” bet amid a lot of volatility. “It’s become not really an index; it’s become a single bet. So it it’s a very risky thing to invest in. It’s not what I think you would want from a sort of diversified investor. It’s probably going to give you more volatile returns next year, and I’d a little bit worry that the AI rally has extended itself. He thinks AI stocks have become a “hype trade” and any “hiccup” in the economy could result in these stocks crashing. Hancock believes AI gains are now set to broaden out to smaller companies that have not received a lot of attention so far. READ ALSO7 Best Stocks to Buy For Long-Termand8 Cheap Jim Cramer Stocks to Invest In For this article we picked 10 AI stocks currently trending based on latest news. The reason is simple: our research has shown that we can outperform the market by imitating the top stock picks of the best hedge funds. Our quarterly newsletter’s strategy selects 14 small-cap and large-cap stocks every quarter and has returned 275% since May 2014, beating its benchmark by 150 percentage points(see more details here). The firm sees significant potential in the application-specific integrated circuit (ASIC) market, largely driven by the rapid growth of artificial intelligence. The research firm highlighted that companies involved in AI compute, networking, and storage benefited in 2024 due to strong infrastructure development, resulting in notable share price outperformance and positive earnings revisions. The firm sees significant potential in the application-specific integrated circuit (ASIC) market, largely driven by the rapid growth of artificial intelligence. The research firm highlighted that companies involved in AI compute, networking, and storage benefited in 2024 due to strong infrastructure development, resulting in notable share price outperformance and positive earnings revisions. We believe Marvell has among the broadest range of intellectual property in technological areas (e.g., high-bandwidth data switching and storage applications) that position it well for the growing requirements of data centers, wireless networks and autos. Several of the company’s product lines (e.g., custom silicon, optical connectivity and switching) are benefiting from the growth of AI data centers. And we believe a significant opportunity exists for the company to help design and manufacture cost-effective custom data center chips that would help cloud providers reduce their reliance on expensive graphics processing units (GPUs). And ultimately, those are AI products. I believe that the market itself is doing a bit of a repricing, but you know, ultimately we’re talking about the future of transportation here. And when we look out, ultimately, we believe the dominant automotive platform will be EVs paired with autonomy. The legacy OEMs are either cutting or removing both their EV and autonomy programs. How? What about the $30,000 price tag claim? Musk has indicated that the Cybercab will have a production cost of approximately $30,000. Operating within the robotaxi fleet is projected to cost around $0.20 per mile. With a production cost of $30,000, the retail price of the Cybercab is likely to exceed this figure. For instance, if the Cybercab is priced at $30,000 per unit, that translates to $15,000 per seat. Regarding operational costs, while the Cybercab is expected to cost $0.20 per mile, charging the Model 3 is estimated at under $0.10 per mile, leaving a significant margin to cover maintenance and downtime. What are these challenges? Meanwhile, competitors are rolling out more advanced models. Chinese competitor BYD is also gaining ground in Europe, despite talk of tariffs. In short, the market seems to be pricing in a lot of positive optionality for this company in the near-to-intermediate term (and particularly a fully autonomous fleet of electric vehicles in the medium term). What exists today is an automobile manufacturer limited to the higher-income segment that is increasingly challenged to sell vehicles when interest rates are not zero. “You have to be a little careful with these sort of first-party benchmarks, but they believe that they will compete well versus a subset of Nvidia’s parts. But the issue is those parts that they’re competing at with Nvidia are already here, right? So, I mean, it’s growing off of that. But I can clearly see where the dollars are really flowing in the space. According to Goldman Sachs Research, global data center demand could surge by 160% by 2030. In the U.S., data centers are projected to use 8% of total power by 2030, up from 3% in 2022. McKinsey estimates that adding the required U.S. capacity will need over $500 billion in infrastructure investment by the decade’s end. However, the stock could face the impact of what Nvidia is facing today: too high expectations. The company has narrowly exceeded revenue expectations by less than 5% in most cases. Some analysts suggest Broadcom’s growth rates will moderate to below 20% CAGR starting the first quarter of 2025. In fiscal Q4, it was +50% topline growth. The market won’t be kind to the stock when the revenue growth rate slows. Broadcom has about $58 billion in net debt, which is relatively high. With an enticing combination of custom chip offerings as well as networking assets, Broadcom remains one of the best positioned companies as part of the AI revolution. The company’s dominant market position in its end markets, along with durable growth, strong margins and best-in-class capital allocation, presents an opportunity to compound capital over time.” Number of Hedge Fund Investors: 158 Investment firm J.P. Morgan recently said that the latest Wave7 Research survey indicates Apple’s (NASDAQ:AAPL) iPhone 16 is lagging in market share compared to the previous cycle, potentially due to limited awareness of Apple Intelligence. “Recent surveys from Wave7 Research into US sales trends across various carriers in Oct/Nov-24 highlight that average share for iPhone 16 cycle continues to track lower y/y (relative to share for iPhone 15 in the same period) despite better than seasonal trends in the latest month of survey data,” J.P. “The survey highlights that the lower momentum, reflected in the lower market share y/y, is likely led by the (still) lower consumer awareness for Apple Inc (NASDAQ:AAPL) Intelligence, despite expectations for the feature set to be a key driver for an upgrade cycle.” Chatterjee maintains an Overweight rating on Apple shares. Apple Inc (NASDAQ:AAPL) has been seeing a long-term decline in mobile carrier upgrade rates, especially postpaid, for several years. This suggests that people are holding onto their devices longer, likely due to economic factors, satisfaction with current technology, or a lack of exciting new features in recent models. In the latest earnings call, Apple Inc (NASDAQ:AAPL) CEO Tim Cook highlighted new features for the iPhone, such as a more comfortable watch band and sleep apnea detection, but none appeared to be major demand drivers for new customers. Parnassus Growth Equity Fund stated the following regarding Apple Inc. Investors reacted positively to the new iPhone 16 lineup and its advanced features, including generative artificial intelligence, greater durability and increased processing power.” HeadlineNASDAQ:ADINASDAQ:AMDNASDAQ:AAPLNASDAQ:NVDANASDAQ:METANASDAQ:GOOGNASDAQ:AVGONASDAQ:AMZNDaily NewsletterApple Inc (NASDAQ:AAPL)Tesla Inc. Cancel anytime.",
+      "content_stats": {
+        "total_sentences": 123,
+        "relevant_sentences": 59,
+        "relevance_ratio": 0.4797,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3182
+      },
+      "impact_horizon_weight": 0.1104,
+      "final_weight": 0.2349
+    },
+    {
+      "url": "https://www.insidermonkey.com/blog/dan-niles-says-apple-aapl-new-iphone-features-werent-particularly-good-highlights-slowing-growth-1410223/",
+      "url_mobile": "https://www.insidermonkey.com/blog/dan-niles-says-apple-aapl-new-iphone-features-werent-particularly-good-highlights-slowing-growth-1410223/?amp=1",
+      "title": "Dan Niles Says Apple ( AAPL ) New iPhone Features Werent  Particularly Good , Highlights Slowing Growth",
+      "seendate": "20241219T184500Z",
+      "socialimage": "https://d2gr5kl7dt2z3t.cloudfront.net/blog/wp-content/uploads/2023/09/19155253/AAPL-insidermonkey-1695153171712.jpg",
+      "domain": "insidermonkey.com",
+      "language": "English",
+      "sourcecountry": "United States",
+      "coverage_count": 1,
+      "days_ago": 13,
+      "recency_weight": 0.5,
+      "content": "We recently published a list ofWall Street Analysts Can’t Stop Talking About These 10 AI Stocks. In this article, we are going to take a look at where Apple Inc (NASDAQ:AAPL) stands against other stocks Wall Street analysts can’t stop talking about. Henry Ajder, Latent Space Advisory founder, said in a latest program on CNBC that lack of fresh data remains a key challenge for the performance of AI systems after a period of “huge” developments and fast learning. “I think data is the real problem here. We have a finite amount of data available on the internet and a limited number of sources for live, fresh data. Ajder believes there won’t be a complete “halt” to the progress in AI systems but in 2025 we are expected to see a slowdown. READ ALSO:7 Best Stocks to Buy For Long-Termand8 Cheap Jim Cramer Stocks to Invest In For this article we picked 10 AI stocks currently trending based on latest news. The reason is simple: our research has shown that we can outperform the market by imitating the top stock picks of the best hedge funds. Our quarterly newsletter’s strategy selects 14 small-cap and large-cap stocks every quarter and has returned 275% since May 2014, beating its benchmark by 150 percentage points(see more details here). A wide view of an Apple store, showing the range of products the company offers. He explained his case: “The company has grown revenues cumulatively, if you include this year’s calendar year, at 5% over the last 3 years. And every product, you know, people go, ‘Oh my God, Vision Pro is going to be terrific,’ and then you figure out, no, nobody’s going to wear ski goggles on their head. Then you look at what’s going on with the iPhone and the features they’ve rolled out, which surprised me because they weren’t particularly good to start with. They’re going to get upgraded in December in the US, but then you have to wait for next year for it to be upgraded in the rest of the world. And you’ve got a company that’s also trading at a 33 P/E for 5% revenue growth over the past three years combined. So that’s the other one where if people finally go, ‘You know what? It’s market share losses to people like Huawei that have resurged in China.’” Parnassus Growth Equity Fund stated the following regarding Apple Inc. Investors reacted positively to the new iPhone 16 lineup and its advanced features, including generative artificial intelligence, greater durability and increased processing power.” Overall, AAPLranks 6thon our list of stocks Wall Street analysts can’t stop talking about. While we acknowledge the potential of AAPL, our conviction lies in the belief that under the radar AI stocks hold greater promise for delivering higher returns, and doing so within a shorter time frame. If you are looking for an AI stock that is more promising than AAPL but that trades at less than 5 times its earnings, check out our report about thecheapest AI stock. This article is originally published atInsider Monkey. Cancel anytime.",
+      "content_stats": {
+        "total_sentences": 32,
+        "relevant_sentences": 22,
+        "relevance_ratio": 0.6875,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3037
+      },
+      "impact_horizon_weight": 0.05,
+      "final_weight": 0.1581
+    },
+    {
+      "url": "https://www.investopedia.com/sandp-500-gains-losses-today-index-drops-fed-cuts-rates-signals-caution-tesla-broadcom-8763705",
+      "url_mobile": "",
+      "title": "S & P 500 Gains and Losses Today : Index Drops as Fed Cuts Rates but Signals Caution",
+      "seendate": "20241219T031500Z",
+      "socialimage": "https://www.investopedia.com/thmb/gyXLS6XcOCoWOCaIMkF1KLXtI9A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-2190484741-c29990ca004a4fbfb76ef2e78de3a42a.jpg",
+      "domain": "investopedia.com",
+      "language": "English",
+      "sourcecountry": "United States",
+      "coverage_count": 1,
+      "days_ago": 13,
+      "recency_weight": 0.5,
+      "content": "Michael Bromberg is a finance editor with a decade of experience. Michael received a Bachelor of Arts in literature from the University of Wisconsin-Madison and a master's in linguistics from the Universidad de Antioquia in Medellin, Colombia. Cheng Xin/Getty Images Major U.S. equities indexes plunged as the Federal Reserve concluded its final policy meeting of the year. Thecentral bank loweredbenchmark interest rates by a quarter of a percentage point, as expected, but policymakers suggested that persistent inflation could require a more restrained approach in 2025. After trading higher for much of the day, the S&P 500 changed course following the rate-cut announcement and as Fed Chair Jerome Powell addressed the press, ending with a daily loss of 3%. The Dow finished the session down 2.6%, extending its streak of down days to double digits for the first time in four decades. The Nasdaq dropped 3.6% as concerns about the interest-rate outlook weighed on the tech sector. Analysts have touted tailwinds for the electric vehicle company's autonomous driving and artificial intelligence initiatives under the incoming presidential administration. The pullback for the stock on Wednesday followed reports that Tesla CEO Elon Musk and his SpaceX business are the subject of federal reviews related to national security concerns. While the company has seen metrics improve for its markets on the East Coast and in Central Business Districts, underperformance has persisted in West Coast and suburban markets, pointing to an uneven recovery for office real estate that presents a challenge for REITs with geographically diverse workplace property portfolios. The Apple (AAPL) suppliertopped sales and profit forecastsfor its fiscal first quarter of 2025 and lifted its full-year guidance, pointing to robust demand for its cloud, data center infrastructure, and digital commerce products. Shares of several healthcare companies bounced higher on Wednesday, clawing back some of the heavy losses posted in recent sessions as political headwinds against thepharmacy benefit management (PBM)business gathered force. Although the industry has been the subject of bipartisan criticism and could be required to transform its business model, analysts suggested that growth outlook remains healthy.",
+      "content_stats": {
+        "total_sentences": 26,
+        "relevant_sentences": 14,
+        "relevance_ratio": 0.5385,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3292
+      },
+      "impact_horizon_weight": 0.05,
+      "final_weight": 0.1581
+    },
+    {
+      "url": "https://www.investopedia.com/dow-jones-today-12182024-8763276",
+      "url_mobile": "",
+      "title": "Dow Jones Today : Stocks Inch Higher as Investors Await Fed Decision on Interest Rates ; Nvidia Shares Surge After Slump",
+      "seendate": "20241218T174500Z",
+      "socialimage": "https://www.investopedia.com/thmb/SZ49Tbrcn41Ozv93HhBWRnzQUyg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-21884945241-756fe739aad64129ae822222f0732329.jpg",
+      "domain": "investopedia.com",
+      "language": "English",
+      "sourcecountry": "United States",
+      "coverage_count": 1,
+      "days_ago": 14,
+      "recency_weight": 0.5,
+      "content": "Spencer Platt / Getty Images Stocks tumbled Wednesday after the Federal Reserve cut its benchmark lending rate, as had been expected, but indicated it will slow down the pace of future reductions. Stocks retreated immediately afterthe Fed announcementthis afternoon, and the losses accelerated during Fed Chair Jerome Powell's press conference.Powell saidthat inflation has been higher than expected while unemployment has been lower than anticipated, which sets the Fed up to take a cautious approach when it comes to future decisions on interest rates. The yield on 10-year Treasurys, which is tied to expectations about where interest rates are headed, rose to 4.51%, up from 4.39% before the Fed's announcement and trading at its highest level since May. The S&P 500's Consumer Discretionary and Real Estate sectors fell 4.7% and 4%, respectively. The Russell 2000 index of small-cap stocks slid 4.4%. Tesla (TSLA) was down 8.3%, giving back some of the post-election gains that have sent the stock to a series of record highs, while Apple (AAPL), Microsoft (MSFT), Amazon (AMZN), Alphabet (GOOGL), Meta Platforms (META) and Broadcom (AVGO) also lost ground. The stock dropped an additional 15% in after-hours trading. The memory chip maker and Nvidia (NVDA) partner projected fiscal second-quarter revenue of $7.9 billion, give or take $200 million, below the analyst consensus of $8.93 billion compiled by Visible Alpha. The company's forecast for dilutedearnings per share (EPS)of between $1.16 to $1.36 was also below estimates. In its fiscal first quarter, which ended Nov. Revenue rose 84% to a record $8.71 billion, just below analysts' estimates and just above the midpoint of management's earlier guidance. They were up nearly 22% for 2024 through Wednesday’s close. -Kara Greenberg S&P 500 and Dow Post Biggest One-Day Losses Since August Stocks had their worst day in months on Wednesday after the Fed policymakers scaled back their forecast for future rate cuts and noted their uncertainty about the path of inflation had increased over the past few months. The Dow and the S&P 500 each suffered their largest daily declinessince August 5, tumbling 2.6% and 3%, respectively. That was the day theyen carry trade, a leveraged investment strategy that was enormously popular on Wall Street, backfired and caused the worst stock market rout since 2022. We thought it was the best decision to foster achievement of both of our goals, maximum employment and price stability, Powell said. We see the risks as two-sided. Move too slowly and needlessly undermine economic activity in the labor market, or move too quickly and needlessly undermine our progress on inflation. So we're trying to steer between those two risks, and on balance, we decided to go ahead with a further cut. Powell Says Economy and Policy are Both in a Good Place Fed Chair Jerome Powell, speaking to reporters after the December meeting of the Fed's policy committee, said that the U.S. economy and monetary policy are both in a good place. He said that growth has been higher than expected lately, while unemployment has been lower than anticipated. At the same time, inflation has been higher than expected, even as the Fed has made progress in its efforts to tame it. Powell said the central bank is still working to balance its dual mandate of maximum employment and low inflation. With employment remaining stable and inflation staying stubborn, central bankers can be less aggressive in the upcoming year. We can, therefore, be more cautious as we consider further adjustments to our policy rate. Fed Cuts Key Rate But Expects to Slow Pace of Further Easing The Federal Reserve cut itsfederal funds rateby a quarter percentage point to a range of 4.25% to 4.5%. This is the third cut central bankers have made in as many meetings and brings the fed funds rate range to a full percentage point lower than it was at the start of the year. There was one dissenting vote to the policy move, cast by Cleveland Federal Reserve President Beth Hammack. Members of the policy-setting Federal Open Market Committee are now projecting just two additional cuts next year, according to the latest Summary of Economic Projections, compared to the four cuts they had previously expected. You can follow our coverage of the Fed decision, including Chair Jerome Powell's press conference, in theFed Meeting Live Blog. So why have these three major indexes, each containing the stocks of some of America’s largest companies, diverged lately? The killing of a UnitedHealth Group executive earlier this month has put a spotlight on the business of health care, weighing on stocks in the sector and, subsequently, the price-weighted Dow. Read thefull article here. The firm, which counts Apple (AAPL) as a customer, reported fiscal 2025 first-quarter adjustedearnings per share (EPS)of $2.00, with revenue falling nearly 17% year-over-year to $6.99 billion. Both beat consensus forecasts of analysts polled by Visible Alpha. It anticipates revenue of $27.3 billion, versus its previous estimate of $27.0 billion. The stock has now gained 16% since the start of the year, lagging the S&P 500's 27% increase over the period. Shares in the AI investor favorite were up 3.6% at around $135 in recent trading. The stock is down 13% from its record high last month but is still up about 175% since the start of 2024, asanalysts remain bullishon the company’s prospects heading into next year. Since setting a record high, the stock traded mostly sideways before falling below the 50-day moving average late last week, potentially setting the stage for further consolidation. Read the fulltechnical analysis piece here. Analysts had expected EUR48 million in net income on revenue of EUR437.2 million, according to estimates compiled by Visible Alpha. The stock is up 23% since the start of the year, lagging the 27% gain of the S&P 500 index. -Aaron McDade DJIA Levels to Watch as Index Rides 9-Day Losing Streak The Dow Jones Industrial Average enters trading Wednesday on a nine-day losing streak, the longest stretch of consecutive daily declines for the blue chip index since 1978. The slump, which equates to nearly 1,600points, comes after the index closed above the closely watched 45,000 level for the first time on Dec. 4 following an extended post-election rally fueled by expectations of a market-friendly White House and Congress. Despite the recent losing streak, the index is still up 15% in 2024. However, that return significantly underperforms theS&P 500’s27% gain and theNasdaq Composite’s34% jump over the same period due to the Dow's smaller exposure tomega captech companies. The index has continued to trend lower after running into resistance near the top trendline of an ascending channel earlier this month, raising the possibility of a potential breakdown. Read the fulltechnical analysis piece here. S&P 500 futures were up 0.3%. TradingView Nasdaq 100 futures also gained 0.3%. TradingView",
+      "content_stats": {
+        "total_sentences": 83,
+        "relevant_sentences": 52,
+        "relevance_ratio": 0.6265,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.387
+      },
+      "impact_horizon_weight": 0.05,
+      "final_weight": 0.1581
     }
   ]
 }
