@@ -28304,3 +28304,544 @@ If this is a private repository, make sure to pass a token having permission to 
 2026-02-08 18:25:33,159 - INFO - [58/58] (content-only) Bitcoin , Ethereum , Dogecoin Settle Down Amid Gro -> pos=0.9184 neg=0.0317 neu=0.0499 (w=0.000)
 2026-02-08 18:25:33,159 - INFO - Sentiment prediction complete: label=positive confidence=0.7274 (58 articles analyzed)
 2026-02-08 18:25:33,160 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\zeroshot_result.json
+2026-02-08 18:39:51,058 - INFO - Prediction window: 31 days
+2026-02-08 18:39:51,058 - INFO - Computed max_backward_days: 28 (from √W scaling, W=31)
+2026-02-08 18:39:51,058 - INFO - Backward search window: 04-12-2024 to 31-12-2024 (max 28 days)
+2026-02-08 18:39:51,355 - INFO - Resolved ticker for 'apple' -> AAPL
+2026-02-08 18:39:51,356 - INFO - GDELT query: apple AAPL
+2026-02-08 18:39:51,356 - INFO - Fetching day: 2024-12-31 to 2025-01-01 (current collected: 0/250)
+2026-02-08 18:39:53,295 - INFO - Received 10 raw articles for 2024-12-31.
+2026-02-08 18:39:53,295 - INFO - Removed duplicates (domain+title): 10 -> 8
+2026-02-08 18:39:53,295 - INFO - Filtered by language: 8 -> 8 articles
+2026-02-08 18:39:53,295 - INFO - Progress after 2024-12-31: Raw=10, Filtered=8/250
+2026-02-08 18:39:53,296 - INFO - Fetching day: 2024-12-30 to 2024-12-31 (current collected: 8/250)
+2026-02-08 18:39:54,986 - INFO - Received 4 raw articles for 2024-12-30.
+2026-02-08 18:39:54,987 - INFO - Removed duplicates (domain+title): 14 -> 11
+2026-02-08 18:39:54,987 - INFO - Filtered by language: 11 -> 11 articles
+2026-02-08 18:39:54,987 - INFO - Progress after 2024-12-30: Raw=14, Filtered=11/250
+2026-02-08 18:39:54,987 - INFO - Fetching day: 2024-12-29 to 2024-12-30 (current collected: 11/250)
+2026-02-08 18:40:00,166 - INFO - Received 1 raw articles for 2024-12-29.
+2026-02-08 18:40:00,166 - INFO - Removed duplicates (domain+title): 15 -> 11
+2026-02-08 18:40:00,166 - INFO - Filtered by language: 11 -> 11 articles
+2026-02-08 18:40:00,166 - INFO - Progress after 2024-12-29: Raw=15, Filtered=11/250
+2026-02-08 18:40:02,166 - INFO - Fetching day: 2024-12-28 to 2024-12-29 (current collected: 11/250)
+2026-02-08 18:40:08,064 - INFO - Received 3 raw articles for 2024-12-28.
+2026-02-08 18:40:08,064 - INFO - Removed duplicates (domain+title): 18 -> 14
+2026-02-08 18:40:08,064 - INFO - Filtered by language: 14 -> 14 articles
+2026-02-08 18:40:08,065 - INFO - Progress after 2024-12-28: Raw=18, Filtered=14/250
+2026-02-08 18:40:08,065 - INFO - Fetching day: 2024-12-27 to 2024-12-28 (current collected: 14/250)
+2026-02-08 18:40:16,938 - INFO - Received 15 raw articles for 2024-12-27.
+2026-02-08 18:40:16,939 - INFO - Removed duplicates (domain+title): 33 -> 28
+2026-02-08 18:40:16,939 - INFO - Filtered by language: 28 -> 28 articles
+2026-02-08 18:40:16,939 - INFO - Progress after 2024-12-27: Raw=33, Filtered=28/250
+2026-02-08 18:40:16,939 - INFO - Fetching day: 2024-12-26 to 2024-12-27 (current collected: 28/250)
+2026-02-08 18:40:23,064 - INFO - Received 11 raw articles for 2024-12-26.
+2026-02-08 18:40:23,064 - INFO - Removed duplicates (domain+title): 44 -> 39
+2026-02-08 18:40:23,064 - INFO - Filtered by language: 39 -> 39 articles
+2026-02-08 18:40:23,065 - INFO - Progress after 2024-12-26: Raw=44, Filtered=39/250
+2026-02-08 18:40:25,065 - INFO - Fetching day: 2024-12-25 to 2024-12-26 (current collected: 39/250)
+2026-02-08 18:40:32,484 - INFO - Received 1 raw articles for 2024-12-25.
+2026-02-08 18:40:32,484 - INFO - Removed duplicates (domain+title): 45 -> 40
+2026-02-08 18:40:32,484 - INFO - Filtered by language: 40 -> 40 articles
+2026-02-08 18:40:32,484 - INFO - Progress after 2024-12-25: Raw=45, Filtered=40/250
+2026-02-08 18:40:32,484 - INFO - Fetching day: 2024-12-24 to 2024-12-25 (current collected: 40/250)
+2026-02-08 18:40:38,583 - INFO - Received 10 raw articles for 2024-12-24.
+2026-02-08 18:40:38,583 - INFO - Removed duplicates (domain+title): 55 -> 48
+2026-02-08 18:40:38,583 - INFO - Filtered by language: 48 -> 48 articles
+2026-02-08 18:40:38,583 - INFO - Progress after 2024-12-24: Raw=55, Filtered=48/250
+2026-02-08 18:40:38,583 - INFO - Fetching day: 2024-12-23 to 2024-12-24 (current collected: 48/250)
+2026-02-08 18:40:39,134 - ERROR - Error during GDELT request: 
+2026-02-08 18:40:41,136 - INFO - Fetching day: 2024-12-22 to 2024-12-23 (current collected: 48/250)
+2026-02-08 18:40:41,705 - ERROR - Error during GDELT request: 
+2026-02-08 18:40:41,706 - INFO - Fetching day: 2024-12-21 to 2024-12-22 (current collected: 48/250)
+2026-02-08 18:40:42,255 - ERROR - Error during GDELT request: 
+2026-02-08 18:40:42,256 - INFO - Fetching day: 2024-12-20 to 2024-12-21 (current collected: 48/250)
+2026-02-08 18:40:45,605 - INFO - Received 5 raw articles for 2024-12-20.
+2026-02-08 18:40:45,605 - INFO - Removed duplicates (domain+title): 60 -> 53
+2026-02-08 18:40:45,605 - INFO - Filtered by language: 53 -> 53 articles
+2026-02-08 18:40:45,605 - INFO - Progress after 2024-12-20: Raw=60, Filtered=53/250
+2026-02-08 18:40:47,606 - INFO - Fetching day: 2024-12-19 to 2024-12-20 (current collected: 53/250)
+2026-02-08 18:40:49,633 - INFO - Received 10 raw articles for 2024-12-19.
+2026-02-08 18:40:49,633 - INFO - Removed duplicates (domain+title): 70 -> 62
+2026-02-08 18:40:49,633 - INFO - Filtered by language: 62 -> 62 articles
+2026-02-08 18:40:49,633 - INFO - Progress after 2024-12-19: Raw=70, Filtered=62/250
+2026-02-08 18:40:49,633 - INFO - Fetching day: 2024-12-18 to 2024-12-19 (current collected: 62/250)
+2026-02-08 18:40:57,168 - INFO - Received 13 raw articles for 2024-12-18.
+2026-02-08 18:40:57,168 - INFO - Removed duplicates (domain+title): 83 -> 71
+2026-02-08 18:40:57,168 - INFO - Filtered by language: 71 -> 71 articles
+2026-02-08 18:40:57,168 - INFO - Progress after 2024-12-18: Raw=83, Filtered=71/250
+2026-02-08 18:40:57,168 - INFO - Fetching day: 2024-12-17 to 2024-12-18 (current collected: 71/250)
+2026-02-08 18:40:59,613 - INFO - Received 18 raw articles for 2024-12-17.
+2026-02-08 18:40:59,614 - INFO - Removed duplicates (domain+title): 101 -> 87
+2026-02-08 18:40:59,614 - INFO - Filtered by language: 87 -> 87 articles
+2026-02-08 18:40:59,614 - INFO - Progress after 2024-12-17: Raw=101, Filtered=87/250
+2026-02-08 18:41:01,614 - INFO - Fetching day: 2024-12-16 to 2024-12-17 (current collected: 87/250)
+2026-02-08 18:41:06,916 - INFO - Received 8 raw articles for 2024-12-16.
+2026-02-08 18:41:06,916 - INFO - Removed duplicates (domain+title): 109 -> 93
+2026-02-08 18:41:06,916 - INFO - Filtered by language: 93 -> 93 articles
+2026-02-08 18:41:06,916 - INFO - Progress after 2024-12-16: Raw=109, Filtered=93/250
+2026-02-08 18:41:06,916 - INFO - Fetching day: 2024-12-15 to 2024-12-16 (current collected: 93/250)
+2026-02-08 18:41:14,323 - INFO - Received 6 raw articles for 2024-12-15.
+2026-02-08 18:41:14,323 - INFO - Removed duplicates (domain+title): 115 -> 98
+2026-02-08 18:41:14,324 - INFO - Filtered by language: 98 -> 98 articles
+2026-02-08 18:41:14,324 - INFO - Progress after 2024-12-15: Raw=115, Filtered=98/250
+2026-02-08 18:41:14,324 - INFO - Fetching day: 2024-12-14 to 2024-12-15 (current collected: 98/250)
+2026-02-08 18:41:20,308 - INFO - Received 5 raw articles for 2024-12-14.
+2026-02-08 18:41:20,308 - INFO - Removed duplicates (domain+title): 120 -> 103
+2026-02-08 18:41:20,308 - INFO - Filtered by language: 103 -> 103 articles
+2026-02-08 18:41:20,308 - INFO - Progress after 2024-12-14: Raw=120, Filtered=103/250
+2026-02-08 18:41:22,309 - INFO - Fetching day: 2024-12-13 to 2024-12-14 (current collected: 103/250)
+2026-02-08 18:41:23,495 - INFO - Received 20 raw articles for 2024-12-13.
+2026-02-08 18:41:23,495 - INFO - Removed duplicates (domain+title): 140 -> 121
+2026-02-08 18:41:23,495 - INFO - Filtered by language: 121 -> 121 articles
+2026-02-08 18:41:23,495 - INFO - Progress after 2024-12-13: Raw=140, Filtered=121/250
+2026-02-08 18:41:23,495 - INFO - Fetching day: 2024-12-12 to 2024-12-13 (current collected: 121/250)
+2026-02-08 18:41:27,698 - INFO - Received 7 raw articles for 2024-12-12.
+2026-02-08 18:41:27,699 - INFO - Removed duplicates (domain+title): 147 -> 128
+2026-02-08 18:41:27,699 - INFO - Filtered by language: 128 -> 128 articles
+2026-02-08 18:41:27,699 - INFO - Progress after 2024-12-12: Raw=147, Filtered=128/250
+2026-02-08 18:41:27,699 - INFO - Fetching day: 2024-12-11 to 2024-12-12 (current collected: 128/250)
+2026-02-08 18:41:29,832 - INFO - Received 6 raw articles for 2024-12-11.
+2026-02-08 18:41:29,832 - INFO - Removed duplicates (domain+title): 153 -> 134
+2026-02-08 18:41:29,833 - INFO - Filtered by language: 134 -> 134 articles
+2026-02-08 18:41:29,833 - INFO - Progress after 2024-12-11: Raw=153, Filtered=134/250
+2026-02-08 18:41:31,833 - INFO - Fetching day: 2024-12-10 to 2024-12-11 (current collected: 134/250)
+2026-02-08 18:41:34,113 - INFO - Received 8 raw articles for 2024-12-10.
+2026-02-08 18:41:34,113 - INFO - Removed duplicates (domain+title): 161 -> 142
+2026-02-08 18:41:34,114 - INFO - Filtered by language: 142 -> 142 articles
+2026-02-08 18:41:34,114 - INFO - Progress after 2024-12-10: Raw=161, Filtered=142/250
+2026-02-08 18:41:34,114 - INFO - Fetching day: 2024-12-09 to 2024-12-10 (current collected: 142/250)
+2026-02-08 18:41:35,951 - INFO - Received 10 raw articles for 2024-12-09.
+2026-02-08 18:41:35,952 - INFO - Removed duplicates (domain+title): 171 -> 151
+2026-02-08 18:41:35,952 - INFO - Filtered by language: 151 -> 151 articles
+2026-02-08 18:41:35,952 - INFO - Progress after 2024-12-09: Raw=171, Filtered=151/250
+2026-02-08 18:41:35,952 - INFO - Fetching day: 2024-12-08 to 2024-12-09 (current collected: 151/250)
+2026-02-08 18:41:38,741 - INFO - Received 3 raw articles for 2024-12-08.
+2026-02-08 18:41:38,741 - INFO - Removed duplicates (domain+title): 174 -> 154
+2026-02-08 18:41:38,741 - INFO - Filtered by language: 154 -> 154 articles
+2026-02-08 18:41:38,742 - INFO - Progress after 2024-12-08: Raw=174, Filtered=154/250
+2026-02-08 18:41:40,742 - INFO - Fetching day: 2024-12-07 to 2024-12-08 (current collected: 154/250)
+2026-02-08 18:41:43,669 - INFO - Received 7 raw articles for 2024-12-07.
+2026-02-08 18:41:43,669 - INFO - Removed duplicates (domain+title): 181 -> 161
+2026-02-08 18:41:43,669 - INFO - Filtered by language: 161 -> 161 articles
+2026-02-08 18:41:43,670 - INFO - Progress after 2024-12-07: Raw=181, Filtered=161/250
+2026-02-08 18:41:43,670 - INFO - Fetching day: 2024-12-06 to 2024-12-07 (current collected: 161/250)
+2026-02-08 18:41:46,839 - INFO - Received 9 raw articles for 2024-12-06.
+2026-02-08 18:41:46,839 - INFO - Removed duplicates (domain+title): 190 -> 169
+2026-02-08 18:41:46,839 - INFO - Filtered by language: 169 -> 169 articles
+2026-02-08 18:41:46,839 - INFO - Progress after 2024-12-06: Raw=190, Filtered=169/250
+2026-02-08 18:41:46,840 - INFO - Fetching day: 2024-12-05 to 2024-12-06 (current collected: 169/250)
+2026-02-08 18:41:48,059 - INFO - Received 7 raw articles for 2024-12-05.
+2026-02-08 18:41:48,060 - INFO - Removed duplicates (domain+title): 197 -> 176
+2026-02-08 18:41:48,060 - INFO - Filtered by language: 176 -> 176 articles
+2026-02-08 18:41:48,060 - INFO - Progress after 2024-12-05: Raw=197, Filtered=176/250
+2026-02-08 18:41:50,060 - INFO - Fetching day: 2024-12-04 to 2024-12-05 (current collected: 176/250)
+2026-02-08 18:41:52,857 - INFO - Received 10 raw articles for 2024-12-04.
+2026-02-08 18:41:52,858 - INFO - Removed duplicates (domain+title): 207 -> 186
+2026-02-08 18:41:52,858 - INFO - Filtered by language: 186 -> 186 articles
+2026-02-08 18:41:52,858 - INFO - Progress after 2024-12-04: Raw=207, Filtered=186/250
+2026-02-08 18:41:52,859 - INFO - Enriching 186 articles with full content...
+2026-02-08 18:41:54,584 - INFO - Fetched content for article 1/186
+2026-02-08 18:41:55,930 - INFO - Fetched content for article 2/186
+2026-02-08 18:41:57,257 - INFO - Fetched content for article 3/186
+2026-02-08 18:41:58,155 - INFO - Fetched content for article 4/186
+2026-02-08 18:41:58,543 - INFO - Fetched content for article 5/186
+2026-02-08 18:42:01,073 - INFO - Fetched content for article 7/186
+2026-02-08 18:42:01,438 - INFO - Fetched content for article 8/186
+2026-02-08 18:42:02,890 - INFO - Fetched content for article 9/186
+2026-02-08 18:42:04,495 - INFO - Fetched content for article 10/186
+2026-02-08 18:42:05,926 - INFO - Fetched content for article 14/186
+2026-02-08 18:42:06,298 - INFO - Fetched content for article 15/186
+2026-02-08 18:42:07,624 - INFO - Fetched content for article 17/186
+2026-02-08 18:42:07,969 - INFO - Fetched content for article 18/186
+2026-02-08 18:42:09,498 - INFO - Fetched content for article 19/186
+2026-02-08 18:42:09,748 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/32c14a35eb9cb8ee | https://biztoc.com/x/32c14a35eb9cb8ee
+2026-02-08 18:42:10,238 - INFO - Fetched content for article 21/186
+2026-02-08 18:42:10,522 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/personal-finance/2024/12/27/were-in-our-50s-with-a-large-holding-in-apple-stock-should-we-use-an-exchange-fund-to-diversify/ | https://247wallst.com/personal-finance/2024/12/27/were-in-our-50s-with-a-large-holding-in-apple-stock-should-we-use-an-exchange-fund-to-diversify/
+2026-02-08 18:42:11,389 - INFO - Fetched content for article 23/186
+2026-02-08 18:42:13,295 - INFO - Fetched content for article 24/186
+2026-02-08 18:42:13,631 - INFO - Fetched content for article 25/186
+2026-02-08 18:42:13,957 - INFO - Fetched content for article 26/186
+2026-02-08 18:42:14,210 - INFO - Fetched content for article 27/186
+2026-02-08 18:42:14,533 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.themarketsdaily.com/2024/12/27/equities-research-analysts-updated-eps-estimates-for-december-26th-aapl-acva-avxl-celh-crvl-kmpr-mcy-nke-pb-pypd.html | https://www.themarketsdaily.com/2024/12/27/equities-research-analysts-updated-eps-estimates-for-december-26th-aapl-acva-avxl-celh-crvl-kmpr-mcy-nke-pb-pypd.html
+2026-02-08 18:42:14,788 - INFO - Fetched content for article 29/186
+2026-02-08 18:42:15,135 - INFO - Fetched content for article 30/186
+2026-02-08 18:42:15,695 - INFO - Fetched content for article 31/186
+2026-02-08 18:42:16,543 - INFO - Fetched content for article 32/186
+2026-02-08 18:42:17,028 - INFO - Fetched content for article 33/186
+2026-02-08 18:42:17,891 - INFO - Fetched content for article 34/186
+2026-02-08 18:42:18,155 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/dfff216e6d8ae010 | https://biztoc.com/x/dfff216e6d8ae010
+2026-02-08 18:42:18,402 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/9583572110a7bfcd | https://biztoc.com/x/9583572110a7bfcd
+2026-02-08 18:42:19,942 - INFO - Fetched content for article 37/186
+2026-02-08 18:42:21,295 - INFO - Fetched content for article 39/186
+2026-02-08 18:42:21,653 - INFO - Fetched content for article 40/186
+2026-02-08 18:42:22,877 - INFO - Fetched content for article 41/186
+2026-02-08 18:42:23,338 - INFO - Fetched content for article 42/186
+2026-02-08 18:42:24,473 - INFO - Fetched content for article 43/186
+2026-02-08 18:42:24,770 - INFO - Fetched content for article 44/186
+2026-02-08 18:42:26,504 - INFO - Fetched content for article 46/186
+2026-02-08 18:42:26,752 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://biztoc.com/x/97a8dfca8839489f | https://biztoc.com/x/97a8dfca8839489f
+2026-02-08 18:42:28,195 - INFO - Fetched content for article 48/186
+2026-02-08 18:42:28,436 - INFO - Fetched content for article 49/186
+2026-02-08 18:42:30,315 - INFO - Fetched content for article 50/186
+2026-02-08 18:42:30,687 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.defenseworld.net/2024/12/20/apple-inc-nasdaqaapl-shares-sold-by-rcs-financial-planning-llc.html | https://www.defenseworld.net/2024/12/20/apple-inc-nasdaqaapl-shares-sold-by-rcs-financial-planning-llc.html
+2026-02-08 18:42:31,575 - INFO - Fetched content for article 52/186
+2026-02-08 18:42:31,835 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/19/billionaire-investor-dan-loeb-looks-beyond-magnificent-7-for-hedge-fund-returns/ | https://247wallst.com/investing/2024/12/19/billionaire-investor-dan-loeb-looks-beyond-magnificent-7-for-hedge-fund-returns/
+2026-02-08 18:42:32,107 - INFO - Fetched content for article 54/186
+2026-02-08 18:42:34,346 - INFO - Fetched content for article 56/186
+2026-02-08 18:42:35,340 - INFO - Fetched content for article 58/186
+2026-02-08 18:42:36,206 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.hellenicshippingnews.com/as-bitcoin-soars-luxury-brands-consider-accepting-crypto-payments/ | https://www.hellenicshippingnews.com/as-bitcoin-soars-luxury-brands-consider-accepting-crypto-payments/
+2026-02-08 18:42:36,547 - INFO - Fetched content for article 61/186
+2026-02-08 18:42:37,309 - INFO - Fetched content for article 63/186
+2026-02-08 18:42:38,851 - INFO - Fetched content for article 64/186
+2026-02-08 18:42:40,300 - INFO - Fetched content for article 65/186
+2026-02-08 18:42:41,538 - INFO - Fetched content for article 67/186
+2026-02-08 18:42:42,016 - INFO - Fetched content for article 68/186
+2026-02-08 18:42:43,551 - INFO - Fetched content for article 69/186
+2026-02-08 18:42:43,858 - INFO - Fetched content for article 70/186
+2026-02-08 18:42:45,682 - INFO - Fetched content for article 71/186
+2026-02-08 18:42:46,093 - INFO - Fetched content for article 72/186
+2026-02-08 18:42:46,581 - INFO - Fetched content for article 73/186
+2026-02-08 18:42:48,354 - INFO - Fetched content for article 74/186
+2026-02-08 18:42:48,739 - INFO - Fetched content for article 75/186
+2026-02-08 18:42:49,109 - INFO - Fetched content for article 76/186
+2026-02-08 18:42:50,970 - INFO - Fetched content for article 77/186
+2026-02-08 18:42:51,482 - INFO - Fetched content for article 78/186
+2026-02-08 18:42:51,819 - INFO - Fetched content for article 79/186
+2026-02-08 18:42:52,671 - INFO - Fetched content for article 80/186
+2026-02-08 18:42:54,140 - INFO - Fetched content for article 81/186
+2026-02-08 18:42:55,916 - INFO - Fetched content for article 82/186
+2026-02-08 18:42:56,315 - INFO - Fetched content for article 83/186
+2026-02-08 18:42:57,464 - INFO - Fetched content for article 85/186
+2026-02-08 18:42:57,880 - INFO - Fetched content for article 86/186
+2026-02-08 18:42:58,205 - INFO - Fetched content for article 87/186
+2026-02-08 18:43:00,091 - INFO - Fetched content for article 88/186
+2026-02-08 18:43:00,746 - INFO - Fetched content for article 89/186
+2026-02-08 18:43:02,374 - INFO - Fetched content for article 90/186
+2026-02-08 18:43:05,337 - INFO - Fetched content for article 91/186
+2026-02-08 18:43:07,144 - INFO - Fetched content for article 93/186
+2026-02-08 18:43:07,583 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://seekingalpha.com/news/4386600-apple-planning-thinner-iphone-report | https://seekingalpha.com/news/4386600-apple-planning-thinner-iphone-report
+2026-02-08 18:43:08,015 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://seekingalpha.com/news/4386593-apple-developing-a-foldable-ipad-report | https://seekingalpha.com/news/4386593-apple-developing-a-foldable-ipad-report
+2026-02-08 18:43:08,295 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/15/2-growth-stocks-to-buy-in-december/ | https://247wallst.com/investing/2024/12/15/2-growth-stocks-to-buy-in-december/
+2026-02-08 18:43:08,550 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/bill_stone/2024/12/15/will-sticky-inflation-stop-the-fed-rate-cut/ | https://www.forbes.com/sites/bill_stone/2024/12/15/will-sticky-inflation-stop-the-fed-rate-cut/
+2026-02-08 18:43:09,415 - INFO - Fetched content for article 98/186
+2026-02-08 18:43:12,120 - INFO - Fetched content for article 100/186
+2026-02-08 18:43:13,733 - INFO - Fetched content for article 101/186
+2026-02-08 18:43:16,128 - INFO - Fetched content for article 104/186
+2026-02-08 18:43:16,403 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/13/meet-the-supercharged-growth-stock-headed-to-4-trillion-over-the-coming-12-to-18-months-according-to-1-wall-street-analyst-hint-not-nvidia/ | https://247wallst.com/investing/2024/12/13/meet-the-supercharged-growth-stock-headed-to-4-trillion-over-the-coming-12-to-18-months-according-to-1-wall-street-analyst-hint-not-nvidia/
+2026-02-08 18:43:16,948 - INFO - Fetched content for article 106/186
+2026-02-08 18:43:17,499 - INFO - Fetched content for article 107/186
+2026-02-08 18:43:18,432 - INFO - Fetched content for article 108/186
+2026-02-08 18:43:21,615 - INFO - Fetched content for article 111/186
+2026-02-08 18:43:22,356 - INFO - Fetched content for article 112/186
+2026-02-08 18:43:23,121 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.defenseworld.net/2024/12/13/apple-inc-nasdaqaapl-shares-purchased-by-gries-financial-llc.html | https://www.defenseworld.net/2024/12/13/apple-inc-nasdaqaapl-shares-purchased-by-gries-financial-llc.html
+2026-02-08 18:43:24,011 - INFO - Fetched content for article 114/186
+2026-02-08 18:43:24,302 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.riotimesonline.com/brazils-financial-morning-call-for-december-13-2024/ | https://www.riotimesonline.com/brazils-financial-morning-call-for-december-13-2024/
+2026-02-08 18:43:25,022 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.tickerreport.com/banking-finance/12743709/sander-capital-advisors-inc-reduces-stock-position-in-apple-inc-nasdaqaapl.html | https://www.tickerreport.com/banking-finance/12743709/sander-capital-advisors-inc-reduces-stock-position-in-apple-inc-nasdaqaapl.html
+2026-02-08 18:43:25,701 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.tickerreport.com/banking-finance/12743714/novapoint-capital-llc-lowers-position-in-apple-inc-nasdaqaapl.html | https://www.tickerreport.com/banking-finance/12743714/novapoint-capital-llc-lowers-position-in-apple-inc-nasdaqaapl.html
+2026-02-08 18:43:26,387 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.tickerreport.com/banking-finance/12743712/apple-inc-nasdaqaapl-is-bartlett-co-wealth-management-llcs-2nd-largest-position.html | https://www.tickerreport.com/banking-finance/12743712/apple-inc-nasdaqaapl-is-bartlett-co-wealth-management-llcs-2nd-largest-position.html
+2026-02-08 18:43:30,632 - INFO - Fetched content for article 120/186
+2026-02-08 18:43:32,133 - INFO - Fetched content for article 121/186
+2026-02-08 18:43:33,685 - INFO - Fetched content for article 122/186
+2026-02-08 18:43:35,267 - INFO - Fetched content for article 124/186
+2026-02-08 18:43:37,921 - INFO - Fetched content for article 125/186
+2026-02-08 18:43:38,628 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.tickerreport.com/banking-finance/12742210/kurv-yield-premium-strategy-apple-aapl-etf-nysearcaaapy-shares-pass-above-fifty-day-moving-average-time-to-sell.html | https://www.tickerreport.com/banking-finance/12742210/kurv-yield-premium-strategy-apple-aapl-etf-nysearcaaapy-shares-pass-above-fifty-day-moving-average-time-to-sell.html
+2026-02-08 18:43:39,084 - INFO - Fetched content for article 127/186
+2026-02-08 18:43:39,582 - INFO - Fetched content for article 128/186
+2026-02-08 18:43:40,984 - INFO - Fetched content for article 129/186
+2026-02-08 18:43:41,541 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.ibtimes.co.uk/bill-gates-tesla-short-could-bankrupt-him-if-shares-surge-200-top-global-market-1729463 | https://www.ibtimes.co.uk/bill-gates-tesla-short-could-bankrupt-him-if-shares-surge-200-top-global-market-1729463
+2026-02-08 18:43:43,839 - INFO - Fetched content for article 131/186
+2026-02-08 18:43:44,286 - INFO - Fetched content for article 132/186
+2026-02-08 18:43:45,959 - INFO - Fetched content for article 133/186
+2026-02-08 18:43:46,433 - INFO - Fetched content for article 134/186
+2026-02-08 18:43:48,810 - INFO - Fetched content for article 136/186
+2026-02-08 18:43:49,664 - INFO - Fetched content for article 137/186
+2026-02-08 18:43:50,640 - INFO - Fetched content for article 140/186
+2026-02-08 18:43:52,137 - INFO - Fetched content for article 141/186
+2026-02-08 18:43:52,575 - INFO - Fetched content for article 142/186
+2026-02-08 18:43:53,025 - INFO - Fetched content for article 143/186
+2026-02-08 18:43:53,483 - INFO - Fetched content for article 144/186
+2026-02-08 18:43:53,975 - WARNING - HTTP error while fetching article content: 526 Server Error: <none> for url: https://theenterpriseleader.com/2024/12/09/apple-nasdaqaapl-shares-down-0-1-should-you-sell.html | https://theenterpriseleader.com/2024/12/09/apple-nasdaqaapl-shares-down-0-1-should-you-sell.html
+2026-02-08 18:43:54,504 - WARNING - HTTP error while fetching article content: 526 Server Error: <none> for url: https://www.wkrb13.com/2024/12/09/analysts-price-target-changes-for-december-9th-a-aapl-ab-agio-ally-amzn-apo-as-atos-atrc.html | https://www.wkrb13.com/2024/12/09/analysts-price-target-changes-for-december-9th-a-aapl-ab-agio-ally-amzn-apo-as-atos-atrc.html
+2026-02-08 18:43:54,771 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.tmcnet.com/usubmit/2024/12/09/10117522.htm | https://www.tmcnet.com/usubmit/2024/12/09/10117522.htm
+2026-02-08 18:43:56,368 - INFO - Fetched content for article 148/186
+2026-02-08 18:43:58,824 - INFO - Fetched content for article 150/186
+2026-02-08 18:43:59,711 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.hellenicshippingnews.com/us-market-juggernaut-poses-top-risk-for-2025/ | https://www.hellenicshippingnews.com/us-market-juggernaut-poses-top-risk-for-2025/
+2026-02-08 18:44:00,175 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://seekingalpha.com/news/4375590-apple-sony-have-discussed-collaborating-on-controllers-for-vision-pro-report | https://seekingalpha.com/news/4375590-apple-sony-have-discussed-collaborating-on-controllers-for-vision-pro-report
+2026-02-08 18:44:03,781 - INFO - Fetched content for article 154/186
+2026-02-08 18:44:04,767 - INFO - Fetched content for article 155/186
+2026-02-08 18:44:05,508 - INFO - Fetched content for article 156/186
+2026-02-08 18:44:06,842 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://www.forbes.com/sites/michaelfoster/2024/12/07/thank-wealth-managers-for-these-8-dividends/ | https://www.forbes.com/sites/michaelfoster/2024/12/07/thank-wealth-managers-for-these-8-dividends/
+2026-02-08 18:44:08,000 - WARNING - HTTP error while fetching article content: 406 Client Error: Not Acceptable for url: https://www.stabroeknews.com/2024/12/07/news/world/norway-wealth-fund-hits-record-20-trillion-crowns/ | https://www.stabroeknews.com/2024/12/07/news/world/norway-wealth-fund-hits-record-20-trillion-crowns/
+2026-02-08 18:44:09,174 - INFO - Fetched content for article 162/186
+2026-02-08 18:44:10,009 - INFO - Fetched content for article 163/186
+2026-02-08 18:44:10,778 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.defenseworld.net/2024/12/06/oxinas-partners-wealth-management-llc-sells-190-shares-of-apple-inc-nasdaqaapl.html | https://www.defenseworld.net/2024/12/06/oxinas-partners-wealth-management-llc-sells-190-shares-of-apple-inc-nasdaqaapl.html
+2026-02-08 18:44:11,554 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.defenseworld.net/2024/12/06/apple-inc-nasdaqaapl-stake-reduced-by-mgb-wealth-management-llc.html | https://www.defenseworld.net/2024/12/06/apple-inc-nasdaqaapl-stake-reduced-by-mgb-wealth-management-llc.html
+2026-02-08 18:44:12,467 - INFO - Fetched content for article 166/186
+2026-02-08 18:44:13,395 - INFO - Fetched content for article 167/186
+2026-02-08 18:44:15,783 - INFO - Fetched content for article 170/186
+2026-02-08 18:44:17,770 - INFO - Fetched content for article 171/186
+2026-02-08 18:44:18,709 - INFO - Fetched content for article 172/186
+2026-02-08 18:44:20,036 - INFO - Fetched content for article 173/186
+2026-02-08 18:44:20,459 - INFO - Fetched content for article 174/186
+2026-02-08 18:44:21,304 - INFO - Fetched content for article 175/186
+2026-02-08 18:44:21,755 - INFO - Fetched content for article 176/186
+2026-02-08 18:44:22,318 - INFO - Fetched content for article 177/186
+2026-02-08 18:44:23,194 - INFO - Fetched content for article 178/186
+2026-02-08 18:44:24,063 - INFO - Fetched content for article 179/186
+2026-02-08 18:44:24,313 - WARNING - HTTP error while fetching article content: 403 Client Error: Forbidden for url: https://247wallst.com/investing/2024/12/04/rating-the-magnificent-7-stocks-in-2024/ | https://247wallst.com/investing/2024/12/04/rating-the-magnificent-7-stocks-in-2024/
+2026-02-08 18:44:26,089 - INFO - Fetched content for article 181/186
+2026-02-08 18:44:27,543 - INFO - Fetched content for article 182/186
+2026-02-08 18:44:28,293 - WARNING - HTTP error while fetching article content: 404 Client Error: Not Found for url: https://www.defenseworld.net/2024/12/04/high-net-worth-advisory-group-llc-grows-stock-holdings-in-apple-inc-nasdaqaapl.html | https://www.defenseworld.net/2024/12/04/high-net-worth-advisory-group-llc-grows-stock-holdings-in-apple-inc-nasdaqaapl.html
+2026-02-08 18:44:28,749 - INFO - Fetched content for article 184/186
+2026-02-08 18:44:28,981 - INFO - Fetched content for article 185/186
+2026-02-08 18:44:29,657 - INFO - Fetched content for article 186/186
+2026-02-08 18:44:29,657 - INFO - Cleaning article content for apple (ticker: AAPL) — DeBERTa-only pipeline
+2026-02-08 18:44:29,657 - INFO - Loading DeBERTa classifier for noise reduction...
+2026-02-08 18:44:31,934 - INFO - DeBERTa classifier loaded successfully
+2026-02-08 18:45:30,438 - INFO - Content cleaning complete:
+  Total articles: 186
+  Articles with content: 123
+  Articles filtered (DeBERTa only): 110
+  Articles with no content after: 2
+  Sentences: 3252 → 2096
+2026-02-08 18:45:30,438 - INFO -   Noise reduction: 35.5%
+2026-02-08 18:45:30,446 - INFO - filter_company_related: in=186 kept=102 | dropped(question_no_content)=14 dropped(no_match_no_content)=32 dropped(no_match_in_content)=38
+2026-02-08 18:45:30,446 - INFO - Adding impact horizon data to 102 articles (prediction window: 31 days)
+2026-02-08 18:45:30,446 - INFO - Loading DeBERTa zero-shot classifier...
+2026-02-08 18:45:32,182 - INFO - DeBERTa classifier loaded successfully
+2026-02-08 18:45:33,122 - INFO - Processed 10/102 articles
+2026-02-08 18:45:34,077 - INFO - Processed 20/102 articles
+2026-02-08 18:45:35,049 - INFO - Processed 30/102 articles
+2026-02-08 18:45:36,014 - INFO - Processed 40/102 articles
+2026-02-08 18:45:37,026 - INFO - Processed 50/102 articles
+2026-02-08 18:45:37,980 - INFO - Processed 60/102 articles
+2026-02-08 18:45:38,960 - INFO - Processed 70/102 articles
+2026-02-08 18:45:40,010 - INFO - Processed 80/102 articles
+2026-02-08 18:45:40,991 - INFO - Processed 90/102 articles
+2026-02-08 18:45:41,959 - INFO - Processed 100/102 articles
+2026-02-08 18:45:42,190 - INFO - Impact horizon classification complete
+2026-02-08 18:45:42,196 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-02-08 18:45:42,196 - INFO - Only 102 articles matched filters within 28 days, but 250 were requested.
+2026-02-08 18:45:42,200 - INFO - Saved 102 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-02-08 18:45:42,220 - INFO - Displayed 102 articles
+2026-02-08 18:45:42,233 - INFO - Running DeBERTa Large MNLI sentiment on 102 articles (company=apple, ticker=None)
+2026-02-08 18:45:42,233 - INFO - Loading DeBERTa Large MNLI zero-shot classifier...
+2026-02-08 18:45:43,969 - INFO - DeBERTa Large MNLI model loaded successfully
+2026-02-08 18:45:44,098 - INFO - [1/102] (content-only) The AI Stock Playbook : Wall Street Top 10 Tech Be -> pos=0.9900 neg=0.0053 neu=0.0047 (w=0.977)
+2026-02-08 18:45:44,185 - INFO - [2/102] (headline+content) Apple Stock Has Reached Historic Levels in One Met -> pos=0.0571 neg=0.9218 neu=0.0210 (w=0.977)
+2026-02-08 18:45:44,266 - INFO - [3/102] (content-only) 2024 Stock Market News : Economy Avoids Hard Landi -> pos=0.9888 neg=0.0038 neu=0.0073 (w=0.830)
+2026-02-08 18:45:44,426 - INFO - [4/102] (content-only) US close : Stocks push higher despite mixed econom -> pos=0.4448 neg=0.4046 neu=0.1506 (w=0.826)
+2026-02-08 18:45:44,507 - INFO - [5/102] (headline+content) Warren Buffett Sells Apple Stock and Buys a Restau -> pos=0.7576 neg=0.1949 neu=0.0474 (w=0.765)
+2026-02-08 18:45:44,634 - INFO - [6/102] (headline+content) Jensen Huang Nvidia  Printing Money Like Apple  In -> pos=0.9286 neg=0.0397 neu=0.0317 (w=0.761)
+2026-02-08 18:45:44,784 - INFO - [7/102] (headline+content) Wedbush Maps Apple Road to a $5 Trillion Milestone -> pos=0.9883 neg=0.0061 neu=0.0057 (w=0.744)
+2026-02-08 18:45:44,933 - INFO - [8/102] (headline+content) Apple Inc . ( AAPL ): Billionaire D . E . Shaw Is  -> pos=0.9850 neg=0.0089 neu=0.0061 (w=0.744)
+2026-02-08 18:45:45,050 - INFO - [9/102] (content-only) Baystreet . ca - Stock Market Warning : Yields Ris -> pos=0.2581 neg=0.6463 neu=0.0956 (w=0.744)
+2026-02-08 18:45:45,202 - INFO - [10/102] (content-only) Analyst Predicts NVIDIA ( NVDA ) Stock Will Hit $8 -> pos=0.8158 neg=0.1298 neu=0.0544 (w=0.744)
+2026-02-08 18:45:45,327 - INFO - [11/102] (headline+content) What 14 Analyst Ratings Have To Say About Apple -  -> pos=0.6128 neg=0.2792 neu=0.1079 (w=0.724)
+2026-02-08 18:45:45,391 - INFO - [12/102] (content-only) Tesla Stock Leads Magnificent Seven Shares Higher -> pos=0.9699 neg=0.0125 neu=0.0176 (w=0.724)
+2026-02-08 18:45:45,463 - INFO - [13/102] (headline+content) Top analyst revisits Apple stock price target on m -> pos=0.8784 neg=0.0730 neu=0.0486 (w=0.724)
+2026-02-08 18:45:45,557 - INFO - [14/102] (headline+content) Here How Much You Would Have Made Owning Apple Sto -> pos=0.5401 neg=0.2342 neu=0.2258 (w=0.724)
+2026-02-08 18:45:45,701 - INFO - [15/102] (headline+content) Analyst Says Apple ( AAPL ) Stock is Expensive Ami -> pos=0.5209 neg=0.3316 neu=0.1474 (w=0.697)
+2026-02-08 18:45:45,849 - INFO - [16/102] (headline+content) Tesla Will Be The  Biggest Winner  In The Trump Er -> pos=0.9656 neg=0.0186 neu=0.0158 (w=0.693)
+2026-02-08 18:45:45,926 - INFO - [17/102] (headline+content) Baystreet . ca - Today Stock News on Honda , Apple -> pos=0.9424 neg=0.0328 neu=0.0249 (w=0.684)
+2026-02-08 18:45:46,071 - INFO - [18/102] (headline+content) Warren Buffett Heads Into 2025 With $325 Billion C -> pos=0.8496 neg=0.0852 neu=0.0652 (w=0.684)
+2026-02-08 18:45:46,147 - INFO - [19/102] (headline+content) Apple Stock And Two Other 2024 Winners Are On Fund -> pos=0.9913 neg=0.0038 neu=0.0049 (w=0.684)
+2026-02-08 18:45:46,294 - INFO - [20/102] (content-only) Analyst on NVIDIA ( NVDA ): Investors Should Be  V -> pos=0.7435 neg=0.2247 neu=0.0318 (w=0.676)
+2026-02-08 18:45:46,442 - INFO - [21/102] (headline+content) US Stocks To Open Lower As Index Future Decline :  -> pos=0.6971 neg=0.0665 neu=0.2364 (w=0.676)
+2026-02-08 18:45:46,594 - INFO - [22/102] (headline+content) Dow Edges Higher In Thin Holiday Trading As Tesla  -> pos=0.4282 neg=0.3635 neu=0.2083 (w=0.676)
+2026-02-08 18:45:46,663 - INFO - [23/102] (title-fallback) Equities Research Analyst Updated EPS Estimates fo -> pos=0.7386 neg=0.1735 neu=0.0879 (w=0.676)
+2026-02-08 18:45:46,811 - INFO - [24/102] (headline+content) Dan Niles on Apple ( AAPL ): Data is  Somewhat Dis -> pos=0.0149 neg=0.9663 neu=0.0189 (w=0.656)
+2026-02-08 18:45:46,882 - INFO - [25/102] (headline+content) Apple stock touches intraday high after nod of con -> pos=0.9936 neg=0.0022 neu=0.0042 (w=0.656)
+2026-02-08 18:45:47,026 - INFO - [26/102] (headline+content) Apple $4 Trillion Dream : AI Hype or Real Growth ? -> pos=0.4669 neg=0.4379 neu=0.0953 (w=0.636)
+2026-02-08 18:45:47,180 - INFO - [27/102] (headline+content) Dan Ives Predicts Apple To Ship Record 240 Million -> pos=0.9943 neg=0.0029 neu=0.0028 (w=0.624)
+2026-02-08 18:45:47,453 - INFO - [28/102] (headline+content) Apple shares hit new all - time intraday and closi -> pos=0.8929 neg=0.0475 neu=0.0596 (w=0.608)
+2026-02-08 18:45:47,597 - INFO - [29/102] (content-only) If an investor put $5 , 000 in Nvidia shares 5 yea -> pos=0.8410 neg=0.0624 neu=0.0966 (w=0.608)
+2026-02-08 18:45:47,664 - INFO - [30/102] (headline+content) Apple Inc . ( NASDAQ : AAPL ) Shares Sold by RCS F -> pos=0.6652 neg=0.1895 neu=0.1453 (w=0.608)
+2026-02-08 18:45:47,819 - INFO - [31/102] (headline+content) Broadcom : Bullish Momentum Builds As Q4 Earnings  -> pos=0.9944 neg=0.0036 neu=0.0020 (w=0.607)
+2026-02-08 18:45:47,968 - INFO - [32/102] (content-only) Assessing the New Tech Regulatory Regime -> pos=0.9867 neg=0.0069 neu=0.0064 (w=0.591)
+2026-02-08 18:45:48,037 - INFO - [33/102] (content-only) Baystreet . ca - These Are Wells Fargo Core Stock  -> pos=0.9819 neg=0.0073 neu=0.0108 (w=0.591)
+2026-02-08 18:45:48,178 - INFO - [34/102] (content-only) US close : Dow Jones delivers fourth - straight da -> pos=0.1646 neg=0.7539 neu=0.0815 (w=0.591)
+2026-02-08 18:45:48,331 - INFO - [35/102] (content-only) Stock Market Today : Dow Dives 1 , 123 Points Afte -> pos=0.6307 neg=0.1845 neu=0.1848 (w=0.589)
+2026-02-08 18:45:48,477 - INFO - [36/102] (content-only) Wall Street Analysts Cant Stop Talking About These -> pos=0.9010 neg=0.0684 neu=0.0306 (w=0.571)
+2026-02-08 18:45:48,559 - INFO - [37/102] (headline+content) Apple Stock Up Despite Lackluster iPhone 16 Sales  -> pos=0.7203 neg=0.2307 neu=0.0490 (w=0.571)
+2026-02-08 18:45:48,699 - INFO - [38/102] (content-only) 5 Things to Know Before the Stock Market Opens -> pos=0.9396 neg=0.0431 neu=0.0173 (w=0.571)
+2026-02-08 18:45:48,840 - INFO - [39/102] (content-only) As bitcoin soars , luxury brands consider acceptin -> pos=0.7407 neg=0.1341 neu=0.1251 (w=0.571)
+2026-02-08 18:45:48,964 - INFO - [40/102] (content-only) As bitcoin soars , luxury brands consider acceptin -> pos=0.7552 neg=0.1547 neu=0.0901 (w=0.571)
+2026-02-08 18:45:49,086 - INFO - [41/102] (headline+content) Apple : 2025  Sleeper Stock  - Wall Street Pit -> pos=0.9952 neg=0.0027 neu=0.0020 (w=0.559)
+2026-02-08 18:45:49,156 - INFO - [42/102] (title-fallback) Analyst Price Target Changes for December 9th ( A  -> pos=0.7009 neg=0.1948 neu=0.1043 (w=0.559)
+2026-02-08 18:45:49,276 - INFO - [43/102] (content-only) Dow extends losses for ninth straight day ahead of -> pos=0.7273 neg=0.1304 neu=0.1423 (w=0.339)
+2026-02-08 18:45:49,431 - INFO - [44/102] (headline+content) Market Clubhouse Morning Memo - December 17th , 20 -> pos=0.9257 neg=0.0551 neu=0.0192 (w=0.339)
+2026-02-08 18:45:49,500 - INFO - [45/102] (headline+content) Apple Stock , Meta , TSM Lead Five Stocks Near Buy -> pos=0.9385 neg=0.0306 neu=0.0309 (w=0.339)
+2026-02-08 18:45:49,575 - INFO - [46/102] (headline+content) Nvidia , Meta Platforms , and Apple Could Help Thi -> pos=0.8555 neg=0.0861 neu=0.0584 (w=0.339)
+2026-02-08 18:45:49,730 - INFO - [47/102] (headline+content) Dow Falls For 8th Session , While Nasdaq Hits Reco -> pos=0.5528 neg=0.2247 neu=0.2225 (w=0.339)
+2026-02-08 18:45:49,882 - INFO - [48/102] (content-only) Bitcoin , Ethereum , Dogecoin Settle Down Amid Gro -> pos=0.9184 neg=0.0317 neu=0.0499 (w=0.339)
+2026-02-08 18:45:50,004 - INFO - [49/102] (headline+content) Competitor Analysis : Evaluating Apple And Competi -> pos=0.6315 neg=0.2169 neu=0.1516 (w=0.260)
+2026-02-08 18:45:50,073 - INFO - [50/102] (title-fallback) AAPL , NVDA , or BABA : Which Tech Giant Could Off -> pos=0.7481 neg=0.1313 neu=0.1206 (w=0.260)
+2026-02-08 18:45:50,223 - INFO - [51/102] (content-only) Dow Jones Today : Stocks Slip in Early Trading as  -> pos=0.7188 neg=0.0330 neu=0.2482 (w=0.236)
+2026-02-08 18:45:50,372 - INFO - [52/102] (headline+content) Dan Niles Says Apple ( AAPL ) New iPhone Features  -> pos=0.8474 neg=0.0976 neu=0.0550 (w=0.183)
+2026-02-08 18:45:50,497 - INFO - [53/102] (content-only) S & P 500 Gains and Losses Today : Index Drops as  -> pos=0.2151 neg=0.6837 neu=0.1012 (w=0.183)
+2026-02-08 18:45:50,643 - INFO - [54/102] (content-only) Dow Jones Today : Stocks Inch Higher as Investors  -> pos=0.0371 neg=0.9282 neu=0.0347 (w=0.181)
+2026-02-08 18:45:50,733 - INFO - [55/102] (content-only) Baystreet . ca - Nvidia Stock Falls Into A Correct -> pos=0.9573 neg=0.0177 neu=0.0249 (w=0.178)
+2026-02-08 18:45:50,876 - INFO - [56/102] (content-only) What does Big Tech stand to gain from getting clos -> pos=0.7934 neg=0.1560 neu=0.0507 (w=0.178)
+2026-02-08 18:45:51,051 - INFO - [57/102] (content-only) Market Breadth Worsens As Tech Giants Break Free F -> pos=0.7465 neg=0.1776 neu=0.0759 (w=0.178)
+2026-02-08 18:45:51,179 - INFO - [58/102] (content-only) Dow Jones Today : Stocks Slide as Nvidia , Broadco -> pos=0.8092 neg=0.0986 neu=0.0922 (w=0.178)
+2026-02-08 18:45:51,276 - INFO - [59/102] (content-only) Baystreet . ca - What To Do After Nasdaq Keeps Soa -> pos=0.9785 neg=0.0093 neu=0.0122 (w=0.178)
+2026-02-08 18:45:51,404 - INFO - [60/102] (headline+content) Broadcom , Tesla Propel Nasdaq 100 Gains , Bitcoin -> pos=0.9843 neg=0.0039 neu=0.0117 (w=0.175)
+2026-02-08 18:45:51,477 - INFO - [61/102] (headline+content) Apple planning thinner iPhone : report ( NASDAQ :  -> pos=0.6544 neg=0.2350 neu=0.1105 (w=0.173)
+2026-02-08 18:45:51,558 - INFO - [62/102] (headline+content) Apple developing a foldable iPad : report ( NASDAQ -> pos=0.8012 neg=0.0946 neu=0.1042 (w=0.173)
+2026-02-08 18:45:51,702 - INFO - [63/102] (content-only) 3 things to bear in mind when buying shares for a  -> pos=0.9301 neg=0.0101 neu=0.0598 (w=0.170)
+2026-02-08 18:45:51,848 - INFO - [64/102] (headline+content) Baystreet . ca - Apple To Launch Custom Chip For B -> pos=0.9451 neg=0.0330 neu=0.0218 (w=0.167)
+2026-02-08 18:45:51,994 - INFO - [65/102] (headline+content) Apple Inc . ( AAPL ) Integrates ChatGPT with Siri  -> pos=0.4427 neg=0.3939 neu=0.1634 (w=0.167)
+2026-02-08 18:45:52,141 - INFO - [66/102] (content-only) Dow Jones Today : Stocks Rise in Early Trading as  -> pos=0.9600 neg=0.0195 neu=0.0204 (w=0.167)
+2026-02-08 18:45:52,222 - INFO - [67/102] (headline+content) Apple Inc . ( NASDAQ : AAPL ) Shares Purchased by  -> pos=0.7455 neg=0.1427 neu=0.1119 (w=0.167)
+2026-02-08 18:45:52,309 - INFO - [68/102] (headline+content) Apple Stock vs . Tesla Stock : Billionaires Are Bu -> pos=0.5595 neg=0.3160 neu=0.1245 (w=0.167)
+2026-02-08 18:45:52,399 - INFO - [69/102] (headline+content) Sander Capital Advisors Inc . Reduces Stock Positi -> pos=0.0464 neg=0.9320 neu=0.0216 (w=0.167)
+2026-02-08 18:45:52,468 - INFO - [70/102] (headline+content) NovaPoint Capital LLC Lowers Position in Apple Inc -> pos=0.0205 neg=0.9558 neu=0.0236 (w=0.167)
+2026-02-08 18:45:52,539 - INFO - [71/102] (headline+content) Apple Inc . ( NASDAQ : AAPL ) is Bartlett & CO . W -> pos=0.7134 neg=0.1627 neu=0.1239 (w=0.167)
+2026-02-08 18:45:52,679 - INFO - [72/102] (content-only) US close : Stocks slip as traders digest data ahea -> pos=0.3715 neg=0.5305 neu=0.0980 (w=0.167)
+2026-02-08 18:45:52,824 - INFO - [73/102] (content-only) 4 top ASX ETFs for Aussie investors to buy now -> pos=0.9509 neg=0.0185 neu=0.0306 (w=0.165)
+2026-02-08 18:45:52,970 - INFO - [74/102] (content-only) Nasdaq hits 20 , 000 on big tech surge -> pos=0.9533 neg=0.0277 neu=0.0190 (w=0.165)
+2026-02-08 18:45:53,125 - INFO - [75/102] (headline+content) Tim Cook Meets PM Keir Starmer Amid Growing Scruti -> pos=0.9488 neg=0.0264 neu=0.0249 (w=0.165)
+2026-02-08 18:45:53,267 - INFO - [76/102] (headline+content) S & P 500 Gains and Losses Today : Broadcom Soars  -> pos=0.5303 neg=0.1190 neu=0.3507 (w=0.165)
+2026-02-08 18:45:53,340 - INFO - [77/102] (headline+content) Apple Stock Hits Record High On New AI Features |  -> pos=0.9538 neg=0.0194 neu=0.0269 (w=0.162)
+2026-02-08 18:45:53,481 - INFO - [78/102] (headline+content) Apple Next Frontier : AI for Everyone - Wall Stree -> pos=0.9885 neg=0.0052 neu=0.0063 (w=0.162)
+2026-02-08 18:45:53,637 - INFO - [79/102] (content-only) BMO Belski on why he remains bullish on the TSX -  -> pos=0.7860 neg=0.1621 neu=0.0519 (w=0.160)
+2026-02-08 18:45:53,785 - INFO - [80/102] (content-only) Dow Jones Today : Stocks Waver as Chip Stocks , Or -> pos=0.2317 neg=0.6185 neu=0.1498 (w=0.160)
+2026-02-08 18:45:53,906 - INFO - [81/102] (content-only) Baystreet . ca - Meta And These Stocks Rise After  -> pos=0.6909 neg=0.2677 neu=0.0415 (w=0.160)
+2026-02-08 18:45:54,049 - INFO - [82/102] (content-only) TikTok Billion - Dollar Shutdown Risk - Creators a -> pos=0.0171 neg=0.9717 neu=0.0112 (w=0.158)
+2026-02-08 18:45:54,126 - INFO - [83/102] (headline+content) Apple , Sony have discussed collaborating on contr -> pos=0.6586 neg=0.1771 neu=0.1643 (w=0.155)
+2026-02-08 18:45:54,203 - INFO - [84/102] (headline+content) Dow Jones Stocks : Apple Above Buy Point , Nvidia  -> pos=0.9759 neg=0.0154 neu=0.0088 (w=0.155)
+2026-02-08 18:45:54,328 - INFO - [85/102] (headline+content) Is Apple Inc . ( AAPL ) Dominating A Billionaire Q -> pos=0.9184 neg=0.0380 neu=0.0436 (w=0.153)
+2026-02-08 18:45:54,450 - INFO - [86/102] (content-only) 10 Stocks Dominating a Billionaire Quant Investmen -> pos=0.9221 neg=0.0323 neu=0.0457 (w=0.153)
+2026-02-08 18:45:54,719 - INFO - [87/102] (headline+content) Apple shares hit new all - time intraday high -> pos=0.8409 neg=0.0555 neu=0.1036 (w=0.150)
+2026-02-08 18:45:54,791 - INFO - [88/102] (headline+content) Oxinas Partners Wealth Management LLC Sells 190 Sh -> pos=0.3441 neg=0.5699 neu=0.0861 (w=0.150)
+2026-02-08 18:45:54,870 - INFO - [89/102] (headline+content) Apple Inc . ( NASDAQ : AAPL ) Stake Reduced by MGB -> pos=0.2631 neg=0.6277 neu=0.1093 (w=0.150)
+2026-02-08 18:45:54,953 - INFO - [90/102] (headline+content) The Stock Warren Buffett Is Virtually Guaranteed t -> pos=0.4306 neg=0.4652 neu=0.1042 (w=0.150)
+2026-02-08 18:45:55,023 - INFO - [91/102] (headline+content) The Stock Warren Buffett Is Virtually Guaranteed t -> pos=0.4306 neg=0.4652 neu=0.1042 (w=0.150)
+2026-02-08 18:45:55,095 - INFO - [92/102] (headline+content) Meet the Unstoppable Artificial Intelligence ( AI  -> pos=0.8840 neg=0.0554 neu=0.0605 (w=0.150)
+2026-02-08 18:45:55,241 - INFO - [93/102] (content-only) Dow Jones Today : Stocks Mixed as Market Looks to  -> pos=0.3370 neg=0.4523 neu=0.2106 (w=0.148)
+2026-02-08 18:45:55,396 - INFO - [94/102] (content-only) Bitcoin storms above $100 , 000 as Trump 2 . 0 fue -> pos=0.9587 neg=0.0206 neu=0.0206 (w=0.148)
+2026-02-08 18:45:55,550 - INFO - [95/102] (content-only) Bitcoin storms above $100 , 000 as Trump 2 . 0 fue -> pos=0.9407 neg=0.0267 neu=0.0326 (w=0.148)
+2026-02-08 18:45:55,698 - INFO - [96/102] (headline+content) UBS Maintains  Neutral  Rating on Apple Inc . ( AA -> pos=0.0602 neg=0.0881 neu=0.8516 (w=0.148)
+2026-02-08 18:45:55,818 - INFO - [97/102] (content-only) Vietnam Suspends Temu Operations for Missing Deadl -> pos=0.0557 neg=0.9114 neu=0.0328 (w=0.148)
+2026-02-08 18:45:55,972 - INFO - [98/102] (headline+content) Making Money From Crowd Stampede – Palantir Become -> pos=0.9612 neg=0.0191 neu=0.0197 (w=0.146)
+2026-02-08 18:45:56,055 - INFO - [99/102] (headline+content) High Net Worth Advisory Group LLC Grows Stock Hold -> pos=0.9000 neg=0.0521 neu=0.0479 (w=0.146)
+2026-02-08 18:45:56,199 - INFO - [100/102] (headline+content) S & P 500 Hits Another High As Apple Tops $242 For -> pos=0.4239 neg=0.4399 neu=0.1362 (w=0.146)
+2026-02-08 18:45:56,469 - INFO - [101/102] (headline+content) Apple shares hit new all - time closing high -> pos=0.9354 neg=0.0154 neu=0.0493 (w=0.146)
+2026-02-08 18:45:56,618 - INFO - [102/102] (content-only) What Going On With Magnificent 7 Stocks ? - NVIDIA -> pos=0.9473 neg=0.0218 neu=0.0309 (w=0.146)
+2026-02-08 18:45:56,618 - INFO - Sentiment prediction complete: label=positive confidence=0.7297 (102 articles analyzed)
+2026-02-08 18:45:56,620 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\zeroshot_result.json
+2026-02-08 18:47:29,498 - INFO - Running FinGPT sentiment on 102 articles (company=apple, ticker=None)
+2026-02-08 18:47:29,743 - INFO - Loading FinGPT: base=NousResearch/Llama-2-13b-hf, lora=FinGPT/fingpt-sentiment_llama2-13b_lora, 8bit=True, device=cuda:0
+2026-02-08 18:47:52,517 - INFO - FinGPT model loaded successfully
+2026-02-08 18:47:53,408 - INFO - [1/102] (content-only) The AI Stock Playbook : Wall Street Top 10 Tech Be -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.977)
+2026-02-08 18:47:53,719 - INFO - [2/102] (headline+content) Apple Stock Has Reached Historic Levels in One Met -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.977)
+2026-02-08 18:47:54,027 - INFO - [3/102] (content-only) 2024 Stock Market News : Economy Avoids Hard Landi -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.830)
+2026-02-08 18:47:54,464 - INFO - [4/102] (content-only) US close : Stocks push higher despite mixed econom -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.826)
+2026-02-08 18:47:54,758 - INFO - [5/102] (headline+content) Warren Buffett Sells Apple Stock and Buys a Restau -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.765)
+2026-02-08 18:47:55,138 - INFO - [6/102] (headline+content) Jensen Huang Nvidia  Printing Money Like Apple  In -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.761)
+2026-02-08 18:47:55,523 - INFO - [7/102] (headline+content) Wedbush Maps Apple Road to a $5 Trillion Milestone -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.744)
+2026-02-08 18:47:55,929 - INFO - [8/102] (headline+content) Apple Inc . ( AAPL ): Billionaire D . E . Shaw Is  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.744)
+2026-02-08 18:47:56,295 - INFO - [9/102] (content-only) Baystreet . ca - Stock Market Warning : Yields Ris -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.744)
+2026-02-08 18:47:56,683 - INFO - [10/102] (content-only) Analyst Predicts NVIDIA ( NVDA ) Stock Will Hit $8 -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.744)
+2026-02-08 18:47:57,072 - INFO - [11/102] (headline+content) What 14 Analyst Ratings Have To Say About Apple -  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.724)
+2026-02-08 18:47:57,383 - INFO - [12/102] (content-only) Tesla Stock Leads Magnificent Seven Shares Higher -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.724)
+2026-02-08 18:47:57,678 - INFO - [13/102] (headline+content) Top analyst revisits Apple stock price target on m -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.724)
+2026-02-08 18:47:58,033 - INFO - [14/102] (headline+content) Here How Much You Would Have Made Owning Apple Sto -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.724)
+2026-02-08 18:47:58,432 - INFO - [15/102] (headline+content) Analyst Says Apple ( AAPL ) Stock is Expensive Ami -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.697)
+2026-02-08 18:47:58,824 - INFO - [16/102] (headline+content) Tesla Will Be The  Biggest Winner  In The Trump Er -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.693)
+2026-02-08 18:47:59,140 - INFO - [17/102] (headline+content) Baystreet . ca - Today Stock News on Honda , Apple -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.684)
+2026-02-08 18:47:59,561 - INFO - [18/102] (headline+content) Warren Buffett Heads Into 2025 With $325 Billion C -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.684)
+2026-02-08 18:47:59,869 - INFO - [19/102] (headline+content) Apple Stock And Two Other 2024 Winners Are On Fund -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.684)
+2026-02-08 18:48:00,251 - INFO - [20/102] (content-only) Analyst on NVIDIA ( NVDA ): Investors Should Be  V -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.676)
+2026-02-08 18:48:00,657 - INFO - [21/102] (headline+content) US Stocks To Open Lower As Index Future Decline :  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.676)
+2026-02-08 18:48:01,073 - INFO - [22/102] (headline+content) Dow Edges Higher In Thin Holiday Trading As Tesla  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.676)
+2026-02-08 18:48:01,383 - INFO - [23/102] (title-fallback) Equities Research Analyst Updated EPS Estimates fo -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.676)
+2026-02-08 18:48:01,801 - INFO - [24/102] (headline+content) Dan Niles on Apple ( AAPL ): Data is  Somewhat Dis -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.656)
+2026-02-08 18:48:02,217 - INFO - [25/102] (headline+content) Apple stock touches intraday high after nod of con -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.656)
+2026-02-08 18:48:02,642 - INFO - [26/102] (headline+content) Apple $4 Trillion Dream : AI Hype or Real Growth ? -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.636)
+2026-02-08 18:48:03,120 - INFO - [27/102] (headline+content) Dan Ives Predicts Apple To Ship Record 240 Million -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.624)
+2026-02-08 18:48:03,995 - WARNING - FinGPT unexpected answer: '', defaulting to neutral
+2026-02-08 18:48:03,996 - INFO - [28/102] (headline+content) Apple shares hit new all - time intraday and closi -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.608)
+2026-02-08 18:48:04,376 - INFO - [29/102] (content-only) If an investor put $5 , 000 in Nvidia shares 5 yea -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.608)
+2026-02-08 18:48:04,703 - INFO - [30/102] (headline+content) Apple Inc . ( NASDAQ : AAPL ) Shares Sold by RCS F -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.608)
+2026-02-08 18:48:05,120 - INFO - [31/102] (headline+content) Broadcom : Bullish Momentum Builds As Q4 Earnings  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.607)
+2026-02-08 18:48:05,501 - INFO - [32/102] (content-only) Assessing the New Tech Regulatory Regime -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.591)
+2026-02-08 18:48:05,813 - INFO - [33/102] (content-only) Baystreet . ca - These Are Wells Fargo Core Stock  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.591)
+2026-02-08 18:48:06,199 - INFO - [34/102] (content-only) US close : Dow Jones delivers fourth - straight da -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.591)
+2026-02-08 18:48:06,577 - INFO - [35/102] (content-only) Stock Market Today : Dow Dives 1 , 123 Points Afte -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.589)
+2026-02-08 18:48:06,981 - INFO - [36/102] (content-only) Wall Street Analysts Cant Stop Talking About These -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.571)
+2026-02-08 18:48:07,323 - INFO - [37/102] (headline+content) Apple Stock Up Despite Lackluster iPhone 16 Sales  -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.571)
+2026-02-08 18:48:07,714 - INFO - [38/102] (content-only) 5 Things to Know Before the Stock Market Opens -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.571)
+2026-02-08 18:48:08,109 - INFO - [39/102] (content-only) As bitcoin soars , luxury brands consider acceptin -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.571)
+2026-02-08 18:48:08,519 - INFO - [40/102] (content-only) As bitcoin soars , luxury brands consider acceptin -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.571)
+2026-02-08 18:48:08,889 - INFO - [41/102] (headline+content) Apple : 2025  Sleeper Stock  - Wall Street Pit -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.559)
+2026-02-08 18:48:09,198 - INFO - [42/102] (title-fallback) Analyst Price Target Changes for December 9th ( A  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.559)
+2026-02-08 18:48:09,563 - INFO - [43/102] (content-only) Dow extends losses for ninth straight day ahead of -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.339)
+2026-02-08 18:48:09,979 - INFO - [44/102] (headline+content) Market Clubhouse Morning Memo - December 17th , 20 -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.339)
+2026-02-08 18:48:10,286 - INFO - [45/102] (headline+content) Apple Stock , Meta , TSM Lead Five Stocks Near Buy -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.339)
+2026-02-08 18:48:10,578 - INFO - [46/102] (headline+content) Nvidia , Meta Platforms , and Apple Could Help Thi -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.339)
+2026-02-08 18:48:11,016 - WARNING - FinGPT unexpected answer: 'gre', defaulting to neutral
+2026-02-08 18:48:11,017 - INFO - [47/102] (headline+content) Dow Falls For 8th Session , While Nasdaq Hits Reco -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.339)
+2026-02-08 18:48:11,415 - INFO - [48/102] (content-only) Bitcoin , Ethereum , Dogecoin Settle Down Amid Gro -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.339)
+2026-02-08 18:48:11,776 - INFO - [49/102] (headline+content) Competitor Analysis : Evaluating Apple And Competi -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.260)
+2026-02-08 18:48:12,083 - INFO - [50/102] (title-fallback) AAPL , NVDA , or BABA : Which Tech Giant Could Off -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.260)
+2026-02-08 18:48:12,491 - INFO - [51/102] (content-only) Dow Jones Today : Stocks Slip in Early Trading as  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.236)
+2026-02-08 18:48:12,888 - INFO - [52/102] (headline+content) Dan Niles Says Apple ( AAPL ) New iPhone Features  -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.183)
+2026-02-08 18:48:13,243 - INFO - [53/102] (content-only) S & P 500 Gains and Losses Today : Index Drops as  -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.183)
+2026-02-08 18:48:13,629 - INFO - [54/102] (content-only) Dow Jones Today : Stocks Inch Higher as Investors  -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.181)
+2026-02-08 18:48:13,951 - INFO - [55/102] (content-only) Baystreet . ca - Nvidia Stock Falls Into A Correct -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.178)
+2026-02-08 18:48:14,327 - INFO - [56/102] (content-only) What does Big Tech stand to gain from getting clos -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.178)
+2026-02-08 18:48:15,178 - WARNING - FinGPT unexpected answer: '', defaulting to neutral
+2026-02-08 18:48:15,179 - INFO - [57/102] (content-only) Market Breadth Worsens As Tech Giants Break Free F -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.178)
+2026-02-08 18:48:15,550 - INFO - [58/102] (content-only) Dow Jones Today : Stocks Slide as Nvidia , Broadco -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.178)
+2026-02-08 18:48:15,889 - INFO - [59/102] (content-only) Baystreet . ca - What To Do After Nasdaq Keeps Soa -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.178)
+2026-02-08 18:48:16,275 - INFO - [60/102] (headline+content) Broadcom , Tesla Propel Nasdaq 100 Gains , Bitcoin -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.175)
+2026-02-08 18:48:16,571 - INFO - [61/102] (headline+content) Apple planning thinner iPhone : report ( NASDAQ :  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.173)
+2026-02-08 18:48:16,859 - INFO - [62/102] (headline+content) Apple developing a foldable iPad : report ( NASDAQ -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.173)
+2026-02-08 18:48:17,662 - INFO - [63/102] (content-only) 3 things to bear in mind when buying shares for a  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.170)
+2026-02-08 18:48:18,044 - INFO - [64/102] (headline+content) Baystreet . ca - Apple To Launch Custom Chip For B -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.167)
+2026-02-08 18:48:18,442 - INFO - [65/102] (headline+content) Apple Inc . ( AAPL ) Integrates ChatGPT with Siri  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.167)
+2026-02-08 18:48:18,835 - INFO - [66/102] (content-only) Dow Jones Today : Stocks Rise in Early Trading as  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.167)
+2026-02-08 18:48:19,135 - INFO - [67/102] (headline+content) Apple Inc . ( NASDAQ : AAPL ) Shares Purchased by  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.167)
+2026-02-08 18:48:19,433 - INFO - [68/102] (headline+content) Apple Stock vs . Tesla Stock : Billionaires Are Bu -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.167)
+2026-02-08 18:48:19,750 - INFO - [69/102] (headline+content) Sander Capital Advisors Inc . Reduces Stock Positi -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.167)
+2026-02-08 18:48:20,067 - INFO - [70/102] (headline+content) NovaPoint Capital LLC Lowers Position in Apple Inc -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.167)
+2026-02-08 18:48:20,370 - INFO - [71/102] (headline+content) Apple Inc . ( NASDAQ : AAPL ) is Bartlett & CO . W -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.167)
+2026-02-08 18:48:20,774 - INFO - [72/102] (content-only) US close : Stocks slip as traders digest data ahea -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.167)
+2026-02-08 18:48:21,193 - INFO - [73/102] (content-only) 4 top ASX ETFs for Aussie investors to buy now -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.165)
+2026-02-08 18:48:21,609 - INFO - [74/102] (content-only) Nasdaq hits 20 , 000 on big tech surge -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.165)
+2026-02-08 18:48:22,005 - INFO - [75/102] (headline+content) Tim Cook Meets PM Keir Starmer Amid Growing Scruti -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.165)
+2026-02-08 18:48:22,408 - INFO - [76/102] (headline+content) S & P 500 Gains and Losses Today : Broadcom Soars  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.165)
+2026-02-08 18:48:22,729 - INFO - [77/102] (headline+content) Apple Stock Hits Record High On New AI Features |  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.162)
+2026-02-08 18:48:23,127 - INFO - [78/102] (headline+content) Apple Next Frontier : AI for Everyone - Wall Stree -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.162)
+2026-02-08 18:48:23,553 - INFO - [79/102] (content-only) BMO Belski on why he remains bullish on the TSX -  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.160)
+2026-02-08 18:48:23,958 - INFO - [80/102] (content-only) Dow Jones Today : Stocks Waver as Chip Stocks , Or -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.160)
+2026-02-08 18:48:24,357 - INFO - [81/102] (content-only) Baystreet . ca - Meta And These Stocks Rise After  -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.160)
+2026-02-08 18:48:24,776 - INFO - [82/102] (content-only) TikTok Billion - Dollar Shutdown Risk - Creators a -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.158)
+2026-02-08 18:48:25,118 - INFO - [83/102] (headline+content) Apple , Sony have discussed collaborating on contr -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.155)
+2026-02-08 18:48:25,424 - INFO - [84/102] (headline+content) Dow Jones Stocks : Apple Above Buy Point , Nvidia  -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.155)
+2026-02-08 18:48:25,797 - INFO - [85/102] (headline+content) Is Apple Inc . ( AAPL ) Dominating A Billionaire Q -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.153)
+2026-02-08 18:48:26,198 - INFO - [86/102] (content-only) 10 Stocks Dominating a Billionaire Quant Investmen -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.153)
+2026-02-08 18:48:27,031 - WARNING - FinGPT unexpected answer: '', defaulting to neutral
+2026-02-08 18:48:27,031 - INFO - [87/102] (headline+content) Apple shares hit new all - time intraday high -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.150)
+2026-02-08 18:48:27,355 - INFO - [88/102] (headline+content) Oxinas Partners Wealth Management LLC Sells 190 Sh -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.150)
+2026-02-08 18:48:27,677 - INFO - [89/102] (headline+content) Apple Inc . ( NASDAQ : AAPL ) Stake Reduced by MGB -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.150)
+2026-02-08 18:48:27,987 - INFO - [90/102] (headline+content) The Stock Warren Buffett Is Virtually Guaranteed t -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.150)
+2026-02-08 18:48:28,293 - INFO - [91/102] (headline+content) The Stock Warren Buffett Is Virtually Guaranteed t -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.150)
+2026-02-08 18:48:28,592 - INFO - [92/102] (headline+content) Meet the Unstoppable Artificial Intelligence ( AI  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.150)
+2026-02-08 18:48:28,995 - INFO - [93/102] (content-only) Dow Jones Today : Stocks Mixed as Market Looks to  -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.148)
+2026-02-08 18:48:29,394 - INFO - [94/102] (content-only) Bitcoin storms above $100 , 000 as Trump 2 . 0 fue -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.148)
+2026-02-08 18:48:29,804 - INFO - [95/102] (content-only) Bitcoin storms above $100 , 000 as Trump 2 . 0 fue -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.148)
+2026-02-08 18:48:30,200 - INFO - [96/102] (headline+content) UBS Maintains  Neutral  Rating on Apple Inc . ( AA -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.148)
+2026-02-08 18:48:30,580 - INFO - [97/102] (content-only) Vietnam Suspends Temu Operations for Missing Deadl -> pos=0.0500 neg=0.9000 neu=0.0500 (w=0.148)
+2026-02-08 18:48:31,005 - INFO - [98/102] (headline+content) Making Money From Crowd Stampede – Palantir Become -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.146)
+2026-02-08 18:48:31,342 - INFO - [99/102] (headline+content) High Net Worth Advisory Group LLC Grows Stock Hold -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.146)
+2026-02-08 18:48:31,736 - WARNING - FinGPT unexpected answer: 'gre', defaulting to neutral
+2026-02-08 18:48:31,737 - INFO - [100/102] (headline+content) S & P 500 Hits Another High As Apple Tops $242 For -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.146)
+2026-02-08 18:48:32,556 - WARNING - FinGPT unexpected answer: '', defaulting to neutral
+2026-02-08 18:48:32,556 - INFO - [101/102] (headline+content) Apple shares hit new all - time closing high -> pos=0.0500 neg=0.0500 neu=0.9000 (w=0.146)
+2026-02-08 18:48:32,946 - INFO - [102/102] (content-only) What Going On With Magnificent 7 Stocks ? - NVIDIA -> pos=0.9000 neg=0.0500 neu=0.0500 (w=0.146)
+2026-02-08 18:48:32,946 - INFO - Sentiment prediction complete: label=positive confidence=0.5051 (102 articles analyzed)
+2026-02-08 18:48:32,948 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\predictions\fingpt_result.json

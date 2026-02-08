@@ -84,13 +84,31 @@ def validate_date(date_str: str) -> None:
         raise ValueError(
             f"Invalid year: {year}. Please enter a realistic year between 1990 and {current_year + 1}."
         )
+    
+def _compute_ewma_lambda(prediction_window_days: int) -> float:
+    anchors = [(1, 0.89), (5, 0.92), (10, 0.95), (21, 0.97)]
+    W = prediction_window_days
+
+    if W <= anchors[0][0]:
+        return anchors[0][1]
+    if W >= anchors[-1][0]:
+        return anchors[-1][1]
+
+    for i in range(len(anchors) - 1):
+        w_lo, lam_lo = anchors[i]
+        w_hi, lam_hi = anchors[i + 1]
+        if w_lo <= W <= w_hi:
+            t = (W - w_lo) / (w_hi - w_lo)
+            return lam_lo + t * (lam_hi - lam_lo)
+
+    return anchors[-1][1]
 
 
 def add_recency_weights(
     articles: list[dict],
     ref_date: datetime,
     backward_end_date: datetime,
-    max_backward_days: int,
+    prediction_window_days: int
 ) -> None:
     for article in articles:
         try:
@@ -101,35 +119,10 @@ def add_recency_weights(
                 seen_dt = backward_end_date
 
             days_ago = max(0, (ref_date.date() - seen_dt.date()).days)
-           
 
-            # Recency weight rule: will be tested
-
-            # Option 1: Rule-based
-            # if days_ago <= 7:
-            #     recency_weight = 2.0
-            # elif days_ago <= 14:
-            #     recency_weight = 1.0
-            # else:
-            #     recency_weight = 0.0
-
-            # Option 2: Linear Decay
-            # recency_weight = max(0.0, 1.0 - (days_ago / self.max_backward_days))
-
-            # Option 3: Exponential Decay
-            # lambda_ = 0.15 # might be different value
-            # recency_weight = math.exp(-lambda_ * days_ago)
-
-            # Option 4: Pierwise Non-Linear
-            if days_ago <= 3:  # fresh news
-                recency_weight = 1.5
-            elif days_ago <= 7:  # still fresh but not important as first one
-                recency_weight = 1.0
-            elif days_ago <= 14:  # borderline
-                recency_weight = 0.5
-            else:  # not important
-                recency_weight = 0.0
-
+            lam = _compute_ewma_lambda(prediction_window_days)
+            recency_weight = lam ** days_ago
+        
             article["days_ago"] = days_ago
             article["recency_weight"] = recency_weight
 

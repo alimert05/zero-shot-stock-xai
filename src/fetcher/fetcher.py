@@ -14,9 +14,7 @@ from config import (
     TEMP_PATH,
     REQUEST_TIMEOUT_LIMIT,
     THEMES,
-    IMPACT_HORIZON_ENABLED,
     WEIGHT_COMBINE_METHOD,
-    NOISE_REDUCTION_ENABLED
 )
 from .utils import resolve_ticker, validate_date, add_recency_weights
 from .filters import (
@@ -226,7 +224,7 @@ class Fetcher:
             candidates,
             ref_date=start_dt,
             backward_end_date=self.backward_end_date,
-            max_backward_days=self.max_backward_days,
+            prediction_window_days=self.prediction_window_days,
         )
  
         enrich_articles_with_content(candidates, timeout=self.timeout)
