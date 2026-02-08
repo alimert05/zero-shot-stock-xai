@@ -243,8 +243,7 @@ class Fetcher:
 
         add_impact_horizon_data(
             filtered_after_rules,
-            prediction_window_days=self.prediction_window_days,
-            combine_method=WEIGHT_COMBINE_METHOD)
+            prediction_window_days=self.prediction_window_days)
 
         for article in filtered_after_rules:
             a = article.get("content")

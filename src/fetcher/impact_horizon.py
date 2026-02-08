@@ -2,7 +2,6 @@ from __future__ import annotations
  
 import logging
 import math
-from typing import Literal
  
 logger = logging.getLogger(__name__)
  
@@ -99,49 +98,25 @@ def calculate_impact_horizon_weight(
     impact_horizon_days: int,
     prediction_window_days: int,
 ) -> float:
-
-    days_until_impact = impact_horizon_days - days_ago
-
-    if days_until_impact < 0:
-        days_since_impact = abs(days_until_impact)
-        decay_rate = 0.5
-        return max(0.05, 0.3 * math.exp(-decay_rate * days_since_impact))
     
-    if days_until_impact <= prediction_window_days:
-        closeness_to_end = days_until_impact / prediction_window_days
-        return 0.5 + 0.5 * closeness_to_end
-
-    overshoot = days_until_impact - prediction_window_days
-    decay_rate = 0.1
-    return max(0.1, math.exp(-decay_rate * overshoot))
+    W = prediction_window_days
+    impact_day = impact_horizon_days - days_ago
+    mu = W / 2.0
+    sigma = W / 2.0
+    return math.exp(-((impact_day - mu) ** 2) / (2.0 * sigma ** 2))
  
  
 def calculate_combined_weight(
     recency_weight: float,
     impact_horizon_weight: float,
-    method: Literal["weighted_avg", "multiplicative", "geometric"] = "weighted_avg",
-    recency_importance: float = 0.4,
-    horizon_importance: float = 0.6,
 ) -> float:
+    return math.sqrt(recency_weight * impact_horizon_weight)
 
-    if method == "weighted_avg":
-        return (recency_importance * recency_weight +
-                horizon_importance * impact_horizon_weight)
- 
-    elif method == "multiplicative":
-        return recency_weight * impact_horizon_weight
- 
-    elif method == "geometric":
-        return math.sqrt(recency_weight * impact_horizon_weight)
- 
-    else:
-        raise ValueError(f"Unknown combination method: {method}")
  
  
 def add_impact_horizon_data(
     articles: list[dict],
     prediction_window_days: int,
-    combine_method: Literal["weighted_avg", "multiplicative", "geometric"] = "weighted_avg",
 ) -> None:
 
     logger.info(
@@ -173,7 +148,6 @@ def add_impact_horizon_data(
         final_weight = calculate_combined_weight(
             recency_weight=recency_weight,
             impact_horizon_weight=horizon_weight,
-            method=combine_method,
         )
 
         article["impact_horizon"] = {
