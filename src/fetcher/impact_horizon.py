@@ -1,165 +1,190 @@
 from __future__ import annotations
-
+ 
 import logging
-from typing import Optional
-
+import math
+from typing import Literal
+ 
 logger = logging.getLogger(__name__)
-
-_fls_pipeline = None
-
-
-def _get_fls_pipeline():
-    global _fls_pipeline
-    if _fls_pipeline is None:
+ 
+_classifier = None
+ 
+ 
+def _get_classifier():
+    global _classifier
+    if _classifier is None:
         try:
             from transformers import pipeline
-            from config import SENTIMENT_DEVICE
-
-            logger.info("Loading FinBERT FLS classifier...")
-            _fls_pipeline = pipeline(
-                "text-classification",
-                model="yiyanghkust/finbert-fls",
-                device=SENTIMENT_DEVICE,
+            from config import IMPACT_HORIZON_DEVICE, IMPACT_HORIZON_MODEL
+ 
+            logger.info("Loading DeBERTa zero-shot classifier...")
+            _classifier = pipeline(
+                "zero-shot-classification",
+                model=IMPACT_HORIZON_MODEL,
+                device=IMPACT_HORIZON_DEVICE,  
             )
-            logger.info("FinBERT FLS model loaded successfully")
+            logger.info("DeBERTa classifier loaded successfully")
         except Exception as exc:
-            logger.error("Failed to load FinBERT FLS model: %s", exc)
+            logger.error("Failed to load DeBERTa classifier: %s", exc)
             raise
-    return _fls_pipeline
+    return _classifier
+ 
+IMPACT_LABELS = [
+    "immediate market reaction within 1-5 days",
+    "short-term impact within 5-10 days",
+    "medium-term impact within 2-3 weeks",
+    "long-term impact over 4 weeks",
+]
 
-
-FLS_TO_HORIZON = {
-    "Not FLS": "IMMEDIATE",         
-    "Specific FLS": "SHORT_TERM",    
-    "Non-specific FLS": "MEDIUM_TERM",
+LABEL_TO_DAYS: dict[str, int] = {
+    "immediate market reaction within 1-5 days": 3,
+    "short-term impact within 5-10 days": 7,
+    "medium-term impact within 2-3 weeks": 14,
+    "long-term impact over 4 weeks": 31,
 }
 
-HORIZON_IDEAL_RANGE = {
-    "IMMEDIATE": (1, 5),       
-    "SHORT_TERM": (5, 14),     
-    "MEDIUM_TERM": (14, 31),   
+HORIZON_CATEGORY = {
+    3: "IMMEDIATE",
+    7: "SHORT_TERM",
+    14: "MEDIUM_TERM",
+    31: "LONG_TERM",
 }
+ 
+ 
+def classify_impact_horizon(
+    title: str,
+    content: str | None = None,
+    max_content_chars: int = 500,
+) -> dict:
+    
+    classifier = _get_classifier()
 
-
-def _calculate_dynamic_weight(
-    horizon: str,
-    prediction_window_days: int,
-    min_weight: float = 0.3,
-    max_weight: float = 1.5,
-) -> float:
-    ideal_min, ideal_max = HORIZON_IDEAL_RANGE.get(horizon, (5, 14))
-
-    if ideal_min <= prediction_window_days <= ideal_max:
-        return max_weight
-
-    if prediction_window_days < ideal_min:
-        distance = ideal_min - prediction_window_days
+    if content:
+        truncated_content = content[:max_content_chars]
+        text = f"{title}. {truncated_content}"
     else:
-        distance = prediction_window_days - ideal_max
+        text = title
+ 
+    try:
+        result = classifier(
+            text,
+            candidate_labels=IMPACT_LABELS,
+            hypothesis_template="This financial news will cause {}.",
+        )
+ 
+        top_label = result["labels"][0]
+        confidence = result["scores"][0]
+        horizon_days = LABEL_TO_DAYS[top_label]
+        category = HORIZON_CATEGORY[horizon_days]
+ 
+        return {
+            "label": top_label,
+            "horizon_days": horizon_days,
+            "category": category,
+            "confidence": confidence,
+        }
+ 
+    except Exception as exc:
+        logger.warning("Impact horizon classification failed: %s", exc)
 
-    max_distance = 30
-    normalized_distance = min(distance / max_distance, 1.0)
+        return {
+            "label": IMPACT_LABELS[2],
+            "horizon_days": 10,
+            "category": "MEDIUM_TERM",
+            "confidence": 0.0,
+        }
+ 
+ 
+def calculate_impact_horizon_weight(
+    days_ago: int,
+    impact_horizon_days: int,
+    prediction_window_days: int,
+) -> float:
 
-    weight = max_weight - (max_weight - min_weight) * (normalized_distance ** 0.7)
+    days_until_impact = impact_horizon_days - days_ago
+
+    if days_until_impact < 0:
+        days_since_impact = abs(days_until_impact)
+        decay_rate = 0.5
+        return max(0.05, 0.3 * math.exp(-decay_rate * days_since_impact))
     
-    return round(max(weight, min_weight), 4)
+    if days_until_impact <= prediction_window_days:
+        closeness_to_end = days_until_impact / prediction_window_days
+        return 0.5 + 0.5 * closeness_to_end
 
+    overshoot = days_until_impact - prediction_window_days
+    decay_rate = 0.1
+    return max(0.1, math.exp(-decay_rate * overshoot))
+ 
+ 
+def calculate_combined_weight(
+    recency_weight: float,
+    impact_horizon_weight: float,
+    method: Literal["weighted_avg", "multiplicative", "geometric"] = "weighted_avg",
+    recency_importance: float = 0.4,
+    horizon_importance: float = 0.6,
+) -> float:
 
-def classify_impact_horizon(text: str, prediction_window_days: int = 7) -> dict:
-    pipe = _get_fls_pipeline()
-
-    truncated = text[:512]
-    
-    result = pipe(truncated)
-    
-    fls_label = result[0]["label"]
-    fls_score = result[0]["score"]
-    
-    horizon = FLS_TO_HORIZON.get(fls_label, "SHORT_TERM")
-
-    horizon_weight = _calculate_dynamic_weight(horizon, prediction_window_days)
-    
-    return {
-        "fls_label": fls_label,
-        "fls_confidence": round(fls_score, 4),
-        "impact_horizon": horizon,
-        "horizon_weight": horizon_weight,
-        "prediction_window_days": prediction_window_days,
-    }
-
-
+    if method == "weighted_avg":
+        return (recency_importance * recency_weight +
+                horizon_importance * impact_horizon_weight)
+ 
+    elif method == "multiplicative":
+        return recency_weight * impact_horizon_weight
+ 
+    elif method == "geometric":
+        return math.sqrt(recency_weight * impact_horizon_weight)
+ 
+    else:
+        raise ValueError(f"Unknown combination method: {method}")
+ 
+ 
 def add_impact_horizon_data(
     articles: list[dict],
-    prediction_window_days: int = 7,
-    combine_method: str = "weighted_avg",
-) -> list[dict]:
-    
-    if not articles:
-        return articles
-    
+    prediction_window_days: int,
+    combine_method: Literal["weighted_avg", "multiplicative", "geometric"] = "weighted_avg",
+) -> None:
+
     logger.info(
-        "Classifying impact horizon for %d articles using FinBERT FLS (prediction window: %d days)",
-        len(articles), prediction_window_days
+        "Adding impact horizon data to %d articles (prediction window: %d days)",
+        len(articles),
+        prediction_window_days,
     )
-    
+ 
     for i, article in enumerate(articles):
         title = article.get("title", "")
-        content = article.get("content") or ""
-
-        text = f"{title}. {content}".strip()
-        
-        if not text:
-            article["impact_horizon"] = "SHORT_TERM"
-            article["horizon_weight"] = 1.0
-            article["fls_label"] = None
-            article["fls_confidence"] = None
-            continue
-        
-        result = classify_impact_horizon(text, prediction_window_days)
-        
-        article["fls_label"] = result["fls_label"]
-        article["fls_confidence"] = result["fls_confidence"]
-        article["impact_horizon"] = result["impact_horizon"]
-        article["horizon_weight"] = result["horizon_weight"]
-
+        content = article.get("content", "")
+        days_ago = article.get("days_ago", 0)
         recency_weight = article.get("recency_weight", 1.0)
-        
-        if combine_method == "multiplicative":
-            article["final_weight"] = recency_weight * result["horizon_weight"]
-        elif combine_method == "geometric":
-            article["final_weight"] = (recency_weight * result["horizon_weight"]) ** 0.5
-        else:  
-            article["final_weight"] = 0.6 * recency_weight + 0.4 * result["horizon_weight"]
-        
-        article["final_weight"] = round(article["final_weight"], 4)
-        
-        logger.debug(
-            "[%d] %s -> FLS=%s (%.2f) -> %s (w=%.2f, final=%.2f)",
-            i + 1, title[:50], result["fls_label"], result["fls_confidence"],
-            result["impact_horizon"], result["horizon_weight"], article["final_weight"],
+
+        if not title:
+            article["impact_horizon"] = None
+            article["impact_horizon_weight"] = 1.0
+            article["final_weight"] = recency_weight
+            continue
+
+        horizon_result = classify_impact_horizon(title, content)
+
+        horizon_weight = calculate_impact_horizon_weight(
+            days_ago=days_ago if days_ago is not None else 0,
+            impact_horizon_days=horizon_result["horizon_days"],
+            prediction_window_days=prediction_window_days,
         )
 
-    _log_weight_summary(articles, prediction_window_days)
-    
+        final_weight = calculate_combined_weight(
+            recency_weight=recency_weight,
+            impact_horizon_weight=horizon_weight,
+            method=combine_method,
+        )
+
+        article["impact_horizon"] = {
+            "category": horizon_result["category"],
+            "horizon_days": horizon_result["horizon_days"],
+            "confidence": round(horizon_result["confidence"], 4),
+        }
+        article["impact_horizon_weight"] = round(horizon_weight, 4)
+        article["final_weight"] = round(final_weight, 4)
+ 
+        if (i + 1) % 10 == 0:
+            logger.info("Processed %d/%d articles", i + 1, len(articles))
+ 
     logger.info("Impact horizon classification complete")
-    return articles
-
-
-def _log_weight_summary(articles: list[dict], prediction_window_days: int) -> None:
-    horizon_counts = {"IMMEDIATE": 0, "SHORT_TERM": 0, "MEDIUM_TERM": 0}
-    total_weight = 0.0
-    
-    for article in articles:
-        horizon = article.get("impact_horizon", "SHORT_TERM")
-        if horizon in horizon_counts:
-            horizon_counts[horizon] += 1
-        total_weight += article.get("final_weight", 1.0)
-    
-    logger.info(
-        "Horizon distribution (prediction=%d days): IMMEDIATE=%d, SHORT=%d, MEDIUM=%d | Total weight=%.2f",
-        prediction_window_days,
-        horizon_counts["IMMEDIATE"],
-        horizon_counts["SHORT_TERM"],
-        horizon_counts["MEDIUM_TERM"],
-        total_weight,
-    )
