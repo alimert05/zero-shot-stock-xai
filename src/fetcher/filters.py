@@ -29,9 +29,15 @@ def _contains_name_or_ticker(text: str, company_name: str, ticker_re: re.Pattern
 
     return False
 
-def _is_question_headline(title: str) -> bool:
+_QUESTION_WORDS_RE = re.compile(
+    r"(?i)^(who|what|when|where|why|how|is|are|was|were|do|does|did|can|could|should|will|would)\b"
+)
 
-    return bool(title) and ("?" in title)
+def _is_question_headline(title: str) -> bool:
+    if not title:
+        return False
+    t = title.strip()
+    return "?" in t or bool(_QUESTION_WORDS_RE.search(t))
 
 def filter_company_related(articles: list[dict], company_name: str, ticker: str | None) -> list[dict]:
 
