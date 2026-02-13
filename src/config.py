@@ -23,9 +23,9 @@ BASE_URL = "https://api.gdeltproject.org/api/v2/doc/doc"
 
 WEIGHT_COMBINE_METHOD = "geometric"
 
-NOISE_REDUCTION_MODEL = "microsoft/deberta-large-mnli"
+NOISE_REDUCTION_MODEL = "roberta-large-mnli" 
 
-IMPACT_HORIZON_MODEL = "microsoft/deberta-large-mnli" 
+IMPACT_HORIZON_MODEL = "roberta-large-mnli" 
 IMPACT_HORIZON_DEVICE = 0
 
 RECENCY_IMPORTANCE = 0.4
@@ -52,9 +52,9 @@ MODEL_NAME = "microsoft/deberta-large-mnli" # microsoft deberta large mnli
 THEMES = [
     "ECON_STOCKMARKET",
     "ECON_CENTRALBANK",
-    "ECON_INTEREST_RATES",
-    "EPU_CATS_FINANCIAL_REGULATION",
-    "EPU_ECONOMY",
+    # "ECON_INTEREST_RATES",
+    # "EPU_CATS_FINANCIAL_REGULATION",
+    # "EPU_ECONOMY",
 
     # "ECON_INFLATION",
     # "ECON_WORLDCURRENCIES",
