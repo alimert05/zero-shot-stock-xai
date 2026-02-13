@@ -1,0 +1,576 @@
+{
+  "metadata": {
+    "run_timestamp": "2026-02-09 17:06:40",
+    "test_set": "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\test_results\\test_set.json",
+    "sentiment_model": "zero-shot",
+    "total_cases": 10,
+    "total_errors": 10,
+    "total_duration_seconds": 1412.57
+  },
+  "overall_metrics": {
+    "accuracy": 0.2,
+    "total": 10,
+    "correct": 2,
+    "macro_precision": 0.0667,
+    "macro_recall": 0.3333,
+    "macro_f1": 0.1111,
+    "per_class": {
+      "negative": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 3,
+        "tp": 0,
+        "fp": 0,
+        "fn": 3
+      },
+      "neutral": {
+        "precision": 0.2,
+        "recall": 1.0,
+        "f1": 0.3333,
+        "support": 2,
+        "tp": 2,
+        "fp": 8,
+        "fn": 0
+      },
+      "positive": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5,
+        "tp": 0,
+        "fp": 0,
+        "fn": 5
+      }
+    },
+    "confusion_matrix": {
+      "negative": {
+        "negative": 0,
+        "neutral": 3,
+        "positive": 0
+      },
+      "neutral": {
+        "negative": 0,
+        "neutral": 2,
+        "positive": 0
+      },
+      "positive": {
+        "negative": 0,
+        "neutral": 5,
+        "positive": 0
+      }
+    }
+  },
+  "per_window_metrics": {
+    "W=1": {
+      "accuracy": 0.25,
+      "total": 4,
+      "correct": 1,
+      "macro_precision": 0.125,
+      "macro_recall": 0.5,
+      "macro_f1": 0.2,
+      "per_class": {
+        "neutral": {
+          "precision": 0.25,
+          "recall": 1.0,
+          "f1": 0.4,
+          "support": 1,
+          "tp": 1,
+          "fp": 3,
+          "fn": 0
+        },
+        "positive": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3,
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        }
+      },
+      "confusion_matrix": {
+        "neutral": {
+          "neutral": 1,
+          "positive": 0
+        },
+        "positive": {
+          "neutral": 3,
+          "positive": 0
+        }
+      }
+    },
+    "W=3": {
+      "accuracy": 0.25,
+      "total": 4,
+      "correct": 1,
+      "macro_precision": 0.0833,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1333,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "neutral": {
+          "precision": 0.25,
+          "recall": 1.0,
+          "f1": 0.4,
+          "support": 1,
+          "tp": 1,
+          "fp": 3,
+          "fn": 0
+        },
+        "positive": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 0
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 0
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 2,
+          "positive": 0
+        }
+      }
+    },
+    "W=5": {
+      "accuracy": 0.0,
+      "total": 2,
+      "correct": 0,
+      "macro_precision": 0.0,
+      "macro_recall": 0.0,
+      "macro_f1": 0.0,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "tp": 0,
+          "fp": 2,
+          "fn": 0
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 2
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 0
+        }
+      }
+    }
+  },
+  "per_company_metrics": {
+    "AAPL": {
+      "accuracy": 0.2,
+      "total": 10,
+      "correct": 2,
+      "macro_precision": 0.0667,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1111,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3,
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "neutral": {
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1": 0.3333,
+          "support": 2,
+          "tp": 2,
+          "fp": 8,
+          "fn": 0
+        },
+        "positive": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 3,
+          "positive": 0
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 2,
+          "positive": 0
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 5,
+          "positive": 0
+        }
+      }
+    }
+  },
+  "per_period_metrics": {
+    "bull_run": {
+      "accuracy": 0.6667,
+      "total": 3,
+      "correct": 2,
+      "macro_precision": 0.3333,
+      "macro_recall": 0.5,
+      "macro_f1": 0.4,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "neutral": {
+          "precision": 0.6667,
+          "recall": 1.0,
+          "f1": 0.8,
+          "support": 2,
+          "tp": 2,
+          "fp": 1,
+          "fn": 0
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 1
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 2
+        }
+      }
+    },
+    "earnings_season": {
+      "accuracy": 0.0,
+      "total": 2,
+      "correct": 0,
+      "macro_precision": 0.0,
+      "macro_recall": 0.0,
+      "macro_f1": 0.0,
+      "per_class": {
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "tp": 0,
+          "fp": 2,
+          "fn": 0
+        },
+        "positive": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "confusion_matrix": {
+        "neutral": {
+          "neutral": 0,
+          "positive": 0
+        },
+        "positive": {
+          "neutral": 2,
+          "positive": 0
+        }
+      }
+    },
+    "recent_stable": {
+      "accuracy": 0.0,
+      "total": 2,
+      "correct": 0,
+      "macro_precision": 0.0,
+      "macro_recall": 0.0,
+      "macro_f1": 0.0,
+      "per_class": {
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "tp": 0,
+          "fp": 2,
+          "fn": 0
+        },
+        "positive": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "confusion_matrix": {
+        "neutral": {
+          "neutral": 0,
+          "positive": 0
+        },
+        "positive": {
+          "neutral": 2,
+          "positive": 0
+        }
+      }
+    },
+    "volatile": {
+      "accuracy": 0.0,
+      "total": 3,
+      "correct": 0,
+      "macro_precision": 0.0,
+      "macro_recall": 0.0,
+      "macro_f1": 0.0,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "tp": 0,
+          "fp": 3,
+          "fn": 0
+        },
+        "positive": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 2,
+          "positive": 0
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 0
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 0
+        }
+      }
+    }
+  },
+  "case_results": [
+    {
+      "id": "AAPL_W1_bull_run_001",
+      "actual_label": "neutral",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined",
+      "duration_seconds": 162.52,
+      "prediction_window_days": 1,
+      "ticker": "AAPL",
+      "market_period": "bull_run"
+    },
+    {
+      "id": "AAPL_W1_volatile_002",
+      "actual_label": "positive",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined",
+      "duration_seconds": 122.51,
+      "prediction_window_days": 1,
+      "ticker": "AAPL",
+      "market_period": "volatile"
+    },
+    {
+      "id": "AAPL_W1_earnings_season_003",
+      "actual_label": "positive",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined",
+      "duration_seconds": 85.27,
+      "prediction_window_days": 1,
+      "ticker": "AAPL",
+      "market_period": "earnings_season"
+    },
+    {
+      "id": "AAPL_W1_recent_stable_004",
+      "actual_label": "positive",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined",
+      "duration_seconds": 82.61,
+      "prediction_window_days": 1,
+      "ticker": "AAPL",
+      "market_period": "recent_stable"
+    },
+    {
+      "id": "AAPL_W3_bull_run_005",
+      "actual_label": "neutral",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined",
+      "duration_seconds": 158.77,
+      "prediction_window_days": 3,
+      "ticker": "AAPL",
+      "market_period": "bull_run"
+    },
+    {
+      "id": "AAPL_W3_volatile_006",
+      "actual_label": "negative",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined",
+      "duration_seconds": 116.43,
+      "prediction_window_days": 3,
+      "ticker": "AAPL",
+      "market_period": "volatile"
+    },
+    {
+      "id": "AAPL_W3_earnings_season_007",
+      "actual_label": "positive",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined",
+      "duration_seconds": 95.77,
+      "prediction_window_days": 3,
+      "ticker": "AAPL",
+      "market_period": "earnings_season"
+    },
+    {
+      "id": "AAPL_W3_recent_stable_008",
+      "actual_label": "positive",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined",
+      "duration_seconds": 69.32,
+      "prediction_window_days": 3,
+      "ticker": "AAPL",
+      "market_period": "recent_stable"
+    },
+    {
+      "id": "AAPL_W5_bull_run_009",
+      "actual_label": "negative",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined",
+      "duration_seconds": 245.1,
+      "prediction_window_days": 5,
+      "ticker": "AAPL",
+      "market_period": "bull_run"
+    },
+    {
+      "id": "AAPL_W5_volatile_010",
+      "actual_label": "negative",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined",
+      "duration_seconds": 274.27,
+      "prediction_window_days": 5,
+      "ticker": "AAPL",
+      "market_period": "volatile"
+    }
+  ],
+  "errors": [
+    {
+      "id": "AAPL_W1_bull_run_001",
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined"
+    },
+    {
+      "id": "AAPL_W1_volatile_002",
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined"
+    },
+    {
+      "id": "AAPL_W1_earnings_season_003",
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined"
+    },
+    {
+      "id": "AAPL_W1_recent_stable_004",
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined"
+    },
+    {
+      "id": "AAPL_W3_bull_run_005",
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined"
+    },
+    {
+      "id": "AAPL_W3_volatile_006",
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined"
+    },
+    {
+      "id": "AAPL_W3_earnings_season_007",
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined"
+    },
+    {
+      "id": "AAPL_W3_recent_stable_008",
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined"
+    },
+    {
+      "id": "AAPL_W5_bull_run_009",
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined"
+    },
+    {
+      "id": "AAPL_W5_volatile_010",
+      "error": "name 'NOISE_REDUCTION_ENABLED' is not defined"
+    }
+  ]
+}
