@@ -1,626 +1,1599 @@
 {
-  "query": "apple",
-  "ticker": "AAPL",
-  "start_date": "01-01-2025",
-  "end_date": "01-02-2025",
-  "backward_start_date": "04-12-2024",
-  "backward_end_date": "31-12-2024",
+  "query": "Nvidia",
+  "ticker": "NVDA",
+  "start_date": "06-01-2026",
+  "end_date": "06-02-2026",
+  "backward_start_date": "09-12-2025",
+  "backward_end_date": "05-01-2026",
   "prediction_window_days": 31,
-  "fetch_timestamp": "2026-02-10 16:10:02",
-  "article_count": 16,
+  "fetch_timestamp": "2026-02-14 14:13:51",
+  "article_count": 61,
   "articles": [
     {
-      "url": "https://wallstreetpit.com/121765-apples-4-trillion-dream-ai-hype-or-real-growth/",
-      "url_mobile": "",
-      "title": "Apple $4 Trillion Dream : AI Hype or Real Growth ? ",
-      "seendate": "20241225T000000Z",
-      "socialimage": "https://wallstreetpit.com/wp-content/uploads/2016/08/apple-iphone-keyboard.jpg",
-      "domain": "wallstreetpit.com",
+      "title": "Nvidia CEO confirms Vera Rubin AI platform is 'in full production'",
+      "url": "https://finnhub.io/api/news?id=1fb2d0924ccccdef92ab591c3b0eb8335bd1337c00d9eefaacdd6f06a39b392e",
+      "sourceurl": "https://finnhub.io/api/news?id=1fb2d0924ccccdef92ab591c3b0eb8335bd1337c00d9eefaacdd6f06a39b392e",
+      "seendate": "20260105T230711Z",
+      "domain": "Yahoo",
       "language": "English",
-      "sourcecountry": "United States",
+      "content": "The Vera Rubin platform is in full production, Nvidia (NVDA) CEO Jensen Huang confirms during his speech at the 2026 CES. Watch the video above to learn more about the next generation of artificial intelligence (AI) tech.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 2,
+        "relevance_ratio": 0.6667,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.2573
+      },
+      "impact_horizon_weight": 0.9871,
+      "final_weight": 0.9785
+    },
+    {
+      "title": "Nvidia accelerates AI roadmap: Rubin superchip in full production, 5x faster",
+      "url": "https://finnhub.io/api/news?id=cb9666cf769e3d0b12a7a422949feee103afc656f129cae5ee5c4069116682ce",
+      "sourceurl": "https://finnhub.io/api/news?id=cb9666cf769e3d0b12a7a422949feee103afc656f129cae5ee5c4069116682ce",
+      "seendate": "20260105T234646Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Investing.com -- NVIDIA Corporation (NASDAQ:NVDA) is accelerating its release cycle, announcing at the CES 2026 convention on Monday that its highly anticipated Rubin data center products are in full production and nearing release this year.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.271
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "What Nvidia's Vera Rubin AI platform brings to the table: CES 2026",
+      "url": "https://finnhub.io/api/news?id=b451e2c0af34cf63992a296cc9982b59ff460513ad8ffc1a08cd29413e706788",
+      "sourceurl": "https://finnhub.io/api/news?id=b451e2c0af34cf63992a296cc9982b59ff460513ad8ffc1a08cd29413e706788",
+      "seendate": "20260105T232200Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Nvidia (NVDA) CEO Jensen Huang showcased the chip manufacturer's future projects and partnerships in his CES 2026 keynote presentation, including the company's Alpamayo open-source AI model for autonomous vehicles and its Vera Rubin AI platform. Creative Strategies senior analyst Austin Lyons — alongside Freedom Capital Markets managing director Paul Meeks — sits down with Josh Lipton to explain what sets Nvidia's Vera Rubin apart from past AI architecture platforms. To watch more expert insights and analysis on the latest market action, check out more Market Domination Overtime.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.448
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Cerence xUI, Leveraging NVIDIA AI Enterprise and Running on Microsoft Azure, Drives Strong Traction with Automakers",
+      "url": "https://finnhub.io/api/news?id=3fc5c4d29976ee8c5da44bc48d80b3c081128b323f240665db384cb78b725acb",
+      "sourceurl": "https://finnhub.io/api/news?id=3fc5c4d29976ee8c5da44bc48d80b3c081128b323f240665db384cb78b725acb",
+      "seendate": "20260105T230000Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "SUMMARY AND KEY POINTS: Cerence xUI™ combines hybrid, agentic intelligence with production-ready NVIDIA software and services running on Microsoft Azure, helping OEMs meet rising demand for fast, natural, LLM-powered in-car experiences.Cerence AI and NVIDIA expanded their collaboration in January 2025, and now multiple global automakers will deploy Cerence xUI on NVIDIA AI Enterprise in production vehicles launching in 2026, bringing a new era of AI-powered, high-performance assistants and agent",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3906
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Supermicro Announces Support for Upcoming NVIDIA Vera Rubin NVL72, HGX Rubin NVL8 and Expanded Rack-Scale Manufacturing Capacity for Liquid-Cooled AI Solutions",
+      "url": "https://finnhub.io/api/news?id=0bff7b75ab9a4b946de66d12192ff5b7ed725a9c3831d276350a13f4fb72dda0",
+      "sourceurl": "https://finnhub.io/api/news?id=0bff7b75ab9a4b946de66d12192ff5b7ed725a9c3831d276350a13f4fb72dda0",
+      "seendate": "20260105T230000Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "(NASDAQ: SMCI), a total IT solution provider for AI, cloud, storage, and 5G/edge, today announced expansions in manufacturing capacity and liquid-cooling capabilities, in collaboration with NVIDIA, to enable first-to-market delivery of data center-scale solutions optimized for the NVIDIA Vera Rubin and Rubin platforms. Leveraging accelerated development and collaboration with NVIDIA, Supermicro is uniquely positioned to rapidly deploy the flagship NVIDIA Vera Rubin NVL72 and NVI",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 2,
+        "relevance_ratio": 0.6667,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3106
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Red Hat Expands Collaboration with NVIDIA to Pair Enterprise Open Source with Rack-Scale AI for Faster, Production-Ready Innovation",
+      "url": "https://finnhub.io/api/news?id=5a4598f56a6e9b26464a81f95fc6735f07653b94faa6ab179ed8ce9ac78a31da",
+      "sourceurl": "https://finnhub.io/api/news?id=5a4598f56a6e9b26464a81f95fc6735f07653b94faa6ab179ed8ce9ac78a31da",
+      "seendate": "20260105T230000Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "RALEIGH, N.C., January 05, 2026--Red Hat, the world's leading provider of open source solutions, today announced a landmark expansion of its collaboration with NVIDIA to align enterprise open source technologies to the rapidity of enterprise AI evolution and rack-scale AI advances. As the industry moves beyond individual servers toward unified, high-density systems, Red Hat aims to deliver the starting point for this transformation with Red Hat Enterprise Linux for NVIDIA, a specialized edition",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.5009
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Chevron, Nvidia, Novo Nordisk, Zeta Global And Exxon Mobil: Why These 5 Stocks Are On Investors' Radars Today",
+      "url": "https://finnhub.io/api/news?id=ed9c0e77b0bd4ad382a7d40b9096762cb6ead04467b1cf4c7b2cc1591243c315",
+      "sourceurl": "https://finnhub.io/api/news?id=ed9c0e77b0bd4ad382a7d40b9096762cb6ead04467b1cf4c7b2cc1591243c315",
+      "seendate": "20260105T213321Z",
+      "domain": "Benzinga",
+      "language": "English",
+      "content": "CVX, NVDA, NVO, ZETA, XOM were among the stocks seen trending on Monday, Jan. 5, 2026.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3134
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Aeva Technologies' Frequency Modulated Continuous Wave 4D LiDAR Technology Selected For The NVIDIA Drive Hyperion Autonomous Vehicle Reference Platform; Aeva And NVIDIA Will Collaborate To Integrate Aeva's Technology Platform In Hyperion On Production Vehicle Programs, Targeting 2028 Start Of Production",
+      "url": "https://finnhub.io/api/news?id=75c4cd2280a098cdcd3780190949891366f545b8aee7fd4778dcab24ac83c954",
+      "sourceurl": "https://finnhub.io/api/news?id=75c4cd2280a098cdcd3780190949891366f545b8aee7fd4778dcab24ac83c954",
+      "seendate": "20260105T190807Z",
+      "domain": "Benzinga",
+      "language": "English",
+      "content": "Today, at CES 2026, Aeva® (NASDAQ:AEVA), a leader in next-generation sensing and perception systems, announced that its Frequency Modulated Continuous Wave (FMCW) 4D LiDAR technology has been selected for the NVIDIA",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3671
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Nvidia Unveils Alpamayo AI For Autonomous Vehicles: 'Chat-GPT Moment' For Cars",
+      "url": "https://finnhub.io/api/news?id=45f05eeedd182880168ef68327f9125151757b946683cd5c562fc7688a57b238",
+      "sourceurl": "https://finnhub.io/api/news?id=45f05eeedd182880168ef68327f9125151757b946683cd5c562fc7688a57b238",
+      "seendate": "20260105T190029Z",
+      "domain": "Benzinga",
+      "language": "English",
+      "content": "At CES 2026 on Monday, NVIDIA Corp. (NASDAQ:NVDA) unveiled a shift in autonomous vehicle (AV) development with the release of the open-source Alpamayo family.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2747
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Nvidia CEO Huang to take stage at CES in Las Vegas as competition mounts",
+      "url": "https://finnhub.io/api/news?id=98d201cea1c028c75f57f2744cafb12de51557ed7f889832fb4c6fed0e1f2363",
+      "sourceurl": "https://finnhub.io/api/news?id=98d201cea1c028c75f57f2744cafb12de51557ed7f889832fb4c6fed0e1f2363",
+      "seendate": "20260105T174420Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Nvidia CEO Jensen Huang is set to give a speech ​on Monday at the Consumer Electronics Show in ‌Las Vegas, potentially revealing new details about product plans for the world's ‌most valuable listed company as it faces increasing competition from both rivals and its own customers. Less than two weeks ago, the company scooped up talent and chip technology from startup ⁠Groq, including executives who ‌were instrumental in helping Alphabet's Google design its own AI chips. While Google is a ‍major Nvidia customer, its own chips have emerged as one of Nvidia's biggest threats as Google works closely with Meta Platforms and ​others to chip away at Nvidia's AI stronghold.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3681
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Stock Market Today: Dow Jumps After U.S. Ousts Maduro; Energy Shines, Nvidia Rallies Ahead (Live Coverage)",
+      "url": "https://finnhub.io/api/news?id=840213ee3a1e47f7aa5ce89f9c85e2c21bf0c9bdcb97ca07d0abf74e5529e21f",
+      "sourceurl": "https://finnhub.io/api/news?id=840213ee3a1e47f7aa5ce89f9c85e2c21bf0c9bdcb97ca07d0abf74e5529e21f",
+      "seendate": "20260105T151957Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "The Dow Jones index rose Monday after the U.S. ousted Venezuelan President Maduro. AMD and Nvidia rallied in morning trading.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3004
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Sevii Selected for the 2026 CrowdStrike, AWS & NVIDIA Cybersecurity Startup Accelerator",
+      "url": "https://finnhub.io/api/news?id=04b74a78aa7a272efb3e717b35a25473a31610d1db7d9b8b9745ac0b173a6ae2",
+      "sourceurl": "https://finnhub.io/api/news?id=04b74a78aa7a272efb3e717b35a25473a31610d1db7d9b8b9745ac0b173a6ae2",
+      "seendate": "20260105T150100Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Sevii, Inc, a cybersecurity company delivering an autonomous agentic AI platform for real-time defense and remediation, today announced it has been selected to participate in the 2026 Cybersecurity Startup Accelerator with CrowdStrike, Amazon Web Services (AWS) and NVIDIA through its Inception program, to help fuel the next generation of AI-driven cloud security innovation.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.4548
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Is It Worth Investing in Nvidia (NVDA) Based on Wall Street's Bullish Views?",
+      "url": "https://finnhub.io/api/news?id=a819dd38f9fe33b51aca58bdd3b82aa2579c405c4bc8afc8d3c12692e8bf4906",
+      "sourceurl": "https://finnhub.io/api/news?id=a819dd38f9fe33b51aca58bdd3b82aa2579c405c4bc8afc8d3c12692e8bf4906",
+      "seendate": "20260105T145003Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Based on the average brokerage recommendation (ABR), Nvidia (NVDA) should be added to one's portfolio. Wall Street analysts' overly optimistic recommendations cast doubt on the effectiveness of this highly sought-after metric. So, is the stock worth buying?",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3295
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Nvidia Stock Gains. What Will CEO Huang Say at CES?",
+      "url": "https://finnhub.io/api/news?id=94780cd22a36dd94db16a56d9d8e4a2be22cc469cc9b771de00f6b784adf2a02",
+      "sourceurl": "https://finnhub.io/api/news?id=94780cd22a36dd94db16a56d9d8e4a2be22cc469cc9b771de00f6b784adf2a02",
+      "seendate": "20260105T141200Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Nvidia stock was rising as Taiwanese partner Foxconn said shipments of its AI server racks continue to ramp up.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.281
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Evoke Security Selected for the 2026 CrowdStrike, AWS & NVIDIA Cybersecurity Startup Accelerator",
+      "url": "https://finnhub.io/api/news?id=a9928d6209370d69439c4f46ce24c76ff48ff1f83689dbfa4e9cfc7e0765ddcb",
+      "sourceurl": "https://finnhub.io/api/news?id=a9928d6209370d69439c4f46ce24c76ff48ff1f83689dbfa4e9cfc7e0765ddcb",
+      "seendate": "20260105T140000Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Evoke Security, a provider of detection and response for AI agents, today announced it has been selected to participate in the 2026 Cybersecurity Startup Accelerator with CrowdStrike, Amazon Web Services (AWS) and NVIDIA through its Inception program, to help fuel the next generation of AI-driven cloud security innovation.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3846
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Hush Security Selected for the 2026 CrowdStrike, AWS & NVIDIA Cybersecurity Startup Accelerator",
+      "url": "https://finnhub.io/api/news?id=8e5a7d7b26a81fbb91afffb57d8a664b25124b447fc90e3dbc28a1d8ca0874e5",
+      "sourceurl": "https://finnhub.io/api/news?id=8e5a7d7b26a81fbb91afffb57d8a664b25124b447fc90e3dbc28a1d8ca0874e5",
+      "seendate": "20260105T133000Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Hush Security, a runtime security platform for non-human identities that continuously maps risk, automates remediation, and replaces static secrets with identity-based access, today announced it has been selected to participate in the 2026 Cybersecurity Startup Accelerator with CrowdStrike, Amazon Web Services (AWS) and NVIDIA through its Inception program, to help fuel the next generation of AI-driven cloud security innovation.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.4653
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Geordie AI Selected for the 2026 CrowdStrike, AWS & NVIDIA Cybersecurity Startup Accelerator",
+      "url": "https://finnhub.io/api/news?id=7b40083ba209c96419bde18e0894462d5ccd71a0b87a4b51bcd4ba8aa619e5c0",
+      "sourceurl": "https://finnhub.io/api/news?id=7b40083ba209c96419bde18e0894462d5ccd71a0b87a4b51bcd4ba8aa619e5c0",
+      "seendate": "20260105T130000Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "LONDON, Jan. 05, 2026 (GLOBE NEWSWIRE) -- Geordie AI, a security and governance platform for agentic AI, today announced it has been selected to participate in the 2026 Cybersecurity Startup Accelerator with CrowdStrike, Amazon Web Services (AWS) and NVIDIA through its Inception program, to help fuel the next generation of AI-driven cloud security innovation. The elite eight-week program runs from January 5 through March 3, 2026, and connects early-stage startups with hands-on mentorship, techni",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3461
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Nvidia: Rally Is Impressive, But AI Boom Shows Bubble Signals",
+      "url": "https://finnhub.io/api/news?id=95406a3655c6a7801d4360d23e78436d8ae63f1f3a60a63de85bff87187807b0",
+      "sourceurl": "https://finnhub.io/api/news?id=95406a3655c6a7801d4360d23e78436d8ae63f1f3a60a63de85bff87187807b0",
+      "seendate": "20260105T073441Z",
+      "domain": "SeekingAlpha",
+      "language": "English",
+      "content": "Nvidia Q3/26 surged 62% YoY, but valuation looks bubbly; DCF pegs fair value near $100 amid AI debt risks. See why I rate NVDA a Sell.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2808
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Dow Jones Futures: Muted Reaction To Trump's Venezuela Move; Nvidia, AMD, Taiwan Semi Due",
+      "url": "https://finnhub.io/api/news?id=0c030641224ed2362983318ff2d43fad71c0f9c820e2aae92b03a643f0977a7a",
+      "sourceurl": "https://finnhub.io/api/news?id=0c030641224ed2362983318ff2d43fad71c0f9c820e2aae92b03a643f0977a7a",
+      "seendate": "20260105T035203Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "President Trump said the U.S. will run Venezuela after capturing Nicolas Maduro, but left his regime in charge. Nvidia, AMD CEOs speak at CES Monday.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.5716
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Ready to Buy Nvidia Stock? Check Out This Option.",
+      "url": "https://finnhub.io/api/news?id=178b7efaad6127da0252233aa0e33bee49fa68e6e37ef60a093e54cf52b74c84",
+      "sourceurl": "https://finnhub.io/api/news?id=178b7efaad6127da0252233aa0e33bee49fa68e6e37ef60a093e54cf52b74c84",
+      "seendate": "20260105T035100Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Nvidia has been one of the market's biggest winners in recent years, but this success has also led to a high valuation.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3218
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Jensen Huang To Visit Taiwan As Nvidia Plans Taipei Headquarters Amid TSMC Capacity Strain: Report",
+      "url": "https://finnhub.io/api/news?id=e2f850aa996dc9fa726a53089d7b4ac6107edce06969cacbb4fee4b7ae9d8f5b",
+      "sourceurl": "https://finnhub.io/api/news?id=e2f850aa996dc9fa726a53089d7b4ac6107edce06969cacbb4fee4b7ae9d8f5b",
+      "seendate": "20260104T224409Z",
+      "domain": "Benzinga",
+      "language": "English",
+      "content": "Nvidia CEO Jensen Huang is reportedly set to return to Taiwan this month to announce a new Taipei headquarters as booming AI demand — especially from China — boosts Nvidia&#39;s valuation while putting increasing strain on TSMC&#39;s chipmaking capacity.",
+      "coverage_count": 1,
+      "days_ago": 2,
+      "recency_weight": 0.9409,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.274
+      },
+      "impact_horizon_weight": 0.795,
+      "final_weight": 0.8649
+    },
+    {
+      "title": "Why Nvidia Could Have a Terrible Year in 2026, And Why It Might Not Be So Bad",
+      "url": "https://finnhub.io/api/news?id=fbab7fb98dc9f550c91ee99323602dc91e82e10ea0fc72dcc01d77d264dd3312",
+      "sourceurl": "https://finnhub.io/api/news?id=fbab7fb98dc9f550c91ee99323602dc91e82e10ea0fc72dcc01d77d264dd3312",
+      "seendate": "20260104T132022Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Among the top-performing (and most closely-watched) stocks in the market, Nvidia (NASDAQ:NVDA) has to be on every investor’s radar. That’s mostly because this is the largest company in the world. ... Why Nvidia Could Have a Terrible Year in 2026, And Why It Might Not Be So Bad",
+      "coverage_count": 1,
+      "days_ago": 2,
+      "recency_weight": 0.9409,
+      "content_stats": {
+        "total_sentences": 5,
+        "relevant_sentences": 4,
+        "relevance_ratio": 0.8,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3337
+      },
+      "impact_horizon_weight": 0.795,
+      "final_weight": 0.8649
+    },
+    {
+      "title": "Nvidia Becomes a 'Must Own' Stock as AI Boom Fuels 35% Upside Potential",
+      "url": "https://finnhub.io/api/news?id=e60b01c131705e19f243c95b059170326552bd960fa9f17ffb4a21b01116ceac",
+      "sourceurl": "https://finnhub.io/api/news?id=e60b01c131705e19f243c95b059170326552bd960fa9f17ffb4a21b01116ceac",
+      "seendate": "20251230T165556Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Semiconductor Spending Surge Lifts Nvidia Outlook for 2026",
       "coverage_count": 1,
       "days_ago": 7,
       "recency_weight": 0.8079828447811298,
-      "content": "December 24, 2024Ari Haruni Apple‘s(AAPL)stock has recently soared to new all-time highs/<PRICE>, inching closer to a<PRICE> trillionmarket capitalization, driven largely by the optimism surrounding AI’s potential to spark a significant upgrade cycle for the iPhone. Forte attributes the recent run-up in Apple’s stock to an AI-fueled rally, with expectations high that AI enhancements will lead to a major iPhone upgrade cycle. Currently trading well above 30 times its price-to-earnings (<PE>) ratio, Apple’s <MARKET_CAP> is at or above its peers who are also benefiting from the AI surge. Forte points out that even with an anticipated upgrade cycle, Apple’s earnings per share (EPS) growth over the next couple of years looks to be in the mid to high single digits, suggesting that the stock might be overpriced relative to its growth prospects. He also notes the ongoing education of consumers by companies like Google (GOOG) and Apple about the benefits of AI in smartphones, indicating that the demand for AI-driven upgrades is not yet a certainty. Forte has maintained his ‘hold’ rating since Apple’s developers conference where they unveiled their AI strategy, observing the market’s reaction but waiting for clear evidence of how AI will translate into earnings growth for Apple. Given Apple’s size, he suggests that while such a product might add marginal earnings, perhaps around 10 cents per share, it wouldn’t significantly move the needle, especially when the iPhone still constitutes about half of Apple’s revenue. In essence, while the market celebrates Apple’s AI advancements and the potential for an upgrade cycle, Forte’s analysis suggests a more measured approach, focusing on <MARKET_CAP>, the timing and impact of AI integration, and the comparative scale of new product entries against Apple’s massive revenue base.",
       "content_stats": {
-        "total_sentences": 19,
-        "relevant_sentences": 17,
-        "relevance_ratio": 0.8947,
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
         "condensed": false,
-        "filter_action": "filtered"
-      },
-      "sentiment_filter": {
-        "kept": true,
-        "reason": "keep",
-        "diag": {
-          "event_hits": 4,
-          "other_tickers": [],
-          "numeric_ratio": 0.0182
-        }
+        "filter_action": "no_change"
       },
       "impact_horizon": {
         "category": "LONG_TERM",
         "horizon_days": 31,
-        "confidence": 0.3439
+        "confidence": 0.2792
       },
       "impact_horizon_weight": 0.8604,
-      "content_quality_factor": 0.8947,
-      "final_weight": 0.746
+      "final_weight": 0.8338
     },
     {
-      "url": "https://wallstreetpit.com/121846-wedbush-maps-apples-road-to-a-5-trillion-milestone/",
-      "url_mobile": "",
-      "title": "Wedbush Maps Apple Road to a $5 Trillion Milestone",
-      "seendate": "20241227T230000Z",
-      "socialimage": "https://wallstreetpit.com/wp-content/uploads/2016/11/apple-iphone-15.jpg",
-      "domain": "wallstreetpit.com",
+      "title": "Nvidia’s $20 billion Groq play is a blueprint for 2026",
+      "url": "https://finnhub.io/api/news?id=5e269ce3d6eff16e3551f9b2b6e3666e3bf62bda7e850e98a1f684ae1e5f3d4f",
+      "sourceurl": "https://finnhub.io/api/news?id=5e269ce3d6eff16e3551f9b2b6e3666e3bf62bda7e850e98a1f684ae1e5f3d4f",
+      "seendate": "20251230T163300Z",
+      "domain": "Yahoo",
       "language": "English",
-      "sourcecountry": "United States",
+      "content": "Bank of America’s Vivek Arya summed up the 2026 setup in a single line: Nvidia is acting like it believes that and more. The chipmaker didn't want to wait for the next phase of the AI buildout to start, so it made a $20 billion deal with inference chip firm Groq. The agreement appears like an ...",
       "coverage_count": 1,
-      "days_ago": 5,
-      "recency_weight": 0.8587340256999999,
-      "content": "December 27, 2024Ron Haruni On CNBC’s “Closing Bell Overtime,”Dan Ives,Wedbush‘s global head of technology research, shared his insights on Apple’s recent performance and its potential path to a <PRICE> trillion <MARKET_CAP>, primarily driven by an anticipated AI upgrade cycle. Ives recentlyraisedhis <PRICE_TARGET> for Apple (AAPL) to a Street-High of <PRICE> from <PRICE>, maintaining an ‘Outperform’ rating on the shares, attributing his optimism to recent channel checks indicating a robust holiday season, projecting Apple to sell 240 million iPhones this year. Despite Apple’s stock trading at high multiples compared to its earnings, Ives dismissed concerns about overvaluation. He argued that Apple’s services business alone could justify a <PRICE> trillion <MARKET_CAP>, and with AI integration, revenue could increase significantly, potentially adding <PRICE> to <PRICE> billion annually. This, combined with what he believes will be an underestimated growth in iPhone sales, could push Apple’s <MARKET_CAP> far beyond current expectations. He emphasized thatApple Intelligence, part of the iOS 18.2 update, would catalyze this cycle, with hundreds of new AI-driven apps expected to enhance the iPhone ecosystem. He believes that the integration of AI will not only drive iPhone upgrades but also extend across Apple’s entire product line, including iPads and Macs, marking the beginning of a multi-year AI-driven upgrade super cycle. Ives concluded that the current <MARKET_CAP> of Apple, around <PRICE> trillion, does not reflect the potential growth from AI monetization.",
+      "days_ago": 7,
+      "recency_weight": 0.8079828447811298,
       "content_stats": {
-        "total_sentences": 15,
-        "relevant_sentences": 13,
-        "relevance_ratio": 0.8667,
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
         "condensed": false,
-        "filter_action": "filtered"
+        "filter_action": "no_change"
       },
-      "sentiment_filter": {
-        "kept": true,
-        "reason": "keep",
-        "diag": {
-          "event_hits": 3,
-          "other_tickers": [],
-          "numeric_ratio": 0.0556
-        }
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.2864
+      },
+      "impact_horizon_weight": 0.8604,
+      "final_weight": 0.8338
+    },
+    {
+      "title": "Nvidia Stock and the Bright Side of the Groq Deal",
+      "url": "https://finnhub.io/api/news?id=44250b68a33171cc0b2e778799402c668b39bdf0a188efae21b077701b1e51c6",
+      "sourceurl": "https://finnhub.io/api/news?id=44250b68a33171cc0b2e778799402c668b39bdf0a188efae21b077701b1e51c6",
+      "seendate": "20251230T151400Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Nvidia is paying $20 billion for Groq’s technology, including compensation packages for many of the company’s employees who will join Nvidia, The Wall Street Journal reported.",
+      "coverage_count": 1,
+      "days_ago": 7,
+      "recency_weight": 0.8079828447811298,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.2728
+      },
+      "impact_horizon_weight": 0.8604,
+      "final_weight": 0.8338
+    },
+    {
+      "title": "Nvidia: Here's How Groq Has Altered Its Fate For 2026",
+      "url": "https://finnhub.io/api/news?id=d63f13a6f0afe13b2cf4ee18f7a9ab92cfd982f6c404807919ab9f2840a1cee4",
+      "sourceurl": "https://finnhub.io/api/news?id=d63f13a6f0afe13b2cf4ee18f7a9ab92cfd982f6c404807919ab9f2840a1cee4",
+      "seendate": "20251230T100739Z",
+      "domain": "SeekingAlpha",
+      "language": "English",
+      "content": "Nvidia Corporation acquires Groq assets for $20B, enhancing AI inference tech and competitive edge. Click for this updated look at NVDA and what this means.",
+      "coverage_count": 1,
+      "days_ago": 7,
+      "recency_weight": 0.8079828447811298,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
       },
       "impact_horizon": {
         "category": "LONG_TERM",
         "horizon_days": 31,
-        "confidence": 0.3114
+        "confidence": 0.3168
       },
-      "impact_horizon_weight": 0.795,
-      "content_quality_factor": 0.8667,
-      "final_weight": 0.7161
+      "impact_horizon_weight": 0.8604,
+      "final_weight": 0.8338
     },
     {
-      "url": "https://www.benzinga.com/markets/24/12/42455801/tim-cook-meets-pm-keir-starmer-amid-growing-scrutiny-over-apple-and-googles-duopoly-in-uk",
-      "url_mobile": "",
-      "title": "Tim Cook Meets PM Keir Starmer Amid Growing Scrutiny Over Apple And Google Duopoly In united kingdom - Alphabet ( NASDAQ : GOOG ), Apple ( NASDAQ : AAPL ) ",
-      "seendate": "20241212T111500Z",
-      "socialimage": "https://cdn.benzinga.com/files/images/story/2024/12/12/Tim-Cook-Explains-Why-Apple-Defied-Steve.jpeg?&fit=crop",
-      "domain": "benzinga.com",
+      "title": "NVIDIA Corporation (NVDA) To Make its Largest Purchase From Groq",
+      "url": "https://finnhub.io/api/news?id=e3659b85c4126d0c3d421bb12482794d55b5c4a3c1a135ad900832143829f0de",
+      "sourceurl": "https://finnhub.io/api/news?id=e3659b85c4126d0c3d421bb12482794d55b5c4a3c1a135ad900832143829f0de",
+      "seendate": "20251231T164212Z",
+      "domain": "Yahoo",
       "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 20,
-      "recency_weight": 0.543794342926747,
-      "content": "and the launch of Apple Intelligence and highlighted the strength of the U.K.’s tech sector. The company supports approximately <NUM> jobs in the U.K., with investments inApple TV+production and key technologies like Apple Intelligence and Private Cloud Compute. Why It Matters:The meeting between Cook and Starmer occurs amid a backdrop of legal and regulatory challenges for Apple in the UK. The U.K.’s Competition and Markets Authority is also considering an investigation into the mobile browser market, focusing on Apple and Google. This potential probe could further challenge the duopoly’s grip on the market, as the CMA has raised concerns about Apple’s policies potentially hindering innovation by restricting competitors from introducing new features on iPhones.",
-      "content_stats": {
-        "total_sentences": 34,
-        "relevant_sentences": 29,
-        "relevance_ratio": 0.8529,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "sentiment_filter": {
-        "kept": true,
-        "reason": "keep",
-        "diag": {
-          "event_hits": 3,
-          "other_tickers": [
-            "GOOG",
-            "GOOGL"
-          ],
-          "numeric_ratio": 0.0443
-        }
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.2767
-      },
-      "impact_horizon_weight": 0.9587,
-      "content_quality_factor": 0.8529,
-      "final_weight": 0.6158
-    },
-    {
-      "url": "https://www.benzinga.com/markets/equities/24/12/42477035/dan-ives-predicts-apple-to-ship-record-240-million-iphones-in-2025-sparking-multi-year-supercycl",
-      "url_mobile": "",
-      "title": "Dan Ives Predicts Apple To Ship Record 240 Million iPhones In 2025 , Sparking  Multi - Year Supercycle  As AI Integration Drives Growth - Apple ( NASDAQ : AAPL ) ",
-      "seendate": "20241213T041500Z",
-      "socialimage": "https://cdn.benzinga.com/files/images/story/2024/12/12/Bonus-Step.jpeg?&fit=crop",
-      "domain": "benzinga.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 19,
-      "recency_weight": 0.5606127246667495,
-      "content": "Wedbush SecuritiesanalystDan IvespredictsApple Inc.(NASDAQ:AAPL) will ship more than 240 million iPhones in 2025, setting a new annual record as artificial intelligence features in the iPhone 16 spark a “multi-year supercycle.” What Happened: In a post on X on Thursday, Ives emphasized the significance of AI integration in consumer devices, particularly highlighting Apple’s upcoming iPhone lineup. “The AI revolution is coming, not just to the enterprise, but to the consumer, with Cupertino,” IvestoldCNBC, predicting Apple will reach a <PRICE> trillion <MARKET_CAP> by early 2025. See Also:Peter Thiel Says, ‘The Biggest Risk With AI Is That We Don’t Go Big Enough’ As His Founders Fund Leads <PRICE> Million Crusoe Investment Why It Matters: The bullish outlook extends beyond Apple to the broader technology sector.",
-      "content_stats": {
-        "total_sentences": 17,
-        "relevant_sentences": 14,
-        "relevance_ratio": 0.8235,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "sentiment_filter": {
-        "kept": true,
-        "reason": "keep",
-        "diag": {
-          "event_hits": 2,
-          "other_tickers": [],
-          "numeric_ratio": 0.0619
-        }
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.4024
-      },
-      "impact_horizon_weight": 0.9748,
-      "content_quality_factor": 0.8235,
-      "final_weight": 0.6088
-    },
-    {
-      "url": "https://www.benzinga.com/insights/analyst-ratings/24/12/42692271/what-14-analyst-ratings-have-to-say-about-apple",
-      "url_mobile": "",
-      "title": "What 14 Analyst Ratings Have To Say About Apple - Apple ( NASDAQ : AAPL ) ",
-      "seendate": "20241226T201500Z",
-      "socialimage": "https://cdn.benzinga.com/files/images/story/2023/analyst_ratings_image_0.jpeg?&fit=crop",
-      "domain": "benzinga.com",
-      "language": "English",
-      "sourcecountry": "United States",
+      "content": "NVIDIA Corporation (NASDAQ:NVDA) is among the Best Performing Quantum Computing Stocks in 2025. On December 24, CNBC reported that NVIDIA Corporation (NASDAQ:NVDA) will be making its largest purchase ever from a startup called Groq. The report noted that the tech giant will be buying high-performance AI acceleration chips worth around $20 billion in cash from […]",
       "coverage_count": 1,
       "days_ago": 6,
       "recency_weight": 0.8329720049289998,
-      "content": "Net Margin:Apple's net margin excels beyond industry benchmarks, reaching15.<PCT>. Apple's iPhone makes up a majority of the firm sales, and Apple's other products like Mac, iPad, and Watch are designed around the iPhone as the focal point of an expansive software ecosystem. Slightly less than half of Apple's sales come directly through its flagship stores, with a majority of sales coming indirectly through partnerships and distribution. Revenue Growth:Apple's revenue growth over a period of 3 months has been noteworthy.",
       "content_stats": {
-        "total_sentences": 41,
-        "relevant_sentences": 34,
-        "relevance_ratio": 0.8293,
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
         "condensed": false,
-        "filter_action": "filtered"
-      },
-      "sentiment_filter": {
-        "kept": true,
-        "reason": "keep",
-        "diag": {
-          "event_hits": 3,
-          "other_tickers": [],
-          "numeric_ratio": 0.0233
-        }
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.4439
-      },
-      "impact_horizon_weight": 0.6456,
-      "content_quality_factor": 0.8293,
-      "final_weight": 0.6082
-    },
-    {
-      "url": "https://www.insidermonkey.com/blog/apple-inc-aapl-billionaire-d-e-shaw-is-bullish-on-this-stock-right-now-1414574/",
-      "url_mobile": "https://www.insidermonkey.com/blog/apple-inc-aapl-billionaire-d-e-shaw-is-bullish-on-this-stock-right-now-1414574/?amp=1",
-      "title": "Apple Inc . ( AAPL ): Billionaire D . E . Shaw Is Bullish On This Stock Right Now",
-      "seendate": "20241227T171500Z",
-      "socialimage": "https://d2gr5kl7dt2z3t.cloudfront.net/blog/wp-content/uploads/2023/09/19155253/AAPL-insidermonkey-1695153171712.jpg",
-      "domain": "insidermonkey.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 5,
-      "recency_weight": 0.8587340256999999,
-      "content": "(NASDAQ:AAPL) is investing in Apple Intelligence, an AI-driven initiative that is expected to bolster the iPhone product line. While iPhone sales have appeared subdued in recent years, the integration of AI features is one factor expected to give people a reason to upgrade, strengthening Apple’s revenue base. Likewise, the expectation is high that Apple Inc.’s (NASDAQ:AAPL) gross margin will improve next year owing to cost efficiencies and faster-growing service revenue, allowing the company to generate more shareholder value. While we acknowledge the potential of AAPL as an investment, our conviction lies in the belief that under the radar AI stocks hold greater promise for delivering higher returns, and doing so within a shorter timeframe.",
-      "content_stats": {
-        "total_sentences": 81,
-        "relevant_sentences": 59,
-        "relevance_ratio": 0.7284,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "sentiment_filter": {
-        "kept": true,
-        "reason": "keep",
-        "diag": {
-          "event_hits": 3,
-          "other_tickers": [],
-          "numeric_ratio": 0.0411
-        }
+        "filter_action": "no_change"
       },
       "impact_horizon": {
         "category": "LONG_TERM",
         "horizon_days": 31,
-        "confidence": 0.3648
-      },
-      "impact_horizon_weight": 0.795,
-      "content_quality_factor": 0.7284,
-      "final_weight": 0.6018
-    },
-    {
-      "url": "https://www.insidermonkey.com/blog/analyst-says-apple-aapl-stock-is-expensive-amid-slow-developing-upgrade-cycle-1414601/",
-      "url_mobile": "https://www.insidermonkey.com/blog/analyst-says-apple-aapl-stock-is-expensive-amid-slow-developing-upgrade-cycle-1414601/?amp=1",
-      "title": "Analyst Says Apple ( AAPL ) Stock is Expensive Amid  Slow - Developing  Upgrade Cycle",
-      "seendate": "20241228T000000Z",
-      "socialimage": "https://d2gr5kl7dt2z3t.cloudfront.net/blog/wp-content/uploads/2023/09/19155253/AAPL-insidermonkey-1695153171712.jpg",
-      "domain": "insidermonkey.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 2,
-      "days_ago": 4,
-      "recency_weight": 0.8852928099999999,
-      "content": "When you look at the next couple of years for Apple Inc (NASDAQ:AAPL), on what looks to be a very slow-developing upgrade cycle, if there is a major upgrade cycle, you’re looking at mid to high single-digit EPS growth. So, north of 30 times PE, mid single-digit to high single-digit EPS growth—I think it’s, you know, an expensive stock.” Apple Inc (NASDAQ:AAPL) is desperately in need of new catalysts. The Chinese market accounts for about <PCT> of Apple’s total revenue, so this downtrend cannot be ignored. Apple’s iPhone 16 has not shown promising growth prospects yet and investors are still in a wait-and-see mode on the AI platform. While we acknowledge the potential of AAPL, our conviction lies in the belief that under the radar AI stocks hold greater promise for delivering higher returns, and doing so within a shorter time frame.",
-      "content_stats": {
-        "total_sentences": 36,
-        "relevant_sentences": 23,
-        "relevance_ratio": 0.6389,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "sentiment_filter": {
-        "kept": true,
-        "reason": "keep",
-        "diag": {
-          "event_hits": 4,
-          "other_tickers": [],
-          "numeric_ratio": 0.0367
-        }
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.3829
-      },
-      "impact_horizon_weight": 0.7594,
-      "content_quality_factor": 0.6389,
-      "final_weight": 0.5239
-    },
-    {
-      "url": "https://www.insidermonkey.com/blog/dan-niles-on-apple-aapl-data-is-somewhat-disappointing-and-stock-is-pretty-expensive-1413968/",
-      "url_mobile": "https://www.insidermonkey.com/blog/dan-niles-on-apple-aapl-data-is-somewhat-disappointing-and-stock-is-pretty-expensive-1413968/?amp=1",
-      "title": "Dan Niles on Apple ( AAPL ): Data is  Somewhat Disappointing  and Stock is  Pretty Expensive",
-      "seendate": "20241226T223000Z",
-      "socialimage": "https://d2gr5kl7dt2z3t.cloudfront.net/blog/wp-content/uploads/2023/09/13040841/AAPL-imagemaker-1694592519294.jpg",
-      "domain": "insidermonkey.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 6,
-      "recency_weight": 0.8329720049289998,
-      "content": "(NASDAQ:AAPL) stands against other AI stocks Wall Street is talking about. In other words, you’re going to get another update to Apple Intelligence, which is their AI features, in December. This suggests that people are holding onto their devices longer, likely due to economic factors, satisfaction with current technology, or a lack of exciting new features in recent models In the latest earnings call, Apple Inc (NASDAQ:AAPL) CEO Tim Cook highlighted new features for the iPhone, such as a more comfortable watch band and sleep apnea detection, but none appeared to be major demand drivers for new customers. (NASDAQ:AAPL) in itsQ3 2024 investor letter: “Apple Inc.(NASDAQ:AAPL) stock was strong in the quarter as investors viewed the company’s generative AI roadmap and iPhone 16 product cycle positively. The market was reminded of the strength of the Apple ecosystem as management demonstrated how generative AI solutions would be integrated into its iOS 18 operating system, which was broadly released in the iPhone 16 late in calendar Q3. We believe Apple’s generative AI-enabled products should spur a meaningful iPhone upgrade cycle and create new avenues of monetization through its app store and advertising offerings. While we acknowledge the potential of AAPL, our conviction lies in the belief that under the radar AI stocks hold greater promise for delivering higher returns, and doing so within a shorter time frame.",
-      "content_stats": {
-        "total_sentences": 36,
-        "relevant_sentences": 22,
-        "relevance_ratio": 0.6111,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "sentiment_filter": {
-        "kept": true,
-        "reason": "keep",
-        "diag": {
-          "event_hits": 4,
-          "other_tickers": [],
-          "numeric_ratio": 0.0155
-        }
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.3024
+        "confidence": 0.2761
       },
       "impact_horizon_weight": 0.8288,
-      "content_quality_factor": 0.6111,
-      "final_weight": 0.5077
+      "final_weight": 0.8309
     },
     {
-      "url": "https://www.insidermonkey.com/blog/jim-cramer-on-apple-inc-aapl-i-say-own-it-dont-trade-it-its-so-far-the-biggest-position-in-our-trust-1411514/",
-      "url_mobile": "https://www.insidermonkey.com/blog/jim-cramer-on-apple-inc-aapl-i-say-own-it-dont-trade-it-its-so-far-the-biggest-position-in-our-trust-1411514/?amp=1",
-      "title": "Jim Cramer on Apple Inc . ( AAPL ):  I Say Own It Dont Trade It . . . It So Far The Biggest Position In Our Trust  ",
-      "seendate": "20241221T130000Z",
-      "socialimage": "https://d2gr5kl7dt2z3t.cloudfront.net/blog/wp-content/uploads/2023/09/19155253/AAPL-insidermonkey-1695153171712.jpg",
-      "domain": "insidermonkey.com",
+      "title": "Is Nvidia (NVDA) One of the Best Stocks for the Next Decade?",
+      "url": "https://finnhub.io/api/news?id=374877836b0953124c47590a81b3d4711f129ac6760b7d9d12132d2d99a7dd45",
+      "sourceurl": "https://finnhub.io/api/news?id=374877836b0953124c47590a81b3d4711f129ac6760b7d9d12132d2d99a7dd45",
+      "seendate": "20251231T161250Z",
+      "domain": "Yahoo",
       "language": "English",
-      "sourcecountry": "United States",
+      "content": "Nvidia Corporation (NASDAQ:NVDA) is one of the best stocks for the next decade. Nvidia Corporation (NASDAQ:NVDA) sports a consensus Buy rating on Wall Street and its average price target suggests a 31.21% upside. On December 19, Bernstein analyst Stacy Rasgon reaffirmed an Outperform rating for Nvidia with a price target of $275. Despite a recent […]",
       "coverage_count": 1,
-      "days_ago": 11,
-      "recency_weight": 0.7153014030880802,
-      "content": "As it generates <PCT> of its revenue from the iPhone, the iconic smartphone lineup is baked into Apple Inc. The stock responds to even the slightest of credible news of the smartphone either facing reduced demand or Apple Inc. But I do think that if you could make it so that the service revenue is the thing and you’ve got China, without China orders [inaudible] so Apple’s no longer dependent on just China orders.",
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
       "content_stats": {
-        "total_sentences": 78,
-        "relevant_sentences": 54,
-        "relevance_ratio": 0.6923,
+        "total_sentences": 4,
+        "relevant_sentences": 4,
+        "relevance_ratio": 1.0,
         "condensed": false,
-        "filter_action": "filtered"
-      },
-      "sentiment_filter": {
-        "kept": true,
-        "reason": "keep",
-        "diag": {
-          "event_hits": 3,
-          "other_tickers": [],
-          "numeric_ratio": 0.0267
-        }
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.2982
-      },
-      "impact_horizon_weight": 0.4532,
-      "content_quality_factor": 0.6923,
-      "final_weight": 0.3942
-    },
-    {
-      "url": "https://wallstreetpit.com/121157-apple-2025s-sleeper-stock/",
-      "url_mobile": "",
-      "title": "Apple : 2025  Sleeper Stock  - Wall Street Pit",
-      "seendate": "20241209T204500Z",
-      "socialimage": "https://wallstreetpit.com/wp-content/uploads/2024/12/stocks-chart1-G.jpg",
-      "domain": "wallstreetpit.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 23,
-      "recency_weight": 0.49630641434198286,
-      "content": "December 9, 2024Ari Haruni Watch the latest video atfoxbusiness.com Keith Fitz-Gerald, Chief Investment Officer at the Fitz-Gerald Group, recently appeared on Fox Business’s “Varney & Co.” to discuss his outlook on two prominent tech stocks:Apple (AAPL)andPalantir (PLTR). He highlighted that potentially <PCT> of the world’s population might access AI through Apple devices by next year, potentially boosting Apple’s earnings growth by 20 to <PCT>. When questioned about whether this growth would directly translate into stock price increases, Fitz-Gerald affirmed the correlation between earnings and stock prices over long periods, suggesting that Apple’s current under-the-radar status mirrors past underestimations at the iPhone’s launch in 2007 and the expansion of services in 2014. Overall, Fitz-Gerald’s insights provide a bullish outlook on both Apple and Palantir, underpinned by expected technological adoption and operational efficiencies, while maintaining a cautious eye on external geopolitical and economic factors that could sway market directions.",
-      "content_stats": {
-        "total_sentences": 17,
-        "relevant_sentences": 9,
-        "relevance_ratio": 0.5294,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "sentiment_filter": {
-        "kept": true,
-        "reason": "keep",
-        "diag": {
-          "event_hits": 2,
-          "other_tickers": [],
-          "numeric_ratio": 0.0485
-        }
+        "filter_action": "no_change"
       },
       "impact_horizon": {
         "category": "LONG_TERM",
         "horizon_days": 31,
-        "confidence": 0.3775
+        "confidence": 0.4211
       },
-      "impact_horizon_weight": 0.8895,
-      "content_quality_factor": 0.5294,
-      "final_weight": 0.3518
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8309
     },
     {
-      "url": "https://www.benzinga.com/insights/news/24/12/42509783/competitor-analysis-evaluating-apple-and-competitors-in-technology-hardware-storage-amp-peripherals",
-      "url_mobile": "",
-      "title": "Competitor Analysis : Evaluating Apple And Competitors In Technology Hardware , Storage & Peripherals Industry - Apple ( NASDAQ : AAPL ) ",
-      "seendate": "20241216T171500Z",
-      "socialimage": "https://www.benzinga.com/next-assets/images/schema-image-default.png",
-      "domain": "benzinga.com",
+      "title": "Nvidia's China Orders Go Off The Charts — Putting Semiconductor ETFs Back In Policy Crossfire",
+      "url": "https://finnhub.io/api/news?id=8e9e517c46ef28dda0a285440a27f143a8534649a794070613b15d83c2921119",
+      "sourceurl": "https://finnhub.io/api/news?id=8e9e517c46ef28dda0a285440a27f143a8534649a794070613b15d83c2921119",
+      "seendate": "20251231T134925Z",
+      "domain": "Benzinga",
       "language": "English",
-      "sourcecountry": "United States",
+      "content": "Surging demand for Nvidia&#39;s H200 AI chips from China highlights fresh risks for semiconductor ETFs tied to China policy and supply chains.",
       "coverage_count": 1,
-      "days_ago": 16,
-      "recency_weight": 0.6142536534626855,
-      "content": "Apple's iPhone makes up a majority of the firm sales, and Apple's other products like Mac, iPad, and Watch are designed around the iPhone as the focal point of an expansive software ecosystem. Slightly less than half of Apple's sales come directly through its flagship stores, with a majority of sales coming indirectly through partnerships and distribution. The high PB and PS ratios suggest that the market values Apple's assets and sales highly. Apple's high ROE, EBITDA, and gross profit reflect strong profitability, while the low revenue growth may indicate a need for expansion strategies to align with industry trends.",
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
       "content_stats": {
-        "total_sentences": 30,
-        "relevant_sentences": 25,
-        "relevance_ratio": 0.8333,
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
         "condensed": false,
-        "filter_action": "filtered"
-      },
-      "sentiment_filter": {
-        "kept": true,
-        "reason": "keep",
-        "diag": {
-          "event_hits": 3,
-          "other_tickers": [],
-          "numeric_ratio": 0.0283
-        }
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.2801
-      },
-      "impact_horizon_weight": 0.2867,
-      "content_quality_factor": 0.8333,
-      "final_weight": 0.3497
-    },
-    {
-      "url": "https://www.benzinga.com/trading-ideas/technicals/24/12/42469306/broadcom-bullish-momentum-builds-as-q4-earnings-apple-partnership-take-center-stage",
-      "url_mobile": "",
-      "title": "Broadcom : Bullish Momentum Builds As Q4 Earnings , Apple Partnership Take Center Stage - Broadcom ( NASDAQ : AVGO ) ",
-      "seendate": "20241212T193000Z",
-      "socialimage": "https://cdn.benzinga.com/files/images/story/2024/12/12/Broadcom--Shutterstock_0.jpeg?&fit=crop",
-      "domain": "benzinga.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 20,
-      "recency_weight": 0.543794342926747,
-      "content": "Apple Inc.(NASDAQ:AAPL) is reportedly partnering with Broadcom to develop its first AI-focused server chip, code-namedBaltra, expected to enter mass production by 2026.",
-      "content_stats": {
-        "total_sentences": 21,
-        "relevant_sentences": 10,
-        "relevance_ratio": 0.4762,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "sentiment_filter": {
-        "kept": true,
-        "reason": "keep",
-        "diag": {
-          "event_hits": 3,
-          "other_tickers": [
-            "TSM"
-          ],
-          "numeric_ratio": 0.0648
-        }
+        "filter_action": "no_change"
       },
       "impact_horizon": {
         "category": "LONG_TERM",
         "horizon_days": 31,
-        "confidence": 0.2837
+        "confidence": 0.2638
       },
-      "impact_horizon_weight": 0.9587,
-      "content_quality_factor": 0.4762,
-      "final_weight": 0.3438
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8309
     },
     {
-      "url": "https://www.insidermonkey.com/blog/dan-niles-says-apple-aapl-new-iphone-features-werent-particularly-good-highlights-slowing-growth-1410223/",
-      "url_mobile": "https://www.insidermonkey.com/blog/dan-niles-says-apple-aapl-new-iphone-features-werent-particularly-good-highlights-slowing-growth-1410223/?amp=1",
-      "title": "Dan Niles Says Apple ( AAPL ) New iPhone Features Werent  Particularly Good , Highlights Slowing Growth",
-      "seendate": "20241219T184500Z",
-      "socialimage": "https://d2gr5kl7dt2z3t.cloudfront.net/blog/wp-content/uploads/2023/09/19155253/AAPL-insidermonkey-1695153171712.jpg",
-      "domain": "insidermonkey.com",
+      "title": "Nvidia Leads Chip Stocks Rally as Foxconn Record Sales Spark Gains",
+      "url": "https://finnhub.io/api/news?id=0a975d4244ec1583a6caee040d42830f5a220a5998d86004eb1ce49f754fbe2e",
+      "sourceurl": "https://finnhub.io/api/news?id=0a975d4244ec1583a6caee040d42830f5a220a5998d86004eb1ce49f754fbe2e",
+      "seendate": "20260105T173018Z",
+      "domain": "Yahoo",
       "language": "English",
-      "sourcecountry": "United States",
+      "content": "AI Trade Reignites: Nvidia Climbs on Foxconn Growth, CES Hopes",
       "coverage_count": 1,
-      "days_ago": 13,
-      "recency_weight": 0.6730270901655746,
-      "content": "It’s market share losses to people like Huawei that have resurged in China.’” Parnassus Growth Equity Fund stated the following regarding Apple Inc. While we acknowledge the potential of AAPL, our conviction lies in the belief that under the radar AI stocks hold greater promise for delivering higher returns, and doing so within a shorter time frame.",
+      "days_ago": 1,
+      "recency_weight": 0.97,
       "content_stats": {
-        "total_sentences": 32,
-        "relevant_sentences": 20,
-        "relevance_ratio": 0.625,
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
         "condensed": false,
-        "filter_action": "filtered"
-      },
-      "sentiment_filter": {
-        "kept": true,
-        "reason": "keep",
-        "diag": {
-          "event_hits": 3,
-          "other_tickers": [],
-          "numeric_ratio": 0.0229
-        }
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.5063
-      },
-      "impact_horizon_weight": 0.3821,
-      "content_quality_factor": 0.625,
-      "final_weight": 0.317
-    },
-    {
-      "url": "https://wallstreetpit.com/121228-apples-next-frontier-ai-for-everyone/",
-      "url_mobile": "",
-      "title": "Apple Next Frontier : AI for Everyone - Wall Street Pit",
-      "seendate": "20241211T003000Z",
-      "socialimage": "https://wallstreetpit.com/wp-content/uploads/2024/11/AI8-G.jpg",
-      "domain": "wallstreetpit.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 21,
-      "recency_weight": 0.5274805126389446,
-      "content": "December 10, 2024Ari Haruni Apple‘s(AAPL)stock has been soaring to new heights, bolstered by the company’s evolution from a hardware-focused entity to a tech giant with a massive, engaged user base of over 1 billion unique users across 2.3 billion devices.Toni Sacconaghi, a senior research analyst at Bernstein, discussed this transition on CNBC’s ‘Squawk Box,’ emphasizing how Apple is now leveraging this installed base to bring artificial intelligence to the masses through its Apple Intelligence initiative and integration with large language models like ChatGPT. Sacconaghi pointed out that while the recent stock performance might not be solely due to the latest iOS 18.2 beta release, investors are optimistic about the trajectory of Apple’s AI integration. With Apple Intelligence expected to evolve, it’s seen as a key access point for consumers to engage with AI through their iPhones, Macs, or iPads. Despite some market uncertainties, such as questions about AI growth sustainability, tariffs, and antitrust issues with Google, Apple is viewed as a safe investment haven. He highlighted Apple’s adept management under CEO Tim Cook, who has maintained good relations with both China, crucial for Apple’s manufacturing and sales, and the incoming U.S. This diplomatic skill was showcased when Apple managed to avoid a proposed <PCT> tariff on smartphones during previous political talks. Regarding the integration of AI into Apple’s products, Sacconaghi noted that while the current features might not be game-changing, there’s a clear path forward for enhancement. Looking ahead to Apple’s fiscal 2026, he predicted a strong iPhone sales cycle driven by better AI capabilities, a new thinner form factor, and an older installed base ripe for upgrades.",
-      "content_stats": {
-        "total_sentences": 18,
-        "relevant_sentences": 16,
-        "relevance_ratio": 0.8889,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "sentiment_filter": {
-        "kept": true,
-        "reason": "keep",
-        "diag": {
-          "event_hits": 5,
-          "other_tickers": [],
-          "numeric_ratio": 0.0279
-        }
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.2804
-      },
-      "impact_horizon_weight": 0.1635,
-      "content_quality_factor": 0.8889,
-      "final_weight": 0.261
-    },
-    {
-      "url": "https://www.benzinga.com/economics/macro-economic-events/24/12/42515044/broadcom-tesla-propel-nasdaq-100-gains-bitcoin-hits-107000-fueling-crypto-stocks-rally-whats-driving-markets-monday",
-      "url_mobile": "",
-      "title": "Broadcom , Tesla Propel Nasdaq 100 Gains , Bitcoin Hits $107 , 000 , Fuels Crypto Stocks Rally : What Driving Markets Monday ? - Apple ( NASDAQ : AAPL ) ",
-      "seendate": "20241216T221500Z",
-      "socialimage": "https://cdn.benzinga.com/files/images/story/2024/12/16/Wall-Street_1.jpeg?&fit=crop",
-      "domain": "benzinga.com",
-      "language": "English",
-      "sourcecountry": "United States",
-      "coverage_count": 1,
-      "days_ago": 16,
-      "recency_weight": 0.6142536534626855,
-      "content": "The company's AI-driven growth potential gained further traction on Friday following its announcement of a collaboration withApple Inc.(NASDAQ:AAPL) to produce a cutting-edge AI chip.",
-      "content_stats": {
-        "total_sentences": 22,
-        "relevant_sentences": 11,
-        "relevance_ratio": 0.5,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "sentiment_filter": {
-        "kept": true,
-        "reason": "keep",
-        "diag": {
-          "event_hits": 2,
-          "other_tickers": [],
-          "numeric_ratio": 0.0459
-        }
+        "filter_action": "no_change"
       },
       "impact_horizon": {
         "category": "IMMEDIATE",
         "horizon_days": 3,
-        "confidence": 0.2889
+        "confidence": 0.3854
       },
-      "impact_horizon_weight": 0.1844,
-      "content_quality_factor": 0.5,
-      "final_weight": 0.1683
+      "impact_horizon_weight": 0.6843,
+      "final_weight": 0.8147
     },
     {
-      "url": "https://www.insidermonkey.com/blog/ubs-maintains-neutral-rating-on-apple-inc-aapl-cites-soft-iphone-demand-and-muted-ai-interest-1402836/",
-      "url_mobile": "https://www.insidermonkey.com/blog/ubs-maintains-neutral-rating-on-apple-inc-aapl-cites-soft-iphone-demand-and-muted-ai-interest-1402836/?amp=1",
-      "title": "UBS Maintains  Neutral  Rating on Apple Inc . ( AAPL ), Cites Soft iPhone Demand and Muted AI Interest",
-      "seendate": "20241205T160000Z",
-      "socialimage": "https://d2gr5kl7dt2z3t.cloudfront.net/blog/wp-content/uploads/2023/09/19155253/AAPL-insidermonkey-1695153171712.jpg",
-      "domain": "insidermonkey.com",
+      "title": "Nvidia Stock Rises Amid Apple Partner News, CES 2026 On Tap; Is Nvidia A Buy Now?",
+      "url": "https://finnhub.io/api/news?id=f50c35c3b5b98b4b5deeccee279e7385379a37564ff62f4f8940b3bf83e08ee8",
+      "sourceurl": "https://finnhub.io/api/news?id=f50c35c3b5b98b4b5deeccee279e7385379a37564ff62f4f8940b3bf83e08ee8",
+      "seendate": "20260105T153248Z",
+      "domain": "Yahoo",
       "language": "English",
-      "sourcecountry": "United States",
+      "content": "Nvidia jumps on Monday as CES 2026 looms.",
       "coverage_count": 1,
-      "days_ago": 27,
-      "recency_weight": 0.4393765001738383,
-      "content": "(NASDAQ:AAPL) stands against the other AI stocks that broke the Internet recently. (NASDAQ:AAPL) is a technology company that has risen in prominence within the AI investment sphere after the debut of Apple Intelligence, its AI-powered personal intelligence system.",
+      "days_ago": 1,
+      "recency_weight": 0.97,
       "content_stats": {
-        "total_sentences": 41,
-        "relevant_sentences": 28,
-        "relevance_ratio": 0.6829,
+        "total_sentences": 2,
+        "relevant_sentences": 1,
+        "relevance_ratio": 0.5,
         "condensed": false,
         "filter_action": "filtered"
       },
-      "sentiment_filter": {
-        "kept": true,
-        "reason": "keep",
-        "diag": {
-          "event_hits": 3,
-          "other_tickers": [],
-          "numeric_ratio": 0.0465
-        }
+      "impact_horizon": {
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.3057
+      },
+      "impact_horizon_weight": 0.6843,
+      "final_weight": 0.8147
+    },
+    {
+      "title": "4 Reasons to Buy Nvidia Stock Like There's No Tomorrow",
+      "url": "https://finnhub.io/api/news?id=4dc91bd9a4908970b58b3144725fb7a5e101d22f0a5ad50c9502c2b71d0a1e0c",
+      "sourceurl": "https://finnhub.io/api/news?id=4dc91bd9a4908970b58b3144725fb7a5e101d22f0a5ad50c9502c2b71d0a1e0c",
+      "seendate": "20260104T170500Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Nvidia's 2026 is shaping up to be just as good as 2025.",
+      "coverage_count": 1,
+      "days_ago": 2,
+      "recency_weight": 0.9409,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.5707
+      },
+      "impact_horizon_weight": 0.6843,
+      "final_weight": 0.8024
+    },
+    {
+      "title": "Is Nvidia's Valuation Still Justified? What Really Matters Heading Into 2026",
+      "url": "https://finnhub.io/api/news?id=215dd79406828222e56bd3d69b4cfcad7ef394c5b06cb456a99e379ad4f8aba4",
+      "sourceurl": "https://finnhub.io/api/news?id=215dd79406828222e56bd3d69b4cfcad7ef394c5b06cb456a99e379ad4f8aba4",
+      "seendate": "20260104T041309Z",
+      "domain": "SeekingAlpha",
+      "language": "English",
+      "content": "Nvidia (NVDA) remains a strong buy, with earnings growth outpacing share price appreciation and valuation multiples compressing, not expanding.",
+      "coverage_count": 1,
+      "days_ago": 2,
+      "recency_weight": 0.9409,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.4249
+      },
+      "impact_horizon_weight": 0.6843,
+      "final_weight": 0.8024
+    },
+    {
+      "title": "What to know about Nvidia's massive spending spree",
+      "url": "https://finnhub.io/api/news?id=e091c2aa643245d121cb2c82d583e3b1d7593daf81e06ece957f881a55938dcf",
+      "sourceurl": "https://finnhub.io/api/news?id=e091c2aa643245d121cb2c82d583e3b1d7593daf81e06ece957f881a55938dcf",
+      "seendate": "20260102T143007Z",
+      "domain": "CNBC",
+      "language": "English",
+      "content": "CNBC's Kristina Partsinevelos reports on Nvidia's massive spending spree.",
+      "coverage_count": 1,
+      "days_ago": 4,
+      "recency_weight": 0.8852928099999999,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
       },
       "impact_horizon": {
         "category": "SHORT_TERM",
         "horizon_days": 7,
-        "confidence": 0.3647
+        "confidence": 0.3039
       },
-      "impact_horizon_weight": 0.0726,
-      "content_quality_factor": 0.6829,
-      "final_weight": 0.122
+      "impact_horizon_weight": 0.7224,
+      "final_weight": 0.7997
+    },
+    {
+      "title": "What's Going On With Nvidia Stock Friday?",
+      "url": "https://finnhub.io/api/news?id=7513f218408f72c4ccf9efd099df9a7c21d71039ef58dfcdf5320b02ae59ce75",
+      "sourceurl": "https://finnhub.io/api/news?id=7513f218408f72c4ccf9efd099df9a7c21d71039ef58dfcdf5320b02ae59ce75",
+      "seendate": "20260102T125415Z",
+      "domain": "Benzinga",
+      "language": "English",
+      "content": "Nvidia dominates AI market as demand for its chips and software surges, leading to a $4.5 trillion market cap.",
+      "coverage_count": 1,
+      "days_ago": 4,
+      "recency_weight": 0.8852928099999999,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2857
+      },
+      "impact_horizon_weight": 0.7224,
+      "final_weight": 0.7997
+    },
+    {
+      "title": "Nvidia: $20B Groq Deal, Valuation, And More (Rating Upgrade)",
+      "url": "https://finnhub.io/api/news?id=3d960431c649feb753aa2513dd18cf89d7acdbdaef4a9df0142c39f303cbee76",
+      "sourceurl": "https://finnhub.io/api/news?id=3d960431c649feb753aa2513dd18cf89d7acdbdaef4a9df0142c39f303cbee76",
+      "seendate": "20260102T090000Z",
+      "domain": "SeekingAlpha",
+      "language": "English",
+      "content": "Breakdown of Nvidia Corporationâs $20B Groq acquisition plus a fresh risk/reward reassessment with TQIâs Valuation model. Click for this NVDA stock update.",
+      "coverage_count": 1,
+      "days_ago": 4,
+      "recency_weight": 0.8852928099999999,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2942
+      },
+      "impact_horizon_weight": 0.7224,
+      "final_weight": 0.7997
+    },
+    {
+      "title": "Does CrowdStrike’s Expanded AI Security Accelerator With AWS and NVIDIA Reshape Its Long‑Term Narrative (CRWD)?",
+      "url": "https://finnhub.io/api/news?id=3d0002f3682420171aa866d307b8d0c62e861d9bd285aa45ee1b3b42ac4dee73",
+      "sourceurl": "https://finnhub.io/api/news?id=3d0002f3682420171aa866d307b8d0c62e861d9bd285aa45ee1b3b42ac4dee73",
+      "seendate": "20260105T231313Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "CrowdStrike recently announced its third annual Cybersecurity Startup Accelerator with Amazon Web Services and NVIDIA, an eight-week program supporting 35 AI-driven cloud security startups with mentorship, technical resources, and potential investment from the Falcon Fund. We’ll now examine how...",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 2,
+        "relevance_ratio": 0.6667,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.6456
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7914
+    },
+    {
+      "title": "CoreWeave Extends Its Cloud Platform with NVIDIA Rubin Platform",
+      "url": "https://finnhub.io/api/news?id=2edca63428985da223100f8c5605b5bb964c1644f7b63d8d553bc321cb5ee32a",
+      "sourceurl": "https://finnhub.io/api/news?id=2edca63428985da223100f8c5605b5bb964c1644f7b63d8d553bc321cb5ee32a",
+      "seendate": "20260105T230000Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "CoreWeave is expected to be among the first cloud providers to deploy the NVIDIA Rubin platform in the second half of 2026, offering its customers greater flexibility and cho",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 1,
+        "relevance_ratio": 0.3333,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.3166
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7914
+    },
+    {
+      "title": "3 Bold Nvidia Predictions For 2026",
+      "url": "https://finnhub.io/api/news?id=1caebc80eaa06f296eefd2afd291449999f82d562537ac967ca00abf420fac0e",
+      "sourceurl": "https://finnhub.io/api/news?id=1caebc80eaa06f296eefd2afd291449999f82d562537ac967ca00abf420fac0e",
+      "seendate": "20260105T183500Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Nvidia's dominance is just beginning.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.4346
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7914
+    },
+    {
+      "title": "Magna AI Joins NVIDIA Inception Program to Advance Production-Grade AI at Scale",
+      "url": "https://finnhub.io/api/news?id=dee795cc733b84ec4802853a1596fd083fc02840f3decddadfb3eb1331a88ce8",
+      "sourceurl": "https://finnhub.io/api/news?id=dee795cc733b84ec4802853a1596fd083fc02840f3decddadfb3eb1331a88ce8",
+      "seendate": "20260105T160700Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "RIYADH, Saudi Arabia, January 05, 2026--Magna AI Joins NVIDIA Inception Program to Advance Production-Grade AI at Scale",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.2851
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7914
+    },
+    {
+      "title": "Following $1.5M Kickstarter Success, Olares to Debut NVIDIA 5090M-Powered \"Personal AI Cloud\" at CES 2026",
+      "url": "https://finnhub.io/api/news?id=4bbe875c054f6914d2768cf79d29d679cbd0065b09e09bc70e0875abc28ecfc2",
+      "sourceurl": "https://finnhub.io/api/news?id=4bbe875c054f6914d2768cf79d29d679cbd0065b09e09bc70e0875abc28ecfc2",
+      "seendate": "20260105T140000Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Following a successful crowdfunding campaign, the team will unveil Olares One—a high-performance desktop AI powerhouse featuring the NVIDIA 5090M—at Booth 8268, LVCC North Hall, bringing uncompromised local intelligence directly to the show floor.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 1,
+        "relevance_ratio": 0.5,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.2975
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7914
+    },
+    {
+      "title": "EXCLUSIVE: Top 20 Most-Searched Tickers On Benzinga Pro In 2025 – Where Do Tesla, Nvidia, Palantir, Apple Stocks Rank?",
+      "url": "https://finnhub.io/api/news?id=fc2c772d4bc11a8bbc562c150fe4665aa9b4bab1e7ec2cb520680f5baa089b64",
+      "sourceurl": "https://finnhub.io/api/news?id=fc2c772d4bc11a8bbc562c150fe4665aa9b4bab1e7ec2cb520680f5baa089b64",
+      "seendate": "20260105T124603Z",
+      "domain": "Benzinga",
+      "language": "English",
+      "content": "Benzinga Pro provides daily market news and stock information. SPY, TSLA, NVDA, PLTR, OPEN and AMD were the top searched stocks in first half of 2025.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.304
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7914
+    },
+    {
+      "title": "Nvidia, Palantir, Seagate And More: Louis Navellier Says Forget The 'Junk Rally' And Buy These Quality Stocks In 2026 Instead",
+      "url": "https://finnhub.io/api/news?id=a1d15e208a7117db72a2d9b24307d4fd2ecb6fd659db090ccb4c234776f63f1a",
+      "sourceurl": "https://finnhub.io/api/news?id=a1d15e208a7117db72a2d9b24307d4fd2ecb6fd659db090ccb4c234776f63f1a",
+      "seendate": "20260105T073316Z",
+      "domain": "Benzinga",
+      "language": "English",
+      "content": "See his top quality stock picks for 2026 earnings growth, including Nvidia, Palantir, and Seagate.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 1,
+        "relevance_ratio": 0.5,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.3205
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7914
+    },
+    {
+      "title": "Stock Market Today: Dow Declines While Nvidia Rises Above Key Level On China Chip Demand (Live Coverage)",
+      "url": "https://finnhub.io/api/news?id=75b71763ee5bbc3825b5e81dc3e5dd4c4b43a8a1b0ffc8efbd9d39e2219e8ff0",
+      "sourceurl": "https://finnhub.io/api/news?id=75b71763ee5bbc3825b5e81dc3e5dd4c4b43a8a1b0ffc8efbd9d39e2219e8ff0",
+      "seendate": "20251231T163439Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "The Dow Jones index fell Wednesday after surprise weekly jobless claims. Nvidia and Rocket Lab rallied.",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3208
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7333
+    },
+    {
+      "title": "These Stocks Are Moving the Most Today: Nvidia, Tesla, Hecla, Newmont, Nike, Vanda, Corcept, DJT, and More",
+      "url": "https://finnhub.io/api/news?id=dc307ab9f9ca73d6c8e8ca32ddd21ddcaff751e9487d9e07dfb0efd47a3cb5ac",
+      "sourceurl": "https://finnhub.io/api/news?id=dc307ab9f9ca73d6c8e8ca32ddd21ddcaff751e9487d9e07dfb0efd47a3cb5ac",
+      "seendate": "20251231T161200Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Nvidia shares rise on reports of strong interest from Chinese customers in the chip maker’s hardware, while Newmont and Hecla Mining decline as precious metals prices tumble.",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3102
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7333
+    },
+    {
+      "title": "Nvidia Seeks TSMC Talks as China Orders Outpace H200 GPU Supply",
+      "url": "https://finnhub.io/api/news?id=4fc2c2bd5332e4002aa0203cf8f0964c911a02cc3f59f73791dd7b6682d31410",
+      "sourceurl": "https://finnhub.io/api/news?id=4fc2c2bd5332e4002aa0203cf8f0964c911a02cc3f59f73791dd7b6682d31410",
+      "seendate": "20251231T155912Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Nvidia has discussed boosting H200 GPU production with TSMC as Chinese orders reach about 2 million units, far exceeding available inventory.",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2714
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7333
+    },
+    {
+      "title": "Nvidia Asks TSMC To Boost H200 Production Amid China Demand",
+      "url": "https://finnhub.io/api/news?id=aa9f1531e39b353dd304312de968712837976ea8f4f5126b250c0ce134d587ec",
+      "sourceurl": "https://finnhub.io/api/news?id=aa9f1531e39b353dd304312de968712837976ea8f4f5126b250c0ce134d587ec",
+      "seendate": "20251231T152131Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Nvidia has asked contract chipmaker TSMC to increase production of H200 AI chips to meet strong China demand.",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2824
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7333
+    },
+    {
+      "title": "Mixed options sentiment in NVIDIA with shares down 0.45%",
+      "url": "https://finnhub.io/api/news?id=19e044960876f0c93dae243c149dd800a8297d0ff72057de033068a97a810894",
+      "sourceurl": "https://finnhub.io/api/news?id=19e044960876f0c93dae243c149dd800a8297d0ff72057de033068a97a810894",
+      "seendate": "20251231T152020Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Mixed options sentiment in NVIDIA (NVDA), with shares down 85c near $187.37. Options volume relatively light with 360k contracts traded and calls leading puts for a put/call ratio of 0.83, compared to a typical level near 0.56. Put-call skew flattened, suggesting a modestly bullish tone.Claim 70% Off TipRanks This Holiday SeasonUnlock hedge fund-level",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
+      "content_stats": {
+        "total_sentences": 4,
+        "relevant_sentences": 3,
+        "relevance_ratio": 0.75,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.4345
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7333
+    },
+    {
+      "title": "$160 million worth of export-controlled Nvidia chips were allegedly smuggled into China",
+      "url": "https://finnhub.io/api/news?id=54f689f0647c31dfb1cd2bec1cb2e450484e777eed559539c226a76d0338640f",
+      "sourceurl": "https://finnhub.io/api/news?id=54f689f0647c31dfb1cd2bec1cb2e450484e777eed559539c226a76d0338640f",
+      "seendate": "20251231T140550Z",
+      "domain": "CNBC",
+      "language": "English",
+      "content": "CNBC's Eamon Javers joins 'The Exchange' with an update to a government investigation into an alleged Nvidia chip smuggling network.",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3032
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7333
+    },
+    {
+      "title": "Nvidia: Can It Keep Margins This High?",
+      "url": "https://finnhub.io/api/news?id=056c6b3f5aafafd125bdbb48485fe0faef25ba3427b75ae61193503e9873badd",
+      "sourceurl": "https://finnhub.io/api/news?id=056c6b3f5aafafd125bdbb48485fe0faef25ba3427b75ae61193503e9873badd",
+      "seendate": "20251231T105705Z",
+      "domain": "SeekingAlpha",
+      "language": "English",
+      "content": "Nvidia Corporation is rated Hold: 53% net margin shows strong AI GPU pricing power, but hyperscaler capex limits may pressure prices. Click for more on NVDA.",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3088
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7333
+    },
+    {
+      "title": "Nvidia works to meet strong H200 demand from Chinese tech companies — Reuters",
+      "url": "https://finnhub.io/api/news?id=82d8162d3923234eec77bfd02cf0aabb4fa0a66130f1a1a8e56a2b3f181b0b4d",
+      "sourceurl": "https://finnhub.io/api/news?id=82d8162d3923234eec77bfd02cf0aabb4fa0a66130f1a1a8e56a2b3f181b0b4d",
+      "seendate": "20251231T081857Z",
+      "domain": "CNBC",
+      "language": "English",
+      "content": "CNBC’s Kristina Partsinevelos reports on Nvidia as the semiconductor giant works to meet strong H200 demand from Chinese tech companies, according to Reuters.",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3655
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7333
+    },
+    {
+      "title": "TikTok Parent Plans $14 Billion Nvidia Buying Spree",
+      "url": "https://finnhub.io/api/news?id=f2151cac47b6153d9af2616efc9dac3a95d4db1ac4ded5a65fed6cc0840f742e",
+      "sourceurl": "https://finnhub.io/api/news?id=f2151cac47b6153d9af2616efc9dac3a95d4db1ac4ded5a65fed6cc0840f742e",
+      "seendate": "20251231T060932Z",
+      "domain": "Benzinga",
+      "language": "English",
+      "content": "Global demand for AI infrastructure surges, prompting ByteDance to increase spending by $14B on Nvidia chips.",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2679
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7333
+    },
+    {
+      "title": "Nvidia in talks to buy A21 Labs for $2B-$3B, Israeli media reports",
+      "url": "https://finnhub.io/api/news?id=f52d618c30b36198429f876bd3c20dd4d3e03c5cbdc3b6b37286480d059b589d",
+      "sourceurl": "https://finnhub.io/api/news?id=f52d618c30b36198429f876bd3c20dd4d3e03c5cbdc3b6b37286480d059b589d",
+      "seendate": "20251230T174818Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Investing.com -- Nvidia is in advanced negotiations to acquire AI21 Labs for $2-3 billion, according to a Tuesday report from Israeli media outlet Calcalist.",
+      "coverage_count": 1,
+      "days_ago": 7,
+      "recency_weight": 0.8079828447811298,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2865
+      },
+      "impact_horizon_weight": 0.6065,
+      "final_weight": 0.7
+    },
+    {
+      "title": "Nvidia’s Groq bet shows that the economics of AI chip-building are still unsettled",
+      "url": "https://finnhub.io/api/news?id=b5d9e0874ce0a1526822c08af58be714777f1a0ff4a19a14498ab4410be2d8a8",
+      "sourceurl": "https://finnhub.io/api/news?id=b5d9e0874ce0a1526822c08af58be714777f1a0ff4a19a14498ab4410be2d8a8",
+      "seendate": "20251230T173718Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Nvidia believes running AI models will be highly profitable, but its Groq deal reflects uncertainty over which chips and architectures will dominate.",
+      "coverage_count": 1,
+      "days_ago": 7,
+      "recency_weight": 0.8079828447811298,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2694
+      },
+      "impact_horizon_weight": 0.6065,
+      "final_weight": 0.7
+    },
+    {
+      "title": "Analysts Call NVIDIA Corporation (NVDA) Groq Deal a ‘Tech and Talent Grab’",
+      "url": "https://finnhub.io/api/news?id=11aa55314d61e51ebdf9316409448ebd69832349aba06c7093c9f13eae62b02d",
+      "sourceurl": "https://finnhub.io/api/news?id=11aa55314d61e51ebdf9316409448ebd69832349aba06c7093c9f13eae62b02d",
+      "seendate": "20251230T172707Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "We recently compiled a list of the 7 Most Promising Robotics Stocks According to Wall Street Analysts. NVIDIA Corporation is one of the most promising stocks. TheFly reported on December 26 that NVDA announced a non-exclusive licensing agreement with AI chip startup Groq. The deal includes bringing Groq’s founder and CEO, Jonathan Ross, President Sunny […]",
+      "coverage_count": 1,
+      "days_ago": 7,
+      "recency_weight": 0.8079828447811298,
+      "content_stats": {
+        "total_sentences": 4,
+        "relevant_sentences": 4,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3094
+      },
+      "impact_horizon_weight": 0.6065,
+      "final_weight": 0.7
+    },
+    {
+      "title": "Nvidia’s Rubin Architecture Is a Game-Changer. Here’s Why.",
+      "url": "https://finnhub.io/api/news?id=8be861c8fd588dc31ae691915dcf51c9b538ad0da85479f05ea8f426237633a4",
+      "sourceurl": "https://finnhub.io/api/news?id=8be861c8fd588dc31ae691915dcf51c9b538ad0da85479f05ea8f426237633a4",
+      "seendate": "20251230T172211Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "As one of the most powerful growth stocks we’ve seen in generations, Nvidia (NASDAQ:NVDA) has probably minted more millionaires than any other stock in recent history. Indeed, this company’s 23,500% return over the past decade is one that would have allowed investors who bought this stock ten years ago to 235x their money over that time frame. ... Nvidia’s Rubin Architecture Is a Game-Changer. Here’s Why.",
+      "coverage_count": 1,
+      "days_ago": 7,
+      "recency_weight": 0.8079828447811298,
+      "content_stats": {
+        "total_sentences": 5,
+        "relevant_sentences": 5,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3691
+      },
+      "impact_horizon_weight": 0.6065,
+      "final_weight": 0.7
+    },
+    {
+      "title": "Nvidia in advanced talks to buy Israel's AI21 Labs for up to $3 billion, report says",
+      "url": "https://finnhub.io/api/news?id=16eec37b4eb4dad3d5aed451e8c45e6ff1277fc4941f9bb9d9f78b873843f333",
+      "sourceurl": "https://finnhub.io/api/news?id=16eec37b4eb4dad3d5aed451e8c45e6ff1277fc4941f9bb9d9f78b873843f333",
+      "seendate": "20251230T171025Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Nvidia is in advanced talks to buy Israel-based AI startup AI21 Labs for as much as $3 ​billion, the Calcalist financial daily reported on Tuesday. Nvidia and Alphabet's Google participated in that funding.",
+      "coverage_count": 1,
+      "days_ago": 7,
+      "recency_weight": 0.8079828447811298,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 2,
+        "relevance_ratio": 0.6667,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2671
+      },
+      "impact_horizon_weight": 0.6065,
+      "final_weight": 0.7
+    },
+    {
+      "title": "Nvidia's Competitive Moat Just Got Better, Analyst Says; Is Nvidia A Buy Or Sell Now?",
+      "url": "https://finnhub.io/api/news?id=3f9a97c5ea59e57fbd2c4db4325fce7bedfd603e300725c6892acc5885b69017",
+      "sourceurl": "https://finnhub.io/api/news?id=3f9a97c5ea59e57fbd2c4db4325fce7bedfd603e300725c6892acc5885b69017",
+      "seendate": "20251230T150833Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Nvidia stock tested a key level amid a positive note from analysts who see it benefitting from its recent deal with Groq.",
+      "coverage_count": 1,
+      "days_ago": 7,
+      "recency_weight": 0.8079828447811298,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.278
+      },
+      "impact_horizon_weight": 0.6065,
+      "final_weight": 0.7
+    },
+    {
+      "title": "Nvidia Invests $20 Billion in Groq to Expand AI Inference Capabilities",
+      "url": "https://finnhub.io/api/news?id=2649fcd0c10558e86c02e8d905bdafc593aa8df86ee1fe34c67b4f62f4bd3279",
+      "sourceurl": "https://finnhub.io/api/news?id=2649fcd0c10558e86c02e8d905bdafc593aa8df86ee1fe34c67b4f62f4bd3279",
+      "seendate": "20251230T132136Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Move marks key step in Nvidia's strategy to diversify beyond AI training chips.",
+      "coverage_count": 1,
+      "days_ago": 7,
+      "recency_weight": 0.8079828447811298,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2743
+      },
+      "impact_horizon_weight": 0.6065,
+      "final_weight": 0.7
+    },
+    {
+      "title": "Nvidia Shares Slide on Rumors of Next-Year GPU Price Jumps",
+      "url": "https://finnhub.io/api/news?id=a8c388021da167800c517cee188a997b7b180039260cf72bbbca9570cda886f6",
+      "sourceurl": "https://finnhub.io/api/news?id=a8c388021da167800c517cee188a997b7b180039260cf72bbbca9570cda886f6",
+      "seendate": "20251230T111431Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "GPU Prices Set to Rise: Nvidia Shares Slide on Market Concerns",
+      "coverage_count": 1,
+      "days_ago": 7,
+      "recency_weight": 0.8079828447811298,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.32
+      },
+      "impact_horizon_weight": 0.6065,
+      "final_weight": 0.7
+    },
+    {
+      "title": "Dow Jones AI Giant Nvidia Hits Early Buy Trigger",
+      "url": "https://finnhub.io/api/news?id=7c5fc070edac211b6be64b42a0504382ccc47a124ad5df55eab74009a661ba29",
+      "sourceurl": "https://finnhub.io/api/news?id=7c5fc070edac211b6be64b42a0504382ccc47a124ad5df55eab74009a661ba29",
+      "seendate": "20251230T195921Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Dow Jones AI giant Nvidia stock hit an early buy point in recent sessions after shares bullishly regained their 50-day line.",
+      "coverage_count": 1,
+      "days_ago": 7,
+      "recency_weight": 0.8079828447811298,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.3396
+      },
+      "impact_horizon_weight": 0.4532,
+      "final_weight": 0.6051
     }
   ]
 }
