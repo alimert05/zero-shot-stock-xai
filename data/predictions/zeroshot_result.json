@@ -1,1281 +1,891 @@
 {
-  "query": "microsoft",
-  "company_name": "microsoft",
+  "query": "apple",
+  "company_name": "apple",
   "ticker": null,
-  "articles_analyzed": 84,
-  "articles_total": 84,
-  "total_weight": 38.9081,
+  "articles_analyzed": 58,
+  "articles_total": 58,
+  "total_weight": 42.0972,
   "weighted_scores": {
-    "positive": 25.6966,
-    "negative": 9.8284,
-    "neutral": 3.383
+    "positive": 25.2413,
+    "negative": 14.1322,
+    "neutral": 2.7237
   },
   "normalized_scores": {
-    "positive": 0.6604,
-    "negative": 0.2526,
-    "neutral": 0.0869
+    "positive": 0.5996,
+    "negative": 0.3357,
+    "neutral": 0.0647
   },
   "final_label": "positive",
-  "final_confidence": 0.6604,
+  "final_confidence": 0.5996,
   "article_details": [
     {
-      "title": "Microsoft leads software pack as survey shows uptick in IT spending : KeyBanc",
-      "final_weight": 0.8946,
+      "title": "Apple CEO Tim Cook Just Gave Nike Investors 3 Million Reasons to Cheer",
+      "final_weight": 0.9354,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.7645676732063293,
-        "negative": 0.1329730898141861,
-        "neutral": 0.10245920717716217
+        "positive": 0.9888920783996582,
+        "negative": 0.007133068051189184,
+        "neutral": 0.003974870312958956
       },
       "weighted_scores": {
-        "positive": 0.684,
-        "negative": 0.119,
-        "neutral": 0.0917
-      }
-    },
-    {
-      "title": "Stock Market Today : UnitedHealth Selloff Drags on Dow",
-      "final_weight": 0.8785,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9855924248695374,
-        "negative": 0.005458725616335869,
-        "neutral": 0.00894888024777174
-      },
-      "weighted_scores": {
-        "positive": 0.8658,
-        "negative": 0.0048,
-        "neutral": 0.0079
-      }
-    },
-    {
-      "title": "2 Stocks to Buy and 1 to Sell - Smart Moves for Investors - Microsoft ( NASDAQ : MSFT ), Dollar Gen ( NYSE : DG ) ",
-      "final_weight": 0.8785,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.061462003737688065,
-        "negative": 0.9151781797409058,
-        "neutral": 0.02335977926850319
-      },
-      "weighted_scores": {
-        "positive": 0.054,
-        "negative": 0.804,
-        "neutral": 0.0205
-      }
-    },
-    {
-      "title": "Nuclear Stocks Heat Up ; Sam Altman Startup Soars 100 % As Big Tech Doubles Down",
-      "final_weight": 0.8752,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.5695496797561646,
-        "negative": 0.34026724100112915,
-        "neutral": 0.09018302708864212
-      },
-      "weighted_scores": {
-        "positive": 0.4985,
-        "negative": 0.2978,
-        "neutral": 0.0789
-      }
-    },
-    {
-      "title": "ASX uranium shares soar on Amazon news",
-      "final_weight": 0.8752,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9195821285247803,
-        "negative": 0.022135045379400253,
-        "neutral": 0.05828288942575455
-      },
-      "weighted_scores": {
-        "positive": 0.8048,
-        "negative": 0.0194,
-        "neutral": 0.051
-      }
-    },
-    {
-      "title": "Dow Jones Today : Major Indexes Slide as Nvidia Leads Chip Stock Selloff",
-      "final_weight": 0.8728,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.5518217086791992,
-        "negative": 0.19864848256111145,
-        "neutral": 0.24952974915504456
-      },
-      "weighted_scores": {
-        "positive": 0.4816,
-        "negative": 0.1734,
-        "neutral": 0.2178
-      }
-    },
-    {
-      "title": "AI Meets Atom : Google Nuclear Leap for AI Energy Needs",
-      "final_weight": 0.8728,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.8626250624656677,
-        "negative": 0.08082303404808044,
-        "neutral": 0.05655190348625183
-      },
-      "weighted_scores": {
-        "positive": 0.7529,
-        "negative": 0.0705,
-        "neutral": 0.0494
-      }
-    },
-    {
-      "title": "Dow Jones Today : Stocks Rise as Nvidia Leads Large - Cap Tech Higher ; S & P 500 , Dow at New Highs",
-      "final_weight": 0.8583,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9035690426826477,
-        "negative": 0.0417286679148674,
-        "neutral": 0.05470229312777519
-      },
-      "weighted_scores": {
-        "positive": 0.7755,
-        "negative": 0.0358,
-        "neutral": 0.047
-      }
-    },
-    {
-      "title": "Microsoft Co . ( NASDAQ : MSFT ) Holdings Decreased by Waterfront Wealth Inc . ",
-      "final_weight": 0.8583,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.13939210772514343,
-        "negative": 0.7367985248565674,
-        "neutral": 0.12380935996770859
-      },
-      "weighted_scores": {
-        "positive": 0.1196,
-        "negative": 0.6324,
-        "neutral": 0.1063
-      }
-    },
-    {
-      "title": "Every Microsoft Stock Investor Should Watch This Key Number On Oct . 30",
-      "final_weight": 0.8445,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.6666669249534607,
-        "negative": 0.23062239587306976,
-        "neutral": 0.10271065682172775
-      },
-      "weighted_scores": {
-        "positive": 0.563,
-        "negative": 0.1948,
-        "neutral": 0.0867
-      }
-    },
-    {
-      "title": "Mass Producing Nuclear Reactors At American Shipyards ? ",
-      "final_weight": 0.805,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.45996353030204773,
-        "negative": 0.4489496648311615,
-        "neutral": 0.09108681231737137
-      },
-      "weighted_scores": {
-        "positive": 0.3703,
-        "negative": 0.3614,
-        "neutral": 0.0733
-      }
-    },
-    {
-      "title": "Is Microsoft Corporation ( MSFT ) the Best Safe Stock To Invest In For The Long Term in 2024 ? ",
-      "final_weight": 0.805,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.8175771236419678,
-        "negative": 0.0866231843829155,
-        "neutral": 0.09579967707395554
-      },
-      "weighted_scores": {
-        "positive": 0.6581,
-        "negative": 0.0697,
-        "neutral": 0.0771
-      }
-    },
-    {
-      "title": "King Nvidia Technicals Will Determine The Stock Market Direction Overreaction To ASML Earnings - Apple ( NASDAQ : AAPL ) ",
-      "final_weight": 0.7892,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.7341811060905457,
-        "negative": 0.18782931566238403,
-        "neutral": 0.07798957824707031
-      },
-      "weighted_scores": {
-        "positive": 0.5794,
-        "negative": 0.1482,
-        "neutral": 0.0615
-      }
-    },
-    {
-      "title": "Auckland . Scoop » Microsoft And SAS Agreement Delivers Local Managed Services Via Hyperscale Cloud Region",
-      "final_weight": 0.7892,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9523706436157227,
-        "negative": 0.023366641253232956,
-        "neutral": 0.024262739345431328
-      },
-      "weighted_scores": {
-        "positive": 0.7516,
-        "negative": 0.0184,
-        "neutral": 0.0191
-      }
-    },
-    {
-      "title": "Treasury Yields Have Been Rising . How Might That Affect Your Stock Portfolio ? ",
-      "final_weight": 0.7678,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9286285638809204,
-        "negative": 0.02678019367158413,
-        "neutral": 0.04459122568368912
-      },
-      "weighted_scores": {
-        "positive": 0.713,
-        "negative": 0.0206,
-        "neutral": 0.0342
-      }
-    },
-    {
-      "title": "Dow Jones Today : S & P 500 , Dow Hit New Highs After Bank Earnings , Inflation Data ; Major Indexes Set for 5th Straight Week of Gains",
-      "final_weight": 0.7678,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.5609199404716492,
-        "negative": 0.2313518077135086,
-        "neutral": 0.2077282816171646
-      },
-      "weighted_scores": {
-        "positive": 0.4307,
-        "negative": 0.1776,
-        "neutral": 0.1595
-      }
-    },
-    {
-      "title": "S & P 500 Gains and Losses Today : AI Plays Help Lift Index to Record Close",
-      "final_weight": 0.73,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.7391465306282043,
-        "negative": 0.18534423410892487,
-        "neutral": 0.07550917565822601
-      },
-      "weighted_scores": {
-        "positive": 0.5396,
-        "negative": 0.1353,
-        "neutral": 0.0551
-      }
-    },
-    {
-      "title": "Wall Street Has Set a Low Bar for Earnings . Is That a Good Omen for Your Portfolio ? ",
-      "final_weight": 0.7248,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.7734552621841431,
-        "negative": 0.12153980135917664,
-        "neutral": 0.10500495880842209
-      },
-      "weighted_scores": {
-        "positive": 0.5606,
-        "negative": 0.0881,
-        "neutral": 0.0761
-      }
-    },
-    {
-      "title": "Oracle Price Levels to Watch as Stock Sets Record High",
-      "final_weight": 0.7248,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9559816718101501,
-        "negative": 0.025118593126535416,
-        "neutral": 0.01889967732131481
-      },
-      "weighted_scores": {
-        "positive": 0.6929,
-        "negative": 0.0182,
-        "neutral": 0.0137
-      }
-    },
-    {
-      "title": "DOJ Antitrust Remedies Threaten Google Search and AI Dominance",
-      "final_weight": 0.7248,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.01921752095222473,
-        "negative": 0.9591178297996521,
-        "neutral": 0.0216646958142519
-      },
-      "weighted_scores": {
-        "positive": 0.0139,
-        "negative": 0.6952,
-        "neutral": 0.0157
-      }
-    },
-    {
-      "title": "Nvidia stock surge sends market cap past Microsoft and close to record high",
-      "final_weight": 0.6774,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.8588643074035645,
-        "negative": 0.09161169081926346,
-        "neutral": 0.0495239682495594
-      },
-      "weighted_scores": {
-        "positive": 0.5818,
-        "negative": 0.0621,
-        "neutral": 0.0335
-      }
-    },
-    {
-      "title": "10 Most Promising AI Stocks According to Analysts",
-      "final_weight": 0.6774,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9601611495018005,
-        "negative": 0.022599436342716217,
-        "neutral": 0.01723938062787056
-      },
-      "weighted_scores": {
-        "positive": 0.6504,
-        "negative": 0.0153,
-        "neutral": 0.0117
-      }
-    },
-    {
-      "title": "This Magnificent Dividend Stock Is Partnering With Microsoft to Harness the Power of AI to Enhance Its Operations",
-      "final_weight": 0.6774,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9218822717666626,
-        "negative": 0.04274221509695053,
-        "neutral": 0.03537547215819359
-      },
-      "weighted_scores": {
-        "positive": 0.6245,
-        "negative": 0.029,
-        "neutral": 0.024
-      }
-    },
-    {
-      "title": "Rising Yields And Higher Neutral Rate May Spoil The Party , Biggest Stock Moves In Years Ahead - Apple ( NASDAQ : AAPL ) ",
-      "final_weight": 0.6266,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.7223207950592041,
-        "negative": 0.10480146110057831,
-        "neutral": 0.17287775874137878
-      },
-      "weighted_scores": {
-        "positive": 0.4526,
-        "negative": 0.0657,
-        "neutral": 0.1083
-      }
-    },
-    {
-      "title": "Better Quantum Computing Stock : Microsoft vs . IonQ",
-      "final_weight": 0.6266,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.7921035289764404,
-        "negative": 0.1288273185491562,
-        "neutral": 0.07906914502382278
-      },
-      "weighted_scores": {
-        "positive": 0.4963,
-        "negative": 0.0807,
-        "neutral": 0.0495
-      }
-    },
-    {
-      "title": "Metaverse ETF closures are the latest in unwinding of pandemic - era enthusiasm",
-      "final_weight": 0.6266,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.05697420984506607,
-        "negative": 0.876197874546051,
-        "neutral": 0.06682796031236649
-      },
-      "weighted_scores": {
-        "positive": 0.0357,
-        "negative": 0.549,
-        "neutral": 0.0419
-      }
-    },
-    {
-      "title": "Opportunity In Missile Defense Stocks , Once In A Century Buying Stampede In Hong Kong - Apple ( NASDAQ : AAPL ) ",
-      "final_weight": 0.5814,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.8534122705459595,
-        "negative": 0.06517394632101059,
-        "neutral": 0.0814138799905777
-      },
-      "weighted_scores": {
-        "positive": 0.4962,
-        "negative": 0.0379,
-        "neutral": 0.0473
-      }
-    },
-    {
-      "title": "Nvidia Overtakes Microsoft as World Second - Largest Company by Market Cap",
-      "final_weight": 0.5737,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.5714448690414429,
-        "negative": 0.27774080634117126,
-        "neutral": 0.15081430971622467
-      },
-      "weighted_scores": {
-        "positive": 0.3278,
-        "negative": 0.1593,
-        "neutral": 0.0865
-      }
-    },
-    {
-      "title": "Nvidia Overtakes Microsoft as World Second - Largest Company by Market Cap",
-      "final_weight": 0.5737,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.6725313067436218,
-        "negative": 0.20983758568763733,
-        "neutral": 0.11763111501932144
-      },
-      "weighted_scores": {
-        "positive": 0.3858,
-        "negative": 0.1204,
-        "neutral": 0.0675
-      }
-    },
-    {
-      "title": "Investors Suffering Cognitive Dissonance , Insane Demand For Nvidia Chips , Anxiety Builds About Israel And Iran - Apple ( NASDAQ : AAPL ) ",
-      "final_weight": 0.5618,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.8827788233757019,
-        "negative": 0.06048532947897911,
-        "neutral": 0.056735798716545105
-      },
-      "weighted_scores": {
-        "positive": 0.4959,
-        "negative": 0.034,
-        "neutral": 0.0319
-      }
-    },
-    {
-      "title": "ETF Investors Shrug Off Market Uncertainties , Bullish on Mag 7 , Schwab Survey Finds",
-      "final_weight": 0.5435,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9821151494979858,
-        "negative": 0.010796939954161644,
-        "neutral": 0.0070879035629332066
-      },
-      "weighted_scores": {
-        "positive": 0.5338,
-        "negative": 0.0059,
-        "neutral": 0.0039
-      }
-    },
-    {
-      "title": "What You Need To Know Ahead of AMD Advancing AI Event",
-      "final_weight": 0.5373,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.7221187949180603,
-        "negative": 0.23643355071544647,
-        "neutral": 0.04144761338829994
-      },
-      "weighted_scores": {
-        "positive": 0.388,
-        "negative": 0.127,
-        "neutral": 0.0223
-      }
-    },
-    {
-      "title": "Market Clubhouse Morning Memo - October 4th , 2024 ( Trade Strategy For SPY , QQQ , AAPL , MSFT , NVDA , GOOGL , META And TSLA ) - Invesco QQQ Trust , Series 1 ( NASDAQ : QQQ ) ",
-      "final_weight": 0.5373,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9796812534332275,
-        "negative": 0.012532318010926247,
-        "neutral": 0.007786416914314032
-      },
-      "weighted_scores": {
-        "positive": 0.5264,
+        "positive": 0.925,
         "negative": 0.0067,
-        "neutral": 0.0042
+        "neutral": 0.0037
       }
     },
     {
-      "title": "Microsoft Corporation ( MSFT ): A Leading Tech Stock for Retirement Portfolios",
-      "final_weight": 0.5267,
+      "title": "The 76-Year-Old Reason Why Buffett Has Been Selling Apple",
+      "final_weight": 0.8649,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.6333077549934387,
-        "negative": 0.2572751045227051,
-        "neutral": 0.10941717773675919
+        "positive": 0.6845487356185913,
+        "negative": 0.27473756670951843,
+        "neutral": 0.040713775902986526
       },
       "weighted_scores": {
-        "positive": 0.3336,
-        "negative": 0.1355,
-        "neutral": 0.0576
+        "positive": 0.5921,
+        "negative": 0.2376,
+        "neutral": 0.0352
       }
     },
     {
-      "title": "Prediction : These 2 Stocks Will Join Nvidia , Meta , Apple , Amazon , and Microsoft in the Trillion - Dollar Club by 2030",
-      "final_weight": 0.5199,
+      "title": "Why Apple Might Attract More of an AI Multiple in 2026",
+      "final_weight": 0.8649,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.8391866683959961,
-        "negative": 0.10503356158733368,
-        "neutral": 0.055779796093702316
+        "positive": 0.26303768157958984,
+        "negative": 0.6191598773002625,
+        "neutral": 0.11780254542827606
       },
       "weighted_scores": {
-        "positive": 0.4363,
-        "negative": 0.0546,
-        "neutral": 0.029
+        "positive": 0.2275,
+        "negative": 0.5355,
+        "neutral": 0.1019
       }
     },
     {
-      "title": "Private Client Services LLC Has $3 . 73 Million Stake in Microsoft Co . ( NASDAQ : MSFT ) ",
-      "final_weight": 0.4665,
+      "title": "Apple is an Analyst Favorite, But AAPL Stock Has Been Flat - Shorting Puts Is the Best Play",
+      "final_weight": 0.8649,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.373746782541275,
-        "negative": 0.5165117383003235,
-        "neutral": 0.10974150896072388
+        "positive": 0.9381166100502014,
+        "negative": 0.041196059435606,
+        "neutral": 0.020687295123934746
       },
       "weighted_scores": {
-        "positive": 0.1744,
-        "negative": 0.241,
-        "neutral": 0.0512
-      }
-    },
-    {
-      "title": "Guidance Point Advisors LLC Has $1 . 92 Million Stock Holdings in Microsoft Co . ( NASDAQ : MSFT ) ",
-      "final_weight": 0.4665,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.5447074770927429,
-        "negative": 0.33736148476600647,
-        "neutral": 0.11793104559183121
-      },
-      "weighted_scores": {
-        "positive": 0.2541,
-        "negative": 0.1574,
-        "neutral": 0.055
-      }
-    },
-    {
-      "title": "AMD Launches New AI Chips To Meet  Insatiable  AI Demand",
-      "final_weight": 0.4242,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.0851859301328659,
-        "negative": 0.7988002896308899,
-        "neutral": 0.11601381003856659
-      },
-      "weighted_scores": {
-        "positive": 0.0361,
-        "negative": 0.3389,
-        "neutral": 0.0492
-      }
-    },
-    {
-      "title": "Microsoft ( NASDAQ : MSFT ): Leading the AI Revolution and Driving Tech Growth",
-      "final_weight": 0.4242,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.007308098487555981,
-        "negative": 0.5067448019981384,
-        "neutral": 0.4859471321105957
-      },
-      "weighted_scores": {
-        "positive": 0.0031,
-        "negative": 0.215,
-        "neutral": 0.2061
-      }
-    },
-    {
-      "title": "AI Stocks Ready to Rediscover Momentum",
-      "final_weight": 0.4142,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9810565114021301,
-        "negative": 0.008592331781983376,
-        "neutral": 0.010351188480854034
-      },
-      "weighted_scores": {
-        "positive": 0.4064,
-        "negative": 0.0036,
-        "neutral": 0.0043
-      }
-    },
-    {
-      "title": "Crosspoint Financial LLC Acquires Shares of 818 Microsoft Co . ( NASDAQ : MSFT ) ",
-      "final_weight": 0.4142,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.6249806880950928,
-        "negative": 0.25063440203666687,
-        "neutral": 0.1243848130106926
-      },
-      "weighted_scores": {
-        "positive": 0.2589,
-        "negative": 0.1038,
-        "neutral": 0.0515
-      }
-    },
-    {
-      "title": "If You Invested $1000 In This Stock 15 Years Ago , You Would Have $16 , 000 Today - Microsoft ( NASDAQ : MSFT ) ",
-      "final_weight": 0.4142,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.7505989074707031,
-        "negative": 0.1100478321313858,
-        "neutral": 0.13935327529907227
-      },
-      "weighted_scores": {
-        "positive": 0.3109,
-        "negative": 0.0456,
-        "neutral": 0.0577
-      }
-    },
-    {
-      "title": "Director / PDMR Shareholding | Company Announcement",
-      "final_weight": 0.4061,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.6517677903175354,
-        "negative": 0.20377369225025177,
-        "neutral": 0.1444585919380188
-      },
-      "weighted_scores": {
-        "positive": 0.2647,
-        "negative": 0.0828,
-        "neutral": 0.0587
-      }
-    },
-    {
-      "title": "Nvidia Poised To Overtake Apple As World Most Valuable Company : How Much Jensen Huang Company Needs To Gain By Wednesday - NVIDIA ( NASDAQ : NVDA ) ",
-      "final_weight": 0.3691,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9165213108062744,
-        "negative": 0.034952085465192795,
-        "neutral": 0.048526618629693985
-      },
-      "weighted_scores": {
-        "positive": 0.3383,
-        "negative": 0.0129,
+        "positive": 0.8114,
+        "negative": 0.0356,
         "neutral": 0.0179
       }
     },
     {
-      "title": "Multimedia Update -- Microsoft and Rezolve AI Partner to Drive Global Retail Innovation with AI - Powered Commerce Solutions",
-      "final_weight": 0.3641,
+      "title": "Apple: Don't Expect Much Growth Here",
+      "final_weight": 0.8649,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.8629682064056396,
-        "negative": 0.06951238214969635,
-        "neutral": 0.06751936674118042
+        "positive": 0.005578299984335899,
+        "negative": 0.9837039113044739,
+        "neutral": 0.010717780329287052
       },
       "weighted_scores": {
-        "positive": 0.3142,
-        "negative": 0.0253,
-        "neutral": 0.0246
-      }
-    },
-    {
-      "title": "IBM : The Rodney Dangerfield of Stocks Deserves Some Respect",
-      "final_weight": 0.3641,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9858837723731995,
-        "negative": 0.007854477502405643,
-        "neutral": 0.006261793430894613
-      },
-      "weighted_scores": {
-        "positive": 0.359,
-        "negative": 0.0029,
-        "neutral": 0.0023
-      }
-    },
-    {
-      "title": "Biden Signs Law To Exempt Certain US Chipmaking Facilities From Federal Environmental Reviews Under CHIPS Act - Microsoft ( NASDAQ : MSFT ), Intel ( NASDAQ : INTC ) ",
-      "final_weight": 0.3641,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.6644033789634705,
-        "negative": 0.1902250051498413,
-        "neutral": 0.14537166059017181
-      },
-      "weighted_scores": {
-        "positive": 0.2419,
-        "negative": 0.0693,
-        "neutral": 0.0529
-      }
-    },
-    {
-      "title": "Microsoft Sets Date for Quarterly Earnings Release 11 October",
-      "final_weight": 0.3321,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.8288872241973877,
-        "negative": 0.09361983090639114,
-        "neutral": 0.07749297469854355
-      },
-      "weighted_scores": {
-        "positive": 0.2753,
-        "negative": 0.0311,
-        "neutral": 0.0257
-      }
-    },
-    {
-      "title": "Baystreet . ca - Today Most Actively Traded Stocks : Pfizer , Intel , and Tesla",
-      "final_weight": 0.3179,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.0053000967018306255,
-        "negative": 0.9890114665031433,
-        "neutral": 0.005688447039574385
-      },
-      "weighted_scores": {
-        "positive": 0.0017,
-        "negative": 0.3144,
-        "neutral": 0.0018
-      }
-    },
-    {
-      "title": "Why Nvidia Stock is Rising Again Tuesday , Nearing Record High",
-      "final_weight": 0.3179,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9302366375923157,
-        "negative": 0.0501813106238842,
-        "neutral": 0.019582003355026245
-      },
-      "weighted_scores": {
-        "positive": 0.2957,
-        "negative": 0.016,
-        "neutral": 0.0062
-      }
-    },
-    {
-      "title": "Microsoft Stock Has One Fewer  Buy  Rating on Wall Street Today",
-      "final_weight": 0.3179,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.36005815863609314,
-        "negative": 0.578238308429718,
-        "neutral": 0.061703529208898544
-      },
-      "weighted_scores": {
-        "positive": 0.1145,
-        "negative": 0.1838,
-        "neutral": 0.0196
-      }
-    },
-    {
-      "title": "Dow Jones Today : S & P 500 , Nasdaq Surge in Early Trading as Large - Cap Tech Stocks Gain",
-      "final_weight": 0.3179,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.6072736978530884,
-        "negative": 0.2685132324695587,
-        "neutral": 0.1242130845785141
-      },
-      "weighted_scores": {
-        "positive": 0.1931,
-        "negative": 0.0854,
-        "neutral": 0.0395
-      }
-    },
-    {
-      "title": "10 Trending AI Stocks in October - Insider Monkey",
-      "final_weight": 0.3179,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.6148303151130676,
-        "negative": 0.34387847781181335,
-        "neutral": 0.04129114747047424
-      },
-      "weighted_scores": {
-        "positive": 0.1955,
-        "negative": 0.1093,
-        "neutral": 0.0131
-      }
-    },
-    {
-      "title": "Riverpark Capital Management LLC Acquires 182 Shares of Microsoft Co . ( NASDAQ : MSFT ) ",
-      "final_weight": 0.3168,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.6882416009902954,
-        "negative": 0.20547713339328766,
-        "neutral": 0.10628126561641693
-      },
-      "weighted_scores": {
-        "positive": 0.218,
-        "negative": 0.0651,
-        "neutral": 0.0337
-      }
-    },
-    {
-      "title": "Microsoft Co . ( NASDAQ : MSFT ) Shares Sold by State of Michigan Retirement System",
-      "final_weight": 0.3168,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.44252505898475647,
-        "negative": 0.4160122275352478,
-        "neutral": 0.14146272838115692
-      },
-      "weighted_scores": {
-        "positive": 0.1402,
-        "negative": 0.1318,
-        "neutral": 0.0448
-      }
-    },
-    {
-      "title": "Microsoft Co . ( NASDAQ : MSFT ) is Signature Estate & Investment Advisors LLC 10th Largest Position",
-      "final_weight": 0.3168,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.5315775871276855,
-        "negative": 0.31768929958343506,
-        "neutral": 0.15073321759700775
-      },
-      "weighted_scores": {
-        "positive": 0.1684,
-        "negative": 0.1006,
-        "neutral": 0.0478
-      }
-    },
-    {
-      "title": "Microsoft Co . ( NASDAQ : MSFT ) Shares Acquired by Callan Family Office LLC",
-      "final_weight": 0.3168,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.5362327098846436,
-        "negative": 0.34185945987701416,
-        "neutral": 0.12190788239240646
-      },
-      "weighted_scores": {
-        "positive": 0.1699,
-        "negative": 0.1083,
-        "neutral": 0.0386
-      }
-    },
-    {
-      "title": "Microsoft Co . ( NASDAQ : MSFT ) Shares Sold by Alpha Omega Wealth Management LLC",
-      "final_weight": 0.3168,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.4602712094783783,
-        "negative": 0.39603182673454285,
-        "neutral": 0.14369697868824005
-      },
-      "weighted_scores": {
-        "positive": 0.1458,
-        "negative": 0.1255,
-        "neutral": 0.0455
-      }
-    },
-    {
-      "title": "First Command Advisory Services Inc . Boosts Stock Position in Microsoft Co . ( NASDAQ : MSFT ) ",
-      "final_weight": 0.3168,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9688863158226013,
-        "negative": 0.01592562347650528,
-        "neutral": 0.01518812496215105
-      },
-      "weighted_scores": {
-        "positive": 0.3069,
-        "negative": 0.005,
-        "neutral": 0.0048
-      }
-    },
-    {
-      "title": "Liontrust Investment Partners LLP Acquires 465 , 464 Shares of Microsoft Co . ( NASDAQ : MSFT ) ",
-      "final_weight": 0.3168,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.6626766324043274,
-        "negative": 0.21968664228916168,
-        "neutral": 0.11763672530651093
-      },
-      "weighted_scores": {
-        "positive": 0.2099,
-        "negative": 0.0696,
-        "neutral": 0.0373
-      }
-    },
-    {
-      "title": "Allspring Global Investments Holdings LLC Has $1 . 73 Billion Stake in Microsoft Co . ( NASDAQ : MSFT ) ",
-      "final_weight": 0.3168,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.4530411660671234,
-        "negative": 0.41696804761886597,
-        "neutral": 0.1299908310174942
-      },
-      "weighted_scores": {
-        "positive": 0.1435,
-        "negative": 0.1321,
-        "neutral": 0.0412
-      }
-    },
-    {
-      "title": "Microsoft Co . ( NASDAQ : MSFT ) Shares Purchased by Summit Securities Group LLC",
-      "final_weight": 0.3168,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.594135582447052,
-        "negative": 0.2890216112136841,
-        "neutral": 0.11684282124042511
-      },
-      "weighted_scores": {
-        "positive": 0.1882,
-        "negative": 0.0916,
-        "neutral": 0.037
-      }
-    },
-    {
-      "title": "Microsoft Co . ( NASDAQ : MSFT ) is Cohen Investment Advisors LLC 3rd Largest Position",
-      "final_weight": 0.3168,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.5485845804214478,
-        "negative": 0.3049144148826599,
-        "neutral": 0.14650100469589233
-      },
-      "weighted_scores": {
-        "positive": 0.1738,
-        "negative": 0.0966,
-        "neutral": 0.0464
-      }
-    },
-    {
-      "title": "Pegasus Asset Management Inc . Grows Stock Position in Microsoft Co . ( NASDAQ : MSFT ) ",
-      "final_weight": 0.3168,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.8797870874404907,
-        "negative": 0.07804561406373978,
-        "neutral": 0.042167291045188904
-      },
-      "weighted_scores": {
-        "positive": 0.2787,
-        "negative": 0.0247,
-        "neutral": 0.0134
-      }
-    },
-    {
-      "title": "Hyman Charles D Trims Holdings in Microsoft Co . ( NASDAQ : MSFT ) ",
-      "final_weight": 0.3168,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.4964469373226166,
-        "negative": 0.3511463701725006,
-        "neutral": 0.1524066925048828
-      },
-      "weighted_scores": {
-        "positive": 0.1573,
-        "negative": 0.1112,
-        "neutral": 0.0483
-      }
-    },
-    {
-      "title": "Shaker Investments LLC OH Raises Holdings in Microsoft Co . ( NASDAQ : MSFT ) ",
-      "final_weight": 0.3168,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.7364845275878906,
-        "negative": 0.17161890864372253,
-        "neutral": 0.09189654886722565
-      },
-      "weighted_scores": {
-        "positive": 0.2333,
-        "negative": 0.0544,
-        "neutral": 0.0291
-      }
-    },
-    {
-      "title": "Granite Harbor Advisors Inc . Purchases 159 Shares of Microsoft Co . ( NASDAQ : MSFT ) ",
-      "final_weight": 0.3168,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.8127018809318542,
-        "negative": 0.11491332948207855,
-        "neutral": 0.07238476723432541
-      },
-      "weighted_scores": {
-        "positive": 0.2575,
-        "negative": 0.0364,
-        "neutral": 0.0229
-      }
-    },
-    {
-      "title": "Small - Cap Stocks Were Hits This Summer . Some of That Shine Has Worn Off",
-      "final_weight": 0.271,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.07858244329690933,
-        "negative": 0.8808290958404541,
-        "neutral": 0.04058842733502388
-      },
-      "weighted_scores": {
-        "positive": 0.0213,
-        "negative": 0.2387,
-        "neutral": 0.011
-      }
-    },
-    {
-      "title": "Baystreet . ca - Apple CEO Sold Stock : Should You ? ",
-      "final_weight": 0.271,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.1353074461221695,
-        "negative": 0.7885289192199707,
-        "neutral": 0.07616365700960159
-      },
-      "weighted_scores": {
-        "positive": 0.0367,
-        "negative": 0.2137,
-        "neutral": 0.0206
-      }
-    },
-    {
-      "title": "Nvidia Stock Hits Record Closing High on Growing Optimism About AI Demand",
-      "final_weight": 0.1965,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9832131266593933,
-        "negative": 0.00728104030713439,
-        "neutral": 0.009505854919552803
-      },
-      "weighted_scores": {
-        "positive": 0.1932,
-        "negative": 0.0014,
-        "neutral": 0.0019
-      }
-    },
-    {
-      "title": "Banco Santander S . A . Has $301 . 43 Million Stock Holdings in Microsoft Co . ( NASDAQ : MSFT ) ",
-      "final_weight": 0.191,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.5290560126304626,
-        "negative": 0.33989211916923523,
-        "neutral": 0.13105188310146332
-      },
-      "weighted_scores": {
-        "positive": 0.101,
-        "negative": 0.0649,
-        "neutral": 0.025
-      }
-    },
-    {
-      "title": "Microsoft AI ambitions spur investor debate , with questions abound ( MSFT ) ",
-      "final_weight": 0.191,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.311283677816391,
-        "negative": 0.46301934123039246,
-        "neutral": 0.22569696605205536
-      },
-      "weighted_scores": {
-        "positive": 0.0595,
-        "negative": 0.0884,
-        "neutral": 0.0431
-      }
-    },
-    {
-      "title": "Amid Middle East escalations , clean energy stocks decline even as oil surges",
-      "final_weight": 0.1579,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.835997998714447,
-        "negative": 0.1048295870423317,
-        "neutral": 0.059172358363866806
-      },
-      "weighted_scores": {
-        "positive": 0.132,
-        "negative": 0.0166,
+        "positive": 0.0048,
+        "negative": 0.8508,
         "neutral": 0.0093
       }
     },
     {
-      "title": "Microsoft Targeted Upside Might Be Too Good to Ignore - Microsoft ( NASDAQ : MSFT ), Oracle ( NYSE : ORCL ) ",
-      "final_weight": 0.1292,
+      "title": "The Real Reasons Warren Buffett Is Selling Apple Stock Fast",
+      "final_weight": 0.8649,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.9672369360923767,
-        "negative": 0.021470259875059128,
-        "neutral": 0.011292758397758007
+        "positive": 0.17845948040485382,
+        "negative": 0.788340151309967,
+        "neutral": 0.033200401812791824
       },
       "weighted_scores": {
-        "positive": 0.125,
-        "negative": 0.0028,
-        "neutral": 0.0015
+        "positive": 0.1543,
+        "negative": 0.6818,
+        "neutral": 0.0287
       }
     },
     {
-      "title": "Microsoft and Rezolve AI Partner to Drive Global Retail Innovation with AI - Powered Commerce Solutions",
-      "final_weight": 0.1292,
+      "title": "Apple Inc. (AAPL) Is a Trending Stock: Facts to Know Before Betting on It",
+      "final_weight": 0.8649,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.9572510123252869,
-        "negative": 0.02255677618086338,
-        "neutral": 0.02019220031797886
+        "positive": 0.5522869229316711,
+        "negative": 0.24576237797737122,
+        "neutral": 0.20195071399211884
       },
       "weighted_scores": {
-        "positive": 0.1237,
-        "negative": 0.0029,
+        "positive": 0.4777,
+        "negative": 0.2126,
+        "neutral": 0.1747
+      }
+    },
+    {
+      "title": "Apple Doesn't Need A Stronger AI Portfolio",
+      "final_weight": 0.835,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8221151232719421,
+        "negative": 0.1216418445110321,
+        "neutral": 0.05624309182167053
+      },
+      "weighted_scores": {
+        "positive": 0.6865,
+        "negative": 0.1016,
+        "neutral": 0.047
+      }
+    },
+    {
+      "title": "Apple spent 2025 setting itself up for the future — and its biggest moves weren't about AI",
+      "final_weight": 0.8344,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.6899758577346802,
+        "negative": 0.10743530839681625,
+        "neutral": 0.2025887817144394
+      },
+      "weighted_scores": {
+        "positive": 0.5757,
+        "negative": 0.0896,
+        "neutral": 0.169
+      }
+    },
+    {
+      "title": "Dow Jones Tech Giant Apple, AppLovin, Palantir, Tesla In Buy Zones",
+      "final_weight": 0.8344,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9491063356399536,
+        "negative": 0.016879750415682793,
+        "neutral": 0.034013815224170685
+      },
+      "weighted_scores": {
+        "positive": 0.7919,
+        "negative": 0.0141,
+        "neutral": 0.0284
+      }
+    },
+    {
+      "title": "Apple's 3 Big New Year Woes",
+      "final_weight": 0.8344,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.06997004896402359,
+        "negative": 0.8855363726615906,
+        "neutral": 0.04449359327554703
+      },
+      "weighted_scores": {
+        "positive": 0.0584,
+        "negative": 0.7389,
+        "neutral": 0.0371
+      }
+    },
+    {
+      "title": "Top Research Reports for Apple, Cisco & IBM",
+      "final_weight": 0.8325,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9558015465736389,
+        "negative": 0.021361012011766434,
+        "neutral": 0.02283746935427189
+      },
+      "weighted_scores": {
+        "positive": 0.7957,
+        "negative": 0.0178,
+        "neutral": 0.019
+      }
+    },
+    {
+      "title": "Apple Stock Rises Ahead of 2026. What's Driving the Growth",
+      "final_weight": 0.8309,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.982678234577179,
+        "negative": 0.007580466102808714,
+        "neutral": 0.009741316549479961
+      },
+      "weighted_scores": {
+        "positive": 0.8165,
+        "negative": 0.0063,
+        "neutral": 0.0081
+      }
+    },
+    {
+      "title": "If You'd Invested $1,000 in Apple 10 Years Ago, Here's How Much You'd Have Today",
+      "final_weight": 0.8281,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.6734603047370911,
+        "negative": 0.174577534198761,
+        "neutral": 0.15196219086647034
+      },
+      "weighted_scores": {
+        "positive": 0.5577,
+        "negative": 0.1446,
+        "neutral": 0.1258
+      }
+    },
+    {
+      "title": "Apple: Efficiency-Monetization Loop - Services Margin And PCC Infrastructure Support A $425 Target",
+      "final_weight": 0.8281,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.99237459897995,
+        "negative": 0.0044516632333397865,
+        "neutral": 0.00317370449192822
+      },
+      "weighted_scores": {
+        "positive": 0.8218,
+        "negative": 0.0037,
         "neutral": 0.0026
       }
     },
     {
-      "title": "Dow Jones Today : Futures Mixed as Stocks Look to Recover From Volatile Start to Month",
-      "final_weight": 0.1047,
-      "input_source": "content-only",
+      "title": "Apple: Quality Vs. Price",
+      "final_weight": 0.8199,
+      "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.08953826874494553,
-        "negative": 0.8553986549377441,
-        "neutral": 0.055063068866729736
+        "positive": 0.9599761962890625,
+        "negative": 0.017161071300506592,
+        "neutral": 0.02286270633339882
       },
       "weighted_scores": {
-        "positive": 0.0094,
-        "negative": 0.0896,
-        "neutral": 0.0058
+        "positive": 0.7871,
+        "negative": 0.0141,
+        "neutral": 0.0187
       }
     },
     {
-      "title": "Microsoft Corporation ( MSFT ): One of the Most Widely Held Stocks by Hedge Funds",
-      "final_weight": 0.1047,
+      "title": "Big Promises, Bigger Fails: Meta's Cringe Demo, Apple's Misfires, GPT-5's Letdown And The Cloud Outages That Made Headlines In 2025",
+      "final_weight": 0.8147,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.31482258439064026,
-        "negative": 0.5800515413284302,
-        "neutral": 0.10512592643499374
+        "positive": 0.0053901756182312965,
+        "negative": 0.986907422542572,
+        "neutral": 0.007702381815761328
       },
       "weighted_scores": {
-        "positive": 0.033,
-        "negative": 0.0607,
-        "neutral": 0.011
+        "positive": 0.0044,
+        "negative": 0.804,
+        "neutral": 0.0063
       }
     },
     {
-      "title": "Latitude Advisors LLC Sells 980 Shares of Microsoft Co . ( NASDAQ : MSFT ) ",
-      "final_weight": 0.1047,
+      "title": "Tim Cook's Nike Buy, AI Smart Glasses, Court Victory And More: This Week In Appleverse",
+      "final_weight": 0.812,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.3599701523780823,
-        "negative": 0.5467365980148315,
-        "neutral": 0.09329325705766678
+        "positive": 0.09967300295829773,
+        "negative": 0.8304573893547058,
+        "neutral": 0.06986957788467407
       },
       "weighted_scores": {
-        "positive": 0.0377,
-        "negative": 0.0572,
-        "neutral": 0.0098
+        "positive": 0.0809,
+        "negative": 0.6743,
+        "neutral": 0.0567
       }
     },
     {
-      "title": "Microsoft Co . ( NASDAQ : MSFT ) Stake Reduced by Cryder Capital Partners LLP",
-      "final_weight": 0.1047,
+      "title": "Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead of 2026",
+      "final_weight": 0.812,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.24640776216983795,
-        "negative": 0.6354529857635498,
-        "neutral": 0.11813922226428986
+        "positive": 0.975151777267456,
+        "negative": 0.015086359344422817,
+        "neutral": 0.009761808440089226
       },
       "weighted_scores": {
-        "positive": 0.0258,
-        "negative": 0.0665,
-        "neutral": 0.0124
+        "positive": 0.7918,
+        "negative": 0.0123,
+        "neutral": 0.0079
       }
     },
     {
-      "title": "Microsoft Co . ( NASDAQ : MSFT ) Shares Sold by Trust Co . of Virginia VA",
-      "final_weight": 0.1047,
+      "title": "Apple Is Likely to Return to Double-Digit Revenue Growth in Fiscal 2026 -- and the Stock Looks Like a Buy",
+      "final_weight": 0.812,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.4718672037124634,
-        "negative": 0.3852827548980713,
-        "neutral": 0.14285005629062653
+        "positive": 0.9900996685028076,
+        "negative": 0.004854598548263311,
+        "neutral": 0.00504577811807394
       },
       "weighted_scores": {
-        "positive": 0.0494,
-        "negative": 0.0403,
-        "neutral": 0.015
+        "positive": 0.804,
+        "negative": 0.0039,
+        "neutral": 0.0041
       }
     },
     {
-      "title": "GAM Holding AG Sells 26 , 860 Shares of Microsoft Co . ( NASDAQ : MSFT ) ",
-      "final_weight": 0.1047,
+      "title": "Apple: Foldable Phone Sparks A Revival, Not AI Overhype",
+      "final_weight": 0.812,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.37679436802864075,
-        "negative": 0.4979245364665985,
-        "neutral": 0.12528114020824432
+        "positive": 0.8967587351799011,
+        "negative": 0.031547412276268005,
+        "neutral": 0.07169391214847565
       },
       "weighted_scores": {
-        "positive": 0.0395,
-        "negative": 0.0521,
-        "neutral": 0.0131
+        "positive": 0.7282,
+        "negative": 0.0256,
+        "neutral": 0.0582
       }
     },
     {
-      "title": "Solstein Capital LLC Reduces Holdings in Microsoft Co . ( NASDAQ : MSFT ) ",
-      "final_weight": 0.1047,
+      "title": "Apple needs to deliver an AI-charged Siri so good it gets older iPhone users to upgrade",
+      "final_weight": 0.8024,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.20822188258171082,
-        "negative": 0.6963933706283569,
-        "neutral": 0.09538472443819046
+        "positive": 0.18692554533481598,
+        "negative": 0.7423011660575867,
+        "neutral": 0.07077326625585556
       },
       "weighted_scores": {
-        "positive": 0.0218,
-        "negative": 0.0729,
+        "positive": 0.15,
+        "negative": 0.5956,
+        "neutral": 0.0568
+      }
+    },
+    {
+      "title": "The Zacks Analyst Blog Highlights Apple, Cisco Systems and IBM",
+      "final_weight": 0.8024,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9715318083763123,
+        "negative": 0.013833664357662201,
+        "neutral": 0.014634547755122185
+      },
+      "weighted_scores": {
+        "positive": 0.7796,
+        "negative": 0.0111,
+        "neutral": 0.0117
+      }
+    },
+    {
+      "title": "Jim Cramer Repeats His “Own It, Don’t Trade It” Mantra on Apple",
+      "final_weight": 0.7997,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.03520318120718002,
+        "negative": 0.9444078207015991,
+        "neutral": 0.020388973876833916
+      },
+      "weighted_scores": {
+        "positive": 0.0282,
+        "negative": 0.7552,
+        "neutral": 0.0163
+      }
+    },
+    {
+      "title": "Apple's AI challenges in 2026",
+      "final_weight": 0.7914,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.3819030821323395,
+        "negative": 0.3195874094963074,
+        "neutral": 0.29850953817367554
+      },
+      "weighted_scores": {
+        "positive": 0.3022,
+        "negative": 0.2529,
+        "neutral": 0.2362
+      }
+    },
+    {
+      "title": "Wedbush Names Apple a Top AI Pick for the 2026 Market Cycle",
+      "final_weight": 0.7914,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9495051503181458,
+        "negative": 0.016140487045049667,
+        "neutral": 0.03435434773564339
+      },
+      "weighted_scores": {
+        "positive": 0.7514,
+        "negative": 0.0128,
+        "neutral": 0.0272
+      }
+    },
+    {
+      "title": "Apple misses on AI in 2025",
+      "final_weight": 0.7914,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.02165154553949833,
+        "negative": 0.9527389407157898,
+        "neutral": 0.025609517470002174
+      },
+      "weighted_scores": {
+        "positive": 0.0171,
+        "negative": 0.754,
+        "neutral": 0.0203
+      }
+    },
+    {
+      "title": "JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reaches Parity",
+      "final_weight": 0.7666,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9853711128234863,
+        "negative": 0.004626829642802477,
+        "neutral": 0.010002038441598415
+      },
+      "weighted_scores": {
+        "positive": 0.7554,
+        "negative": 0.0035,
+        "neutral": 0.0077
+      }
+    },
+    {
+      "title": "Apple Stock Ticks Up After a Surprise From China—and a Legal Win",
+      "final_weight": 0.7333,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9836859703063965,
+        "negative": 0.007286167237907648,
+        "neutral": 0.009027853608131409
+      },
+      "weighted_scores": {
+        "positive": 0.7213,
+        "negative": 0.0053,
+        "neutral": 0.0066
+      }
+    },
+    {
+      "title": "Analysts Are Hot on the Foldable iPhone. Should You Buy AAPL Stock Before Apple’s Next Big Product Launch?",
+      "final_weight": 0.7188,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9635804891586304,
+        "negative": 0.021462883800268173,
+        "neutral": 0.014956599101424217
+      },
+      "weighted_scores": {
+        "positive": 0.6926,
+        "negative": 0.0154,
+        "neutral": 0.0108
+      }
+    },
+    {
+      "title": "Italian Competition Authority fines Apple EUR 98M over app tracking",
+      "final_weight": 0.7,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.038894105702638626,
+        "negative": 0.9080965518951416,
+        "neutral": 0.05300936847925186
+      },
+      "weighted_scores": {
+        "positive": 0.0272,
+        "negative": 0.6357,
+        "neutral": 0.0371
+      }
+    },
+    {
+      "title": "Apple to appeal EUR 98M Italian Competition Authority fine, AP reports",
+      "final_weight": 0.7,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.34456926584243774,
+        "negative": 0.3899163603782654,
+        "neutral": 0.26551440358161926
+      },
+      "weighted_scores": {
+        "positive": 0.2412,
+        "negative": 0.2729,
+        "neutral": 0.1859
+      }
+    },
+    {
+      "title": "Will Apple’s (AAPL) Global iOS Openings and AI Push Reshape Its Services-First Narrative?",
+      "final_weight": 0.7,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.6085388660430908,
+        "negative": 0.20056240260601044,
+        "neutral": 0.19089870154857635
+      },
+      "weighted_scores": {
+        "positive": 0.426,
+        "negative": 0.1404,
+        "neutral": 0.1336
+      }
+    },
+    {
+      "title": "Nike shares jump after Apple CEO Cook doubles stake to $6 million",
+      "final_weight": 0.6669,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8973064422607422,
+        "negative": 0.09171230345964432,
+        "neutral": 0.010981185361742973
+      },
+      "weighted_scores": {
+        "positive": 0.5984,
+        "negative": 0.0612,
+        "neutral": 0.0073
+      }
+    },
+    {
+      "title": "Why Apple's Tim Cook Drove Nike Stock Higher Today",
+      "final_weight": 0.6669,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9553024768829346,
+        "negative": 0.02326544001698494,
+        "neutral": 0.021432096138596535
+      },
+      "weighted_scores": {
+        "positive": 0.6371,
+        "negative": 0.0155,
+        "neutral": 0.0143
+      }
+    },
+    {
+      "title": "Apple CEO Tim Cook Discloses $3 Million Nike Buy With Dow Giant At 7-Month Low",
+      "final_weight": 0.6669,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.661687970161438,
+        "negative": 0.2874097526073456,
+        "neutral": 0.05090225487947464
+      },
+      "weighted_scores": {
+        "positive": 0.4413,
+        "negative": 0.1917,
+        "neutral": 0.0339
+      }
+    },
+    {
+      "title": "Dan Ives Is Betting That Apple and Google Will Partner in 2026. Should You Buy AAPL Stock First?",
+      "final_weight": 0.6669,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.6019265651702881,
+        "negative": 0.3304497301578522,
+        "neutral": 0.06762376427650452
+      },
+      "weighted_scores": {
+        "positive": 0.4014,
+        "negative": 0.2204,
+        "neutral": 0.0451
+      }
+    },
+    {
+      "title": "Nike Stock Price Gets a Lift After Apple’s Tim Cook Doubles His Stake",
+      "final_weight": 0.6669,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9527218341827393,
+        "negative": 0.020125994458794594,
+        "neutral": 0.027152135968208313
+      },
+      "weighted_scores": {
+        "positive": 0.6354,
+        "negative": 0.0134,
+        "neutral": 0.0181
+      }
+    },
+    {
+      "title": "Will 2026 Be The Year Apple Finally Joins The AI Race?",
+      "final_weight": 0.634,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.38191649317741394,
+        "negative": 0.25769051909446716,
+        "neutral": 0.3603929877281189
+      },
+      "weighted_scores": {
+        "positive": 0.2421,
+        "negative": 0.1634,
+        "neutral": 0.2285
+      }
+    },
+    {
+      "title": "Apple Just Released a New AI Model. Should You Buy AAPL Stock Here?",
+      "final_weight": 0.634,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9403001666069031,
+        "negative": 0.030898578464984894,
+        "neutral": 0.02880127914249897
+      },
+      "weighted_scores": {
+        "positive": 0.5962,
+        "negative": 0.0196,
+        "neutral": 0.0183
+      }
+    },
+    {
+      "title": "Update: Apple Faces $115.7 Million Italian Regulator Fine Over Alleged 'Abuse' of 'Dominant Position'",
+      "final_weight": 0.634,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.07668241113424301,
+        "negative": 0.8519331216812134,
+        "neutral": 0.07138440757989883
+      },
+      "weighted_scores": {
+        "positive": 0.0486,
+        "negative": 0.5401,
+        "neutral": 0.0453
+      }
+    },
+    {
+      "title": "Former Met chief demands Apple and Google disable stolen phones",
+      "final_weight": 0.634,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.023942867293953896,
+        "negative": 0.946943461894989,
+        "neutral": 0.029113689437508583
+      },
+      "weighted_scores": {
+        "positive": 0.0152,
+        "negative": 0.6004,
+        "neutral": 0.0185
+      }
+    },
+    {
+      "title": "Jim Cramer Says “I Own Apple, and I Say Own it, Don’t Trade It”",
+      "final_weight": 0.634,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9722276329994202,
+        "negative": 0.01837347447872162,
+        "neutral": 0.009398824535310268
+      },
+      "weighted_scores": {
+        "positive": 0.6164,
+        "negative": 0.0116,
+        "neutral": 0.006
+      }
+    },
+    {
+      "title": "Dow Jones Futures: Nvidia Tests Key Level; AppLovin, Apple, Palantir, Tesla In Buy Zones",
+      "final_weight": 0.634,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.7381704449653625,
+        "negative": 0.1658143699169159,
+        "neutral": 0.09601520746946335
+      },
+      "weighted_scores": {
+        "positive": 0.468,
+        "negative": 0.1051,
+        "neutral": 0.0609
+      }
+    },
+    {
+      "title": "Apple (AAPL) Stock Slides as Market Rises: Facts to Know Before You Trade",
+      "final_weight": 0.6014,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.019804982468485832,
+        "negative": 0.9528377652168274,
+        "neutral": 0.027357256039977074
+      },
+      "weighted_scores": {
+        "positive": 0.0119,
+        "negative": 0.573,
+        "neutral": 0.0165
+      }
+    },
+    {
+      "title": "Apple (AAPL) Target Raised as Jefferies Sees Stronger iPhone Demand",
+      "final_weight": 0.6014,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9633498787879944,
+        "negative": 0.020090823993086815,
+        "neutral": 0.016559340059757233
+      },
+      "weighted_scores": {
+        "positive": 0.5794,
+        "negative": 0.0121,
         "neutral": 0.01
       }
     },
     {
-      "title": "Baystreet . ca - Another Day , Another New S & P 500 High : Here What to Do",
-      "final_weight": 0.1047,
-      "input_source": "content-only",
+      "title": "If You Think Apple Trading For 36x Earnings Is Nuts, You Can Bet Against Them With AAPD ETF",
+      "final_weight": 0.6014,
+      "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.9878504276275635,
-        "negative": 0.005415037740021944,
-        "neutral": 0.006734572350978851
+        "positive": 0.018809208646416664,
+        "negative": 0.9335084557533264,
+        "neutral": 0.04768229275941849
       },
       "weighted_scores": {
-        "positive": 0.1034,
-        "negative": 0.0006,
-        "neutral": 0.0007
+        "positive": 0.0113,
+        "negative": 0.5614,
+        "neutral": 0.0287
       }
     },
     {
-      "title": "Reddit Inc ( RDDT ) Gains  Buy  Rating from Jefferies With $90 Price Target Amid AI - Driven Growth and Strong User Engagement",
-      "final_weight": 0.081,
-      "input_source": "content-only",
+      "title": "Morgan Stanley Lifts Apple Inc. (AAPL) Price Target on Earnings Growth Expectations",
+      "final_weight": 0.6014,
+      "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.9916164875030518,
-        "negative": 0.0032425038516521454,
-        "neutral": 0.005140942987054586
+        "positive": 0.9761614799499512,
+        "negative": 0.013748499564826488,
+        "neutral": 0.010090013965964317
       },
       "weighted_scores": {
-        "positive": 0.0803,
-        "negative": 0.0003,
-        "neutral": 0.0004
+        "positive": 0.5871,
+        "negative": 0.0083,
+        "neutral": 0.0061
+      }
+    },
+    {
+      "title": "Apple Fined $115 Million in Italy Over App Tracking Policy",
+      "final_weight": 0.6014,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.008976572193205357,
+        "negative": 0.979988157749176,
+        "neutral": 0.011035329662263393
+      },
+      "weighted_scores": {
+        "positive": 0.0054,
+        "negative": 0.5894,
+        "neutral": 0.0066
+      }
+    },
+    {
+      "title": "Is Apple Inc. (NASDAQ:AAPL) Expensive For A Reason? A Look At Its Intrinsic Value",
+      "final_weight": 0.6014,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.14102274179458618,
+        "negative": 0.728529691696167,
+        "neutral": 0.13044755160808563
+      },
+      "weighted_scores": {
+        "positive": 0.0848,
+        "negative": 0.4381,
+        "neutral": 0.0785
+      }
+    },
+    {
+      "title": "Prediction: Berkshire Hathaway Will Stop Selling Apple Stock in 2026",
+      "final_weight": 0.6014,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.11407322436571121,
+        "negative": 0.8245286345481873,
+        "neutral": 0.06139811500906944
+      },
+      "weighted_scores": {
+        "positive": 0.0686,
+        "negative": 0.4959,
+        "neutral": 0.0369
+      }
+    },
+    {
+      "title": "China's vice commerce minister met Apple COO on Friday",
+      "final_weight": 0.6014,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.5585135817527771,
+        "negative": 0.22314931452274323,
+        "neutral": 0.2183370739221573
+      },
+      "weighted_scores": {
+        "positive": 0.3359,
+        "negative": 0.1342,
+        "neutral": 0.1313
+      }
+    },
+    {
+      "title": "Apple Targets 2026 Launch For AI Smart Glasses, Camera-Equipped AirPods, With Foxconn, TSMC Set To Play Key Roles: Report",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.5822919607162476,
+        "negative": 0.18812043964862823,
+        "neutral": 0.229587584733963
+      },
+      "weighted_scores": {
+        "positive": 0.3316,
+        "negative": 0.1071,
+        "neutral": 0.1307
+      }
+    },
+    {
+      "title": "Morgan Stanley Boosts Apple (AAPL) Target, Sees Upside From Pricing Power and AI",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.978313148021698,
+        "negative": 0.010413474403321743,
+        "neutral": 0.011273394338786602
+      },
+      "weighted_scores": {
+        "positive": 0.5571,
+        "negative": 0.0059,
+        "neutral": 0.0064
+      }
+    },
+    {
+      "title": "Jim Cramer Says “Apple Might Be Hurt By Higher Memory Prices From Micron”",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.022392839193344116,
+        "negative": 0.9314185976982117,
+        "neutral": 0.04618848115205765
+      },
+      "weighted_scores": {
+        "positive": 0.0128,
+        "negative": 0.5303,
+        "neutral": 0.0263
+      }
+    },
+    {
+      "title": "Jim Cramer Says “Own Apple, Don’t Trade It”",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9926689863204956,
+        "negative": 0.004403728060424328,
+        "neutral": 0.0029272683896124363
+      },
+      "weighted_scores": {
+        "positive": 0.5652,
+        "negative": 0.0025,
+        "neutral": 0.0017
+      }
+    },
+    {
+      "title": "Where is Apple Inc. (AAPL) Headed According to Wall Street?",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8621162176132202,
+        "negative": 0.10573872923851013,
+        "neutral": 0.032145023345947266
+      },
+      "weighted_scores": {
+        "positive": 0.4909,
+        "negative": 0.0602,
+        "neutral": 0.0183
+      }
+    },
+    {
+      "title": "Analysts Have a Moderate Buy Rating on Apple Inc. (AAPL)",
+      "final_weight": 0.5379,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9551495313644409,
+        "negative": 0.009231884963810444,
+        "neutral": 0.03561859577894211
+      },
+      "weighted_scores": {
+        "positive": 0.5138,
+        "negative": 0.005,
+        "neutral": 0.0192
       }
     }
   ]
