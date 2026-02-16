@@ -49,3 +49,6 @@ SENTIMENT_MAX_LENGTH = 512
 # MODEL_NAME = "facebook/bart-large-mnli" # facebook bart mnli
 # MODEL_NAME = "roberta-large-mnli" # facebookAI roberta mnli
 MODEL_NAME = "microsoft/deberta-large-mnli" # microsoft deberta large mnli
+
+# XAI Configuration
+XAI_ENABLED = True

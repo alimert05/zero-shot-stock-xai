@@ -13,7 +13,6 @@ from config import (
     LOG_PATH,
     TEMP_PATH,
     REQUEST_TIMEOUT_LIMIT,
-    WEIGHT_COMBINE_METHOD,
     FINNHUB_API_KEY,
 )
 from .utils import resolve_ticker, validate_date, add_recency_weights
@@ -83,16 +82,6 @@ class Fetcher:
             raise
 
     def _fetch_finnhub_news(self, symbol: str, from_date: str, to_date: str) -> list[dict]:
-        """Fetch company news from Finnhub API using the official client.
-
-        Args:
-            symbol: Stock ticker symbol (e.g. "AAPL").
-            from_date: Start date in YYYY-MM-DD format.
-            to_date: End date in YYYY-MM-DD format.
-
-        Returns:
-            List of article dicts normalised to the pipeline's expected format.
-        """
         if not FINNHUB_API_KEY:
             raise RuntimeError(
                 "FINNHUB_API_KEY is not set in config.py. "
@@ -187,7 +176,6 @@ class Fetcher:
                 "Finnhub requires a valid ticker symbol. Please try again with the ticker directly."
             )
 
-        # Finnhub supports date-range queries, so one call covers the whole window
         try:
             all_articles = self._fetch_finnhub_news(
                 symbol=ticker,

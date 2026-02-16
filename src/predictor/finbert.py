@@ -51,7 +51,7 @@ def _build_input_text(
     max_chars: int = 1500,
 ) -> str:
     title = article.get("title", "").strip()
-    content = article.get("content") or ""
+    content = article.get("summary") or ""
     content = content.strip()
 
     if include_title:
@@ -124,7 +124,7 @@ def predict_sentiment(
             weighted_scores[label] += scores[label] * final_weight
         total_weight += final_weight
 
-        content_raw = article.get("content") or ""
+        content_raw = article.get("summary") or ""
         if include_title:
             source_label = "headline+content"
         elif content_raw.strip():
