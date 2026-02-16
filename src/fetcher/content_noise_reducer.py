@@ -50,8 +50,8 @@ def _score_sentence_relevance(
     labels = ["relevant", "irrelevant"]
     hypothesis_template = (
         f"This sentence is {{}} to {company_name}{ticker_part}, including "
-        f"products/brands, financial performance (revenue, YoY growth, margins), "
-        f"guidance, operations, regulation (FDA), and major announcements."
+        f"products/brands, financial performance (revenue, earnings, losses, margins), "
+        f"guidance, operations, lawsuits, regulation, risks, and major announcements."
     )
 
     results = classifier(

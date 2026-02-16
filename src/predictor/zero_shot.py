@@ -50,7 +50,7 @@ def _build_input_text(
     max_chars: int = 1500,
 ) -> str:
     title = article.get("title", "").strip()
-    content = article.get("content") or ""
+    content = article.get("summary") or ""
     content = content.strip()
 
     if include_title:
