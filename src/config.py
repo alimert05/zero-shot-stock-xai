@@ -22,21 +22,16 @@ REQUEST_TIMEOUT_LIMIT = 30
 # API Configuration
 FINNHUB_API_KEY = "d5rvt19r01qq2th0b8sgd5rvt19r01qq2th0b8t0"
 
-WEIGHT_COMBINE_METHOD = "geometric"
-
 NOISE_REDUCTION_MODEL = "roberta-large-mnli" 
 
 IMPACT_HORIZON_MODEL = "roberta-large-mnli" 
 IMPACT_HORIZON_DEVICE = 0
 
-RECENCY_IMPORTANCE = 0.4
-HORIZON_IMPORTANCE = 0.6
-
 SENTIMENT_DEVICE = 0 
 
 # finbert config
-SENTIMENT_MODEL = "ProsusAI/finbert"
-SENTIMENT_MAX_LENGTH = 512  
+# SENTIMENT_MODEL = "ProsusAI/finbert"
+# SENTIMENT_MAX_LENGTH = 512  
 
 #fingpt config
 # SENTIMENT_MODEL = "fingpt"
@@ -45,10 +40,10 @@ SENTIMENT_MAX_LENGTH = 512
 # FINGPT_LOAD_IN_8BIT = True
 
 # zero-shot config
-# SENTIMENT_MODEL = "zero-shot"
+SENTIMENT_MODEL = "zero-shot"
 # MODEL_NAME = "facebook/bart-large-mnli" # facebook bart mnli
-# MODEL_NAME = "roberta-large-mnli" # facebookAI roberta mnli
-MODEL_NAME = "microsoft/deberta-large-mnli" # microsoft deberta large mnli
+MODEL_NAME = "roberta-large-mnli" # facebookAI roberta mnli
+# MODEL_NAME = "microsoft/deberta-large-mnli/" # microsoft deberta large mnli
 
 # XAI Configuration
 XAI_ENABLED = True
