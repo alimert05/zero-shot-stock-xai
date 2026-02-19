@@ -1,0 +1,184 @@
+============================================================
+  SENTIMENT ANALYSIS EXPLANATION REPORT
+============================================================
+  Company           : apple
+  Prediction window : 31 days
+  Articles analysed : 58
+  Generated at      : 2026-02-19 19:45:46
+============================================================
+  SUMMARY
+  What the model decided and why — in plain English
+------------------------------------------------------------
+
+  The model predicted a neutral label with 63.7% confidence based on 58 articles over 31 days.
+
+The top article is "Apple CEO Tim Cook Just Gave Nike Investors 3 Million Reasons to Cheer" with a neutral sentiment, accounting for 2.2% of the total weight.
+
+The label margin is clear margin (0.449), and reliability is HIGH.
+
+  (Summary by llama3.2:3b, live)
+
+  PREDICTION RESULT
+  Sentiment scores across all analysed articles
+------------------------------------------------------------
+    positive :  18.7%  #######
+    negative :  17.6%  #######
+     neutral :  63.7%  #########################  <-- PREDICTED
+
+  Verdict     : NEUTRAL
+  Confidence  : 63.7%
+
+  PREDICTION RELIABILITY
+  How much to trust this prediction
+------------------------------------------------------------
+  Overall : [✓] HIGH  (0 concern(s) found)
+
+    [✓] Evidence volume        Sufficient article count.
+    [✓] Evidence diversity     Weight is well-distributed across articles.
+    [✓] Decision confidence    Clear margin between top two labels (0.449).
+    [✓] Score confidence       Confidence above threshold.
+
+  RECOMMENDATION
+  What you should do with this result
+------------------------------------------------------------
+  This prediction has HIGH reliability and can be used with reasonable confidence.
+
+  WHICH ARTICLES DROVE THE PREDICTION
+  The articles that had the most impact on the final verdict
+------------------------------------------------------------
+  Articles pushing toward POSITIVE:
+    [+]  JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reaches Parity
+    [+]  Apple Is Likely to Return to Double-Digit Revenue Growth in Fiscal 2026 -- a
+    [+]  Apple Stock Rises Ahead of 2026. What's Driving the Growth
+  Articles pushing toward NEGATIVE:
+    [-]  Apple's 3 Big New Year Woes
+    [-]  Big Promises, Bigger Fails: Meta's Cringe Demo, Apple's Misfires, GPT-5's Le
+    [-]  The Real Reasons Warren Buffett Is Selling Apple Stock Fast
+
+  Top 10 most influential articles:
+    Rank  Sentiment   Weight  If removed      Title
+    --------------------------------------------------------
+    #1    NEUTRAL     0.9354  no change       Apple CEO Tim Cook Just Gave Nike Investors 3 
+    #2    NEUTRAL     0.8649  no change       The 76-Year-Old Reason Why Buffett Has Been Se
+    #3    NEUTRAL     0.8649  no change       Why Apple Might Attract More of an AI Multiple
+    #4    NEUTRAL     0.8649  no change       Apple is an Analyst Favorite, But AAPL Stock H
+    #5    NEUTRAL     0.8649  no change       Apple: Don't Expect Much Growth Here
+    #6    NEGATIVE    0.8649  no change       The Real Reasons Warren Buffett Is Selling App
+    #7    NEUTRAL     0.8649  no change       Apple Inc. (AAPL) Is a Trending Stock: Facts t
+    #8    NEUTRAL     0.8350  no change       Apple Doesn't Need A Stronger AI Portfolio
+    #9    NEUTRAL     0.8344  no change       Apple spent 2025 setting itself up for the fut
+    #10   NEUTRAL     0.8344  no change       Dow Jones Tech Giant Apple, AppLovin, Palantir
+
+  Weight distribution (HHI): 0.0176 — well spread across articles
+
+  HOW ARTICLES WERE WEIGHTED
+  More recent and near-horizon articles are given higher weight
+------------------------------------------------------------
+  Average article age      : 6.78 days old
+  Average recency weight   : 0.8183  (1.0 = today, lower = older)
+  Average horizon weight   : 0.6504  (1.0 = ideal timing, lower = off-horizon)
+
+  Article timing breakdown:
+    Breaking / same-day        : 1 article(s)
+    Short-term (days)          : 38 article(s)
+    Medium-term (weeks)        : 2 article(s)
+    Long-term (months)         : 17 article(s)
+
+  WHICH WORDS DROVE THE PREDICTION
+  Words inside each article that pushed the model toward or away from the verdict
+------------------------------------------------------------
+  [1] Apple Inc. (AAPL) Is a Trending Stock: Facts to Know Before Betting on I
+      Article weight : 0.8649  |  Relevance to prediction : 0.7537
+      Words pushing TOWARD  NEUTRAL : impact, Before, Facts, News, Therefore
+      Words pushing AGAINST NEUTRAL : Trending, AAPL, apple, prospects, Is
+      Note: Is is a common filler word(s) — likely a text-format artefact, not meaningful signal.
+
+  [2] Why Apple Might Attract More of an AI Multiple in 2026
+      Article weight : 0.8649  |  Relevance to prediction : 0.7491
+      Words pushing TOWARD  NEUTRAL : dip, Apple, about, E, investors
+      Words pushing AGAINST NEUTRAL : even, Shares, going, course, iPhone
+
+  [3] Apple spent 2025 setting itself up for the future — and its biggest move
+      Article weight : 0.8344  |  Relevance to prediction : 0.7358
+      Words pushing TOWARD  NEUTRAL : News, about, setting, 2025, weren
+      Words pushing AGAINST NEUTRAL : apple, Apple, up, for, future
+      Note: for is a common filler word(s) — likely a text-format artefact, not meaningful signal.
+
+  [4] Top Research Reports for Apple, Cisco & IBM
+      Article weight : 0.8325  |  Relevance to prediction : 0.7190
+      Words pushing TOWARD  NEUTRAL : News, Services, IBM, Q1, Cisco
+      Words pushing AGAINST NEUTRAL : Apple, leads, iPhone, Top, surpassing
+
+  [5] The Zacks Analyst Blog Highlights Apple, Cisco Systems and IBM
+      Article weight : 0.8024  |  Relevance to prediction : 0.7133
+      Words pushing TOWARD  NEUTRAL : about, outlook, News, Cisco, Blog
+      Words pushing AGAINST NEUTRAL : Apple, iPhone, apple, growth, strong
+
+
+  ADVANCED DETAILS — RAW TOKEN WEIGHTS
+  Numerical scores behind the word-level analysis above
+------------------------------------------------------------
+  Positive weight = word supports the predicted label; Negative = word opposes it.
+
+  [1] Apple Inc. (AAPL) Is a Trending Stock: Facts to Know Before Betting on I
+      - Trending               -0.063440
+      + impact                 +0.039709
+      + Before                 +0.039095
+      - AAPL                   -0.035747
+      - apple                  -0.028592
+      + Facts                  +0.026399
+      - prospects              -0.018107
+      - Is                     -0.017923
+      + News                   +0.015780
+      - Know                   -0.015682
+
+  [2] Why Apple Might Attract More of an AI Multiple in 2026
+      + dip                    +0.011646
+      + Apple                  +0.010073
+      + about                  +0.009844
+      - even                   -0.009670
+      - Shares                 -0.008861
+      + E                      +0.008743
+      + investors              +0.008624
+      + t                      +0.008420
+      - going                  -0.007447
+      - course                 -0.007412
+
+  [3] Apple spent 2025 setting itself up for the future — and its biggest move
+      - apple                  -0.077979
+      + News                   +0.050030
+      - Apple                  -0.048488
+      + about                  +0.037594
+      + setting                +0.031233
+      + 2025                   +0.026078
+      - up                     -0.024066
+      - for                    -0.017247
+      - future                 -0.016901
+      - itself                 -0.016278
+
+  [4] Top Research Reports for Apple, Cisco & IBM
+      - Apple                  -0.055873
+      - leads                  -0.035285
+      - iPhone                 -0.027196
+      - Top                    -0.021080
+      - surpassing             -0.020005
+      - apple                  -0.018342
+      + News                   +0.012392
+      + Services               +0.011828
+      + IBM                    +0.011414
+      + Q1                     +0.008441
+
+  [5] The Zacks Analyst Blog Highlights Apple, Cisco Systems and IBM
+      - Apple                  -0.055515
+      - iPhone                 -0.026444
+      + about                  +0.019800
+      + outlook                +0.016790
+      - apple                  -0.015430
+      - growth                 -0.012980
+      - strong                 -0.012071
+      + News                   +0.011985
+      - Highlights             -0.011905
+      - momentum               -0.011032
+
+
+============================================================

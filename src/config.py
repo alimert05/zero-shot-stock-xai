@@ -46,4 +46,22 @@ MODEL_NAME = "roberta-large-mnli" # facebookAI roberta mnli
 # MODEL_NAME = "microsoft/deberta-large-mnli/" # microsoft deberta large mnli
 
 # XAI Configuration
-XAI_ENABLED = True
+XAI_ENABLED                    = True
+XAI_EXPLANATIONS_PATH          = PROJECT_ROOT / "data" / "xai_explanations"
+XAI_OUTPUT_PATH                = XAI_EXPLANATIONS_PATH / "xai_result.json"
+XAI_SUMMARY_PATH               = XAI_EXPLANATIONS_PATH / "xai_summary.txt"
+XAI_EXPLANATIONS_PATH.mkdir(parents=True, exist_ok=True)
+
+XAI_LIME_TOP_N                 = 5
+XAI_LIME_NUM_SAMPLES           = 300
+XAI_LIME_NUM_FEATURES          = 20
+
+XAI_THIN_EVIDENCE_THRESHOLD    = 5
+XAI_CONCENTRATION_THRESHOLD    = 0.4
+XAI_MARGIN_THRESHOLD           = 0.15
+XAI_LOW_CONFIDENCE_THRESHOLD   = 0.45
+
+XAI_LLAMA_MODEL                = "llama3.2:3b"
+XAI_LLAMA_TEMPERATURE          = 0.1
+XAI_LLAMA_MAX_TOKENS           = 200
+XAI_LLAMA_ENABLED              = True

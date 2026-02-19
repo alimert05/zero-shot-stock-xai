@@ -1,0 +1,415 @@
+from __future__ import annotations
+
+import json
+import logging
+from datetime import datetime
+from pathlib import Path
+from typing import Any
+
+from config import JSON_PATH, XAI_OUTPUT_PATH, XAI_SUMMARY_PATH, XAI_LIME_TOP_N
+
+from .article_explainer  import explain_articles
+from .pipeline_explainer import explain_pipeline
+from .reliability        import compute_reliability
+from .token_explainer    import explain_tokens
+from .narrative          import generate_narrative
+
+logger = logging.getLogger(__name__)
+
+
+def _load_articles(articles_json_path: str) -> dict[str, Any]:
+    with open(articles_json_path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def _merge_article_data(
+    prediction_result: dict[str, Any],
+    articles_data: dict[str, Any],
+) -> list[dict[str, Any]]:
+    # Build lookup: title → full article record from articles.json
+    article_lookup: dict[str, dict] = {}
+    for art in articles_data.get("articles", []):
+        title = art.get("title", "")
+        if title:
+            article_lookup[title] = art
+
+    merged = []
+    for detail in prediction_result.get("article_details", []):
+        title = detail.get("title", "")
+        base = article_lookup.get(title, {})
+
+        merged.append({
+            "title":                 title,
+            "content":               base.get("content") or base.get("summary") or "",
+            "days_ago":              base.get("days_ago", 0),
+            "recency_weight":        base.get("recency_weight", 1.0),
+            "impact_horizon":        base.get("impact_horizon", {}),
+            "impact_horizon_weight": base.get("impact_horizon_weight", 1.0),
+            "final_weight":          detail.get("final_weight", 1.0),
+            "input_source":          detail.get("input_source", "unknown"),
+            "raw_scores":            detail.get("raw_scores", {}),
+            "weighted_scores":       detail.get("weighted_scores", {}),
+            "content_stats":         base.get("content_stats", {}),
+        })
+
+    return merged
+
+
+def _save_result(result: dict[str, Any], output_path: str) -> None:
+    path = Path(output_path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(result, f, indent=2, ensure_ascii=False)
+    logger.info("XAI result saved to %s", output_path)
+
+
+def _build_summary_text(result: dict[str, Any]) -> str:  # noqa: C901
+    W = "=" * 60
+    w = "-" * 60
+
+    meta        = result["meta"]
+    pred        = result["prediction_summary"]
+    reliability = result["reliability"]
+    layer1      = result["layer_1_token"]
+    layer2      = result["layer_2_article"]
+    layer3      = result["layer_3_pipeline"]
+    narrative   = result["narrative"]
+
+    lines: list[str] = []
+
+    # ── Header ────────────────────────────────────────────────
+    ticker_str = f"  ({meta['ticker']})" if meta['ticker'] else ""
+    lines += [
+        W,
+        "  SENTIMENT ANALYSIS EXPLANATION REPORT",
+        W,
+        f"  Company           : {meta['query']}{ticker_str}",
+        f"  Prediction window : {meta['prediction_window_days']} days",
+        f"  Articles analysed : {meta['articles_analyzed']}",
+        f"  Generated at      : {meta['xai_timestamp']}",
+        W,
+    ]
+
+    # ── Summary narrative ──────────────────────────────────────
+    lines += [
+        "  SUMMARY",
+        "  What the model decided and why — in plain English",
+        w,
+        "",
+        f"  {narrative['summary']}",
+        "",
+        f"  (Summary by {narrative['model']}, "
+        f"{'live' if narrative['ollama_available'] else 'template fallback'})",
+        "",
+    ]
+
+    # ── Prediction result ──────────────────────────────────────
+    lines += [
+        "  PREDICTION RESULT",
+        "  Sentiment scores across all analysed articles",
+        w,
+    ]
+    ns = pred["normalized_scores"] or {}
+    neutral_score = ns.get("neutral", 0.0)
+    for label in ["positive", "negative", "neutral"]:
+        score = ns.get(label, 0.0)
+        bar   = "#" * int(score * 40)
+        marker = "  <-- PREDICTED" if label == pred["final_label"] else ""
+        lines.append(f"    {label:>8} : {score * 100:5.1f}%  {bar}{marker}")
+    lines += [
+        "",
+        f"  Verdict     : {str(pred['final_label']).upper()}",
+        f"  Confidence  : {pred['final_confidence'] * 100:.1f}%",
+    ]
+    if neutral_score == 0.0:
+        lines.append(
+            "  Note        : Neutral shows 0% because this model allocates all probability"
+            " between positive and negative — a normal characteristic of NLI-based classifiers."
+        )
+    lines.append("")
+
+    # ── Reliability ────────────────────────────────────────────
+    overall_rel = reliability["overall_reliability"]
+    flags       = reliability["flags"]
+    rel_icon    = {"HIGH": "✓", "MEDIUM": "!", "LOW": "✗"}.get(overall_rel, "?")
+    lines += [
+        "  PREDICTION RELIABILITY",
+        "  How much to trust this prediction",
+        w,
+        f"  Overall : [{rel_icon}] {overall_rel}  ({reliability['flags_triggered']} concern(s) found)",
+        "",
+    ]
+    flag_labels = {
+        "thin_evidence":        "Evidence volume",
+        "weight_concentration": "Evidence diversity",
+        "label_margin":         "Decision confidence",
+        "low_confidence":       "Score confidence",
+    }
+    for flag_name, flag_data in flags.items():
+        icon   = "⚠" if flag_data["flagged"] else "✓"
+        label  = flag_labels.get(flag_name, flag_name.replace("_", " ").title())
+        lines.append(f"    [{icon}] {label:<22} {flag_data['message']}")
+    lines.append("")
+
+    # ── Conclusion ─────────────────────────────────────────────
+    margin_flag = flags.get("label_margin", {}).get("flagged", False)
+    thin_flag   = flags.get("thin_evidence", {}).get("flagged", False)
+    conc_flag   = flags.get("weight_concentration", {}).get("flagged", False)
+    conf_flag   = flags.get("low_confidence", {}).get("flagged", False)
+
+    caution_parts: list[str] = []
+    if margin_flag:
+        caution_parts.append(
+            "the positive and negative scores are very close — "
+            "a small shift in news could change the verdict"
+        )
+    if thin_flag:
+        caution_parts.append("the prediction is based on very few articles")
+    if conc_flag:
+        caution_parts.append(
+            "weight is concentrated in one article, "
+            "making the result sensitive to that single source"
+        )
+    if conf_flag:
+        caution_parts.append("overall confidence is below the recommended threshold")
+
+    if overall_rel == "HIGH":
+        action = "This prediction has HIGH reliability and can be used with reasonable confidence."
+    elif overall_rel == "MEDIUM":
+        action = (
+            "This prediction has MEDIUM reliability — treat it as indicative, not definitive. "
+            + ("Specifically: " + "; ".join(caution_parts) + "." if caution_parts else "")
+        )
+    else:
+        action = (
+            "This prediction has LOW reliability and should NOT be used alone for decisions. "
+            + ("Reasons: " + "; ".join(caution_parts) + "." if caution_parts else "")
+        )
+
+    lines += [
+        "  RECOMMENDATION",
+        "  What you should do with this result",
+        w,
+        f"  {action}",
+        "",
+    ]
+
+    # ── Layer 2 — Article influence ────────────────────────────
+    lines += [
+        "  WHICH ARTICLES DROVE THE PREDICTION",
+        "  The articles that had the most impact on the final verdict",
+        w,
+    ]
+
+    # Drivers
+    if layer2["top_positive_drivers"]:
+        lines.append("  Articles pushing toward POSITIVE:")
+        for t in layer2["top_positive_drivers"]:
+            lines.append(f"    [+]  {t[:76]}")
+    if layer2["top_negative_drivers"]:
+        lines.append("  Articles pushing toward NEGATIVE:")
+        for t in layer2["top_negative_drivers"]:
+            lines.append(f"    [-]  {t[:76]}")
+    lines.append("")
+
+    # Label-flipping articles
+    flippers = layer2["label_flipping_articles"]
+    if flippers:
+        lines.append(f"  Critical articles (removing any one would flip the verdict):")
+        for t in flippers:
+            lines.append(f"    [!]  {t[:76]}")
+        lines.append("")
+
+    # Top 10 table
+    lines += [
+        "  Top 10 most influential articles:",
+        f"    {'Rank':<5} {'Sentiment':<10} {'Weight':>7}  {'If removed':<14}  Title",
+        f"    {w[:56]}",
+    ]
+    for art in layer2["ranked_articles"][:10]:
+        cf = "verdict flips" if art["counterfactual"]["label_would_change"] else "no change"
+        sentiment = art["dominant_sentiment"].upper()
+        lines.append(
+            f"    #{art['rank']:<4} {sentiment:<10} {art['final_weight']:>7.4f}  {cf:<14}  {art['title'][:46]}"
+        )
+    lines.append(
+        f"\n  Weight distribution (HHI): {layer2['weight_concentration']} "
+        f"— {'well spread across articles' if layer2['weight_concentration'] < 0.2 else 'concentrated in few articles'}"
+    )
+    lines.append("")
+
+    # ── Layer 3 — Pipeline weighting ──────────────────────────
+    lines += [
+        "  HOW ARTICLES WERE WEIGHTED",
+        "  More recent and near-horizon articles are given higher weight",
+        w,
+        f"  Average article age      : {layer3['avg_days_ago']} days old",
+        f"  Average recency weight   : {layer3['avg_recency_weight']}  (1.0 = today, lower = older)",
+        f"  Average horizon weight   : {layer3['avg_horizon_weight']}  (1.0 = ideal timing, lower = off-horizon)",
+        "",
+        "  Article timing breakdown:",
+    ]
+    horizon_labels = {
+        "IMMEDIATE":   "Breaking / same-day",
+        "SHORT_TERM":  "Short-term (days)",
+        "MEDIUM_TERM": "Medium-term (weeks)",
+        "LONG_TERM":   "Long-term (months)",
+    }
+    for cat, count in layer3["horizon_distribution"].items():
+        label = horizon_labels.get(cat, cat)
+        lines.append(f"    {label:<26} : {count} article(s)")
+    lines.append("")
+
+    # ── Layer 1 — Token attribution (LIME) ────────────────────
+    lines += [
+        "  WHICH WORDS DROVE THE PREDICTION",
+        "  Words inside each article that pushed the model toward or away from the verdict",
+        w,
+    ]
+    lime_articles = layer1.get("articles", [])
+    if not lime_articles:
+        lines.append("  (Word-level analysis did not run or returned no results)")
+    else:
+        _STOPWORDS = {"news", "about", "to", "is", "the", "a", "an", "of", "in", "and",
+                      "for", "on", "with", "at", "by", "from", "as", "or", "be", "it"}
+        for art in lime_articles:
+            supporting_tokens = art["top_tokens_supporting"]
+            opposing_tokens   = art["top_tokens_opposing"]
+            artefacts = [t for t in opposing_tokens if t.lower() in _STOPWORDS]
+
+            lines += [
+                f"  [{art['rank']}] {art['title'][:72]}",
+                f"      Article weight : {art['final_weight']:.4f}  |  "
+                f"Relevance to prediction : {art['influence_score']:.4f}",
+                "      Words pushing TOWARD  " + str(pred['final_label']).upper() + " : "
+                + (", ".join(supporting_tokens) if supporting_tokens else "(none)"),
+                "      Words pushing AGAINST " + str(pred['final_label']).upper() + " : "
+                + (", ".join(opposing_tokens) if opposing_tokens else "(none)"),
+            ]
+            if artefacts:
+                lines.append(
+                    f"      Note: {', '.join(artefacts)} "
+                    f"{'are' if len(artefacts) > 1 else 'is a'} common filler word(s) — "
+                    "likely a text-format artefact, not meaningful signal."
+                )
+            lines.append("")
+    lines.append("")
+
+    # ── Advanced details (raw token weights) ──────────────────
+    if lime_articles:
+        lines += [
+            "  ADVANCED DETAILS — RAW TOKEN WEIGHTS",
+            "  Numerical scores behind the word-level analysis above",
+            w,
+            "  Positive weight = word supports the predicted label; "
+            "Negative = word opposes it.",
+            "",
+        ]
+        for art in lime_articles:
+            lines.append(f"  [{art['rank']}] {art['title'][:72]}")
+            for tw in sorted(art["token_weights"], key=lambda x: abs(x["weight"]), reverse=True)[:10]:
+                direction = "+" if tw["direction"] == "supports" else "-"
+                lines.append(f"      {direction} {tw['token']:<22} {tw['weight']:+.6f}")
+            lines.append("")
+        lines.append("")
+
+    lines.append(W)
+    return "\n".join(lines)
+
+
+def _save_summary(result: dict[str, Any], summary_path: str) -> None:
+    path = Path(summary_path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    text = _build_summary_text(result)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(text)
+    logger.info("XAI summary saved to %s", summary_path)
+
+
+def run_xai(
+    prediction_result: dict[str, Any],
+    articles_json_path: str | None = None,
+    output_path: str | None = None,
+    summary_path: str | None = None,
+) -> dict[str, Any]:
+    if articles_json_path is None:
+        articles_json_path = str(JSON_PATH)
+    if output_path is None:
+        output_path = str(XAI_OUTPUT_PATH)
+    if summary_path is None:
+        summary_path = str(XAI_SUMMARY_PATH)
+
+    company_name = (
+        prediction_result.get("company_name")
+        or prediction_result.get("query")
+        or "unknown"
+    )
+    ticker = prediction_result.get("ticker") or ""
+
+    logger.info("Starting XAI for company='%s' ticker='%s'", company_name, ticker)
+
+    articles_data = _load_articles(articles_json_path)
+    prediction_window_days = articles_data.get("prediction_window_days", 7)
+    merged_articles = _merge_article_data(prediction_result, articles_data)
+
+    logger.info("Merged %d articles for XAI.", len(merged_articles))
+
+    # Layer 2 + 3 first — fast, pure math
+    article_explanation  = explain_articles(merged_articles, prediction_result)
+    pipeline_explanation = explain_pipeline(merged_articles, prediction_window_days)
+
+    # Reliability (needs HHI from article_explanation)
+    hhi = article_explanation.get("weight_concentration", 0.0)
+    reliability = compute_reliability(prediction_result, hhi)
+
+    # Layer 1 — slow (LIME forward passes)
+    logger.info("Running LIME token attribution (top %d articles)...", XAI_LIME_TOP_N)
+    token_explanation = explain_tokens(
+        merged_articles,
+        company_name=company_name,
+        predicted_label=prediction_result.get("final_label", "positive"),
+    )
+
+    # Narrative — Ollama
+    narrative = generate_narrative(
+        prediction_result=prediction_result,
+        article_explanation=article_explanation,
+        pipeline_explanation=pipeline_explanation,
+        reliability=reliability,
+        token_explanation=token_explanation,
+        company_name=company_name,
+    )
+
+    result = {
+        "meta": {
+            "query": prediction_result.get("query", ""),
+            "ticker": ticker,
+            "xai_timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "articles_analyzed": prediction_result.get("articles_analyzed", 0),
+            "prediction_window_days": prediction_window_days,
+            "xai_version": "1.0.0",
+        },
+        "prediction_summary": {
+            "final_label":       prediction_result.get("final_label"),
+            "final_confidence":  prediction_result.get("final_confidence"),
+            "normalized_scores": prediction_result.get("normalized_scores"),
+            "total_weight":      prediction_result.get("total_weight"),
+        },
+        "reliability":      reliability,
+        "layer_1_token":    {
+            "method":           "LIME",
+            "lime_top_n":       XAI_LIME_TOP_N,
+            "articles":         token_explanation,
+        },
+        "layer_2_article":  article_explanation,
+        "layer_3_pipeline": pipeline_explanation,
+        "narrative":        narrative,
+    }
+
+    _save_result(result, output_path)
+    _save_summary(result, summary_path)
+
+    # Console preview
+    print(_build_summary_text(result))
+
+    return result

@@ -74,7 +74,7 @@ def _classify_sentiment(text: str, company_name: str) -> dict[str, float]:
     # Company-aware zero-shot labels
     labels = [
         f"negative sentiment toward {company_name}",
-        f"no clear sentiment (factual or unclear) about {company_name}",
+        f"this article is factual or neutral about {company_name}",
         f"positive sentiment toward {company_name}",
     ]
 
