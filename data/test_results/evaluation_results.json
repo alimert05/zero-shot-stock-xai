@@ -1,17 +1,17 @@
 {
   "metadata": {
-    "run_timestamp": "2026-02-15 19:13:04",
+    "run_timestamp": "2026-02-19 16:47:39",
     "test_set": "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\test_results\\test_set.json",
     "sentiment_model": "ProsusAI/finbert",
     "total_cases": 120,
     "total_errors": 0,
-    "total_duration_seconds": 855.27
+    "total_duration_seconds": 916.06
   },
   "overall_metrics": {
     "accuracy": 0.3667,
     "total": 120,
     "correct": 44,
-    "macro_precision": 0.4023,
+    "macro_precision": 0.4011,
     "macro_recall": 0.3858,
     "macro_f1": 0.3385,
     "per_class": {
@@ -25,29 +25,29 @@
         "fn": 44
       },
       "neutral": {
-        "precision": 0.1333,
+        "precision": 0.1364,
         "recall": 0.4615,
-        "f1": 0.2069,
+        "f1": 0.2105,
         "support": 13,
         "tp": 6,
-        "fp": 39,
+        "fp": 38,
         "fn": 7
       },
       "positive": {
-        "precision": 0.2857,
+        "precision": 0.2791,
         "recall": 0.3243,
-        "f1": 0.3038,
+        "f1": 0.3,
         "support": 37,
         "tp": 12,
-        "fp": 30,
+        "fp": 31,
         "fn": 25
       }
     },
     "confusion_matrix": {
       "negative": {
         "negative": 26,
-        "neutral": 21,
-        "positive": 23
+        "neutral": 20,
+        "positive": 24
       },
       "neutral": {
         "negative": 0,
@@ -66,9 +66,9 @@
       "accuracy": 0.4,
       "total": 20,
       "correct": 8,
-      "macro_precision": 0.3926,
+      "macro_precision": 0.4,
       "macro_recall": 0.4167,
-      "macro_f1": 0.3928,
+      "macro_f1": 0.3989,
       "per_class": {
         "negative": {
           "precision": 0.4,
@@ -80,29 +80,29 @@
           "fn": 6
         },
         "neutral": {
-          "precision": 0.3333,
+          "precision": 0.4,
           "recall": 0.5,
-          "f1": 0.4,
+          "f1": 0.4444,
           "support": 4,
           "tp": 2,
-          "fp": 4,
+          "fp": 3,
           "fn": 2
         },
         "positive": {
-          "precision": 0.4444,
+          "precision": 0.4,
           "recall": 0.5,
-          "f1": 0.4706,
+          "f1": 0.4444,
           "support": 8,
           "tp": 4,
-          "fp": 5,
+          "fp": 6,
           "fn": 4
         }
       },
       "confusion_matrix": {
         "negative": {
           "negative": 2,
-          "neutral": 3,
-          "positive": 3
+          "neutral": 2,
+          "positive": 4
         },
         "neutral": {
           "negative": 0,
@@ -392,9 +392,9 @@
       "accuracy": 0.375,
       "total": 24,
       "correct": 9,
-      "macro_precision": 0.4327,
+      "macro_precision": 0.4077,
       "macro_recall": 0.375,
-      "macro_f1": 0.3825,
+      "macro_f1": 0.3788,
       "per_class": {
         "negative": {
           "precision": 0.6154,
@@ -411,24 +411,24 @@
           "f1": 0.0,
           "support": 0,
           "tp": 0,
-          "fp": 7,
+          "fp": 6,
           "fn": 0
         },
         "positive": {
-          "precision": 0.25,
+          "precision": 0.2,
           "recall": 0.0833,
-          "f1": 0.125,
+          "f1": 0.1176,
           "support": 12,
           "tp": 1,
-          "fp": 3,
+          "fp": 4,
           "fn": 11
         }
       },
       "confusion_matrix": {
         "negative": {
           "negative": 8,
-          "neutral": 1,
-          "positive": 3
+          "neutral": 0,
+          "positive": 4
         },
         "neutral": {
           "negative": 0,
@@ -683,7 +683,7 @@
           "f1": 0.0,
           "support": 2,
           "tp": 0,
-          "fp": 12,
+          "fp": 11,
           "fn": 2
         },
         "positive": {
@@ -692,15 +692,15 @@
           "f1": 0.0,
           "support": 1,
           "tp": 0,
-          "fp": 4,
+          "fp": 5,
           "fn": 1
         }
       },
       "confusion_matrix": {
         "negative": {
           "negative": 13,
-          "neutral": 12,
-          "positive": 2
+          "neutral": 11,
+          "positive": 3
         },
         "neutral": {
           "negative": 0,
@@ -881,17 +881,17 @@
     {
       "id": "AAPL_W1_bull_run_001",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "duration_seconds": 2.29,
       "normalized_scores": {
-        "positive": 0.3185,
-        "negative": 0.1841,
-        "neutral": 0.4973
+        "positive": 0.469,
+        "negative": 0.16,
+        "neutral": 0.371
       },
-      "articles_analyzed": 58,
-      "final_confidence": 0.4973,
+      "articles_analyzed": 62,
+      "final_confidence": 0.469,
       "prediction_window_days": 1,
       "ticker": "AAPL",
       "market_period": "bull_run"
@@ -902,7 +902,7 @@
       "predicted_label": "positive",
       "correct": true,
       "error": null,
-      "duration_seconds": 11.06,
+      "duration_seconds": 11.39,
       "normalized_scores": {
         "positive": 0.4167,
         "negative": 0.2573,
@@ -920,7 +920,7 @@
       "predicted_label": "negative",
       "correct": false,
       "error": null,
-      "duration_seconds": 7.23,
+      "duration_seconds": 7.31,
       "normalized_scores": {
         "positive": 0.222,
         "negative": 0.4344,
@@ -938,7 +938,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 6.9,
+      "duration_seconds": 7.14,
       "normalized_scores": {
         "positive": 0.3672,
         "negative": 0.3123,
@@ -956,7 +956,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 0.95,
+      "duration_seconds": 0.96,
       "normalized_scores": {
         "positive": 0.3672,
         "negative": 0.3123,
@@ -974,7 +974,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 9.11,
+      "duration_seconds": 9.47,
       "normalized_scores": {
         "positive": 0.3166,
         "negative": 0.2964,
@@ -992,7 +992,7 @@
       "predicted_label": "negative",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.1,
+      "duration_seconds": 8.54,
       "normalized_scores": {
         "positive": 0.1632,
         "negative": 0.5171,
@@ -1010,7 +1010,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 8.22,
+      "duration_seconds": 8.44,
       "normalized_scores": {
         "positive": 0.2937,
         "negative": 0.3693,
@@ -1028,7 +1028,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 1.04,
+      "duration_seconds": 0.9,
       "normalized_scores": {
         "positive": 0.2937,
         "negative": 0.3693,
@@ -1046,7 +1046,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 9.0,
+      "duration_seconds": 9.47,
       "normalized_scores": {
         "positive": 0.2825,
         "negative": 0.3253,
@@ -1064,7 +1064,7 @@
       "predicted_label": "negative",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.31,
+      "duration_seconds": 8.57,
       "normalized_scores": {
         "positive": 0.1558,
         "negative": 0.4764,
@@ -1082,7 +1082,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 8.05,
+      "duration_seconds": 8.45,
       "normalized_scores": {
         "positive": 0.2832,
         "negative": 0.3653,
@@ -1100,7 +1100,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 1.03,
+      "duration_seconds": 1.08,
       "normalized_scores": {
         "positive": 0.2832,
         "negative": 0.3653,
@@ -1118,7 +1118,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.95,
+      "duration_seconds": 9.26,
       "normalized_scores": {
         "positive": 0.2745,
         "negative": 0.3292,
@@ -1136,7 +1136,7 @@
       "predicted_label": "negative",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.24,
+      "duration_seconds": 8.42,
       "normalized_scores": {
         "positive": 0.1558,
         "negative": 0.4619,
@@ -1154,7 +1154,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 8.44,
+      "duration_seconds": 8.4,
       "normalized_scores": {
         "positive": 0.2844,
         "negative": 0.3647,
@@ -1172,7 +1172,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 0.92,
+      "duration_seconds": 0.99,
       "normalized_scores": {
         "positive": 0.2844,
         "negative": 0.3647,
@@ -1190,7 +1190,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 9.82,
+      "duration_seconds": 9.52,
       "normalized_scores": {
         "positive": 0.2639,
         "negative": 0.3252,
@@ -1208,7 +1208,7 @@
       "predicted_label": "negative",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.63,
+      "duration_seconds": 8.42,
       "normalized_scores": {
         "positive": 0.1706,
         "negative": 0.4258,
@@ -1226,7 +1226,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 8.51,
+      "duration_seconds": 8.33,
       "normalized_scores": {
         "positive": 0.3068,
         "negative": 0.3535,
@@ -1262,7 +1262,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.99,
+      "duration_seconds": 9.28,
       "normalized_scores": {
         "positive": 0.2343,
         "negative": 0.2947,
@@ -1280,7 +1280,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.14,
+      "duration_seconds": 8.52,
       "normalized_scores": {
         "positive": 0.2002,
         "negative": 0.3327,
@@ -1298,7 +1298,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.15,
+      "duration_seconds": 8.54,
       "normalized_scores": {
         "positive": 0.3796,
         "negative": 0.3042,
@@ -1316,7 +1316,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 0.99,
+      "duration_seconds": 0.96,
       "normalized_scores": {
         "positive": 0.3796,
         "negative": 0.3042,
@@ -1334,7 +1334,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.16,
+      "duration_seconds": 8.55,
       "normalized_scores": {
         "positive": 0.4662,
         "negative": 0.1216,
@@ -1352,7 +1352,7 @@
       "predicted_label": "positive",
       "correct": true,
       "error": null,
-      "duration_seconds": 7.78,
+      "duration_seconds": 8.02,
       "normalized_scores": {
         "positive": 0.3972,
         "negative": 0.218,
@@ -1370,7 +1370,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 8.22,
+      "duration_seconds": 8.52,
       "normalized_scores": {
         "positive": 0.1714,
         "negative": 0.5406,
@@ -1388,7 +1388,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 1.07,
+      "duration_seconds": 0.98,
       "normalized_scores": {
         "positive": 0.1714,
         "negative": 0.5406,
@@ -1406,7 +1406,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.22,
+      "duration_seconds": 9.09,
       "normalized_scores": {
         "positive": 0.3853,
         "negative": 0.239,
@@ -1424,7 +1424,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.03,
+      "duration_seconds": 9.06,
       "normalized_scores": {
         "positive": 0.3583,
         "negative": 0.1499,
@@ -1442,7 +1442,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 8.25,
+      "duration_seconds": 9.26,
       "normalized_scores": {
         "positive": 0.2535,
         "negative": 0.3955,
@@ -1460,7 +1460,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 1.44,
+      "duration_seconds": 0.96,
       "normalized_scores": {
         "positive": 0.2535,
         "negative": 0.3955,
@@ -1478,7 +1478,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 9.39,
+      "duration_seconds": 9.09,
       "normalized_scores": {
         "positive": 0.4149,
         "negative": 0.2332,
@@ -1496,7 +1496,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 7.91,
+      "duration_seconds": 9.02,
       "normalized_scores": {
         "positive": 0.3501,
         "negative": 0.1706,
@@ -1514,7 +1514,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 8.17,
+      "duration_seconds": 9.18,
       "normalized_scores": {
         "positive": 0.2734,
         "negative": 0.3749,
@@ -1532,7 +1532,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 0.98,
+      "duration_seconds": 0.9,
       "normalized_scores": {
         "positive": 0.2734,
         "negative": 0.3749,
@@ -1550,7 +1550,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.15,
+      "duration_seconds": 8.95,
       "normalized_scores": {
         "positive": 0.4255,
         "negative": 0.2305,
@@ -1568,7 +1568,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 7.94,
+      "duration_seconds": 8.92,
       "normalized_scores": {
         "positive": 0.3626,
         "negative": 0.1716,
@@ -1586,7 +1586,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 8.24,
+      "duration_seconds": 9.03,
       "normalized_scores": {
         "positive": 0.2878,
         "negative": 0.3634,
@@ -1604,7 +1604,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 0.94,
+      "duration_seconds": 0.89,
       "normalized_scores": {
         "positive": 0.2878,
         "negative": 0.3634,
@@ -1622,7 +1622,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.11,
+      "duration_seconds": 9.03,
       "normalized_scores": {
         "positive": 0.4252,
         "negative": 0.2395,
@@ -1640,7 +1640,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 7.94,
+      "duration_seconds": 8.8,
       "normalized_scores": {
         "positive": 0.3946,
         "negative": 0.1643,
@@ -1658,7 +1658,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 8.21,
+      "duration_seconds": 8.69,
       "normalized_scores": {
         "positive": 0.3153,
         "negative": 0.3455,
@@ -1676,7 +1676,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 1.0,
+      "duration_seconds": 1.04,
       "normalized_scores": {
         "positive": 0.3153,
         "negative": 0.3455,
@@ -1694,7 +1694,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.16,
+      "duration_seconds": 8.5,
       "normalized_scores": {
         "positive": 0.4138,
         "negative": 0.2414,
@@ -1712,7 +1712,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 7.94,
+      "duration_seconds": 8.37,
       "normalized_scores": {
         "positive": 0.3919,
         "negative": 0.1599,
@@ -1730,7 +1730,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.23,
+      "duration_seconds": 8.56,
       "normalized_scores": {
         "positive": 0.353,
         "negative": 0.3111,
@@ -1766,7 +1766,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 6.88,
+      "duration_seconds": 7.32,
       "normalized_scores": {
         "positive": 0.2828,
         "negative": 0.3805,
@@ -1784,7 +1784,7 @@
       "predicted_label": "negative",
       "correct": false,
       "error": null,
-      "duration_seconds": 6.45,
+      "duration_seconds": 6.75,
       "normalized_scores": {
         "positive": 0.3408,
         "negative": 0.4746,
@@ -1802,7 +1802,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 7.08,
+      "duration_seconds": 7.28,
       "normalized_scores": {
         "positive": 0.3695,
         "negative": 0.0179,
@@ -1820,7 +1820,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 0.85,
+      "duration_seconds": 0.81,
       "normalized_scores": {
         "positive": 0.3695,
         "negative": 0.0179,
@@ -1838,7 +1838,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 7.55,
+      "duration_seconds": 7.74,
       "normalized_scores": {
         "positive": 0.5655,
         "negative": 0.2414,
@@ -1856,7 +1856,7 @@
       "predicted_label": "positive",
       "correct": true,
       "error": null,
-      "duration_seconds": 6.86,
+      "duration_seconds": 7.2,
       "normalized_scores": {
         "positive": 0.4431,
         "negative": 0.3235,
@@ -1874,7 +1874,7 @@
       "predicted_label": "neutral",
       "correct": true,
       "error": null,
-      "duration_seconds": 6.96,
+      "duration_seconds": 7.65,
       "normalized_scores": {
         "positive": 0.1704,
         "negative": 0.0515,
@@ -1892,7 +1892,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 0.86,
+      "duration_seconds": 0.85,
       "normalized_scores": {
         "positive": 0.1704,
         "negative": 0.0515,
@@ -1910,7 +1910,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 7.55,
+      "duration_seconds": 8.26,
       "normalized_scores": {
         "positive": 0.5467,
         "negative": 0.1696,
@@ -1928,7 +1928,7 @@
       "predicted_label": "positive",
       "correct": true,
       "error": null,
-      "duration_seconds": 6.73,
+      "duration_seconds": 7.41,
       "normalized_scores": {
         "positive": 0.4524,
         "negative": 0.2866,
@@ -1946,7 +1946,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 6.97,
+      "duration_seconds": 7.64,
       "normalized_scores": {
         "positive": 0.1537,
         "negative": 0.0703,
@@ -1964,7 +1964,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 0.82,
+      "duration_seconds": 0.9,
       "normalized_scores": {
         "positive": 0.1537,
         "negative": 0.0703,
@@ -1982,7 +1982,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 7.56,
+      "duration_seconds": 8.28,
       "normalized_scores": {
         "positive": 0.5229,
         "negative": 0.1474,
@@ -2000,7 +2000,7 @@
       "predicted_label": "positive",
       "correct": true,
       "error": null,
-      "duration_seconds": 6.78,
+      "duration_seconds": 7.49,
       "normalized_scores": {
         "positive": 0.4547,
         "negative": 0.2749,
@@ -2018,7 +2018,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 7.02,
+      "duration_seconds": 7.69,
       "normalized_scores": {
         "positive": 0.1601,
         "negative": 0.0737,
@@ -2036,7 +2036,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 0.88,
+      "duration_seconds": 0.86,
       "normalized_scores": {
         "positive": 0.1601,
         "negative": 0.0737,
@@ -2054,7 +2054,7 @@
       "predicted_label": "positive",
       "correct": true,
       "error": null,
-      "duration_seconds": 7.42,
+      "duration_seconds": 8.19,
       "normalized_scores": {
         "positive": 0.4774,
         "negative": 0.1284,
@@ -2072,7 +2072,7 @@
       "predicted_label": "positive",
       "correct": true,
       "error": null,
-      "duration_seconds": 6.85,
+      "duration_seconds": 7.62,
       "normalized_scores": {
         "positive": 0.441,
         "negative": 0.2585,
@@ -2090,7 +2090,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 6.95,
+      "duration_seconds": 7.63,
       "normalized_scores": {
         "positive": 0.2078,
         "negative": 0.0681,
@@ -2108,7 +2108,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 0.76,
+      "duration_seconds": 0.95,
       "normalized_scores": {
         "positive": 0.2078,
         "negative": 0.0681,
@@ -2126,7 +2126,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 7.73,
+      "duration_seconds": 8.32,
       "normalized_scores": {
         "positive": 0.449,
         "negative": 0.0986,
@@ -2144,7 +2144,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 6.77,
+      "duration_seconds": 7.43,
       "normalized_scores": {
         "positive": 0.3802,
         "negative": 0.1858,
@@ -2162,7 +2162,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 6.93,
+      "duration_seconds": 7.75,
       "normalized_scores": {
         "positive": 0.2525,
         "negative": 0.0651,
@@ -2198,7 +2198,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 9.38,
+      "duration_seconds": 10.41,
       "normalized_scores": {
         "positive": 0.4753,
         "negative": 0.234,
@@ -2216,7 +2216,7 @@
       "predicted_label": "positive",
       "correct": true,
       "error": null,
-      "duration_seconds": 10.14,
+      "duration_seconds": 11.22,
       "normalized_scores": {
         "positive": 0.4258,
         "negative": 0.2313,
@@ -2234,7 +2234,7 @@
       "predicted_label": "neutral",
       "correct": true,
       "error": null,
-      "duration_seconds": 9.43,
+      "duration_seconds": 10.41,
       "normalized_scores": {
         "positive": 0.2511,
         "negative": 0.1982,
@@ -2252,7 +2252,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 1.04,
+      "duration_seconds": 1.01,
       "normalized_scores": {
         "positive": 0.2511,
         "negative": 0.1982,
@@ -2270,7 +2270,7 @@
       "predicted_label": "positive",
       "correct": true,
       "error": null,
-      "duration_seconds": 9.27,
+      "duration_seconds": 10.22,
       "normalized_scores": {
         "positive": 0.5167,
         "negative": 0.2069,
@@ -2288,7 +2288,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 10.11,
+      "duration_seconds": 11.28,
       "normalized_scores": {
         "positive": 0.5074,
         "negative": 0.2,
@@ -2306,7 +2306,7 @@
       "predicted_label": "neutral",
       "correct": true,
       "error": null,
-      "duration_seconds": 9.32,
+      "duration_seconds": 10.24,
       "normalized_scores": {
         "positive": 0.3355,
         "negative": 0.1637,
@@ -2324,7 +2324,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 1.01,
+      "duration_seconds": 1.06,
       "normalized_scores": {
         "positive": 0.3355,
         "negative": 0.1637,
@@ -2342,7 +2342,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 9.26,
+      "duration_seconds": 10.25,
       "normalized_scores": {
         "positive": 0.5234,
         "negative": 0.2065,
@@ -2360,7 +2360,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 10.13,
+      "duration_seconds": 11.29,
       "normalized_scores": {
         "positive": 0.5214,
         "negative": 0.1888,
@@ -2378,7 +2378,7 @@
       "predicted_label": "neutral",
       "correct": true,
       "error": null,
-      "duration_seconds": 9.24,
+      "duration_seconds": 10.44,
       "normalized_scores": {
         "positive": 0.3305,
         "negative": 0.1688,
@@ -2396,7 +2396,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 0.94,
+      "duration_seconds": 1.06,
       "normalized_scores": {
         "positive": 0.3305,
         "negative": 0.1688,
@@ -2414,7 +2414,7 @@
       "predicted_label": "positive",
       "correct": true,
       "error": null,
-      "duration_seconds": 9.16,
+      "duration_seconds": 10.18,
       "normalized_scores": {
         "positive": 0.5307,
         "negative": 0.2088,
@@ -2432,7 +2432,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 10.04,
+      "duration_seconds": 11.22,
       "normalized_scores": {
         "positive": 0.5262,
         "negative": 0.1845,
@@ -2450,7 +2450,7 @@
       "predicted_label": "neutral",
       "correct": true,
       "error": null,
-      "duration_seconds": 9.19,
+      "duration_seconds": 10.36,
       "normalized_scores": {
         "positive": 0.3298,
         "negative": 0.1711,
@@ -2468,7 +2468,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 1.45,
+      "duration_seconds": 1.34,
       "normalized_scores": {
         "positive": 0.3298,
         "negative": 0.1711,
@@ -2486,7 +2486,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 9.25,
+      "duration_seconds": 10.28,
       "normalized_scores": {
         "positive": 0.529,
         "negative": 0.2093,
@@ -2504,7 +2504,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 10.11,
+      "duration_seconds": 11.2,
       "normalized_scores": {
         "positive": 0.5291,
         "negative": 0.1784,
@@ -2522,7 +2522,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 9.28,
+      "duration_seconds": 10.36,
       "normalized_scores": {
         "positive": 0.3281,
         "negative": 0.1724,
@@ -2540,7 +2540,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 0.99,
+      "duration_seconds": 1.09,
       "normalized_scores": {
         "positive": 0.3281,
         "negative": 0.1724,
@@ -2558,7 +2558,7 @@
       "predicted_label": "positive",
       "correct": true,
       "error": null,
-      "duration_seconds": 9.19,
+      "duration_seconds": 10.28,
       "normalized_scores": {
         "positive": 0.4988,
         "negative": 0.1877,
@@ -2576,7 +2576,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 10.08,
+      "duration_seconds": 11.21,
       "normalized_scores": {
         "positive": 0.5096,
         "negative": 0.165,
@@ -2594,7 +2594,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 9.16,
+      "duration_seconds": 10.33,
       "normalized_scores": {
         "positive": 0.3136,
         "negative": 0.1659,
@@ -2612,7 +2612,7 @@
       "predicted_label": "negative",
       "correct": false,
       "error": null,
-      "duration_seconds": 9.62,
+      "duration_seconds": 10.57,
       "normalized_scores": {
         "positive": 0.3512,
         "negative": 0.3906,
@@ -2630,7 +2630,7 @@
       "predicted_label": "neutral",
       "correct": true,
       "error": null,
-      "duration_seconds": 10.12,
+      "duration_seconds": 11.0,
       "normalized_scores": {
         "positive": 0.3404,
         "negative": 0.1255,
@@ -2648,7 +2648,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 9.17,
+      "duration_seconds": 10.01,
       "normalized_scores": {
         "positive": 0.2538,
         "negative": 0.2426,
@@ -2666,7 +2666,7 @@
       "predicted_label": "positive",
       "correct": true,
       "error": null,
-      "duration_seconds": 8.6,
+      "duration_seconds": 9.64,
       "normalized_scores": {
         "positive": 0.4544,
         "negative": 0.3033,
@@ -2684,7 +2684,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 9.53,
+      "duration_seconds": 10.44,
       "normalized_scores": {
         "positive": 0.3372,
         "negative": 0.3645,
@@ -2702,7 +2702,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 10.07,
+      "duration_seconds": 11.36,
       "normalized_scores": {
         "positive": 0.3073,
         "negative": 0.3392,
@@ -2720,7 +2720,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 9.04,
+      "duration_seconds": 10.32,
       "normalized_scores": {
         "positive": 0.2092,
         "negative": 0.3562,
@@ -2738,7 +2738,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.56,
+      "duration_seconds": 9.4,
       "normalized_scores": {
         "positive": 0.454,
         "negative": 0.2597,
@@ -2756,7 +2756,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 9.5,
+      "duration_seconds": 10.22,
       "normalized_scores": {
         "positive": 0.3323,
         "negative": 0.374,
@@ -2774,7 +2774,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 10.12,
+      "duration_seconds": 10.9,
       "normalized_scores": {
         "positive": 0.2852,
         "negative": 0.3801,
@@ -2792,7 +2792,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 9.11,
+      "duration_seconds": 9.81,
       "normalized_scores": {
         "positive": 0.2473,
         "negative": 0.3458,
@@ -2810,7 +2810,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.58,
+      "duration_seconds": 9.85,
       "normalized_scores": {
         "positive": 0.4699,
         "negative": 0.2008,
@@ -2828,7 +2828,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 9.55,
+      "duration_seconds": 10.24,
       "normalized_scores": {
         "positive": 0.3308,
         "negative": 0.3774,
@@ -2846,7 +2846,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 9.93,
+      "duration_seconds": 11.16,
       "normalized_scores": {
         "positive": 0.2834,
         "negative": 0.3919,
@@ -2864,7 +2864,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 9.05,
+      "duration_seconds": 10.7,
       "normalized_scores": {
         "positive": 0.271,
         "negative": 0.3331,
@@ -2882,7 +2882,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.66,
+      "duration_seconds": 9.95,
       "normalized_scores": {
         "positive": 0.4783,
         "negative": 0.1824,
@@ -2900,7 +2900,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 12.45,
+      "duration_seconds": 10.65,
       "normalized_scores": {
         "positive": 0.3357,
         "negative": 0.3666,
@@ -2918,7 +2918,7 @@
       "predicted_label": "negative",
       "correct": true,
       "error": null,
-      "duration_seconds": 11.05,
+      "duration_seconds": 11.08,
       "normalized_scores": {
         "positive": 0.2985,
         "negative": 0.3764,
@@ -2936,7 +2936,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 9.61,
+      "duration_seconds": 9.94,
       "normalized_scores": {
         "positive": 0.3225,
         "negative": 0.3056,
@@ -2954,7 +2954,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.99,
+      "duration_seconds": 9.57,
       "normalized_scores": {
         "positive": 0.4802,
         "negative": 0.1744,
@@ -2972,7 +2972,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 10.05,
+      "duration_seconds": 9.94,
       "normalized_scores": {
         "positive": 0.3446,
         "negative": 0.3383,
@@ -2990,7 +2990,7 @@
       "predicted_label": "neutral",
       "correct": false,
       "error": null,
-      "duration_seconds": 10.74,
+      "duration_seconds": 10.99,
       "normalized_scores": {
         "positive": 0.3172,
         "negative": 0.2928,
@@ -3008,7 +3008,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 9.59,
+      "duration_seconds": 9.77,
       "normalized_scores": {
         "positive": 0.3717,
         "negative": 0.2788,
@@ -3026,7 +3026,7 @@
       "predicted_label": "positive",
       "correct": false,
       "error": null,
-      "duration_seconds": 8.89,
+      "duration_seconds": 8.97,
       "normalized_scores": {
         "positive": 0.469,
         "negative": 0.16,

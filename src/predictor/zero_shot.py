@@ -73,9 +73,9 @@ def _classify_sentiment(text: str, company_name: str) -> dict[str, float]:
 
     # Company-aware zero-shot labels
     labels = [
-        f"positive sentiment about {company_name}",
-        f"negative sentiment about {company_name}",
-        f"neutral sentiment about {company_name}",
+        f"negative sentiment toward {company_name}",
+        f"no clear sentiment (factual or unclear) about {company_name}",
+        f"positive sentiment toward {company_name}",
     ]
 
     result = pipe(
@@ -168,7 +168,14 @@ def predict_sentiment(
     else:
         normalized_scores = {"positive": 0.0, "negative": 0.0, "neutral": 0.0}
 
+    # final_label = max(normalized_scores, key=normalized_scores.get)
+
     final_label = max(normalized_scores, key=normalized_scores.get)
+
+    sorted_scores = sorted(normalized_scores.values(), reverse=True)
+    margin = sorted_scores[0] - sorted_scores[1]
+    if margin < 0.01:
+        final_label = "neutral"   # low-confidence → default neutral
 
     result = {
         "query": query,
