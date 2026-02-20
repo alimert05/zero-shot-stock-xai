@@ -7,7 +7,10 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from config import JSON_PATH, XAI_OUTPUT_PATH, XAI_SUMMARY_PATH, XAI_LIME_TOP_N
+from config import (
+    JSON_PATH, XAI_OUTPUT_PATH, XAI_SUMMARY_PATH, XAI_LIME_TOP_N,
+    XAI_ACTION_MIN_CONFIDENCE, XAI_ACTION_MIN_MARGIN, NEUTRAL_THRESHOLD,
+)
 
 from .article_explainer  import explain_articles
 from .pipeline_explainer import explain_pipeline
@@ -49,6 +52,7 @@ def _merge_article_data(
             "impact_horizon_weight": base.get("impact_horizon_weight", 1.0),
             "final_weight":          detail.get("final_weight", 1.0),
             "input_source":          detail.get("input_source", "unknown"),
+            "domain":                base.get("domain", ""),
             "raw_scores":            detail.get("raw_scores", {}),
             "weighted_scores":       detail.get("weighted_scores", {}),
             "content_stats":         base.get("content_stats", {}),
@@ -128,6 +132,13 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "  PREDICTION RESULT",
         "  Sentiment scores across all analysed articles",
         w,
+        f"  Ground truth : close-to-close return over "
+        f"{meta['prediction_window_days']}-day window, "
+        f"neutral band +/-{NEUTRAL_THRESHOLD * 100:.1f}%.",
+        "  Disclaimer   : 'Confidence' below is a score share (how much",
+        "                  probability mass the model assigns to the winning",
+        "                  label), NOT a calibrated probability of future return.",
+        "",
         "  Score chart  (each █ ≈ 2.5%):",
         "",
     ]
@@ -167,6 +178,8 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "weight_concentration": "Evidence diversity",
         "label_margin":         "Decision confidence",
         "low_confidence":       "Score confidence",
+        "source_diversity":     "Source diversity",
+        "timing_alignment":     "Timing validity",
     }
     for flag_name, flag_data in flags.items():
         icon  = "⚠" if flag_data["flagged"] else "✓"
@@ -175,10 +188,12 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     lines.append("")
 
     # ── Recommendation ─────────────────────────────────────────
-    margin_flag = flags.get("label_margin", {}).get("flagged", False)
-    thin_flag   = flags.get("thin_evidence", {}).get("flagged", False)
-    conc_flag   = flags.get("weight_concentration", {}).get("flagged", False)
-    conf_flag   = flags.get("low_confidence", {}).get("flagged", False)
+    margin_flag  = flags.get("label_margin", {}).get("flagged", False)
+    thin_flag    = flags.get("thin_evidence", {}).get("flagged", False)
+    conc_flag    = flags.get("weight_concentration", {}).get("flagged", False)
+    conf_flag    = flags.get("low_confidence", {}).get("flagged", False)
+    source_flag  = flags.get("source_diversity", {}).get("flagged", False)
+    timing_flag  = flags.get("timing_alignment", {}).get("flagged", False)
 
     caution_parts: list[str] = []
     if margin_flag:
@@ -195,6 +210,16 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         )
     if conf_flag:
         caution_parts.append("overall confidence is below the recommended threshold")
+    if source_flag:
+        caution_parts.append(
+            "most articles come from the same source, "
+            "reducing editorial independence"
+        )
+    if timing_flag:
+        caution_parts.append(
+            "some articles fall outside the prediction window "
+            "or market-close alignment is not applied"
+        )
 
     if overall_rel == "HIGH":
         action = "This prediction has HIGH reliability and can be used with reasonable confidence."
@@ -214,6 +239,43 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "  What you should do with this result",
         w,
         f"  {action}",
+        "",
+    ]
+
+    # ── Trading action policy ──────────────────────────────────
+    final_label = str(pred.get("final_label", "neutral")).lower()
+    confidence  = pred.get("final_confidence", 0.0)
+    margin_val  = flags.get("label_margin", {}).get("margin", 0.0)
+
+    if (final_label == "positive"
+            and confidence >= XAI_ACTION_MIN_CONFIDENCE
+            and margin_val >= XAI_ACTION_MIN_MARGIN):
+        trade_action = "BUY"
+    elif (final_label == "negative"
+            and confidence >= XAI_ACTION_MIN_CONFIDENCE
+            and margin_val >= XAI_ACTION_MIN_MARGIN):
+        trade_action = "SELL"
+    else:
+        trade_action = "HOLD"
+
+    lines += [
+        "  TRADING ACTION MAPPING",
+        "  Translating the sentiment verdict into a trading signal",
+        w,
+        f"  Policy    : BUY  if label=positive  AND confidence >= "
+        f"{XAI_ACTION_MIN_CONFIDENCE * 100:.0f}%  AND margin >= "
+        f"{XAI_ACTION_MIN_MARGIN:.2f}",
+        f"              SELL if label=negative  AND confidence >= "
+        f"{XAI_ACTION_MIN_CONFIDENCE * 100:.0f}%  AND margin >= "
+        f"{XAI_ACTION_MIN_MARGIN:.2f}",
+        "              HOLD otherwise",
+        "",
+        f"  Current   : label={final_label}, confidence={confidence * 100:.1f}%, "
+        f"margin={margin_val:.3f}",
+        f"  Action    : >>> {trade_action} <<<",
+        "",
+        "  Important : This action mapping is rule-based, not investment advice.",
+        "              Always apply your own risk management and position sizing.",
         "",
     ]
 
@@ -282,6 +344,39 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         f"0 = perfectly uniform across all articles, 1 = one article dominates",
         "",
     ]
+
+    # Neutral-won justification for top article
+    if ranked_arts:
+        top = ranked_arts[0]
+        top_sent = top.get("dominant_sentiment", "unknown")
+        if top_sent == "neutral":
+            top_raw = top.get("raw_scores", {})
+            pos_s = top_raw.get("positive", 0.0)
+            neg_s = top_raw.get("negative", 0.0)
+            neu_s = top_raw.get("neutral", 0.0)
+            lines += [
+                f"  Note on #{top['rank']} ({top['title'][:50]}…):",
+                f"    This article was classified as NEUTRAL despite its headline.",
+                f"    Raw scores: positive={pos_s:.3f}, negative={neg_s:.3f}, "
+                f"neutral={neu_s:.3f}.",
+            ]
+            if neu_s > pos_s and neu_s > neg_s:
+                lines.append(
+                    "    The neutral hypothesis captured the highest probability — "
+                    "the article's language is informational or factual rather than "
+                    "directionally bullish or bearish."
+                )
+            elif abs(pos_s - neg_s) < 0.10:
+                lines.append(
+                    "    Positive and negative scores nearly cancel out, "
+                    "resulting in neutral as the dominant label by default."
+                )
+            else:
+                lines.append(
+                    "    The model judged the content as not strongly directional "
+                    "despite the headline phrasing."
+                )
+            lines.append("")
 
     # ── Layer 3 — Pipeline weighting ──────────────────────────
     lines += [
@@ -361,6 +456,34 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
                     f"        {direction} {tw['token']:<16} {bar}  ({tw['weight']:+.4f})"
                 )
             lines.append("")
+
+    # LIME interpretability warning
+    if lime_articles:
+        total_top_tokens = 0
+        stopword_top_tokens = 0
+        for art in lime_articles:
+            for t in art.get("top_tokens_supporting", [])[:3]:
+                total_top_tokens += 1
+                if t.lower() in _STOPWORDS:
+                    stopword_top_tokens += 1
+            for t in art.get("top_tokens_opposing", [])[:3]:
+                total_top_tokens += 1
+                if t.lower() in _STOPWORDS:
+                    stopword_top_tokens += 1
+        if total_top_tokens > 0:
+            stopword_ratio = stopword_top_tokens / total_top_tokens
+            if stopword_ratio > 0.40:
+                lines += [
+                    "  ⚠ LOW INTERPRETABILITY WARNING",
+                    f"    {stopword_top_tokens}/{total_top_tokens} "
+                    f"({stopword_ratio * 100:.0f}%) of top-ranked tokens are common"
+                    " stopwords or filler words.",
+                    "    Token-level signals are likely dominated by text-format"
+                    " artefacts rather than meaningful sentiment cues.",
+                    "    Consider sentence-level attributions or manual review"
+                    " for this prediction.",
+                    "",
+                ]
     lines.append("")
 
     # ── Advanced details — raw token weight table ──────────────
@@ -521,9 +644,13 @@ def run_xai(
     article_explanation  = explain_articles(merged_articles, prediction_result)
     pipeline_explanation = explain_pipeline(merged_articles, prediction_window_days)
 
-    # Reliability (needs HHI from article_explanation)
+    # Reliability (needs HHI from article_explanation + merged_articles)
     hhi = article_explanation.get("weight_concentration", 0.0)
-    reliability = compute_reliability(prediction_result, hhi)
+    reliability = compute_reliability(
+        prediction_result, hhi,
+        merged_articles=merged_articles,
+        prediction_window_days=prediction_window_days,
+    )
 
     # Layer 1 — slow (LIME forward passes)
     logger.info("Running LIME token attribution (top %d articles)...", XAI_LIME_TOP_N)

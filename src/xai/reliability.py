@@ -8,6 +8,8 @@ from config import (
     XAI_CONCENTRATION_THRESHOLD,
     XAI_MARGIN_THRESHOLD,
     XAI_LOW_CONFIDENCE_THRESHOLD,
+    XAI_SOURCE_CONCENTRATION_THRESHOLD,
+    XAI_MIN_UNIQUE_SOURCES,
 )
 
 logger = logging.getLogger(__name__)
@@ -80,9 +82,98 @@ def _check_low_confidence(final_confidence: float) -> dict[str, Any]:
     }
 
 
+def _check_source_diversity(
+    merged_articles: list[dict[str, Any]],
+) -> dict[str, Any]:
+    domains: list[str] = []
+    for art in merged_articles:
+        domain = art.get("domain", "") or art.get("input_source", "unknown")
+        domains.append(domain.lower().strip())
+
+    unique = set(domains)
+    n_unique = len(unique)
+    total = len(domains) or 1
+
+    # Top-domain share
+    from collections import Counter
+    counts = Counter(domains)
+    top_domain, top_count = counts.most_common(1)[0] if counts else ("unknown", 0)
+    top_share = round(top_count / total, 4)
+
+    too_few = n_unique < XAI_MIN_UNIQUE_SOURCES
+    too_concentrated = top_share > XAI_SOURCE_CONCENTRATION_THRESHOLD
+    flagged = too_few or too_concentrated
+
+    if flagged:
+        parts = []
+        if too_few:
+            parts.append(f"only {n_unique} unique source(s)")
+        if too_concentrated:
+            parts.append(f"top domain '{top_domain}' has {top_share * 100:.0f}% of articles")
+        msg = "Source diversity concern: " + "; ".join(parts) + "."
+    else:
+        msg = f"{n_unique} unique sources, top domain share {top_share * 100:.0f}%."
+
+    return {
+        "flagged": flagged,
+        "unique_sources": n_unique,
+        "top_domain": top_domain,
+        "top_domain_share": top_share,
+        "message": msg,
+    }
+
+
+def _check_timing_alignment(
+    merged_articles: list[dict[str, Any]],
+    prediction_window_days: int,
+) -> dict[str, Any]:
+    # Check whether any timezone / market-close alignment was applied.
+    # Currently the pipeline uses UTC timestamps without market-close cutoff,
+    # so we flag this as a known limitation and report article age spread.
+    ages = [a.get("days_ago", 0) for a in merged_articles]
+    if not ages:
+        return {
+            "flagged": True,
+            "message": "No article timing data available.",
+            "market_close_aligned": False,
+            "oldest_days": 0,
+            "newest_days": 0,
+        }
+
+    oldest = max(ages)
+    newest = min(ages)
+    outside_window = oldest > prediction_window_days
+
+    # Market close alignment is not currently implemented
+    flagged = outside_window  # only flag if articles fall outside the prediction window
+    if outside_window:
+        msg = (
+            f"Oldest article is {oldest} days old, exceeding the "
+            f"{prediction_window_days}-day prediction window."
+        )
+    else:
+        msg = (
+            f"Articles span {newest}–{oldest} days old, within "
+            f"the {prediction_window_days}-day window."
+        )
+
+    msg += " Note: market-close time alignment is not applied (UTC timestamps used)."
+
+    return {
+        "flagged": flagged,
+        "market_close_aligned": False,
+        "oldest_days": oldest,
+        "newest_days": newest,
+        "prediction_window_days": prediction_window_days,
+        "message": msg,
+    }
+
+
 def compute_reliability(
     prediction_result: dict[str, Any],
     herfindahl_index: float,
+    merged_articles: list[dict[str, Any]] | None = None,
+    prediction_window_days: int = 7,
 ) -> dict[str, Any]:
     articles_analyzed = prediction_result.get("articles_analyzed", 0)
     normalized_scores = prediction_result.get("normalized_scores", {})
@@ -93,6 +184,10 @@ def compute_reliability(
         "weight_concentration": _check_weight_concentration(herfindahl_index),
         "label_margin":         _check_label_margin(normalized_scores),
         "low_confidence":       _check_low_confidence(final_confidence),
+        "source_diversity":     _check_source_diversity(merged_articles or []),
+        "timing_alignment":     _check_timing_alignment(
+            merged_articles or [], prediction_window_days
+        ),
     }
 
     flags_triggered = sum(1 for f in flags.values() if f["flagged"])
