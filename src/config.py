@@ -65,3 +65,12 @@ XAI_LLAMA_MODEL                = "llama3.2:3b"
 XAI_LLAMA_TEMPERATURE          = 0.1
 XAI_LLAMA_MAX_TOKENS           = 200
 XAI_LLAMA_ENABLED              = True
+
+# Reliability — source diversity & timing
+XAI_SOURCE_CONCENTRATION_THRESHOLD = 0.60   # flag if top domain > 60% of articles
+XAI_MIN_UNIQUE_SOURCES             = 2      # flag if fewer unique domains
+
+# Trading action policy
+XAI_ACTION_MIN_CONFIDENCE      = 0.55
+XAI_ACTION_MIN_MARGIN          = 0.05
+NEUTRAL_THRESHOLD              = 0.003      # ±0.3% close-to-close return band
