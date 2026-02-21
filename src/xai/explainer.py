@@ -108,7 +108,8 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "  SENTIMENT ANALYSIS EXPLANATION REPORT",
         W,
         f"  Company           : {meta['query']}{ticker_str}",
-        f"  Prediction window : {meta['prediction_window_days']} days",
+        f"  Forecast horizon  : {meta['prediction_window_days']} days",
+        f"  News lookback     : {meta.get('news_lookback', 'N/A')}",
         f"  Articles analysed : {meta['articles_analyzed']}",
         f"  Generated at      : {meta['xai_timestamp']}",
         W,
@@ -171,21 +172,28 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "  How much to trust this prediction",
         w,
         f"  Overall : [{rel_icon}] {overall_rel}  ({reliability['flags_triggered']} concern(s) found)",
+        "  Rating rule : HIGH if 0 concerns, MEDIUM if 1, LOW if ≥2.",
         "",
     ]
     flag_labels = {
         "thin_evidence":        "Evidence volume",
-        "weight_concentration": "Evidence diversity",
+        "weight_concentration": "Weight spread",
         "label_margin":         "Decision confidence",
         "low_confidence":       "Score confidence",
         "source_diversity":     "Source diversity",
         "timing_alignment":     "Timing validity",
+        "horizon_coverage":     "Horizon coverage",
     }
     for flag_name, flag_data in flags.items():
         icon  = "⚠" if flag_data["flagged"] else "✓"
         label = flag_labels.get(flag_name, flag_name.replace("_", " ").title())
         lines.append(f"    [{icon}] {label:<22} {flag_data['message']}")
-    lines.append("")
+    lines += [
+        "",
+        f"  Thresholds used  : score confidence ≥ {XAI_ACTION_MIN_CONFIDENCE * 100:.0f}% (trading policy), "
+        f"margin ≥ {XAI_ACTION_MIN_MARGIN:.2f}",
+        "",
+    ]
 
     # ── Recommendation ─────────────────────────────────────────
     margin_flag  = flags.get("label_margin", {}).get("flagged", False)
@@ -194,6 +202,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     conf_flag    = flags.get("low_confidence", {}).get("flagged", False)
     source_flag  = flags.get("source_diversity", {}).get("flagged", False)
     timing_flag  = flags.get("timing_alignment", {}).get("flagged", False)
+    horizon_flag = flags.get("horizon_coverage", {}).get("flagged", False)
 
     caution_parts: list[str] = []
     if margin_flag:
@@ -217,8 +226,15 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         )
     if timing_flag:
         caution_parts.append(
-            "some articles fall outside the prediction window "
-            "or market-close alignment is not applied"
+            "market-close time alignment is not applied (UTC timestamps used), "
+            "which can introduce timing noise or leakage risk"
+        )
+    if horizon_flag:
+        hc = flags.get("horizon_coverage", {})
+        caution_parts.append(
+            f"news lookback ({hc.get('lookback_days', '?')} days) is shorter than "
+            f"the forecast horizon ({hc.get('prediction_window_days', '?')} days), "
+            "signal may be incomplete"
         )
 
     if overall_rel == "HIGH":
@@ -413,6 +429,12 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "  WHICH WORDS DROVE THE PREDICTION",
         "  Words inside each article that pushed the model toward or away from the verdict",
         w,
+        "  Note: token attributions can be dominated by formatting or boilerplate",
+        "  terms. These should be interpreted qualitatively as indicators of",
+        "  text regions the model focused on, not as causal sentiment drivers.",
+        "  Explanations reflect which words most affected the model's label",
+        "  score, not causal drivers of returns.",
+        "",
     ]
     lime_articles = layer1.get("articles", [])
     if not lime_articles:
@@ -571,12 +593,12 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
 
     final_paragraph = (
         f"Out of {meta['articles_analyzed']} news articles analysed for"
-        f" {meta['query']} over a {meta['prediction_window_days']}-day prediction"
-        f" window, {n_pos} carried positive sentiment, {n_neg} carried negative"
+        f" {meta['query']} over a {meta['prediction_window_days']}-day forecast"
+        f" horizon, {n_pos} carried positive sentiment, {n_neg} carried negative"
         f" sentiment, and {n_neu} were neutral."
         f" The model produced a weighted aggregation of these scores and predicted"
-        f" {str(pred['final_label']).upper()} sentiment with"
-        f" {pred['final_confidence'] * 100:.1f}% confidence."
+        f" a {str(pred['final_label']).upper()} label with"
+        f" {pred['final_confidence'] * 100:.1f}% score share."
         f" The single most influential article was \"{top_art_title}\""
         f" ({top_art_sent} sentiment, contributing {top_art_share}% of total weight)."
         f" {weight_sentence}"
@@ -640,6 +662,17 @@ def run_xai(
 
     logger.info("Merged %d articles for XAI.", len(merged_articles))
 
+    # Compute news lookback date range from article ages
+    ages = [a.get("days_ago", 0) for a in merged_articles if a.get("days_ago") is not None]
+    if ages:
+        from datetime import timedelta
+        now = datetime.now()
+        oldest_date = (now - timedelta(days=max(ages))).strftime("%Y-%m-%d")
+        newest_date = (now - timedelta(days=min(ages))).strftime("%Y-%m-%d")
+        news_lookback = f"{oldest_date} to {newest_date} (UTC seendate)"
+    else:
+        news_lookback = "N/A"
+
     # Layer 2 + 3 first — fast, pure math
     article_explanation  = explain_articles(merged_articles, prediction_result)
     pipeline_explanation = explain_pipeline(merged_articles, prediction_window_days)
@@ -677,6 +710,7 @@ def run_xai(
             "xai_timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "articles_analyzed": prediction_result.get("articles_analyzed", 0),
             "prediction_window_days": prediction_window_days,
+            "news_lookback": news_lookback,
             "xai_version": "1.0.0",
         },
         "prediction_summary": {

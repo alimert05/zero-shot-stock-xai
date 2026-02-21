@@ -2,9 +2,10 @@
   "meta": {
     "query": "apple",
     "ticker": "",
-    "xai_timestamp": "2026-02-19 22:42:18",
+    "xai_timestamp": "2026-02-21 19:10:07",
     "articles_analyzed": 58,
     "prediction_window_days": 31,
+    "news_lookback": "2026-02-09 to 2026-02-20 (UTC seendate)",
     "xai_version": "1.0.0"
   },
   "prediction_summary": {
@@ -18,8 +19,8 @@
     "total_weight": 42.0972
   },
   "reliability": {
-    "overall_reliability": "HIGH",
-    "flags_triggered": 0,
+    "overall_reliability": "LOW",
+    "flags_triggered": 3,
     "flags": {
       "thin_evidence": {
         "flagged": false,
@@ -45,10 +46,31 @@
         "flagged": false,
         "final_confidence": 0.6366,
         "threshold": 0.45,
-        "message": "Confidence above threshold."
+        "message": "Confidence above threshold (0.637 ≥ 0.45)."
+      },
+      "source_diversity": {
+        "flagged": true,
+        "unique_sources": 5,
+        "top_domain": "yahoo",
+        "top_domain_share": 0.7759,
+        "message": "Source diversity concern: top domain 'yahoo' has 78% of articles."
+      },
+      "timing_alignment": {
+        "flagged": true,
+        "market_close_aligned": false,
+        "oldest_days": 12,
+        "newest_days": 1,
+        "prediction_window_days": 31,
+        "message": "Most articles are 1–12 days old, down-weighted by the recency function where applicable. Market-close time alignment is not applied (UTC timestamps used)."
+      },
+      "horizon_coverage": {
+        "flagged": true,
+        "lookback_days": 11,
+        "prediction_window_days": 31,
+        "message": "News lookback is 11 days for a 31-day forecast horizon, signal may be incomplete."
       }
     },
-    "summary_message": "Prediction has HIGH reliability: 58 articles analyzed with clear neutral margin."
+    "summary_message": "Prediction has LOW reliability: Source diversity concern: top domain 'yahoo' has 78% of articles. Most articles are 1–12 days old, down-weighted by the recency function where applicable. Market-close time alignment is not applied (UTC timestamps used). News lookback is 11 days for a 31-day forecast horizon, signal may be incomplete."
   },
   "layer_1_token": {
     "method": "LIME",
@@ -4126,8 +4148,8 @@
   },
   "narrative": {
     "model": "llama3.2:3b",
-    "summary": "The model predicted a neutral label with 63.7% confidence based on 58 articles over 31 days.\n\nThe top article is \"Apple CEO Tim Cook Just Gave Nike Investors 3 Million Reasons to Cheer\" with a neutral sentiment, accounting for 2.2% of the total weight.\n\nThe label margin is clear margin (0.449), and reliability is HIGH.",
-    "prompt_used": "DATA (read-only — narrate these facts, do not add any others):\nCompany: apple\nPrediction: NEUTRAL with 63.7% confidence, based on 58 articles over 31 days.\nScore breakdown: Positive 18.7%, Negative 17.6%, Neutral 63.7%.\nThe label margin is clear margin (0.449).\nTop article: \"Apple CEO Tim Cook Just Gave Nike Investors 3 Million Reasons to Cheer\" (NEUTRAL sentiment, 2.2% of total weight). Removing it would NOT change the label.\nAverage article age: 6.8 days.\n- Key words supporting neutral: Facts, Before, impact, Apple, News\n\nReliability: HIGH.\n\nWrite exactly 3 sentences starting with \"The model predicted\":\n- Sentence 1: state the prediction, confidence, and article count.\n- Sentence 2: name the top article and its sentiment.\n- Sentence 3: state the margin qualifier and reliability warning if present.",
+    "summary": "The model predicted a NEUTRAL label with a score share of 63.7% based on 58 articles over 31 days.\nThe top article is \"Apple CEO Tim Cook Just Gave Nike Investors 3 Million Reasons to Cheer\" with a Neutral sentiment, accounting for 2.2% of the total weight.\nThe model predicted a clear margin, and reliability is LOW due to source concentration (yahoo has 78% of articles), market-close time alignment is not applied, and news lookback (11 days) is shorter than the forecast horizon (31 days).",
+    "prompt_used": "DATA (read-only — narrate these facts, do not add any others):\nCompany: apple\nPrediction label: NEUTRAL with a 63.7% score share, based on 58 articles over 31 days.\nScore breakdown: Positive 18.7%, Negative 17.6%, Neutral 63.7%.\nThe label margin is clear margin (0.449).\nTop article: \"Apple CEO Tim Cook Just Gave Nike Investors 3 Million Reasons to Cheer\" (NEUTRAL sentiment, 2.2% of total weight). Removing it would NOT change the label.\nAverage article age: 6.8 days.\n- Key words supporting neutral: Facts, Before, impact, Apple, News\nReliability is LOW due to: source concentration (yahoo has 78% of articles); market-close time alignment is not applied; news lookback (11 days) is shorter than the forecast horizon (31 days).\n\nWrite exactly 3 sentences starting with \"The model predicted\":\n- Sentence 1: state the predicted label (e.g. \"a NEUTRAL label\"), score share (not \"confidence\"), and article count.\n- Sentence 2: name the top article and its sentiment.\n- Sentence 3: state the margin qualifier (clear margin), then state the reliability level and ALL specific reason(s) listed in the warning above — do not omit any.",
     "ollama_available": true,
     "fallback_used": false,
     "fallback_summary": null,

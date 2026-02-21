@@ -106,26 +106,55 @@ def _build_prompt(
     # Pre-build the margin fact as a complete sentence fragment so LLaMA
     # reads it as data, not an instruction to copy a phrase.
     margin_fact = f"The label margin is {margin_qualifier} ({margin:.3f})."
-    warning_fact = (
-        f"Reliability warning: {margin_fact} Treat this result with caution."
-        if flag_block.strip() != "(no warnings)" else ""
-    )
+
+    # Build a warning fact from ACTUAL flagged concerns (not the margin itself)
+    active_warnings: list[str] = []
+    for flag_name, flag_data in flags.items():
+        if flag_data.get("flagged"):
+            if flag_name == "source_diversity":
+                active_warnings.append(
+                    f"source concentration ({flag_data.get('top_domain', 'unknown')} "
+                    f"has {flag_data.get('top_domain_share', 0) * 100:.0f}% of articles)"
+                )
+            elif flag_name == "timing_alignment":
+                active_warnings.append("market-close time alignment is not applied")
+            elif flag_name == "thin_evidence":
+                active_warnings.append("evidence is thin (few articles)")
+            elif flag_name == "weight_concentration":
+                active_warnings.append("weight is concentrated in one article")
+            elif flag_name == "low_confidence":
+                active_warnings.append("confidence is below threshold")
+            elif flag_name == "label_margin":
+                active_warnings.append(f"the label was decided by a {margin_qualifier}")
+            elif flag_name == "horizon_coverage":
+                active_warnings.append(
+                    f"news lookback ({flag_data.get('lookback_days', '?')} days) "
+                    f"is shorter than the forecast horizon "
+                    f"({flag_data.get('prediction_window_days', '?')} days)"
+                )
+
+    if active_warnings:
+        warning_fact = (
+            f"Reliability is {overall_reliability} due to: "
+            + "; ".join(active_warnings) + "."
+        )
+    else:
+        warning_fact = f"Reliability is {overall_reliability} with no concerns."
 
     prompt = f"""DATA (read-only — narrate these facts, do not add any others):
 Company: {company_name}{f' ({ticker})' if ticker else ''}
-Prediction: {final_label} with {conf_pct}% confidence, based on {articles_analyzed} articles over {W} days.
+Prediction label: {final_label} with a {conf_pct}% score share, based on {articles_analyzed} articles over {W} days.
 Score breakdown: Positive {pos_pct}%, Negative {neg_pct}%, Neutral {neu_pct}%.
 {margin_fact}
 Top article: "{top_title}" ({top_dominant} sentiment, {top_weight_share}% of total weight). Removing it {change_str} the label.
 Average article age: {avg_days:.1f} days.
 {lime_line}
 {warning_fact}
-Reliability: {overall_reliability}.
 
 Write exactly 3 sentences starting with "The model predicted":
-- Sentence 1: state the prediction, confidence, and article count.
+- Sentence 1: state the predicted label (e.g. "a NEUTRAL label"), score share (not "confidence"), and article count.
 - Sentence 2: name the top article and its sentiment.
-- Sentence 3: state the margin qualifier and reliability warning if present."""
+- Sentence 3: state the margin qualifier ({margin_qualifier}), then state the reliability level and ALL specific reason(s) listed in the warning above — do not omit any."""
 
     return prompt
 
@@ -148,32 +177,55 @@ def _build_fallback_summary(
     would_change = top.get("counterfactual", {}).get("label_would_change", False)
     change_str = "would change" if would_change else "would not change"
 
-    # Include active reliability warnings so the user is always informed
-    flags = reliability.get("flags", {})
-    warning_parts: list[str] = []
-    if flags.get("label_margin", {}).get("flagged"):
-        normalized = prediction_result.get("normalized_scores", {})
-        sorted_scores = sorted(normalized.values(), reverse=True)
-        margin = (sorted_scores[0] - sorted_scores[1]) if len(sorted_scores) >= 2 else 0.0
-        warning_parts.append(f"the label was decided by a {_margin_qualifier(margin)}")
-    if flags.get("thin_evidence", {}).get("flagged"):
-        warning_parts.append("evidence is thin (few articles)")
-    if flags.get("weight_concentration", {}).get("flagged"):
-        warning_parts.append("weight is concentrated in one article")
-    if flags.get("low_confidence", {}).get("flagged"):
-        warning_parts.append("confidence is below threshold")
+    # Compute margin qualifier for sentence clarity
+    normalized = prediction_result.get("normalized_scores", {})
+    sorted_scores = sorted(normalized.values(), reverse=True)
+    margin = (sorted_scores[0] - sorted_scores[1]) if len(sorted_scores) >= 2 else 0.0
+    margin_q = _margin_qualifier(margin)
 
-    warning_sentence = (
-        f" However, note that {' and '.join(warning_parts)}."
-        if warning_parts else ""
-    )
+    # Collect specific reliability concerns (not the margin — it's stated separately)
+    flags = reliability.get("flags", {})
+    concern_parts: list[str] = []
+    if flags.get("source_diversity", {}).get("flagged"):
+        sd = flags["source_diversity"]
+        concern_parts.append(
+            f"source concentration ({sd.get('top_domain', '?')} has "
+            f"{sd.get('top_domain_share', 0) * 100:.0f}% of articles)"
+        )
+    if flags.get("timing_alignment", {}).get("flagged"):
+        concern_parts.append("lack of market-close time alignment")
+    if flags.get("thin_evidence", {}).get("flagged"):
+        concern_parts.append("thin evidence (few articles)")
+    if flags.get("weight_concentration", {}).get("flagged"):
+        concern_parts.append("weight concentrated in one article")
+    if flags.get("low_confidence", {}).get("flagged"):
+        concern_parts.append("confidence below threshold")
+    if flags.get("label_margin", {}).get("flagged"):
+        concern_parts.append(f"the label was decided by a {margin_q}")
+    if flags.get("horizon_coverage", {}).get("flagged"):
+        hc = flags["horizon_coverage"]
+        concern_parts.append(
+            f"news lookback ({hc.get('lookback_days', '?')} days) is shorter than "
+            f"the forecast horizon ({hc.get('prediction_window_days', '?')} days)"
+        )
+
+    if concern_parts and overall != "HIGH":
+        reliability_sentence = (
+            f"The label margin is {margin_q} ({margin:.3f}), "
+            f"but reliability is {overall} due to {'; '.join(concern_parts)}."
+        )
+    else:
+        reliability_sentence = (
+            f"The label margin is {margin_q} ({margin:.3f}) "
+            f"and prediction reliability is {overall}."
+        )
 
     return (
-        f"The model predicted {final_label.upper()} sentiment for {company_name} "
-        f"with {conf_pct}% confidence based on {articles_analyzed} articles. "
+        f"The model predicted a {final_label.upper()} label for {company_name} "
+        f"with a {conf_pct}% score share based on {articles_analyzed} articles. "
         f"The most influential article was \"{top_title}\" (weight {top_weight:.3f}), "
         f"whose removal {change_str} the overall label. "
-        f"Prediction reliability is {overall}.{warning_sentence}"
+        f"{reliability_sentence}"
     )
 
 
