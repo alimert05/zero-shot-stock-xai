@@ -129,8 +129,8 @@ def _build_prompt(
             elif flag_name == "horizon_coverage":
                 active_warnings.append(
                     f"news lookback ({flag_data.get('lookback_days', '?')} days) "
-                    f"is shorter than the forecast horizon "
-                    f"({flag_data.get('prediction_window_days', '?')} days)"
+                    f"is shorter than the intended backward window "
+                    f"({flag_data.get('intended_lookback_days', '?')} days)"
                 )
 
     if active_warnings:
@@ -152,9 +152,9 @@ Average article age: {avg_days:.1f} days.
 {warning_fact}
 
 Write exactly 3 sentences starting with "The model predicted":
-- Sentence 1: state the predicted label (e.g. "a NEUTRAL label"), score share (not "confidence"), and article count.
+- Sentence 1: state the predicted label in ALL-CAPS exactly as given (e.g. "a NEUTRAL label"), score share (not "confidence"), and article count. The label must appear in UPPER CASE.
 - Sentence 2: name the top article and its sentiment.
-- Sentence 3: state the margin qualifier ({margin_qualifier}), then state the reliability level and ALL specific reason(s) listed in the warning above — do not omit any."""
+- Sentence 3: write exactly "The label margin is {margin_qualifier} ({margin:.3f}), but reliability is {overall_reliability} due to " followed by ALL specific reason(s) from the warning above — do not omit any."""
 
     return prompt
 
@@ -206,7 +206,7 @@ def _build_fallback_summary(
         hc = flags["horizon_coverage"]
         concern_parts.append(
             f"news lookback ({hc.get('lookback_days', '?')} days) is shorter than "
-            f"the forecast horizon ({hc.get('prediction_window_days', '?')} days)"
+            f"the intended backward window ({hc.get('intended_lookback_days', '?')} days)"
         )
 
     if concern_parts and overall != "HIGH":
@@ -255,6 +255,32 @@ def _validate_narrative(summary: str, prompt: str) -> tuple[bool, list[str]]:
     for match in count_pattern.finditer(summary):
         if match.group(0).lower() not in prompt.lower():
             violations.append(f"invented article count: '{match.group(0)}'")
+
+    # 4. Label must appear in ALL-CAPS (POSITIVE / NEGATIVE / NEUTRAL)
+    label_match = re.search(r"Prediction label:\s*(\w+)", prompt)
+    if label_match:
+        expected_label = label_match.group(1)  # already UPPER in prompt
+        # Flag if model wrote the label in lower/title case instead of ALL-CAPS
+        title_case = expected_label.capitalize()  # e.g. "Neutral"
+        lower_case = expected_label.lower()       # e.g. "neutral"
+        for bad_form in [
+            f"{title_case} sentiment",
+            f"{title_case} prediction",
+            f"{title_case} label",
+            f"a {title_case} ",
+            f"with {title_case} ",
+            f"{lower_case} sentiment",
+            f"{lower_case} prediction",
+            f"{lower_case} label",
+            f"a {lower_case} ",
+            f"with {lower_case} ",
+        ]:
+            if bad_form in summary and expected_label not in summary:
+                violations.append(
+                    f"label not in ALL-CAPS: found '{bad_form.strip()}', "
+                    f"expected '{expected_label}'"
+                )
+                break
 
     return len(violations) == 0, violations
 

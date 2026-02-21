@@ -275,6 +275,7 @@ class Fetcher:
                 else None
             ),
             "prediction_window_days": self.prediction_window_days,
+            "max_backward_days": self.max_backward_days,
             "fetch_timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "article_count": len(articles),
             "articles": articles,
