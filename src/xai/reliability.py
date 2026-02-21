@@ -77,7 +77,7 @@ def _check_low_confidence(final_confidence: float) -> dict[str, Any]:
         "message": (
             f"Low prediction confidence ({final_confidence:.3f} < {threshold})."
             if flagged
-            else "Confidence above threshold."
+            else f"Confidence above threshold ({final_confidence:.3f} ≥ {threshold})."
         ),
     }
 
@@ -142,28 +142,67 @@ def _check_timing_alignment(
 
     oldest = max(ages)
     newest = min(ages)
-    outside_window = oldest > prediction_window_days
 
-    # Market close alignment is not currently implemented
-    flagged = outside_window  # only flag if articles fall outside the prediction window
-    if outside_window:
+    # Market close alignment is not currently implemented — always flag as limitation
+    flagged = True
+
+    if oldest > prediction_window_days:
         msg = (
-            f"Oldest article is {oldest} days old, exceeding the "
-            f"{prediction_window_days}-day prediction window."
+            f"Articles span {newest}–{oldest} days old; oldest exceeds the "
+            f"{prediction_window_days}-day window and is down-weighted by recency."
         )
     else:
         msg = (
-            f"Articles span {newest}–{oldest} days old, within "
-            f"the {prediction_window_days}-day window."
+            f"Most articles are {newest}–{oldest} days old, "
+            f"down-weighted by the recency function where applicable."
         )
 
-    msg += " Note: market-close time alignment is not applied (UTC timestamps used)."
+    msg += " Market-close time alignment is not applied (UTC timestamps used)."
 
     return {
         "flagged": flagged,
         "market_close_aligned": False,
         "oldest_days": oldest,
         "newest_days": newest,
+        "prediction_window_days": prediction_window_days,
+        "message": msg,
+    }
+
+
+def _check_horizon_coverage(
+    merged_articles: list[dict[str, Any]],
+    prediction_window_days: int,
+) -> dict[str, Any]:
+    """Flag when news lookback span is shorter than the forecast horizon."""
+    ages = [a.get("days_ago", 0) for a in merged_articles]
+    if not ages:
+        return {
+            "flagged": True,
+            "lookback_days": 0,
+            "prediction_window_days": prediction_window_days,
+            "message": "No article timing data available to assess horizon coverage.",
+        }
+
+    lookback_span = max(ages) - min(ages)
+    # Use the actual span of days covered by the articles
+    # If span is shorter than the forecast horizon, signal may be incomplete
+    flagged = lookback_span < prediction_window_days
+
+    if flagged:
+        msg = (
+            f"News lookback is {lookback_span} days for a "
+            f"{prediction_window_days}-day forecast horizon, "
+            f"signal may be incomplete."
+        )
+    else:
+        msg = (
+            f"News lookback ({lookback_span} days) covers the "
+            f"{prediction_window_days}-day forecast horizon."
+        )
+
+    return {
+        "flagged": flagged,
+        "lookback_days": lookback_span,
         "prediction_window_days": prediction_window_days,
         "message": msg,
     }
@@ -186,6 +225,9 @@ def compute_reliability(
         "low_confidence":       _check_low_confidence(final_confidence),
         "source_diversity":     _check_source_diversity(merged_articles or []),
         "timing_alignment":     _check_timing_alignment(
+            merged_articles or [], prediction_window_days
+        ),
+        "horizon_coverage":     _check_horizon_coverage(
             merged_articles or [], prediction_window_days
         ),
     }
