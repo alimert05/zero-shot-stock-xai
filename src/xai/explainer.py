@@ -10,6 +10,7 @@ from typing import Any
 from config import (
     JSON_PATH, XAI_OUTPUT_PATH, XAI_SUMMARY_PATH, XAI_LIME_TOP_N,
     XAI_ACTION_MIN_CONFIDENCE, XAI_ACTION_MIN_MARGIN, NEUTRAL_THRESHOLD,
+    XAI_LOW_CONFIDENCE_THRESHOLD,
 )
 
 from .article_explainer  import explain_articles
@@ -173,8 +174,21 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         w,
         f"  Overall : [{rel_icon}] {overall_rel}  ({reliability['flags_triggered']} concern(s) found)",
         "  Rating rule : HIGH if 0 concerns, MEDIUM if 1, LOW if ≥2.",
-        "",
     ]
+    # Clarify when LOW is driven by data quality, not model uncertainty
+    margin_is_clear = not flags.get("label_margin", {}).get("flagged", False)
+    conf_is_ok      = not flags.get("low_confidence", {}).get("flagged", False)
+    if overall_rel == "LOW" and margin_is_clear and conf_is_ok:
+        lines.append(
+            "  Note : Reliability is LOW due to data-quality risks (source concentration,"
+        )
+        lines.append(
+            "         timing alignment, short lookback), not because the model is"
+        )
+        lines.append(
+            "         uncertain about the label."
+        )
+    lines.append("")
     flag_labels = {
         "thin_evidence":        "Evidence volume",
         "weight_concentration": "Weight spread",
@@ -190,8 +204,9 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         lines.append(f"    [{icon}] {label:<22} {flag_data['message']}")
     lines += [
         "",
-        f"  Thresholds used  : score confidence ≥ {XAI_ACTION_MIN_CONFIDENCE * 100:.0f}% (trading policy), "
-        f"margin ≥ {XAI_ACTION_MIN_MARGIN:.2f}",
+        f"  Thresholds used  : reliability confidence ≥ {XAI_LOW_CONFIDENCE_THRESHOLD}; "
+        f"trading policy confidence ≥ {XAI_ACTION_MIN_CONFIDENCE}; "
+        f"margin ≥ {XAI_ACTION_MIN_MARGIN}",
         "",
     ]
 
@@ -233,8 +248,8 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         hc = flags.get("horizon_coverage", {})
         caution_parts.append(
             f"news lookback ({hc.get('lookback_days', '?')} days) is shorter than "
-            f"the forecast horizon ({hc.get('prediction_window_days', '?')} days), "
-            "signal may be incomplete"
+            f"the intended backward window ({hc.get('intended_lookback_days', '?')} days, "
+            f"√W scaling), signal may be incomplete"
         )
 
     if overall_rel == "HIGH":
@@ -658,6 +673,7 @@ def run_xai(
 
     articles_data = _load_articles(articles_json_path)
     prediction_window_days = articles_data.get("prediction_window_days", 7)
+    max_backward_days = articles_data.get("max_backward_days")
     merged_articles = _merge_article_data(prediction_result, articles_data)
 
     logger.info("Merged %d articles for XAI.", len(merged_articles))
@@ -683,6 +699,7 @@ def run_xai(
         prediction_result, hhi,
         merged_articles=merged_articles,
         prediction_window_days=prediction_window_days,
+        max_backward_days=max_backward_days,
     )
 
     # Layer 1 — slow (LIME forward passes)

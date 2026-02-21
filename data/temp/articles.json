@@ -1,675 +1,52 @@
 {
-  "query": "apple",
-  "ticker": "AAPL",
-  "start_date": "01-01-2026",
-  "end_date": "01-02-2026",
-  "backward_start_date": "04-12-2025",
-  "backward_end_date": "31-12-2025",
-  "prediction_window_days": 31,
-  "fetch_timestamp": "2026-02-21 19:09:36",
-  "article_count": 58,
+  "query": "eli lilly",
+  "ticker": "LLY",
+  "start_date": "08-08-2025",
+  "end_date": "22-08-2025",
+  "backward_start_date": "20-07-2025",
+  "backward_end_date": "07-08-2025",
+  "prediction_window_days": 14,
+  "max_backward_days": 19,
+  "fetch_timestamp": "2026-02-21 20:27:22",
+  "article_count": 48,
   "articles": [
     {
-      "title": "Apple CEO Tim Cook Just Gave Nike Investors 3 Million Reasons to Cheer",
-      "url": "https://finnhub.io/api/news?id=6d3b19b783eeff0c89f2ee81490a1a718ece524bd7fe91bce7af81a89b7365f1",
-      "sourceurl": "https://finnhub.io/api/news?id=6d3b19b783eeff0c89f2ee81490a1a718ece524bd7fe91bce7af81a89b7365f1",
-      "seendate": "20251229T085000Z",
+      "title": "Dow, S&P 500 end lower; Eli Lilly shares fall after drug data",
+      "url": "https://finnhub.io/api/news?id=5b45a140738a0999843d636ba38052962ef077703513d1962205a0c130cfc1f2",
+      "sourceurl": "https://finnhub.io/api/news?id=5b45a140738a0999843d636ba38052962ef077703513d1962205a0c130cfc1f2",
+      "seendate": "20250807T221709Z",
       "domain": "Yahoo",
       "language": "English",
-      "content": "Apple CEO Tim Cook recently made a big purchase of Nike stock.",
-      "coverage_count": 1,
-      "days_ago": 3,
-      "recency_weight": 0.912673,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "MEDIUM_TERM",
-        "horizon_days": 14,
-        "confidence": 0.2623
-      },
-      "impact_horizon_weight": 0.9587,
-      "final_weight": 0.9354
-    },
-    {
-      "title": "The 76-Year-Old Reason Why Buffett Has Been Selling Apple",
-      "url": "https://finnhub.io/api/news?id=ad0b03612b6b2c9e508798fc128b061a1d38d199b427b0fa09a3dd024ad440df",
-      "sourceurl": "https://finnhub.io/api/news?id=ad0b03612b6b2c9e508798fc128b061a1d38d199b427b0fa09a3dd024ad440df",
-      "seendate": "20251230T180546Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple (NASDAQ:AAPL) has practically been the Apple of Warren Buffett’s eye as he has held it as his top investment year after year, for over a decade. However, Buffett has shed well over half of his AAPL holdings in the past two years. The 76-Year-Old Reason Why Buffett Has Been Selling Apple",
-      "coverage_count": 1,
-      "days_ago": 2,
-      "recency_weight": 0.9409,
-      "content_stats": {
-        "total_sentences": 4,
-        "relevant_sentences": 3,
-        "relevance_ratio": 0.75,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3316
-      },
-      "impact_horizon_weight": 0.795,
-      "final_weight": 0.8649
-    },
-    {
-      "title": "Why Apple Might Attract More of an AI Multiple in 2026",
-      "url": "https://finnhub.io/api/news?id=223e893d25d69a0211db304f8d9fb5ab20e63baa3e80e9d8ba17bf7cafa5e7af",
-      "sourceurl": "https://finnhub.io/api/news?id=223e893d25d69a0211db304f8d9fb5ab20e63baa3e80e9d8ba17bf7cafa5e7af",
-      "seendate": "20251230T165353Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Shares of Apple (NASDAQ:AAPL) certainly aren’t going for cheap, even after a near-5% December dip, now going for around 33.0 times forward price-to-earnings (P/E). And while Apple Intelligence hasn’t blown away iPhone users quite yet, Apple’s biggest splash in the AI waters is just months away. Of course, perhaps investors are right to wait and ... Why Apple Might Attract More of an AI Multiple in 2026",
-      "coverage_count": 1,
-      "days_ago": 2,
-      "recency_weight": 0.9409,
-      "content_stats": {
-        "total_sentences": 4,
-        "relevant_sentences": 4,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3646
-      },
-      "impact_horizon_weight": 0.795,
-      "final_weight": 0.8649
-    },
-    {
-      "title": "Apple is an Analyst Favorite, But AAPL Stock Has Been Flat - Shorting Puts Is the Best Play",
-      "url": "https://finnhub.io/api/news?id=bc2c330e051bd8d7e8860b8b6a80f93c31ac97ab8f96447d4f50d8e92fb84980",
-      "sourceurl": "https://finnhub.io/api/news?id=bc2c330e051bd8d7e8860b8b6a80f93c31ac97ab8f96447d4f50d8e92fb84980",
-      "seendate": "20251230T164844Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Shorting out-of-the-money (OTM) put options in Apple stock has clearly been the best play, as AAPL has been trading in a range over the last month. Their price target is over 5% higher, but my price target is $325, 19% above today's price.",
-      "coverage_count": 1,
-      "days_ago": 2,
-      "recency_weight": 0.9409,
-      "content_stats": {
-        "total_sentences": 2,
-        "relevant_sentences": 2,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3995
-      },
-      "impact_horizon_weight": 0.795,
-      "final_weight": 0.8649
-    },
-    {
-      "title": "Apple: Don't Expect Much Growth Here",
-      "url": "https://finnhub.io/api/news?id=f90e2b2b1cec3335b2791a8e78ac4dc3b78dd7a1d13f2e64b001667f05060e3d",
-      "sourceurl": "https://finnhub.io/api/news?id=f90e2b2b1cec3335b2791a8e78ac4dc3b78dd7a1d13f2e64b001667f05060e3d",
-      "seendate": "20251230T155538Z",
-      "domain": "SeekingAlpha",
-      "language": "English",
-      "content": "Discover why Appleâs high valuation and lack of growth make it a risky investment. Learn why you may want to reconsider buying Apple stock today. Click to read.",
-      "coverage_count": 1,
-      "days_ago": 2,
-      "recency_weight": 0.9409,
-      "content_stats": {
-        "total_sentences": 3,
-        "relevant_sentences": 3,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.309
-      },
-      "impact_horizon_weight": 0.795,
-      "final_weight": 0.8649
-    },
-    {
-      "title": "The Real Reasons Warren Buffett Is Selling Apple Stock Fast",
-      "url": "https://finnhub.io/api/news?id=90cf684c534fe92e28b9da41ec01d50be6a85c8e07abb338bf8ff80c5f141fb9",
-      "sourceurl": "https://finnhub.io/api/news?id=90cf684c534fe92e28b9da41ec01d50be6a85c8e07abb338bf8ff80c5f141fb9",
-      "seendate": "20251230T150000Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Warren Buffett took a big swing investing in Apple and it paid off big time. Now, he's hedging his bets and the reasons why couldn't be clearer.",
-      "coverage_count": 1,
-      "days_ago": 2,
-      "recency_weight": 0.9409,
-      "content_stats": {
-        "total_sentences": 2,
-        "relevant_sentences": 2,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3099
-      },
-      "impact_horizon_weight": 0.795,
-      "final_weight": 0.8649
-    },
-    {
-      "title": "Apple Inc. (AAPL) Is a Trending Stock: Facts to Know Before Betting on It",
-      "url": "https://finnhub.io/api/news?id=57be03b68db00d1077ac75258ad93c19a3ade7606684f454a9cb253db7a1304e",
-      "sourceurl": "https://finnhub.io/api/news?id=57be03b68db00d1077ac75258ad93c19a3ade7606684f454a9cb253db7a1304e",
-      "seendate": "20251230T140002Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple (AAPL) has received quite a bit of attention from Zacks.com users lately. Therefore, it is wise to be aware of the facts that can impact the stock's prospects.",
-      "coverage_count": 1,
-      "days_ago": 2,
-      "recency_weight": 0.9409,
-      "content_stats": {
-        "total_sentences": 2,
-        "relevant_sentences": 2,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.2923
-      },
-      "impact_horizon_weight": 0.795,
-      "final_weight": 0.8649
-    },
-    {
-      "title": "Apple Doesn't Need A Stronger AI Portfolio",
-      "url": "https://finnhub.io/api/news?id=db43daf30d2db82e92c608977c8c68281dede6bba2115c4f4ebf7acbd2d6befe",
-      "sourceurl": "https://finnhub.io/api/news?id=db43daf30d2db82e92c608977c8c68281dede6bba2115c4f4ebf7acbd2d6befe",
-      "seendate": "20251224T181648Z",
-      "domain": "SeekingAlpha",
-      "language": "English",
-      "content": "Explore Apple Inc.'s $4T market cap, AI strategy, and growth outlook. Click to learn how AAPL tackles tech competition and what it means for investors.",
-      "coverage_count": 1,
-      "days_ago": 8,
-      "recency_weight": 0.7837433594376959,
-      "content_stats": {
-        "total_sentences": 2,
-        "relevant_sentences": 2,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.2817
-      },
-      "impact_horizon_weight": 0.8895,
-      "final_weight": 0.835
-    },
-    {
-      "title": "Apple spent 2025 setting itself up for the future — and its biggest moves weren't about AI",
-      "url": "https://finnhub.io/api/news?id=e554b1aefa1acfa8c3a6f68bda89f3e3f44fe5bd6ffbfbc4302e4d139cdacfc4",
-      "sourceurl": "https://finnhub.io/api/news?id=e554b1aefa1acfa8c3a6f68bda89f3e3f44fe5bd6ffbfbc4302e4d139cdacfc4",
-      "seendate": "20251223T211525Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple's 2025 helped set up its future.",
-      "coverage_count": 1,
-      "days_ago": 9,
-      "recency_weight": 0.7602310586545651,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.4097
-      },
-      "impact_horizon_weight": 0.9158,
-      "final_weight": 0.8344
-    },
-    {
-      "title": "Dow Jones Tech Giant Apple, AppLovin, Palantir, Tesla In Buy Zones",
-      "url": "https://finnhub.io/api/news?id=92d7a280681cc5f2cb1dd5ccb5e0427685f6719c58d6be101f091dc656995d9f",
-      "sourceurl": "https://finnhub.io/api/news?id=92d7a280681cc5f2cb1dd5ccb5e0427685f6719c58d6be101f091dc656995d9f",
-      "seendate": "20251223T184704Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Dow Jones tech giant Apple, along with AppLovin, Palantir, and Tesla stock are in buy zones in the ongoing stock market rally.",
-      "coverage_count": 1,
-      "days_ago": 9,
-      "recency_weight": 0.7602310586545651,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.2735
-      },
-      "impact_horizon_weight": 0.9158,
-      "final_weight": 0.8344
-    },
-    {
-      "title": "Apple's 3 Big New Year Woes",
-      "url": "https://finnhub.io/api/news?id=8dd9349292ee67947268da4cb60bd1b4f6a777350a098a7a6754d5d781abbeb8",
-      "sourceurl": "https://finnhub.io/api/news?id=8dd9349292ee67947268da4cb60bd1b4f6a777350a098a7a6754d5d781abbeb8",
-      "seendate": "20251223T160549Z",
-      "domain": "SeekingAlpha",
-      "language": "English",
-      "content": "Apple Inc. stock outperformed in H2 2025, but key challenges threaten its premium valuation. Discover crucial risks for FY2026. Click for this AAPL stock update.",
-      "coverage_count": 1,
-      "days_ago": 9,
-      "recency_weight": 0.7602310586545651,
-      "content_stats": {
-        "total_sentences": 4,
-        "relevant_sentences": 4,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.4752
-      },
-      "impact_horizon_weight": 0.9158,
-      "final_weight": 0.8344
-    },
-    {
-      "title": "Top Research Reports for Apple, Cisco & IBM",
-      "url": "https://finnhub.io/api/news?id=d3e929e9e45ce4db3db17a754022f2bbcf76597e57a52c33a9857764b91aee19",
-      "sourceurl": "https://finnhub.io/api/news?id=d3e929e9e45ce4db3db17a754022f2bbcf76597e57a52c33a9857764b91aee19",
-      "seendate": "20251229T185300Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple leads today's top research reports, with Services surpassing 1B paid subscribers and expectations for double-digit iPhone growth in fiscal Q1.",
-      "coverage_count": 1,
-      "days_ago": 3,
-      "recency_weight": 0.912673,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.2759
-      },
-      "impact_horizon_weight": 0.7594,
-      "final_weight": 0.8325
-    },
-    {
-      "title": "Apple Stock Rises Ahead of 2026. What's Driving the Growth",
-      "url": "https://finnhub.io/api/news?id=d36469f9db78772747fb81d787f17cbb97f11a6dcde38a85f53fddd561faf6ee",
-      "sourceurl": "https://finnhub.io/api/news?id=d36469f9db78772747fb81d787f17cbb97f11a6dcde38a85f53fddd561faf6ee",
-      "seendate": "20251226T163801Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple Navigates Legal Hurdles and Market Recovery as Year Ends",
-      "coverage_count": 1,
-      "days_ago": 6,
-      "recency_weight": 0.8329720049289998,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.2989
-      },
-      "impact_horizon_weight": 0.8288,
-      "final_weight": 0.8309
-    },
-    {
-      "title": "If You'd Invested $1,000 in Apple 10 Years Ago, Here's How Much You'd Have Today",
-      "url": "https://finnhub.io/api/news?id=09ee035c64a4f7a9842b56376f3676f9d462958cc2d463c8c008d147b61fc8c0",
-      "sourceurl": "https://finnhub.io/api/news?id=09ee035c64a4f7a9842b56376f3676f9d462958cc2d463c8c008d147b61fc8c0",
-      "seendate": "20251221T193800Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple's market cap ballooned over the past decade, as dominant companies have become even larger.",
-      "coverage_count": 1,
-      "days_ago": 11,
-      "recency_weight": 0.7153014030880802,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.3802
-      },
-      "impact_horizon_weight": 0.9587,
-      "final_weight": 0.8281
-    },
-    {
-      "title": "Apple: Efficiency-Monetization Loop - Services Margin And PCC Infrastructure Support A $425 Target",
-      "url": "https://finnhub.io/api/news?id=b83781a6e7fff378acdc265bd110921f2a318d3e217070a81ceeffb55ba0faf4",
-      "sourceurl": "https://finnhub.io/api/news?id=b83781a6e7fff378acdc265bd110921f2a318d3e217070a81ceeffb55ba0faf4",
-      "seendate": "20251221T043709Z",
-      "domain": "SeekingAlpha",
-      "language": "English",
-      "content": "Apple is a long-term buy driven by iPhone 17 supercycle, Services growth, high ROE, $100B buybacks, China rebound, and key risks. See why AAPL stock is a buy.",
-      "coverage_count": 1,
-      "days_ago": 11,
-      "recency_weight": 0.7153014030880802,
-      "content_stats": {
-        "total_sentences": 2,
-        "relevant_sentences": 2,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.622
-      },
-      "impact_horizon_weight": 0.9587,
-      "final_weight": 0.8281
-    },
-    {
-      "title": "Apple: Quality Vs. Price",
-      "url": "https://finnhub.io/api/news?id=48df7a219d1fc0a24a3f18485386ca8a901933df5cf2655022d3b37462526a14",
-      "sourceurl": "https://finnhub.io/api/news?id=48df7a219d1fc0a24a3f18485386ca8a901933df5cf2655022d3b37462526a14",
-      "seendate": "20251228T012828Z",
-      "domain": "SeekingAlpha",
-      "language": "English",
-      "content": "Apple (AAPL) delivered record Q4 2025 revenue, net income, and EPS, underscoring unmatched business quality and execution.",
-      "coverage_count": 1,
-      "days_ago": 4,
-      "recency_weight": 0.8852928099999999,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.297
-      },
-      "impact_horizon_weight": 0.7594,
-      "final_weight": 0.8199
-    },
-    {
-      "title": "Big Promises, Bigger Fails: Meta's Cringe Demo, Apple's Misfires, GPT-5's Letdown And The Cloud Outages That Made Headlines In 2025",
-      "url": "https://finnhub.io/api/news?id=d16c3607e7c0072f31bd56df59535427bb6693487183a2cd87f28d77ea6ced98",
-      "sourceurl": "https://finnhub.io/api/news?id=d16c3607e7c0072f31bd56df59535427bb6693487183a2cd87f28d77ea6ced98",
-      "seendate": "20251231T084622Z",
-      "domain": "Benzinga",
-      "language": "English",
-      "content": "Big Tech&#39;s biggest players, including Meta, Apple and OpenAI, stumbled in 2025 as botched live demos, unpopular product decisions, an underwhelming GPT-5 launch and massive cloud outages exposed growing gaps between industry hype and real-world execution.",
+      "content": "STORY: U.S. stocks ended mixed on Thursday, with the Dow dropping about half a percent, the S&P 500 closing essentially flat, and the Nasdaq ticking up about three-tenths of a percent.Investors digested a Bloomberg report early in the session that Fed Governor Christopher Waller was President Donald Trump's top candidate for central bank chair.Trump has been highly critical of current Chair Jerome Powell for holding off on cutting interest rates as the Fed weighs the potential inflationary effects of Trump's tariffs.Higher tariffs on imports from dozens of countries kicked in on Thursday, raising the average import duty to its highest in a century. And while we still have quite a bit of negotiating to do country by country, they are enacted. And so that is going to weigh on different aspects of the market, the supply chain, pricing. And so I think right now it's just, it's a lot of that digestion on, you know, how long are negotiations going to take for different countries? What will they look like in the end?”Stocks on the move Thursday included Eli Lilly, which plummeted more than 14% after data from its experimental weight-loss pill disappointed.Shares of cybersecurity firm Fortinet tumbled 22% after the company delivered a revenue forecast below Wall Street estimates.And shares of Pinterest climbed more than 12% in extended trading after the social media platform beat analysts' estimates for second-quarter revenue.Rapid growth among Gen Z users along with the platform's AI-powered marketing tools have made the company attractive to advertisers.",
       "coverage_count": 1,
       "days_ago": 1,
-      "recency_weight": 0.97,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "IMMEDIATE",
-        "horizon_days": 3,
-        "confidence": 0.4813
-      },
-      "impact_horizon_weight": 0.6843,
-      "final_weight": 0.8147
-    },
-    {
-      "title": "Tim Cook's Nike Buy, AI Smart Glasses, Court Victory And More: This Week In Appleverse",
-      "url": "https://finnhub.io/api/news?id=804347149d51c321563989433f248356cb86b76117ef31bc8c44556d4f05c661",
-      "sourceurl": "https://finnhub.io/api/news?id=804347149d51c321563989433f248356cb86b76117ef31bc8c44556d4f05c661",
-      "seendate": "20251229T213124Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Why Tim Cook’s Buy Is Drawing Market Parallels Tim Cook, the CEO of Apple Inc. (NASDAQ:AAPL), has recently purchased shares of Nike Inc. The purchase coincided with a moment when pessimism appeared fully priced in, signaling a potential market bottom. Read t",
-      "coverage_count": 1,
-      "days_ago": 3,
-      "recency_weight": 0.912673,
+      "recency_weight": 0.9572727272727273,
       "content_stats": {
         "total_sentences": 7,
-        "relevant_sentences": 4,
-        "relevance_ratio": 0.5714,
+        "relevant_sentences": 6,
+        "relevance_ratio": 0.8571,
         "condensed": false,
         "filter_action": "filtered"
       },
       "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.4567
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.4418
       },
-      "impact_horizon_weight": 0.7224,
-      "final_weight": 0.812
+      "impact_horizon_weight": 0.9898,
+      "final_weight": 0.9734
     },
     {
-      "title": "Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead of 2026",
-      "url": "https://finnhub.io/api/news?id=cb2e9714c5967ff5051fc00412b2dd6a6a151139441dae0767e0f0fbb447fc38",
-      "sourceurl": "https://finnhub.io/api/news?id=cb2e9714c5967ff5051fc00412b2dd6a6a151139441dae0767e0f0fbb447fc38",
-      "seendate": "20251229T175652Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Analysts See Upside in Apple Stock as iPhone Sales Surge",
-      "coverage_count": 1,
-      "days_ago": 3,
-      "recency_weight": 0.912673,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.3281
-      },
-      "impact_horizon_weight": 0.7224,
-      "final_weight": 0.812
-    },
-    {
-      "title": "Apple Is Likely to Return to Double-Digit Revenue Growth in Fiscal 2026 -- and the Stock Looks Like a Buy",
-      "url": "https://finnhub.io/api/news?id=aa1e26b84c42fa7317cd5240f1ce4d76aa548bb474531ecfbec6675756da9ecd",
-      "sourceurl": "https://finnhub.io/api/news?id=aa1e26b84c42fa7317cd5240f1ce4d76aa548bb474531ecfbec6675756da9ecd",
-      "seendate": "20251229T170100Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple's latest holiday-quarter outlook points to a return to faster growth, helped by iPhone and Services.",
-      "coverage_count": 1,
-      "days_ago": 3,
-      "recency_weight": 0.912673,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.3645
-      },
-      "impact_horizon_weight": 0.7224,
-      "final_weight": 0.812
-    },
-    {
-      "title": "Apple: Foldable Phone Sparks A Revival, Not AI Overhype",
-      "url": "https://finnhub.io/api/news?id=42c8e059a8c2022ea2e2b38c371974167e5c17f495c67f151756648d6a4cf70a",
-      "sourceurl": "https://finnhub.io/api/news?id=42c8e059a8c2022ea2e2b38c371974167e5c17f495c67f151756648d6a4cf70a",
-      "seendate": "20251229T100000Z",
+      "title": "Eli Lilly's Share Price Sheds Some Weight: This Doesn't Mean To Pile In",
+      "url": "https://finnhub.io/api/news?id=ca08b038fdbc777853dfa8665e0d6d047a108ec398a5f4add2cbd6f301247f55",
+      "sourceurl": "https://finnhub.io/api/news?id=ca08b038fdbc777853dfa8665e0d6d047a108ec398a5f4add2cbd6f301247f55",
+      "seendate": "20250807T190448Z",
       "domain": "SeekingAlpha",
       "language": "English",
-      "content": "Discover how Apple's strategic iPhone expansion and innovation fuel growth.",
-      "coverage_count": 1,
-      "days_ago": 3,
-      "recency_weight": 0.912673,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.3216
-      },
-      "impact_horizon_weight": 0.7224,
-      "final_weight": 0.812
-    },
-    {
-      "title": "Apple needs to deliver an AI-charged Siri so good it gets older iPhone users to upgrade",
-      "url": "https://finnhub.io/api/news?id=34f568fb293a7f17e5789630ca5ae23bf5f223c43950c1caba3237f7e0a644b5",
-      "sourceurl": "https://finnhub.io/api/news?id=34f568fb293a7f17e5789630ca5ae23bf5f223c43950c1caba3237f7e0a644b5",
-      "seendate": "20251230T164616Z",
-      "domain": "CNBC",
-      "language": "English",
-      "content": "Apple has one more chance to get AI right after its failure in 2025.",
-      "coverage_count": 1,
-      "days_ago": 2,
-      "recency_weight": 0.9409,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.3554
-      },
-      "impact_horizon_weight": 0.6843,
-      "final_weight": 0.8024
-    },
-    {
-      "title": "The Zacks Analyst Blog Highlights Apple, Cisco Systems and IBM",
-      "url": "https://finnhub.io/api/news?id=fc20f878f7e9945124bd00353e66e52094bf0dc64e3464d570066c2391a797ae",
-      "sourceurl": "https://finnhub.io/api/news?id=fc20f878f7e9945124bd00353e66e52094bf0dc64e3464d570066c2391a797ae",
-      "seendate": "20251230T112000Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple leads Zacks' top research picks as strong Services growth, AI expansion and iPhone momentum shape the outlook.",
-      "coverage_count": 1,
-      "days_ago": 2,
-      "recency_weight": 0.9409,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.3303
-      },
-      "impact_horizon_weight": 0.6843,
-      "final_weight": 0.8024
-    },
-    {
-      "title": "Jim Cramer Repeats His “Own It, Don’t Trade It” Mantra on Apple",
-      "url": "https://finnhub.io/api/news?id=1b1a2260c1cc325e140c39bbe930dc4a2b984ded90ca7fa76f3dc3722b4ea811",
-      "sourceurl": "https://finnhub.io/api/news?id=1b1a2260c1cc325e140c39bbe930dc4a2b984ded90ca7fa76f3dc3722b4ea811",
-      "seendate": "20251228T161605Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple Inc. (NASDAQ:AAPL) is one of the stocks Jim Cramer discussed along with macroeconomic conditions. Cramer highlighted how the company tackled the tariffs, as he remarked: “I also asked what the impact of President Trump’s trade policies would be on tech, and by and large, this hasn’t been a major issue. There were times that […]",
-      "coverage_count": 1,
-      "days_ago": 4,
-      "recency_weight": 0.8852928099999999,
-      "content_stats": {
-        "total_sentences": 4,
-        "relevant_sentences": 4,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3552
-      },
-      "impact_horizon_weight": 0.7224,
-      "final_weight": 0.7997
-    },
-    {
-      "title": "Apple's AI challenges in 2026",
-      "url": "https://finnhub.io/api/news?id=674e9e85310f3415e06dd70ae931d8d8b90c660667d6ae6da2598af2686704e2",
-      "sourceurl": "https://finnhub.io/api/news?id=674e9e85310f3415e06dd70ae931d8d8b90c660667d6ae6da2598af2686704e2",
-      "seendate": "20251231T135944Z",
-      "domain": "CNBC",
-      "language": "English",
-      "content": "CNBC’s Steve Kovach reports on news regarding Apple.",
+      "content": "Eli Lilly stock beats Q2 estimates with strong sales but faces competitive risks and high valuation. Here's why investors may simply want to hold for now.",
       "coverage_count": 1,
       "days_ago": 1,
-      "recency_weight": 0.97,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.2957
-      },
-      "impact_horizon_weight": 0.6456,
-      "final_weight": 0.7914
-    },
-    {
-      "title": "Wedbush Names Apple a Top AI Pick for the 2026 Market Cycle",
-      "url": "https://finnhub.io/api/news?id=8702e181744541fbe146f0c5248f1054b5d911d869d52b5b87d3bf103dd073e6",
-      "sourceurl": "https://finnhub.io/api/news?id=8702e181744541fbe146f0c5248f1054b5d911d869d52b5b87d3bf103dd073e6",
-      "seendate": "20251231T112721Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple's AI Bet Is Subtle. Some Analysts Think That's a Strength",
-      "coverage_count": 1,
-      "days_ago": 1,
-      "recency_weight": 0.97,
+      "recency_weight": 0.9572727272727273,
       "content_stats": {
         "total_sentences": 2,
         "relevant_sentences": 2,
@@ -678,76 +55,24 @@
         "filter_action": "no_change"
       },
       "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.3386
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3769
       },
-      "impact_horizon_weight": 0.6456,
-      "final_weight": 0.7914
+      "impact_horizon_weight": 0.9898,
+      "final_weight": 0.9734
     },
     {
-      "title": "Apple misses on AI in 2025",
-      "url": "https://finnhub.io/api/news?id=388e41005cedf3c213ee3bc0656533f82351b5d50bb57cf70a63f0cd92131b3a",
-      "sourceurl": "https://finnhub.io/api/news?id=388e41005cedf3c213ee3bc0656533f82351b5d50bb57cf70a63f0cd92131b3a",
-      "seendate": "20251231T070041Z",
-      "domain": "CNBC",
+      "title": "Eli Lilly’s weight-loss pill didn’t work so well, and the stock is plunging",
+      "url": "https://finnhub.io/api/news?id=b14b892c37820f0ed51ee54b89ec2560e20e0a1a62ff4ddf00050577e0414909",
+      "sourceurl": "https://finnhub.io/api/news?id=b14b892c37820f0ed51ee54b89ec2560e20e0a1a62ff4ddf00050577e0414909",
+      "seendate": "20250807T163100Z",
+      "domain": "MarketWatch",
       "language": "English",
-      "content": "CNBC’s Steve Kovach joins ‘Squawk Box’ to discuss Apple’s AI missteps this year and the challenges ahead next year.",
+      "content": "Eli Lilly’s weight-loss pill didn’t work so well, and the stock is plunging",
       "coverage_count": 1,
       "days_ago": 1,
-      "recency_weight": 0.97,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "LONG_TERM",
-        "horizon_days": 31,
-        "confidence": 0.3133
-      },
-      "impact_horizon_weight": 0.6456,
-      "final_weight": 0.7914
-    },
-    {
-      "title": "JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reaches Parity",
-      "url": "https://finnhub.io/api/news?id=ee8653b92666054904125b35ab7f5fbb3013f8d837aaec778e7933da157a453d",
-      "sourceurl": "https://finnhub.io/api/news?id=ee8653b92666054904125b35ab7f5fbb3013f8d837aaec778e7933da157a453d",
-      "seendate": "20251227T073251Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple Inc. (NASDAQ:AAPL) is one of the AI Stocks Investors Are Watching. On December 23, JPMorgan reiterated the stock as “Overweight” and a $305 price target. According to the firm’s survey checks, Apple’s iPhone 17 lead times have moderated by a few days this week from last week. “In Week 15 of our Apple Product […]",
-      "coverage_count": 1,
-      "days_ago": 5,
-      "recency_weight": 0.8587340256999999,
-      "content_stats": {
-        "total_sentences": 5,
-        "relevant_sentences": 5,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3747
-      },
-      "impact_horizon_weight": 0.6843,
-      "final_weight": 0.7666
-    },
-    {
-      "title": "Apple Stock Ticks Up After a Surprise From China—and a Legal Win",
-      "url": "https://finnhub.io/api/news?id=67460b79d0c591251a8c9ff0da475113165d268e2c19c250d9e664fb2a99532c",
-      "sourceurl": "https://finnhub.io/api/news?id=67460b79d0c591251a8c9ff0da475113165d268e2c19c250d9e664fb2a99532c",
-      "seendate": "20251226T155800Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "China’s imports of foreign-branded mobile phones, including Apple’s iPhone, rose 128% in November from a year earlier.",
-      "coverage_count": 1,
-      "days_ago": 6,
-      "recency_weight": 0.8329720049289998,
+      "recency_weight": 0.9572727272727273,
       "content_stats": {
         "total_sentences": 1,
         "relevant_sentences": 1,
@@ -758,22 +83,22 @@
       "impact_horizon": {
         "category": "SHORT_TERM",
         "horizon_days": 7,
-        "confidence": 0.2807
+        "confidence": 0.2722
       },
-      "impact_horizon_weight": 0.6456,
-      "final_weight": 0.7333
+      "impact_horizon_weight": 0.9898,
+      "final_weight": 0.9734
     },
     {
-      "title": "Analysts Are Hot on the Foldable iPhone. Should You Buy AAPL Stock Before Apple’s Next Big Product Launch?",
-      "url": "https://finnhub.io/api/news?id=4763134ebb1388e6c98de59d5b57508672e352d4d6c4bc85041ba2da2ba3491e",
-      "sourceurl": "https://finnhub.io/api/news?id=4763134ebb1388e6c98de59d5b57508672e352d4d6c4bc85041ba2da2ba3491e",
-      "seendate": "20251221T160002Z",
-      "domain": "Yahoo",
+      "title": "Eli Lilly Q2 Earnings: Ignore Oral Weight Loss Bombshell, This Is A Buy The Dip Moment",
+      "url": "https://finnhub.io/api/news?id=8f363360378a2f7c97f0bed1a19e3711ea97fe2d3356e9116b4bdb6536cd4f4d",
+      "sourceurl": "https://finnhub.io/api/news?id=8f363360378a2f7c97f0bed1a19e3711ea97fe2d3356e9116b4bdb6536cd4f4d",
+      "seendate": "20250807T131431Z",
+      "domain": "SeekingAlpha",
       "language": "English",
-      "content": "Apple's foldable iPhone has sparked considerable analyst interest. Should investors invest in Apple ahead of this highly anticipated launch?",
+      "content": "Eli Lilly stock dips despite strong Q2 results. Read my insights on obesity drug market dominance and why this selloff in LLY may be a buying opportunity.",
       "coverage_count": 1,
-      "days_ago": 11,
-      "recency_weight": 0.7153014030880802,
+      "days_ago": 1,
+      "recency_weight": 0.9572727272727273,
       "content_stats": {
         "total_sentences": 2,
         "relevant_sentences": 2,
@@ -782,128 +107,24 @@
         "filter_action": "no_change"
       },
       "impact_horizon": {
-        "category": "MEDIUM_TERM",
-        "horizon_days": 14,
-        "confidence": 0.2689
-      },
-      "impact_horizon_weight": 0.7224,
-      "final_weight": 0.7188
-    },
-    {
-      "title": "Italian Competition Authority fines Apple EUR 98M over app tracking",
-      "url": "https://finnhub.io/api/news?id=b8adc69df8e652aa419a5963202685ccaca3b5462929b0590d965d3d4e26e3de",
-      "sourceurl": "https://finnhub.io/api/news?id=b8adc69df8e652aa419a5963202685ccaca3b5462929b0590d965d3d4e26e3de",
-      "seendate": "20251225T112517Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "The Italian Competition Authority has issued a EUR 98M fine to Apple (AAPL) over ‘abuse of a dominant position’. The agency said, “The Authority found the App Tracking Transparency policy to restrict competition. The policy lays down the privacy rules imposed by the company on third-party developers of apps offered on the App Store. The Italian Competition Authority has imposed a 98,635,416.67 euro fine on Apple, Apple Distribution International and Apple Italia for abuse of a dominant position.",
-      "coverage_count": 1,
-      "days_ago": 7,
-      "recency_weight": 0.8079828447811298,
-      "content_stats": {
-        "total_sentences": 4,
-        "relevant_sentences": 4,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
         "category": "SHORT_TERM",
         "horizon_days": 7,
-        "confidence": 0.3751
+        "confidence": 0.3839
       },
-      "impact_horizon_weight": 0.6065,
-      "final_weight": 0.7
+      "impact_horizon_weight": 0.9898,
+      "final_weight": 0.9734
     },
     {
-      "title": "Apple to appeal EUR 98M Italian Competition Authority fine, AP reports",
-      "url": "https://finnhub.io/api/news?id=f68288e4e1323408a9b76e980582b65609d11112a77f49f39ccea94c7dec12ea",
-      "sourceurl": "https://finnhub.io/api/news?id=f68288e4e1323408a9b76e980582b65609d11112a77f49f39ccea94c7dec12ea",
-      "seendate": "20251225T112508Z",
-      "domain": "Yahoo",
+      "title": "Eli Lilly and Company 2025 Q2 - Results - Earnings Call Presentation",
+      "url": "https://finnhub.io/api/news?id=80d85f845aa5aa3e9c912cc5e6762c0170c52f689deb1a6c4f49ea7acbd390ca",
+      "sourceurl": "https://finnhub.io/api/news?id=80d85f845aa5aa3e9c912cc5e6762c0170c52f689deb1a6c4f49ea7acbd390ca",
+      "seendate": "20250807T122940Z",
+      "domain": "SeekingAlpha",
       "language": "English",
-      "content": "Apple (AAPL) said it would appeal a EUR 98.6M fine issued by Italy’s antitrust authority, which determined the company abused its dominant position with its App Tracking Transparency policy, the Associated Press reports, citing a company statement. “At Apple, we believe privacy is a fundamental human right, and we created App Tracking Transparency to give users a simple way to control whether companies can track their activity across other apps and websites,” Apple said. “These rules apply equal",
+      "content": "The following slide deck was published by Eli Lilly and Company in conjunction with their 2025 Q2 earnings call.",
       "coverage_count": 1,
-      "days_ago": 7,
-      "recency_weight": 0.8079828447811298,
-      "content_stats": {
-        "total_sentences": 3,
-        "relevant_sentences": 3,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.4031
-      },
-      "impact_horizon_weight": 0.6065,
-      "final_weight": 0.7
-    },
-    {
-      "title": "Will Apple’s (AAPL) Global iOS Openings and AI Push Reshape Its Services-First Narrative?",
-      "url": "https://finnhub.io/api/news?id=144670f4b721271adf74f8b7da6f58bf361ee33b30cf80189ff60ecaa059c3e7",
-      "sourceurl": "https://finnhub.io/api/news?id=144670f4b721271adf74f8b7da6f58bf361ee33b30cf80189ff60ecaa059c3e7",
-      "seendate": "20251225T015300Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "In December 2025, Apple announced iOS changes in Japan and agreed to open iOS in Brazil, allowing alternative app marketplaces and payment options while adding new safeguards to address privacy and security concerns. These regulatory-driven openings, combined with Apple’s push into advanced AI like its SHARP 3D imaging model, highlight a gradual shift toward a more software- and services-centric ecosystem under tighter global oversight. Next, we’ll examine how Apple’s move to support...",
-      "coverage_count": 1,
-      "days_ago": 7,
-      "recency_weight": 0.8079828447811298,
-      "content_stats": {
-        "total_sentences": 3,
-        "relevant_sentences": 3,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3428
-      },
-      "impact_horizon_weight": 0.6065,
-      "final_weight": 0.7
-    },
-    {
-      "title": "Nike shares jump after Apple CEO Cook doubles stake to $6 million",
-      "url": "https://finnhub.io/api/news?id=ab0e9b78f1bb1ed548e6c5e92bc2ead939e4ca22e722703c5e112d59911b9b66",
-      "sourceurl": "https://finnhub.io/api/news?id=ab0e9b78f1bb1ed548e6c5e92bc2ead939e4ca22e722703c5e112d59911b9b66",
-      "seendate": "20251224T185035Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "THIS VERSION HAS BEEN AMENDED TO REFLECT THE CORRECT FIGURE.Nike shares climbed about 5.5% in Wednesday morning trading after Apple CEO Tim Cook doubled his personal stake in the sportswear giant.That's according to a regulatory filing.Cook sits on Nike's board and now owns about $6 million worth of stock.The purchase appears to be a vote of confidence in the turnaround efforts of Nike CEO Elliot Hill.It comes days after the company reported weaker quarterly margins and weak sales in China.That's despite Hill's attempt to lift demand with fresh marketing plans and innovation focused on running and sports while phasing out lagging lifestyle brands.The CEO has also tried to mend ties with wholesalers like Dick's Sporting Goods... to try and put the brand in front of shoppers as competition heats up with rivals.However, Hill's plan is putting strain on Nike's margins, now in decline for over a year, and its efforts to get back on top in China are faltering.Nike's shares have slumped nearly 13% since it reported results on December 18 and are on track for the fourth straight year of declines.",
-      "coverage_count": 1,
-      "days_ago": 8,
-      "recency_weight": 0.7837433594376959,
-      "content_stats": {
-        "total_sentences": 3,
-        "relevant_sentences": 2,
-        "relevance_ratio": 0.6667,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.2871
-      },
-      "impact_horizon_weight": 0.5675,
-      "final_weight": 0.6669
-    },
-    {
-      "title": "Why Apple's Tim Cook Drove Nike Stock Higher Today",
-      "url": "https://finnhub.io/api/news?id=ed1dba2a27ae0993a9c4604137d68edda2a04c12b011456303837afdd48b9db8",
-      "sourceurl": "https://finnhub.io/api/news?id=ed1dba2a27ae0993a9c4604137d68edda2a04c12b011456303837afdd48b9db8",
-      "seendate": "20251224T182920Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple CEO Tim Cook gave Nike stock a shot in the arm today.",
-      "coverage_count": 1,
-      "days_ago": 8,
-      "recency_weight": 0.7837433594376959,
+      "days_ago": 1,
+      "recency_weight": 0.9572727272727273,
       "content_stats": {
         "total_sentences": 1,
         "relevant_sentences": 1,
@@ -914,230 +135,22 @@
       "impact_horizon": {
         "category": "SHORT_TERM",
         "horizon_days": 7,
-        "confidence": 0.3046
+        "confidence": 0.2931
       },
-      "impact_horizon_weight": 0.5675,
-      "final_weight": 0.6669
+      "impact_horizon_weight": 0.9898,
+      "final_weight": 0.9734
     },
     {
-      "title": "Apple CEO Tim Cook Discloses $3 Million Nike Buy With Dow Giant At 7-Month Low",
-      "url": "https://finnhub.io/api/news?id=acc2a1f261ae4b0d8e13f2b3a9a65c4cc2e31f2f43c68ce159d05a422334e8cc",
-      "sourceurl": "https://finnhub.io/api/news?id=acc2a1f261ae4b0d8e13f2b3a9a65c4cc2e31f2f43c68ce159d05a422334e8cc",
-      "seendate": "20251224T180534Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Nike stock tumbled on earnings and down sharply for 2025, but insiders, including Apple CEO Tim Cook, are scooping up shares.",
-      "coverage_count": 1,
-      "days_ago": 8,
-      "recency_weight": 0.7837433594376959,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3207
-      },
-      "impact_horizon_weight": 0.5675,
-      "final_weight": 0.6669
-    },
-    {
-      "title": "Dan Ives Is Betting That Apple and Google Will Partner in 2026. Should You Buy AAPL Stock First?",
-      "url": "https://finnhub.io/api/news?id=d1a64aa6f04ffb5753ef66c8981a6d61219561ec73c92d4fdc1391bf63611e57",
-      "sourceurl": "https://finnhub.io/api/news?id=d1a64aa6f04ffb5753ef66c8981a6d61219561ec73c92d4fdc1391bf63611e57",
-      "seendate": "20251224T170955Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Here’s why AAPL stock probably won’t get a big lift from a potential, formal alliance with GOOG.",
-      "coverage_count": 1,
-      "days_ago": 8,
-      "recency_weight": 0.7837433594376959,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.314
-      },
-      "impact_horizon_weight": 0.5675,
-      "final_weight": 0.6669
-    },
-    {
-      "title": "Nike Stock Price Gets a Lift After Apple’s Tim Cook Doubles His Stake",
-      "url": "https://finnhub.io/api/news?id=97d12f64832dec3b1b4be377e074decb4e93cca145d18041c78d7a742948ab4a",
-      "sourceurl": "https://finnhub.io/api/news?id=97d12f64832dec3b1b4be377e074decb4e93cca145d18041c78d7a742948ab4a",
-      "seendate": "20251224T103300Z",
+      "title": "Eli Lilly Shares Slide as Weight-Loss Pill Results Dent Enthusiasm",
+      "url": "https://finnhub.io/api/news?id=f438c6d83a65f7d629d1cca2f50527934ca6c3f52b4bd0f5478688aaf5c75aa4",
+      "sourceurl": "https://finnhub.io/api/news?id=f438c6d83a65f7d629d1cca2f50527934ca6c3f52b4bd0f5478688aaf5c75aa4",
+      "seendate": "20250807T122000Z",
       "domain": "DowJones",
       "language": "English",
-      "content": "Nike Stock Price Gets a Lift After Apple’s Tim Cook Doubles His Stake",
+      "content": "Eli Lilly Shares Slide as Weight-Loss Pill Results Dent Enthusiasm",
       "coverage_count": 1,
-      "days_ago": 8,
-      "recency_weight": 0.7837433594376959,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.2796
-      },
-      "impact_horizon_weight": 0.5675,
-      "final_weight": 0.6669
-    },
-    {
-      "title": "Will 2026 Be The Year Apple Finally Joins The AI Race?",
-      "url": "https://finnhub.io/api/news?id=33abfd742948c8aba5f261a44c2a15e686fb2cd7f6bb16417c051dd3286d7141",
-      "sourceurl": "https://finnhub.io/api/news?id=33abfd742948c8aba5f261a44c2a15e686fb2cd7f6bb16417c051dd3286d7141",
-      "seendate": "20251223T165445Z",
-      "domain": "DowJones",
-      "language": "English",
-      "content": "Will 2026 Be The Year Apple Finally Joins The AI Race?",
-      "coverage_count": 1,
-      "days_ago": 9,
-      "recency_weight": 0.7602310586545651,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3195
-      },
-      "impact_horizon_weight": 0.5287,
-      "final_weight": 0.634
-    },
-    {
-      "title": "Apple Just Released a New AI Model. Should You Buy AAPL Stock Here?",
-      "url": "https://finnhub.io/api/news?id=8c5dce10340a431063e15839c8ff3b75f4504a028573260de9c017452701cec7",
-      "sourceurl": "https://finnhub.io/api/news?id=8c5dce10340a431063e15839c8ff3b75f4504a028573260de9c017452701cec7",
-      "seendate": "20251223T160003Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple’s AI breakthrough is turning heads on Wall Street while SHARP signals a deeper shift toward software-driven innovation. Is AAPL a buy now?",
-      "coverage_count": 1,
-      "days_ago": 9,
-      "recency_weight": 0.7602310586545651,
-      "content_stats": {
-        "total_sentences": 2,
-        "relevant_sentences": 2,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.2723
-      },
-      "impact_horizon_weight": 0.5287,
-      "final_weight": 0.634
-    },
-    {
-      "title": "Update: Apple Faces $115.7 Million Italian Regulator Fine Over Alleged 'Abuse' of 'Dominant Position'",
-      "url": "https://finnhub.io/api/news?id=9da604595296aeca21d02cc6d584e8d817a060dcd4d18392103944a0d447dda1",
-      "sourceurl": "https://finnhub.io/api/news?id=9da604595296aeca21d02cc6d584e8d817a060dcd4d18392103944a0d447dda1",
-      "seendate": "20251223T102353Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "(Updates with Apple's response in the fifth paragraph.) Apple (AAPL) has been fined roughly 98.6",
-      "coverage_count": 1,
-      "days_ago": 9,
-      "recency_weight": 0.7602310586545651,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3156
-      },
-      "impact_horizon_weight": 0.5287,
-      "final_weight": 0.634
-    },
-    {
-      "title": "Former Met chief demands Apple and Google disable stolen phones",
-      "url": "https://finnhub.io/api/news?id=3d7d5452794d27c541258aa8db737f490fe2373f922d0c1e41fa41a01bb8fd0d",
-      "sourceurl": "https://finnhub.io/api/news?id=3d7d5452794d27c541258aa8db737f490fe2373f922d0c1e41fa41a01bb8fd0d",
-      "seendate": "20251223T070000Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "A former Metropolitan Police chief has backed plans aimed at forcing Apple and Google to disable stolen smartphones.",
-      "coverage_count": 1,
-      "days_ago": 9,
-      "recency_weight": 0.7602310586545651,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3082
-      },
-      "impact_horizon_weight": 0.5287,
-      "final_weight": 0.634
-    },
-    {
-      "title": "Jim Cramer Says “I Own Apple, and I Say Own it, Don’t Trade It”",
-      "url": "https://finnhub.io/api/news?id=958021a0516de2ecbc44cf9d3fa074edb77cef87b5816610dceb8ded0012c9d3",
-      "sourceurl": "https://finnhub.io/api/news?id=958021a0516de2ecbc44cf9d3fa074edb77cef87b5816610dceb8ded0012c9d3",
-      "seendate": "20251223T051613Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple Inc. (NASDAQ:AAPL) is one of the stocks Jim Cramer answered questions about. Playing the round of “Am I Diversified?”, a caller mentioned that their top five holdings are NVDA, CRWD, AAPL, GS, and HOOD. Cramer remarked: “Interesting… We’ll do some, set some time on this.",
-      "coverage_count": 1,
-      "days_ago": 9,
-      "recency_weight": 0.7602310586545651,
-      "content_stats": {
-        "total_sentences": 6,
-        "relevant_sentences": 4,
-        "relevance_ratio": 0.6667,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3725
-      },
-      "impact_horizon_weight": 0.5287,
-      "final_weight": 0.634
-    },
-    {
-      "title": "Dow Jones Futures: Nvidia Tests Key Level; AppLovin, Apple, Palantir, Tesla In Buy Zones",
-      "url": "https://finnhub.io/api/news?id=89264c29174081d24b722378847da7a2ea6e4493b357d6e882329c24480e9737",
-      "sourceurl": "https://finnhub.io/api/news?id=89264c29174081d24b722378847da7a2ea6e4493b357d6e882329c24480e9737",
-      "seendate": "20251223T004127Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Dow Jones Futures: Nvidia rallied near a key resistance level Monday, while Apple, AppLovin, Palantir and Tesla are in buy zones.",
-      "coverage_count": 1,
-      "days_ago": 9,
-      "recency_weight": 0.7602310586545651,
+      "days_ago": 1,
+      "recency_weight": 0.9572727272727273,
       "content_stats": {
         "total_sentences": 1,
         "relevant_sentences": 1,
@@ -1150,202 +163,20 @@
         "horizon_days": 7,
         "confidence": 0.3322
       },
-      "impact_horizon_weight": 0.5287,
-      "final_weight": 0.634
+      "impact_horizon_weight": 0.9898,
+      "final_weight": 0.9734
     },
     {
-      "title": "Apple (AAPL) Stock Slides as Market Rises: Facts to Know Before You Trade",
-      "url": "https://finnhub.io/api/news?id=0a046dc45c722f5f40f1369ff7dc811267a3bd3bab9459201d258097bb9252ad",
-      "sourceurl": "https://finnhub.io/api/news?id=0a046dc45c722f5f40f1369ff7dc811267a3bd3bab9459201d258097bb9252ad",
-      "seendate": "20251222T224504Z",
+      "title": "Eli Lilly (LLY) Q2 Earnings and Revenues Surpass Estimates",
+      "url": "https://finnhub.io/api/news?id=e8f175b2f6387f2adc96bb9b12b3d9073f1c469c333e8d99a1ccb5d6d8579467",
+      "sourceurl": "https://finnhub.io/api/news?id=e8f175b2f6387f2adc96bb9b12b3d9073f1c469c333e8d99a1ccb5d6d8579467",
+      "seendate": "20250807T115502Z",
       "domain": "Yahoo",
       "language": "English",
-      "content": "Apple (AAPL) closed at $270.83 in the latest trading session, marking a -1.04% move from the prior day.",
+      "content": "Lilly (LLY) delivered earnings and revenue surprises of +12.48% and +5.48%, respectively, for the quarter ended June 2025. Do the numbers hold clues to what lies ahead for the stock?",
       "coverage_count": 1,
-      "days_ago": 10,
-      "recency_weight": 0.7374241268949281,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3526
-      },
-      "impact_horizon_weight": 0.4905,
-      "final_weight": 0.6014
-    },
-    {
-      "title": "Apple (AAPL) Target Raised as Jefferies Sees Stronger iPhone Demand",
-      "url": "https://finnhub.io/api/news?id=63d8957f5e1cf0e4eebadc6e0b294059fad6b6c49bbc6657ed8d8e1bae30cd03",
-      "sourceurl": "https://finnhub.io/api/news?id=63d8957f5e1cf0e4eebadc6e0b294059fad6b6c49bbc6657ed8d8e1bae30cd03",
-      "seendate": "20251222T160414Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple Inc. (NASDAQ:AAPL) is included among the 13 Top Tech Stocks Paying Consistent Dividends. On December 17, Jefferies analyst Edison Lee lifted Apple Inc. (NASDAQ:AAPL)’s price target to $283.36 from $246.99 while maintaining a Hold rating on the stock. The firm boosted its iPhone shipment forecasts, raising Q1 estimates by 7% and FY26 projections by […]",
-      "coverage_count": 1,
-      "days_ago": 10,
-      "recency_weight": 0.7374241268949281,
-      "content_stats": {
-        "total_sentences": 5,
-        "relevant_sentences": 5,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.511
-      },
-      "impact_horizon_weight": 0.4905,
-      "final_weight": 0.6014
-    },
-    {
-      "title": "If You Think Apple Trading For 36x Earnings Is Nuts, You Can Bet Against Them With AAPD ETF",
-      "url": "https://finnhub.io/api/news?id=20107c36ab42bace974fdaba53c1af67b205c09d7ad79d03d0ab8de846012605",
-      "sourceurl": "https://finnhub.io/api/news?id=20107c36ab42bace974fdaba53c1af67b205c09d7ad79d03d0ab8de846012605",
-      "seendate": "20251222T143030Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple (NASDAQ:AAPL) trades at 36x earnings while delivering just 10% returns over the past year. If you’re skeptical that the 4t tech giant can continue this performance into 2026, the Direxion Daily AAPL Bear 1X Shares (NASDAQ:AAPD) is an inverse ETF that provides -1x daily exposure to Apple’s price movements. But there are some things ... If You Think Apple Trading For 36x Earnings Is Nuts, You Can Bet Against Them With AAPD ETF",
-      "coverage_count": 1,
-      "days_ago": 10,
-      "recency_weight": 0.7374241268949281,
-      "content_stats": {
-        "total_sentences": 4,
-        "relevant_sentences": 4,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3606
-      },
-      "impact_horizon_weight": 0.4905,
-      "final_weight": 0.6014
-    },
-    {
-      "title": "Morgan Stanley Lifts Apple Inc. (AAPL) Price Target on Earnings Growth Expectations",
-      "url": "https://finnhub.io/api/news?id=f7f1a66ee92ca56bb567c7d29f25ca2fc98f994c8c9ab59ffc83b1d623b74a9d",
-      "sourceurl": "https://finnhub.io/api/news?id=f7f1a66ee92ca56bb567c7d29f25ca2fc98f994c8c9ab59ffc83b1d623b74a9d",
-      "seendate": "20251222T133955Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple Inc. (NASDAQ:AAPL) is one of the best forever stocks to buy according to hedge funds. On December 17, Morgan Stanley reiterated its Overweight rating on Apple Inc. (NASDAQ: AAPL) and increased the price target to $315 from $305. The investment bank hiked the price target to reflect a 32X expected fiscal 2027 earnings per […]",
-      "coverage_count": 1,
-      "days_ago": 10,
-      "recency_weight": 0.7374241268949281,
-      "content_stats": {
-        "total_sentences": 5,
-        "relevant_sentences": 5,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3929
-      },
-      "impact_horizon_weight": 0.4905,
-      "final_weight": 0.6014
-    },
-    {
-      "title": "Apple Fined $115 Million in Italy Over App Tracking Policy",
-      "url": "https://finnhub.io/api/news?id=c612b9fef7bac4caacc3cefd0f8b428d9ef5fc633097ce513949831bb3f77c0d",
-      "sourceurl": "https://finnhub.io/api/news?id=c612b9fef7bac4caacc3cefd0f8b428d9ef5fc633097ce513949831bb3f77c0d",
-      "seendate": "20251222T123400Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Italy’s competition watchdog fined Apple more than 98 million euros ($114.8 million), saying the company abused its dominance in the digital economy through its app-tracking transparency policy. The AGCM said Monday that Apple imposes unfair privacy rules on app developers by requiring them to gain users’ consent to collect and use data for advertising through a specific prompt. The watchdog said the prompt essentially forces app developers to ask for consent twice for the same purpose.",
-      "coverage_count": 1,
-      "days_ago": 10,
-      "recency_weight": 0.7374241268949281,
-      "content_stats": {
-        "total_sentences": 3,
-        "relevant_sentences": 3,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.4273
-      },
-      "impact_horizon_weight": 0.4905,
-      "final_weight": 0.6014
-    },
-    {
-      "title": "Is Apple Inc. (NASDAQ:AAPL) Expensive For A Reason? A Look At Its Intrinsic Value",
-      "url": "https://finnhub.io/api/news?id=2781c496b929520294832ac1f0c370a9cc71719fecb5f0403d48ff20042a067e",
-      "sourceurl": "https://finnhub.io/api/news?id=2781c496b929520294832ac1f0c370a9cc71719fecb5f0403d48ff20042a067e",
-      "seendate": "20251222T120017Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Key Insights Apple's estimated fair value is US$224 based on 2 Stage Free Cash Flow to Equity Apple is estimated to be...",
-      "coverage_count": 1,
-      "days_ago": 10,
-      "recency_weight": 0.7374241268949281,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.2969
-      },
-      "impact_horizon_weight": 0.4905,
-      "final_weight": 0.6014
-    },
-    {
-      "title": "Prediction: Berkshire Hathaway Will Stop Selling Apple Stock in 2026",
-      "url": "https://finnhub.io/api/news?id=01d843501cf82b0546589562fe4b9d482191dcf096cc56752a0a7fff3c846a65",
-      "sourceurl": "https://finnhub.io/api/news?id=01d843501cf82b0546589562fe4b9d482191dcf096cc56752a0a7fff3c846a65",
-      "seendate": "20251222T085100Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Berkshire's Apple sales look more like a sizing move than a lasting retreat.",
-      "coverage_count": 1,
-      "days_ago": 10,
-      "recency_weight": 0.7374241268949281,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3593
-      },
-      "impact_horizon_weight": 0.4905,
-      "final_weight": 0.6014
-    },
-    {
-      "title": "China's vice commerce minister met Apple COO on Friday",
-      "url": "https://finnhub.io/api/news?id=35eb4e26e1cc530318366ca836d899b7428a611059bf19a065a33063199180e6",
-      "sourceurl": "https://finnhub.io/api/news?id=35eb4e26e1cc530318366ca836d899b7428a611059bf19a065a33063199180e6",
-      "seendate": "20251222T064825Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "BEIJING, Dec 22 (Reuters) - China's Vice Commerce ​Minister Li ‌Chenggang and Apple's (AAPL) Chief ‌Operating Officer Sabih Khan discussed the U.S. firm's business ⁠operations in ‌China in a meeting on ‍Friday, a commerce ministry statement said on Monday.",
-      "coverage_count": 1,
-      "days_ago": 10,
-      "recency_weight": 0.7374241268949281,
+      "days_ago": 1,
+      "recency_weight": 0.9572727272727273,
       "content_stats": {
         "total_sentences": 2,
         "relevant_sentences": 2,
@@ -1356,100 +187,22 @@
       "impact_horizon": {
         "category": "SHORT_TERM",
         "horizon_days": 7,
-        "confidence": 0.4506
+        "confidence": 0.291
       },
-      "impact_horizon_weight": 0.4905,
-      "final_weight": 0.6014
+      "impact_horizon_weight": 0.9898,
+      "final_weight": 0.9734
     },
     {
-      "title": "Apple Targets 2026 Launch For AI Smart Glasses, Camera-Equipped AirPods, With Foxconn, TSMC Set To Play Key Roles: Report",
-      "url": "https://finnhub.io/api/news?id=26c5a07d2ddf7e63966523a0223f3e0edc526d93a764bf79d5e7d17e3115e6b1",
-      "sourceurl": "https://finnhub.io/api/news?id=26c5a07d2ddf7e63966523a0223f3e0edc526d93a764bf79d5e7d17e3115e6b1",
-      "seendate": "20251221T223151Z",
-      "domain": "Benzinga",
-      "language": "English",
-      "content": "Apple is reportedly targeting a 2026 launch for AI-powered smart glasses and camera-equipped AirPods.",
-      "coverage_count": 1,
-      "days_ago": 11,
-      "recency_weight": 0.7153014030880802,
-      "content_stats": {
-        "total_sentences": 1,
-        "relevant_sentences": 1,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.278
-      },
-      "impact_horizon_weight": 0.4532,
-      "final_weight": 0.5694
-    },
-    {
-      "title": "Morgan Stanley Boosts Apple (AAPL) Target, Sees Upside From Pricing Power and AI",
-      "url": "https://finnhub.io/api/news?id=2dd31088483b58437d10429a05dd3a439e520499f93bcd00960da2a3c831c78d",
-      "sourceurl": "https://finnhub.io/api/news?id=2dd31088483b58437d10429a05dd3a439e520499f93bcd00960da2a3c831c78d",
-      "seendate": "20251221T201558Z",
+      "title": "Eli Lilly Stock Dives Drops After Earnings Beat. Here’s Why.",
+      "url": "https://finnhub.io/api/news?id=7f9a172e215b9bf2d327265754e8bd50efbe959ab318dae915451d257e6de50e",
+      "sourceurl": "https://finnhub.io/api/news?id=7f9a172e215b9bf2d327265754e8bd50efbe959ab318dae915451d257e6de50e",
+      "seendate": "20250807T113800Z",
       "domain": "Yahoo",
       "language": "English",
-      "content": "Apple Inc. (NASDAQ:AAPL) is one of the AI Stocks on the Market’s Radar. On December 17, Morgan Stanley raised its price target on the stock to $315.00 from $305.00 while maintaining an Overweight rating. According to the firm, the new $315 price target reflects an “unchanged 32x multiple on our new FY27 EPS of $9.83 […]",
+      "content": "Eli Lilly stock tumbled after it released the results for an experimental weight-loss pill study and reported a beat-and-raise quarter early Thursday. The medicine, Orforglipron, resulted in a weight reduction of on average 12.4% over 72 weeks in adults with obesity, Lilly said in a statement. Adjusted earnings per share (EPS) came in at $6.31 on sales of $15.6 billion in the quarter, beating expectations of $5.60 a share on sales of $14.7 billion, according to FactSet.",
       "coverage_count": 1,
-      "days_ago": 11,
-      "recency_weight": 0.7153014030880802,
-      "content_stats": {
-        "total_sentences": 4,
-        "relevant_sentences": 4,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3926
-      },
-      "impact_horizon_weight": 0.4532,
-      "final_weight": 0.5694
-    },
-    {
-      "title": "Jim Cramer Says “Apple Might Be Hurt By Higher Memory Prices From Micron”",
-      "url": "https://finnhub.io/api/news?id=a053068793d0c65a6bf765b8ef9a64388f45165bb85610fa59cd4acc9055f8d5",
-      "sourceurl": "https://finnhub.io/api/news?id=a053068793d0c65a6bf765b8ef9a64388f45165bb85610fa59cd4acc9055f8d5",
-      "seendate": "20251221T154457Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple Inc. (NASDAQ:AAPL) is one of the tech and consumer sector stocks that Jim Cramer talked about. Cramer mentioned the company during the stock, as he said: “Apple might be hurt by higher memory prices from Micron, as we heard just last night… but a wealthier consumer may also buy more phones.” Apple Inc. (NASDAQ:AAPL) […]",
-      "coverage_count": 1,
-      "days_ago": 11,
-      "recency_weight": 0.7153014030880802,
-      "content_stats": {
-        "total_sentences": 4,
-        "relevant_sentences": 4,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3495
-      },
-      "impact_horizon_weight": 0.4532,
-      "final_weight": 0.5694
-    },
-    {
-      "title": "Jim Cramer Says “Own Apple, Don’t Trade It”",
-      "url": "https://finnhub.io/api/news?id=7df1fcd363dabd1288d4fa03db04aeac136e23816ca607b8ebdf7b6ced3b95a7",
-      "sourceurl": "https://finnhub.io/api/news?id=7df1fcd363dabd1288d4fa03db04aeac136e23816ca607b8ebdf7b6ced3b95a7",
-      "seendate": "20251221T151406Z",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Apple Inc. (NASDAQ:AAPL) is one of the one of the stocks Jim Cramer was bullish on due to share buyback activity. Cramer called it a “buyback monster” during the episode and said: “Second, don’t forget that Apple, the second largest company in the world, also happens to be a buyback monster, having shrunk its share […]",
-      "coverage_count": 1,
-      "days_ago": 11,
-      "recency_weight": 0.7153014030880802,
+      "days_ago": 1,
+      "recency_weight": 0.9572727272727273,
       "content_stats": {
         "total_sentences": 3,
         "relevant_sentences": 3,
@@ -1460,25 +213,25 @@
       "impact_horizon": {
         "category": "SHORT_TERM",
         "horizon_days": 7,
-        "confidence": 0.3542
+        "confidence": 0.3242
       },
-      "impact_horizon_weight": 0.4532,
-      "final_weight": 0.5694
+      "impact_horizon_weight": 0.9898,
+      "final_weight": 0.9734
     },
     {
-      "title": "Where is Apple Inc. (AAPL) Headed According to Wall Street?",
-      "url": "https://finnhub.io/api/news?id=87239c75c31d3b9331912c5a7e9d52d2487ba5b2f69f35c8b34ecace986e40e9",
-      "sourceurl": "https://finnhub.io/api/news?id=87239c75c31d3b9331912c5a7e9d52d2487ba5b2f69f35c8b34ecace986e40e9",
-      "seendate": "20251221T145730Z",
+      "title": "Eli Lilly second quarter earnings beat on strong GLP-1 sales, but stock dives on GLP-1 pill trial results",
+      "url": "https://finnhub.io/api/news?id=7ac127bc2dc9ae144d21a8ceaa0d91a5b41459e1c2e56151d521aa40623f47a8",
+      "sourceurl": "https://finnhub.io/api/news?id=7ac127bc2dc9ae144d21a8ceaa0d91a5b41459e1c2e56151d521aa40623f47a8",
+      "seendate": "20250807T110130Z",
       "domain": "Yahoo",
       "language": "English",
-      "content": "Apple Inc. (NASDAQ:AAPL) is one of the most widely held stocks by hedge funds in 2025. On December 17, Jefferies analyst Edison Lee lifted the price target on Apple Inc. (NASDAQ:AAPL) to $283.36 from $246.99 while maintaining a Hold rating on the stock. The firm raised its Q1 and fiscal year 2026 iPhone unit estimates […]",
+      "content": "Eli Lilly reported second quarter earnings Thursday, a day after competitor Novo Nordisk missed earnings estimates by Wall Street.",
       "coverage_count": 1,
-      "days_ago": 11,
-      "recency_weight": 0.7153014030880802,
+      "days_ago": 1,
+      "recency_weight": 0.9572727272727273,
       "content_stats": {
-        "total_sentences": 5,
-        "relevant_sentences": 5,
+        "total_sentences": 1,
+        "relevant_sentences": 1,
         "relevance_ratio": 1.0,
         "condensed": false,
         "filter_action": "no_change"
@@ -1486,22 +239,74 @@
       "impact_horizon": {
         "category": "SHORT_TERM",
         "horizon_days": 7,
-        "confidence": 0.3607
+        "confidence": 0.3354
       },
-      "impact_horizon_weight": 0.4532,
-      "final_weight": 0.5694
+      "impact_horizon_weight": 0.9898,
+      "final_weight": 0.9734
     },
     {
-      "title": "Analysts Have a Moderate Buy Rating on Apple Inc. (AAPL)",
-      "url": "https://finnhub.io/api/news?id=0a34f8f4db2493ac2a19e7a1472068ff9d8dc92569dcba25d48f2e7112ce7ce1",
-      "sourceurl": "https://finnhub.io/api/news?id=0a34f8f4db2493ac2a19e7a1472068ff9d8dc92569dcba25d48f2e7112ce7ce1",
-      "seendate": "20251220T115631Z",
+      "title": "Eli Lilly’s Weight Loss Pill Doesn’t Work as Well as Investors Hoped. The Obesity Trade Is Wavering Again.",
+      "url": "https://finnhub.io/api/news?id=97839baeeadcfe7bd00cc854258552ad7ae2bd0a650866787c9d7d26516dbe18",
+      "sourceurl": "https://finnhub.io/api/news?id=97839baeeadcfe7bd00cc854258552ad7ae2bd0a650866787c9d7d26516dbe18",
+      "seendate": "20250807T102400Z",
+      "domain": "MarketWatch",
+      "language": "English",
+      "content": "Eli Lilly’s Weight Loss Pill Doesn’t Work as Well as Investors Hoped.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.9572727272727273,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 1,
+        "relevance_ratio": 0.5,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3023
+      },
+      "impact_horizon_weight": 0.9898,
+      "final_weight": 0.9734
+    },
+    {
+      "title": "Eli Lilly: targets raised for 2025",
+      "url": "https://finnhub.io/api/news?id=5799b352e43055b863f2451a262abff4031f26ef2688bd9a6735fa166f3daf7b",
+      "sourceurl": "https://finnhub.io/api/news?id=5799b352e43055b863f2451a262abff4031f26ef2688bd9a6735fa166f3daf7b",
+      "seendate": "20250807T080526Z",
+      "domain": "Finnhub",
+      "language": "English",
+      "content": "In its quarterly report, Eli Lilly said that it is raising its adjusted EPS target range for FY 2025 to between $21.75 and $23, up from a previous forecast of $20.78 to $22.28. However, NB: after...",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.9572727272727273,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2915
+      },
+      "impact_horizon_weight": 0.9898,
+      "final_weight": 0.9734
+    },
+    {
+      "title": "Eli Lilly Reports Earnings, and Maybe Weight-Loss Pill Data, on Thursday",
+      "url": "https://finnhub.io/api/news?id=45221b3e09e5284f7727eea3d374b03be681c9a917f8b2520d67597b2d90dc9b",
+      "sourceurl": "https://finnhub.io/api/news?id=45221b3e09e5284f7727eea3d374b03be681c9a917f8b2520d67597b2d90dc9b",
+      "seendate": "20250806T203400Z",
       "domain": "Yahoo",
       "language": "English",
-      "content": "Apple Inc. (NASDAQ:AAPL) is among the 14 Best S&P 500 Stocks to Buy Now. On December 15, JPMorgan analyst Samik Chatterjee maintained an Overweight rating on the stock with a share price target of $305, a reaffirmation of an earlier update on October 31. The adjustment follows Citi analyst Atif Malik lifting his price target […]",
+      "content": "When Eli Lilly reports its financial results early Thursday, investors will be looking for the company to press its advantage in the booming weight-loss drug market. Competitor Novo Nordisk has fallen behind Lilly, as Lilly’s weight-loss shot Zepbound has seized a commanding majority of U.S. obesity prescriptions over Novo’s Wegovy. On Wednesday, Novo Nordisk presented data showing that Zepbound now accounts for 59% of U.S.-branded weight-loss prescriptions, while Wegovy has just 40%.",
       "coverage_count": 1,
-      "days_ago": 12,
-      "recency_weight": 0.6938423609954377,
+      "days_ago": 2,
+      "recency_weight": 0.9163710743801653,
       "content_stats": {
         "total_sentences": 4,
         "relevant_sentences": 4,
@@ -1512,10 +317,946 @@
       "impact_horizon": {
         "category": "SHORT_TERM",
         "horizon_days": 7,
-        "confidence": 0.3359
+        "confidence": 0.276
       },
-      "impact_horizon_weight": 0.417,
-      "final_weight": 0.5379
+      "impact_horizon_weight": 0.96,
+      "final_weight": 0.9379
+    },
+    {
+      "title": "RFK Jr. Sued By Eli Lilly, Amgen Over Drug Discount Program",
+      "url": "https://finnhub.io/api/news?id=05308f599c76e6dae037fbd01f0814a3dade54177321bbb9693346fe85166cf9",
+      "sourceurl": "https://finnhub.io/api/news?id=05308f599c76e6dae037fbd01f0814a3dade54177321bbb9693346fe85166cf9",
+      "seendate": "20250806T114923Z",
+      "domain": "Benzinga",
+      "language": "English",
+      "content": "Eli Lilly and Amgen are suing HHS over 340B certifications, claiming ineligible clinics cost them millions in lost revenue.",
+      "coverage_count": 1,
+      "days_ago": 2,
+      "recency_weight": 0.9163710743801653,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.302
+      },
+      "impact_horizon_weight": 0.96,
+      "final_weight": 0.9379
+    },
+    {
+      "title": "Is Wall Street Bullish or Bearish on Eli Lilly Stock?",
+      "url": "https://finnhub.io/api/news?id=afb4c0660855c5fb7ec9134a68cdcc3b5bbc1eba11ec8281139f136d562e8439",
+      "sourceurl": "https://finnhub.io/api/news?id=afb4c0660855c5fb7ec9134a68cdcc3b5bbc1eba11ec8281139f136d562e8439",
+      "seendate": "20250806T094837Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Eli Lilly shares have underperformed the broader market over the past year, but Wall Street analysts remain firmly bullish in the company’s long-term growth prospects.",
+      "coverage_count": 1,
+      "days_ago": 2,
+      "recency_weight": 0.9163710743801653,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.299
+      },
+      "impact_horizon_weight": 0.96,
+      "final_weight": 0.9379
+    },
+    {
+      "title": "Eli Lilly Earnings: What To Look For From LLY",
+      "url": "https://finnhub.io/api/news?id=9fcf50429442e6073940779db3ecdd7c7db049a917a291450985abdf7af82623",
+      "sourceurl": "https://finnhub.io/api/news?id=9fcf50429442e6073940779db3ecdd7c7db049a917a291450985abdf7af82623",
+      "seendate": "20250806T031921Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Global pharmaceutical company Eli Lilly (NYSE:LLY) will be reporting earnings this Thursday before the bell. Here’s what investors should know.",
+      "coverage_count": 1,
+      "days_ago": 2,
+      "recency_weight": 0.9163710743801653,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2782
+      },
+      "impact_horizon_weight": 0.96,
+      "final_weight": 0.9379
+    },
+    {
+      "title": "Inspire Medical Systems Crashes 32% As Eli Lilly's GLP-1 Weighs On Guidance",
+      "url": "https://finnhub.io/api/news?id=71b4ba9d94d300711fa16bdcd3e427a8d25ad41eb657fe4e4037f4d9562a5a70",
+      "sourceurl": "https://finnhub.io/api/news?id=71b4ba9d94d300711fa16bdcd3e427a8d25ad41eb657fe4e4037f4d9562a5a70",
+      "seendate": "20250805T162217Z",
+      "domain": "DowJones",
+      "language": "English",
+      "content": "Inspire Medical Systems Crashes 32% As Eli Lilly's GLP-1 Weighs On Guidance",
+      "coverage_count": 1,
+      "days_ago": 3,
+      "recency_weight": 0.8772170375657401,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2972
+      },
+      "impact_horizon_weight": 0.9123,
+      "final_weight": 0.8946
+    },
+    {
+      "title": "Evers announces $100 million tax credits deal with Eli Lilly for Kenosha County development",
+      "url": "https://finnhub.io/api/news?id=12675377918088399543e946c3cd8af70c3a7de7b5ab4a72e8ff8d006bcd1b5c",
+      "sourceurl": "https://finnhub.io/api/news?id=12675377918088399543e946c3cd8af70c3a7de7b5ab4a72e8ff8d006bcd1b5c",
+      "seendate": "20250805T160259Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Eli Lilly is investing up to $4 billion in the Bristol project and Wisconsin plans to provide up to $100 million in performance-based tax credits.",
+      "coverage_count": 1,
+      "days_ago": 3,
+      "recency_weight": 0.8772170375657401,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2801
+      },
+      "impact_horizon_weight": 0.9123,
+      "final_weight": 0.8946
+    },
+    {
+      "title": "Health Care Down After Eli Lilly Earnings -- Health Care Roundup",
+      "url": "https://finnhub.io/api/news?id=35d50ceb653c52ef969a80f9472a9128440bd015c2f91f357d99d66fd21b730d",
+      "sourceurl": "https://finnhub.io/api/news?id=35d50ceb653c52ef969a80f9472a9128440bd015c2f91f357d99d66fd21b730d",
+      "seendate": "20250807T175300Z",
+      "domain": "MarketWatch",
+      "language": "English",
+      "content": "Health Care Down After Eli Lilly Earnings -- Health Care Roundup",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.9572727272727273,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.3758
+      },
+      "impact_horizon_weight": 0.7748,
+      "final_weight": 0.8612
+    },
+    {
+      "title": "Eli Lilly Dives 14% On A Shocking Obesity Setback, Sending Its Rivals Flying",
+      "url": "https://finnhub.io/api/news?id=caecb6949683ec8e92e01bbf681ed85e9db57d8a20394ddadc05e5862b7d3724",
+      "sourceurl": "https://finnhub.io/api/news?id=caecb6949683ec8e92e01bbf681ed85e9db57d8a20394ddadc05e5862b7d3724",
+      "seendate": "20250807T141933Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Eli Lilly stock tumbled Thursday on an unexpected setback for its obesity franchise, sending shares of its rival flying.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.9572727272727273,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.2977
+      },
+      "impact_horizon_weight": 0.7748,
+      "final_weight": 0.8612
+    },
+    {
+      "title": "Stock Market Today: Dow Futures Rise On Trump Tariff News; Apple, Nvidia Rally, Eli Lilly Plunges (Live Coverage)",
+      "url": "https://finnhub.io/api/news?id=bb5b565d20087c9bace1fd2cb243104a7a58aff768b83da6db71aebddf693324",
+      "sourceurl": "https://finnhub.io/api/news?id=bb5b565d20087c9bace1fd2cb243104a7a58aff768b83da6db71aebddf693324",
+      "seendate": "20250807T130704Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "The Dow Jones Index rose Thursday on Trump tariff news. Eli Lilly plunged on disappointing weight-loss drug trial results.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.9572727272727273,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.3232
+      },
+      "impact_horizon_weight": 0.7748,
+      "final_weight": 0.8612
+    },
+    {
+      "title": "Novo Nordisk shares jump as Eli Lilly obesity pill disappoints",
+      "url": "https://finnhub.io/api/news?id=5dbc030e0ead837bfec899cd94650d16d3ab8d0169024d55892c95a3ec8b6252",
+      "sourceurl": "https://finnhub.io/api/news?id=5dbc030e0ead837bfec899cd94650d16d3ab8d0169024d55892c95a3ec8b6252",
+      "seendate": "20250807T121718Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Investing.com -- Novo Nordisk shares surged more than 11% in premarket trading Thursday after Eli Lilly’s data on its oral obesity drug orforglipron underwhelmed investors, prompting concerns over both efficacy and tolerability.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.9572727272727273,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.4119
+      },
+      "impact_horizon_weight": 0.7748,
+      "final_weight": 0.8612
+    },
+    {
+      "title": "Danish drugmakers jump as Eli Lilly's weight-loss pill data disappoints",
+      "url": "https://finnhub.io/api/news?id=dea0071646028a18eb1fc257e16e54ed9869dfa103494cf78473b4a3167725d3",
+      "sourceurl": "https://finnhub.io/api/news?id=dea0071646028a18eb1fc257e16e54ed9869dfa103494cf78473b4a3167725d3",
+      "seendate": "20250807T115015Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "(Reuters) -Shares in Novo Nordisk rose as much as 14% on Thursday after trial data from Eli Lilly's experimental weight-loss pill fell short of expectations, boosting investor confidence in the Danish drugmaker's market-leading obesity treatment. The market had anticipated Eli Lilly's orforglipron pill to become a strong competitor to Novo's weight-loss drugs, Kepler Cheuvreux analyst David Evans said in an emailed comment.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.9572727272727273,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.4024
+      },
+      "impact_horizon_weight": 0.7748,
+      "final_weight": 0.8612
+    },
+    {
+      "title": "Eli Lilly's Rare Weight Loss Data Miss Could Benefit Competitors",
+      "url": "https://finnhub.io/api/news?id=b9096f025c235f6531535b0d739efdc9d097c132b3918ec5067763c0a1672c23",
+      "sourceurl": "https://finnhub.io/api/news?id=b9096f025c235f6531535b0d739efdc9d097c132b3918ec5067763c0a1672c23",
+      "seendate": "20250807T095546Z",
+      "domain": "Benzinga",
+      "language": "English",
+      "content": "Eli Lilly&#39;s obesity drug data misses targets, boosting shares of Novo Nordisk, Viking, Structure, and Terns amid promising trial updates.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.9572727272727273,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.2743
+      },
+      "impact_horizon_weight": 0.7748,
+      "final_weight": 0.8612
+    },
+    {
+      "title": "Eli Lilly: The Worst May Be Already Over (Earnings Preview)",
+      "url": "https://finnhub.io/api/news?id=a889660edab9d8e2c127c12fae5128f27512e693e3627d5adaa3c25e6ec007e4",
+      "sourceurl": "https://finnhub.io/api/news?id=a889660edab9d8e2c127c12fae5128f27512e693e3627d5adaa3c25e6ec007e4",
+      "seendate": "20250801T080000Z",
+      "domain": "SeekingAlpha",
+      "language": "English",
+      "content": "Eli Lilly stock is set to report Q2 2025 earnings on August 7, with consensus expecting $14.4 billion in revenue and $5.56 EPS, up 30-42% YoY. Read the full earnings preview here.",
+      "coverage_count": 1,
+      "days_ago": 7,
+      "recency_weight": 0.7366306788530732,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.2989
+      },
+      "impact_horizon_weight": 1.0,
+      "final_weight": 0.8583
+    },
+    {
+      "title": "Eli Lilly stock drops after Trump unleashes 250% pharma tariff warning",
+      "url": "https://finnhub.io/api/news?id=83241685863c1e20a711364e4c9f500cc4119547ac516f33ab08ca016bf2a714",
+      "sourceurl": "https://finnhub.io/api/news?id=83241685863c1e20a711364e4c9f500cc4119547ac516f33ab08ca016bf2a714",
+      "seendate": "20250805T191612Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Trump tariff shock hits Eli Lilly as $27B U.S. plan fails to impress",
+      "coverage_count": 1,
+      "days_ago": 3,
+      "recency_weight": 0.8772170375657401,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.4546
+      },
+      "impact_horizon_weight": 0.6065,
+      "final_weight": 0.7294
+    },
+    {
+      "title": "Eli Lilly (LLY) Reports Results From SURPASS-CVOT Study: Mounjaro's Impact Analyzed",
+      "url": "https://finnhub.io/api/news?id=0b53835e2db32e482232b9d1b5490145fae24f9b17cdc04b2d87331cd89ca14a",
+      "sourceurl": "https://finnhub.io/api/news?id=0b53835e2db32e482232b9d1b5490145fae24f9b17cdc04b2d87331cd89ca14a",
+      "seendate": "20250801T174750Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Eli Lilly (LLY) recently announced promising findings from its SURPASS-CVOT trial, revealing Mounjaro's potential benefits over Trulicity in reducing cardiovascular events. Despite these positive announcements, the company's share price fell by 4.62% over the past month. In contrast, Lilly's progress in diabetes and Alzheimer's treatments...",
+      "coverage_count": 1,
+      "days_ago": 7,
+      "recency_weight": 0.7366306788530732,
+      "content_stats": {
+        "total_sentences": 4,
+        "relevant_sentences": 3,
+        "relevance_ratio": 0.75,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3433
+      },
+      "impact_horizon_weight": 0.6065,
+      "final_weight": 0.6684
+    },
+    {
+      "title": "Trim Your AI Stocks And Buy Eli Lilly",
+      "url": "https://finnhub.io/api/news?id=8720f062a519f38c9a63ab1ca038f5ac886077cab33af49ed0850682d8bb1de9",
+      "sourceurl": "https://finnhub.io/api/news?id=8720f062a519f38c9a63ab1ca038f5ac886077cab33af49ed0850682d8bb1de9",
+      "seendate": "20250801T151819Z",
+      "domain": "SeekingAlpha",
+      "language": "English",
+      "content": "AI and semiconductor stocks are overvalued and shifting to healthcare stocks like Eli Lilly and Company could be wise. Click for my LLY stock update.",
+      "coverage_count": 1,
+      "days_ago": 7,
+      "recency_weight": 0.7366306788530732,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.342
+      },
+      "impact_horizon_weight": 0.6065,
+      "final_weight": 0.6684
+    },
+    {
+      "title": "Eli Lilly: The Best Growth Prospects Come At A Price",
+      "url": "https://finnhub.io/api/news?id=a103bea0a7385c6e454f3842fe118b732b1d0bb2629309292d9913da91a5cfde",
+      "sourceurl": "https://finnhub.io/api/news?id=a103bea0a7385c6e454f3842fe118b732b1d0bb2629309292d9913da91a5cfde",
+      "seendate": "20250801T124116Z",
+      "domain": "SeekingAlpha",
+      "language": "English",
+      "content": "Eli Lilly's growth is fueled by GLP-1 blockbusters and a solid pipeline, yet high valuations and reliance on key drugs suggest caution. Click here to read.",
+      "coverage_count": 1,
+      "days_ago": 7,
+      "recency_weight": 0.7366306788530732,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2926
+      },
+      "impact_horizon_weight": 0.6065,
+      "final_weight": 0.6684
+    },
+    {
+      "title": "Eli Lilly’s Mounjaro shows cardiovascular gains, but analysts underwhelmed",
+      "url": "https://finnhub.io/api/news?id=e22182e31a15ea6c3ef03fe0df6aded18481a984f4c6c4644ff70b2ae65b589e",
+      "sourceurl": "https://finnhub.io/api/news?id=e22182e31a15ea6c3ef03fe0df6aded18481a984f4c6c4644ff70b2ae65b589e",
+      "seendate": "20250801T114116Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Eli Lilly’s trial evaluating Mounjaro in reducing cardiovascular risk met its endpoint, though missed analyst expectations.",
+      "coverage_count": 1,
+      "days_ago": 7,
+      "recency_weight": 0.7366306788530732,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.33
+      },
+      "impact_horizon_weight": 0.6065,
+      "final_weight": 0.6684
+    },
+    {
+      "title": "Eli Lilly and Company (LLY): We Sold Some Lilly, Says Jim Cramer",
+      "url": "https://finnhub.io/api/news?id=78e32c638620e5bcfba032443c837bbeb4074b18e64369dd2d45f414b3472b2b",
+      "sourceurl": "https://finnhub.io/api/news?id=78e32c638620e5bcfba032443c837bbeb4074b18e64369dd2d45f414b3472b2b",
+      "seendate": "20250731T195450Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "We recently published 12 Stocks Jim Cramer Recently Discussed As He Commented On A “Sea Of Green”. Eli Lilly and Company (NYSE:LLY) is one of the stocks Jim Cramer recently discussed. Weight loss drug giant Eli Lilly and Company (NYSE:LLY)’s shares have struggled in 2025 as they have lost 2.3% year-to-date. Yet, despite the stock’s […]",
+      "coverage_count": 1,
+      "days_ago": 8,
+      "recency_weight": 0.7051564589384418,
+      "content_stats": {
+        "total_sentences": 4,
+        "relevant_sentences": 4,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3975
+      },
+      "impact_horizon_weight": 0.5205,
+      "final_weight": 0.6058
+    },
+    {
+      "title": "Eli Lilly (LLY) Reveals Promising Diabetes and Alzheimer's Trials Results",
+      "url": "https://finnhub.io/api/news?id=43f35e65f9e32291f7407dbf9092e4d017018be2561b238728eb3144dbcd827f",
+      "sourceurl": "https://finnhub.io/api/news?id=43f35e65f9e32291f7407dbf9092e4d017018be2561b238728eb3144dbcd827f",
+      "seendate": "20250731T174033Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Eli Lilly (LLY) has recently shared positive developments in its innovative therapies, reporting significant progress with Mounjaro and Kisunla in cardiovascular health and Alzheimer's treatment, respectively. Over the past month, LLY experienced a 2.5% decline in its stock price, slightly diverging from broader market trends where major indexes were generally buoyed by strong earnings from tech giants like Microsoft and Meta. While Eli Lilly's advancements in clinical trials and strategic...",
+      "coverage_count": 1,
+      "days_ago": 8,
+      "recency_weight": 0.7051564589384418,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.4131
+      },
+      "impact_horizon_weight": 0.5205,
+      "final_weight": 0.6058
+    },
+    {
+      "title": "Eli Lilly and Company (LLY): Jim Cramer’s “Bullish” On News Of Tariffs",
+      "url": "https://finnhub.io/api/news?id=ec5cbc07855d0332568210b79bf6655acd7aefc9b94b4a01a7e690edea34e13f",
+      "sourceurl": "https://finnhub.io/api/news?id=ec5cbc07855d0332568210b79bf6655acd7aefc9b94b4a01a7e690edea34e13f",
+      "seendate": "20250730T190243Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "We recently published 10 Stocks That Jim Cramer Talked About. Eli Lilly and Company (NYSE:LLY) is one of the stocks Jim Cramer recently discussed. Eli Lilly and Company (NYSE:LLY) is one of Cramer’s top pharmaceutical stocks. While the firm’s weight loss drugs are one reason the CNBC TV host likes it, he’s also bullish on […]",
+      "coverage_count": 1,
+      "days_ago": 9,
+      "recency_weight": 0.6750270466019812,
+      "content_stats": {
+        "total_sentences": 4,
+        "relevant_sentences": 4,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3813
+      },
+      "impact_horizon_weight": 0.4376,
+      "final_weight": 0.5435
+    },
+    {
+      "title": "Eli Lilly (LLY) Unveils Alzheimer's And CLL Trial Results With New LTZ Collaboration",
+      "url": "https://finnhub.io/api/news?id=a709ce61ce3e7f305d93c3a0555f57171f9fa9005e9ffcd34b8ade39713452e5",
+      "sourceurl": "https://finnhub.io/api/news?id=a709ce61ce3e7f305d93c3a0555f57171f9fa9005e9ffcd34b8ade39713452e5",
+      "seendate": "20250730T173739Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Eli Lilly (LLY) has been actively progressing its pharmaceutical offerings and forging new alliances, as recent product results and collaborations indicate a commitment to innovation in Alzheimer's and blood cancer treatments. The continuous advancements with Kisunla and Jaypirca, alongside partnerships like the one with LTZ Therapeutics, highlight the company’s focused push towards addressing significant medical needs. Despite these positive developments, Eli Lilly's stock saw a 1.61%...",
+      "coverage_count": 1,
+      "days_ago": 9,
+      "recency_weight": 0.6750270466019812,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.4313
+      },
+      "impact_horizon_weight": 0.4376,
+      "final_weight": 0.5435
+    },
+    {
+      "title": "Eli Lilly (LLY) Declines More Than Market: Some Information for Investors",
+      "url": "https://finnhub.io/api/news?id=41cf4a8e76de290acba48c859d9a6b8a2c46c1185246bd2b48aa0c46bfb5dba7",
+      "sourceurl": "https://finnhub.io/api/news?id=41cf4a8e76de290acba48c859d9a6b8a2c46c1185246bd2b48aa0c46bfb5dba7",
+      "seendate": "20250729T214502Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Eli Lilly (LLY) reached $762.95 at the closing of the latest trading day, reflecting a -5.59% change compared to its last close.",
+      "coverage_count": 1,
+      "days_ago": 10,
+      "recency_weight": 0.6461849818835329,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3641
+      },
+      "impact_horizon_weight": 0.3604,
+      "final_weight": 0.4826
+    },
+    {
+      "title": "Why Eli Lilly (LLY) Stock Is Falling Today",
+      "url": "https://finnhub.io/api/news?id=e0f47ea9ec553d05d05a9454b77158363bede976c769f203a7ed1ad51fa132f4",
+      "sourceurl": "https://finnhub.io/api/news?id=e0f47ea9ec553d05d05a9454b77158363bede976c769f203a7ed1ad51fa132f4",
+      "seendate": "20250729T182615Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Shares of global pharmaceutical company Eli Lilly (NYSE:LLY) fell 4.3% in the morning session after its key competitor in the weight-loss drug market, Novo Nordisk, lowered its sales and profit growth forecasts for 2025. The lowered guidance from the Danish pharmaceutical giant cast a shadow over the high-growth weight-loss drug sector. This was the second time this year Novo Nordisk had reduced its outlook, which amplified investor concerns about the market's future performance. Compounding the",
+      "coverage_count": 1,
+      "days_ago": 10,
+      "recency_weight": 0.6461849818835329,
+      "content_stats": {
+        "total_sentences": 4,
+        "relevant_sentences": 4,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3774
+      },
+      "impact_horizon_weight": 0.3604,
+      "final_weight": 0.4826
+    },
+    {
+      "title": "Nvidia's TSMC order, Eli Lilly & Novo Nordisk sink, JPMorgan & Apple card",
+      "url": "https://finnhub.io/api/news?id=353a8754978f3e8d836db02110035f00978e372529a1be2f9ef61eac6abaa409",
+      "sourceurl": "https://finnhub.io/api/news?id=353a8754978f3e8d836db02110035f00978e372529a1be2f9ef61eac6abaa409",
+      "seendate": "20250729T161419Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Julie Hyman outlines some of the top market stories as part of today's Market Minute. Nvidia (NVDA) reportedly placed an order for 300,000 H20 chipsets with Taiwan Semiconductor Manufacturing Company (TSM) in preparation to sell in China, according to reporting from Reuters. Eli Lilly (LLY) shares fall as Novo Nordisk (NVO) stock plummets amid fears about the weight-loss drug boom slowing. JPMorgan (JPM) is reportedly in talks with Apple (AAPL) to take over the iPhone maker's credit card business from Goldman Sachs (GS), according to a report from The Wall Street Journal. Stay up to date on the latest market action, minute-by-minute, with Yahoo Finance's Market Minute.",
+      "coverage_count": 1,
+      "days_ago": 10,
+      "recency_weight": 0.6461849818835329,
+      "content_stats": {
+        "total_sentences": 5,
+        "relevant_sentences": 5,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2879
+      },
+      "impact_horizon_weight": 0.3604,
+      "final_weight": 0.4826
+    },
+    {
+      "title": "Eli Lilly (LLY) Stock Set to Gain on Early Alzheimer’s Trial Results, Says BMO Capital",
+      "url": "https://finnhub.io/api/news?id=92622eecbae3a6ebdf6409aa75072c733f454112859969c3f519d0b95fa8fcc7",
+      "sourceurl": "https://finnhub.io/api/news?id=92622eecbae3a6ebdf6409aa75072c733f454112859969c3f519d0b95fa8fcc7",
+      "seendate": "20250729T053717Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Eli Lilly & Company (NYSE:LLY) ranks among the stocks to benefit from an onshoring boom. On July 22, BMO Capital reaffirmed its $900 price target and Outperform rating for Eli Lilly & Company (NYSE:LLY). According to the investment firm, an interim analysis of Eli Lilly’s TRAILBLAZER-ALZ 3 presymptomatic Alzheimer’s trial may be done before the […]",
+      "coverage_count": 1,
+      "days_ago": 10,
+      "recency_weight": 0.6461849818835329,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3964
+      },
+      "impact_horizon_weight": 0.3604,
+      "final_weight": 0.4826
+    },
+    {
+      "title": "Eli Lilly and Company (LLY) Announces New Phase 3 Trial Results for Orforglipron",
+      "url": "https://finnhub.io/api/news?id=c2d7d45bac0e4bd2b892174ff3af985c35b332efccf93dc8472bb087fdc310c9",
+      "sourceurl": "https://finnhub.io/api/news?id=c2d7d45bac0e4bd2b892174ff3af985c35b332efccf93dc8472bb087fdc310c9",
+      "seendate": "20250729T052939Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Eli Lilly and Company (NYSE:LLY) is one of the Stocks With Huge Catalysts on the Horizon. On July 21, Eli Lilly and Company (NYSE:LLY) announced new Phase 3 trial results for Orforglipron, which is an oral drug for adults with type 2 diabetes. This comes as a breakthrough for the company as Orforglipron is the first […]",
+      "coverage_count": 1,
+      "days_ago": 10,
+      "recency_weight": 0.6461849818835329,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2582
+      },
+      "impact_horizon_weight": 0.3604,
+      "final_weight": 0.4826
+    },
+    {
+      "title": "Eli Lilly stock rises, Novo Nordisk shares jump on potential Medicare coverage",
+      "url": "https://finnhub.io/api/news?id=9e9ff092323b8c541c9031ee94ecd9454b54930a50ec8fc33dd58cbb61df87d0",
+      "sourceurl": "https://finnhub.io/api/news?id=9e9ff092323b8c541c9031ee94ecd9454b54930a50ec8fc33dd58cbb61df87d0",
+      "seendate": "20250801T123241Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Investing.com -- Eli Lilly (NYSE:LLY) stock rose 1.3% and Novo Nordisk (NYSE:NVO) shares jumped 2% Friday morning after The Washington Post reported that Medicare and Medicaid programs are planning to experiment with covering weight loss drugs.",
+      "coverage_count": 1,
+      "days_ago": 7,
+      "recency_weight": 0.7366306788530732,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.2882
+      },
+      "impact_horizon_weight": 0.2909,
+      "final_weight": 0.4629
+    },
+    {
+      "title": "Analyst Highlights ‘Game Changer’ Catalyst for Eli Lilly (LLY)",
+      "url": "https://finnhub.io/api/news?id=3ea17e31f7f44d2830604ae3a7685fce1044f6ecde84dd438364288616d7d451",
+      "sourceurl": "https://finnhub.io/api/news?id=3ea17e31f7f44d2830604ae3a7685fce1044f6ecde84dd438364288616d7d451",
+      "seendate": "20250728T201223Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Eli Lilly and Company (NYSE:LLY) is one of the Top 10 Stocks Wall Street is Buzzing About These Days. Talking about Morgan Stanley’s bullish call on Eli Lilly and Company (NYSE:LLY), Kevin Simpson, Capital Wealth Planning founder and CIO, said that he agrees with the call and thinks the company’s GLP-1 oral medication Orforglipron could […]",
+      "coverage_count": 1,
+      "days_ago": 11,
+      "recency_weight": 0.6185752599303274,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3854
+      },
+      "impact_horizon_weight": 0.2909,
+      "final_weight": 0.4242
+    },
+    {
+      "title": "Eli Lilly (LLY) Gets Price Target Boost as Analysts See Strong Mounjaro, Zepbound Sales",
+      "url": "https://finnhub.io/api/news?id=84a7e5e918208320900d011de5089518ca2da0bb149ccef3e5a7c28b4714fa78",
+      "sourceurl": "https://finnhub.io/api/news?id=84a7e5e918208320900d011de5089518ca2da0bb149ccef3e5a7c28b4714fa78",
+      "seendate": "20250728T054155Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Eli Lilly & Company (NYSE:LLY) ranks among the best low volatility stocks to buy according to analysts. On July 11, Guggenheim reiterated its Buy rating on Eli Lilly & Company (NYSE:LLY) ahead of the company’s second-quarter earnings report and increased its price target from $936 to $942. In contrast to the consensus predictions of $4.39 […]",
+      "coverage_count": 1,
+      "days_ago": 11,
+      "recency_weight": 0.6185752599303274,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.5059
+      },
+      "impact_horizon_weight": 0.2909,
+      "final_weight": 0.4242
+    },
+    {
+      "title": "Eli Lilly’s stock drops as Trump targets 17 drug makers with letters on their pricing",
+      "url": "https://finnhub.io/api/news?id=ee25f6a7ccf490a1c8ac7a7c36dbd53233365d252df20a9a81eca58f039ed2f5",
+      "sourceurl": "https://finnhub.io/api/news?id=ee25f6a7ccf490a1c8ac7a7c36dbd53233365d252df20a9a81eca58f039ed2f5",
+      "seendate": "20250731T135324Z",
+      "domain": "MarketWatch",
+      "language": "English",
+      "content": "Eli Lilly’s stock drops as Trump targets 17 drug makers with letters on their pricing",
+      "coverage_count": 1,
+      "days_ago": 8,
+      "recency_weight": 0.7051564589384418,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.2928
+      },
+      "impact_horizon_weight": 0.2301,
+      "final_weight": 0.4028
+    },
+    {
+      "title": "Morgan Stanley Remains Bullish on Eli Lilly (LLY)",
+      "url": "https://finnhub.io/api/news?id=6246cbba4b9cf984f3c79a3dff46a851e556e459e6aad6353bde01516dec5b21",
+      "sourceurl": "https://finnhub.io/api/news?id=6246cbba4b9cf984f3c79a3dff46a851e556e459e6aad6353bde01516dec5b21",
+      "seendate": "20250728T060759Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Eli Lilly and Company (NYSE:LLY) is one of the top low volatility healthcare stocks to buy now. On July 10, Morgan Stanley analyst Terence Flynn maintained a Buy rating on Eli Lilly and Company (NYSE:LLY), raising the target price from $1,133 to $1,135. On July 9, Eli Lilly and Company (NYSE:LLY) announced that the US […]",
+      "coverage_count": 1,
+      "days_ago": 11,
+      "recency_weight": 0.6185752599303274,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.2843
+      },
+      "impact_horizon_weight": 0.1783,
+      "final_weight": 0.3321
+    },
+    {
+      "title": "Eli Lilly (LLY) Announces Positive Results For Jaypirca In Phase 3 Trial",
+      "url": "https://finnhub.io/api/news?id=2f87e90218bfe2679112897fc1ed1d9a238461a711c95c69e93971e8fbada2ec",
+      "sourceurl": "https://finnhub.io/api/news?id=2f87e90218bfe2679112897fc1ed1d9a238461a711c95c69e93971e8fbada2ec",
+      "seendate": "20250729T173223Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Eli Lilly (LLY) made headlines with positive results from the Phase 3 BRUIN CLL-314 clinical trial for Jaypirca, marking a significant advancement in treatment options for chronic lymphocytic leukemia. The company's 6% share price increase over the past week may have been influenced by investor optimism surrounding these findings, aligning with general market trends which saw the S&P 500 and Nasdaq reach new highs. While broader market dynamics favor strong corporate earnings and positive...",
+      "coverage_count": 1,
+      "days_ago": 10,
+      "recency_weight": 0.6461849818835329,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.321
+      },
+      "impact_horizon_weight": 0.1353,
+      "final_weight": 0.2957
+    },
+    {
+      "title": "Eli Lilly (LLY) Reports Next Week: Wall Street Expects Earnings Growth",
+      "url": "https://finnhub.io/api/news?id=44247ebe19dea9f5a0c21858a137dc32ed132fbc81d573c575182eef76c1c4a8",
+      "sourceurl": "https://finnhub.io/api/news?id=44247ebe19dea9f5a0c21858a137dc32ed132fbc81d573c575182eef76c1c4a8",
+      "seendate": "20250731T140024Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Lilly (LLY) possesses the right combination of the two key ingredients for a likely earnings beat in its upcoming report. Get prepared with the key expectations.",
+      "coverage_count": 1,
+      "days_ago": 8,
+      "recency_weight": 0.7051564589384418,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.3261
+      },
+      "impact_horizon_weight": 0.0734,
+      "final_weight": 0.2275
+    },
+    {
+      "title": "Insights Into Lilly (LLY) Q2: Wall Street Projections for Key Metrics",
+      "url": "https://finnhub.io/api/news?id=25b916d5163fb6047eaa1861705477413fd1481635df9a6e4780c2af74105e77",
+      "sourceurl": "https://finnhub.io/api/news?id=25b916d5163fb6047eaa1861705477413fd1481635df9a6e4780c2af74105e77",
+      "seendate": "20250804T131510Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Get a deeper insight into the potential performance of Lilly (LLY) for the quarter ended June 2025 by going beyond Wall Street's top-and-bottom-line estimates and examining the estimates for some of its key metrics.",
+      "coverage_count": 1,
+      "days_ago": 4,
+      "recency_weight": 0.8397359459606585,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.3326
+      },
+      "impact_horizon_weight": 0.0169,
+      "final_weight": 0.1191
+    },
+    {
+      "title": "How To Earn $500 A Month From Eli Lilly Stock Ahead Of Q2 Earnings",
+      "url": "https://finnhub.io/api/news?id=5125068695585372431917e08263550e33ac68ada198098e44b97f7d2449ee3d",
+      "sourceurl": "https://finnhub.io/api/news?id=5125068695585372431917e08263550e33ac68ada198098e44b97f7d2449ee3d",
+      "seendate": "20250806T114144Z",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Eli Lilly and Company (NYSE:LLY) will release earnings results for the second quarter before the opening bell on Thursday, Aug. 7. Analysts expect the health care company to report quarterly earnings at $5.59 per share, up from $3.92 per share in the year-ago period. Eli Lilly projects to report quarterly revenue of $14.67 billion, compared to $11.3 billion a year earlier, according to data from Benzinga Pro. With the recent buzz around Eli Lilly, some investors may be eyeing potential gains fro",
+      "coverage_count": 1,
+      "days_ago": 2,
+      "recency_weight": 0.9163710743801653,
+      "content_stats": {
+        "total_sentences": 5,
+        "relevant_sentences": 5,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.3309
+      },
+      "impact_horizon_weight": 0.0072,
+      "final_weight": 0.081
+    },
+    {
+      "title": "Eli Lilly and Company (LLY) Q2 2025 Earnings Call Transcript",
+      "url": "https://finnhub.io/api/news?id=2b57a4a5f6efdaa7d384d4e83e29822c1078897232b00bc0ba5420ef14ad924a",
+      "sourceurl": "https://finnhub.io/api/news?id=2b57a4a5f6efdaa7d384d4e83e29822c1078897232b00bc0ba5420ef14ad924a",
+      "seendate": "20250807T122819Z",
+      "domain": "SeekingAlpha",
+      "language": "English",
+      "content": "Eli Lilly and Company (NYSE:LLY) Q2 2025 Earnings Conference Call August 7, 2025 8:30 AM ETCompany ParticipantsDaniel M.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.9572727272727273,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.2997
+      },
+      "impact_horizon_weight": 0.0045,
+      "final_weight": 0.0658
     }
   ]
 }

@@ -75,9 +75,9 @@ def _check_low_confidence(final_confidence: float) -> dict[str, Any]:
         "final_confidence": round(final_confidence, 4),
         "threshold": threshold,
         "message": (
-            f"Low prediction confidence ({final_confidence:.3f} < {threshold})."
+            f"Below reliability threshold ({final_confidence:.3f} < {threshold})."
             if flagged
-            else f"Confidence above threshold ({final_confidence:.3f} ≥ {threshold})."
+            else f"Above reliability threshold ({final_confidence:.3f} ≥ {threshold})."
         ),
     }
 
@@ -172,37 +172,42 @@ def _check_timing_alignment(
 def _check_horizon_coverage(
     merged_articles: list[dict[str, Any]],
     prediction_window_days: int,
+    max_backward_days: int | None = None,
 ) -> dict[str, Any]:
-    """Flag when news lookback span is shorter than the forecast horizon."""
+    """Flag when actual news lookback span is shorter than the intended lookback window."""
     ages = [a.get("days_ago", 0) for a in merged_articles]
     if not ages:
         return {
             "flagged": True,
             "lookback_days": 0,
+            "intended_lookback_days": max_backward_days,
             "prediction_window_days": prediction_window_days,
             "message": "No article timing data available to assess horizon coverage.",
         }
 
     lookback_span = max(ages) - min(ages)
-    # Use the actual span of days covered by the articles
-    # If span is shorter than the forecast horizon, signal may be incomplete
-    flagged = lookback_span < prediction_window_days
+    # The intended lookback comes from the √W scaling algorithm in the fetcher.
+    # Compare actual span against the intended window, not the forecast horizon.
+    intended = max_backward_days if max_backward_days else prediction_window_days
+    flagged = lookback_span < intended
 
     if flagged:
         msg = (
-            f"News lookback is {lookback_span} days for a "
-            f"{prediction_window_days}-day forecast horizon, "
+            f"News lookback is {lookback_span} days but the intended "
+            f"backward window was {intended} days "
+            f"(√W scaling, W={prediction_window_days}), "
             f"signal may be incomplete."
         )
     else:
         msg = (
-            f"News lookback ({lookback_span} days) covers the "
-            f"{prediction_window_days}-day forecast horizon."
+            f"News lookback ({lookback_span} days) covers the intended "
+            f"{intended}-day backward window."
         )
 
     return {
         "flagged": flagged,
         "lookback_days": lookback_span,
+        "intended_lookback_days": intended,
         "prediction_window_days": prediction_window_days,
         "message": msg,
     }
@@ -213,6 +218,7 @@ def compute_reliability(
     herfindahl_index: float,
     merged_articles: list[dict[str, Any]] | None = None,
     prediction_window_days: int = 7,
+    max_backward_days: int | None = None,
 ) -> dict[str, Any]:
     articles_analyzed = prediction_result.get("articles_analyzed", 0)
     normalized_scores = prediction_result.get("normalized_scores", {})
@@ -228,7 +234,7 @@ def compute_reliability(
             merged_articles or [], prediction_window_days
         ),
         "horizon_coverage":     _check_horizon_coverage(
-            merged_articles or [], prediction_window_days
+            merged_articles or [], prediction_window_days, max_backward_days
         ),
     }
 
