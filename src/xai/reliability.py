@@ -127,9 +127,7 @@ def _check_timing_alignment(
     merged_articles: list[dict[str, Any]],
     prediction_window_days: int,
 ) -> dict[str, Any]:
-    # Check whether any timezone / market-close alignment was applied.
-    # Currently the pipeline uses UTC timestamps without market-close cutoff,
-    # so we flag this as a known limitation and report article age spread.
+    """Check whether market-close timestamp alignment was applied."""
     ages = [a.get("days_ago", 0) for a in merged_articles]
     if not ages:
         return {
@@ -143,25 +141,40 @@ def _check_timing_alignment(
     oldest = max(ages)
     newest = min(ages)
 
-    # Market close alignment is not currently implemented — always flag as limitation
-    flagged = True
+    # Check if articles have market_date (indicates ET alignment was applied)
+    has_market_date = any(a.get("market_date") for a in merged_articles)
 
-    if oldest > prediction_window_days:
-        msg = (
-            f"Articles span {newest}–{oldest} days old; oldest exceeds the "
-            f"{prediction_window_days}-day window and is down-weighted by recency."
-        )
+    if has_market_date:
+        flagged = False
+        if oldest > prediction_window_days:
+            msg = (
+                    f"Articles span {newest}-{oldest} days old (ET market-close aligned); "
+                f"oldest exceeds the {prediction_window_days}-day window and is "
+                f"down-weighted by recency."
+            )
+        else:
+            msg = (
+                f"Articles are {newest}-{oldest} days old (ET market-close aligned), "
+                f"down-weighted by the recency function where applicable."
+            )
     else:
-        msg = (
-            f"Most articles are {newest}–{oldest} days old, "
-            f"down-weighted by the recency function where applicable."
-        )
-
-    msg += " Market-close time alignment is not applied (UTC timestamps used)."
+        # Fallback: no market_date → still UTC, flag it
+        flagged = True
+        if oldest > prediction_window_days:
+            msg = (
+                f"Articles span {newest}-{oldest} days old; oldest exceeds the "
+                f"{prediction_window_days}-day window and is down-weighted by recency."
+            )
+        else:
+            msg = (
+                f"Most articles are {newest}-{oldest} days old, "
+                f"down-weighted by the recency function where applicable."
+            )
+        msg += " Market-close time alignment is not applied (UTC timestamps used)."
 
     return {
         "flagged": flagged,
-        "market_close_aligned": False,
+        "market_close_aligned": has_market_date,
         "oldest_days": oldest,
         "newest_days": newest,
         "prediction_window_days": prediction_window_days,

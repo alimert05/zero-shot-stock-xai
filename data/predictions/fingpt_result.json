@@ -1,41 +1,26 @@
 {
-  "query": "Nvidia",
-  "company_name": "Nvidia",
+  "query": "apple",
+  "company_name": "apple",
   "ticker": null,
-  "articles_analyzed": 62,
-  "articles_total": 62,
-  "total_weight": 50.2985,
+  "articles_analyzed": 58,
+  "articles_total": 58,
+  "total_weight": 42.0972,
   "weighted_scores": {
-    "positive": 21.2513,
-    "negative": 4.4684,
-    "neutral": 24.5788
+    "positive": 18.6816,
+    "negative": 7.0426,
+    "neutral": 16.373
   },
   "normalized_scores": {
-    "positive": 0.4225,
-    "negative": 0.0888,
-    "neutral": 0.4887
+    "positive": 0.4438,
+    "negative": 0.1673,
+    "neutral": 0.3889
   },
-  "final_label": "neutral",
-  "final_confidence": 0.4887,
+  "final_label": "positive",
+  "final_confidence": 0.4438,
   "article_details": [
     {
-      "title": "Nvidia accelerates AI roadmap: Rubin superchip in full production, 5x faster",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.8069,
-        "negative": 0.0448,
-        "neutral": 0.0448
-      }
-    },
-    {
-      "title": "What Nvidia's Vera Rubin AI platform brings to the table: CES 2026",
-      "final_weight": 0.8966,
+      "title": "Apple CEO Tim Cook Just Gave Nike Investors 3 Million Reasons to Cheer",
+      "final_weight": 0.9354,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.05,
@@ -43,283 +28,13 @@
         "neutral": 0.9
       },
       "weighted_scores": {
-        "positive": 0.0448,
-        "negative": 0.0448,
-        "neutral": 0.8069
+        "positive": 0.0468,
+        "negative": 0.0468,
+        "neutral": 0.8419
       }
     },
     {
-      "title": "Nvidia CEO confirms Vera Rubin AI platform is 'in full production'",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0448,
-        "negative": 0.0448,
-        "neutral": 0.8069
-      }
-    },
-    {
-      "title": "Cerence xUI, Leveraging NVIDIA AI Enterprise and Running on Microsoft Azure, Drives Strong Traction with Automakers",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.8069,
-        "negative": 0.0448,
-        "neutral": 0.0448
-      }
-    },
-    {
-      "title": "Supermicro Announces Support for Upcoming NVIDIA Vera Rubin NVL72, HGX Rubin NVL8 and Expanded Rack-Scale Manufacturing Capacity for Liquid-Cooled AI Solutions",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0448,
-        "negative": 0.0448,
-        "neutral": 0.8069
-      }
-    },
-    {
-      "title": "Red Hat Expands Collaboration with NVIDIA to Pair Enterprise Open Source with Rack-Scale AI for Faster, Production-Ready Innovation",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0448,
-        "negative": 0.0448,
-        "neutral": 0.8069
-      }
-    },
-    {
-      "title": "Chevron, Nvidia, Novo Nordisk, Zeta Global And Exxon Mobil: Why These 5 Stocks Are On Investors' Radars Today",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0448,
-        "negative": 0.0448,
-        "neutral": 0.8069
-      }
-    },
-    {
-      "title": "Aeva Technologies' Frequency Modulated Continuous Wave 4D LiDAR Technology Selected For The NVIDIA Drive Hyperion Autonomous Vehicle Reference Platform; Aeva And NVIDIA Will Collaborate To Integrate Aeva's Technology Platform In Hyperion On Production Vehicle Programs, Targeting 2028 Start Of Production",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.8069,
-        "negative": 0.0448,
-        "neutral": 0.0448
-      }
-    },
-    {
-      "title": "Nvidia Unveils Alpamayo AI For Autonomous Vehicles: 'Chat-GPT Moment' For Cars",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0448,
-        "negative": 0.0448,
-        "neutral": 0.8069
-      }
-    },
-    {
-      "title": "Nvidia CEO Huang to take stage at CES in Las Vegas as competition mounts",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0448,
-        "negative": 0.0448,
-        "neutral": 0.8069
-      }
-    },
-    {
-      "title": "Stock Market Today: Dow Jumps After U.S. Ousts Maduro; Energy Shines, Nvidia Rallies Ahead (Live Coverage)",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.8069,
-        "negative": 0.0448,
-        "neutral": 0.0448
-      }
-    },
-    {
-      "title": "Sevii Selected for the 2026 CrowdStrike, AWS & NVIDIA Cybersecurity Startup Accelerator",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0448,
-        "negative": 0.0448,
-        "neutral": 0.8069
-      }
-    },
-    {
-      "title": "Is It Worth Investing in Nvidia (NVDA) Based on Wall Street's Bullish Views?",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0448,
-        "negative": 0.0448,
-        "neutral": 0.8069
-      }
-    },
-    {
-      "title": "Nvidia Stock Gains. What Will CEO Huang Say at CES?",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.8069,
-        "negative": 0.0448,
-        "neutral": 0.0448
-      }
-    },
-    {
-      "title": "Evoke Security Selected for the 2026 CrowdStrike, AWS & NVIDIA Cybersecurity Startup Accelerator",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0448,
-        "negative": 0.0448,
-        "neutral": 0.8069
-      }
-    },
-    {
-      "title": "Hush Security Selected for the 2026 CrowdStrike, AWS & NVIDIA Cybersecurity Startup Accelerator",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0448,
-        "negative": 0.0448,
-        "neutral": 0.8069
-      }
-    },
-    {
-      "title": "Geordie AI Selected for the 2026 CrowdStrike, AWS & NVIDIA Cybersecurity Startup Accelerator",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0448,
-        "negative": 0.0448,
-        "neutral": 0.8069
-      }
-    },
-    {
-      "title": "Nvidia: Rally Is Impressive, But AI Boom Shows Bubble Signals",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0448,
-        "negative": 0.0448,
-        "neutral": 0.8069
-      }
-    },
-    {
-      "title": "Dow Jones Futures: Muted Reaction To Trump's Venezuela Move; Nvidia, AMD, Taiwan Semi Due",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0448,
-        "negative": 0.0448,
-        "neutral": 0.8069
-      }
-    },
-    {
-      "title": "Ready to Buy Nvidia Stock? Check Out This Option.",
-      "final_weight": 0.8966,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0448,
-        "negative": 0.0448,
-        "neutral": 0.8069
-      }
-    },
-    {
-      "title": "Jensen Huang To Visit Taiwan As Nvidia Plans Taipei Headquarters Amid TSMC Capacity Strain: Report",
+      "title": "The 76-Year-Old Reason Why Buffett Has Been Selling Apple",
       "final_weight": 0.8649,
       "input_source": "headline+content",
       "raw_scores": {
@@ -334,7 +49,37 @@
       }
     },
     {
-      "title": "Why Nvidia Could Have a Terrible Year in 2026, And Why It Might Not Be So Bad",
+      "title": "Why Apple Might Attract More of an AI Multiple in 2026",
+      "final_weight": 0.8649,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.05,
+        "neutral": 0.9
+      },
+      "weighted_scores": {
+        "positive": 0.0432,
+        "negative": 0.0432,
+        "neutral": 0.7784
+      }
+    },
+    {
+      "title": "Apple is an Analyst Favorite, But AAPL Stock Has Been Flat - Shorting Puts Is the Best Play",
+      "final_weight": 0.8649,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.05,
+        "neutral": 0.9
+      },
+      "weighted_scores": {
+        "positive": 0.0432,
+        "negative": 0.0432,
+        "neutral": 0.7784
+      }
+    },
+    {
+      "title": "Apple: Don't Expect Much Growth Here",
       "final_weight": 0.8649,
       "input_source": "headline+content",
       "raw_scores": {
@@ -349,67 +94,112 @@
       }
     },
     {
-      "title": "Nvidia Becomes a 'Must Own' Stock as AI Boom Fuels 35% Upside Potential",
-      "final_weight": 0.8338,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.7504,
-        "negative": 0.0417,
-        "neutral": 0.0417
-      }
-    },
-    {
-      "title": "Nvidia’s $20 billion Groq play is a blueprint for 2026",
-      "final_weight": 0.8338,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.7504,
-        "negative": 0.0417,
-        "neutral": 0.0417
-      }
-    },
-    {
-      "title": "Nvidia Stock and the Bright Side of the Groq Deal",
-      "final_weight": 0.8338,
+      "title": "The Real Reasons Warren Buffett Is Selling Apple Stock Fast",
+      "final_weight": 0.8649,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.05,
         "negative": 0.05,
         "neutral": 0.9
+      },
+      "weighted_scores": {
+        "positive": 0.0432,
+        "negative": 0.0432,
+        "neutral": 0.7784
+      }
+    },
+    {
+      "title": "Apple Inc. (AAPL) Is a Trending Stock: Facts to Know Before Betting on It",
+      "final_weight": 0.8649,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.05,
+        "neutral": 0.9
+      },
+      "weighted_scores": {
+        "positive": 0.0432,
+        "negative": 0.0432,
+        "neutral": 0.7784
+      }
+    },
+    {
+      "title": "Apple Doesn't Need A Stronger AI Portfolio",
+      "final_weight": 0.835,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.05,
+        "neutral": 0.9
+      },
+      "weighted_scores": {
+        "positive": 0.0418,
+        "negative": 0.0418,
+        "neutral": 0.7515
+      }
+    },
+    {
+      "title": "Apple spent 2025 setting itself up for the future — and its biggest moves weren't about AI",
+      "final_weight": 0.8344,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.751,
+        "negative": 0.0417,
+        "neutral": 0.0417
+      }
+    },
+    {
+      "title": "Dow Jones Tech Giant Apple, AppLovin, Palantir, Tesla In Buy Zones",
+      "final_weight": 0.8344,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.751,
+        "negative": 0.0417,
+        "neutral": 0.0417
+      }
+    },
+    {
+      "title": "Apple's 3 Big New Year Woes",
+      "final_weight": 0.8344,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.9,
+        "neutral": 0.05
       },
       "weighted_scores": {
         "positive": 0.0417,
-        "negative": 0.0417,
-        "neutral": 0.7504
-      }
-    },
-    {
-      "title": "Nvidia: Here's How Groq Has Altered Its Fate For 2026",
-      "final_weight": 0.8338,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.7504,
-        "negative": 0.0417,
+        "negative": 0.751,
         "neutral": 0.0417
       }
     },
     {
-      "title": "NVIDIA Corporation (NVDA) To Make its Largest Purchase From Groq",
+      "title": "Top Research Reports for Apple, Cisco & IBM",
+      "final_weight": 0.8325,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.7493,
+        "negative": 0.0416,
+        "neutral": 0.0416
+      }
+    },
+    {
+      "title": "Apple Stock Rises Ahead of 2026. What's Driving the Growth",
       "final_weight": 0.8309,
       "input_source": "headline+content",
       "raw_scores": {
@@ -424,8 +214,128 @@
       }
     },
     {
-      "title": "1 Artificial Intelligence (AI) Revenue Machine You'll Want to Watch in 2026 (Hint: It's Beaten Everyone Except Nvidia)",
-      "final_weight": 0.8309,
+      "title": "If You'd Invested $1,000 in Apple 10 Years Ago, Here's How Much You'd Have Today",
+      "final_weight": 0.8281,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.7453,
+        "negative": 0.0414,
+        "neutral": 0.0414
+      }
+    },
+    {
+      "title": "Apple: Efficiency-Monetization Loop - Services Margin And PCC Infrastructure Support A $425 Target",
+      "final_weight": 0.8281,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.7453,
+        "negative": 0.0414,
+        "neutral": 0.0414
+      }
+    },
+    {
+      "title": "Apple: Quality Vs. Price",
+      "final_weight": 0.8199,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.7379,
+        "negative": 0.041,
+        "neutral": 0.041
+      }
+    },
+    {
+      "title": "Big Promises, Bigger Fails: Meta's Cringe Demo, Apple's Misfires, GPT-5's Letdown And The Cloud Outages That Made Headlines In 2025",
+      "final_weight": 0.8147,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.9,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.0407,
+        "negative": 0.7332,
+        "neutral": 0.0407
+      }
+    },
+    {
+      "title": "Tim Cook's Nike Buy, AI Smart Glasses, Court Victory And More: This Week In Appleverse",
+      "final_weight": 0.812,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.7308,
+        "negative": 0.0406,
+        "neutral": 0.0406
+      }
+    },
+    {
+      "title": "Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead of 2026",
+      "final_weight": 0.812,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.7308,
+        "negative": 0.0406,
+        "neutral": 0.0406
+      }
+    },
+    {
+      "title": "Apple Is Likely to Return to Double-Digit Revenue Growth in Fiscal 2026 -- and the Stock Looks Like a Buy",
+      "final_weight": 0.812,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.7308,
+        "negative": 0.0406,
+        "neutral": 0.0406
+      }
+    },
+    {
+      "title": "Apple: Foldable Phone Sparks A Revival, Not AI Overhype",
+      "final_weight": 0.812,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.7308,
+        "negative": 0.0406,
+        "neutral": 0.0406
+      }
+    },
+    {
+      "title": "Apple needs to deliver an AI-charged Siri so good it gets older iPhone users to upgrade",
+      "final_weight": 0.8024,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.05,
@@ -433,73 +343,13 @@
         "neutral": 0.9
       },
       "weighted_scores": {
-        "positive": 0.0415,
-        "negative": 0.0415,
-        "neutral": 0.7478
+        "positive": 0.0401,
+        "negative": 0.0401,
+        "neutral": 0.7222
       }
     },
     {
-      "title": "Is Nvidia (NVDA) One of the Best Stocks for the Next Decade?",
-      "final_weight": 0.8309,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.7478,
-        "negative": 0.0415,
-        "neutral": 0.0415
-      }
-    },
-    {
-      "title": "Nvidia's China Orders Go Off The Charts — Putting Semiconductor ETFs Back In Policy Crossfire",
-      "final_weight": 0.8309,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0415,
-        "negative": 0.0415,
-        "neutral": 0.7478
-      }
-    },
-    {
-      "title": "Nvidia Leads Chip Stocks Rally as Foxconn Record Sales Spark Gains",
-      "final_weight": 0.8147,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.7332,
-        "negative": 0.0407,
-        "neutral": 0.0407
-      }
-    },
-    {
-      "title": "Nvidia Stock Rises Amid Apple Partner News, CES 2026 On Tap; Is Nvidia A Buy Now?",
-      "final_weight": 0.8147,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.7332,
-        "negative": 0.0407,
-        "neutral": 0.0407
-      }
-    },
-    {
-      "title": "4 Reasons to Buy Nvidia Stock Like There's No Tomorrow",
+      "title": "The Zacks Analyst Blog Highlights Apple, Cisco Systems and IBM",
       "final_weight": 0.8024,
       "input_source": "headline+content",
       "raw_scores": {
@@ -514,22 +364,7 @@
       }
     },
     {
-      "title": "Is Nvidia's Valuation Still Justified? What Really Matters Heading Into 2026",
-      "final_weight": 0.8024,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.7222,
-        "negative": 0.0401,
-        "neutral": 0.0401
-      }
-    },
-    {
-      "title": "What to know about Nvidia's massive spending spree",
+      "title": "Jim Cramer Repeats His “Own It, Don’t Trade It” Mantra on Apple",
       "final_weight": 0.7997,
       "input_source": "headline+content",
       "raw_scores": {
@@ -544,37 +379,7 @@
       }
     },
     {
-      "title": "What's Going On With Nvidia Stock Friday?",
-      "final_weight": 0.7997,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.7197,
-        "negative": 0.04,
-        "neutral": 0.04
-      }
-    },
-    {
-      "title": "Nvidia: $20B Groq Deal, Valuation, And More (Rating Upgrade)",
-      "final_weight": 0.7997,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.7197,
-        "negative": 0.04,
-        "neutral": 0.04
-      }
-    },
-    {
-      "title": "Does CrowdStrike’s Expanded AI Security Accelerator With AWS and NVIDIA Reshape Its Long‑Term Narrative (CRWD)?",
+      "title": "Apple's AI challenges in 2026",
       "final_weight": 0.7914,
       "input_source": "headline+content",
       "raw_scores": {
@@ -589,22 +394,7 @@
       }
     },
     {
-      "title": "CoreWeave Extends Its Cloud Platform with NVIDIA Rubin Platform",
-      "final_weight": 0.7914,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0396,
-        "negative": 0.0396,
-        "neutral": 0.7123
-      }
-    },
-    {
-      "title": "3 Bold Nvidia Predictions For 2026",
+      "title": "Wedbush Names Apple a Top AI Pick for the 2026 Market Cycle",
       "final_weight": 0.7914,
       "input_source": "headline+content",
       "raw_scores": {
@@ -619,143 +409,8 @@
       }
     },
     {
-      "title": "Magna AI Joins NVIDIA Inception Program to Advance Production-Grade AI at Scale",
+      "title": "Apple misses on AI in 2025",
       "final_weight": 0.7914,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0396,
-        "negative": 0.0396,
-        "neutral": 0.7123
-      }
-    },
-    {
-      "title": "Following $1.5M Kickstarter Success, Olares to Debut NVIDIA 5090M-Powered \"Personal AI Cloud\" at CES 2026",
-      "final_weight": 0.7914,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0396,
-        "negative": 0.0396,
-        "neutral": 0.7123
-      }
-    },
-    {
-      "title": "EXCLUSIVE: Top 20 Most-Searched Tickers On Benzinga Pro In 2025 – Where Do Tesla, Nvidia, Palantir, Apple Stocks Rank?",
-      "final_weight": 0.7914,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0396,
-        "negative": 0.0396,
-        "neutral": 0.7123
-      }
-    },
-    {
-      "title": "Nvidia, Palantir, Seagate And More: Louis Navellier Says Forget The 'Junk Rally' And Buy These Quality Stocks In 2026 Instead",
-      "final_weight": 0.7914,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0396,
-        "negative": 0.0396,
-        "neutral": 0.7123
-      }
-    },
-    {
-      "title": "Stock Market Today: Dow Declines While Nvidia Rises Above Key Level On China Chip Demand (Live Coverage)",
-      "final_weight": 0.7333,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.66,
-        "negative": 0.0367,
-        "neutral": 0.0367
-      }
-    },
-    {
-      "title": "These Stocks Are Moving the Most Today: Nvidia, Tesla, Hecla, Newmont, Nike, Vanda, Corcept, DJT, and More",
-      "final_weight": 0.7333,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0367,
-        "negative": 0.0367,
-        "neutral": 0.66
-      }
-    },
-    {
-      "title": "Nvidia Seeks TSMC Talks as China Orders Outpace H200 GPU Supply",
-      "final_weight": 0.7333,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.66,
-        "negative": 0.0367,
-        "neutral": 0.0367
-      }
-    },
-    {
-      "title": "Nvidia Asks TSMC To Boost H200 Production Amid China Demand",
-      "final_weight": 0.7333,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.66,
-        "negative": 0.0367,
-        "neutral": 0.0367
-      }
-    },
-    {
-      "title": "Mixed options sentiment in NVIDIA with shares down 0.45%",
-      "final_weight": 0.7333,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05,
-        "negative": 0.05,
-        "neutral": 0.9
-      },
-      "weighted_scores": {
-        "positive": 0.0367,
-        "negative": 0.0367,
-        "neutral": 0.66
-      }
-    },
-    {
-      "title": "$160 million worth of export-controlled Nvidia chips were allegedly smuggled into China",
-      "final_weight": 0.7333,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.05,
@@ -763,14 +418,44 @@
         "neutral": 0.05
       },
       "weighted_scores": {
-        "positive": 0.0367,
-        "negative": 0.66,
+        "positive": 0.0396,
+        "negative": 0.7123,
+        "neutral": 0.0396
+      }
+    },
+    {
+      "title": "JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reaches Parity",
+      "final_weight": 0.7666,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.6899,
+        "negative": 0.0383,
+        "neutral": 0.0383
+      }
+    },
+    {
+      "title": "Apple Stock Ticks Up After a Surprise From China—and a Legal Win",
+      "final_weight": 0.7333,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.66,
+        "negative": 0.0367,
         "neutral": 0.0367
       }
     },
     {
-      "title": "Nvidia: Can It Keep Margins This High?",
-      "final_weight": 0.7333,
+      "title": "Analysts Are Hot on the Foldable iPhone. Should You Buy AAPL Stock Before Apple’s Next Big Product Launch?",
+      "final_weight": 0.7188,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.05,
@@ -778,14 +463,14 @@
         "neutral": 0.9
       },
       "weighted_scores": {
-        "positive": 0.0367,
-        "negative": 0.0367,
-        "neutral": 0.66
+        "positive": 0.0359,
+        "negative": 0.0359,
+        "neutral": 0.6469
       }
     },
     {
-      "title": "Nvidia works to meet strong H200 demand from Chinese tech companies — Reuters",
-      "final_weight": 0.7333,
+      "title": "Italian Competition Authority fines Apple EUR 98M over app tracking",
+      "final_weight": 0.7,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.9,
@@ -793,28 +478,13 @@
         "neutral": 0.05
       },
       "weighted_scores": {
-        "positive": 0.66,
-        "negative": 0.0367,
-        "neutral": 0.0367
+        "positive": 0.63,
+        "negative": 0.035,
+        "neutral": 0.035
       }
     },
     {
-      "title": "TikTok Parent Plans $14 Billion Nvidia Buying Spree",
-      "final_weight": 0.7333,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.66,
-        "negative": 0.0367,
-        "neutral": 0.0367
-      }
-    },
-    {
-      "title": "Nvidia in talks to buy A21 Labs for $2B-$3B, Israeli media reports",
+      "title": "Apple to appeal EUR 98M Italian Competition Authority fine, AP reports",
       "final_weight": 0.7,
       "input_source": "headline+content",
       "raw_scores": {
@@ -829,7 +499,7 @@
       }
     },
     {
-      "title": "Nvidia’s Groq bet shows that the economics of AI chip-building are still unsettled",
+      "title": "Will Apple’s (AAPL) Global iOS Openings and AI Push Reshape Its Services-First Narrative?",
       "final_weight": 0.7,
       "input_source": "headline+content",
       "raw_scores": {
@@ -844,83 +514,8 @@
       }
     },
     {
-      "title": "Analysts Call NVIDIA Corporation (NVDA) Groq Deal a ‘Tech and Talent Grab’",
-      "final_weight": 0.7,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.63,
-        "negative": 0.035,
-        "neutral": 0.035
-      }
-    },
-    {
-      "title": "Nvidia’s Rubin Architecture Is a Game-Changer. Here’s Why.",
-      "final_weight": 0.7,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.63,
-        "negative": 0.035,
-        "neutral": 0.035
-      }
-    },
-    {
-      "title": "Nvidia in advanced talks to buy Israel's AI21 Labs for up to $3 billion, report says",
-      "final_weight": 0.7,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.63,
-        "negative": 0.035,
-        "neutral": 0.035
-      }
-    },
-    {
-      "title": "Nvidia's Competitive Moat Just Got Better, Analyst Says; Is Nvidia A Buy Or Sell Now?",
-      "final_weight": 0.7,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.63,
-        "negative": 0.035,
-        "neutral": 0.035
-      }
-    },
-    {
-      "title": "Nvidia Invests $20 Billion in Groq to Expand AI Inference Capabilities",
-      "final_weight": 0.7,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9,
-        "negative": 0.05,
-        "neutral": 0.05
-      },
-      "weighted_scores": {
-        "positive": 0.63,
-        "negative": 0.035,
-        "neutral": 0.035
-      }
-    },
-    {
-      "title": "Nvidia Shares Slide on Rumors of Next-Year GPU Price Jumps",
-      "final_weight": 0.7,
+      "title": "Nike shares jump after Apple CEO Cook doubles stake to $6 million",
+      "final_weight": 0.6669,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.05,
@@ -928,14 +523,14 @@
         "neutral": 0.05
       },
       "weighted_scores": {
-        "positive": 0.035,
-        "negative": 0.63,
-        "neutral": 0.035
+        "positive": 0.0333,
+        "negative": 0.6002,
+        "neutral": 0.0333
       }
     },
     {
-      "title": "Dow Jones AI Giant Nvidia Hits Early Buy Trigger",
-      "final_weight": 0.6051,
+      "title": "Why Apple's Tim Cook Drove Nike Stock Higher Today",
+      "final_weight": 0.6669,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.9,
@@ -943,9 +538,354 @@
         "neutral": 0.05
       },
       "weighted_scores": {
-        "positive": 0.5446,
-        "negative": 0.0303,
-        "neutral": 0.0303
+        "positive": 0.6002,
+        "negative": 0.0333,
+        "neutral": 0.0333
+      }
+    },
+    {
+      "title": "Apple CEO Tim Cook Discloses $3 Million Nike Buy With Dow Giant At 7-Month Low",
+      "final_weight": 0.6669,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.05,
+        "neutral": 0.9
+      },
+      "weighted_scores": {
+        "positive": 0.0333,
+        "negative": 0.0333,
+        "neutral": 0.6002
+      }
+    },
+    {
+      "title": "Dan Ives Is Betting That Apple and Google Will Partner in 2026. Should You Buy AAPL Stock First?",
+      "final_weight": 0.6669,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.05,
+        "neutral": 0.9
+      },
+      "weighted_scores": {
+        "positive": 0.0333,
+        "negative": 0.0333,
+        "neutral": 0.6002
+      }
+    },
+    {
+      "title": "Nike Stock Price Gets a Lift After Apple’s Tim Cook Doubles His Stake",
+      "final_weight": 0.6669,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.6002,
+        "negative": 0.0333,
+        "neutral": 0.0333
+      }
+    },
+    {
+      "title": "Will 2026 Be The Year Apple Finally Joins The AI Race?",
+      "final_weight": 0.634,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.05,
+        "neutral": 0.9
+      },
+      "weighted_scores": {
+        "positive": 0.0317,
+        "negative": 0.0317,
+        "neutral": 0.5706
+      }
+    },
+    {
+      "title": "Apple Just Released a New AI Model. Should You Buy AAPL Stock Here?",
+      "final_weight": 0.634,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.5706,
+        "negative": 0.0317,
+        "neutral": 0.0317
+      }
+    },
+    {
+      "title": "Update: Apple Faces $115.7 Million Italian Regulator Fine Over Alleged 'Abuse' of 'Dominant Position'",
+      "final_weight": 0.634,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.9,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.0317,
+        "negative": 0.5706,
+        "neutral": 0.0317
+      }
+    },
+    {
+      "title": "Former Met chief demands Apple and Google disable stolen phones",
+      "final_weight": 0.634,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.05,
+        "neutral": 0.9
+      },
+      "weighted_scores": {
+        "positive": 0.0317,
+        "negative": 0.0317,
+        "neutral": 0.5706
+      }
+    },
+    {
+      "title": "Jim Cramer Says “I Own Apple, and I Say Own it, Don’t Trade It”",
+      "final_weight": 0.634,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.05,
+        "neutral": 0.9
+      },
+      "weighted_scores": {
+        "positive": 0.0317,
+        "negative": 0.0317,
+        "neutral": 0.5706
+      }
+    },
+    {
+      "title": "Dow Jones Futures: Nvidia Tests Key Level; AppLovin, Apple, Palantir, Tesla In Buy Zones",
+      "final_weight": 0.634,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.5706,
+        "negative": 0.0317,
+        "neutral": 0.0317
+      }
+    },
+    {
+      "title": "Apple (AAPL) Stock Slides as Market Rises: Facts to Know Before You Trade",
+      "final_weight": 0.6014,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.9,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.0301,
+        "negative": 0.5413,
+        "neutral": 0.0301
+      }
+    },
+    {
+      "title": "Apple (AAPL) Target Raised as Jefferies Sees Stronger iPhone Demand",
+      "final_weight": 0.6014,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.5413,
+        "negative": 0.0301,
+        "neutral": 0.0301
+      }
+    },
+    {
+      "title": "If You Think Apple Trading For 36x Earnings Is Nuts, You Can Bet Against Them With AAPD ETF",
+      "final_weight": 0.6014,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.05,
+        "neutral": 0.9
+      },
+      "weighted_scores": {
+        "positive": 0.0301,
+        "negative": 0.0301,
+        "neutral": 0.5413
+      }
+    },
+    {
+      "title": "Morgan Stanley Lifts Apple Inc. (AAPL) Price Target on Earnings Growth Expectations",
+      "final_weight": 0.6014,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.5413,
+        "negative": 0.0301,
+        "neutral": 0.0301
+      }
+    },
+    {
+      "title": "Apple Fined $115 Million in Italy Over App Tracking Policy",
+      "final_weight": 0.6014,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.5413,
+        "negative": 0.0301,
+        "neutral": 0.0301
+      }
+    },
+    {
+      "title": "Is Apple Inc. (NASDAQ:AAPL) Expensive For A Reason? A Look At Its Intrinsic Value",
+      "final_weight": 0.6014,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.05,
+        "neutral": 0.9
+      },
+      "weighted_scores": {
+        "positive": 0.0301,
+        "negative": 0.0301,
+        "neutral": 0.5413
+      }
+    },
+    {
+      "title": "Prediction: Berkshire Hathaway Will Stop Selling Apple Stock in 2026",
+      "final_weight": 0.6014,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.9,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.0301,
+        "negative": 0.5413,
+        "neutral": 0.0301
+      }
+    },
+    {
+      "title": "China's vice commerce minister met Apple COO on Friday",
+      "final_weight": 0.6014,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.05,
+        "neutral": 0.9
+      },
+      "weighted_scores": {
+        "positive": 0.0301,
+        "negative": 0.0301,
+        "neutral": 0.5413
+      }
+    },
+    {
+      "title": "Apple Targets 2026 Launch For AI Smart Glasses, Camera-Equipped AirPods, With Foxconn, TSMC Set To Play Key Roles: Report",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.05,
+        "neutral": 0.9
+      },
+      "weighted_scores": {
+        "positive": 0.0285,
+        "negative": 0.0285,
+        "neutral": 0.5125
+      }
+    },
+    {
+      "title": "Morgan Stanley Boosts Apple (AAPL) Target, Sees Upside From Pricing Power and AI",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.5125,
+        "negative": 0.0285,
+        "neutral": 0.0285
+      }
+    },
+    {
+      "title": "Jim Cramer Says “Apple Might Be Hurt By Higher Memory Prices From Micron”",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05,
+        "negative": 0.05,
+        "neutral": 0.9
+      },
+      "weighted_scores": {
+        "positive": 0.0285,
+        "negative": 0.0285,
+        "neutral": 0.5125
+      }
+    },
+    {
+      "title": "Jim Cramer Says “Own Apple, Don’t Trade It”",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.5125,
+        "negative": 0.0285,
+        "neutral": 0.0285
+      }
+    },
+    {
+      "title": "Where is Apple Inc. (AAPL) Headed According to Wall Street?",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.5125,
+        "negative": 0.0285,
+        "neutral": 0.0285
+      }
+    },
+    {
+      "title": "Analysts Have a Moderate Buy Rating on Apple Inc. (AAPL)",
+      "final_weight": 0.5379,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9,
+        "negative": 0.05,
+        "neutral": 0.05
+      },
+      "weighted_scores": {
+        "positive": 0.4841,
+        "negative": 0.0269,
+        "neutral": 0.0269
       }
     }
   ]

@@ -74,3 +74,7 @@ XAI_MIN_UNIQUE_SOURCES             = 2      # flag if fewer unique domains
 XAI_ACTION_MIN_CONFIDENCE      = 0.55
 XAI_ACTION_MIN_MARGIN          = 0.05
 NEUTRAL_THRESHOLD              = 0.003      # ±0.3% close-to-close return band
+
+# Market timezone alignment
+MARKET_TIMEZONE    = "America/New_York"      # NYSE / NASDAQ timezone
+MARKET_CLOSE_HOUR  = 16                      # 4:00 PM ET
