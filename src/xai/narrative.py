@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import re
 from typing import Any
 
 from config import XAI_LLAMA_MODEL, XAI_LLAMA_TEMPERATURE, XAI_LLAMA_MAX_TOKENS, XAI_LLAMA_ENABLED
@@ -16,19 +17,19 @@ _SYSTEM_MESSAGE = (
     "3. When describing article sentiment distribution, use ONLY the counts provided. Do NOT say 'majority' or 'most' unless the data says so.\n"
     "4. Do not use phrases like 'I think', 'likely', 'probably', 'may', 'seems', or 'appears'.\n"
     "5. Do not mention technical method names like LIME, SHAP, NLI, or transformer.\n"
-    "6. Respond in exactly 2-3 sentences.\n"
+    "6. Respond in exactly 3 sentences.\n"
     "7. Start your first sentence with 'The model predicted'."
 )
 
 
 def _margin_qualifier(margin: float) -> str:
-    """Return a precise, grounded qualifier for the label margin so LLaMA copies it verbatim."""
+    """Return a single adjective for the label margin so templates read naturally."""
     if margin < 0.10:
-        return "narrow margin"
+        return "narrow"
     elif margin < 0.25:
-        return "moderate margin"
+        return "moderate"
     else:
-        return "clear margin"
+        return "clear"
 
 
 def _build_prompt(
@@ -56,24 +57,10 @@ def _build_prompt(
     margin = (sorted_scores[0] - sorted_scores[1]) if len(sorted_scores) >= 2 else sorted_scores[0]
     margin_qualifier = _margin_qualifier(margin)
 
-    # Article sentiment breakdown counts (so LLaMA can't invent "majority")
-    ranked = article_explanation.get("ranked_articles", [])
-    sentiment_counts: dict[str, int] = {}
-    for a in ranked:
-        dom = a.get("dominant_sentiment", "unknown")
-        sentiment_counts[dom] = sentiment_counts.get(dom, 0) + 1
-    count_pos = sentiment_counts.get("positive", 0)
-    count_neg = sentiment_counts.get("negative", 0)
-    count_neu = sentiment_counts.get("neutral", 0)
-    article_breakdown = (
-        f"{count_pos} positive, {count_neg} negative, {count_neu} neutral"
-        if ranked else "unknown"
-    )
-
     # Top article
+    ranked = article_explanation.get("ranked_articles", [])
     top_article = ranked[0] if ranked else {}
     top_title = top_article.get("title", "N/A")
-    top_weight = top_article.get("final_weight", 0.0)
     top_weight_share = round(top_article.get("weight_share", 0.0) * 100, 1)
     top_dominant = top_article.get("dominant_sentiment", "unknown").upper()
     top_cf = top_article.get("counterfactual", {})
@@ -82,18 +69,9 @@ def _build_prompt(
 
     # Pipeline averages
     avg_days = pipeline_explanation.get("avg_days_ago", 0)
-    horizon_dist = pipeline_explanation.get("horizon_distribution", {})
-    most_common_horizon = max(horizon_dist, key=horizon_dist.get) if horizon_dist else "UNKNOWN"
-    most_common_count = horizon_dist.get(most_common_horizon, 0)
-    horizon_pct = round(most_common_count / articles_analyzed * 100, 1) if articles_analyzed > 0 else 0
 
     # Reliability flags
     flags = reliability.get("flags", {})
-    flag_lines = []
-    for flag_name, flag_data in flags.items():
-        if flag_data.get("flagged"):
-            flag_lines.append(f"  - WARNING: {flag_data['message']}")
-    flag_block = "\n".join(flag_lines) if flag_lines else "  (no warnings)"
 
     # LIME tokens (top article if available)
     lime_line = ""
@@ -105,7 +83,7 @@ def _build_prompt(
 
     # Pre-build the margin fact as a complete sentence fragment so LLaMA
     # reads it as data, not an instruction to copy a phrase.
-    margin_fact = f"The label margin is {margin_qualifier} ({margin:.3f})."
+    margin_fact = f"The label margin is {margin_qualifier} ({margin:.3f}), meaning a {margin_qualifier} gap between the top two sentiment scores."
 
     # Build a warning fact from ACTUAL flagged concerns (not the margin itself)
     active_warnings: list[str] = []
@@ -125,7 +103,7 @@ def _build_prompt(
             elif flag_name == "low_confidence":
                 active_warnings.append("confidence is below threshold")
             elif flag_name == "label_margin":
-                active_warnings.append(f"the label was decided by a {margin_qualifier}")
+                active_warnings.append(f"a {margin_qualifier} decision margin")
             elif flag_name == "horizon_coverage":
                 active_warnings.append(
                     f"news lookback ({flag_data.get('lookback_days', '?')} days) "
@@ -154,7 +132,9 @@ Average article age: {avg_days:.1f} days.
 Write exactly 3 sentences starting with "The model predicted":
 - Sentence 1: state the predicted label in ALL-CAPS exactly as given (e.g. "a NEUTRAL label"), score share (not "confidence"), and article count. The label must appear in UPPER CASE.
 - Sentence 2: name the top article and its sentiment.
-- Sentence 3: write exactly "The label margin is {margin_qualifier} ({margin:.3f}), but reliability is {overall_reliability} due to " followed by ALL specific reason(s) from the warning above — do not omit any."""
+- Sentence 3: write exactly "The label margin is {margin_qualifier} ({margin:.3f}), but reliability is {overall_reliability} due to " followed by ALL specific reason(s) from the warning above — do not omit any.
+
+GRAMMAR RULE: "due to" must be followed by noun phrases (e.g. "due to a narrow decision margin; source concentration"), NOT by clauses (e.g. NOT "due to the label was decided")."""
 
     return prompt
 
@@ -201,7 +181,7 @@ def _build_fallback_summary(
     if flags.get("low_confidence", {}).get("flagged"):
         concern_parts.append("confidence below threshold")
     if flags.get("label_margin", {}).get("flagged"):
-        concern_parts.append(f"the label was decided by a {margin_q}")
+        concern_parts.append(f"a {margin_q} decision margin")
     if flags.get("horizon_coverage", {}).get("flagged"):
         hc = flags["horizon_coverage"]
         concern_parts.append(
@@ -250,7 +230,6 @@ def _validate_narrative(summary: str, prompt: str) -> tuple[bool, list[str]]:
             violations.append(f"unsupported distribution claim: '{phrase}'")
 
     # 3. Invented article count patterns like "34 out of 58" or "X articles had"
-    import re
     count_pattern = re.compile(r"\d+\s+(?:out of|of the|articles? (?:had|were|showed))", re.IGNORECASE)
     for match in count_pattern.finditer(summary):
         if match.group(0).lower() not in prompt.lower():
@@ -334,6 +313,18 @@ def generate_narrative(
             },
         )
         summary = response["message"]["content"].strip()
+
+        # Strip common LLaMA preambles that leak into the report
+        summary = re.sub(
+            r"^(?:Here (?:are|is) (?:the )?(?:exact )?\d*\s*sentences?.*?[:\.]?\s*\n*)+",
+            "", summary, flags=re.IGNORECASE,
+        ).strip()
+        # Also strip any leading line that doesn't start with "The model"
+        lines = summary.split("\n")
+        while lines and not lines[0].strip().startswith("The model"):
+            lines.pop(0)
+        summary = "\n".join(lines).strip()
+
         logger.info("Narrative generated successfully.")
 
         is_clean, violations = _validate_narrative(summary, prompt)

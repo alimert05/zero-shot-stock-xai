@@ -6,7 +6,7 @@ from typing import Any
 import numpy as np
 
 from config import XAI_LIME_TOP_N, XAI_LIME_NUM_SAMPLES, XAI_LIME_NUM_FEATURES
-from .utils import label_index, get_dominant_label
+from .utils import label_index, get_dominant_label, build_lime_noise_set, is_lime_noise_token
 
 logger = logging.getLogger(__name__)
 
@@ -109,6 +109,7 @@ def explain_tokens(
     merged_articles: list[dict[str, Any]],
     company_name: str,
     predicted_label: str,
+    ticker: str = "",
     top_n: int = XAI_LIME_TOP_N,
     num_samples: int = XAI_LIME_NUM_SAMPLES,
     num_features: int = XAI_LIME_NUM_FEATURES,
@@ -123,6 +124,8 @@ def explain_tokens(
     explainer = _get_lime_explainer()
     predict_fn = _build_predict_fn(pipeline_callable, company_name)
     target_label_idx = label_index(predicted_label)
+    all_titles = [a.get("title", "") for a in merged_articles]
+    noise = build_lime_noise_set(company_name, ticker, article_titles=all_titles)
 
     top_articles = _select_top_articles(merged_articles, top_n, predicted_label)
     results = []
@@ -169,8 +172,10 @@ def explain_tokens(
                     "direction": "supports" if weight > 0 else "opposes",
                 })
 
-            supporting = [t["token"] for t in sorted(token_weights, key=lambda x: x["weight"], reverse=True) if t["weight"] > 0][:5]
-            opposing   = [t["token"] for t in sorted(token_weights, key=lambda x: x["weight"]) if t["weight"] < 0][:5]
+            supporting = [t["token"] for t in sorted(token_weights, key=lambda x: x["weight"], reverse=True)
+                          if t["weight"] > 0 and not is_lime_noise_token(t["token"], noise)][:5]
+            opposing   = [t["token"] for t in sorted(token_weights, key=lambda x: x["weight"])
+                          if t["weight"] < 0 and not is_lime_noise_token(t["token"], noise)][:5]
 
             results.append({
                 "rank": rank,

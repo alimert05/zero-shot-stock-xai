@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from typing import Any
 
 
@@ -36,3 +37,67 @@ def get_dominant_label(raw_scores: dict[str, float]) -> str:
 
 def scores_to_pct(scores: dict[str, float]) -> dict[str, float]:
     return {k: round(v * 100, 2) for k, v in scores.items()}
+
+
+# ── LIME noise-token filter ──────────────────────────────────────────────────
+
+# Words that get high LIME attribution due to input-template injection or
+# grammatical structure, not genuine sentiment signal.
+LIME_NOISE_WORDS: frozenset[str] = frozenset({
+    # Prefix tokens injected by _build_input_text → always present in every
+    # LIME perturbation, so they absorb attribution mechanically.
+    "news", "about",
+    # English stopwords / function words
+    "the", "a", "an", "of", "in", "and", "for", "on", "with", "at", "by",
+    "from", "as", "or", "be", "it", "to", "is", "this", "that", "its",
+    "are", "was", "were", "has", "have", "had", "will", "would", "could",
+    "should", "may", "might", "just", "also", "not", "no", "but", "so",
+    "than", "then", "now", "new", "more", "most", "very", "all", "each",
+    "any", "few", "many", "much", "some", "such", "own", "other",
+    # Contraction fragments that LIME tokeniser sometimes isolates
+    "s", "t", "re", "ve", "ll", "d", "m",
+})
+
+
+_TICKER_RE = re.compile(r"\(([A-Z]{1,5})\)")
+
+
+def build_lime_noise_set(
+    company_name: str,
+    ticker: str = "",
+    article_titles: list[str] | None = None,
+) -> frozenset[str]:
+    """Return a lower-cased set of tokens to exclude from LIME top-token lists.
+
+    Combines the static stopword list with company-specific tokens so that
+    the *summary* token lists contain only sentiment-bearing words.
+    The full LIME weight vector is still stored unfiltered for transparency.
+
+    If *article_titles* are provided, ticker symbols in parentheses
+    (e.g. "(AAPL)") are auto-detected and added to the noise set.
+    """
+    extra: set[str] = set()
+    for token in company_name.split():
+        extra.add(token.lower())
+    if ticker:
+        extra.add(ticker.lower())
+    # Auto-detect ticker symbols from article titles: (AAPL), (NVDA), etc.
+    if article_titles:
+        for title in article_titles:
+            for match in _TICKER_RE.finditer(title):
+                extra.add(match.group(1).lower())
+    return LIME_NOISE_WORDS | frozenset(extra)
+
+
+def is_lime_noise_token(token: str, noise: frozenset[str]) -> bool:
+    """Return True if a token should be excluded from LIME summary lists.
+
+    Checks: membership in noise set, purely numeric, or single character.
+    """
+    if token.lower() in noise:
+        return True
+    if token.isdigit():
+        return True
+    if len(token) <= 1:
+        return True
+    return False

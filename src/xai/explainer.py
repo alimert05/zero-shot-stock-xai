@@ -19,6 +19,7 @@ from .reliability        import compute_reliability
 from .token_explainer    import explain_tokens
 from .narrative          import generate_narrative
 from .charts             import generate_all_charts
+from .utils              import build_lime_noise_set, is_lime_noise_token
 
 logger = logging.getLogger(__name__)
 
@@ -135,11 +136,11 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "  Sentiment scores across all analysed articles",
         w,
         f"  Ground truth : close-to-close return over "
-        f"{meta['prediction_window_days']}-day window, "
+        f"{meta['prediction_window_days']}-day forecast horizon, "
         f"neutral band +/-{NEUTRAL_THRESHOLD * 100:.1f}%.",
-        "  Disclaimer   : 'Confidence' below is a score share (how much",
-        "                  probability mass the model assigns to the winning",
-        "                  label), NOT a calibrated probability of future return.",
+        "  Disclaimer   : Score share measures how much probability mass the",
+        "                  model assigns to the winning label, NOT a calibrated",
+        "                  probability of future return.",
         "",
         "  Score chart  (each █ ≈ 2.5%):",
         "",
@@ -154,13 +155,13 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     lines += [
         "",
         f"  Verdict     : {str(pred['final_label']).upper()}",
-        f"  Confidence  : {pred['final_confidence'] * 100:.1f}%",
+        f"  Score share : {pred['final_confidence'] * 100:.1f}%",
     ]
     if neutral_score == 0.0:
         lines.append(
-            "  Note        : Neutral shows 0% because this model allocates all"
-            " probability between positive and negative — a normal characteristic"
-            " of NLI-based zero-shot classifiers."
+            "  Note        : Neutral shows 0% because no articles carried"
+            " sufficient neutral signal after weighting. The model supports"
+            " 3-way classification (positive / negative / neutral)."
         )
     lines.append("")
 
@@ -293,15 +294,15 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "  TRADING ACTION MAPPING",
         "  Translating the sentiment verdict into a trading signal",
         w,
-        f"  Policy    : BUY  if label=positive  AND confidence >= "
+        f"  Policy    : BUY  if label=positive  AND score share >= "
         f"{XAI_ACTION_MIN_CONFIDENCE * 100:.0f}%  AND margin >= "
         f"{XAI_ACTION_MIN_MARGIN:.2f}",
-        f"              SELL if label=negative  AND confidence >= "
+        f"              SELL if label=negative  AND score share >= "
         f"{XAI_ACTION_MIN_CONFIDENCE * 100:.0f}%  AND margin >= "
         f"{XAI_ACTION_MIN_MARGIN:.2f}",
         "              HOLD otherwise",
         "",
-        f"  Current   : label={final_label}, confidence={confidence * 100:.1f}%, "
+        f"  Current   : label={final_label}, score share={confidence * 100:.1f}%, "
         f"margin={margin_val:.3f}",
         f"  Action    : >>> {trade_action} <<<",
         "",
@@ -444,25 +445,25 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "  WHICH WORDS DROVE THE PREDICTION",
         "  Words inside each article that pushed the model toward or away from the verdict",
         w,
-        "  Note: token attributions can be dominated by formatting or boilerplate",
-        "  terms. These should be interpreted qualitatively as indicators of",
-        "  text regions the model focused on, not as causal sentiment drivers.",
+        "  Note: company name, ticker, and common stopwords are filtered from",
+        "  summary token lists so only sentiment-bearing words remain.",
         "  Explanations reflect which words most affected the model's label",
         "  score, not causal drivers of returns.",
         "",
     ]
     lime_articles = layer1.get("articles", [])
+    all_art_titles = [a.get("title", "") for a in layer2.get("ranked_articles", [])]
+    noise_set = build_lime_noise_set(
+        meta.get("query", ""), meta.get("ticker", ""),
+        article_titles=all_art_titles,
+    )
     if not lime_articles:
         lines.append("  (Word-level analysis did not run or returned no results)")
     else:
-        _STOPWORDS = {
-            "news", "about", "to", "is", "the", "a", "an", "of", "in",
-            "and", "for", "on", "with", "at", "by", "from", "as", "or", "be", "it",
-        }
         for art in lime_articles:
             supporting_tokens = art["top_tokens_supporting"]
             opposing_tokens   = art["top_tokens_opposing"]
-            artefacts         = [t for t in opposing_tokens if t.lower() in _STOPWORDS]
+            artefacts         = [t for t in opposing_tokens if is_lime_noise_token(t, noise_set)]
 
             lines += [
                 f"  [{art['rank']}] {art['title'][:72]}",
@@ -480,9 +481,11 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
                     "likely a text-format artefact, not meaningful signal."
                 )
 
-            # Mini token influence bar chart
+            # Mini token influence bar chart (noise tokens excluded)
             tw_sorted = sorted(
-                art["token_weights"], key=lambda x: abs(x["weight"]), reverse=True
+                [tw for tw in art["token_weights"]
+                 if not is_lime_noise_token(tw["token"], noise_set)],
+                key=lambda x: abs(x["weight"]), reverse=True,
             )[:8]
             max_tw = max((abs(t["weight"]) for t in tw_sorted), default=1.0)
             lines.append("      Token influence chart:")
@@ -501,11 +504,11 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         for art in lime_articles:
             for t in art.get("top_tokens_supporting", [])[:3]:
                 total_top_tokens += 1
-                if t.lower() in _STOPWORDS:
+                if is_lime_noise_token(t, noise_set):
                     stopword_top_tokens += 1
             for t in art.get("top_tokens_opposing", [])[:3]:
                 total_top_tokens += 1
-                if t.lower() in _STOPWORDS:
+                if is_lime_noise_token(t, noise_set):
                     stopword_top_tokens += 1
         if total_top_tokens > 0:
             stopword_ratio = stopword_top_tokens / total_top_tokens
@@ -581,7 +584,12 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
 
     lime_sentence = ""
     if lime_articles:
-        top_words = lime_articles[0].get("top_tokens_supporting", [])
+        # Match LIME tokens to the top-weight article, not the first LIME article
+        matching_lime = next(
+            (la for la in lime_articles if la.get("title", "") == top_art_title),
+            lime_articles[0],  # fallback to first LIME article
+        )
+        top_words = matching_lime.get("top_tokens_supporting", [])
         if top_words:
             lime_sentence = (
                 f" At the word level, the strongest signals in the most influential"
@@ -708,6 +716,7 @@ def run_xai(
         merged_articles,
         company_name=company_name,
         predicted_label=prediction_result.get("final_label", "positive"),
+        ticker=ticker,
     )
 
     # Narrative — Ollama
