@@ -2,11 +2,14 @@ from __future__ import annotations
 
 import logging
 import time
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from typing import Optional
+from zoneinfo import ZoneInfo
 
 import requests
 from requests.exceptions import HTTPError
+
+from config import MARKET_TIMEZONE, MARKET_CLOSE_HOUR
 
 logger = logging.getLogger(__name__)
 
@@ -85,6 +88,41 @@ def validate_date(date_str: str) -> None:
             f"Invalid year: {year}. Please enter a realistic year between 1990 and {current_year + 1}."
         )
     
+def assign_market_date(utc_dt: datetime) -> datetime:
+    """
+    Convert a UTC datetime to US Eastern time and assign it to a trading
+    session (market_date):
+
+    - Before MARKET_CLOSE_HOUR ET  → same calendar day
+    - At or after MARKET_CLOSE_HOUR ET → next business day
+    - Saturday → next Monday
+    - Sunday → next Monday
+
+    Returns a timezone-naive datetime at midnight of the market_date.
+    """
+    eastern = ZoneInfo(MARKET_TIMEZONE)
+
+    # Make UTC-aware if naive, then convert to ET
+    if utc_dt.tzinfo is None:
+        utc_dt = utc_dt.replace(tzinfo=timezone.utc)
+    et_dt = utc_dt.astimezone(eastern)
+
+    # Determine the market_date
+    if et_dt.hour >= MARKET_CLOSE_HOUR:
+        market_date = et_dt.date() + timedelta(days=1)
+    else:
+        market_date = et_dt.date()
+
+    # Roll weekends forward to Monday
+    weekday = market_date.weekday()  # 0=Mon … 6=Sun
+    if weekday == 5:      # Saturday
+        market_date += timedelta(days=2)
+    elif weekday == 6:    # Sunday
+        market_date += timedelta(days=1)
+
+    return datetime(market_date.year, market_date.month, market_date.day)
+
+
 def _compute_ewma_lambda(prediction_window_days: int) -> float:
     anchors = [(1, 0.89), (5, 0.92), (10, 0.95), (21, 0.97)]
     W = prediction_window_days
@@ -112,17 +150,23 @@ def add_recency_weights(
 ) -> None:
     for article in articles:
         try:
-            seendate_str = article.get("seendate")
-            if seendate_str:
-                seen_dt = datetime.strptime(seendate_str, "%Y%m%dT%H%M%SZ")
+            # Prefer market_date (ET market-close aligned) over raw UTC seendate
+            market_date_str = article.get("market_date")
+            if market_date_str:
+                market_dt = datetime.strptime(market_date_str, "%Y-%m-%d")
+                days_ago = max(0, (ref_date.date() - market_dt.date()).days)
             else:
-                seen_dt = backward_end_date
-
-            days_ago = max(0, (ref_date.date() - seen_dt.date()).days)
+                # Fallback to UTC seendate for backward compatibility
+                seendate_str = article.get("seendate")
+                if seendate_str:
+                    seen_dt = datetime.strptime(seendate_str, "%Y%m%dT%H%M%SZ")
+                else:
+                    seen_dt = backward_end_date
+                days_ago = max(0, (ref_date.date() - seen_dt.date()).days)
 
             lam = _compute_ewma_lambda(prediction_window_days)
             recency_weight = lam ** days_ago
-        
+
             article["days_ago"] = days_ago
             article["recency_weight"] = recency_weight
 

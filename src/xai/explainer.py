@@ -58,6 +58,8 @@ def _merge_article_data(
             "raw_scores":            detail.get("raw_scores", {}),
             "weighted_scores":       detail.get("weighted_scores", {}),
             "content_stats":         base.get("content_stats", {}),
+            "market_date":           base.get("market_date", ""),
+            "seendate_et":           base.get("seendate_et", ""),
         })
 
     return merged
@@ -693,7 +695,12 @@ def run_xai(
         now = datetime.now()
         oldest_date = (now - timedelta(days=max(ages))).strftime("%Y-%m-%d")
         newest_date = (now - timedelta(days=min(ages))).strftime("%Y-%m-%d")
-        news_lookback = f"{oldest_date} to {newest_date} (UTC seendate)"
+        # Check if articles have market_date (ET alignment applied)
+        has_market_date = any(a.get("market_date") for a in merged_articles)
+        if has_market_date:
+            news_lookback = f"{oldest_date} to {newest_date} (ET market-close aligned)"
+        else:
+            news_lookback = f"{oldest_date} to {newest_date} (UTC seendate)"
     else:
         news_lookback = "N/A"
 

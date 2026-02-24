@@ -2,21 +2,21 @@
   "query": "apple",
   "company_name": "apple",
   "ticker": null,
-  "articles_analyzed": 58,
-  "articles_total": 58,
-  "total_weight": 42.0972,
+  "articles_analyzed": 128,
+  "articles_total": 128,
+  "total_weight": 71.7001,
   "weighted_scores": {
-    "positive": 21.3829,
-    "negative": 18.2802,
+    "positive": 32.7484,
+    "negative": 34.3353,
     "neutral": 0.0
   },
   "normalized_scores": {
-    "positive": 0.5079,
-    "negative": 0.4342,
+    "positive": 0.4567,
+    "negative": 0.4789,
     "neutral": 0.0
   },
-  "final_label": "positive",
-  "final_confidence": 0.5079,
+  "final_label": "negative",
+  "final_confidence": 0.4789,
   "article_details": [
     {
       "title": "Apple CEO Tim Cook Just Gave Nike Investors 3 Million Reasons to Cheer",
@@ -140,7 +140,7 @@
     },
     {
       "title": "Apple spent 2025 setting itself up for the future — and its biggest moves weren't about AI",
-      "final_weight": 0.8344,
+      "final_weight": 0.835,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.31115496158599854,
@@ -148,8 +148,8 @@
         "neutral": 0.0
       },
       "weighted_scores": {
-        "positive": 0.2596,
-        "negative": 0.474,
+        "positive": 0.2598,
+        "negative": 0.4744,
         "neutral": 0.0
       }
     },
@@ -199,6 +199,66 @@
       }
     },
     {
+      "title": "Jim Cramer Repeats His “Own It, Don’t Trade It” Mantra on Apple",
+      "final_weight": 0.8325,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.6202584505081177,
+        "negative": 0.36774206161499023,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.5164,
+        "negative": 0.3061,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reaches Parity",
+      "final_weight": 0.8325,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9906170964241028,
+        "negative": 0.006002435460686684,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.8247,
+        "negative": 0.005,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "If You'd Invested $1,000 in Apple 10 Years Ago, Here's How Much You'd Have Today",
+      "final_weight": 0.8321,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.30616533756256104,
+        "negative": 0.6450567841529846,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.2548,
+        "negative": 0.5368,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple: Efficiency-Monetization Loop - Services Margin And PCC Infrastructure Support A $425 Target",
+      "final_weight": 0.8321,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.666388750076294,
+        "negative": 0.2641683518886566,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.5545,
+        "negative": 0.2198,
+        "neutral": 0.0
+      }
+    },
+    {
       "title": "Apple Stock Rises Ahead of 2026. What's Driving the Growth",
       "final_weight": 0.8309,
       "input_source": "headline+content",
@@ -214,47 +274,17 @@
       }
     },
     {
-      "title": "If You'd Invested $1,000 in Apple 10 Years Ago, Here's How Much You'd Have Today",
-      "final_weight": 0.8281,
+      "title": "Apple faces risk from memory cost spike in 2026: MoffettNathanson's Moffett",
+      "final_weight": 0.8151,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.30616533756256104,
-        "negative": 0.6450567841529846,
+        "positive": 0.025138087570667267,
+        "negative": 0.9524930119514465,
         "neutral": 0.0
       },
       "weighted_scores": {
-        "positive": 0.2535,
-        "negative": 0.5342,
-        "neutral": 0.0
-      }
-    },
-    {
-      "title": "Apple: Efficiency-Monetization Loop - Services Margin And PCC Infrastructure Support A $425 Target",
-      "final_weight": 0.8281,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.666388750076294,
-        "negative": 0.2641683518886566,
-        "neutral": 0.0
-      },
-      "weighted_scores": {
-        "positive": 0.5518,
-        "negative": 0.2188,
-        "neutral": 0.0
-      }
-    },
-    {
-      "title": "Apple: Quality Vs. Price",
-      "final_weight": 0.8199,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.49011537432670593,
-        "negative": 0.416027307510376,
-        "neutral": 0.0
-      },
-      "weighted_scores": {
-        "positive": 0.4018,
-        "negative": 0.3411,
+        "positive": 0.0205,
+        "negative": 0.7764,
         "neutral": 0.0
       }
     },
@@ -270,21 +300,6 @@
       "weighted_scores": {
         "positive": 0.0142,
         "negative": 0.7922,
-        "neutral": 0.0
-      }
-    },
-    {
-      "title": "Tim Cook's Nike Buy, AI Smart Glasses, Court Victory And More: This Week In Appleverse",
-      "final_weight": 0.812,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.8482603430747986,
-        "negative": 0.09414855390787125,
-        "neutral": 0.0
-      },
-      "weighted_scores": {
-        "positive": 0.6888,
-        "negative": 0.0764,
         "neutral": 0.0
       }
     },
@@ -334,6 +349,51 @@
       }
     },
     {
+      "title": "Apple: Quality Vs. Price",
+      "final_weight": 0.812,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.49011537432670593,
+        "negative": 0.416027307510376,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.398,
+        "negative": 0.3378,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Why 2026 May Be Apple’s Year",
+      "final_weight": 0.8061,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9023873209953308,
+        "negative": 0.07138454169034958,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.7274,
+        "negative": 0.0575,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple Seen Moving From AI Laggard To Leader In 2026",
+      "final_weight": 0.8061,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8155927658081055,
+        "negative": 0.13205605745315552,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.6574,
+        "negative": 0.1065,
+        "neutral": 0.0
+      }
+    },
+    {
       "title": "Apple needs to deliver an AI-charged Siri so good it gets older iPhone users to upgrade",
       "final_weight": 0.8024,
       "input_source": "headline+content",
@@ -364,17 +424,92 @@
       }
     },
     {
-      "title": "Jim Cramer Repeats His “Own It, Don’t Trade It” Mantra on Apple",
-      "final_weight": 0.7997,
+      "title": "Tim Cook's Nike Buy, AI Smart Glasses, Court Victory And More: This Week In Appleverse",
+      "final_weight": 0.8024,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.6202584505081177,
-        "negative": 0.36774206161499023,
+        "positive": 0.8482603430747986,
+        "negative": 0.09414855390787125,
         "neutral": 0.0
       },
       "weighted_scores": {
-        "positive": 0.496,
-        "negative": 0.2941,
+        "positive": 0.6806,
+        "negative": 0.0755,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Services Rides on Apple TV and Arcade: What's Ahead for Apple Stock?",
+      "final_weight": 0.7956,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.4136515259742737,
+        "negative": 0.4371262192726135,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.3291,
+        "negative": 0.3478,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Can Apple close the AI gap in 2026? Morgan Stanley weighs in",
+      "final_weight": 0.7956,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.41225624084472656,
+        "negative": 0.3982257544994354,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.328,
+        "negative": 0.3168,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple leads Morgan Stanley top IT hardware picks for 2026. Here are 4 more stocks",
+      "final_weight": 0.7956,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9627598524093628,
+        "negative": 0.024263860657811165,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.766,
+        "negative": 0.0193,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple punted on AI this year. Next year will be critical",
+      "final_weight": 0.7956,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.018885256722569466,
+        "negative": 0.9685547947883606,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.015,
+        "negative": 0.7706,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "How Recent Developments Are Rewriting the Apple Investment Story",
+      "final_weight": 0.7956,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.11537638306617737,
+        "negative": 0.7973634004592896,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0918,
+        "negative": 0.6344,
         "neutral": 0.0
       }
     },
@@ -424,17 +559,17 @@
       }
     },
     {
-      "title": "JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reaches Parity",
-      "final_weight": 0.7666,
+      "title": "Analysts Are Hot on the Foldable iPhone. Should You Buy AAPL Stock Before Apple’s Next Big Product Launch?",
+      "final_weight": 0.7483,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.9906170964241028,
-        "negative": 0.006002435460686684,
+        "positive": 0.9425435662269592,
+        "negative": 0.03966666758060455,
         "neutral": 0.0
       },
       "weighted_scores": {
-        "positive": 0.7594,
-        "negative": 0.0046,
+        "positive": 0.7053,
+        "negative": 0.0297,
         "neutral": 0.0
       }
     },
@@ -454,17 +589,47 @@
       }
     },
     {
-      "title": "Analysts Are Hot on the Foldable iPhone. Should You Buy AAPL Stock Before Apple’s Next Big Product Launch?",
-      "final_weight": 0.7188,
+      "title": "After a 42% Six-Month Rally, What's Next for Apple Stock in 2026?",
+      "final_weight": 0.722,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.9425435662269592,
-        "negative": 0.03966666758060455,
+        "positive": 0.9446786046028137,
+        "negative": 0.032972272485494614,
         "neutral": 0.0
       },
       "weighted_scores": {
-        "positive": 0.6775,
-        "negative": 0.0285,
+        "positive": 0.6821,
+        "negative": 0.0238,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple: Late To The AI Party, Wait And See But Never Count It Out",
+      "final_weight": 0.7038,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.09903091937303543,
+        "negative": 0.8724491000175476,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0697,
+        "negative": 0.614,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Soaring Memory Prices Will Cannibalize Apple's Profit",
+      "final_weight": 0.7038,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.007962017320096493,
+        "negative": 0.9868817925453186,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0056,
+        "negative": 0.6946,
         "neutral": 0.0
       }
     },
@@ -510,6 +675,21 @@
       "weighted_scores": {
         "positive": 0.2915,
         "negative": 0.2548,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Evercore Analysts Are Pounding the Table on Apple Stock Ahead of a ‘Sizable Catalyst’ Coming in 2026",
+      "final_weight": 0.6845,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.10461463779211044,
+        "negative": 0.8923560380935669,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0716,
+        "negative": 0.6108,
         "neutral": 0.0
       }
     },
@@ -585,6 +765,81 @@
       "weighted_scores": {
         "positive": 0.3692,
         "negative": 0.2069,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Whoever Replaces Tim Cook at Apple Will Have 'Big Shoes to Fill'",
+      "final_weight": 0.6644,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.0300283282995224,
+        "negative": 0.9493677616119385,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.02,
+        "negative": 0.6308,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Investors Heavily Search Apple Inc. (AAPL): Here is What You Need to Know",
+      "final_weight": 0.6592,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.45199885964393616,
+        "negative": 0.4223744571208954,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.298,
+        "negative": 0.2784,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Prediction: These 3 Stocks Could Be Worth More Than Apple 3 Years From Now",
+      "final_weight": 0.6436,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.06374954432249069,
+        "negative": 0.9066162109375,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.041,
+        "negative": 0.5835,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple Chip Chief Considers Exit, Tim Cook's AI Reset And More: This Week In Appleverse",
+      "final_weight": 0.6436,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.3979036509990692,
+        "negative": 0.41827577352523804,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.2561,
+        "negative": 0.2692,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Why Apple's Momentum Isn't Accidental",
+      "final_weight": 0.6436,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9316096305847168,
+        "negative": 0.044630613178014755,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.5996,
+        "negative": 0.0287,
         "neutral": 0.0
       }
     },
@@ -680,7 +935,7 @@
     },
     {
       "title": "Apple (AAPL) Stock Slides as Market Rises: Facts to Know Before You Trade",
-      "final_weight": 0.6014,
+      "final_weight": 0.634,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.04523876681923866,
@@ -688,8 +943,8 @@
         "neutral": 0.0
       },
       "weighted_scores": {
-        "positive": 0.0272,
-        "negative": 0.5553,
+        "positive": 0.0287,
+        "negative": 0.5854,
         "neutral": 0.0
       }
     },
@@ -800,7 +1055,7 @@
     },
     {
       "title": "Apple Targets 2026 Launch For AI Smart Glasses, Camera-Equipped AirPods, With Foxconn, TSMC Set To Play Key Roles: Report",
-      "final_weight": 0.5694,
+      "final_weight": 0.6014,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.43893513083457947,
@@ -808,14 +1063,14 @@
         "neutral": 0.0
       },
       "weighted_scores": {
-        "positive": 0.2499,
-        "negative": 0.1997,
+        "positive": 0.264,
+        "negative": 0.2109,
         "neutral": 0.0
       }
     },
     {
       "title": "Morgan Stanley Boosts Apple (AAPL) Target, Sees Upside From Pricing Power and AI",
-      "final_weight": 0.5694,
+      "final_weight": 0.6014,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.9728503227233887,
@@ -823,14 +1078,14 @@
         "neutral": 0.0
       },
       "weighted_scores": {
-        "positive": 0.5539,
-        "negative": 0.0097,
+        "positive": 0.5851,
+        "negative": 0.0103,
         "neutral": 0.0
       }
     },
     {
       "title": "Jim Cramer Says “Apple Might Be Hurt By Higher Memory Prices From Micron”",
-      "final_weight": 0.5694,
+      "final_weight": 0.6014,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.0244100671261549,
@@ -838,14 +1093,14 @@
         "neutral": 0.0
       },
       "weighted_scores": {
-        "positive": 0.0139,
-        "negative": 0.5421,
+        "positive": 0.0147,
+        "negative": 0.5726,
         "neutral": 0.0
       }
     },
     {
       "title": "Jim Cramer Says “Own Apple, Don’t Trade It”",
-      "final_weight": 0.5694,
+      "final_weight": 0.6014,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.9635608196258545,
@@ -853,14 +1108,14 @@
         "neutral": 0.0
       },
       "weighted_scores": {
-        "positive": 0.5487,
-        "negative": 0.0155,
+        "positive": 0.5795,
+        "negative": 0.0163,
         "neutral": 0.0
       }
     },
     {
       "title": "Where is Apple Inc. (AAPL) Headed According to Wall Street?",
-      "final_weight": 0.5694,
+      "final_weight": 0.6014,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.3434494733810425,
@@ -868,14 +1123,14 @@
         "neutral": 0.0
       },
       "weighted_scores": {
-        "positive": 0.1956,
-        "negative": 0.2844,
+        "positive": 0.2066,
+        "negative": 0.3004,
         "neutral": 0.0
       }
     },
     {
       "title": "Analysts Have a Moderate Buy Rating on Apple Inc. (AAPL)",
-      "final_weight": 0.5379,
+      "final_weight": 0.6014,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.9771901965141296,
@@ -883,8 +1138,803 @@
         "neutral": 0.0
       },
       "weighted_scores": {
-        "positive": 0.5256,
-        "negative": 0.0083,
+        "positive": 0.5877,
+        "negative": 0.0093,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple's First Foldable iPhone Leak Reveals Major Design Trade-Offs: Here's What You Need To Know",
+      "final_weight": 0.5995,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.25710776448249817,
+        "negative": 0.5612221360206604,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.1541,
+        "negative": 0.3365,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Netflix to acquire Warner Bros., more executive departures at Apple",
+      "final_weight": 0.5776,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.028912128880620003,
+        "negative": 0.9499850869178772,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0167,
+        "negative": 0.5487,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple Reaches All-Time High This Week -- Proves It's Still in AI Race",
+      "final_weight": 0.5776,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9789299368858337,
+        "negative": 0.01255140732973814,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.5654,
+        "negative": 0.0072,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "ChatGPT Thinks Apple Stock Price Will Close At This Level By The End of 2025",
+      "final_weight": 0.5776,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.2695169746875763,
+        "negative": 0.7092078328132629,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.1557,
+        "negative": 0.4096,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple Departures Point to Challenges for iPhone’s Dominance",
+      "final_weight": 0.5776,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.039638396352529526,
+        "negative": 0.9262470602989197,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0229,
+        "negative": 0.535,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple announces executive transitions",
+      "final_weight": 0.5776,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.47951745986938477,
+        "negative": 0.34302088618278503,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.277,
+        "negative": 0.1981,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple Loses Longtime Design Leader Alan Dye to Meta",
+      "final_weight": 0.5549,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05912713706493378,
+        "negative": 0.8797359466552734,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0328,
+        "negative": 0.4882,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Steve Jobs sold his Volkswagen to raise $1,300 for Apple’s first computer—he became a millionaire just two years later at 23",
+      "final_weight": 0.5071,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.697469174861908,
+        "negative": 0.19706404209136963,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.3537,
+        "negative": 0.0999,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple becomes a debt collector with its new developer agreement",
+      "final_weight": 0.5071,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.008017155341804028,
+        "negative": 0.9859842658042908,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0041,
+        "negative": 0.5,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Evercore ISI Raises PT on Apple (AAPL) Stock",
+      "final_weight": 0.4771,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.5511683821678162,
+        "negative": 0.3841579556465149,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.263,
+        "negative": 0.1833,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple announces changes to iOS in Japan",
+      "final_weight": 0.4771,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.33203035593032837,
+        "negative": 0.5077396035194397,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.1584,
+        "negative": 0.2422,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Why Sam Altman Sees Apple and Not Google as its Top AI Rival",
+      "final_weight": 0.4479,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.49418213963508606,
+        "negative": 0.4333581328392029,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.2213,
+        "negative": 0.1941,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple in talks with Indian chip makers for assembly, packaging of iPhone parts, ET reports",
+      "final_weight": 0.4479,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.2710186243057251,
+        "negative": 0.5496416091918945,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.1214,
+        "negative": 0.2462,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Here's Why Apple (AAPL) Fell More Than Broader Market",
+      "final_weight": 0.4197,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.021107738837599754,
+        "negative": 0.9641494750976562,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0089,
+        "negative": 0.4047,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple's Foldable iPhone Expected to Land Well with Consumers",
+      "final_weight": 0.4026,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9115927219390869,
+        "negative": 0.047830380499362946,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.367,
+        "negative": 0.0193,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple Is Richer Than All but 4 Countries",
+      "final_weight": 0.3924,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9112266898155212,
+        "negative": 0.0608578696846962,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.3576,
+        "negative": 0.0239,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple's 2025 App List, AI Stumble, Executive Exodus And More: This Week In Appleverse",
+      "final_weight": 0.3924,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.5110963582992554,
+        "negative": 0.3420984148979187,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.2006,
+        "negative": 0.1342,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple cofounder Ronald Wayne sold his 10% stake for $800 in 1976—today it’d be worth up to $400 billion",
+      "final_weight": 0.3167,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.4524616003036499,
+        "negative": 0.4291670024394989,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.1433,
+        "negative": 0.1359,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple Loses Epic Games Appeal, Wins Ability to Charge Commissions on Third-Party App Sales",
+      "final_weight": 0.3167,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.18792609870433807,
+        "negative": 0.6701701283454895,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0595,
+        "negative": 0.2122,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Appeals court backs contempt finding against Apple, but reopens a door for iPhone app fees",
+      "final_weight": 0.3167,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.01060548983514309,
+        "negative": 0.9806098937988281,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0034,
+        "negative": 0.3106,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Jim Cramer examines 'stalled' stocks Apple, Meta and Tesla",
+      "final_weight": 0.2936,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.021865325048565865,
+        "negative": 0.953572690486908,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0064,
+        "negative": 0.28,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "UBS Reiterates Neutral on Apple (AAPL) as App Store Growth Slows",
+      "final_weight": 0.2936,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.0753820538520813,
+        "negative": 0.8687427043914795,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0221,
+        "negative": 0.2551,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "How Investors May Respond To Walt Disney (DIS) Adding Ex-Apple COO Jeff Williams To Its Board",
+      "final_weight": 0.2936,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.19117417931556702,
+        "negative": 0.6575060486793518,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0561,
+        "negative": 0.193,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Jim Cramer on Apple: “Bulls Like Me Were Considered Dreamers or Even Heretics”",
+      "final_weight": 0.2936,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.09447600692510605,
+        "negative": 0.8850106596946716,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0277,
+        "negative": 0.2598,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "UBS Reiterates Neutral on Apple (AAPL) as Interest in Apple Intelligence and Foldables Rises",
+      "final_weight": 0.2936,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.28545352816581726,
+        "negative": 0.37650153040885925,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0838,
+        "negative": 0.1105,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple takes China's smartphone battle house to house with free 3-hour iPhone delivery",
+      "final_weight": 0.2936,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8903195261955261,
+        "negative": 0.05917466804385185,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.2614,
+        "negative": 0.0174,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Did Apple’s Executive Overhaul Around AI, Regulation and ESG Just Shift Its (AAPL) Investment Narrative?",
+      "final_weight": 0.2936,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.3448754847049713,
+        "negative": 0.42647725343704224,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.1013,
+        "negative": 0.1252,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple’s Cook Presses Congress Over Child Online Safety Bill",
+      "final_weight": 0.2717,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.231594979763031,
+        "negative": 0.6069838404655457,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0629,
+        "negative": 0.1649,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple's Tim Cook reportedly on Capitol Hill, Oracle earnings watch",
+      "final_weight": 0.2717,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.22291213274002075,
+        "negative": 0.6061228513717651,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0606,
+        "negative": 0.1647,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple: Playing Switzerland In AI Battle, But Risks Losing Smartphone War",
+      "final_weight": 0.2717,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.0281332116574049,
+        "negative": 0.9475916028022766,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0076,
+        "negative": 0.2575,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple (AAPL) Lands $330 Target as CLSA Turns More Bullish on iPhone Momentum",
+      "final_weight": 0.2509,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9206490516662598,
+        "negative": 0.054520245641469955,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.231,
+        "negative": 0.0137,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "OpenAI’s New AI Gadget Might Be an iPhone Disruptor. But Apple Won’t Be Standing Still",
+      "final_weight": 0.2509,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.13400834798812866,
+        "negative": 0.7867385149002075,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0336,
+        "negative": 0.1974,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple's $4 Trillion Comeback: Why It's Now Beating Nvidia, Microsoft, and Meta at Their Own Game",
+      "final_weight": 0.2509,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.7882192134857178,
+        "negative": 0.13923145830631256,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.1978,
+        "negative": 0.0349,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple’s Slow AI Pace Becomes a Strength as Market Grows Weary of Spending",
+      "final_weight": 0.2509,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.6594809889793396,
+        "negative": 0.24266520142555237,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.1655,
+        "negative": 0.0609,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple's chip chief reportedly 'not leaving': A closer look",
+      "final_weight": 0.2312,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.3726356029510498,
+        "negative": 0.4390702545642853,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0862,
+        "negative": 0.1015,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Executive Exodus Hits Apple As Fears Grow Over Possible Chip Chief Departure",
+      "final_weight": 0.2312,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.01020098477602005,
+        "negative": 0.9828173518180847,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0024,
+        "negative": 0.2272,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple's executive exodus sends a signal about its AI strategy",
+      "final_weight": 0.2312,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.04709586128592491,
+        "negative": 0.9183431267738342,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0109,
+        "negative": 0.2123,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple (AAPL) Earns $320 Target as Services Strength Offsets App Store Slowdown",
+      "final_weight": 0.2312,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.7004581689834595,
+        "negative": 0.20510117709636688,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.1619,
+        "negative": 0.0474,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "What the heck is going on at Apple?",
+      "final_weight": 0.2312,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.01895090378820896,
+        "negative": 0.9494359493255615,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0044,
+        "negative": 0.2195,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple Inc. (AAPL): A Bull Case Theory",
+      "final_weight": 0.2312,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9919871687889099,
+        "negative": 0.0049805426970124245,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.2293,
+        "negative": 0.0012,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple Made a Comeback with the iPhone 17, But Will Executive Exits Pull Down AAPL Stock?",
+      "final_weight": 0.1786,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.6476724147796631,
+        "negative": 0.22112886607646942,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.1157,
+        "negative": 0.0395,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "What Apple's executive departures mean for the iPhone maker",
+      "final_weight": 0.1786,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.13151098787784576,
+        "negative": 0.7314049601554871,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0235,
+        "negative": 0.1306,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "'India Weighs Greater Phone-Location Surveillance; Apple, Google And Samsung Protest' - Reuters Exclusive",
+      "final_weight": 0.1786,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.0857137069106102,
+        "negative": 0.8216304779052734,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0153,
+        "negative": 0.1467,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple’s executive shake-up continues with departures of general counsel and policy head",
+      "final_weight": 0.1786,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.03377315402030945,
+        "negative": 0.9379021525382996,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.006,
+        "negative": 0.1675,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "BTIG thinks Apple stock is poised to drop, PepsiCo nears settlement",
+      "final_weight": 0.1632,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.013851658441126347,
+        "negative": 0.9766253232955933,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0023,
+        "negative": 0.1594,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple: Inventory Does Not Lie",
+      "final_weight": 0.1632,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.432384729385376,
+        "negative": 0.48559728264808655,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0706,
+        "negative": 0.0792,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Intel Stock Surged 10% on Apple Chip Manufacturing Hopes—Time to Buy?",
+      "final_weight": 0.1632,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8925525546073914,
+        "negative": 0.07366567105054855,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.1457,
+        "negative": 0.012,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple unveils the winners of the 2025 App Store Awards",
+      "final_weight": 0.1632,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.6985529661178589,
+        "negative": 0.19532358646392822,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.114,
+        "negative": 0.0319,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple (AAPL) Price Target Raised as Loop Capital Sees Stronger iPhone 17 Demand",
+      "final_weight": 0.1632,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.7448114156723022,
+        "negative": 0.17525871098041534,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.1216,
+        "negative": 0.0286,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple Warns Users in 84 Countries of New Cyber Threat Activity",
+      "final_weight": 0.1307,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.0897742211818695,
+        "negative": 0.8206362128257751,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0117,
+        "negative": 0.1073,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Apple May Actually Be Winning the AI Race",
+      "final_weight": 0.1307,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.7837300896644592,
+        "negative": 0.14326471090316772,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.1024,
+        "negative": 0.0187,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Why Netflix And Apple Dominated Google's Top Entertainment Searches In 2025",
+      "final_weight": 0.1185,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.49934613704681396,
+        "negative": 0.3437289595603943,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0592,
+        "negative": 0.0407,
+        "neutral": 0.0
+      }
+    },
+    {
+      "title": "Could Intel’s Apple Chip Ambitions and Malaysia Bet Redefine Its Foundry Narrative (INTC)?",
+      "final_weight": 0.1185,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.35820257663726807,
+        "negative": 0.4410151541233063,
+        "neutral": 0.0
+      },
+      "weighted_scores": {
+        "positive": 0.0424,
+        "negative": 0.0523,
         "neutral": 0.0
       }
     }

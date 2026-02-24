@@ -1,6 +1,8 @@
 import json
 import time
-from datetime import datetime, timedelta
+from collections import defaultdict
+from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 import logging
 import sys
 import os
@@ -14,8 +16,9 @@ from config import (
     TEMP_PATH,
     REQUEST_TIMEOUT_LIMIT,
     FINNHUB_API_KEY,
+    MARKET_TIMEZONE,
 )
-from .utils import resolve_ticker, validate_date, add_recency_weights
+from .utils import resolve_ticker, validate_date, add_recency_weights, assign_market_date
 from .filters import (
     filter_company_related,
     remove_duplicates
@@ -100,12 +103,20 @@ class Fetcher:
 
         logger.info("Finnhub returned %s raw articles", len(raw_articles))
 
+        eastern = ZoneInfo(MARKET_TIMEZONE)
+
         normalised: list[dict] = []
         for item in raw_articles:
             try:
                 unix_ts = item.get("datetime", 0)
-                seen_dt = datetime.utcfromtimestamp(unix_ts)
+                seen_dt = datetime.fromtimestamp(unix_ts, tz=timezone.utc)
                 seendate = seen_dt.strftime("%Y%m%dT%H%M%SZ")
+
+                # Convert to ET and assign market trading session
+                et_dt = seen_dt.astimezone(eastern)
+                seendate_et = et_dt.strftime("%Y%m%dT%H%M%S")
+                market_date_dt = assign_market_date(seen_dt)
+                market_date_str = market_date_dt.strftime("%Y-%m-%d")
 
                 source = item.get("source", "")
                 article_url = item.get("url", "")
@@ -122,6 +133,8 @@ class Fetcher:
                     "url": article_url,
                     "sourceurl": article_url,
                     "seendate": seendate,
+                    "seendate_et": seendate_et,
+                    "market_date": market_date_str,
                     "domain": domain,
                     "language": "English",
                     "content": item.get("summary", ""),
@@ -131,6 +144,56 @@ class Fetcher:
                 continue
 
         return normalised
+
+    def _fetch_chunked(
+        self,
+        symbol: str,
+        window_start: datetime,
+        window_end: datetime,
+        chunk_days: int = 7,
+    ) -> list[dict]:
+        """
+        Split [window_start, window_end] into weekly chunks and make
+        separate Finnhub API calls for each, then merge all results.
+        This ensures temporal coverage even when Finnhub returns only
+        the most recent articles for a wide date range.
+        """
+        all_articles: list[dict] = []
+        chunk_start = window_start
+
+        while chunk_start <= window_end:
+            chunk_end = min(chunk_start + timedelta(days=chunk_days - 1), window_end)
+
+            try:
+                chunk_articles = self._fetch_finnhub_news(
+                    symbol=symbol,
+                    from_date=chunk_start.strftime("%Y-%m-%d"),
+                    to_date=chunk_end.strftime("%Y-%m-%d"),
+                )
+                logger.info(
+                    "Chunk %s to %s: fetched %d articles",
+                    chunk_start.strftime("%Y-%m-%d"),
+                    chunk_end.strftime("%Y-%m-%d"),
+                    len(chunk_articles),
+                )
+                all_articles.extend(chunk_articles)
+            except Exception as exc:
+                logger.warning(
+                    "Chunk %s to %s failed: %s — continuing with remaining chunks",
+                    chunk_start.strftime("%Y-%m-%d"),
+                    chunk_end.strftime("%Y-%m-%d"),
+                    exc,
+                )
+
+            chunk_start = chunk_end + timedelta(days=1)
+
+        logger.info(
+            "Chunked fetch complete: %d total articles from %d-day window in %d-day chunks",
+            len(all_articles),
+            (window_end - window_start).days + 1,
+            chunk_days,
+        )
+        return all_articles
 
     def search(self) -> None:
 
@@ -177,10 +240,11 @@ class Fetcher:
             )
 
         try:
-            all_articles = self._fetch_finnhub_news(
+            all_articles = self._fetch_chunked(
                 symbol=ticker,
-                from_date=self.backward_start_date.strftime("%Y-%m-%d"),
-                to_date=self.backward_end_date.strftime("%Y-%m-%d"),
+                window_start=self.backward_start_date,
+                window_end=self.backward_end_date,
+                chunk_days=7,
             )
         except finnhub.FinnhubAPIException as exc:
             logger.error("Finnhub API error: %s", exc)
@@ -197,14 +261,58 @@ class Fetcher:
             len(filtered_articles),
         )
 
-        def _sort_key(a: dict) -> str:
-            return a.get("seendate") or ""
-
-        filtered_articles = sorted(filtered_articles, key=_sort_key, reverse=True)
-
+        # ── Time-bucketed prefetch ────────────────────────────────
+        # Instead of sorting by recency and taking the top N (which
+        # discards older articles), divide articles into weekly time
+        # buckets and allocate the prefetch budget proportionally.
         prefetch_n = max(self.number_of_news * 3, 50)
 
-        candidates = filtered_articles[:prefetch_n]
+        def _bucket_key(a: dict) -> str:
+            sd = a.get("seendate", "")
+            if sd:
+                try:
+                    dt = datetime.strptime(sd, "%Y%m%dT%H%M%SZ")
+                    return dt.strftime("%Y-W%W")
+                except ValueError:
+                    pass
+            return "unknown"
+
+        buckets: dict[str, list[dict]] = defaultdict(list)
+        for art in filtered_articles:
+            buckets[_bucket_key(art)].append(art)
+
+        # Sort within each bucket by seendate descending
+        for key in buckets:
+            buckets[key].sort(key=lambda a: a.get("seendate", ""), reverse=True)
+
+        # Allocate prefetch budget proportionally across buckets
+        n_buckets = len(buckets) or 1
+        base_per_bucket = prefetch_n // n_buckets
+        remainder = prefetch_n % n_buckets
+
+        candidates: list[dict] = []
+        for i, (key, arts) in enumerate(sorted(buckets.items())):
+            quota = base_per_bucket + (1 if i < remainder else 0)
+            candidates.extend(arts[:quota])
+
+        # Re-sort by seendate for downstream compatibility
+        candidates.sort(key=lambda a: a.get("seendate", ""), reverse=True)
+
+        logger.info(
+            "Time-bucketed prefetch: %d buckets, %d candidates from %d total",
+            n_buckets, len(candidates), len(filtered_articles),
+        )
+
+        # Log actual temporal span vs intended
+        if candidates:
+            seendates = [a.get("seendate", "") for a in candidates if a.get("seendate")]
+            if seendates:
+                logger.info(
+                    "Temporal coverage: articles span %s to %s (intended window: %s to %s)",
+                    min(seendates)[:8], max(seendates)[:8],
+                    self.backward_start_date.strftime("%Y%m%d"),
+                    self.backward_end_date.strftime("%Y%m%d"),
+                )
 
         add_recency_weights(
             candidates,
@@ -276,6 +384,7 @@ class Fetcher:
             ),
             "prediction_window_days": self.prediction_window_days,
             "max_backward_days": self.max_backward_days,
+            "timestamp_alignment": "ET_market_close",
             "fetch_timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "article_count": len(articles),
             "articles": articles,
