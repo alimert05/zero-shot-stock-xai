@@ -74,7 +74,7 @@ def _classify_sentiment(text: str, company_name: str) -> dict[str, float]:
     # Company-aware zero-shot labels
     labels = [
         f"negative sentiment toward {company_name}",
-        f"no clear sentiment (factual or unclear) about {company_name}",
+        f"neutral sentiment toward {company_name}",
         f"positive sentiment toward {company_name}",
     ]
 
@@ -106,9 +106,12 @@ def predict_sentiment(
 
     articles = data.get("articles", [])
     query = data.get("query", "")
+    json_ticker = data.get("ticker")
 
     if not company_name:
         company_name = query
+    if not ticker:
+        ticker = json_ticker
     if not company_name:
         raise ValueError("company_name must be provided or present in articles.json query field")
 

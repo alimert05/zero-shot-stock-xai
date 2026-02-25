@@ -8,6 +8,12 @@ Creates ~120 test cases covering:
 Ground truth labels (positive/negative/neutral) are fetched from yfinance
 and stored in the JSON so evaluations are deterministic and fast.
 
+Neutral threshold is computed per-company as k × σ_daily (volatility-scaled),
+following López de Prado (2018) "Advances in Financial Machine Learning" and
+Bollinger (1983). A single fixed threshold fails across different volatility
+regimes — Apple (σ ≈ 1.5%/day) needs a much wider neutral band than a
+low-volatility utility stock.
+
 Usage:
     python -m testset.generate_testset
 """
@@ -50,18 +56,18 @@ PREDICTION_WINDOWS = [1, 3, 5, 7, 14, 31]
 MARKET_PERIODS = [
     {
         "label": "bull_run",
-        "description": "Q1 2024 bull market rally",
+        "description": "Q1 2025 market period (Mar–Apr)",
         "base_dates": [
-            "08-01-2025",
-            "22-01-2025",
-            "05-02-2025",
-            "19-02-2025",
-            "04-03-2025",
+            "03-03-2025",
+            "10-03-2025",
+            "17-03-2025",
+            "24-03-2025",
+            "07-04-2025",
         ],
     },
     {
         "label": "volatile",
-        "description": "Aug 2024 sell-off / volatility",
+        "description": "Aug 2025 sell-off / volatility",
         "base_dates": [
             "01-08-2025",
             "05-08-2025",
@@ -72,7 +78,7 @@ MARKET_PERIODS = [
     },
     {
         "label": "earnings_season",
-        "description": "Q3 2024 earnings season (Oct-Nov)",
+        "description": "Q3 2025 earnings season (Oct-Nov)",
         "base_dates": [
             "14-10-2025",
             "21-10-2025",
@@ -83,7 +89,7 @@ MARKET_PERIODS = [
     },
     {
         "label": "recent_stable",
-        "description": "Late 2024 / early 2025 period",
+        "description": "Late 2024 / early 2026 period",
         "base_dates": [
             "02-12-2025",
             "09-12-2025",
@@ -94,9 +100,53 @@ MARKET_PERIODS = [
     },
 ]
 
-NEUTRAL_THRESHOLD = 0.003
+VOLATILITY_K             = 0.5   # |return| must exceed k×σ to be directional
+VOLATILITY_LOOKBACK_DAYS = 60    # calendar days of history used to estimate σ_daily
+FALLBACK_NEUTRAL_THRESHOLD = 0.005  # used only when yfinance data is unavailable
+
 MAX_LOOKAHEAD_DAYS = 10
 OUTPUT_PATH = PRED_PATH / "test_set.json"
+
+
+def compute_volatility_threshold(
+    ticker: str,
+    k: float = VOLATILITY_K,
+    lookback_days: int = VOLATILITY_LOOKBACK_DAYS,
+) -> float:
+    try:
+        hist = yf.download(
+            ticker,
+            period=f"{lookback_days}d",
+            interval="1d",
+            progress=False,
+            auto_adjust=True,
+        )
+        if hist is None or hist.empty:
+            raise ValueError("No price data returned")
+
+        closes = hist["Close"]
+        if hasattr(closes, "squeeze"):
+            closes = closes.squeeze()
+
+        daily_returns = closes.pct_change().dropna()
+        if len(daily_returns) < 10:
+            raise ValueError(f"Too few data points ({len(daily_returns)})")
+
+        sigma = float(daily_returns.std())
+        threshold = k * sigma
+
+        logger.info(
+            "  %s: σ_daily=%.4f  →  threshold = %.2f × %.4f = %.4f  (%.2f%%)",
+            ticker, sigma, k, sigma, threshold, threshold * 100,
+        )
+        return threshold
+
+    except Exception as exc:
+        logger.warning(
+            "Could not compute volatility threshold for %s (%s) — using fallback %.4f",
+            ticker, exc, FALLBACK_NEUTRAL_THRESHOLD,
+        )
+        return FALLBACK_NEUTRAL_THRESHOLD
 
 
 # ── Ground Truth Fetching ──
@@ -137,7 +187,7 @@ def get_ground_truth(
     ticker: str,
     start_date: str,
     end_date: str,
-    neutral_threshold: float = NEUTRAL_THRESHOLD,
+    neutral_threshold: float = FALLBACK_NEUTRAL_THRESHOLD,
 ) -> dict:
     """Compute actual label and metadata from yfinance price data."""
     s0 = _parse_date(start_date)
@@ -172,14 +222,15 @@ def _compute_backward_days(prediction_window: int) -> int:
     return max(7, min(90, math.ceil(5 * math.sqrt(prediction_window))))
 
 
-def generate_test_cases() -> list[dict]:
-    """Generate all test cases with ground truth."""
+def generate_test_cases(ticker_thresholds: dict[str, float]) -> list[dict]:
+    """Generate all test cases with ground truth using per-company thresholds."""
     test_cases = []
     case_id = 0
 
     for company in COMPANIES:
         ticker = company["ticker"]
         name = company["name"]
+        neutral_threshold = ticker_thresholds[ticker]
 
         for window in PREDICTION_WINDOWS:
             for period in MARKET_PERIODS:
@@ -197,12 +248,15 @@ def generate_test_cases() -> list[dict]:
                 test_id = f"{ticker}_W{window}_{period['label']}_{case_id:03d}"
 
                 logger.info(
-                    "Generating case %s: %s %s→%s (W=%d)",
-                    test_id, ticker, start_date, end_date, window,
+                    "Generating case %s: %s %s→%s (W=%d, threshold=%.4f)",
+                    test_id, ticker, start_date, end_date, window, neutral_threshold,
                 )
 
                 try:
-                    ground_truth = get_ground_truth(ticker, start_date, end_date)
+                    ground_truth = get_ground_truth(
+                        ticker, start_date, end_date,
+                        neutral_threshold=neutral_threshold,
+                    )
                 except Exception as exc:
                     logger.warning("Skipping %s: %s", test_id, exc)
                     continue
@@ -217,6 +271,7 @@ def generate_test_cases() -> list[dict]:
                     "expected_backward_days": _compute_backward_days(window),
                     "market_period": period["label"],
                     "market_period_description": period["description"],
+                    "neutral_threshold_used": round(neutral_threshold, 6),
                     **ground_truth,
                 }
                 test_cases.append(test_case)
@@ -228,11 +283,22 @@ def generate_and_save() -> None:
     """Generate the full test set and save to JSON."""
     logger.info("Starting test set generation...")
 
-    test_cases = generate_test_cases()
+    # ── Step 1: compute per-company volatility thresholds ──
+    logger.info(
+        "Computing per-company volatility thresholds  (k=%.2f × σ_daily, lookback=%dd)...",
+        VOLATILITY_K, VOLATILITY_LOOKBACK_DAYS,
+    )
+    ticker_thresholds: dict[str, float] = {}
+    for company in COMPANIES:
+        ticker = company["ticker"]
+        ticker_thresholds[ticker] = compute_volatility_threshold(ticker)
 
-    label_counts = {}
-    window_counts = {}
-    company_counts = {}
+    # ── Step 2: generate test cases ──
+    test_cases = generate_test_cases(ticker_thresholds)
+
+    label_counts: dict[str, int] = {}
+    window_counts: dict[int, int] = {}
+    company_counts: dict[str, int] = {}
     for case in test_cases:
         label = case["actual_label"]
         label_counts[label] = label_counts.get(label, 0) + 1
@@ -246,7 +312,13 @@ def generate_and_save() -> None:
             "created": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "description": "Evaluation test set for news-based stock prediction pipeline",
             "ground_truth_source": "yfinance",
-            "neutral_threshold": NEUTRAL_THRESHOLD,
+            # Volatility-scaled threshold metadata
+            "neutral_threshold_method": f"volatility_scaled_k{VOLATILITY_K}",
+            "neutral_threshold_k": VOLATILITY_K,
+            "neutral_threshold_lookback_days": VOLATILITY_LOOKBACK_DAYS,
+            "neutral_thresholds_by_ticker": {
+                t: round(v, 6) for t, v in ticker_thresholds.items()
+            },
             "companies": [c["ticker"] for c in COMPANIES],
             "prediction_windows": PREDICTION_WINDOWS,
             "total_cases": len(test_cases),
@@ -261,15 +333,18 @@ def generate_and_save() -> None:
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
-    logger.info("=" * 50)
+    logger.info("=" * 60)
     logger.info("Test set generated: %d cases", len(test_cases))
     logger.info("Label distribution: %s", label_counts)
-    logger.info("Cases per window: %s", window_counts)
-    logger.info("Cases per company: %s", company_counts)
+    logger.info("Cases per window:   %s", window_counts)
+    logger.info("Cases per company:  %s", company_counts)
+    logger.info(
+        "Thresholds used:    %s",
+        {t: f"{v * 100:.2f}%" for t, v in ticker_thresholds.items()},
+    )
     logger.info("Saved to: %s", OUTPUT_PATH)
-    logger.info("=" * 50)
+    logger.info("=" * 60)
 
 
 if __name__ == "__main__":
     generate_and_save()
-
