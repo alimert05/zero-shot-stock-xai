@@ -24,7 +24,7 @@ FINNHUB_API_KEY = "d5rvt19r01qq2th0b8sgd5rvt19r01qq2th0b8t0"
 
 NOISE_REDUCTION_MODEL = "roberta-large-mnli" 
 
-IMPACT_HORIZON_MODEL = "roberta-large-mnli" 
+IMPACT_HORIZON_MODEL = "facebook/bart-large-mnli"
 IMPACT_HORIZON_DEVICE = 0
 
 SENTIMENT_DEVICE = 0 

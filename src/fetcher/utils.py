@@ -6,10 +6,15 @@ from datetime import datetime, timedelta, timezone
 from typing import Optional
 from zoneinfo import ZoneInfo
 
+import exchange_calendars as xcals
+import pandas as pd
 import requests
 from requests.exceptions import HTTPError
 
 from config import MARKET_TIMEZONE, MARKET_CLOSE_HOUR
+
+# NYSE trading calendar — loaded once, reused across calls
+_NYSE_CALENDAR = xcals.get_calendar("XNYS")
 
 logger = logging.getLogger(__name__)
 
@@ -90,13 +95,14 @@ def validate_date(date_str: str) -> None:
     
 def assign_market_date(utc_dt: datetime) -> datetime:
     """
-    Convert a UTC datetime to US Eastern time and assign it to a trading
-    session (market_date):
+    Convert a UTC datetime to US Eastern time and assign it to the next
+    NYSE trading session using the ``exchange_calendars`` holiday calendar.
 
-    - Before MARKET_CLOSE_HOUR ET  → same calendar day
-    - At or after MARKET_CLOSE_HOUR ET → next business day
-    - Saturday → next Monday
-    - Sunday → next Monday
+    Rules:
+    - Before MARKET_CLOSE_HOUR ET  → same calendar day (if it is a session)
+    - At or after MARKET_CLOSE_HOUR ET → next trading day
+    - Weekends and NYSE holidays (Christmas, Presidents' Day, …) → next
+      trading day
 
     Returns a timezone-naive datetime at midnight of the market_date.
     """
@@ -107,18 +113,18 @@ def assign_market_date(utc_dt: datetime) -> datetime:
         utc_dt = utc_dt.replace(tzinfo=timezone.utc)
     et_dt = utc_dt.astimezone(eastern)
 
-    # Determine the market_date
+    # Determine the candidate date
     if et_dt.hour >= MARKET_CLOSE_HOUR:
-        market_date = et_dt.date() + timedelta(days=1)
+        candidate = et_dt.date() + timedelta(days=1)
     else:
-        market_date = et_dt.date()
+        candidate = et_dt.date()
 
-    # Roll weekends forward to Monday
-    weekday = market_date.weekday()  # 0=Mon … 6=Sun
-    if weekday == 5:      # Saturday
-        market_date += timedelta(days=2)
-    elif weekday == 6:    # Sunday
-        market_date += timedelta(days=1)
+    # Roll forward to the next NYSE trading session (skips weekends + holidays)
+    ts = pd.Timestamp(candidate)
+    if _NYSE_CALENDAR.is_session(ts):
+        market_date = candidate
+    else:
+        market_date = _NYSE_CALENDAR.date_to_session(ts, direction="next").date()
 
     return datetime(market_date.year, market_date.month, market_date.day)
 
