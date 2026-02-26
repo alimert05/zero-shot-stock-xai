@@ -27,18 +27,22 @@ def _get_classifier():
             raise
     return _classifier
  
-IMPACT_LABELS = [
-    "immediate market reaction within 1-5 days",
-    "short-term impact within 5-10 days",
-    "medium-term impact within 2-3 weeks",
-    "long-term impact over 4 weeks",
+EVENT_TYPE_LABELS = [
+    "earnings report or financial results",
+    "analyst rating, upgrade, or downgrade",
+    "product launch, innovation, or technology",
+    "regulatory action, legal case, or investigation",
+    "strategic restructuring, merger, or acquisition",
+    "general market commentary or opinion",
 ]
 
-LABEL_TO_DAYS: dict[str, int] = {
-    "immediate market reaction within 1-5 days": 3,
-    "short-term impact within 5-10 days": 7,
-    "medium-term impact within 2-3 weeks": 14,
-    "long-term impact over 4 weeks": 31,
+EVENT_TYPE_TO_HORIZON: dict[str, dict] = {
+    "earnings report or financial results":          {"days": 3,  "category": "IMMEDIATE"},
+    "analyst rating, upgrade, or downgrade":         {"days": 7,  "category": "SHORT_TERM"},
+    "product launch, innovation, or technology":     {"days": 7,  "category": "SHORT_TERM"},
+    "regulatory action, legal case, or investigation": {"days": 14, "category": "MEDIUM_TERM"},
+    "strategic restructuring, merger, or acquisition": {"days": 31, "category": "LONG_TERM"},
+    "general market commentary or opinion":          {"days": 7,  "category": "SHORT_TERM"},
 }
 
 HORIZON_CATEGORY = {
@@ -54,7 +58,8 @@ def classify_impact_horizon(
     content: str | None = None,
     max_content_chars: int = 500,
 ) -> dict:
-    
+    """Classify article event type, then map to impact horizon."""
+
     classifier = _get_classifier()
 
     if content:
@@ -62,33 +67,34 @@ def classify_impact_horizon(
         text = f"{title}. {truncated_content}"
     else:
         text = title
- 
+
     try:
         result = classifier(
             text,
-            candidate_labels=IMPACT_LABELS,
-            hypothesis_template="This financial news will cause {}.",
+            candidate_labels=EVENT_TYPE_LABELS,
+            hypothesis_template="This news article is about {}.",
         )
- 
+
         top_label = result["labels"][0]
         confidence = result["scores"][0]
-        horizon_days = LABEL_TO_DAYS[top_label]
-        category = HORIZON_CATEGORY[horizon_days]
- 
+        horizon = EVENT_TYPE_TO_HORIZON[top_label]
+
         return {
+            "event_type": top_label,
             "label": top_label,
-            "horizon_days": horizon_days,
-            "category": category,
+            "horizon_days": horizon["days"],
+            "category": horizon["category"],
             "confidence": confidence,
         }
- 
+
     except Exception as exc:
         logger.warning("Impact horizon classification failed: %s", exc)
 
         return {
-            "label": IMPACT_LABELS[2],
-            "horizon_days": 10,
-            "category": "MEDIUM_TERM",
+            "event_type": "general market commentary or opinion",
+            "label": "general market commentary or opinion",
+            "horizon_days": 7,
+            "category": "SHORT_TERM",
             "confidence": 0.0,
         }
  
@@ -154,6 +160,7 @@ def add_impact_horizon_data(
         )
 
         article["impact_horizon"] = {
+            "event_type": horizon_result["event_type"],
             "category": horizon_result["category"],
             "horizon_days": horizon_result["horizon_days"],
             "confidence": round(horizon_result["confidence"], 4),
