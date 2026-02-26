@@ -70,9 +70,6 @@ XAI_LLAMA_ENABLED              = True
 XAI_SOURCE_CONCENTRATION_THRESHOLD = 0.60   # flag if top domain > 60% of articles
 XAI_MIN_UNIQUE_SOURCES             = 2      # flag if fewer unique domains
 
-# Trading action policy
-XAI_ACTION_MIN_CONFIDENCE      = 0.55
-XAI_ACTION_MIN_MARGIN          = 0.05
 NEUTRAL_THRESHOLD              = 0.003      # ±0.3% close-to-close return band
 
 # Market timezone alignment

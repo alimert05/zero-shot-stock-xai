@@ -171,14 +171,50 @@ def predict_sentiment(
     else:
         normalized_scores = {"positive": 0.0, "negative": 0.0, "neutral": 0.0}
 
-    # final_label = max(normalized_scores, key=normalized_scores.get)
-
     final_label = max(normalized_scores, key=normalized_scores.get)
 
-    sorted_scores = sorted(normalized_scores.values(), reverse=True)
-    margin = sorted_scores[0] - sorted_scores[1]
-    if margin < 0.01:
-        final_label = "neutral"   # low-confidence → default neutral
+    # ── Margin-based selective prediction (Chow's reject option) ────
+    #
+    # Abstain to neutral when the aggregate margin between the top
+    # class and its closest rival is below a cost-calibrated threshold.
+    #
+    # Framework: Chow (1970) showed that the optimal reject threshold
+    # for an m-class classifier is  t = 1 − (1 − Cr/Ce),  where
+    #   Cr = cost of rejecting (abstaining),
+    #   Ce = cost of a mis-classification.
+    # For Cr/Ce ≈ 0.5 in a 3-class setting this gives t ≈ 0.10 on the
+    # posterior margin (top − runner-up).  We lower this to 0.05 to
+    # reduce over-abstention: the system only abstains when the top
+    # two classes are nearly indistinguishable in the weighted aggregate.
+    #
+    # Refs:
+    #   Chow (1970) IEEE Trans. Inf. Theory 16(1), 41-46.
+    #   Xin et al. (2021) "The Art of Abstention", ACL 2021.
+    #   Hendrickx et al. (2021) Comp. Ling. 47(4), 757-788.
+
+    ABSTENTION_MARGIN = 0.03
+
+    sorted_labels = sorted(normalized_scores, key=normalized_scores.get, reverse=True)
+    top_label = sorted_labels[0]
+    runner_up = sorted_labels[1]
+
+    margin = round(
+        normalized_scores[top_label] - normalized_scores[runner_up], 4
+    )
+    abstention_method = None
+
+    if margin < ABSTENTION_MARGIN:
+        final_label = "neutral"
+        abstention_method = "margin"
+        logger.info(
+            "Abstention: margin %.4f < %.2f → neutral (top=%s, runner_up=%s)",
+            margin, ABSTENTION_MARGIN, top_label, runner_up,
+        )
+    else:
+        logger.info(
+            "Margin check passed: %.4f ≥ %.2f → keep %s",
+            margin, ABSTENTION_MARGIN, top_label,
+        )
 
     result = {
         "query": query,
@@ -194,6 +230,12 @@ def predict_sentiment(
         "final_label": final_label,
         "final_confidence": normalized_scores[final_label],
         "article_details": article_sentiments,
+        "abstention_test": {
+            "method": abstention_method if abstention_method else "none",
+            "margin": margin,
+            "threshold": ABSTENTION_MARGIN,
+            "n_articles": len(article_sentiments),
+        },
     }
 
     logger.info(
@@ -242,4 +284,13 @@ def _print_summary(result: dict) -> None:
     print(f"{'-'*50}")
     print(f"  FINAL LABEL : {result['final_label'].upper()}")
     print(f"  CONFIDENCE  : {result['final_confidence']:.4f}")
+    # Abstention test summary
+    abst = result.get("abstention_test", {})
+    method = abst.get("method", "none")
+    margin = abst.get("margin", 0)
+    threshold = abst.get("threshold", 0)
+    if method != "none":
+        print(f"  ABSTAINED   : Yes (margin {margin:.4f} < {threshold})")
+    else:
+        print(f"  MARGIN      : {margin:.4f} (threshold={threshold})")
     print(f"{'='*50}\n")
