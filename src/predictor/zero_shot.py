@@ -173,26 +173,7 @@ def predict_sentiment(
 
     final_label = max(normalized_scores, key=normalized_scores.get)
 
-    # ── Margin-based selective prediction (Chow's reject option) ────
-    #
-    # Abstain to neutral when the aggregate margin between the top
-    # class and its closest rival is below a cost-calibrated threshold.
-    #
-    # Framework: Chow (1970) showed that the optimal reject threshold
-    # for an m-class classifier is  t = 1 − (1 − Cr/Ce),  where
-    #   Cr = cost of rejecting (abstaining),
-    #   Ce = cost of a mis-classification.
-    # For Cr/Ce ≈ 0.5 in a 3-class setting this gives t ≈ 0.10 on the
-    # posterior margin (top − runner-up).  We lower this to 0.05 to
-    # reduce over-abstention: the system only abstains when the top
-    # two classes are nearly indistinguishable in the weighted aggregate.
-    #
-    # Refs:
-    #   Chow (1970) IEEE Trans. Inf. Theory 16(1), 41-46.
-    #   Xin et al. (2021) "The Art of Abstention", ACL 2021.
-    #   Hendrickx et al. (2021) Comp. Ling. 47(4), 757-788.
-
-    ABSTENTION_MARGIN = 0.03
+    ABSTENTION_MARGIN = 0.005
 
     sorted_labels = sorted(normalized_scores, key=normalized_scores.get, reverse=True)
     top_label = sorted_labels[0]

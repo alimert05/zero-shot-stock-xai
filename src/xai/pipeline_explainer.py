@@ -61,13 +61,16 @@ def _explain_impact_horizon_weight(
     mu = W / 2.0
     sigma = W / 2.0
 
+    event_type = impact_horizon.get("event_type", "unknown")
+
     interpretation = (
-        f"{category} horizon ({horizon_days} days); "
+        f"event type: {event_type} → {category} horizon ({horizon_days} days); "
         f"expected impact day = {impact_day} (horizon_days - days_ago); "
         f"Gaussian centre μ={mu}, σ={sigma}; "
         f"weight = exp(-({impact_day}-{mu})²/(2×{sigma}²)) = {impact_horizon_weight:.4f}"
     )
     return {
+        "event_type": event_type,
         "horizon_category": category,
         "horizon_days": horizon_days,
         "horizon_confidence": safe_round(confidence),
@@ -168,3 +171,4 @@ def explain_pipeline(
         "avg_recency_weight": avg_recency,
         "avg_horizon_weight": avg_horizon,
     }
+
