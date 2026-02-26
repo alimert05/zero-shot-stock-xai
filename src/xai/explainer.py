@@ -166,6 +166,151 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         )
     lines.append("")
 
+    # ── Contrastive explanation ────────────────────────────────
+    # "Why label A INSTEAD OF label B?" — the core XAI question.
+    # Ref: Miller (2019) Art. Intell. 267, 1-38.
+    contrastive = layer2.get("contrastive", {})
+    flip_info   = layer2.get("minimum_flip_set", {})
+
+    if contrastive:
+        c_winner   = contrastive["winner"].upper()
+        c_runner   = contrastive["runner_up"].upper()
+        c_gap      = contrastive["score_gap"]
+        c_n_w      = contrastive["n_favouring_winner"]
+        c_n_r      = contrastive["n_favouring_runner_up"]
+        c_push_w   = contrastive["total_push_toward_winner"]
+        c_push_r   = contrastive["total_push_toward_runner_up"]
+        top_drivers = contrastive.get("top_gap_drivers", [])
+
+        lines += [
+            f"  WHY {c_winner} INSTEAD OF {c_runner}?",
+            "  Contrastive explanation — what tipped the balance",
+            w,
+            f"  Score gap : {c_winner} {contrastive['winner_score'] * 100:.1f}%"
+            f"  vs  {c_runner} {contrastive['runner_up_score'] * 100:.1f}%"
+            f"  (gap = {c_gap * 100:.1f} percentage points)",
+            "",
+            f"  Article split:",
+            f"    {c_n_w:>3} articles push toward {c_winner}"
+            f"  (total push: +{c_push_w * 100:.1f} pp)",
+            f"    {c_n_r:>3} articles push toward {c_runner}"
+            f"  (total push: {c_push_r * 100:.1f} pp)",
+            "",
+        ]
+
+        # Third-place class role
+        c_third = contrastive.get("third_place")
+        c_third_score = contrastive.get("third_score", 0)
+        c_neutral_effect = contrastive.get("neutral_effect", "none")
+        if c_third and c_third_score > 0:
+            third_upper = c_third.upper()
+            if c_neutral_effect == "balanced":
+                effect_text = (
+                    f"absorbing probability mass roughly equally from both sides"
+                )
+            elif c_neutral_effect.startswith("helps_"):
+                helped = c_neutral_effect.split("_", 1)[1].upper()
+                hurt = c_runner if helped == c_winner else c_winner
+                effect_text = (
+                    f"drawing more mass from {hurt} than {helped},"
+                    f" indirectly helping {helped}"
+                )
+            else:
+                effect_text = "with minimal impact on the gap"
+            lines += [
+                f"  Third class: {third_upper} at {c_third_score * 100:.1f}%"
+                f" — {effect_text}.",
+                "",
+            ]
+
+        # Top gap drivers table
+        if top_drivers:
+            lines += [
+                "  Top 5 articles driving the gap:",
+                f"    {'#':<4} {'Direction':>10}  {'Net':>8}  Title",
+                f"    {'-' * 70}",
+            ]
+            for i, drv in enumerate(top_drivers, 1):
+                direction = f"→ {drv['favours'][:3].upper()}"
+                net_pct = drv["net_direction"] * 100
+                lines.append(
+                    f"    {i:<4} {direction:>10}  {net_pct:>+7.2f}%  {drv['title'][:48]}"
+                )
+            lines.append("")
+
+        # ── LIME ↔ contrastive bridge ──────────────────────────
+        # For each top gap driver that also has LIME data, show
+        # which words pushed it toward the winner or runner-up.
+        # This answers "WHY did this article favour one side?"
+        lime_articles = layer1.get("articles", [])
+        if top_drivers and lime_articles:
+            lime_by_title: dict[str, dict] = {
+                la["title"]: la for la in lime_articles
+            }
+            bridge_entries: list[tuple[dict, dict]] = []
+            for drv in top_drivers:
+                la = lime_by_title.get(drv["title"])
+                if la:
+                    bridge_entries.append((drv, la))
+
+            if bridge_entries:
+                lines += [
+                    "  Word-level evidence for top gap drivers:",
+                    "  (connecting article-level influence to token-level LIME attribution)",
+                    "",
+                ]
+                for drv, la in bridge_entries:
+                    favours     = drv["favours"]
+                    net_pct     = drv["net_direction"] * 100
+                    supporting  = la.get("top_tokens_supporting", [])[:4]
+                    opposing    = la.get("top_tokens_opposing", [])[:4]
+
+                    lines.append(
+                        f"    {drv['title'][:60]}"
+                    )
+                    lines.append(
+                        f"      Favours {favours.upper()} ({net_pct:+.2f}% net push)"
+                    )
+                    if supporting:
+                        lines.append(
+                            f"      Words reinforcing {str(pred['final_label']).upper()}: "
+                            + ", ".join(supporting)
+                        )
+                    if opposing:
+                        lines.append(
+                            f"      Words pulling against: "
+                            + ", ".join(opposing)
+                        )
+                    if not supporting and not opposing:
+                        lines.append(
+                            "      (no significant token-level signals found)"
+                        )
+                    lines.append("")
+
+        # Minimum flip set
+        if flip_info.get("flip_possible"):
+            flip_n = flip_info["flip_set_size"]
+            flip_total = flip_info["articles_total"]
+            flip_new = flip_info["new_label"].upper()
+            lines += [
+                "  Counterfactual (minimum flip set):",
+                f"    Removing just {flip_n} of {flip_total} articles would flip"
+                f" the prediction from {c_winner} to {flip_new}.",
+                "    These articles are:",
+            ]
+            for t in flip_info["flip_set_titles"][:5]:
+                lines.append(f"      [!] {t[:70]}")
+            if flip_n > 5:
+                lines.append(f"      ... and {flip_n - 5} more")
+            lines.append("")
+        else:
+            lines += [
+                "  Counterfactual (minimum flip set):",
+                f"    No subset of articles can flip the prediction — {c_winner}"
+                " is robust across the article pool.",
+                "",
+            ]
+
     # ── Reliability ────────────────────────────────────────────
     overall_rel = reliability["overall_reliability"]
     flags       = reliability["flags"]
@@ -413,6 +558,30 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         lines.append(f"    {label} : {bar}  {count:>3} ({pct:.0f}%)")
     lines.append("")
 
+    # Event type distribution (what kind of news)
+    event_dist = layer3.get("event_type_distribution", {})
+    if event_dist:
+        event_short_labels = {
+            "earnings report or financial results":            "Earnings / results ",
+            "analyst rating, upgrade, or downgrade":           "Analyst action     ",
+            "product launch, innovation, or technology":       "Product / tech     ",
+            "regulatory action, legal case, or investigation": "Regulatory / legal ",
+            "strategic restructuring, merger, or acquisition": "Strategy / M&A     ",
+            "general market commentary or opinion":            "General commentary ",
+        }
+        lines += [
+            "  News event type breakdown (drives horizon assignment):",
+            "",
+        ]
+        max_e = max(event_dist.values(), default=1)
+        total_e = sum(event_dist.values()) or 1
+        for etype, ecount in sorted(event_dist.items(), key=lambda x: x[1], reverse=True):
+            elabel = event_short_labels.get(etype, f"{etype[:20]:<20}")
+            bar = _ascii_bar(ecount, max_e, width=30)
+            pct = ecount / total_e * 100
+            lines.append(f"    {elabel} : {bar}  {ecount:>3} ({pct:.0f}%)")
+        lines.append("")
+
     # ── Layer 1 — Token attribution (LIME) ────────────────────
     lines += [
         "  WHICH WORDS DROVE THE PREDICTION",
@@ -557,16 +726,29 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
 
     lime_sentence = ""
     if lime_articles:
-        # Match LIME tokens to the top-weight article, not the first LIME article
-        matching_lime = next(
-            (la for la in lime_articles if la.get("title", "") == top_art_title),
-            lime_articles[0],  # fallback to first LIME article
-        )
+        # Try to match the top contrastive gap driver first, fall back to
+        # most-influential article so the word-level evidence connects to
+        # the "why X instead of Y?" reasoning.
+        lime_by_title = {la["title"]: la for la in lime_articles}
+        top_gap_title = None
+        if contrastive:
+            for gd in contrastive.get("top_gap_drivers", []):
+                if gd["title"] in lime_by_title:
+                    top_gap_title = gd["title"]
+                    break
+
+        if top_gap_title and top_gap_title in lime_by_title:
+            matching_lime = lime_by_title[top_gap_title]
+            source_desc = "the top gap-driving article"
+        else:
+            matching_lime = lime_by_title.get(top_art_title, lime_articles[0])
+            source_desc = "the most influential article"
+
         top_words = matching_lime.get("top_tokens_supporting", [])
         if top_words:
             lime_sentence = (
-                f" At the word level, the strongest signals in the most influential"
-                f" article included: {', '.join(top_words[:5])}."
+                f" At the word level, the strongest signals in {source_desc}"
+                f" included: {', '.join(top_words[:5])}."
             )
 
     weight_sentence = (
@@ -574,6 +756,35 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         f" the average article was {layer3['avg_days_ago']} days old,"
         f" with most classified as short-term horizon."
     )
+
+    # Contrastive sentence — why winner instead of runner-up
+    contrastive_sentence = ""
+    if contrastive:
+        c_winner = contrastive["winner"].upper()
+        c_runner = contrastive["runner_up"].upper()
+        c_gap = contrastive["score_gap"]
+        c_n_w = contrastive["n_favouring_winner"]
+        c_n_r = contrastive["n_favouring_runner_up"]
+        contrastive_sentence = (
+            f" The model chose {c_winner} over {c_runner} by a margin of"
+            f" {c_gap * 100:.1f} percentage points: {c_n_w} articles"
+            f" pushed toward {c_winner} while {c_n_r} pushed toward {c_runner}."
+        )
+
+    # Flip set sentence
+    flip_sentence = ""
+    if flip_info.get("flip_possible"):
+        flip_n = flip_info["flip_set_size"]
+        flip_total = flip_info["articles_total"]
+        flip_sentence = (
+            f" The prediction is sensitive: removing as few as"
+            f" {flip_n} of {flip_total} articles would change the verdict."
+        )
+    elif flip_info:
+        flip_sentence = (
+            " No subset of articles can flip the verdict — the"
+            " prediction is robust across the article pool."
+        )
 
     reliability_sentence = {
         "HIGH":   "The prediction carries HIGH reliability and can be used with confidence.",
@@ -595,10 +806,12 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         f" The model produced a weighted aggregation of these scores and predicted"
         f" a {str(pred['final_label']).upper()} label with"
         f" {pred['final_confidence'] * 100:.1f}% score share."
+        f"{contrastive_sentence}"
         f" The single most influential article was \"{top_art_title}\""
         f" ({top_art_sent} sentiment, contributing {top_art_share}% of total weight)."
         f" {weight_sentence}"
         f"{lime_sentence}"
+        f"{flip_sentence}"
         f" {reliability_sentence}"
     )
 

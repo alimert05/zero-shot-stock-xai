@@ -110,6 +110,7 @@ def explain_pipeline(
         "MEDIUM_TERM": 0,
         "LONG_TERM": 0,
     }
+    event_type_distribution: dict[str, int] = {}
 
     explained_articles = []
     recency_weights = []
@@ -127,6 +128,9 @@ def explain_pipeline(
         category = impact_horizon.get("category", "UNKNOWN")
         if category in horizon_distribution:
             horizon_distribution[category] += 1
+
+        event_type = impact_horizon.get("event_type", "unknown")
+        event_type_distribution[event_type] = event_type_distribution.get(event_type, 0) + 1
 
         recency_exp = _explain_recency_weight(recency_weight, days_ago, prediction_window_days)
         horizon_exp = _explain_impact_horizon_weight(
@@ -167,6 +171,7 @@ def explain_pipeline(
         "weight_formula": weight_formula,
         "articles": explained_articles,
         "horizon_distribution": horizon_distribution,
+        "event_type_distribution": event_type_distribution,
         "avg_days_ago": avg_days_ago,
         "avg_recency_weight": avg_recency,
         "avg_horizon_weight": avg_horizon,
