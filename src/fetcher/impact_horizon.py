@@ -97,13 +97,16 @@ def calculate_impact_horizon_weight(
     days_ago: int,
     impact_horizon_days: int,
     prediction_window_days: int,
+    min_weight: float = 0.05,
 ) -> float:
-    
+
     W = prediction_window_days
     impact_day = impact_horizon_days - days_ago
     mu = W / 2.0
-    sigma = W / 2.0
-    return math.exp(-((impact_day - mu) ** 2) / (2.0 * sigma ** 2))
+    sigma = max(W / 2.0, 3.0)   # floor at 3 so short windows (W=1,2,3) still
+                                  # give meaningful weight to nearby horizons
+    raw = math.exp(-((impact_day - mu) ** 2) / (2.0 * sigma ** 2))
+    return max(raw, min_weight)  # even mismatched horizons retain some weight
  
  
 def calculate_combined_weight(

@@ -9,8 +9,7 @@ from typing import Any
 
 from config import (
     JSON_PATH, XAI_OUTPUT_PATH, XAI_SUMMARY_PATH, XAI_LIME_TOP_N,
-    XAI_ACTION_MIN_CONFIDENCE, XAI_ACTION_MIN_MARGIN, NEUTRAL_THRESHOLD,
-    XAI_LOW_CONFIDENCE_THRESHOLD,
+    NEUTRAL_THRESHOLD, XAI_LOW_CONFIDENCE_THRESHOLD,
 )
 
 from .article_explainer  import explain_articles
@@ -207,9 +206,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         lines.append(f"    [{icon}] {label:<22} {flag_data['message']}")
     lines += [
         "",
-        f"  Thresholds used  : reliability confidence ≥ {XAI_LOW_CONFIDENCE_THRESHOLD}; "
-        f"trading policy confidence ≥ {XAI_ACTION_MIN_CONFIDENCE}; "
-        f"margin ≥ {XAI_ACTION_MIN_MARGIN}",
+        f"  Thresholds used  : reliability confidence ≥ {XAI_LOW_CONFIDENCE_THRESHOLD}",
         "",
     ]
 
@@ -276,40 +273,14 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "",
     ]
 
-    # ── Trading action policy ──────────────────────────────────
-    final_label = str(pred.get("final_label", "neutral")).lower()
-    confidence  = pred.get("final_confidence", 0.0)
-    margin_val  = flags.get("label_margin", {}).get("margin", 0.0)
-
-    if (final_label == "positive"
-            and confidence >= XAI_ACTION_MIN_CONFIDENCE
-            and margin_val >= XAI_ACTION_MIN_MARGIN):
-        trade_action = "BUY"
-    elif (final_label == "negative"
-            and confidence >= XAI_ACTION_MIN_CONFIDENCE
-            and margin_val >= XAI_ACTION_MIN_MARGIN):
-        trade_action = "SELL"
-    else:
-        trade_action = "HOLD"
-
+    # ── Disclaimer ─────────────────────────────────────────────
     lines += [
-        "  TRADING ACTION MAPPING",
-        "  Translating the sentiment verdict into a trading signal",
+        "  DISCLAIMER",
         w,
-        f"  Policy    : BUY  if label=positive  AND score share >= "
-        f"{XAI_ACTION_MIN_CONFIDENCE * 100:.0f}%  AND margin >= "
-        f"{XAI_ACTION_MIN_MARGIN:.2f}",
-        f"              SELL if label=negative  AND score share >= "
-        f"{XAI_ACTION_MIN_CONFIDENCE * 100:.0f}%  AND margin >= "
-        f"{XAI_ACTION_MIN_MARGIN:.2f}",
-        "              HOLD otherwise",
-        "",
-        f"  Current   : label={final_label}, score share={confidence * 100:.1f}%, "
-        f"margin={margin_val:.3f}",
-        f"  Action    : >>> {trade_action} <<<",
-        "",
-        "  Important : This action mapping is rule-based, not investment advice.",
-        "              Always apply your own risk management and position sizing.",
+        "  This report presents news-based sentiment analysis only.",
+        "  It is NOT financial advice and does NOT recommend any",
+        "  trading action (buy, sell, or hold). The authors are not",
+        "  responsible for any investment decision made using this output.",
         "",
     ]
 
