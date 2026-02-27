@@ -4,7 +4,7 @@ import logging
 import math
 from typing import Any
 
-from .utils import safe_round
+from .utils import safe_round, get_dominant_label
 
 logger = logging.getLogger(__name__)
 
@@ -111,6 +111,8 @@ def explain_pipeline(
         "LONG_TERM": 0,
     }
     event_type_distribution: dict[str, int] = {}
+    # Per-event-type sentiment breakdown for narrative theme clustering
+    event_type_sentiment: dict[str, dict[str, int]] = {}
 
     explained_articles = []
     recency_weights = []
@@ -131,6 +133,14 @@ def explain_pipeline(
 
         event_type = impact_horizon.get("event_type", "unknown")
         event_type_distribution[event_type] = event_type_distribution.get(event_type, 0) + 1
+
+        raw_scores = article.get("raw_scores", {})
+        dominant = get_dominant_label(raw_scores) if raw_scores else "neutral"
+        if event_type not in event_type_sentiment:
+            event_type_sentiment[event_type] = {"positive": 0, "negative": 0, "neutral": 0}
+        event_type_sentiment[event_type][dominant] = (
+            event_type_sentiment[event_type].get(dominant, 0) + 1
+        )
 
         recency_exp = _explain_recency_weight(recency_weight, days_ago, prediction_window_days)
         horizon_exp = _explain_impact_horizon_weight(
@@ -172,6 +182,7 @@ def explain_pipeline(
         "articles": explained_articles,
         "horizon_distribution": horizon_distribution,
         "event_type_distribution": event_type_distribution,
+        "event_type_sentiment": event_type_sentiment,
         "avg_days_ago": avg_days_ago,
         "avg_recency_weight": avg_recency,
         "avg_horizon_weight": avg_horizon,
