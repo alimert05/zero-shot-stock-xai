@@ -89,12 +89,31 @@ def build_lime_noise_set(
     return LIME_NOISE_WORDS | frozenset(extra)
 
 
-def is_lime_noise_token(token: str, noise: frozenset[str]) -> bool:
+def headline_tokens_set(title: str) -> frozenset[str]:
+    """Extract lower-cased word tokens from an article headline.
+
+    Used to filter headline words from LIME top-token lists so that only
+    words from the article *body* appear in the summary display.
+    """
+    # Split on non-alpha, keep tokens ≥ 2 chars
+    tokens = re.findall(r"[A-Za-z]{2,}", title)
+    return frozenset(t.lower() for t in tokens)
+
+
+def is_lime_noise_token(
+    token: str,
+    noise: frozenset[str],
+    headline_noise: frozenset[str] | None = None,
+) -> bool:
     """Return True if a token should be excluded from LIME summary lists.
 
-    Checks: membership in noise set, purely numeric, or single character.
+    Checks: membership in noise set, headline noise, purely numeric, or
+    single character.
     """
-    if token.lower() in noise:
+    low = token.lower()
+    if low in noise:
+        return True
+    if headline_noise and low in headline_noise:
         return True
     if token.isdigit():
         return True
