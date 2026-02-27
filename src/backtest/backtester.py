@@ -34,6 +34,15 @@ def _next_open_day_close(ticker: str, day: datetime, max_lookahead_days: int = 1
 def get_real_label_yfinance(ticker: str, start_date: str, end_date: str, neutral_threshold: float = 0.003, max_lookahead_days: int = 10,) -> tuple[str, dict, str | None]:
     s0 = _parse_date(start_date)
     e0 = _parse_date(end_date)
+
+    # Guard: cannot backtest dates that haven't occurred yet
+    today = datetime.now().date()
+    if e0.date() > today:
+        raise ValueError(
+            f"Cannot backtest: end_date {e0.date()} is in the future "
+            f"(today is {today}). Price data is not yet available."
+        )
+
     window_days = (e0.date() - s0.date()).days
 
     s_dt, s_px = _next_open_day_close(ticker, s0, max_lookahead_days=max_lookahead_days)
@@ -87,14 +96,21 @@ with open(JSON_PATH, 'r', encoding="utf-8") as f:
 
 
 company_name = query_data["query"]
-ticker = query_data["ticker"] 
+ticker = query_data["ticker"]
 start_date = query_data["start_date"]
 end_date = query_data["end_date"]
- 
 
-actual_label, meta, warn = get_real_label_yfinance(ticker, start_date, end_date)
-if warn:
-    print(warn)
+# Guard: skip backtest if end_date is in the future
+_end_dt = _parse_date(end_date)
+_backtest_skipped = _end_dt.date() > datetime.now().date()
+
+if _backtest_skipped:
+    print(f"⚠ Backtest skipped: end_date {end_date} is in the future. Price data not yet available.")
+    actual_label, meta, warn = "unknown", {}, None
+else:
+    actual_label, meta, warn = get_real_label_yfinance(ticker, start_date, end_date)
+    if warn:
+        print(warn)
 
 if SENTIMENT_MODEL == "fingpt":
     json_path = FINGPT_PREDS
@@ -118,6 +134,13 @@ pred_record = {
 store_predictions_jsonl(PRED_JSON_PATH, pred_record)
 
 def run_backtest():
+    if _backtest_skipped:
+        print("─" * 35)
+        print("⚠ Backtest not available — prediction window ends in the future.")
+        print(f"  End date: {end_date}  |  Today: {datetime.now().date()}")
+        print("  Re-run after the prediction window closes to compare with actual price.")
+        print("─" * 35)
+        return
 
     report = evaluate_one(predicted_label, actual_label)
     print("─" * 35)
@@ -127,6 +150,6 @@ def run_backtest():
     print("─" * 35)
     print("Correct:", report["correct"])
     print("─" * 35)
-    print(f"Change: {round(float(meta["pct_change"]), 5) * 100}%", warn if warn is not None else "")
+    print(f"Change: {round(float(meta['pct_change']), 5) * 100}%", warn if warn is not None else "")
     print("─" * 35)
 

@@ -198,7 +198,7 @@ def _check_horizon_coverage(
             "message": "No article timing data available to assess horizon coverage.",
         }
 
-    lookback_span = max(ages) - min(ages)
+    lookback_span = max(ages) - min(ages) + 1   # +1 for inclusive day counting
     # The intended lookback comes from the √W scaling algorithm in the fetcher.
     # Compare actual span against the intended window, not the forecast horizon.
     intended = max_backward_days if max_backward_days else prediction_window_days

@@ -17,8 +17,9 @@ from .pipeline_explainer import explain_pipeline
 from .reliability        import compute_reliability
 from .token_explainer    import explain_tokens
 from .narrative          import generate_narrative
-from .charts             import generate_all_charts
-from .utils              import build_lime_noise_set, is_lime_noise_token
+from .charts              import generate_all_charts
+from .narrative_cluster   import cluster_narratives
+from .utils               import build_lime_noise_set, is_lime_noise_token
 
 logger = logging.getLogger(__name__)
 
@@ -101,6 +102,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     layer2      = result["layer_2_article"]
     layer3      = result["layer_3_pipeline"]
     narrative   = result["narrative"]
+    storylines  = result.get("storylines", {})
 
     lines: list[str] = []
 
@@ -632,6 +634,77 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             )
         lines.append("")
 
+    # Storylines — auto-discovered from article titles via TF-IDF clustering
+    # Grouped by sentiment: predicted label first, then opposing, then neutral
+    sl_list = storylines.get("storylines", [])
+    sl_other = storylines.get("other_count", 0)
+    if sl_list:
+        predicted_label = pred.get("final_label", "neutral").lower()
+
+        # Group clusters by sentiment_group (article-level, not cluster-dominant)
+        sl_by_sent: dict[str, list] = {"positive": [], "negative": [], "neutral": []}
+        for sl in sl_list:
+            grp = sl.get("sentiment_group", sl.get("sentiment", {}).get("dominant", "neutral"))
+            sl_by_sent[grp].append(sl)
+
+        # Within each group, sort by contribution_score (actual prediction impact)
+        for group in sl_by_sent.values():
+            group.sort(key=lambda s: s.get("contribution_score", 0), reverse=True)
+
+        # Display order: predicted label first, then opposing, then neutral
+        # All groups uncapped — full transparency
+        if predicted_label == "positive":
+            order = ["positive", "negative", "neutral"]
+        elif predicted_label == "negative":
+            order = ["negative", "positive", "neutral"]
+        else:
+            order = ["neutral", "positive", "negative"]
+
+        section_headers = {
+            predicted_label: f"Storylines supporting the {predicted_label.upper()} prediction",
+        }
+        for sent_key in ["positive", "negative", "neutral"]:
+            if sent_key != predicted_label:
+                section_headers[sent_key] = (
+                    f"Opposing storylines ({sent_key})"
+                    if sent_key != "neutral"
+                    else "Neutral storylines"
+                )
+
+        lines += [
+            "  Storylines (auto-discovered from article titles):",
+            "",
+        ]
+
+        for sent_key in order:
+            group = sl_by_sent[sent_key]
+            if not group:
+                continue
+
+            lines.append(f"    {section_headers[sent_key]}:")
+            for sl in group:
+                n = sl["articles_count"]
+                sent = sl.get("sentiment", {})
+                dom = sent.get("dominant", "neutral")
+                s_pos = sent.get("positive", 0)
+                s_neg = sent.get("negative", 0)
+                s_neu = sent.get("neutral", 0)
+                tone_icon = {"positive": "▲", "negative": "▼", "neutral": "■"}.get(dom, "?")
+                lines.append(
+                    f"      \"{sl['label']}\" ({n} articles)  "
+                    f"{tone_icon} {dom}  (+{s_pos} / -{s_neg} / ={s_neu})"
+                )
+                for t in sl.get("top_titles", []):
+                    lines.append(f"        → {t[:68]}")
+            lines.append("")
+
+        if sl_other > 0:
+            lines.append(
+                f"    Other topics ({sl_other} articles — titles too unique to cluster "
+                f"with any other article; each covers a distinct story)"
+            )
+        lines.append("")
+
     # ── Layer 1 — Token attribution (LIME) — summary only ─────
     lines += [
         "  WHICH WORDS DROVE THE PREDICTION",
@@ -998,6 +1071,10 @@ def run_xai(
         ticker=ticker,
     )
 
+    # Narrative storyline clustering (TF-IDF + Ollama labels)
+    logger.info("Running narrative storyline clustering...")
+    storyline_data = cluster_narratives(merged_articles)
+
     # Narrative — Ollama
     narrative = generate_narrative(
         prediction_result=prediction_result,
@@ -1033,6 +1110,7 @@ def run_xai(
         "layer_2_article":  article_explanation,
         "layer_3_pipeline": pipeline_explanation,
         "narrative":        narrative,
+        "storylines":       storyline_data,
     }
 
     _save_result(result, output_path)
