@@ -781,12 +781,16 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
 
     # ── Charts section (names only, paths in Advanced) ──────────
     chart_label_map = {
-        "sentiment_scores":     "Sentiment score bar chart",
-        "article_distribution": "Article sentiment pie chart",
-        "article_weights":      "Top-10 article weight chart",
-        "horizon_breakdown":    "Timing horizon breakdown chart",
-        "lime_tokens":          "Word-level attribution (LIME) chart",
-        "reliability":          "Reliability dashboard",
+        "sentiment_scores":        "Sentiment score bar chart",
+        "article_distribution":    "Article sentiment pie chart",
+        "article_weights":         "Top-10 article weight chart",
+        "horizon_breakdown":       "Timing horizon breakdown chart",
+        "lime_tokens":             "Word-level attribution (LIME) chart",
+        "reliability":             "Reliability dashboard",
+        "storyline_contribution":  "Narrative storyline contribution chart",
+        "contrastive_waterfall":   "Contrastive waterfall (why A not B?)",
+        "article_timeline":        "Article timeline (recency vs influence)",
+        "cumulative_score":        "Cumulative score build-up chart",
     }
     if chart_paths:
         lines += [

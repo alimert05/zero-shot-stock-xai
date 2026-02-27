@@ -302,6 +302,7 @@ def explain_articles(
             "final_weight": safe_round(final_weight),
             "weight_share": weight_share,
             "dominant_sentiment": dominant,
+            "days_ago": article.get("days_ago", 0),
             "raw_scores": {k: safe_round(v) for k, v in raw_scores.items()},
             "weighted_scores": {k: safe_round(v) for k, v in weighted_scores.items()},
             "contribution_share": contribution_share,

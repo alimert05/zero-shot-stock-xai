@@ -282,22 +282,6 @@ def _build_group_storylines(
 def cluster_narratives(
     merged_articles: list[dict[str, Any]],
 ) -> dict[str, Any]:
-    """Main entry point: cluster articles **per sentiment group** and return storylines.
-
-    Articles are first split by their dominant article-level sentiment,
-    then clustered by TF-IDF title similarity within each group.  This
-    guarantees that negative storylines exist when negative articles do,
-    making the explanation faithful to the prediction.
-
-    Returns
-    -------
-    dict with keys:
-        storylines : list[dict]   – all clusters across groups, sorted by weighted_score
-            keys: label, keyword_label, articles_count, weighted_score,
-                  sentiment_group, sentiment, top_titles
-        other_count : int         – articles that didn't cluster (across all groups)
-        method : str              – "tfidf_agglomerative_by_sentiment"
-    """
     from .utils import get_dominant_label
 
     if len(merged_articles) < 3:

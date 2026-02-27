@@ -5,7 +5,7 @@
   Forecast horizon  : 31 days
   News lookback     : 2026-01-30 to 2026-02-26 (ET market-close aligned)
   Articles analysed : 128
-  Generated at      : 2026-02-27 13:38:50
+  Generated at      : 2026-02-27 17:39:33
 ============================================================
   SUMMARY
   What the model decided and why — in plain English
@@ -182,27 +182,27 @@ The label margin is narrow (0.054), but reliability is LOW due to a narrow decis
   Storylines (auto-discovered from article titles):
 
     Storylines supporting the NEGATIVE prediction:
-      "Warren Buffett sells shares rapidly due to age." (3 articles)  ▼ negative  (+0 / -3 / =0)
+      "Warren Buffett sells shares due to age." (3 articles)  ▼ negative  (+0 / -3 / =0)
         → The Real Reasons Warren Buffett Is Selling Apple Stock Fast
         → Prediction: Berkshire Hathaway Will Stop Selling Apple Stock in 2026
         → The 76-Year-Old Reason Why Buffett Has Been Selling Apple
-      "Tech giant faces massive antitrust penalty overseas." (2 articles)  ▼ negative  (+0 / -2 / =0)
+      "Tech giant faces antitrust investigation and penalty." (2 articles)  ▼ negative  (+0 / -2 / =0)
         → Italian Competition Authority fines Apple EUR 98M over app tracking
         → Apple to appeal EUR 98M Italian Competition Authority fine, AP repor
-      "Regulator slaps tech giant with massive fine." (2 articles)  ▼ negative  (+0 / -2 / =0)
+      "Regulator slaps tech giant with massive fine" (2 articles)  ▼ negative  (+0 / -2 / =0)
         → Apple Fined $115 Million in Italy Over App Tracking Policy
         → Update: Apple Faces $115.7 Million Italian Regulator Fine Over Alleg
-      "Focus shifts from AI to other initiatives." (2 articles)  ▼ negative  (+0 / -2 / =0)
+      "Investment focus shifted away from AI technology." (2 articles)  ▼ negative  (+0 / -2 / =0)
         → Apple misses on AI in 2025
         → Apple spent 2025 setting itself up for the future — and its biggest 
-      "Tech giant faces market downturn surprise" (2 articles)  ▼ negative  (+0 / -2 / =0)
+      "Tech giant faces market downturn despite growth." (2 articles)  ▼ negative  (+0 / -2 / =0)
         → Apple (AAPL) Stock Slides as Market Rises: Facts to Know Before You 
         → Here's Why Apple (AAPL) Fell More Than Broader Market
       "Tech giants face leadership succession struggles" (3 articles)  ▼ negative  (+0 / -3 / =0)
         → Netflix to acquire Warner Bros., more executive departures at Apple
         → Apple’s executive shake-up continues with departures of general coun
         → What Apple's executive departures mean for the iPhone maker
-      "Investors seek higher returns than established giants." (2 articles)  ▼ negative  (+0 / -2 / =0)
+      "Investors seek high returns on tech stocks." (2 articles)  ▼ negative  (+0 / -2 / =0)
         → Prediction: These 3 Stocks Could Be Worth More Than Apple 3 Years Fr
         → If You'd Invested $1,000 in Apple 10 Years Ago, Here's How Much You'
 
@@ -215,10 +215,10 @@ The label margin is narrow (0.054), but reliability is LOW due to a narrow decis
         → JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reache
         → Apple (AAPL) Target Raised as Jefferies Sees Stronger iPhone Demand
         → Apple (AAPL) Price Target Raised as Loop Capital Sees Stronger iPhon
-      "Investors optimistic about future earnings growth prospects" (2 articles)  ▲ positive  (+2 / -0 / =0)
+      "Investor optimism drives stock price surge ahead." (2 articles)  ▲ positive  (+2 / -0 / =0)
         → Apple Stock Rises Ahead of 2026. What's Driving the Growth
         → Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead 
-      "Investor advises sticking with long-term investments." (3 articles)  ▲ positive  (+3 / -0 / =0)
+      "Investor advocates for long-term ownership strategy." (3 articles)  ▲ positive  (+3 / -0 / =0)
         → Jim Cramer Says “Own Apple, Don’t Trade It”
         → Jim Cramer Says “I Own Apple, and I Say Own it, Don’t Trade It”
         → Jim Cramer Repeats His “Own It, Don’t Trade It” Mantra on Apple
@@ -228,7 +228,7 @@ The label margin is narrow (0.054), but reliability is LOW due to a narrow decis
       "Tech stocks surge in morning trading sessions." (2 articles)  ▲ positive  (+2 / -0 / =0)
         → Dow Jones Tech Giant Apple, AppLovin, Palantir, Tesla In Buy Zones
         → Dow Jones Futures: Nvidia Tests Key Level; AppLovin, Apple, Palantir
-      "Apple's investment boosts Nike stock significantly." (2 articles)  ▲ positive  (+2 / -0 / =0)
+      "Apple invests heavily in sports apparel partner." (2 articles)  ▲ positive  (+2 / -0 / =0)
         → Apple CEO Tim Cook Just Gave Nike Investors 3 Million Reasons to Che
         → Nike shares jump after Apple CEO Cook doubles stake to $6 million
 
@@ -242,7 +242,7 @@ The label margin is narrow (0.054), but reliability is LOW due to a narrow decis
       "Investors weigh future of foldable technology plans." (2 articles)  ■ neutral  (+0 / -0 / =2)
         → Apple's First Foldable iPhone Leak Reveals Major Design Trade-Offs: 
         → Investors Heavily Search Apple Inc. (AAPL): Here is What You Need to
-      "Apple's investment boosts sports apparel maker's stock." (2 articles)  ■ neutral  (+0 / -0 / =2)
+      "Apple's investment boosts sports apparel stock." (2 articles)  ■ neutral  (+0 / -0 / =2)
         → Nike Stock Price Gets a Lift After Apple’s Tim Cook Doubles His Stak
         → Why Apple's Tim Cook Drove Nike Stock Higher Today
 
@@ -291,6 +291,10 @@ The label margin is narrow (0.054), but reliability is LOW due to a narrow decis
     [horizon_breakdown]  Timing horizon breakdown chart
     [lime_tokens]  Word-level attribution (LIME) chart
     [reliability]  Reliability dashboard
+    [storyline_contribution]  Narrative storyline contribution chart
+    [contrastive_waterfall]  Contrastive waterfall (why A not B?)
+    [article_timeline]  Article timeline (recency vs influence)
+    [cumulative_score]  Cumulative score build-up chart
 
 ============================================================
   FINAL PLAIN-ENGLISH OVERVIEW
@@ -341,6 +345,10 @@ The label margin is narrow (0.054), but reliability is LOW due to a narrow decis
     Timing horizon breakdown chart: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\04_horizon_breakdown.png
     Word-level attribution (LIME) chart: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\05_lime_tokens.png
     Reliability dashboard: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\06_reliability.png
+    Narrative storyline contribution chart: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\07_storyline_contribution.png
+    Contrastive waterfall (why A not B?): C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\08_contrastive_waterfall.png
+    Article timeline (recency vs influence): C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\09_article_timeline.png
+    Cumulative score build-up chart: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\10_cumulative_score.png
 
   LIME TOKEN DETAIL
   Full token influence charts and raw numerical weights

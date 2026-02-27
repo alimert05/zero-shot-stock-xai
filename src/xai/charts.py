@@ -405,11 +405,367 @@ def plot_reliability(
     return _savefig(fig, out_dir / filename)
 
 
+# ── 7. Storyline contribution chart ──────────────────────────────────────────
+
+def plot_storyline_contribution(
+    storyline_data: dict[str, Any],
+    predicted_label: str,
+    out_dir: Path,
+    filename: str = "07_storyline_contribution.png",
+) -> Path:
+    """
+    Grouped horizontal bar chart showing narrative clusters by sentiment
+    group, sized by contribution_score.
+    """
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from matplotlib.patches import Patch
+
+    storylines = storyline_data.get("storylines", [])
+    if not storylines:
+        return out_dir / filename
+
+    # Group storylines by sentiment_group
+    groups: dict[str, list] = {"positive": [], "negative": [], "neutral": []}
+    for sl in storylines:
+        grp = sl.get("sentiment_group", "neutral")
+        groups.setdefault(grp, []).append(sl)
+
+    # Order: predicted label first, then opposing, then neutral
+    if predicted_label == "positive":
+        order = ["positive", "negative", "neutral"]
+    elif predicted_label == "negative":
+        order = ["negative", "positive", "neutral"]
+    else:
+        order = ["neutral", "positive", "negative"]
+
+    # Flatten into display rows
+    labels = []
+    scores = []
+    colors = []
+    section_breaks = []  # y-positions where sections change
+
+    for grp in order:
+        grp_sl = groups.get(grp, [])
+        if not grp_sl:
+            continue
+        grp_sl.sort(key=lambda s: s.get("contribution_score", 0), reverse=True)
+        section_breaks.append(len(labels))
+        for sl in grp_sl:
+            lbl_text = sl.get("label") or sl.get("keyword_label", "Unknown")
+            count = sl.get("articles_count", 0)
+            labels.append(f"{lbl_text} ({count} art.)")
+            scores.append(sl.get("contribution_score", 0.0))
+            colors.append(_COL.get(grp, _COL["neutral"]))
+
+    if not labels:
+        return out_dir / filename
+
+    n = len(labels)
+    fig_h = max(3.5, n * 0.55 + 1.5)
+    fig, ax = plt.subplots(figsize=(10, fig_h), facecolor=_COL["bg"])
+    ax.set_facecolor(_COL["bg"])
+
+    y_pos = list(range(n))
+    bars = ax.barh(
+        y_pos[::-1], scores[::-1], color=colors[::-1],
+        height=0.6, edgecolor="white", linewidth=0.8,
+    )
+
+    # Score labels
+    for bar, s in zip(bars, scores[::-1]):
+        xpos = bar.get_width()
+        ax.text(
+            xpos + max(abs(xpos) * 0.02, 0.001),
+            bar.get_y() + bar.get_height() / 2,
+            f"{s:.3f}", va="center", ha="left", fontsize=8, fontname=_FONT,
+        )
+
+    ax.set_yticks(y_pos[::-1])
+    ax.set_yticklabels(labels[::-1], fontsize=8, fontname=_FONT)
+    ax.set_xlabel("Contribution Score", fontsize=10, fontname=_FONT)
+    ax.set_title(
+        f"Narrative Storylines by Sentiment — {predicted_label.upper()} prediction",
+        fontsize=11, fontname=_FONT, pad=10,
+    )
+    ax.xaxis.grid(True, color=_COL["grid"], linewidth=0.7, linestyle="--")
+    ax.set_axisbelow(True)
+    ax.spines[["top", "right"]].set_visible(False)
+
+    legend_elements = [
+        Patch(facecolor=_COL["positive"], label="Positive"),
+        Patch(facecolor=_COL["negative"], label="Negative"),
+        Patch(facecolor=_COL["neutral"],  label="Neutral"),
+    ]
+    ax.legend(handles=legend_elements, loc="lower right", fontsize=8,
+              prop={"family": _FONT, "size": 8})
+
+    fig.tight_layout()
+    return _savefig(fig, out_dir / filename)
+
+
+# ── 8. Contrastive waterfall chart ──────────────────────────────────────────
+
+def plot_contrastive_waterfall(
+    contrastive: dict[str, Any],
+    out_dir: Path,
+    filename: str = "08_contrastive_waterfall.png",
+) -> Path:
+    """
+    Waterfall chart showing how each top article contributes to the gap
+    between the winning and runner-up labels.
+    """
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    winner     = contrastive.get("winner", "?")
+    runner_up  = contrastive.get("runner_up", "?")
+    score_gap  = contrastive.get("score_gap", 0)
+    all_contribs = contrastive.get("all_contributions", [])
+
+    if not all_contribs:
+        return out_dir / filename
+
+    # Take top 15 by absolute contribution
+    top = sorted(all_contribs, key=lambda a: abs(a["net_direction"]), reverse=True)[:15]
+
+    labels   = [a["title"][:40] + ("…" if len(a["title"]) > 40 else "") for a in top]
+    values   = [a["net_direction"] for a in top]
+    colors   = [_COL["positive"] if v >= 0 else _COL["negative"] for v in values]
+
+    # Waterfall: cumulative running total
+    cumulative = []
+    running = 0.0
+    starts = []
+    for v in values:
+        starts.append(running)
+        running += v
+        cumulative.append(running)
+
+    n = len(labels)
+    fig_h = max(4, n * 0.5 + 2)
+    fig, ax = plt.subplots(figsize=(10, fig_h), facecolor=_COL["bg"])
+    ax.set_facecolor(_COL["bg"])
+
+    y_pos = list(range(n))
+
+    # Draw bars floating from start to end
+    for i in range(n):
+        ax.barh(
+            n - 1 - i, values[i], left=starts[i],
+            color=colors[i], height=0.6,
+            edgecolor="white", linewidth=0.8,
+        )
+        # Value label
+        end = starts[i] + values[i]
+        ax.text(
+            end + 0.001 * (1 if values[i] >= 0 else -1),
+            n - 1 - i,
+            f"{values[i]:+.4f}", va="center",
+            ha="left" if values[i] >= 0 else "right",
+            fontsize=7.5, fontname=_FONT,
+        )
+
+    # Connector lines between bars
+    for i in range(n - 1):
+        y_from = n - 1 - i - 0.3
+        y_to   = n - 1 - i - 0.7
+        x      = cumulative[i]
+        ax.plot([x, x], [y_from, y_to], color="#7f8c8d", linewidth=0.6, linestyle=":")
+
+    ax.axvline(0, color="#2c3e50", linewidth=0.9, linestyle="-")
+
+    ax.set_yticks(y_pos)
+    ax.set_yticklabels(labels[::-1], fontsize=8, fontname=_FONT)
+    ax.set_xlabel(
+        f"Net contribution to gap  (+ favours {winner.upper()}, - favours {runner_up.upper()})",
+        fontsize=9, fontname=_FONT,
+    )
+    ax.set_title(
+        f"Contrastive Waterfall — Why {winner.upper()} instead of {runner_up.upper()}?  "
+        f"(gap = {score_gap:.4f})",
+        fontsize=11, fontname=_FONT, pad=10,
+    )
+    ax.xaxis.grid(True, color=_COL["grid"], linewidth=0.5, linestyle="--")
+    ax.set_axisbelow(True)
+    ax.spines[["top", "right"]].set_visible(False)
+
+    fig.tight_layout()
+    return _savefig(fig, out_dir / filename)
+
+
+# ── 9. Article timeline scatter ─────────────────────────────────────────────
+
+def plot_article_timeline(
+    ranked_articles: list[dict[str, Any]],
+    out_dir: Path,
+    filename: str = "09_article_timeline.png",
+) -> Path:
+    """
+    Scatter plot of articles over time (days_ago), sized by final_weight,
+    coloured by dominant sentiment.
+    """
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from matplotlib.patches import Patch
+    import numpy as np
+
+    if not ranked_articles:
+        return out_dir / filename
+
+    days   = []
+    weights = []
+    colors = []
+    for a in ranked_articles:
+        d = a.get("days_ago")
+        if d is None:
+            # Try to get from the ranked article data
+            d = 0
+        days.append(d)
+        weights.append(a.get("final_weight", 0.01))
+        colors.append(_COL.get(a.get("dominant_sentiment", "neutral"), _COL["neutral"]))
+
+    # Size: normalise weights to point sizes (min 30, max 400)
+    w_arr = np.array(weights)
+    if w_arr.max() > w_arr.min():
+        sizes = 30 + 370 * (w_arr - w_arr.min()) / (w_arr.max() - w_arr.min())
+    else:
+        sizes = np.full_like(w_arr, 120)
+
+    fig, ax = plt.subplots(figsize=(10, 4.5), facecolor=_COL["bg"])
+    ax.set_facecolor(_COL["bg"])
+
+    ax.scatter(days, weights, s=sizes, c=colors, alpha=0.7,
+               edgecolors="white", linewidths=0.6)
+
+    ax.set_xlabel("Days Ago (0 = today)", fontsize=10, fontname=_FONT)
+    ax.set_ylabel("Article Weight", fontsize=10, fontname=_FONT)
+    ax.set_title("Article Timeline — Recency vs Influence",
+                 fontsize=11, fontname=_FONT, pad=10)
+
+    ax.invert_xaxis()  # most recent on the right
+    ax.xaxis.grid(True, color=_COL["grid"], linewidth=0.5, linestyle="--")
+    ax.yaxis.grid(True, color=_COL["grid"], linewidth=0.5, linestyle="--")
+    ax.set_axisbelow(True)
+    ax.spines[["top", "right"]].set_visible(False)
+
+    legend_elements = [
+        Patch(facecolor=_COL["positive"], label="Positive"),
+        Patch(facecolor=_COL["negative"], label="Negative"),
+        Patch(facecolor=_COL["neutral"],  label="Neutral"),
+    ]
+    ax.legend(handles=legend_elements, loc="upper left", fontsize=8,
+              prop={"family": _FONT, "size": 8})
+
+    fig.tight_layout()
+    return _savefig(fig, out_dir / filename)
+
+
+# ── 10. Cumulative score build-up chart ─────────────────────────────────────
+
+def plot_cumulative_score(
+    ranked_articles: list[dict[str, Any]],
+    predicted_label: str,
+    out_dir: Path,
+    filename: str = "10_cumulative_score.png",
+) -> Path:
+    """
+    Area chart showing how the weighted sentiment score accumulates as each
+    article is added (sorted by weight descending).  Visualises how the
+    prediction 'forms' as evidence builds up.
+    """
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    if not ranked_articles:
+        return out_dir / filename
+
+    # Articles already sorted by weight (descending)
+    cum_pos = []
+    cum_neg = []
+    cum_neu = []
+    running = {"positive": 0.0, "negative": 0.0, "neutral": 0.0}
+    x_labels = []
+
+    for i, a in enumerate(ranked_articles):
+        ws = a.get("weighted_scores", {})
+        for lbl in running:
+            running[lbl] += ws.get(lbl, 0.0)
+        cum_pos.append(running["positive"])
+        cum_neg.append(running["negative"])
+        cum_neu.append(running["neutral"])
+        x_labels.append(i + 1)
+
+    # Normalise each step to show running proportions
+    norm_pos, norm_neg, norm_neu = [], [], []
+    for p, ng, nu in zip(cum_pos, cum_neg, cum_neu):
+        total = p + ng + nu
+        if total > 0:
+            norm_pos.append(p / total)
+            norm_neg.append(ng / total)
+            norm_neu.append(nu / total)
+        else:
+            norm_pos.append(0)
+            norm_neg.append(0)
+            norm_neu.append(0)
+
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 7), facecolor=_COL["bg"],
+                                    gridspec_kw={"height_ratios": [1, 1]})
+
+    # --- Top panel: cumulative raw weighted scores ---
+    ax1.set_facecolor(_COL["bg"])
+    ax1.fill_between(x_labels, cum_pos, alpha=0.3, color=_COL["positive"])
+    ax1.fill_between(x_labels, cum_neg, alpha=0.3, color=_COL["negative"])
+    ax1.fill_between(x_labels, cum_neu, alpha=0.2, color=_COL["neutral"])
+    ax1.plot(x_labels, cum_pos, color=_COL["positive"], linewidth=1.8, label="Positive")
+    ax1.plot(x_labels, cum_neg, color=_COL["negative"], linewidth=1.8, label="Negative")
+    ax1.plot(x_labels, cum_neu, color=_COL["neutral"],  linewidth=1.2, label="Neutral", linestyle="--")
+
+    ax1.set_ylabel("Cumulative Weighted Score", fontsize=10, fontname=_FONT)
+    ax1.set_title(
+        f"Prediction Build-Up — How Evidence Accumulates ({predicted_label.upper()})",
+        fontsize=11, fontname=_FONT, pad=10,
+    )
+    ax1.legend(fontsize=8, loc="upper left", prop={"family": _FONT, "size": 8})
+    ax1.xaxis.grid(True, color=_COL["grid"], linewidth=0.5, linestyle="--")
+    ax1.yaxis.grid(True, color=_COL["grid"], linewidth=0.5, linestyle="--")
+    ax1.set_axisbelow(True)
+    ax1.spines[["top", "right"]].set_visible(False)
+
+    # --- Bottom panel: normalised running proportions (stacked area) ---
+    ax2.set_facecolor(_COL["bg"])
+    ax2.stackplot(
+        x_labels, norm_pos, norm_neg, norm_neu,
+        colors=[_COL["positive"], _COL["negative"], _COL["neutral"]],
+        alpha=0.7,
+        labels=["Positive", "Negative", "Neutral"],
+    )
+
+    ax2.set_xlabel("Articles Added (sorted by weight)", fontsize=10, fontname=_FONT)
+    ax2.set_ylabel("Running Proportion", fontsize=10, fontname=_FONT)
+    ax2.set_title(
+        "Normalised Sentiment Proportion as Articles Accumulate",
+        fontsize=10, fontname=_FONT, pad=8,
+    )
+    ax2.set_ylim(0, 1)
+    ax2.legend(fontsize=8, loc="upper right", prop={"family": _FONT, "size": 8})
+    ax2.xaxis.grid(True, color=_COL["grid"], linewidth=0.5, linestyle="--")
+    ax2.set_axisbelow(True)
+    ax2.spines[["top", "right"]].set_visible(False)
+
+    fig.tight_layout()
+    return _savefig(fig, out_dir / filename)
+
+
 # ── Master function ───────────────────────────────────────────────────────────
 
 def generate_all_charts(result: dict[str, Any], charts_dir: Path) -> dict[str, Path]:
     """
-    Generate all 6 charts and return a dict mapping chart name → Path.
+    Generate all 10 charts and return a dict mapping chart name → Path.
     If matplotlib is not installed, logs a warning and returns empty dict.
     """
     try:
@@ -421,24 +777,44 @@ def generate_all_charts(result: dict[str, Any], charts_dir: Path) -> dict[str, P
         )
         return {}
 
-    pred       = result["prediction_summary"]
+    pred        = result["prediction_summary"]
     reliability = result["reliability"]
-    layer1     = result["layer_1_token"]
-    layer2     = result["layer_2_article"]
-    layer3     = result["layer_3_pipeline"]
+    layer1      = result["layer_1_token"]
+    layer2      = result["layer_2_article"]
+    layer3      = result["layer_3_pipeline"]
+    storylines  = result.get("storylines", {})
+    contrastive = layer2.get("contrastive", {})
 
     lime_articles   = layer1.get("articles", [])
+    ranked_articles = layer2.get("ranked_articles", [])
     predicted_label = pred.get("final_label", "positive")
 
     paths: dict[str, Path] = {}
     try:
-        paths["sentiment_scores"]    = plot_sentiment_scores(pred, charts_dir)
+        paths["sentiment_scores"]     = plot_sentiment_scores(pred, charts_dir)
         paths["article_distribution"] = plot_article_distribution(layer2, charts_dir)
-        paths["article_weights"]     = plot_article_weights(layer2, charts_dir)
-        paths["horizon_breakdown"]   = plot_horizon_breakdown(layer3, charts_dir)
+        paths["article_weights"]      = plot_article_weights(layer2, charts_dir)
+        paths["horizon_breakdown"]    = plot_horizon_breakdown(layer3, charts_dir)
         if lime_articles:
-            paths["lime_tokens"]     = plot_lime_tokens(lime_articles, predicted_label, charts_dir)
-        paths["reliability"]         = plot_reliability(reliability, charts_dir)
+            paths["lime_tokens"]      = plot_lime_tokens(lime_articles, predicted_label, charts_dir)
+        paths["reliability"]          = plot_reliability(reliability, charts_dir)
+
+        # ── New charts (7-10) ─────────────────────────────────
+        if storylines.get("storylines"):
+            paths["storyline_contribution"] = plot_storyline_contribution(
+                storylines, predicted_label, charts_dir,
+            )
+        if contrastive.get("all_contributions"):
+            paths["contrastive_waterfall"] = plot_contrastive_waterfall(
+                contrastive, charts_dir,
+            )
+        if ranked_articles:
+            paths["article_timeline"] = plot_article_timeline(
+                ranked_articles, charts_dir,
+            )
+            paths["cumulative_score"] = plot_cumulative_score(
+                ranked_articles, predicted_label, charts_dir,
+            )
     except Exception as exc:
         logger.error("Chart generation failed: %s", exc, exc_info=True)
 
