@@ -5,7 +5,7 @@
   Forecast horizon  : 31 days
   News lookback     : 2026-01-31 to 2026-02-27 (ET market-close aligned)
   Articles analysed : 128
-  Generated at      : 2026-02-28 11:18:51
+  Generated at      : 2026-02-28 11:51:40
 ============================================================
 
 ════════════════════════════════════════════════════════════
@@ -17,9 +17,9 @@
   What the model decided and why — in plain English
 ------------------------------------------------------------
 
-  The model predicted a NEGATIVE label with a 41.1% score share based on 128 articles over 31 days.
-The top article is "Apple's AI challenges in 2026" with a NEGATIVE sentiment, accounting for 1.4% of the total weight.
-The label margin is narrow (0.054), but reliability is LOW due to a narrow decision margin; confidence is below threshold; source concentration (yahoo has 78% of articles).
+  The model predicted a POSITIVE label with a 45.3% score share based on 128 articles over 31 days.
+The top article is "Apple's AI challenges in 2026" with a NEGATIVE sentiment, accounting for 1.4% of total weight.
+The label margin is moderate (0.129), but reliability is LOW due to a moderate decision margin; source concentration (yahoo has 78% of articles).
 
   PREDICTION RESULT
   Sentiment scores across all analysed articles
@@ -32,56 +32,45 @@ The label margin is narrow (0.054), but reliability is LOW due to a narrow decis
 
   Score chart  (each █ ≈ 2.5%):
 
-    positive :  35.8%  ██████████████░░░░░░░░░░░░░░░░░░░░░░░░░░
-    negative :  41.1%  ████████████████░░░░░░░░░░░░░░░░░░░░░░░░  ◄ PREDICTED
-     neutral :  23.1%  █████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+    positive :  45.3%  ██████████████████░░░░░░░░░░░░░░░░░░░░░░  ◄ PREDICTED
+    negative :  32.4%  █████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░
+     neutral :  22.4%  █████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-  Verdict     : NEGATIVE
-  Model support : 41.1%  (share of model weight, not a probability)
+  Verdict     : POSITIVE
+  Model support : 45.3%  (share of model weight, not a probability)
 
   RECOMMENDATION
   What you should do with this result
 ------------------------------------------------------------
-  This prediction has LOW reliability and should NOT be used alone for decisions. Reasons: the positive and negative scores are very close — a small shift in news could change the verdict; overall confidence is below the recommended threshold; most articles come from the same source, reducing editorial independence. Mitigation: articles are de-duplicated by title; weighting is content-based (not source-based) so syndicated copies receive lower combined weight if they are older or off-horizon.
+  This prediction has LOW reliability and should NOT be used alone for decisions. Reasons: the positive and negative scores are very close — a small shift in news could change the verdict; most articles come from the same source, reducing editorial independence. Mitigation: articles are de-duplicated by title; weighting is content-based (not source-based) so syndicated copies receive lower combined weight if they are older or off-horizon.
 
   NARRATIVE THEMES
   What the news is about and the dominant tone per theme
 ------------------------------------------------------------
-    Product / tech     :  62 articles (48%)  ▲ positive  (+27 / -17 / =18)
-    General commentary :  18 articles (14%)  ▼ negative  (+4 / -12 / =2)
-    Regulatory / legal :  16 articles (12%)  ▼ negative  (+2 / -12 / =2)
-    Analyst action     :  13 articles (10%)  ▲ positive  (+8 / -2 / =3)
-    Earnings / results :  13 articles (10%)  ▼ negative  (+5 / -7 / =1)
-    Strategy / M&A     :   6 articles (5%)  ▼ negative  (+2 / -4 / =0)
+    Product / tech     :  62 articles (48%)  ▲ positive  (+35 / -16 / =11)
+    General commentary :  18 articles (14%)  ▼ negative  (+7 / -8 / =3)
+    Regulatory / legal :  16 articles (12%)  ▼ negative  (+3 / -12 / =1)
+    Analyst action     :  13 articles (10%)  ▲ positive  (+10 / -1 / =2)
+    Earnings / results :  13 articles (10%)  ▼ negative  (+5 / -6 / =2)
+    Strategy / M&A     :   6 articles (5%)  ▲ positive  (+3 / -3 / =0)
 
   Storylines (auto-discovered from article titles):
 
-    Storylines supporting the NEGATIVE prediction:
-      "Warren Buffett sells Apple stock rapidly." (3 articles)  ▼ negative  (+0 / -3 / =0)
-        → The Real Reasons Warren Buffett Is Selling Apple Stock Fast
-        → Prediction: Berkshire Hathaway Will Stop Selling Apple Stock in 2026
-        → The 76-Year-Old Reason Why Buffett Has Been Selling Apple
-      "Tech giant faces major antitrust penalty." (2 articles)  ▼ negative  (+0 / -2 / =0)
-        → Italian Competition Authority fines Apple EUR 98M over app tracking
-        → Apple to appeal EUR 98M Italian Competition Authority fine, AP repor
-      "Regulator slaps tech giant with massive fine." (2 articles)  ▼ negative  (+0 / -2 / =0)
-        → Apple Fined $115 Million in Italy Over App Tracking Policy
-        → Update: Apple Faces $115.7 Million Italian Regulator Fine Over Alleg
-      "Investment focus shifted away from AI technology." (2 articles)  ▼ negative  (+0 / -2 / =0)
-        → Apple misses on AI in 2025
-        → Apple spent 2025 setting itself up for the future — and its biggest 
-      "Tech giant faces market downturn despite growth." (2 articles)  ▼ negative  (+0 / -2 / =0)
-        → Apple (AAPL) Stock Slides as Market Rises: Facts to Know Before You 
-        → Here's Why Apple (AAPL) Fell More Than Broader Market
-      "Tech giants face leadership succession struggles." (3 articles)  ▼ negative  (+0 / -3 / =0)
-        → Netflix to acquire Warner Bros., more executive departures at Apple
-        → Apple’s executive shake-up continues with departures of general coun
-        → What Apple's executive departures mean for the iPhone maker
-      "Investors seek high returns on tech stocks." (2 articles)  ▼ negative  (+0 / -2 / =0)
-        → Prediction: These 3 Stocks Could Be Worth More Than Apple 3 Years Fr
-        → If You'd Invested $1,000 in Apple 10 Years Ago, Here's How Much You'
-
-    Opposing storylines (positive):
+    Storylines supporting the POSITIVE prediction:
+      "Apple stock poised for continued growth in 2026." (4 articles)  ▲ positive  (+4 / -0 / =0)
+        → Apple Stock Rises Ahead of 2026. What's Driving the Growth
+        → Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead 
+        → Services Rides on Apple TV and Arcade: What's Ahead for Apple Stock?
+        → After a 42% Six-Month Rally, What's Next for Apple Stock in 2026?
+      "Tim Cook boosts Nike stock with investments." (4 articles)  ▲ positive  (+4 / -0 / =0)
+        → Apple CEO Tim Cook Just Gave Nike Investors 3 Million Reasons to Che
+        → Nike Stock Price Gets a Lift After Apple’s Tim Cook Doubles His Stak
+        → Why Apple's Tim Cook Drove Nike Stock Higher Today
+        → Tim Cook's Nike Buy, AI Smart Glasses, Court Victory And More: This 
+      "Investors eagerly await new product releases." (3 articles)  ▲ positive  (+3 / -0 / =0)
+        → Dan Ives Is Betting That Apple and Google Will Partner in 2026. Shou
+        → Apple Just Released a New AI Model. Should You Buy AAPL Stock Here?
+        → Analysts Are Hot on the Foldable iPhone. Should You Buy AAPL Stock B
       "Analyst raises price target expectations for tech giant." (3 articles)  ▲ positive  (+3 / -0 / =0)
         → Morgan Stanley Boosts Apple (AAPL) Target, Sees Upside From Pricing 
         → Morgan Stanley Lifts Apple Inc. (AAPL) Price Target on Earnings Grow
@@ -90,38 +79,59 @@ The label margin is narrow (0.054), but reliability is LOW due to a narrow decis
         → JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reache
         → Apple (AAPL) Target Raised as Jefferies Sees Stronger iPhone Demand
         → Apple (AAPL) Price Target Raised as Loop Capital Sees Stronger iPhon
-      "Investor optimism drives stock price surge ahead." (2 articles)  ▲ positive  (+2 / -0 / =0)
-        → Apple Stock Rises Ahead of 2026. What's Driving the Growth
-        → Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead 
-      "Investor advises sticking with long-term investments." (3 articles)  ▲ positive  (+3 / -0 / =0)
+      "Investor advocates for long-term holding strategy." (3 articles)  ▲ positive  (+3 / -0 / =0)
         → Jim Cramer Says “Own Apple, Don’t Trade It”
         → Jim Cramer Says “I Own Apple, and I Say Own it, Don’t Trade It”
+        → Jim Cramer on Apple: “Bulls Like Me Were Considered Dreamers or Even
+      "Analyst optimism clashes with stock performance issues." (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → Apple is an Analyst Favorite, But AAPL Stock Has Been Flat - Shortin
+        → Evercore ISI Raises PT on Apple (AAPL) Stock
+
+    Opposing storylines (negative):
+      "Regulator slaps tech giant with hefty fine." (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Apple Fined $115 Million in Italy Over App Tracking Policy
+        → Update: Apple Faces $115.7 Million Italian Regulator Fine Over Alleg
+      "Tech giant faces major European antitrust penalty" (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Italian Competition Authority fines Apple EUR 98M over app tracking
+        → Apple to appeal EUR 98M Italian Competition Authority fine, AP repor
+      "Tech giant faces unexpected market downturn." (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Apple (AAPL) Stock Slides as Market Rises: Facts to Know Before You 
+        → Here's Why Apple (AAPL) Fell More Than Broader Market
+      "Tech giant faces major challenges in 2026." (3 articles)  ▼ negative  (+0 / -3 / =0)
+        → Apple punted on AI this year. Next year will be critical
+        → Apple's 3 Big New Year Woes
+        → Will 2026 Be The Year Apple Finally Joins The AI Race?
+      "Higher memory prices threaten tech giant profits" (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Jim Cramer Says “Apple Might Be Hurt By Higher Memory Prices From Mi
+        → Soaring Memory Prices Will Cannibalize Apple's Profit
+      "AI advancements pose significant business risks." (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Apple's AI challenges in 2026
+        → Why Apple Might Attract More of an AI Multiple in 2026
+      "Investor expert warns of stagnant tech giants." (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Jim Cramer examines 'stalled' stocks Apple, Meta and Tesla
         → Jim Cramer Repeats His “Own It, Don’t Trade It” Mantra on Apple
-      "Tech giants to partner on AI project." (2 articles)  ▲ positive  (+2 / -0 / =0)
-        → Dan Ives Is Betting That Apple and Google Will Partner in 2026. Shou
-        → Apple Just Released a New AI Model. Should You Buy AAPL Stock Here?
-      "Tech stocks surge in morning trading sessions." (2 articles)  ▲ positive  (+2 / -0 / =0)
-        → Dow Jones Tech Giant Apple, AppLovin, Palantir, Tesla In Buy Zones
-        → Dow Jones Futures: Nvidia Tests Key Level; AppLovin, Apple, Palantir
-      "Apple's investment boosts Nike stock significantly." (2 articles)  ▲ positive  (+2 / -0 / =0)
-        → Apple CEO Tim Cook Just Gave Nike Investors 3 Million Reasons to Che
-        → Nike shares jump after Apple CEO Cook doubles stake to $6 million
 
     Neutral storylines:
-      "Investor optimism wavers over tech giant's future." (2 articles)  ■ neutral  (+0 / -0 / =2)
+      "Apple's stock faces challenges from changing trends." (4 articles)  ■ neutral  (+0 / -0 / =4)
         → UBS Reiterates Neutral on Apple (AAPL) as Interest in Apple Intellig
         → UBS Reiterates Neutral on Apple (AAPL) as App Store Growth Slows
-      "Executive faces internal power struggle and uncertainty" (2 articles)  ■ neutral  (+0 / -0 / =2)
+        → Apple Inc. (AAPL) Is a Trending Stock: Facts to Know Before Betting 
+        → Apple Made a Comeback with the iPhone 17, But Will Executive Exits P
+      "Tech giant pushes for major product updates." (2 articles)  ■ neutral  (+0 / -0 / =2)
+        → Can Apple close the AI gap in 2026? Morgan Stanley weighs in
+        → Apple Targets 2026 Launch For AI Smart Glasses, Camera-Equipped AirP
+      "Tech giant faces internal challenges and changes." (2 articles)  ■ neutral  (+0 / -0 / =2)
+        → Apple's 2025 App List, AI Stumble, Executive Exodus And More: This W
+        → Apple spent 2025 setting itself up for the future — and its biggest 
+      "Leadership transition sparks uncertainty and concern." (3 articles)  ■ neutral  (+0 / -0 / =3)
         → Apple Chip Chief Considers Exit, Tim Cook's AI Reset And More: This 
+        → Whoever Replaces Tim Cook at Apple Will Have 'Big Shoes to Fill'
         → Apple's chip chief reportedly 'not leaving': A closer look
-      "Investors seek answers on future strategy" (2 articles)  ■ neutral  (+0 / -0 / =2)
-        → Apple's First Foldable iPhone Leak Reveals Major Design Trade-Offs: 
-        → Investors Heavily Search Apple Inc. (AAPL): Here is What You Need to
-      "Apple's investment boosts sports apparel maker's stock." (2 articles)  ■ neutral  (+0 / -0 / =2)
-        → Nike Stock Price Gets a Lift After Apple’s Tim Cook Doubles His Stak
-        → Why Apple's Tim Cook Drove Nike Stock Higher Today
+      "Warren Buffett's stock sale strategy questioned again." (2 articles)  ■ neutral  (+0 / -0 / =2)
+        → Is Apple Inc. (NASDAQ:AAPL) Expensive For A Reason? A Look At Its In
+        → The 76-Year-Old Reason Why Buffett Has Been Selling Apple
 
-    Other topics (87 articles — titles too unique to cluster with any other article; each covers a distinct story)
+    Other topics (78 articles — titles too unique to cluster with any other article; each covers a distinct story)
 
 ============================================================
   FINAL PLAIN-ENGLISH OVERVIEW
@@ -129,32 +139,30 @@ The label margin is narrow (0.054), but reliability is LOW due to a narrow decis
 ============================================================
 
   Out of 128 news articles analysed for apple over a
-  31-day forecast horizon, 48 carried positive sentiment,
-  54 carried negative sentiment, and 26 were neutral. The
+  31-day forecast horizon, 63 carried positive sentiment,
+  46 carried negative sentiment, and 19 were neutral. The
   model produced a weighted aggregation of these scores
-  and predicted a NEGATIVE label with 41.1% model support.
-  The model chose NEGATIVE over POSITIVE by a margin of
-  5.4 percentage points: 66 articles pushed toward
-  NEGATIVE while 62 pushed toward POSITIVE. The single
+  and predicted a POSITIVE label with 45.3% model support.
+  The model chose POSITIVE over NEGATIVE by a margin of
+  12.9 percentage points: 72 articles pushed toward
+  POSITIVE while 56 pushed toward NEGATIVE. The single
   most influential article was "Apple's AI challenges in
   2026" (negative sentiment, contributing 1.4% of total
   weight). Articles were weighted by recency and
   prediction-horizon relevance — the average article was
   14.7 days old, with most classified as short-term
   horizon. At the word level, the strongest signals in the
-  top gap-driving article included: Fails, Cringe,
-  execution, product, Letdown. The prediction is
-  sensitive: removing as few as 5 of 128 articles would
-  change the verdict. The prediction carries LOW
-  reliability and should not be used in isolation. The
-  positive and negative scores are very close — a small
-  shift in news could change the verdict; overall
-  confidence is below the recommended threshold; most
-  articles come from the same source, reducing editorial
-  independence. mitigation: articles are de-duplicated by
-  title; weighting is content-based (not source-based) so
-  syndicated copies receive lower combined weight if they
-  are older or off-horizon.
+  top gap-driving article included: Up, Win, China,
+  mobile, iPhone. The prediction is sensitive: removing as
+  few as 12 of 128 articles would change the verdict. The
+  prediction carries LOW reliability and should not be
+  used in isolation. The positive and negative scores are
+  very close — a small shift in news could change the
+  verdict; most articles come from the same source,
+  reducing editorial independence. mitigation: articles
+  are de-duplicated by title; weighting is content-based
+  (not source-based) so syndicated copies receive lower
+  combined weight if they are older or off-horizon.
 
 
   DISCLAIMER
@@ -169,68 +177,59 @@ The label margin is narrow (0.054), but reliability is LOW due to a narrow decis
   Scores, article breakdowns, and model-internal attributions
 ════════════════════════════════════════════════════════════
 
-  WHY NEGATIVE INSTEAD OF POSITIVE?
+  WHY POSITIVE INSTEAD OF NEGATIVE?
   Contrastive explanation — what tipped the balance
 ------------------------------------------------------------
-  Score gap : NEGATIVE 41.1%  vs  POSITIVE 35.8%  (gap = 5.4 percentage points)
+  Score gap : POSITIVE 45.3%  vs  NEGATIVE 32.4%  (gap = 12.9 percentage points)
 
   Article split:
-     66 articles push toward NEGATIVE  (total push: +30.7 pp)
-     62 articles push toward POSITIVE  (total push: -25.4 pp)
+     72 articles push toward POSITIVE  (total push: +36.1 pp)
+     56 articles push toward NEGATIVE  (total push: -23.2 pp)
 
-  Third class: NEUTRAL at 23.1% — absorbing probability mass roughly equally from both sides.
+  Third class: NEUTRAL at 22.4% — absorbing probability mass roughly equally from both sides.
 
   Top 5 articles driving the gap:
     #     Direction       Net  Title
     ----------------------------------------------------------------------
-    1         → NEG    +1.30%  Big Promises, Bigger Fails: Meta's Cringe Demo, 
-    2         → NEG    +1.28%  Apple misses on AI in 2025
-    3         → NEG    +1.23%  The Real Reasons Warren Buffett Is Selling Apple
-    4         → NEG    +1.20%  Italian Competition Authority fines Apple EUR 98
-    5         → POS    -1.20%  JPMorgan Confident in Apple (AAPL) as iPhone 17 
+    1         → NEG    -1.31%  Apple misses on AI in 2025
+    2         → NEG    -1.29%  Big Promises, Bigger Fails: Meta's Cringe Demo, 
+    3         → POS    +1.23%  Apple Stock Ticks Up After a Surprise From China
+    4         → POS    +1.17%  Wedbush Names Apple a Top AI Pick for the 2026 M
+    5         → NEG    -1.17%  Apple: Don't Expect Much Growth Here
 
   Word-level evidence for top gap drivers:
   (connecting article-level influence to token-level LIME attribution)
 
-    Big Promises, Bigger Fails: Meta's Cringe Demo, Apple's Misf
-      Favours NEGATIVE (+1.30% net push)
-      Words reinforcing NEGATIVE: Fails, Cringe, execution, product
-      Words pulling against: Bigger, Headlines, Promises, Meta
+    Apple Stock Ticks Up After a Surprise From China—and a Legal
+      Favours POSITIVE (+1.23% net push)
+      Words reinforcing POSITIVE: Up, Win, China, mobile
+      Words pulling against: Legal, phones, imports
 
-    Apple misses on AI in 2025
-      Favours NEGATIVE (+1.28% net push)
-      Words reinforcing NEGATIVE: misses, missteps, next, year
-      Words pulling against: challenges, discuss
-
-    The Real Reasons Warren Buffett Is Selling Apple Stock Fast
-      Favours NEGATIVE (+1.23% net push)
-      Words reinforcing NEGATIVE: Selling, Fast, hedging, took
-      Words pulling against: paid, Buffett, investing, big
-
-    Italian Competition Authority fines Apple EUR 98M over app t
-      Favours NEGATIVE (+1.20% net push)
-      Words reinforcing NEGATIVE: fines, abuse, agency, Tracking
-      Words pulling against: lays, said, privacy
+    Wedbush Names Apple a Top AI Pick for the 2026 Market Cycle
+      Favours POSITIVE (+1.17% net push)
+      Words reinforcing POSITIVE: Pick, Top, Strength, Cycle
+      Words pulling against: AI, Wedbush, Think, Subtle
 
   Counterfactual (minimum flip set):
-    Removing just 5 of 128 articles would flip the prediction from NEGATIVE to POSITIVE.
+    Removing just 12 of 128 articles would flip the prediction from POSITIVE to NEGATIVE.
     These articles are:
-      [!] Big Promises, Bigger Fails: Meta's Cringe Demo, Apple's Misfires, GPT-
-      [!] Apple misses on AI in 2025
-      [!] The Real Reasons Warren Buffett Is Selling Apple Stock Fast
-      [!] Italian Competition Authority fines Apple EUR 98M over app tracking
-      [!] Prediction: Berkshire Hathaway Will Stop Selling Apple Stock in 2026
+      [!] Apple Stock Ticks Up After a Surprise From China—and a Legal Win
+      [!] Wedbush Names Apple a Top AI Pick for the 2026 Market Cycle
+      [!] JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reaches 
+      [!] Apple Stock Rises Ahead of 2026. What's Driving the Growth
+      [!] Top Research Reports for Apple, Cisco & IBM
+      ... and 7 more
 
   PREDICTION RELIABILITY
   How much to trust this prediction
 ------------------------------------------------------------
-  Overall : [✗] LOW  (3 concern(s) found)
+  Overall : [✗] LOW  (2 concern(s) found)
   Rating rule : HIGH if 0 concerns, MEDIUM if 1, LOW if ≥2.
 
     [✓] Evidence volume        Sufficient article count.
     [✓] Weight spread          Weight is well-distributed across articles.
-    [⚠] Decision confidence    Narrow margin between negative (0.411) and positive (0.358): margin=0.054.
-    [⚠] Score confidence       Below reliability threshold (0.411 < 0.45).
+    [⚠] Decision confidence    Narrow margin between positive (0.453) and negative (0.324): margin=0.129.
+    [✓] Score confidence       Above reliability threshold (0.453 ≥ 0.45).
     [⚠] Source diversity       Source diversity concern: top domain 'yahoo' has 78% of articles.
     [✓] Timing validity        Articles are 1-28 days old (ET market-close aligned), down-weighted by the recency function where applicable.
     [✓] Horizon coverage       News lookback (28 days) covers the intended 28-day backward window.
@@ -249,18 +248,18 @@ The label margin is narrow (0.054), but reliability is LOW due to a narrow decis
 ------------------------------------------------------------
   Article sentiment distribution:
 
-    ▲ positive : ███████████░░░░░░░░░░░░░░░░░░░   48 articles (38%)
-    ▼ negative : █████████████░░░░░░░░░░░░░░░░░   54 articles (42%)
-    ■  neutral : ██████░░░░░░░░░░░░░░░░░░░░░░░░   26 articles (20%)
+    ▲ positive : ███████████████░░░░░░░░░░░░░░░   63 articles (49%)
+    ▼ negative : ███████████░░░░░░░░░░░░░░░░░░░   46 articles (36%)
+    ■  neutral : ████░░░░░░░░░░░░░░░░░░░░░░░░░░   19 articles (15%)
 
   Articles pushing toward POSITIVE:
-    [+]  JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reaches Parity
     [+]  Apple Stock Ticks Up After a Surprise From China—and a Legal Win
-    [+]  Apple Stock Rises Ahead of 2026. What's Driving the Growth
+    [+]  Wedbush Names Apple a Top AI Pick for the 2026 Market Cycle
+    [+]  JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reaches Parity
   Articles pushing toward NEGATIVE:
-    [-]  Big Promises, Bigger Fails: Meta's Cringe Demo, Apple's Misfires, GPT-5's Le
     [-]  Apple misses on AI in 2025
-    [-]  The Real Reasons Warren Buffett Is Selling Apple Stock Fast
+    [-]  Big Promises, Bigger Fails: Meta's Cringe Demo, Apple's Misfires, GPT-5's Le
+    [-]  Apple: Don't Expect Much Growth Here
 
   Top 10 most influential articles:
   (Weight = recency × horizon factor, 0-1 scale;  Share = % of total pool weight)
@@ -270,12 +269,12 @@ The label margin is narrow (0.054), but reliability is LOW due to a narrow decis
     #2    POS  0.8966    1.4%  ██████████████████████████████  Wedbush Names Apple a Top AI Pic
     #3    NEG  0.8966    1.4%  ██████████████████████████████  Big Promises, Bigger Fails: Meta
     #4    NEG  0.8966    1.4%  ██████████████████████████████  Apple misses on AI in 2025
-    #5    NEG  0.8649    1.3%  █████████████████████████████░  The 76-Year-Old Reason Why Buffe
-    #6    POS  0.8649    1.3%  █████████████████████████████░  Why Apple Might Attract More of 
-    #7    NEU  0.8649    1.3%  █████████████████████████████░  Apple is an Analyst Favorite, Bu
+    #5    NEU  0.8649    1.3%  █████████████████████████████░  The 76-Year-Old Reason Why Buffe
+    #6    NEG  0.8649    1.3%  █████████████████████████████░  Why Apple Might Attract More of 
+    #7    POS  0.8649    1.3%  █████████████████████████████░  Apple is an Analyst Favorite, Bu
     #8    NEG  0.8649    1.3%  █████████████████████████████░  Apple needs to deliver an AI-cha
     #9    NEG  0.8649    1.3%  █████████████████████████████░  Apple: Don't Expect Much Growth 
-    #10   NEG  0.8649    1.3%  █████████████████████████████░  The Real Reasons Warren Buffett 
+    #10   POS  0.8649    1.3%  █████████████████████████████░  The Real Reasons Warren Buffett 
 
   Weight concentration (HHI): 0.0096  (well spread) — 0 = perfectly uniform across all articles, 1 = one article dominates
 
@@ -306,25 +305,25 @@ The label margin is narrow (0.054), but reliability is LOW due to a narrow decis
   sentiment-bearing words remain. Full token weights are in the
   ADVANCED / DIAGNOSTICS section at the end of this report.
 
-  [1] Big Promises, Bigger Fails: Meta's Cringe Demo, Apple's Misfires, GPT-5'
-      Words pushing TOWARD  NEGATIVE : Fails, Cringe, execution, product, Letdown
-      Words pushing AGAINST NEGATIVE : Bigger, Headlines, Promises, Meta, decisions
+  [1] Apple Stock Ticks Up After a Surprise From China—and a Legal Win
+      Words pushing TOWARD  POSITIVE : Up, Win, China, mobile, iPhone
+      Words pushing AGAINST POSITIVE : Legal, phones, imports
 
-  [2] Apple misses on AI in 2025
-      Words pushing TOWARD  NEGATIVE : misses, missteps, next, year, CNBC
-      Words pushing AGAINST NEGATIVE : challenges, discuss
+  [2] Wedbush Names Apple a Top AI Pick for the 2026 Market Cycle
+      Words pushing TOWARD  POSITIVE : Pick, Top, Strength, Cycle
+      Words pushing AGAINST POSITIVE : AI, Wedbush, Think, Subtle, Market
 
-  [3] The Real Reasons Warren Buffett Is Selling Apple Stock Fast
-      Words pushing TOWARD  NEGATIVE : Selling, Fast, hedging, took, swing
-      Words pushing AGAINST NEGATIVE : paid, Buffett, investing, big, Reasons
+  [3] JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reaches Pa
+      Words pushing TOWARD  POSITIVE : Confident, JPMorgan, Overweight, price, Product
+      Words pushing AGAINST POSITIVE : Supply, Watching
 
-  [4] Italian Competition Authority fines Apple EUR 98M over app tracking
-      Words pushing TOWARD  NEGATIVE : fines, abuse, agency, Tracking, competition
-      Words pushing AGAINST NEGATIVE : lays, said, privacy
+  [4] Apple Stock Rises Ahead of 2026. What's Driving the Growth
+      Words pushing TOWARD  POSITIVE : Rises, Ahead, Growth, Recovery, Navigates
+      Words pushing AGAINST POSITIVE : Hurdles, What, Ends, Market
 
-  [5] Prediction: Berkshire Hathaway Will Stop Selling Apple Stock in 2026
-      Words pushing TOWARD  NEGATIVE : Stop, Prediction, look, sales, sizing
-      Words pushing AGAINST NEGATIVE : Stock, like, Berkshire
+  [5] Top Research Reports for Apple, Cisco & IBM
+      Words pushing TOWARD  POSITIVE : leads, surpassing, iPhone, Top, double
+      Words pushing AGAINST POSITIVE : Reports, today, subscribers, Research, IBM
 
 
   CHARTS
@@ -366,129 +365,129 @@ The label margin is narrow (0.054), but reliability is LOW due to a narrow decis
   --------------------------------------------------
   (+) = supports predicted label     (-) = opposes predicted label
 
-  [1] Big Promises, Bigger Fails: Meta's Cringe Demo, Apple's Misfires, GPT-5'
-      Article weight : 0.8966  |  Relevance to prediction : 0.8631
+  [1] Apple Stock Ticks Up After a Surprise From China—and a Legal Win
+      Article weight : 0.8608  |  Relevance to prediction : 0.8075
       Token influence chart:
-        + Fails            ████████████████████  (+0.2605)
-        + Cringe           ███████░░░░░░░░░░░░░  (+0.0933)
-        - Bigger           ████░░░░░░░░░░░░░░░░  (-0.0559)
-        - Headlines        ████░░░░░░░░░░░░░░░░  (-0.0510)
-        + execution        ████░░░░░░░░░░░░░░░░  (+0.0490)
-        + product          ███░░░░░░░░░░░░░░░░░  (+0.0434)
-        - Promises         ███░░░░░░░░░░░░░░░░░  (-0.0403)
-        + Letdown          ███░░░░░░░░░░░░░░░░░  (+0.0373)
+        + Up               ████████████████████  (+0.2192)
+        + Win              █████████████████░░░  (+0.1840)
+        + China            █████████░░░░░░░░░░░  (+0.0975)
+        + mobile           ████░░░░░░░░░░░░░░░░  (+0.0459)
+        + iPhone           ████░░░░░░░░░░░░░░░░  (+0.0457)
+        - Legal            ████░░░░░░░░░░░░░░░░  (-0.0387)
+        + year             ███░░░░░░░░░░░░░░░░░  (+0.0358)
+        + Stock            ███░░░░░░░░░░░░░░░░░  (+0.0297)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Fails                  (+)    +0.260499
-      Apple                  (+)    +0.171616
-      apple                  (+)    +0.124572
-      Cringe                 (+)    +0.093346
-      2025                   (-)    -0.078027
-      Bigger                 (-)    -0.055940
-      Headlines              (-)    -0.050958
-      In                     (+)    +0.049572
-      execution              (+)    +0.049022
-      product                (+)    +0.043394
+      Up                     (+)    +0.219161
+      Win                    (+)    +0.184005
+      China                  (+)    +0.097515
+      mobile                 (+)    +0.045922
+      iPhone                 (+)    +0.045651
+      Legal                  (-)    -0.038682
+      year                   (+)    +0.035759
+      Stock                  (+)    +0.029655
+      phones                 (-)    -0.023125
+      earlier                (+)    +0.020242
 
-  [2] Apple misses on AI in 2025
-      Article weight : 0.8966  |  Relevance to prediction : 0.8453
+  [2] Wedbush Names Apple a Top AI Pick for the 2026 Market Cycle
+      Article weight : 0.8966  |  Relevance to prediction : 0.7748
       Token influence chart:
-        + misses           ████████████████████  (+0.4792)
-        + missteps         ████░░░░░░░░░░░░░░░░  (+0.0852)
-        + next             █░░░░░░░░░░░░░░░░░░░  (+0.0234)
-        + year             █░░░░░░░░░░░░░░░░░░░  (+0.0233)
-        + CNBC             █░░░░░░░░░░░░░░░░░░░  (+0.0223)
-        + Squawk           █░░░░░░░░░░░░░░░░░░░  (+0.0181)
-        - challenges       ░░░░░░░░░░░░░░░░░░░░  (-0.0104)
-        + Steve            ░░░░░░░░░░░░░░░░░░░░  (+0.0101)
+        + Pick             ████████████████████  (+0.1657)
+        + Top              ██████████████░░░░░░  (+0.1135)
+        + Strength         ███████████░░░░░░░░░  (+0.0894)
+        + Cycle            █████████░░░░░░░░░░░  (+0.0729)
+        - AI               ███░░░░░░░░░░░░░░░░░  (-0.0260)
+        - Wedbush          ███░░░░░░░░░░░░░░░░░  (-0.0234)
+        - Think            ██░░░░░░░░░░░░░░░░░░  (-0.0205)
+        - Subtle           ██░░░░░░░░░░░░░░░░░░  (-0.0177)
 
       Token                  Dir       Weight
       ----------------------------------------
-      misses                 (+)    +0.479217
-      apple                  (+)    +0.167789
-      missteps               (+)    +0.085222
-      Apple                  (+)    +0.067551
-      to                     (+)    +0.030340
-      News                   (-)    -0.024526
-      next                   (+)    +0.023381
-      year                   (+)    +0.023335
-      CNBC                   (+)    +0.022263
-      s                      (+)    +0.020130
+      Pick                   (+)    +0.165726
+      Top                    (+)    +0.113490
+      Strength               (+)    +0.089422
+      Cycle                  (+)    +0.072910
+      AI                     (-)    -0.026014
+      Wedbush                (-)    -0.023449
+      Think                  (-)    -0.020463
+      Subtle                 (-)    -0.017665
+      Market                 (-)    -0.015886
+      Bet                    (-)    -0.015086
 
-  [3] The Real Reasons Warren Buffett Is Selling Apple Stock Fast
-      Article weight : 0.8649  |  Relevance to prediction : 0.8183
+  [3] JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reaches Pa
+      Article weight : 0.8325  |  Relevance to prediction : 0.7630
       Token influence chart:
-        - paid             ████████████████████  (-0.2262)
-        + Selling          █████████████░░░░░░░  (+0.1515)
-        - Buffett          ███████░░░░░░░░░░░░░  (-0.0830)
-        + Fast             ██████░░░░░░░░░░░░░░  (+0.0700)
-        - investing        ██████░░░░░░░░░░░░░░  (-0.0665)
-        - big              █████░░░░░░░░░░░░░░░  (-0.0578)
-        + hedging          █████░░░░░░░░░░░░░░░  (+0.0556)
-        + took             ████░░░░░░░░░░░░░░░░  (+0.0410)
+        + Confident        ████████████████████  (+0.3139)
+        + JPMorgan         ████░░░░░░░░░░░░░░░░  (+0.0631)
+        + Overweight       ███░░░░░░░░░░░░░░░░░  (+0.0457)
+        + price            ██░░░░░░░░░░░░░░░░░░  (+0.0365)
+        + Product          ██░░░░░░░░░░░░░░░░░░  (+0.0342)
+        - Supply           █░░░░░░░░░░░░░░░░░░░  (-0.0216)
+        + stock            █░░░░░░░░░░░░░░░░░░░  (+0.0180)
+        + days             █░░░░░░░░░░░░░░░░░░░  (+0.0162)
 
       Token                  Dir       Weight
       ----------------------------------------
-      paid                   (-)    -0.226194
-      Selling                (+)    +0.151498
-      Buffett                (-)    -0.082982
-      Fast                   (+)    +0.069969
-      investing              (-)    -0.066460
-      big                    (-)    -0.057825
-      hedging                (+)    +0.055638
-      apple                  (+)    +0.053149
-      took                   (+)    +0.040985
-      a                      (-)    -0.040368
+      Confident              (+)    +0.313917
+      JPMorgan               (+)    +0.063065
+      Overweight             (+)    +0.045712
+      price                  (+)    +0.036453
+      Product                (+)    +0.034220
+      Supply                 (-)    -0.021626
+      stock                  (+)    +0.017988
+      days                   (+)    +0.016154
+      moderated              (+)    +0.015992
+      lead                   (+)    +0.006535
 
-  [4] Italian Competition Authority fines Apple EUR 98M over app tracking
-      Article weight : 0.8608  |  Relevance to prediction : 0.7973
+  [4] Apple Stock Rises Ahead of 2026. What's Driving the Growth
+      Article weight : 0.8608  |  Relevance to prediction : 0.7381
       Token influence chart:
-        + fines            ████████████████████  (+0.0660)
-        + abuse            ██████████████████░░  (+0.0606)
-        + agency           ███████████████░░░░░  (+0.0484)
-        + Tracking         ██████████████░░░░░░  (+0.0475)
-        + competition      ██████████████░░░░░░  (+0.0472)
-        + party            ███████████░░░░░░░░░  (+0.0356)
-        + third            ██████████░░░░░░░░░░  (+0.0316)
-        + policy           █████████░░░░░░░░░░░  (+0.0305)
+        + Rises            ████████████████████  (+0.1544)
+        + Ahead            █████████░░░░░░░░░░░  (+0.0729)
+        + Growth           █████████░░░░░░░░░░░  (+0.0724)
+        + Recovery         ███████░░░░░░░░░░░░░  (+0.0577)
+        + Navigates        ███████░░░░░░░░░░░░░  (+0.0529)
+        - Hurdles          ██████░░░░░░░░░░░░░░  (-0.0494)
+        - What             ███░░░░░░░░░░░░░░░░░  (-0.0270)
+        - Ends             ███░░░░░░░░░░░░░░░░░  (-0.0262)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Apple                  (+)    +0.161885
-      on                     (+)    +0.066216
-      fines                  (+)    +0.066018
-      abuse                  (+)    +0.060623
-      agency                 (+)    +0.048432
-      Tracking               (+)    +0.047485
-      competition            (+)    +0.047178
-      and                    (+)    +0.043555
-      the                    (+)    +0.038850
-      AAPL                   (+)    +0.036241
+      Rises                  (+)    +0.154407
+      Ahead                  (+)    +0.072911
+      Growth                 (+)    +0.072371
+      Recovery               (+)    +0.057677
+      Navigates              (+)    +0.052947
+      Hurdles                (-)    -0.049389
+      What                   (-)    -0.026973
+      Ends                   (-)    -0.026230
+      Legal                  (+)    +0.018661
+      Driving                (+)    +0.013800
 
-  [5] Prediction: Berkshire Hathaway Will Stop Selling Apple Stock in 2026
-      Article weight : 0.8321  |  Relevance to prediction : 0.7633
+  [5] Top Research Reports for Apple, Cisco & IBM
+      Article weight : 0.8325  |  Relevance to prediction : 0.7309
       Token influence chart:
-        + Stop             ████████████████████  (+0.2003)
-        + Prediction       █████████████░░░░░░░  (+0.1314)
-        + look             ████████░░░░░░░░░░░░  (+0.0772)
-        - Stock            ██████░░░░░░░░░░░░░░  (-0.0634)
-        + sales            █████░░░░░░░░░░░░░░░  (+0.0479)
-        + sizing           ███░░░░░░░░░░░░░░░░░  (+0.0260)
-        - like             ███░░░░░░░░░░░░░░░░░  (-0.0256)
-        + Selling          ██░░░░░░░░░░░░░░░░░░  (+0.0233)
+        + leads            ████████████████████  (+0.1300)
+        - Reports          █████████░░░░░░░░░░░  (-0.0554)
+        + surpassing       ███████░░░░░░░░░░░░░  (+0.0441)
+        - today            ███████░░░░░░░░░░░░░  (-0.0432)
+        + iPhone           ███████░░░░░░░░░░░░░  (+0.0429)
+        + Top              ███████░░░░░░░░░░░░░  (+0.0426)
+        + double           ██████░░░░░░░░░░░░░░  (+0.0411)
+        - subscribers      █████░░░░░░░░░░░░░░░  (-0.0296)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Stop                   (+)    +0.200297
-      Prediction             (+)    +0.131361
-      look                   (+)    +0.077222
-      Apple                  (+)    +0.074665
-      s                      (-)    -0.064949
-      Stock                  (-)    -0.063393
-      sales                  (+)    +0.047863
-      than                   (-)    -0.046867
-      about                  (+)    +0.046468
-      more                   (+)    +0.040035
+      leads                  (+)    +0.130018
+      Reports                (-)    -0.055386
+      surpassing             (+)    +0.044103
+      today                  (-)    -0.043175
+      iPhone                 (+)    +0.042929
+      Top                    (+)    +0.042631
+      double                 (+)    +0.041135
+      subscribers            (-)    -0.029570
+      paid                   (+)    +0.026315
+      research               (+)    +0.023375
 
 ------------------------------------------------------------

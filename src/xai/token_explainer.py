@@ -6,6 +6,7 @@ from typing import Any
 import numpy as np
 
 from config import XAI_LIME_TOP_N, XAI_LIME_NUM_SAMPLES, XAI_LIME_NUM_FEATURES
+from predictor.zero_shot import _title_matches, _build_input_text
 from .utils import label_index, get_dominant_label, build_lime_noise_set, is_lime_noise_token
 
 logger = logging.getLogger(__name__)
@@ -132,14 +133,15 @@ def explain_tokens(
 
     for rank, article in enumerate(top_articles, start=1):
         title = article.get("title", "")
-        content = article.get("content") or ""
         final_weight = article.get("final_weight", 0.0)
         raw_scores = article.get("raw_scores", {})
 
-        # Reconstruct input text exactly as zero_shot._build_input_text does
-        body = f"{title}. {content}" if content.strip() else title
-        text_to_explain = f"News about {company_name}: {body}"
-        text_to_explain = text_to_explain[:1500]
+        # Use the predictor's own function so LIME explains the exact same text
+        include_title = _title_matches(title, company_name, ticker)
+        text_to_explain = _build_input_text(
+            article, include_title=include_title,
+            company_name=company_name, max_chars=1500,
+        )
 
         if not text_to_explain.strip():
             logger.debug("Skipping LIME for empty article: %s", title[:60])
@@ -180,6 +182,7 @@ def explain_tokens(
             results.append({
                 "rank": rank,
                 "title": title,
+                "content": (article.get("content") or "").strip(),
                 "final_weight": _safe_round(final_weight),
                 "influence_score": influence,
                 "lime_label_explained": predicted_label,

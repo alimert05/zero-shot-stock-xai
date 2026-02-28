@@ -34,12 +34,31 @@ def _get_deberta_pipeline():
     return _deberta_pipeline
 
 
+_COMPANY_SUFFIXES = {"inc", "inc.", "corp", "corp.", "ltd", "ltd.", "co",
+                     "co.", "plc", "llc", "group", "holdings", "sa", "ag",
+                     "se", "nv", "the", "company"}
+
+
 def _title_matches(title: str, company_name: str, ticker: str | None) -> bool:
     title_lower = title.lower()
+
+    # Full company name match (e.g. "Apple Inc." in title)
     if company_name.lower() in title_lower:
         return True
+
+    # Ticker match (e.g. "AAPL" in title)
     if ticker and ticker.lower() in title_lower:
         return True
+
+    # Core-name match: strip common suffixes like Inc., Corp., Ltd.
+    # so "Apple Inc." matches a title containing just "Apple"
+    core_words = [w for w in company_name.lower().split()
+                  if w not in _COMPANY_SUFFIXES]
+    if core_words:
+        core_name = " ".join(core_words)
+        if core_name in title_lower:
+            return True
+
     return False
 
 
@@ -50,7 +69,7 @@ def _build_input_text(
     max_chars: int = 1500,
 ) -> str:
     title = article.get("title", "").strip()
-    content = article.get("summary") or ""
+    content = article.get("content") or ""
     content = content.strip()
 
     if include_title:
