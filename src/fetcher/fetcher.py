@@ -38,10 +38,10 @@ logger = logging.getLogger(__name__)
 
 class Fetcher:
 
-    def run_fetcher(self) -> None:
+    def run_fetcher(self) -> bool:
         self.get_input()
         self.search()
-        self.display_results()
+        return self.display_results()
 
     def __init__(self) -> None:
         self.start_date: str | None = None
@@ -409,18 +409,23 @@ class Fetcher:
             logger.error(msg)
             raise Exception(msg) from exc
 
-    def display_results(self) -> None:
+    def display_results(self) -> bool:
 
         if not self.data:
             logger.warning("No data to display")
             print("No data available to display.")
-            return
+            return False
 
         articles = self.data.get("articles", [])
         if not articles:
+            try:
+                # Overwrite stale file so downstream steps never reuse old articles.
+                self.save_articles([])
+            except Exception as exc:
+                logger.error("Failed to save empty article payload: %s", exc)
             logger.warning("No articles to display")
             print("No articles found in the response.")
-            return
+            return False
 
         try:
             self.save_articles(articles)
@@ -449,3 +454,4 @@ class Fetcher:
                 continue
 
         logger.info("Displayed %s articles", len(articles))
+        return True

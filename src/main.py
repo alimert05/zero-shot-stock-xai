@@ -10,7 +10,10 @@ from xai import run_xai
 def main() -> None:
 
     fetcher = Fetcher()
-    fetcher.run_fetcher()
+    has_articles = fetcher.run_fetcher()
+    if not has_articles:
+        print("No articles fetched for the selected date window. Stopping pipeline safely.")
+        return
 
     prediction_result = None
 
