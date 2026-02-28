@@ -1,27 +1,2353 @@
 {
-  "query": "Apple",
-  "company_name": "Apple",
-  "ticker": "AAPL",
-  "articles_analyzed": 0,
-  "articles_total": 0,
-  "total_weight": 0.0,
+  "query": "Nvidia",
+  "company_name": "Nvidia",
+  "ticker": "NVDA",
+  "articles_analyzed": 155,
+  "articles_total": 155,
+  "total_weight": 95.12,
   "weighted_scores": {
-    "positive": 0.0,
-    "negative": 0.0,
-    "neutral": 0.0
+    "positive": 54.419,
+    "negative": 20.6383,
+    "neutral": 20.0627
   },
   "normalized_scores": {
-    "positive": 0.0,
-    "negative": 0.0,
-    "neutral": 0.0
+    "positive": 0.5721,
+    "negative": 0.217,
+    "neutral": 0.2109
   },
-  "final_label": "neutral",
-  "final_confidence": 0.0,
-  "article_details": [],
+  "final_label": "positive",
+  "final_confidence": 0.5721,
+  "article_details": [
+    {
+      "title": "Stock Market Today: Dow Jumps After U.S. Ousts Maduro; Energy Shines, Nvidia Rallies Ahead (Live Coverage)",
+      "final_weight": 0.9785,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9245691895484924,
+        "negative": 0.01145061757415533,
+        "neutral": 0.06398023664951324
+      },
+      "weighted_scores": {
+        "positive": 0.9047,
+        "negative": 0.0112,
+        "neutral": 0.0626
+      }
+    },
+    {
+      "title": "Nvidia accelerates AI roadmap: Rubin superchip in full production, 5x faster",
+      "final_weight": 0.9276,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.6460174322128296,
+        "negative": 0.06287374347448349,
+        "neutral": 0.29110878705978394
+      },
+      "weighted_scores": {
+        "positive": 0.5992,
+        "negative": 0.0583,
+        "neutral": 0.27
+      }
+    },
+    {
+      "title": "What Nvidia's Vera Rubin AI platform brings to the table: CES 2026",
+      "final_weight": 0.9276,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.49067214131355286,
+        "negative": 0.1488264799118042,
+        "neutral": 0.3605014383792877
+      },
+      "weighted_scores": {
+        "positive": 0.4551,
+        "negative": 0.1381,
+        "neutral": 0.3344
+      }
+    },
+    {
+      "title": "Does CrowdStrike’s Expanded AI Security Accelerator With AWS and NVIDIA Reshape Its Long‑Term Narrative (CRWD)?",
+      "final_weight": 0.9276,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.3004629909992218,
+        "negative": 0.328432559967041,
+        "neutral": 0.3711044490337372
+      },
+      "weighted_scores": {
+        "positive": 0.2787,
+        "negative": 0.3047,
+        "neutral": 0.3442
+      }
+    },
+    {
+      "title": "Nvidia CEO confirms Vera Rubin AI platform is 'in full production'",
+      "final_weight": 0.9276,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.5960899591445923,
+        "negative": 0.16277730464935303,
+        "neutral": 0.2411327213048935
+      },
+      "weighted_scores": {
+        "positive": 0.5529,
+        "negative": 0.151,
+        "neutral": 0.2237
+      }
+    },
+    {
+      "title": "Cerence xUI, Leveraging NVIDIA AI Enterprise and Running on Microsoft Azure, Drives Strong Traction with Automakers",
+      "final_weight": 0.9276,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9400888681411743,
+        "negative": 0.013570182956755161,
+        "neutral": 0.04634099081158638
+      },
+      "weighted_scores": {
+        "positive": 0.872,
+        "negative": 0.0126,
+        "neutral": 0.043
+      }
+    },
+    {
+      "title": "Supermicro Announces Support for Upcoming NVIDIA Vera Rubin NVL72, HGX Rubin NVL8 and Expanded Rack-Scale Manufacturing Capacity for Liquid-Cooled AI Solutions",
+      "final_weight": 0.9276,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8076928853988647,
+        "negative": 0.07995373010635376,
+        "neutral": 0.11235339194536209
+      },
+      "weighted_scores": {
+        "positive": 0.7492,
+        "negative": 0.0742,
+        "neutral": 0.1042
+      }
+    },
+    {
+      "title": "CoreWeave Extends Its Cloud Platform with NVIDIA Rubin Platform",
+      "final_weight": 0.9276,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.6315191388130188,
+        "negative": 0.12658993899822235,
+        "neutral": 0.24189093708992004
+      },
+      "weighted_scores": {
+        "positive": 0.5858,
+        "negative": 0.1174,
+        "neutral": 0.2244
+      }
+    },
+    {
+      "title": "Red Hat Expands Collaboration with NVIDIA to Pair Enterprise Open Source with Rack-Scale AI for Faster, Production-Ready Innovation",
+      "final_weight": 0.9276,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.753865122795105,
+        "negative": 0.06747030466794968,
+        "neutral": 0.17866455018520355
+      },
+      "weighted_scores": {
+        "positive": 0.6993,
+        "negative": 0.0626,
+        "neutral": 0.1657
+      }
+    },
+    {
+      "title": "Chevron, Nvidia, Novo Nordisk, Zeta Global And Exxon Mobil: Why These 5 Stocks Are On Investors' Radars Today",
+      "final_weight": 0.9276,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.7432699203491211,
+        "negative": 0.05706601217389107,
+        "neutral": 0.19966408610343933
+      },
+      "weighted_scores": {
+        "positive": 0.6895,
+        "negative": 0.0529,
+        "neutral": 0.1852
+      }
+    },
+    {
+      "title": "Aeva Technologies' Frequency Modulated Continuous Wave 4D LiDAR Technology Selected For The NVIDIA Drive Hyperion Autonomous Vehicle Reference Platform; Aeva And NVIDIA Will Collaborate To Integrate Aeva's Technology Platform In Hyperion On Production Vehicle Programs, Targeting 2028 Start Of Production",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.5443654656410217,
+        "negative": 0.22120819985866547,
+        "neutral": 0.2344263345003128
+      },
+      "weighted_scores": {
+        "positive": 0.4881,
+        "negative": 0.1983,
+        "neutral": 0.2102
+      }
+    },
+    {
+      "title": "Nvidia Unveils Alpamayo AI For Autonomous Vehicles: 'Chat-GPT Moment' For Cars",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.7561129927635193,
+        "negative": 0.08116527646780014,
+        "neutral": 0.16272173821926117
+      },
+      "weighted_scores": {
+        "positive": 0.6779,
+        "negative": 0.0728,
+        "neutral": 0.1459
+      }
+    },
+    {
+      "title": "3 Bold Nvidia Predictions For 2026",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9472259879112244,
+        "negative": 0.012311194092035294,
+        "neutral": 0.04046282917261124
+      },
+      "weighted_scores": {
+        "positive": 0.8493,
+        "negative": 0.011,
+        "neutral": 0.0363
+      }
+    },
+    {
+      "title": "Nvidia CEO Huang to take stage at CES in Las Vegas as competition mounts",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.05949197709560394,
+        "negative": 0.7801578044891357,
+        "neutral": 0.1603502780199051
+      },
+      "weighted_scores": {
+        "positive": 0.0533,
+        "negative": 0.6995,
+        "neutral": 0.1438
+      }
+    },
+    {
+      "title": "Nvidia Leads Chip Stocks Rally as Foxconn Record Sales Spark Gains",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9516606330871582,
+        "negative": 0.00625448627397418,
+        "neutral": 0.042084842920303345
+      },
+      "weighted_scores": {
+        "positive": 0.8533,
+        "negative": 0.0056,
+        "neutral": 0.0377
+      }
+    },
+    {
+      "title": "Magna AI Joins NVIDIA Inception Program to Advance Production-Grade AI at Scale",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.5181902050971985,
+        "negative": 0.23380327224731445,
+        "neutral": 0.24800655245780945
+      },
+      "weighted_scores": {
+        "positive": 0.4646,
+        "negative": 0.2096,
+        "neutral": 0.2224
+      }
+    },
+    {
+      "title": "Nvidia Stock Rises Amid Apple Partner News, CES 2026 On Tap; Is Nvidia A Buy Now?",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9038605690002441,
+        "negative": 0.015314196236431599,
+        "neutral": 0.08082522451877594
+      },
+      "weighted_scores": {
+        "positive": 0.8104,
+        "negative": 0.0137,
+        "neutral": 0.0725
+      }
+    },
+    {
+      "title": "Sevii Selected for the 2026 CrowdStrike, AWS & NVIDIA Cybersecurity Startup Accelerator",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.7050297260284424,
+        "negative": 0.11009535938501358,
+        "neutral": 0.18487489223480225
+      },
+      "weighted_scores": {
+        "positive": 0.6321,
+        "negative": 0.0987,
+        "neutral": 0.1658
+      }
+    },
+    {
+      "title": "Is It Worth Investing in Nvidia (NVDA) Based on Wall Street's Bullish Views?",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9233293533325195,
+        "negative": 0.021773817017674446,
+        "neutral": 0.054896846413612366
+      },
+      "weighted_scores": {
+        "positive": 0.8279,
+        "negative": 0.0195,
+        "neutral": 0.0492
+      }
+    },
+    {
+      "title": "Nvidia Stock Gains. What Will CEO Huang Say at CES?",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8976926803588867,
+        "negative": 0.013127031736075878,
+        "neutral": 0.08918029069900513
+      },
+      "weighted_scores": {
+        "positive": 0.8049,
+        "negative": 0.0118,
+        "neutral": 0.08
+      }
+    },
+    {
+      "title": "Following $1.5M Kickstarter Success, Olares to Debut NVIDIA 5090M-Powered \"Personal AI Cloud\" at CES 2026",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8229384422302246,
+        "negative": 0.06487790495157242,
+        "neutral": 0.11218366026878357
+      },
+      "weighted_scores": {
+        "positive": 0.7378,
+        "negative": 0.0582,
+        "neutral": 0.1006
+      }
+    },
+    {
+      "title": "Evoke Security Selected for the 2026 CrowdStrike, AWS & NVIDIA Cybersecurity Startup Accelerator",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.6778194308280945,
+        "negative": 0.10972369462251663,
+        "neutral": 0.2124568670988083
+      },
+      "weighted_scores": {
+        "positive": 0.6077,
+        "negative": 0.0984,
+        "neutral": 0.1905
+      }
+    },
+    {
+      "title": "Hush Security Selected for the 2026 CrowdStrike, AWS & NVIDIA Cybersecurity Startup Accelerator",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.6748387217521667,
+        "negative": 0.13207633793354034,
+        "neutral": 0.1930849701166153
+      },
+      "weighted_scores": {
+        "positive": 0.6051,
+        "negative": 0.1184,
+        "neutral": 0.1731
+      }
+    },
+    {
+      "title": "Geordie AI Selected for the 2026 CrowdStrike, AWS & NVIDIA Cybersecurity Startup Accelerator",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.758367121219635,
+        "negative": 0.07914303243160248,
+        "neutral": 0.16248983144760132
+      },
+      "weighted_scores": {
+        "positive": 0.68,
+        "negative": 0.071,
+        "neutral": 0.1457
+      }
+    },
+    {
+      "title": "EXCLUSIVE: Top 20 Most-Searched Tickers On Benzinga Pro In 2025 – Where Do Tesla, Nvidia, Palantir, Apple Stocks Rank?",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.45832812786102295,
+        "negative": 0.20760077238082886,
+        "neutral": 0.3340711295604706
+      },
+      "weighted_scores": {
+        "positive": 0.4109,
+        "negative": 0.1861,
+        "neutral": 0.2995
+      }
+    },
+    {
+      "title": "Nvidia, Palantir, Seagate And More: Louis Navellier Says Forget The 'Junk Rally' And Buy These Quality Stocks In 2026 Instead",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.7991867661476135,
+        "negative": 0.0645885244011879,
+        "neutral": 0.1362246423959732
+      },
+      "weighted_scores": {
+        "positive": 0.7166,
+        "negative": 0.0579,
+        "neutral": 0.1221
+      }
+    },
+    {
+      "title": "Dow Jones Futures: Muted Reaction To Trump's Venezuela Move; Nvidia, AMD, Taiwan Semi Due",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.04764853045344353,
+        "negative": 0.11293365806341171,
+        "neutral": 0.8394178748130798
+      },
+      "weighted_scores": {
+        "positive": 0.0427,
+        "negative": 0.1013,
+        "neutral": 0.7526
+      }
+    },
+    {
+      "title": "Ready to Buy Nvidia Stock? Check Out This Option.",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8047840595245361,
+        "negative": 0.021742291748523712,
+        "neutral": 0.17347368597984314
+      },
+      "weighted_scores": {
+        "positive": 0.7216,
+        "negative": 0.0195,
+        "neutral": 0.1555
+      }
+    },
+    {
+      "title": "Jensen Huang To Visit Taiwan As Nvidia Plans Taipei Headquarters Amid TSMC Capacity Strain: Report",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.43920138478279114,
+        "negative": 0.17249906063079834,
+        "neutral": 0.3882995545864105
+      },
+      "weighted_scores": {
+        "positive": 0.3938,
+        "negative": 0.1547,
+        "neutral": 0.3481
+      }
+    },
+    {
+      "title": "4 Reasons to Buy Nvidia Stock Like There's No Tomorrow",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9753704071044922,
+        "negative": 0.0038387055974453688,
+        "neutral": 0.02079087682068348
+      },
+      "weighted_scores": {
+        "positive": 0.8745,
+        "negative": 0.0034,
+        "neutral": 0.0186
+      }
+    },
+    {
+      "title": "Why Nvidia Could Have a Terrible Year in 2026, And Why It Might Not Be So Bad",
+      "final_weight": 0.8966,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.22409366071224213,
+        "negative": 0.3251630663871765,
+        "neutral": 0.4507432281970978
+      },
+      "weighted_scores": {
+        "positive": 0.2009,
+        "negative": 0.2915,
+        "neutral": 0.4041
+      }
+    },
+    {
+      "title": "$160 million worth of export-controlled Nvidia chips were allegedly smuggled into China",
+      "final_weight": 0.8608,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.027731401845812798,
+        "negative": 0.9210237860679626,
+        "neutral": 0.051244813948869705
+      },
+      "weighted_scores": {
+        "positive": 0.0239,
+        "negative": 0.7928,
+        "neutral": 0.0441
+      }
+    },
+    {
+      "title": "Why Nvidia's $20B Groq deal is 'a bit of a head-scratcher'",
+      "final_weight": 0.835,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.01714845560491085,
+        "negative": 0.899250328540802,
+        "neutral": 0.08360124379396439
+      },
+      "weighted_scores": {
+        "positive": 0.0143,
+        "negative": 0.7509,
+        "neutral": 0.0698
+      }
+    },
+    {
+      "title": "Nvidia's Groq Megadeal; A $20B Inference Pivot To Stay King",
+      "final_weight": 0.835,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8172900080680847,
+        "negative": 0.04226916655898094,
+        "neutral": 0.14044089615345
+      },
+      "weighted_scores": {
+        "positive": 0.6824,
+        "negative": 0.0353,
+        "neutral": 0.1173
+      }
+    },
+    {
+      "title": "Nvidia in talks to buy A21 Labs for $2B-$3B, Israeli media reports",
+      "final_weight": 0.8338,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.26939690113067627,
+        "negative": 0.24575598537921906,
+        "neutral": 0.4848470985889435
+      },
+      "weighted_scores": {
+        "positive": 0.2246,
+        "negative": 0.2049,
+        "neutral": 0.4043
+      }
+    },
+    {
+      "title": "Nvidia in advanced talks to buy Israel's AI21 Labs for up to $3 billion, report says",
+      "final_weight": 0.8338,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.25666534900665283,
+        "negative": 0.4408911168575287,
+        "neutral": 0.30244356393814087
+      },
+      "weighted_scores": {
+        "positive": 0.214,
+        "negative": 0.3676,
+        "neutral": 0.2522
+      }
+    },
+    {
+      "title": "Nvidia’s $20 billion Groq play is a blueprint for 2026",
+      "final_weight": 0.8338,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.7014970183372498,
+        "negative": 0.1347837895154953,
+        "neutral": 0.16371925175189972
+      },
+      "weighted_scores": {
+        "positive": 0.5849,
+        "negative": 0.1124,
+        "neutral": 0.1365
+      }
+    },
+    {
+      "title": "Nvidia Stock and the Bright Side of the Groq Deal",
+      "final_weight": 0.8338,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9251281023025513,
+        "negative": 0.006848075892776251,
+        "neutral": 0.06802382320165634
+      },
+      "weighted_scores": {
+        "positive": 0.7714,
+        "negative": 0.0057,
+        "neutral": 0.0567
+      }
+    },
+    {
+      "title": "Nvidia: Here's How Groq Has Altered Its Fate For 2026",
+      "final_weight": 0.8338,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.5718667507171631,
+        "negative": 0.12951238453388214,
+        "neutral": 0.29862087965011597
+      },
+      "weighted_scores": {
+        "positive": 0.4768,
+        "negative": 0.108,
+        "neutral": 0.249
+      }
+    },
+    {
+      "title": "A Deal With Groq Is Lifting Nvidia's Stock as 2025 Approaches",
+      "final_weight": 0.8281,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9466964602470398,
+        "negative": 0.0074601382948458195,
+        "neutral": 0.04584336653351784
+      },
+      "weighted_scores": {
+        "positive": 0.784,
+        "negative": 0.0062,
+        "neutral": 0.038
+      }
+    },
+    {
+      "title": "Dow Jones Futures Fall After Christmas; Nvidia's Big AI Deal",
+      "final_weight": 0.8281,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.14268766343593597,
+        "negative": 0.2460363656282425,
+        "neutral": 0.6112759709358215
+      },
+      "weighted_scores": {
+        "positive": 0.1182,
+        "negative": 0.2037,
+        "neutral": 0.5062
+      }
+    },
+    {
+      "title": "Bernstein’s Stacy Rasgon on what the Nvidia–Groq deal means for the semiconductor space",
+      "final_weight": 0.8281,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.20404019951820374,
+        "negative": 0.42343536019325256,
+        "neutral": 0.3725244402885437
+      },
+      "weighted_scores": {
+        "positive": 0.169,
+        "negative": 0.3506,
+        "neutral": 0.3085
+      }
+    },
+    {
+      "title": "Chamath Palihapitiya Looks Set To Make A Windfall From Nvidia's Purchase Of Groq, Here Is What The SPAC King Said After The Deal",
+      "final_weight": 0.8281,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8805150985717773,
+        "negative": 0.03165164217352867,
+        "neutral": 0.08783320337533951
+      },
+      "weighted_scores": {
+        "positive": 0.7292,
+        "negative": 0.0262,
+        "neutral": 0.0727
+      }
+    },
+    {
+      "title": "Nvidia: What Should Investors Make Of The Groq Deal (Rating Upgrade)",
+      "final_weight": 0.8281,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9785436987876892,
+        "negative": 0.005929344799369574,
+        "neutral": 0.015526966191828251
+      },
+      "weighted_scores": {
+        "positive": 0.8103,
+        "negative": 0.0049,
+        "neutral": 0.0129
+      }
+    },
+    {
+      "title": "Nvidia makes its biggest purchase ever",
+      "final_weight": 0.8281,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.5009792447090149,
+        "negative": 0.1482980102300644,
+        "neutral": 0.3507227897644043
+      },
+      "weighted_scores": {
+        "positive": 0.4149,
+        "negative": 0.1228,
+        "neutral": 0.2904
+      }
+    },
+    {
+      "title": "Nvidia Absorbs Another Rival for $20B, Boosting Decentralized AI",
+      "final_weight": 0.8281,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9295379519462585,
+        "negative": 0.019674649462103844,
+        "neutral": 0.05078741908073425
+      },
+      "weighted_scores": {
+        "positive": 0.7698,
+        "negative": 0.0163,
+        "neutral": 0.0421
+      }
+    },
+    {
+      "title": "Nvidia: $20B Groq Deal, Valuation, And More (Rating Upgrade)",
+      "final_weight": 0.8199,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9691037535667419,
+        "negative": 0.009663588367402554,
+        "neutral": 0.02123265527188778
+      },
+      "weighted_scores": {
+        "positive": 0.7946,
+        "negative": 0.0079,
+        "neutral": 0.0174
+      }
+    },
+    {
+      "title": "Exclusive: Nvidia buying AI chip startup Groq's assets for about $20 billion in its largest deal on record",
+      "final_weight": 0.8151,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.7069103717803955,
+        "negative": 0.14089436829090118,
+        "neutral": 0.15219521522521973
+      },
+      "weighted_scores": {
+        "positive": 0.5762,
+        "negative": 0.1148,
+        "neutral": 0.1241
+      }
+    },
+    {
+      "title": "Nvidia: Rally Is Impressive, But AI Boom Shows Bubble Signals",
+      "final_weight": 0.8147,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.07235808670520782,
+        "negative": 0.6115474700927734,
+        "neutral": 0.31609445810317993
+      },
+      "weighted_scores": {
+        "positive": 0.059,
+        "negative": 0.4982,
+        "neutral": 0.2575
+      }
+    },
+    {
+      "title": "Is Nvidia's Valuation Still Justified? What Really Matters Heading Into 2026",
+      "final_weight": 0.8147,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.7517930865287781,
+        "negative": 0.018769090995192528,
+        "neutral": 0.22943784296512604
+      },
+      "weighted_scores": {
+        "positive": 0.6125,
+        "negative": 0.0153,
+        "neutral": 0.1869
+      }
+    },
+    {
+      "title": "What to know about Nvidia's massive spending spree",
+      "final_weight": 0.7997,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.1421300172805786,
+        "negative": 0.4833715260028839,
+        "neutral": 0.3744983971118927
+      },
+      "weighted_scores": {
+        "positive": 0.1137,
+        "negative": 0.3866,
+        "neutral": 0.2995
+      }
+    },
+    {
+      "title": "What's Going On With Nvidia Stock Friday?",
+      "final_weight": 0.7997,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8887882232666016,
+        "negative": 0.020014304667711258,
+        "neutral": 0.09119749069213867
+      },
+      "weighted_scores": {
+        "positive": 0.7108,
+        "negative": 0.016,
+        "neutral": 0.0729
+      }
+    },
+    {
+      "title": "NVIDIA Corporation (NVDA) To Make its Largest Purchase From Groq",
+      "final_weight": 0.7333,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.851672351360321,
+        "negative": 0.030912434682250023,
+        "neutral": 0.1174151748418808
+      },
+      "weighted_scores": {
+        "positive": 0.6245,
+        "negative": 0.0227,
+        "neutral": 0.0861
+      }
+    },
+    {
+      "title": "Stock Market Today: Dow Declines While Nvidia Rises Above Key Level On China Chip Demand (Live Coverage)",
+      "final_weight": 0.7333,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8467548489570618,
+        "negative": 0.023392442613840103,
+        "neutral": 0.1298527866601944
+      },
+      "weighted_scores": {
+        "positive": 0.6209,
+        "negative": 0.0172,
+        "neutral": 0.0952
+      }
+    },
+    {
+      "title": "1 Artificial Intelligence (AI) Revenue Machine You'll Want to Watch in 2026 (Hint: It's Beaten Everyone Except Nvidia)",
+      "final_weight": 0.7333,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.12309206277132034,
+        "negative": 0.33838769793510437,
+        "neutral": 0.5385202765464783
+      },
+      "weighted_scores": {
+        "positive": 0.0903,
+        "negative": 0.2481,
+        "neutral": 0.3949
+      }
+    },
+    {
+      "title": "Is Nvidia (NVDA) One of the Best Stocks for the Next Decade?",
+      "final_weight": 0.7333,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9640299677848816,
+        "negative": 0.006793891545385122,
+        "neutral": 0.02917611040174961
+      },
+      "weighted_scores": {
+        "positive": 0.7069,
+        "negative": 0.005,
+        "neutral": 0.0214
+      }
+    },
+    {
+      "title": "These Stocks Are Moving the Most Today: Nvidia, Tesla, Hecla, Newmont, Nike, Vanda, Corcept, DJT, and More",
+      "final_weight": 0.7333,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.7440961003303528,
+        "negative": 0.0498584546148777,
+        "neutral": 0.2060454785823822
+      },
+      "weighted_scores": {
+        "positive": 0.5456,
+        "negative": 0.0366,
+        "neutral": 0.1511
+      }
+    },
+    {
+      "title": "Nvidia Seeks TSMC Talks as China Orders Outpace H200 GPU Supply",
+      "final_weight": 0.7333,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.22798819839954376,
+        "negative": 0.3298293948173523,
+        "neutral": 0.44218239188194275
+      },
+      "weighted_scores": {
+        "positive": 0.1672,
+        "negative": 0.2419,
+        "neutral": 0.3243
+      }
+    },
+    {
+      "title": "Nvidia Asks TSMC To Boost H200 Production Amid China Demand",
+      "final_weight": 0.7333,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.30900755524635315,
+        "negative": 0.2570286989212036,
+        "neutral": 0.43396371603012085
+      },
+      "weighted_scores": {
+        "positive": 0.2266,
+        "negative": 0.1885,
+        "neutral": 0.3182
+      }
+    },
+    {
+      "title": "Mixed options sentiment in NVIDIA with shares down 0.45%",
+      "final_weight": 0.7333,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.015273130498826504,
+        "negative": 0.7303501963615417,
+        "neutral": 0.25437673926353455
+      },
+      "weighted_scores": {
+        "positive": 0.0112,
+        "negative": 0.5356,
+        "neutral": 0.1865
+      }
+    },
+    {
+      "title": "Nvidia's China Orders Go Off The Charts — Putting Semiconductor ETFs Back In Policy Crossfire",
+      "final_weight": 0.7333,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.014073938131332397,
+        "negative": 0.9740036725997925,
+        "neutral": 0.01192240696400404
+      },
+      "weighted_scores": {
+        "positive": 0.0103,
+        "negative": 0.7142,
+        "neutral": 0.0087
+      }
+    },
+    {
+      "title": "Nvidia works to meet strong H200 demand from Chinese tech companies — Reuters",
+      "final_weight": 0.7333,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.18263588845729828,
+        "negative": 0.3252415359020233,
+        "neutral": 0.4921225309371948
+      },
+      "weighted_scores": {
+        "positive": 0.1339,
+        "negative": 0.2385,
+        "neutral": 0.3609
+      }
+    },
+    {
+      "title": "TikTok Parent Plans $14 Billion Nvidia Buying Spree",
+      "final_weight": 0.7333,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.7779508829116821,
+        "negative": 0.04565684497356415,
+        "neutral": 0.17639227211475372
+      },
+      "weighted_scores": {
+        "positive": 0.5705,
+        "negative": 0.0335,
+        "neutral": 0.1293
+      }
+    },
+    {
+      "title": "Dow Jones AI Giant Nvidia Hits Early Buy Trigger",
+      "final_weight": 0.7,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9563418626785278,
+        "negative": 0.008408102206885815,
+        "neutral": 0.035250019282102585
+      },
+      "weighted_scores": {
+        "positive": 0.6694,
+        "negative": 0.0059,
+        "neutral": 0.0247
+      }
+    },
+    {
+      "title": "Nvidia’s Groq bet shows that the economics of AI chip-building are still unsettled",
+      "final_weight": 0.7,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.03437434136867523,
+        "negative": 0.8870782852172852,
+        "neutral": 0.0785473883152008
+      },
+      "weighted_scores": {
+        "positive": 0.0241,
+        "negative": 0.621,
+        "neutral": 0.055
+      }
+    },
+    {
+      "title": "Analysts Call NVIDIA Corporation (NVDA) Groq Deal a ‘Tech and Talent Grab’",
+      "final_weight": 0.7,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8524410724639893,
+        "negative": 0.09621273726224899,
+        "neutral": 0.05134620517492294
+      },
+      "weighted_scores": {
+        "positive": 0.5967,
+        "negative": 0.0673,
+        "neutral": 0.0359
+      }
+    },
+    {
+      "title": "Nvidia’s Rubin Architecture Is a Game-Changer. Here’s Why.",
+      "final_weight": 0.7,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9640477299690247,
+        "negative": 0.009106036275625229,
+        "neutral": 0.026846250519156456
+      },
+      "weighted_scores": {
+        "positive": 0.6748,
+        "negative": 0.0064,
+        "neutral": 0.0188
+      }
+    },
+    {
+      "title": "Nvidia Becomes a 'Must Own' Stock as AI Boom Fuels 35% Upside Potential",
+      "final_weight": 0.7,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9684702754020691,
+        "negative": 0.0040903836488723755,
+        "neutral": 0.027439335361123085
+      },
+      "weighted_scores": {
+        "positive": 0.6779,
+        "negative": 0.0029,
+        "neutral": 0.0192
+      }
+    },
+    {
+      "title": "Nvidia's Competitive Moat Just Got Better, Analyst Says; Is Nvidia A Buy Or Sell Now?",
+      "final_weight": 0.7,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9490148425102234,
+        "negative": 0.006386926863342524,
+        "neutral": 0.044598229229450226
+      },
+      "weighted_scores": {
+        "positive": 0.6643,
+        "negative": 0.0045,
+        "neutral": 0.0312
+      }
+    },
+    {
+      "title": "Nvidia Invests $20 Billion in Groq to Expand AI Inference Capabilities",
+      "final_weight": 0.7,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.5104354023933411,
+        "negative": 0.1224522516131401,
+        "neutral": 0.36711230874061584
+      },
+      "weighted_scores": {
+        "positive": 0.3573,
+        "negative": 0.0857,
+        "neutral": 0.257
+      }
+    },
+    {
+      "title": "Nvidia Shares Slide on Rumors of Next-Year GPU Price Jumps",
+      "final_weight": 0.7,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.007276293821632862,
+        "negative": 0.9658998847007751,
+        "neutral": 0.026823794469237328
+      },
+      "weighted_scores": {
+        "positive": 0.0051,
+        "negative": 0.6761,
+        "neutral": 0.0188
+      }
+    },
+    {
+      "title": "AI chipmakers that could steal some of Nvidia's spotlight in 2026",
+      "final_weight": 0.6669,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.1682940125465393,
+        "negative": 0.40321263670921326,
+        "neutral": 0.42849335074424744
+      },
+      "weighted_scores": {
+        "positive": 0.1122,
+        "negative": 0.2689,
+        "neutral": 0.2858
+      }
+    },
+    {
+      "title": "An Early Look at Michael Burry’s Bets Against Nvidia and Palantir",
+      "final_weight": 0.6669,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.02393023855984211,
+        "negative": 0.94769686460495,
+        "neutral": 0.02837287075817585
+      },
+      "weighted_scores": {
+        "positive": 0.016,
+        "negative": 0.632,
+        "neutral": 0.0189
+      }
+    },
+    {
+      "title": "Nvidia’s Stock Is Cheaper Than Intel’s and AMD’s. Here’s Where I See It in 2026",
+      "final_weight": 0.6669,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.817986011505127,
+        "negative": 0.0466480627655983,
+        "neutral": 0.13536590337753296
+      },
+      "weighted_scores": {
+        "positive": 0.5455,
+        "negative": 0.0311,
+        "neutral": 0.0903
+      }
+    },
+    {
+      "title": "Following Nvidia? Mark Your Calendars for March 16.",
+      "final_weight": 0.6669,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.6136694550514221,
+        "negative": 0.04874609783291817,
+        "neutral": 0.3375844955444336
+      },
+      "weighted_scores": {
+        "positive": 0.4093,
+        "negative": 0.0325,
+        "neutral": 0.2251
+      }
+    },
+    {
+      "title": "If You Invested $10,000 in Nvidia 10 Years Ago, Here’s How Much You Would Have Today",
+      "final_weight": 0.6669,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.5540956854820251,
+        "negative": 0.11779661476612091,
+        "neutral": 0.32810768485069275
+      },
+      "weighted_scores": {
+        "positive": 0.3695,
+        "negative": 0.0786,
+        "neutral": 0.2188
+      }
+    },
+    {
+      "title": "Intel Stock Has Soared Since Its Dow Ouster — Even Outrunning Nvidia, Its Replacement",
+      "final_weight": 0.6669,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.14217224717140198,
+        "negative": 0.4340400993824005,
+        "neutral": 0.4237876236438751
+      },
+      "weighted_scores": {
+        "positive": 0.0948,
+        "negative": 0.2895,
+        "neutral": 0.2826
+      }
+    },
+    {
+      "title": "Nvidia: Can It Keep Margins This High?",
+      "final_weight": 0.6392,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.03840242698788643,
+        "negative": 0.028984062373638153,
+        "neutral": 0.9326134324073792
+      },
+      "weighted_scores": {
+        "positive": 0.0245,
+        "negative": 0.0185,
+        "neutral": 0.5961
+      }
+    },
+    {
+      "title": "Stock Market Today: Dow Dips After Hitting Record; Nvidia, Palantir, Tesla In Buy Zones (Live Coverage)",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8851636052131653,
+        "negative": 0.017490508034825325,
+        "neutral": 0.09734585881233215
+      },
+      "weighted_scores": {
+        "positive": 0.504,
+        "negative": 0.01,
+        "neutral": 0.0554
+      }
+    },
+    {
+      "title": "Nvidia makes boldest move yet, and the fallout begins",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.010788763873279095,
+        "negative": 0.9757354855537415,
+        "neutral": 0.013475705869495869
+      },
+      "weighted_scores": {
+        "positive": 0.0061,
+        "negative": 0.5556,
+        "neutral": 0.0077
+      }
+    },
+    {
+      "title": "Market Movers: Nvidia Could See $200 Before Year End",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8814377784729004,
+        "negative": 0.014647884294390678,
+        "neutral": 0.103914275765419
+      },
+      "weighted_scores": {
+        "positive": 0.5019,
+        "negative": 0.0083,
+        "neutral": 0.0592
+      }
+    },
+    {
+      "title": "Nvidia makes a deal with Groq, investing resolutions for 2026",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.3965858817100525,
+        "negative": 0.1357945203781128,
+        "neutral": 0.4676196277141571
+      },
+      "weighted_scores": {
+        "positive": 0.2258,
+        "negative": 0.0773,
+        "neutral": 0.2663
+      }
+    },
+    {
+      "title": "Nvidia Deal With Groq Called 'Strategic' Amid Rise Of Custom AI Chips",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.812839150428772,
+        "negative": 0.03668265789747238,
+        "neutral": 0.15047812461853027
+      },
+      "weighted_scores": {
+        "positive": 0.4628,
+        "negative": 0.0209,
+        "neutral": 0.0857
+      }
+    },
+    {
+      "title": "These Stocks Are Moving the Most Today: Nvidia, Micron, Nike, Tesla, Lam Research, Coupang, Newmont, and More",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8990016579627991,
+        "negative": 0.02061033435165882,
+        "neutral": 0.08038801699876785
+      },
+      "weighted_scores": {
+        "positive": 0.5119,
+        "negative": 0.0117,
+        "neutral": 0.0458
+      }
+    },
+    {
+      "title": "Stock Market Hits Record Highs On Nvidia, Google, GDP Data: Weekly Review",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9642520546913147,
+        "negative": 0.007353906985372305,
+        "neutral": 0.028393996879458427
+      },
+      "weighted_scores": {
+        "positive": 0.549,
+        "negative": 0.0042,
+        "neutral": 0.0162
+      }
+    },
+    {
+      "title": "Nvidia's huge Groq deal: What investors need to know",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.40890005230903625,
+        "negative": 0.14967717230319977,
+        "neutral": 0.4414227604866028
+      },
+      "weighted_scores": {
+        "positive": 0.2328,
+        "negative": 0.0852,
+        "neutral": 0.2513
+      }
+    },
+    {
+      "title": "Nvidia Stock Is Rising -- Reports Say It Struck a Deal With Groq",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9369800090789795,
+        "negative": 0.006861566565930843,
+        "neutral": 0.05615844577550888
+      },
+      "weighted_scores": {
+        "positive": 0.5335,
+        "negative": 0.0039,
+        "neutral": 0.032
+      }
+    },
+    {
+      "title": "Jim Cramer Slams 'Big Freakout' Selling In Nvidia, AI, Crypto Stocks After Strong GDP Print: 'It Is Just Stupid'",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.014848672784864902,
+        "negative": 0.9555113315582275,
+        "neutral": 0.029640020802617073
+      },
+      "weighted_scores": {
+        "positive": 0.0085,
+        "negative": 0.5441,
+        "neutral": 0.0169
+      }
+    },
+    {
+      "title": "Gold & silver hit new highs, Nvidia's big Groq deal",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9059938192367554,
+        "negative": 0.017414819449186325,
+        "neutral": 0.07659134268760681
+      },
+      "weighted_scores": {
+        "positive": 0.5159,
+        "negative": 0.0099,
+        "neutral": 0.0436
+      }
+    },
+    {
+      "title": "Why Nvidia Needs Groq To Win The War Against Google's TPUs",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.4248843491077423,
+        "negative": 0.17797215282917023,
+        "neutral": 0.3971434533596039
+      },
+      "weighted_scores": {
+        "positive": 0.2419,
+        "negative": 0.1013,
+        "neutral": 0.2261
+      }
+    },
+    {
+      "title": "Cantor Fitzgerald: Nvidia and Broadcom May Explode on Next-Gen AI Rollout",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.09025076776742935,
+        "negative": 0.8049479126930237,
+        "neutral": 0.10480130463838577
+      },
+      "weighted_scores": {
+        "positive": 0.0514,
+        "negative": 0.4583,
+        "neutral": 0.0597
+      }
+    },
+    {
+      "title": "AI Chips Today - NVIDIA AI Chips Power Next-Gen Industrial Robotics",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.683094322681427,
+        "negative": 0.08920877426862717,
+        "neutral": 0.22769689559936523
+      },
+      "weighted_scores": {
+        "positive": 0.389,
+        "negative": 0.0508,
+        "neutral": 0.1297
+      }
+    },
+    {
+      "title": "Zacks Investment Ideas feature highlights Intel, Nvidia and Agnico Eagle Mines",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.3829563558101654,
+        "negative": 0.10802839696407318,
+        "neutral": 0.5090152621269226
+      },
+      "weighted_scores": {
+        "positive": 0.2181,
+        "negative": 0.0615,
+        "neutral": 0.2898
+      }
+    },
+    {
+      "title": "Nvidia, Sobr Safe And 3 Stocks To Watch Heading Into Friday",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.32421866059303284,
+        "negative": 0.2534920573234558,
+        "neutral": 0.42228931188583374
+      },
+      "weighted_scores": {
+        "positive": 0.1846,
+        "negative": 0.1443,
+        "neutral": 0.2405
+      }
+    },
+    {
+      "title": "NVIDIA Stock Crosses $190 On Robinhood Overnight Trading After Groq Deal",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8542512655258179,
+        "negative": 0.017593953758478165,
+        "neutral": 0.12815482914447784
+      },
+      "weighted_scores": {
+        "positive": 0.4864,
+        "negative": 0.01,
+        "neutral": 0.073
+      }
+    },
+    {
+      "title": "Nvidia stock's 'base case' is $250 by end of 2026: Dan Ives",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.7023197412490845,
+        "negative": 0.06251027435064316,
+        "neutral": 0.23516994714736938
+      },
+      "weighted_scores": {
+        "positive": 0.3999,
+        "negative": 0.0356,
+        "neutral": 0.1339
+      }
+    },
+    {
+      "title": "Nvidia tested making chips with Intel’s 18A process, but stopped, Reuters says",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.027850942686200142,
+        "negative": 0.9038675427436829,
+        "neutral": 0.06828156113624573
+      },
+      "weighted_scores": {
+        "positive": 0.0159,
+        "negative": 0.5147,
+        "neutral": 0.0389
+      }
+    },
+    {
+      "title": "Nvidia: Poised To Unlock $6 Trillion In 2026",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9364087581634521,
+        "negative": 0.003963191993534565,
+        "neutral": 0.059628043323755264
+      },
+      "weighted_scores": {
+        "positive": 0.5332,
+        "negative": 0.0023,
+        "neutral": 0.034
+      }
+    },
+    {
+      "title": "Nvidia Has A Cash Problem",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.013092572800815105,
+        "negative": 0.9638858437538147,
+        "neutral": 0.02302154339849949
+      },
+      "weighted_scores": {
+        "positive": 0.0075,
+        "negative": 0.5488,
+        "neutral": 0.0131
+      }
+    },
+    {
+      "title": "Nvidia’s $4 trillion moment came with a quiet warning sign",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.16704192757606506,
+        "negative": 0.4933716952800751,
+        "neutral": 0.33958637714385986
+      },
+      "weighted_scores": {
+        "positive": 0.0951,
+        "negative": 0.2809,
+        "neutral": 0.1934
+      }
+    },
+    {
+      "title": "Nvidia Licenses Groq's AI Chip Tech, Grabs Top Execs, But Not A Takeover",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.19237489998340607,
+        "negative": 0.3492928147315979,
+        "neutral": 0.4583323299884796
+      },
+      "weighted_scores": {
+        "positive": 0.1095,
+        "negative": 0.1989,
+        "neutral": 0.261
+      }
+    },
+    {
+      "title": "Nvidia Licenses Groq’s AI Technology as Demand for Cutting-Edge Chips Grows",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.725547194480896,
+        "negative": 0.0634264275431633,
+        "neutral": 0.2110263705253601
+      },
+      "weighted_scores": {
+        "positive": 0.4131,
+        "negative": 0.0361,
+        "neutral": 0.1202
+      }
+    },
+    {
+      "title": "Nvidia, Groq Strike AI Tech Licensing Deal",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.3846887946128845,
+        "negative": 0.1658182442188263,
+        "neutral": 0.4494929909706116
+      },
+      "weighted_scores": {
+        "positive": 0.219,
+        "negative": 0.0944,
+        "neutral": 0.2559
+      }
+    },
+    {
+      "title": "Nvidia to license AI chip challenger Groq’s tech and hire its CEO",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.6713529229164124,
+        "negative": 0.08784662932157516,
+        "neutral": 0.2408003956079483
+      },
+      "weighted_scores": {
+        "positive": 0.3823,
+        "negative": 0.05,
+        "neutral": 0.1371
+      }
+    },
+    {
+      "title": "Nvidia to acquire Groq for $20 billion in its largest deal ever, CNBC reports",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.604712724685669,
+        "negative": 0.10695095360279083,
+        "neutral": 0.28833630681037903
+      },
+      "weighted_scores": {
+        "positive": 0.3443,
+        "negative": 0.0609,
+        "neutral": 0.1642
+      }
+    },
+    {
+      "title": "Nvidia, joining Big Tech deal spree, to license Groq technology, hire executives",
+      "final_weight": 0.5694,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.3562202751636505,
+        "negative": 0.27028709650039673,
+        "neutral": 0.37349262833595276
+      },
+      "weighted_scores": {
+        "positive": 0.2028,
+        "negative": 0.1539,
+        "neutral": 0.2127
+      }
+    },
+    {
+      "title": "Nvidia Hits Key Level With No AI Bubble Yet, Fund Manager Says; Is Nvidia Stock A Buy Now?",
+      "final_weight": 0.5071,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.4149889647960663,
+        "negative": 0.1672949641942978,
+        "neutral": 0.41771605610847473
+      },
+      "weighted_scores": {
+        "positive": 0.2104,
+        "negative": 0.0848,
+        "neutral": 0.2118
+      }
+    },
+    {
+      "title": "Nvidia Is Breaking Out, Don't Get Left Behind",
+      "final_weight": 0.5071,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9713234305381775,
+        "negative": 0.0032144731376320124,
+        "neutral": 0.02546209841966629
+      },
+      "weighted_scores": {
+        "positive": 0.4926,
+        "negative": 0.0016,
+        "neutral": 0.0129
+      }
+    },
+    {
+      "title": "Futurum CEO Daniel Newman on report Nvidia is halting Intel's 18A tests",
+      "final_weight": 0.5071,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.11992230266332626,
+        "negative": 0.5408830046653748,
+        "neutral": 0.339194655418396
+      },
+      "weighted_scores": {
+        "positive": 0.0608,
+        "negative": 0.2743,
+        "neutral": 0.172
+      }
+    },
+    {
+      "title": "Gold Is Now 7x Bigger Than Nvidia — And Gundlach Says That Matters",
+      "final_weight": 0.5071,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.22437983751296997,
+        "negative": 0.22156643867492676,
+        "neutral": 0.5540537238121033
+      },
+      "weighted_scores": {
+        "positive": 0.1138,
+        "negative": 0.1124,
+        "neutral": 0.281
+      }
+    },
+    {
+      "title": "Exxon Mobil, Nvidia And More On CNBC's 'Final Trades'",
+      "final_weight": 0.5071,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.15609361231327057,
+        "negative": 0.7386236190795898,
+        "neutral": 0.10528279095888138
+      },
+      "weighted_scores": {
+        "positive": 0.0792,
+        "negative": 0.3746,
+        "neutral": 0.0534
+      }
+    },
+    {
+      "title": "Forget NVDA: 2 AI Stocks Crushing it in 2025 With More Upside Ahead",
+      "final_weight": 0.4771,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.40316176414489746,
+        "negative": 0.10694240778684616,
+        "neutral": 0.4898958206176758
+      },
+      "weighted_scores": {
+        "positive": 0.1923,
+        "negative": 0.051,
+        "neutral": 0.2337
+      }
+    },
+    {
+      "title": "Why I Just Bought Some Nvidia Stock",
+      "final_weight": 0.4761,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9830546975135803,
+        "negative": 0.005007191561162472,
+        "neutral": 0.01193806529045105
+      },
+      "weighted_scores": {
+        "positive": 0.468,
+        "negative": 0.0024,
+        "neutral": 0.0057
+      }
+    },
+    {
+      "title": "Nvidia: Only A 3% Premium For The Most Important Company In AI",
+      "final_weight": 0.4479,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9675165414810181,
+        "negative": 0.004537014290690422,
+        "neutral": 0.027946388348937035
+      },
+      "weighted_scores": {
+        "positive": 0.4334,
+        "negative": 0.002,
+        "neutral": 0.0125
+      }
+    },
+    {
+      "title": "Three top Wall Street analysts stay bullish on Nvidia stock. Here's why",
+      "final_weight": 0.4479,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9812519550323486,
+        "negative": 0.005338279530405998,
+        "neutral": 0.013409717939794064
+      },
+      "weighted_scores": {
+        "positive": 0.4395,
+        "negative": 0.0024,
+        "neutral": 0.006
+      }
+    },
+    {
+      "title": "Is NVIDIA Corporation (NVDA) the Best S&P 500 Stock to Buy Now?",
+      "final_weight": 0.4479,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9240964651107788,
+        "negative": 0.01920522004365921,
+        "neutral": 0.056698277592659
+      },
+      "weighted_scores": {
+        "positive": 0.4139,
+        "negative": 0.0086,
+        "neutral": 0.0254
+      }
+    },
+    {
+      "title": "Alphabet Inc. (GOOGL) and Meta Working Together To Challenge Nvidia’s Market Dominance: Report",
+      "final_weight": 0.4479,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.13737577199935913,
+        "negative": 0.6322045922279358,
+        "neutral": 0.23041963577270508
+      },
+      "weighted_scores": {
+        "positive": 0.0615,
+        "negative": 0.2832,
+        "neutral": 0.1032
+      }
+    },
+    {
+      "title": "Nvidia Stock Looks 'Cheap,' Analysts Say",
+      "final_weight": 0.4479,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8655038475990295,
+        "negative": 0.03158283606171608,
+        "neutral": 0.10291329771280289
+      },
+      "weighted_scores": {
+        "positive": 0.3877,
+        "negative": 0.0141,
+        "neutral": 0.0461
+      }
+    },
+    {
+      "title": "China’s Tencent Is Accessing Banned Nvidia Chips Through the Cloud",
+      "final_weight": 0.3661,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.06484813243150711,
+        "negative": 0.7883878946304321,
+        "neutral": 0.14676398038864136
+      },
+      "weighted_scores": {
+        "positive": 0.0237,
+        "negative": 0.2886,
+        "neutral": 0.0537
+      }
+    },
+    {
+      "title": "Jim Cramer Says NVIDIA “Will Get Plenty of Business”",
+      "final_weight": 0.3661,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8077182769775391,
+        "negative": 0.022507863119244576,
+        "neutral": 0.1697738915681839
+      },
+      "weighted_scores": {
+        "positive": 0.2957,
+        "negative": 0.0082,
+        "neutral": 0.0622
+      }
+    },
+    {
+      "title": "Nvidia Vs. Alphabet: Which Could Be The World's Biggest Company By End-2026?",
+      "final_weight": 0.3661,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.501417875289917,
+        "negative": 0.17243912816047668,
+        "neutral": 0.3261429965496063
+      },
+      "weighted_scores": {
+        "positive": 0.1836,
+        "negative": 0.0631,
+        "neutral": 0.1194
+      }
+    },
+    {
+      "title": "Investors buying Nvidia stock at these levels have historically done well: analyst",
+      "final_weight": 0.3661,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8528172373771667,
+        "negative": 0.01702938601374626,
+        "neutral": 0.13015338778495789
+      },
+      "weighted_scores": {
+        "positive": 0.3122,
+        "negative": 0.0062,
+        "neutral": 0.0476
+      }
+    },
+    {
+      "title": "Insider Alert: NVIDIA Board Member Offloads Millions in Stock After Decades",
+      "final_weight": 0.3661,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.013304363936185837,
+        "negative": 0.966733455657959,
+        "neutral": 0.019962148740887642
+      },
+      "weighted_scores": {
+        "positive": 0.0049,
+        "negative": 0.3539,
+        "neutral": 0.0073
+      }
+    },
+    {
+      "title": "Nvidia Stock Rises. The Road to Sales in China Opens Up.",
+      "final_weight": 0.3661,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.93768709897995,
+        "negative": 0.006415269803255796,
+        "neutral": 0.055897634476423264
+      },
+      "weighted_scores": {
+        "positive": 0.3433,
+        "negative": 0.0023,
+        "neutral": 0.0205
+      }
+    },
+    {
+      "title": "Nvidia Stock Is Rising Again. A Bullish Analyst Just Made a Big Call",
+      "final_weight": 0.3661,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9623125195503235,
+        "negative": 0.004111942835152149,
+        "neutral": 0.033575527369976044
+      },
+      "weighted_scores": {
+        "positive": 0.3523,
+        "negative": 0.0015,
+        "neutral": 0.0123
+      }
+    },
+    {
+      "title": "Why This AI Stock Could Outperform Nvidia Over the Next 5 Years",
+      "final_weight": 0.3661,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.40360498428344727,
+        "negative": 0.22452741861343384,
+        "neutral": 0.3718675971031189
+      },
+      "weighted_scores": {
+        "positive": 0.1478,
+        "negative": 0.0822,
+        "neutral": 0.1361
+      }
+    },
+    {
+      "title": "From OpenAI to DeepSeek, Nvidia's biggest moments from 2025",
+      "final_weight": 0.3409,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.3939454257488251,
+        "negative": 0.15977175533771515,
+        "neutral": 0.44628286361694336
+      },
+      "weighted_scores": {
+        "positive": 0.1343,
+        "negative": 0.0545,
+        "neutral": 0.1521
+      }
+    },
+    {
+      "title": "Opinion: Nvidia Stock Isn’t as Expensive as the Bears Think",
+      "final_weight": 0.3409,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.23926347494125366,
+        "negative": 0.31070709228515625,
+        "neutral": 0.45002949237823486
+      },
+      "weighted_scores": {
+        "positive": 0.0816,
+        "negative": 0.1059,
+        "neutral": 0.1534
+      }
+    },
+    {
+      "title": "Top Semiconductor Stocks for 2026 -- Nvidia and Broadcom Lead Chip Picks",
+      "final_weight": 0.3409,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9310793280601501,
+        "negative": 0.016339311376214027,
+        "neutral": 0.05258135870099068
+      },
+      "weighted_scores": {
+        "positive": 0.3174,
+        "negative": 0.0056,
+        "neutral": 0.0179
+      }
+    },
+    {
+      "title": "Stock Market Today: Dow Rises On Surprise Inflation Data; Nvidia, Tesla Rally (Live Coverage)",
+      "final_weight": 0.3409,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9307747483253479,
+        "negative": 0.012994597665965557,
+        "neutral": 0.05623061582446098
+      },
+      "weighted_scores": {
+        "positive": 0.3173,
+        "negative": 0.0044,
+        "neutral": 0.0192
+      }
+    },
+    {
+      "title": "Nvidia: The Only Threat Is Alphabet",
+      "final_weight": 0.3409,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.7432775497436523,
+        "negative": 0.052809081971645355,
+        "neutral": 0.2039133906364441
+      },
+      "weighted_scores": {
+        "positive": 0.2534,
+        "negative": 0.018,
+        "neutral": 0.0695
+      }
+    },
+    {
+      "title": "Nvidia Vs. Advanced Micro Devices: Determining The True AI Alpha-OLS Model",
+      "final_weight": 0.2717,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9424355626106262,
+        "negative": 0.00976147036999464,
+        "neutral": 0.04780297726392746
+      },
+      "weighted_scores": {
+        "positive": 0.2561,
+        "negative": 0.0027,
+        "neutral": 0.013
+      }
+    },
+    {
+      "title": "Nvidia Earns 69% of Its Revenue From the U.S. Here's How Tariffs Could Affect That in 2026.",
+      "final_weight": 0.2666,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.2727396488189697,
+        "negative": 0.3024010956287384,
+        "neutral": 0.42485925555229187
+      },
+      "weighted_scores": {
+        "positive": 0.0727,
+        "negative": 0.0806,
+        "neutral": 0.1133
+      }
+    },
+    {
+      "title": "Nvidia Stock Pops. This Helped Shake Off the AI Fear.",
+      "final_weight": 0.2666,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9034326076507568,
+        "negative": 0.0069349780678749084,
+        "neutral": 0.08963241428136826
+      },
+      "weighted_scores": {
+        "positive": 0.2409,
+        "negative": 0.0018,
+        "neutral": 0.0239
+      }
+    },
+    {
+      "title": "Micron’s historic revenue and profit upside second only to Nvidia: Morgan Stanley",
+      "final_weight": 0.2666,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.6710553169250488,
+        "negative": 0.10875064879655838,
+        "neutral": 0.2201939970254898
+      },
+      "weighted_scores": {
+        "positive": 0.1789,
+        "negative": 0.029,
+        "neutral": 0.0587
+      }
+    },
+    {
+      "title": "Alibaba and ByteDance Want Nvidia New Chip. Supply Is the Next Question",
+      "final_weight": 0.2126,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.34426748752593994,
+        "negative": 0.21392081677913666,
+        "neutral": 0.4418116807937622
+      },
+      "weighted_scores": {
+        "positive": 0.0732,
+        "negative": 0.0455,
+        "neutral": 0.0939
+      }
+    },
+    {
+      "title": "Aible Showcases Automated AI Agents to Manage Business Volatility with NVIDIA and HPE",
+      "final_weight": 0.2126,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.5885531902313232,
+        "negative": 0.16152414679527283,
+        "neutral": 0.24992264807224274
+      },
+      "weighted_scores": {
+        "positive": 0.1251,
+        "negative": 0.0343,
+        "neutral": 0.0531
+      }
+    },
+    {
+      "title": "Update: Market Chatter: Nvidia May Boost H200 AI Chip Production Due to Strong Demand From China",
+      "final_weight": 0.2126,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.6670922636985779,
+        "negative": 0.0538397915661335,
+        "neutral": 0.2790679931640625
+      },
+      "weighted_scores": {
+        "positive": 0.1418,
+        "negative": 0.0114,
+        "neutral": 0.0593
+      }
+    },
+    {
+      "title": "Nvidia and TSMC Chips Power Taiwan's Largest Supercomputer Yet",
+      "final_weight": 0.2126,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.3219837546348572,
+        "negative": 0.34539708495140076,
+        "neutral": 0.33261922001838684
+      },
+      "weighted_scores": {
+        "positive": 0.0685,
+        "negative": 0.0734,
+        "neutral": 0.0707
+      }
+    },
+    {
+      "title": "Nvidia considers more H200 chip output on China demand, sources say",
+      "final_weight": 0.2126,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.41293105483055115,
+        "negative": 0.23172558844089508,
+        "neutral": 0.35534337162971497
+      },
+      "weighted_scores": {
+        "positive": 0.0878,
+        "negative": 0.0493,
+        "neutral": 0.0755
+      }
+    },
+    {
+      "title": "Why NVIDIA Could Hit $300 in 2026",
+      "final_weight": 0.2126,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9784001111984253,
+        "negative": 0.0041608745232224464,
+        "neutral": 0.017439035698771477
+      },
+      "weighted_scores": {
+        "positive": 0.208,
+        "negative": 0.0009,
+        "neutral": 0.0037
+      }
+    },
+    {
+      "title": "Nvidia Stock Has Stalled for a Month. This Can Get It Moving Again.",
+      "final_weight": 0.2126,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.04232313483953476,
+        "negative": 0.7744982242584229,
+        "neutral": 0.1831786036491394
+      },
+      "weighted_scores": {
+        "positive": 0.009,
+        "negative": 0.1647,
+        "neutral": 0.0389
+      }
+    },
+    {
+      "title": "The Biggest Threat To Nvidia Is Google, Broadcom's Q4 Just Proved It",
+      "final_weight": 0.2126,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.0181602593511343,
+        "negative": 0.9527384042739868,
+        "neutral": 0.029101332649588585
+      },
+      "weighted_scores": {
+        "positive": 0.0039,
+        "negative": 0.2026,
+        "neutral": 0.0062
+      }
+    },
+    {
+      "title": "Why Nvidia Might Be the Most Compelling AI Stock for the Next Decade",
+      "final_weight": 0.2126,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9787092804908752,
+        "negative": 0.00426620664075017,
+        "neutral": 0.01702449657022953
+      },
+      "weighted_scores": {
+        "positive": 0.2081,
+        "negative": 0.0009,
+        "neutral": 0.0036
+      }
+    },
+    {
+      "title": "Where Will Nvidia Stock Be in 5 Years?",
+      "final_weight": 0.2126,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8765028119087219,
+        "negative": 0.0193172600120306,
+        "neutral": 0.10417989641427994
+      },
+      "weighted_scores": {
+        "positive": 0.1863,
+        "negative": 0.0041,
+        "neutral": 0.0221
+      }
+    },
+    {
+      "title": "Better Artificial Intelligence (AI) Stock for 2026: Nvidia or AMD?",
+      "final_weight": 0.195,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.1613292247056961,
+        "negative": 0.42107126116752625,
+        "neutral": 0.41759946942329407
+      },
+      "weighted_scores": {
+        "positive": 0.0315,
+        "negative": 0.0821,
+        "neutral": 0.0814
+      }
+    },
+    {
+      "title": "NVIDIA or BigBear.ai: Which AI Stock Has Bigger Upside in 2026?",
+      "final_weight": 0.195,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.6117902398109436,
+        "negative": 0.10460802912712097,
+        "neutral": 0.2836017310619354
+      },
+      "weighted_scores": {
+        "positive": 0.1193,
+        "negative": 0.0204,
+        "neutral": 0.0553
+      }
+    },
+    {
+      "title": "If Google wins AI race, Nvidia is 'in trouble,' says author of Jensen Huang biography",
+      "final_weight": 0.195,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.0035172931384295225,
+        "negative": 0.9917986989021301,
+        "neutral": 0.004683977924287319
+      },
+      "weighted_scores": {
+        "positive": 0.0007,
+        "negative": 0.1934,
+        "neutral": 0.0009
+      }
+    },
+    {
+      "title": "U.S. Approves NVIDIA’s (NVDA) H200 Processor Exports to China, CEO Flags China’s AI Infrastructure Advantage",
+      "final_weight": 0.195,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8217692375183105,
+        "negative": 0.043913088738918304,
+        "neutral": 0.13431762158870697
+      },
+      "weighted_scores": {
+        "positive": 0.1602,
+        "negative": 0.0086,
+        "neutral": 0.0262
+      }
+    },
+    {
+      "title": "Mortgage rates higher, Rivian to use in-house AI chip over Nvidia's",
+      "final_weight": 0.195,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.11080692708492279,
+        "negative": 0.6009867787361145,
+        "neutral": 0.2882063090801239
+      },
+      "weighted_scores": {
+        "positive": 0.0216,
+        "negative": 0.1172,
+        "neutral": 0.0562
+      }
+    },
+    {
+      "title": "Nvidia's Jensen Huang doesn't have a succession plan, expert says",
+      "final_weight": 0.195,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.11576904356479645,
+        "negative": 0.6907401084899902,
+        "neutral": 0.19349084794521332
+      },
+      "weighted_scores": {
+        "positive": 0.0226,
+        "negative": 0.1347,
+        "neutral": 0.0377
+      }
+    },
+    {
+      "title": "Oracle Q2 Miss Sends AI Stocks Tumbling -- Nvidia, AMD, Micron Suffer Losses",
+      "final_weight": 0.1582,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.005964203272014856,
+        "negative": 0.9836575388908386,
+        "neutral": 0.010378304868936539
+      },
+      "weighted_scores": {
+        "positive": 0.0009,
+        "negative": 0.1556,
+        "neutral": 0.0016
+      }
+    },
+    {
+      "title": "How Nvidia Grew Data Center Market Share In Q3",
+      "final_weight": 0.1582,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8678359389305115,
+        "negative": 0.029577990993857384,
+        "neutral": 0.10258607566356659
+      },
+      "weighted_scores": {
+        "positive": 0.1373,
+        "negative": 0.0047,
+        "neutral": 0.0162
+      }
+    },
+    {
+      "title": "Synopsys CEO on Earnings, Nvidia Investment",
+      "final_weight": 0.1582,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9670697450637817,
+        "negative": 0.002760371658951044,
+        "neutral": 0.030169831588864326
+      },
+      "weighted_scores": {
+        "positive": 0.153,
+        "negative": 0.0004,
+        "neutral": 0.0048
+      }
+    },
+    {
+      "title": "Why Nvidia (NVDA) Stock Is Down Today",
+      "final_weight": 0.1505,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.009033555164933205,
+        "negative": 0.9730552434921265,
+        "neutral": 0.01791118085384369
+      },
+      "weighted_scores": {
+        "positive": 0.0014,
+        "negative": 0.1464,
+        "neutral": 0.0027
+      }
+    }
+  ],
   "abstention_test": {
-    "method": "margin",
-    "margin": 0.0,
+    "method": "none",
+    "margin": 0.3551,
     "threshold": 0.005,
-    "n_articles": 0
+    "n_articles": 155
   }
 }

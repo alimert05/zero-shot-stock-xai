@@ -145,6 +145,7 @@ def run_single_case(case: dict) -> dict:
         "predicted_label": None,
         "correct": False,
         "error": None,
+        "issue": None,
         "duration_seconds": 0,
     }
 
@@ -159,7 +160,19 @@ def run_single_case(case: dict) -> dict:
         fetcher.end_date = end_date
         fetcher.number_of_news = 250
         fetcher.search()
-        fetcher.display_results()
+        has_articles = fetcher.display_results()
+
+        if not has_articles:
+            issue = "no_articles_fetched"
+            result["issue"] = issue
+            result["predicted_label"] = "neutral"
+            result["correct"] = result["predicted_label"] == case["actual_label"]
+            result["normalized_scores"] = {}
+            result["articles_analyzed"] = 0
+            result["final_confidence"] = 0.0
+            logger.warning("  ISSUE: %s (continuing to next case)", issue)
+            result["duration_seconds"] = round(time.time() - start_time, 2)
+            return result
 
         # Step 2: Run sentiment prediction
         if SENTIMENT_MODEL == "zero-shot":
@@ -260,6 +273,7 @@ def run_evaluation(test_set_path: str, max_cases: int | None = None) -> dict:
         period_metrics[p] = compute_metrics(yt, yp)
 
     errors = [r for r in all_results if r.get("error")]
+    issues = [r for r in all_results if r.get("issue")]
 
     evaluation = {
         "metadata": {
@@ -268,6 +282,7 @@ def run_evaluation(test_set_path: str, max_cases: int | None = None) -> dict:
             "sentiment_model": SENTIMENT_MODEL,
             "total_cases": len(all_results),
             "total_errors": len(errors),
+            "total_issues": len(issues),
             "total_duration_seconds": round(sum(r["duration_seconds"] for r in all_results), 2),
         },
         "overall_metrics": overall_metrics,
@@ -276,6 +291,7 @@ def run_evaluation(test_set_path: str, max_cases: int | None = None) -> dict:
         "per_period_metrics": period_metrics,
         "case_results": all_results,
         "errors": [{"id": e["id"], "error": e["error"]} for e in errors],
+        "issues": [{"id": i["id"], "issue": i["issue"]} for i in issues],
     }
 
     return evaluation
@@ -292,6 +308,7 @@ def print_report(evaluation: dict) -> None:
     print(f"  Model      : {meta['sentiment_model']}")
     print(f"  Test cases : {meta['total_cases']}")
     print(f"  Errors     : {meta['total_errors']}")
+    print(f"  Issues     : {meta.get('total_issues', 0)}")
     print(f"  Duration   : {meta['total_duration_seconds']:.0f}s")
     print("=" * 70)
 
