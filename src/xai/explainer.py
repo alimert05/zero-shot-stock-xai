@@ -163,12 +163,13 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         caution_parts.append("overall confidence is below the recommended threshold")
     if source_flag:
         caution_parts.append(
-            "most articles come from the same source, "
+            "most articles come from the same editorial source, "
             "reducing editorial independence. "
-            "Mitigation: articles are de-duplicated by title; "
-            "weighting is content-based (not source-based) so "
-            "syndicated copies receive lower combined weight if "
-            "they are older or off-horizon"
+            "Note: aggregators (Yahoo, Finnhub) are excluded from this check "
+            "because they collect from many independent editorial desks. "
+            "Mitigation: articles are de-duplicated across all domains by title "
+            "(keeping the oldest copy \u2014 the first to break the news); "
+            "weighting is content-based (not source-based)"
         )
     if timing_flag:
         caution_parts.append(
@@ -850,6 +851,14 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "  HOW ARTICLES WERE WEIGHTED",
         "  More recent and near-horizon articles receive higher weight",
         w,
+        "  De-duplication  : Articles are de-duplicated across all sources",
+        "                    by headline. When the same headline appears on",
+        "                    multiple domains (e.g. Yahoo and Benzinga), only",
+        "                    the oldest copy is kept \u2014 the first to break the",
+        "                    news is what the market reacted to. If two copies",
+        "                    share the same timestamp, the one with more content",
+        "                    is preferred.",
+        "",
         f"  Average article age      : {layer3['avg_days_ago']} days old",
         f"  Average recency weight   : {layer3['avg_recency_weight']}"
         "  (1.0 = today, lower = older)",

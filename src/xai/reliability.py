@@ -82,9 +82,21 @@ def _check_low_confidence(final_confidence: float) -> dict[str, Any]:
     }
 
 
+# Known news aggregators — these collect articles from many independent
+# editorial sources, so a high share from an aggregator does NOT mean
+# low editorial diversity.
+_AGGREGATOR_DOMAINS = {
+    "yahoo", "yahoo finance", "google", "google news", "finnhub",
+    "msn", "msn money", "apple news", "smartnews", "flipboard",
+    "newsbreak", "ground news",
+}
+
+
 def _check_source_diversity(
     merged_articles: list[dict[str, Any]],
 ) -> dict[str, Any]:
+    from collections import Counter
+
     domains: list[str] = []
     for art in merged_articles:
         domain = art.get("domain", "") or art.get("input_source", "unknown")
@@ -95,24 +107,56 @@ def _check_source_diversity(
     total = len(domains) or 1
 
     # Top-domain share
-    from collections import Counter
     counts = Counter(domains)
     top_domain, top_count = counts.most_common(1)[0] if counts else ("unknown", 0)
     top_share = round(top_count / total, 4)
 
-    too_few = n_unique < XAI_MIN_UNIQUE_SOURCES
-    too_concentrated = top_share > XAI_SOURCE_CONCENTRATION_THRESHOLD
+    # Exclude aggregators from the concentration check — they host articles
+    # from many independent editorial desks, so "68% from Yahoo" does NOT
+    # indicate a single-viewpoint problem.
+    non_agg_domains = [d for d in domains if d not in _AGGREGATOR_DOMAINS]
+    n_non_agg = len(non_agg_domains) or 1
+    non_agg_counts = Counter(non_agg_domains)
+    if non_agg_counts:
+        top_editorial, top_ed_count = non_agg_counts.most_common(1)[0]
+        top_editorial_share = round(top_ed_count / n_non_agg, 4)
+    else:
+        top_editorial, top_editorial_share = "none", 0.0
+
+    n_unique_editorial = len(set(non_agg_domains)) if non_agg_domains else 0
+
+    # Flag only on editorial (non-aggregator) concentration
+    too_few = n_unique_editorial < XAI_MIN_UNIQUE_SOURCES and n_unique < XAI_MIN_UNIQUE_SOURCES
+    too_concentrated = top_editorial_share > XAI_SOURCE_CONCENTRATION_THRESHOLD
     flagged = too_few or too_concentrated
+
+    # Count how many articles come through aggregators
+    n_aggregator = sum(1 for d in domains if d in _AGGREGATOR_DOMAINS)
 
     if flagged:
         parts = []
         if too_few:
-            parts.append(f"only {n_unique} unique source(s)")
+            parts.append(f"only {n_unique_editorial} unique editorial source(s)")
         if too_concentrated:
-            parts.append(f"top domain '{top_domain}' has {top_share * 100:.0f}% of articles")
+            parts.append(
+                f"top editorial source '{top_editorial}' has "
+                f"{top_editorial_share * 100:.0f}% of non-aggregator articles"
+            )
         msg = "Source diversity concern: " + "; ".join(parts) + "."
     else:
-        msg = f"{n_unique} unique sources, top domain share {top_share * 100:.0f}%."
+        agg_note = ""
+        if n_aggregator > 0:
+            agg_pct = round(n_aggregator / total * 100)
+            agg_note = (
+                f" ({agg_pct}% via aggregators like Yahoo/Finnhub"
+                f" — these collect from many editorial sources)"
+            )
+        msg = (
+            f"{n_unique} sources ({n_unique_editorial} editorial + "
+            f"{len([d for d in unique if d in _AGGREGATOR_DOMAINS])} aggregators), "
+            f"top editorial share {top_editorial_share * 100:.0f}%."
+            f"{agg_note}"
+        )
 
     return {
         "flagged": flagged,

@@ -130,21 +130,30 @@ def filter_language(articles: list[dict], allowed_languages: list[str]) -> list[
 
 
 def remove_duplicates(articles: list[dict]) -> list[dict]:
+    """De-duplicate articles by title across ALL domains.
+
+    When the same headline appears on multiple sources (e.g. Yahoo and
+    Benzinga), keep the **oldest** copy — the first to break the news is
+    what the market reacted to.  If two copies have the same timestamp,
+    prefer the one with longer content.
+
+    Each surviving article carries ``coverage_count`` (how many copies
+    existed) so downstream code can see syndication breadth.
+    """
     if not articles:
         logger.warning("No articles to check for duplicates")
         return []
 
-    seen: dict[str, dict] = {}
+    seen: dict[str, dict] = {}          # title -> best article so far
 
     for article in articles:
         try:
             title = article.get("title", "").strip().lower()
-            domain = article.get("domain", "").strip().lower()
-
             if not title:
                 continue
 
-            key = f"{domain}||{title}"
+            # Key on title only — catches cross-domain syndication
+            key = title
 
             if key not in seen:
                 article["coverage_count"] = 1
@@ -152,12 +161,31 @@ def remove_duplicates(articles: list[dict]) -> list[dict]:
             else:
                 seen[key]["coverage_count"] += 1
 
+                # Keep the oldest article (earliest seendate).
+                # If same date, prefer the one with more content.
+                existing = seen[key]
+                existing_date = existing.get("seendate", "")
+                new_date = article.get("seendate", "")
+
+                if new_date < existing_date:
+                    # New article is older — keep it instead
+                    article["coverage_count"] = existing["coverage_count"]
+                    seen[key] = article
+                elif new_date == existing_date:
+                    # Same date — prefer longer content
+                    new_content_len = len((article.get("content") or ""))
+                    old_content_len = len((existing.get("content") or ""))
+                    if new_content_len > old_content_len:
+                        article["coverage_count"] = existing["coverage_count"]
+                        seen[key] = article
+
         except Exception as exc:
             logger.warning("Error processing article while dedup: %s", exc)
             continue
 
     unique = list(seen.values())
     logger.info(
-        "Removed duplicates (domain+title): %s -> %s", len(articles), len(unique)
+        "Removed duplicates (cross-domain, title-based): %s -> %s",
+        len(articles), len(unique),
     )
     return unique
