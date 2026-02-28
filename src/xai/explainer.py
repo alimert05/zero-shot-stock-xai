@@ -995,9 +995,19 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         for art in lime_articles:
             lines += [
                 f"  [{art['rank']}] {art['title'][:72]}",
-                f"      Article weight : {art['final_weight']:.4f}  |  "
-                f"Relevance to prediction : {art['influence_score']:.4f}",
             ]
+            # Show article content so the reader can see where non-headline tokens come from
+            art_content = art.get("content", "")
+            if art_content:
+                lines.append(f"      Content: {art_content[:120]}")
+                if len(art_content) > 120:
+                    lines.append(f"               {art_content[120:240]}")
+            else:
+                lines.append("      Content: (none \u2014 headline only)")
+            lines.append(
+                f"      Article weight : {art['final_weight']:.4f}  |  "
+                f"Relevance to prediction : {art['influence_score']:.4f}"
+            )
 
             # Token influence bar chart (noise tokens excluded)
             tw_sorted = sorted(
