@@ -90,27 +90,29 @@ def _build_input_text(
 def _classify_sentiment(text: str, company_name: str) -> dict[str, float]:
     pipe = _get_deberta_pipeline()
 
-    # Company-aware zero-shot labels
-    labels = [
-        f"negative sentiment toward {company_name}",
-        f"neutral sentiment toward {company_name}",
-        f"positive sentiment toward {company_name}",
-    ]
+    # Company-aware market-impact labels.
+    # Keep an explicit class->label mapping so parsing remains stable
+    # even when label wording changes.
+    class_to_label = {
+        "negative": f"bad news for {company_name}'s stock price",
+        "neutral": f"news with no clear impact on {company_name}'s stock price",
+        "positive": f"good news for {company_name}'s stock price",
+    }
+    candidate_labels = list(class_to_label.values())
+    label_to_class = {v.lower().strip(): k for k, v in class_to_label.items()}
+
 
     result = pipe(
         text,
-        candidate_labels=labels,
+        candidate_labels=candidate_labels,
         hypothesis_template="This text expresses {}.",
     )
 
     scores = {"positive": 0.0, "negative": 0.0, "neutral": 0.0}
     for label, score in zip(result["labels"], result["scores"]):
-        if "positive" in label:
-            scores["positive"] = score
-        elif "negative" in label:
-            scores["negative"] = score
-        elif "neutral" in label:
-            scores["neutral"] = score
+        cls = label_to_class.get(label.lower().strip())
+        if cls:
+            scores[cls] = score
 
     return scores
 
@@ -207,12 +209,12 @@ def predict_sentiment(
         final_label = "neutral"
         abstention_method = "margin"
         logger.info(
-            "Abstention: margin %.4f < %.2f → neutral (top=%s, runner_up=%s)",
+            "Abstention: margin %.4f < %.4f → neutral (top=%s, runner_up=%s)",
             margin, ABSTENTION_MARGIN, top_label, runner_up,
         )
     else:
         logger.info(
-            "Margin check passed: %.4f ≥ %.2f → keep %s",
+            "Margin check passed: %.4f ≥ %.4f → keep %s",
             margin, ABSTENTION_MARGIN, top_label,
         )
 

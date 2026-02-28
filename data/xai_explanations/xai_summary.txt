@@ -1,11 +1,11 @@
 ============================================================
   SENTIMENT ANALYSIS EXPLANATION REPORT
 ============================================================
-  Company           : Apple  (AAPL)
-  Forecast horizon  : 1 days
-  News lookback     : 2026-02-24 to 2026-02-28 (ET market-close aligned)
-  Articles analysed : 66
-  Generated at      : 2026-02-28 12:01:28
+  Company           : apple  (AAPL)
+  Forecast horizon  : 31 days
+  News lookback     : 2026-01-31 to 2026-02-27 (ET market-close aligned)
+  Articles analysed : 128
+  Generated at      : 2026-02-28 18:02:27
 ============================================================
 
 ════════════════════════════════════════════════════════════
@@ -17,14 +17,14 @@
   What the model decided and why — in plain English
 ------------------------------------------------------------
 
-  The model predicted a NEGATIVE label with a 35.6% score share based on 66 articles.
-The top article is "These were the highlights from Apple's earnings" with a positive sentiment, accounting for 2.2% of the total weight.
-The label margin is narrow (0.025), but reliability is LOW due to a narrow decision margin; confidence is below threshold; source concentration (yahoo has 79% of articles); news lookback (5 days) is shorter than the intended backward window (7 days).
+  The model predicted a POSITIVE label with a 47.4% score share based on 128 articles over 31 days.
+The top article is "Apple's AI challenges in 2026" with a NEGATIVE sentiment, accounting for 1.4% of total weight.
+The label margin is narrow (0.072), but reliability is MEDIUM due to a narrow decision margin and source concentration.
 
   PREDICTION RESULT
   Sentiment scores across all analysed articles
 ------------------------------------------------------------
-  Ground truth : close-to-close return over 1-day forecast horizon, neutral band +/-0.3%.
+  Ground truth : close-to-close return over 31-day forecast horizon, neutral band +/-0.3%.
   Disclaimer   : Model support measures how much weight the model
                   assigns to the winning label relative to alternatives.
                   It is NOT a calibrated probability of future return
@@ -32,122 +32,118 @@ The label margin is narrow (0.025), but reliability is LOW due to a narrow decis
 
   Score chart  (each █ ≈ 2.5%):
 
-    positive :  33.1%  █████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░
-    negative :  35.6%  ██████████████░░░░░░░░░░░░░░░░░░░░░░░░░░  ◄ PREDICTED
-     neutral :  31.4%  █████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░
+    positive :  47.4%  ███████████████████░░░░░░░░░░░░░░░░░░░░░  ◄ PREDICTED
+    negative :  40.2%  ████████████████░░░░░░░░░░░░░░░░░░░░░░░░
+     neutral :  12.4%  █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-  Verdict     : NEGATIVE
-  Model support : 35.6%  (share of model weight, not a probability)
+  Verdict     : POSITIVE
+  Model support : 47.4%  (share of model weight, not a probability)
 
   RECOMMENDATION
   What you should do with this result
 ------------------------------------------------------------
-  This prediction has LOW reliability and should NOT be used alone for decisions. Reasons: the positive and negative scores are very close — a small shift in news could change the verdict; overall confidence is below the recommended threshold; most articles come from the same source, reducing editorial independence. Mitigation: articles are de-duplicated by title; weighting is content-based (not source-based) so syndicated copies receive lower combined weight if they are older or off-horizon; news lookback (5 days) is shorter than the intended backward window (7 days, √W scaling), signal may be incomplete.
+  This prediction has MEDIUM reliability — treat it as indicative, not definitive. Specifically: the positive and negative scores are very close — a small shift in news could change the verdict.
 
   NARRATIVE THEMES
   What the news is about and the dominant tone per theme
 ------------------------------------------------------------
-    Earnings / results :  28 articles (42%)  ▲ positive  (+11 / -8 / =9)
-    Product / tech     :  24 articles (36%)  ▼ negative  (+8 / -11 / =5)
-    Regulatory / legal :   6 articles (9%)  ▼ negative  (+1 / -4 / =1)
-    Strategy / M&A     :   4 articles (6%)  ▲ positive  (+2 / -1 / =1)
-    Analyst action     :   3 articles (5%)  ■ neutral  (+1 / -0 / =2)
-    General commentary :   1 articles (2%)  ▼ negative  (+0 / -1 / =0)
+    Product / tech     :  59 articles (46%)  ▲ positive  (+30 / -28 / =1)
+    Earnings / results :  30 articles (23%)  ▲ positive  (+19 / -11 / =0)
+    General commentary :  20 articles (16%)  ▲ positive  (+12 / -8 / =0)
+    Analyst action     :   8 articles (6%)  ▲ positive  (+5 / -3 / =0)
+    Regulatory / legal :   8 articles (6%)  ▼ negative  (+1 / -7 / =0)
+    Strategy / M&A     :   3 articles (2%)  ▼ negative  (+1 / -2 / =0)
 
   Storylines (auto-discovered from article titles):
 
-    Storylines supporting the NEGATIVE prediction:
-      "Tech giant's stock faces significant market decline." (3 articles)  ▼ negative  (+0 / -3 / =0)
-        → Qualcomm Post Earnings: Apple Is Falling From The Tree
-        → Big Tech Market Caps Are Back in Focus After Microsoft Earnings. Whe
-        → Apple Stands At The Precipice: A Study Of History, Present, And Futu
-      "Investors await clarity on AI strategy." (3 articles)  ▼ negative  (+0 / -3 / =0)
-        → Apple earnings under pressure from tariffs, slow AI roll-out
-        → Barclays fails to see ’major progress’ on AI for Apple
-        → Investors Await Apple's AI Strategy
-      "Tariffs to hit earnings this quarter significantly." (2 articles)  ▼ negative  (+0 / -2 / =0)
-        → Jim Cramer on Apple: “I’m Expecting an Unexciting Quarter”
-        → Apple Expects $1.1 Billion Hit From Tariffs This Quarter, CEO Tim Co
-      "Premium chip sales hit by Apple switch" (2 articles)  ▼ negative  (+0 / -2 / =0)
-        → Qualcomm's premium smartphone chip reliance, Apple modem loss oversh
-        → Qualcomm shares slide as Apple modem shift, tariffs raise growth con
-      "Smartphone market share shifts in China." (3 articles)  ▼ negative  (+0 / -3 / =0)
-        → Apple Dethroned in China as Huawei Reclaims China Smartphone Crown
-        → Apple To Shut Down China Retail Store For First Time Ever, Citing Sh
-        → Apple to Shutter a Retail Store in China for the First Time Ever
-      "Tech giant's stock outperforms rival's market share." (2 articles)  ▼ negative  (+0 / -2 / =0)
-        → 'Magnificent Seven' stocks: Buy Nvidia, skip Apple
-        → Nvidia Just Beat Apple in This Crazy Metric — Should You Buy the Sto
-      "iPhone price hike expected in Q2 earnings season" (2 articles)  ▼ negative  (+0 / -2 / =0)
-        → Apple may raise iPhone 18 prices after Q2 pull-in, says Jefferies
-        → Apple Q2 2025 Earnings Preview: iPhone Expectations Continue To Move
+    Storylines supporting the POSITIVE prediction:
+      "Apple stock poised for continued growth momentum." (4 articles)  ▲ positive  (+4 / -0 / =0)
+        → Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead 
+        → Apple Stock Rises Ahead of 2026. What's Driving the Growth
+        → Services Rides on Apple TV and Arcade: What's Ahead for Apple Stock?
+        → After a 42% Six-Month Rally, What's Next for Apple Stock in 2026?
+      "Tim Cook's investment boosts struggling sports brand." (6 articles)  ▲ positive  (+6 / -0 / =0)
+        → Apple CEO Tim Cook Just Gave Nike Investors 3 Million Reasons to Che
+        → Why Apple's Tim Cook Drove Nike Stock Higher Today
+        → Nike Stock Price Gets a Lift After Apple’s Tim Cook Doubles His Stak
+        → Tim Cook's Nike Buy, AI Smart Glasses, Court Victory And More: This 
+        → Whoever Replaces Tim Cook at Apple Will Have 'Big Shoes to Fill'
+        → Nike shares jump after Apple CEO Cook doubles stake to $6 million
+      "Tech giants face regulatory scrutiny overseas." (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → The Zacks Analyst Blog Highlights Apple, Cisco Systems and IBM
+        → Top Research Reports for Apple, Cisco & IBM
+      "Investor confidence in tech giant's growth prospects" (3 articles)  ▲ positive  (+3 / -0 / =0)
+        → Morgan Stanley Lifts Apple Inc. (AAPL) Price Target on Earnings Grow
+        → Morgan Stanley Boosts Apple (AAPL) Target, Sees Upside From Pricing 
+        → Apple leads Morgan Stanley top IT hardware picks for 2026. Here are 
+      "iPhone demand drives stock price surge." (3 articles)  ▲ positive  (+3 / -0 / =0)
+        → JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reache
+        → Apple (AAPL) Target Raised as Jefferies Sees Stronger iPhone Demand
+        → Apple (AAPL) Price Target Raised as Loop Capital Sees Stronger iPhon
+      "Investors await next major product release." (3 articles)  ▲ positive  (+3 / -0 / =0)
+        → Apple Just Released a New AI Model. Should You Buy AAPL Stock Here?
+        → Analysts Are Hot on the Foldable iPhone. Should You Buy AAPL Stock B
+        → Dan Ives Is Betting That Apple and Google Will Partner in 2026. Shou
+      "Investors seek growth in tech giant's stock." (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → Apple Inc. (AAPL) Is a Trending Stock: Facts to Know Before Betting 
+        → Investors Heavily Search Apple Inc. (AAPL): Here is What You Need to
 
-    Opposing storylines (positive):
-      "Investors optimistic about upcoming earnings report." (3 articles)  ▲ positive  (+3 / -0 / =0)
-        → Apple Stock Is Up 2.3% After Earnings Call Concludes
-        → What Analysts Think of Apple Stock Ahead of Earnings
-        → How To Earn $500 A Month From Apple Stock Ahead Of Q3 Earnings
-      "Investor confidence in earnings report boosts stock price." (2 articles)  ▲ positive  (+2 / -0 / =0)
-        → Apple (AAPL) Stock Gets $245 Price Target Ahead of Earnings — Here’s
-        → Apple Inc. (AAPL) Q3 2025 Earnings Call Transcript
-      "Smart home control via car interfaces expands." (2 articles)  ▲ positive  (+2 / -0 / =0)
-        → Alarm.com Extends the Connected Home Experience with Apple CarPlay® 
-        → Alarm.com Integrates With Apple CarPlay to Let iPhone Users Control 
-      "Big tech giants report quarterly earnings results." (2 articles)  ▲ positive  (+2 / -0 / =0)
-        → Microsoft, Meta, Apple, Amazon: Earnings to watch this week
-        → Microsoft, Meta, Apple, Amazon: How to play Big Tech earnings
-      "Banks eyeing control of major credit cards." (2 articles)  ▲ positive  (+2 / -0 / =0)
-        → JPMorgan Chase nears deal to take over Apple’s credit card program -
-        → JPMorgan Chase Nears a Deal to Take Over Apple’s Credit-Card Program
+    Opposing storylines (negative):
+      "AI advancements pose significant business risks." (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Why Apple Might Attract More of an AI Multiple in 2026
+        → Apple's AI challenges in 2026
+      "Stock falls despite strong app store growth." (3 articles)  ▼ negative  (+0 / -3 / =0)
+        → Apple (AAPL) Stock Slides as Market Rises: Facts to Know Before You 
+        → Here's Why Apple (AAPL) Fell More Than Broader Market
+        → UBS Reiterates Neutral on Apple (AAPL) as App Store Growth Slows
+      "Tech giant faces major challenges in 2026." (3 articles)  ▼ negative  (+0 / -3 / =0)
+        → Apple's 3 Big New Year Woes
+        → Apple punted on AI this year. Next year will be critical
+        → Will 2026 Be The Year Apple Finally Joins The AI Race?
+      "Global tech giants face location surveillance concerns." (3 articles)  ▼ negative  (+0 / -3 / =0)
+        → Former Met chief demands Apple and Google disable stolen phones
+        → 'India Weighs Greater Phone-Location Surveillance; Apple, Google And
+        → Why Sam Altman Sees Apple and Not Google as its Top AI Rival
+      "Tim Cook faces challenges and scrutiny." (3 articles)  ▼ negative  (+0 / -3 / =0)
+        → Apple CEO Tim Cook Discloses $3 Million Nike Buy With Dow Giant At 7
+        → Apple Chip Chief Considers Exit, Tim Cook's AI Reset And More: This 
+        → Apple's Tim Cook reportedly on Capitol Hill, Oracle earnings watch
+      "Leadership shake-up amid tech industry uncertainty." (3 articles)  ▼ negative  (+0 / -3 / =0)
+        → Executive Exodus Hits Apple As Fears Grow Over Possible Chip Chief D
+        → Apple's executive exodus sends a signal about its AI strategy
+        → Apple's 2025 App List, AI Stumble, Executive Exodus And More: This W
+      "Investor's favorite tech stocks face challenges ahead." (3 articles)  ▼ negative  (+0 / -3 / =0)
+        → Jim Cramer examines 'stalled' stocks Apple, Meta and Tesla
+        → Jim Cramer Repeats His “Own It, Don’t Trade It” Mantra on Apple
+        → Jim Cramer on Apple: “Bulls Like Me Were Considered Dreamers or Even
 
-    Neutral storylines:
-      "Analysts praise tech giants for strong performance." (3 articles)  ■ neutral  (+0 / -0 / =3)
-        → The Zacks Analyst Blog Highlights Apple, Lenovo, Dell Technologies a
-        → The Zacks Analyst Blog Highlights Microsoft, Meta Platforms, Apple, 
-        → The Zacks Analyst Blog Highlights Apple, Meta Platforms and ServiceN
-      "Tech giants face investor skepticism concerns." (2 articles)  ■ neutral  (+0 / -0 / =2)
-        → Apple’s earnings were good, but the initial stock move implies Wall 
-        → Wall Street Breakfast Podcast: All Eyes On Amazon And Apple
-      "Tech giant faces challenges in earnings season." (2 articles)  ■ neutral  (+0 / -0 / =2)
-        → Apple (AAPL) Faces Margin Pressures Ahead of Earnings — BofA Still S
-        → Apple (AAPL) Faces Google Deal Fallout—Should Investors Be Worried?
-
-    Other topics (31 articles — titles too unique to cluster with any other article; each covers a distinct story)
+    Other topics (85 articles — titles too unique to cluster with any other article; each covers a distinct story)
 
 ============================================================
   FINAL PLAIN-ENGLISH OVERVIEW
   A complete, readable summary of the entire analysis for a general reader
 ============================================================
 
-  Out of 66 news articles analysed for Apple over a 1-day
-  forecast horizon, 23 carried positive sentiment, 25
-  carried negative sentiment, and 18 were neutral. The
+  Out of 128 news articles analysed for apple over a
+  31-day forecast horizon, 68 carried positive sentiment,
+  59 carried negative sentiment, and 1 were neutral. The
   model produced a weighted aggregation of these scores
-  and predicted a NEGATIVE label with 35.6% model support.
-  The model chose NEGATIVE over POSITIVE by a margin of
-  2.5 percentage points: 34 articles pushed toward
-  NEGATIVE while 32 pushed toward POSITIVE. The single
-  most influential article was "These were the highlights
-  from Apple's earnings" (positive sentiment, contributing
-  2.2% of total weight). Articles were weighted by recency
-  and prediction-horizon relevance — the average article
-  was 2.08 days old, with most classified as short-term
+  and predicted a POSITIVE label with 47.4% model support.
+  The model chose POSITIVE over NEGATIVE by a margin of
+  7.2 percentage points: 68 articles pushed toward
+  POSITIVE while 60 pushed toward NEGATIVE. The single
+  most influential article was "Apple's AI challenges in
+  2026" (negative sentiment, contributing 1.4% of total
+  weight). Articles were weighted by recency and
+  prediction-horizon relevance — the average article was
+  14.7 days old, with most classified as short-term
   horizon. At the word level, the strongest signals in the
-  top gap-driving article included: Falling, earnings,
-  Tree, risking, headwinds. The prediction is sensitive:
-  removing as few as 2 of 66 articles would change the
-  verdict. The prediction carries LOW reliability and
-  should not be used in isolation. The positive and
+  top gap-driving article included: Up, Win, China,
+  mobile, iPhone. The prediction is sensitive: removing as
+  few as 6 of 128 articles would change the verdict. The
+  prediction carries MEDIUM reliability. The positive and
   negative scores are very close — a small shift in news
-  could change the verdict; overall confidence is below
-  the recommended threshold; most articles come from the
-  same source, reducing editorial independence.
-  mitigation: articles are de-duplicated by title;
-  weighting is content-based (not source-based) so
-  syndicated copies receive lower combined weight if they
-  are older or off-horizon; news lookback (5 days) is
-  shorter than the intended backward window (7 days, √w
-  scaling), signal may be incomplete.
+  could change the verdict.
 
 
   DISCLAIMER
@@ -162,63 +158,67 @@ The label margin is narrow (0.025), but reliability is LOW due to a narrow decis
   Scores, article breakdowns, and model-internal attributions
 ════════════════════════════════════════════════════════════
 
-  WHY NEGATIVE INSTEAD OF POSITIVE?
+  WHY POSITIVE INSTEAD OF NEGATIVE?
   Contrastive explanation — what tipped the balance
 ------------------------------------------------------------
-  Score gap : NEGATIVE 35.6%  vs  POSITIVE 33.1%  (gap = 2.5 percentage points)
+  Score gap : POSITIVE 47.4%  vs  NEGATIVE 40.2%  (gap = 7.2 percentage points)
 
   Article split:
-     34 articles push toward NEGATIVE  (total push: +26.9 pp)
-     32 articles push toward POSITIVE  (total push: -24.4 pp)
+     68 articles push toward POSITIVE  (total push: +35.6 pp)
+     60 articles push toward NEGATIVE  (total push: -28.4 pp)
 
-  Third class: NEUTRAL at 31.4% — absorbing probability mass roughly equally from both sides.
+  Third class: NEUTRAL at 12.4% — absorbing probability mass roughly equally from both sides.
 
   Top 5 articles driving the gap:
     #     Direction       Net  Title
     ----------------------------------------------------------------------
-    1         → POS    -2.08%  Apple Beats June-Quarter Targets On Strong iPhon
-    2         → NEG    +2.05%  Qualcomm Post Earnings: Apple Is Falling From Th
-    3         → POS    -2.00%  Apple Stock Is Up 2.3% After Earnings Call Concl
-    4         → NEG    +1.87%  Qualcomm's premium smartphone chip reliance, App
-    5         → NEG    +1.79%  Apple earnings under pressure from tariffs, slow
+    1         → POS    +1.36%  Apple Stock Ticks Up After a Surprise From China
+    2         → NEG    -1.33%  Apple misses on AI in 2025
+    3         → NEG    -1.25%  Big Promises, Bigger Fails: Meta's Cringe Demo, 
+    4         → POS    +1.24%  Apple Stock In Focus -- Wells Fargo Keeps 'Overw
+    5         → POS    +1.23%  The Zacks Analyst Blog Highlights Apple, Cisco S
 
   Word-level evidence for top gap drivers:
   (connecting article-level influence to token-level LIME attribution)
 
-    Qualcomm Post Earnings: Apple Is Falling From The Tree
-      Favours NEGATIVE (+2.05% net push)
-      Words reinforcing NEGATIVE: Falling, earnings, Tree, risking
-      Words pulling against: Qualcomm, look, Incorporated
+    Apple Stock Ticks Up After a Surprise From China—and a Legal
+      Favours POSITIVE (+1.36% net push)
+      Words reinforcing POSITIVE: Up, Win, China, mobile
+      Words pulling against: Legal, phones, imports
 
-    Qualcomm's premium smartphone chip reliance, Apple modem los
-      Favours NEGATIVE (+1.87% net push)
-      Words reinforcing NEGATIVE: down, overshadow, overshadowed, loss
-      Words pulling against: upbeat, non, data, based
+    Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Ratin
+      Favours POSITIVE (+1.24% net push)
+      Words reinforcing POSITIVE: Overweight, Upside, iPhone, Rating
+      Words pulling against: Keeps, Analysts, Wells
 
-    Apple earnings under pressure from tariffs, slow AI roll-out
-      Favours NEGATIVE (+1.79% net push)
-      Words reinforcing NEGATIVE: pressure, ire, iPhones, giant
-      Words pulling against: earnings, foreign, limit, targeted
+    The Zacks Analyst Blog Highlights Apple, Cisco Systems and I
+      Favours POSITIVE (+1.23% net push)
+      Words reinforcing POSITIVE: leads, strong, iPhone, picks
+      Words pulling against: IBM, research, Services, Blog
 
   Counterfactual (minimum flip set):
-    Removing just 2 of 66 articles would flip the prediction from NEGATIVE to POSITIVE.
+    Removing just 6 of 128 articles would flip the prediction from POSITIVE to NEGATIVE.
     These articles are:
-      [!] Qualcomm Post Earnings: Apple Is Falling From The Tree
-      [!] Qualcomm's premium smartphone chip reliance, Apple modem loss overshad
+      [!] Apple Stock Ticks Up After a Surprise From China—and a Legal Win
+      [!] Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead of
+      [!] The Zacks Analyst Blog Highlights Apple, Cisco Systems and IBM
+      [!] Apple: Foldable Phone Sparks A Revival, Not AI Overhype
+      [!] JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reaches 
+      ... and 1 more
 
   PREDICTION RELIABILITY
   How much to trust this prediction
 ------------------------------------------------------------
-  Overall : [✗] LOW  (4 concern(s) found)
+  Overall : [!] MEDIUM  (1 concern(s) found)
   Rating rule : HIGH if 0 concerns, MEDIUM if 1, LOW if ≥2.
 
     [✓] Evidence volume        Sufficient article count.
     [✓] Weight spread          Weight is well-distributed across articles.
-    [⚠] Decision confidence    Narrow margin between negative (0.356) and positive (0.331): margin=0.025.
-    [⚠] Score confidence       Below reliability threshold (0.356 < 0.45).
-    [⚠] Source diversity       Source diversity concern: top domain 'yahoo' has 79% of articles.
-    [✓] Timing validity        Articles span 0-4 days old (ET market-close aligned); oldest exceeds the 1-day window and is down-weighted by recency.
-    [⚠] Horizon coverage       News lookback is 5 days but the intended backward window was 7 days (√W scaling, W=1), signal may be incomplete.
+    [⚠] Decision confidence    Narrow margin between positive (0.474) and negative (0.402): margin=0.072.
+    [✓] Score confidence       Above reliability threshold (0.474 ≥ 0.45).
+    [✓] Source diversity       6 sources (5 editorial + 1 aggregators), top editorial share 39%. (78% via aggregators like Yahoo/Finnhub — these collect from many editorial sources)
+    [✓] Timing validity        Articles are 1-28 days old (ET market-close aligned), down-weighted by the recency function where applicable.
+    [✓] Horizon coverage       News lookback (28 days) covers the intended 28-day backward window.
 
   Thresholds used  : reliability confidence ≥ 0.45
 
@@ -234,49 +234,57 @@ The label margin is narrow (0.025), but reliability is LOW due to a narrow decis
 ------------------------------------------------------------
   Article sentiment distribution:
 
-    ▲ positive : ██████████░░░░░░░░░░░░░░░░░░░░   23 articles (35%)
-    ▼ negative : ███████████░░░░░░░░░░░░░░░░░░░   25 articles (38%)
-    ■  neutral : ████████░░░░░░░░░░░░░░░░░░░░░░   18 articles (27%)
+    ▲ positive : ████████████████░░░░░░░░░░░░░░   68 articles (53%)
+    ▼ negative : ██████████████░░░░░░░░░░░░░░░░   59 articles (46%)
+    ■  neutral : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1 articles (1%)
 
   Articles pushing toward POSITIVE:
-    [+]  Apple Beats June-Quarter Targets On Strong iPhone, Services Sales. Stock Ris
-    [+]  Apple Stock Is Up 2.3% After Earnings Call Concludes
-    [+]  Apple Growth Rebounds on Strength of iPhone 16 Line, China
+    [+]  Apple Stock Ticks Up After a Surprise From China—and a Legal Win
+    [+]  Wedbush Names Apple a Top AI Pick for the 2026 Market Cycle
+    [+]  The Zacks Analyst Blog Highlights Apple, Cisco Systems and IBM
   Articles pushing toward NEGATIVE:
-    [-]  Qualcomm Post Earnings: Apple Is Falling From The Tree
-    [-]  Qualcomm's premium smartphone chip reliance, Apple modem loss overshadow upb
-    [-]  Apple earnings under pressure from tariffs, slow AI roll-out
+    [-]  Apple misses on AI in 2025
+    [-]  Big Promises, Bigger Fails: Meta's Cringe Demo, Apple's Misfires, GPT-5's Le
+    [-]  Apple: Don't Expect Much Growth Here
 
   Top 10 most influential articles:
   (Weight = recency × horizon factor, 0-1 scale;  Share = % of total pool weight)
     #    Sent  Weight   Share  Weight chart                      Title
     ------------------------------------------------------------
-    #1    POS  0.8862    2.2%  ██████████████████████████████  These were the highlights from A
-    #2    POS  0.8862    2.2%  ██████████████████████████████  Apple Beats June-Quarter Targets
-    #3    NEG  0.8862    2.2%  ██████████████████████████████  Qualcomm Post Earnings: Apple Is
-    #4    NEU  0.8862    2.2%  ██████████████████████████████  Here's How Much Traders Expect A
-    #5    NEU  0.8862    2.2%  ██████████████████████████████  Apple’s (AAPL) AI Strategy Falls
-    #6    NEG  0.8862    2.2%  ██████████████████████████████  Big Tech Market Caps Are Back in
-    #7    NEU  0.8862    2.2%  ██████████████████████████████  Apple Q3 earnings to give Wall S
-    #8    POS  0.8862    2.2%  ██████████████████████████████  How To Earn $500 A Month From Ap
-    #9    NEU  0.8862    2.2%  ██████████████████████████████  Wall Street Breakfast Podcast: A
-    #10   NEU  0.8862    2.2%  ██████████████████████████████  Apple & Amazon earnings, PCE, jo
+    #1    NEG  0.8966    1.4%  ██████████████████████████████  Apple's AI challenges in 2026
+    #2    POS  0.8966    1.4%  ██████████████████████████████  Wedbush Names Apple a Top AI Pic
+    #3    NEG  0.8966    1.4%  ██████████████████████████████  Big Promises, Bigger Fails: Meta
+    #4    NEG  0.8966    1.4%  ██████████████████████████████  Apple misses on AI in 2025
+    #5    NEG  0.8649    1.4%  █████████████████████████████░  The 76-Year-Old Reason Why Buffe
+    #6    NEG  0.8649    1.4%  █████████████████████████████░  Why Apple Might Attract More of 
+    #7    NEG  0.8649    1.4%  █████████████████████████████░  Apple is an Analyst Favorite, Bu
+    #8    NEG  0.8649    1.4%  █████████████████████████████░  Apple needs to deliver an AI-cha
+    #9    POS  0.8649    1.4%  █████████████████████████████░  The Real Reasons Warren Buffett 
+    #10   POS  0.8649    1.4%  █████████████████████████████░  Apple Inc. (AAPL) Is a Trending 
 
-  Weight concentration (HHI): 0.0175  (well spread) — 0 = perfectly uniform across all articles, 1 = one article dominates
+  Weight concentration (HHI): 0.0097  (well spread) — 0 = perfectly uniform across all articles, 1 = one article dominates
 
   HOW ARTICLES WERE WEIGHTED
   More recent and near-horizon articles receive higher weight
 ------------------------------------------------------------
-  Average article age      : 2.08 days old
-  Average recency weight   : 0.7936  (1.0 = today, lower = older)
-  Average horizon weight   : 0.5518  (1.0 = ideal timing, lower = off-horizon)
+  De-duplication  : Articles are de-duplicated across all sources
+                    by headline. When the same headline appears on
+                    multiple domains (e.g. Yahoo and Benzinga), only
+                    the oldest copy is kept — the first to break the
+                    news is what the market reacted to. If two copies
+                    share the same timestamp, the one with more content
+                    is preferred.
+
+  Average article age      : 14.7 days old
+  Average recency weight   : 0.6614  (1.0 = today, lower = older)
+  Average horizon weight   : 0.3824  (1.0 = ideal timing, lower = off-horizon)
 
   Article timing breakdown:
 
-    Breaking / same-day : ██████████████████████████████   28 (42%)
-    Short-term (days)   : ██████████████████████████████   28 (42%)
-    Medium-term (weeks) : ██████░░░░░░░░░░░░░░░░░░░░░░░░    6 (9%)
-    Long-term (months)  : ████░░░░░░░░░░░░░░░░░░░░░░░░░░    4 (6%)
+    Breaking / same-day : ██████████░░░░░░░░░░░░░░░░░░░░   30 (23%)
+    Short-term (days)   : ██████████████████████████████   87 (68%)
+    Medium-term (weeks) : ███░░░░░░░░░░░░░░░░░░░░░░░░░░░    8 (6%)
+    Long-term (months)  : █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    3 (2%)
 
   WHICH WORDS DROVE THE PREDICTION
   Words inside each article that pushed the model toward or away from the verdict
@@ -291,25 +299,25 @@ The label margin is narrow (0.025), but reliability is LOW due to a narrow decis
   sentiment-bearing words remain. Full token weights are in the
   ADVANCED / DIAGNOSTICS section at the end of this report.
 
-  [1] Qualcomm Post Earnings: Apple Is Falling From The Tree
-      Words pushing TOWARD  NEGATIVE : Falling, earnings, Tree, risking, headwinds
-      Words pushing AGAINST NEGATIVE : Qualcomm, look, Incorporated
+  [1] Apple Stock Ticks Up After a Surprise From China—and a Legal Win
+      Words pushing TOWARD  POSITIVE : Up, Win, China, mobile, iPhone
+      Words pushing AGAINST POSITIVE : Legal, phones, imports
 
-  [2] Qualcomm's premium smartphone chip reliance, Apple modem loss overshadow
-      Words pushing TOWARD  NEGATIVE : down, overshadow, overshadowed, loss, forecast
-      Words pushing AGAINST NEGATIVE : upbeat, non, data, based, Qualcomm
+  [2] Wedbush Names Apple a Top AI Pick for the 2026 Market Cycle
+      Words pushing TOWARD  POSITIVE : Pick, Top, Strength, Cycle
+      Words pushing AGAINST POSITIVE : AI, Wedbush, Think, Subtle, Market
 
-  [3] Apple earnings under pressure from tariffs, slow AI roll-out
-      Words pushing TOWARD  NEGATIVE : pressure, ire, iPhones, giant, under
-      Words pushing AGAINST NEGATIVE : earnings, foreign, limit, targeted, bound
+  [3] Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead of 2
+      Words pushing TOWARD  POSITIVE : Overweight, Upside, iPhone, Rating, Ahead
+      Words pushing AGAINST POSITIVE : Keeps, Analysts, Wells
 
-  [4] Apple & Amazon have a 'black cloud' lingering ahead of earnings
-      Words pushing TOWARD  NEGATIVE : black, earnings, lingering, Synovus, senior
-      Words pushing AGAINST NEGATIVE : break, what, Daniel, Editor, Dan
+  [4] The Zacks Analyst Blog Highlights Apple, Cisco Systems and IBM
+      Words pushing TOWARD  POSITIVE : leads, strong, iPhone, picks, top
+      Words pushing AGAINST POSITIVE : IBM, research, Services, Blog, Cisco
 
-  [5] Jim Cramer on Apple: “I’m Expecting an Unexciting Quarter”
-      Words pushing TOWARD  NEGATIVE : Unexciting, company, we, Amazon, He
-      Words pushing AGAINST NEGATIVE : plan, Expecting, Seven, mentioned, members
+  [5] Apple: Foldable Phone Sparks A Revival, Not AI Overhype
+      Words pushing TOWARD  POSITIVE : Revival, growth, Overhype, fuel, AI
+      Words pushing AGAINST POSITIVE : how, Phone, strategic
 
 
   CHARTS
@@ -351,139 +359,134 @@ The label margin is narrow (0.025), but reliability is LOW due to a narrow decis
   --------------------------------------------------
   (+) = supports predicted label     (-) = opposes predicted label
 
-  [1] Qualcomm Post Earnings: Apple Is Falling From The Tree
-      Content: Qualcomm Incorporated faces headwinds as Apple phases out its modems, risking $7.5B revenue. Click for my look at QCOM e
-               arnings and the road ahead.
-      Article weight : 0.8862  |  Relevance to prediction : 0.8401
+  [1] Apple Stock Ticks Up After a Surprise From China—and a Legal Win
+      Content: China’s imports of foreign-branded mobile phones, including Apple’s iPhone, rose 128% in November from a year earlier.
+      Article weight : 0.8608  |  Relevance to prediction : 0.8521
       Token influence chart:
-        + Falling          ████████████████████  (+0.2156)
-        - Qualcomm         ████████░░░░░░░░░░░░  (-0.0828)
-        + earnings         ██████░░░░░░░░░░░░░░  (+0.0657)
-        + Tree             ██████░░░░░░░░░░░░░░  (+0.0641)
-        + risking          ██████░░░░░░░░░░░░░░  (+0.0625)
-        + headwinds        █████░░░░░░░░░░░░░░░  (+0.0529)
-        + road             ████░░░░░░░░░░░░░░░░  (+0.0422)
-        + Click            ██░░░░░░░░░░░░░░░░░░  (+0.0265)
+        + Up               ████████████████████  (+0.2192)
+        + Win              █████████████████░░░  (+0.1840)
+        + China            █████████░░░░░░░░░░░  (+0.0975)
+        + mobile           ████░░░░░░░░░░░░░░░░  (+0.0459)
+        + iPhone           ████░░░░░░░░░░░░░░░░  (+0.0457)
+        - Legal            ████░░░░░░░░░░░░░░░░  (-0.0387)
+        + year             ███░░░░░░░░░░░░░░░░░  (+0.0358)
+        + Stock            ███░░░░░░░░░░░░░░░░░  (+0.0297)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Falling                (+)    +0.215631
-      Qualcomm               (-)    -0.082800
-      earnings               (+)    +0.065746
-      Tree                   (+)    +0.064150
-      risking                (+)    +0.062506
-      headwinds              (+)    +0.052889
-      road                   (+)    +0.042217
-      Click                  (+)    +0.026463
-      look                   (-)    -0.023826
-      Incorporated           (-)    -0.020775
+      Up                     (+)    +0.219161
+      Win                    (+)    +0.184005
+      China                  (+)    +0.097515
+      mobile                 (+)    +0.045922
+      iPhone                 (+)    +0.045651
+      Legal                  (-)    -0.038682
+      year                   (+)    +0.035759
+      Stock                  (+)    +0.029655
+      phones                 (-)    -0.023125
+      earlier                (+)    +0.020242
 
-  [2] Qualcomm's premium smartphone chip reliance, Apple modem loss overshadow
-      Content: (Reuters) -Qualcomm's reliance on high-end smartphone chip sales and the looming loss of Apple as a modem customer overs
-               hadowed the company's optimistic quarterly forecast on Wednesday, driving shares down more than 6%. The San Diego-based 
-      Article weight : 0.8862  |  Relevance to prediction : 0.7967
+  [2] Wedbush Names Apple a Top AI Pick for the 2026 Market Cycle
+      Content: Apple's AI Bet Is Subtle. Some Analysts Think That's a Strength
+      Article weight : 0.8966  |  Relevance to prediction : 0.7905
       Token influence chart:
-        + down             ████████████████████  (+0.2365)
-        + overshadow       █████████████████░░░  (+0.2060)
-        + overshadowed     ████████████░░░░░░░░  (+0.1413)
-        - upbeat           ██████████░░░░░░░░░░  (-0.1154)
-        - non              ████████░░░░░░░░░░░░  (-0.0958)
-        + loss             ███████░░░░░░░░░░░░░  (+0.0880)
-        + forecast         ███████░░░░░░░░░░░░░  (+0.0870)
-        + shares           ██████░░░░░░░░░░░░░░  (+0.0756)
+        + Pick             ████████████████████  (+0.1657)
+        + Top              ██████████████░░░░░░  (+0.1135)
+        + Strength         ███████████░░░░░░░░░  (+0.0894)
+        + Cycle            █████████░░░░░░░░░░░  (+0.0729)
+        - AI               ███░░░░░░░░░░░░░░░░░  (-0.0260)
+        - Wedbush          ███░░░░░░░░░░░░░░░░░  (-0.0234)
+        - Think            ██░░░░░░░░░░░░░░░░░░  (-0.0205)
+        - Subtle           ██░░░░░░░░░░░░░░░░░░  (-0.0177)
 
       Token                  Dir       Weight
       ----------------------------------------
-      down                   (+)    +0.236541
-      overshadow             (+)    +0.205960
-      overshadowed           (+)    +0.141301
-      upbeat                 (-)    -0.115363
-      non                    (-)    -0.095833
-      loss                   (+)    +0.088022
-      forecast               (+)    +0.086987
-      shares                 (+)    +0.075617
-      data                   (-)    -0.058043
-      based                  (-)    -0.044510
+      Pick                   (+)    +0.165726
+      Top                    (+)    +0.113490
+      Strength               (+)    +0.089422
+      Cycle                  (+)    +0.072910
+      AI                     (-)    -0.026014
+      Wedbush                (-)    -0.023449
+      Think                  (-)    -0.020463
+      Subtle                 (-)    -0.017665
+      Market                 (-)    -0.015886
+      Bet                    (-)    -0.015086
 
-  [3] Apple earnings under pressure from tariffs, slow AI roll-out
-      Content: (Reuters) -Long seen as the safest Big Tech bet, Apple is heading into Thursday's earnings with its business facing pres
-               sure from U.S. tariffs, tough competition in China and a high-stakes artificial intelligence race it has been late to en
-      Article weight : 0.8838  |  Relevance to prediction : 0.7603
+  [3] Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead of 2
+      Content: Analysts See Upside in Apple Stock as iPhone Sales Surge
+      Article weight : 0.8325  |  Relevance to prediction : 0.7898
       Token influence chart:
-        + pressure         ████████████████████  (+0.0933)
-        + ire              ██████████████████░░  (+0.0842)
-        + iPhones          ██████████████████░░  (+0.0840)
-        + giant            ████████████░░░░░░░░  (+0.0543)
-        - earnings         ███████████░░░░░░░░░  (-0.0502)
-        - foreign          ██████████░░░░░░░░░░  (-0.0475)
-        + under            █████████░░░░░░░░░░░  (+0.0443)
-        - limit            █████████░░░░░░░░░░░  (-0.0431)
+        + Overweight       ████████████████████  (+0.2092)
+        + Upside           █████████████░░░░░░░  (+0.1333)
+        + iPhone           ███████░░░░░░░░░░░░░  (+0.0768)
+        + Rating           ██████░░░░░░░░░░░░░░  (+0.0586)
+        + Ahead            █████░░░░░░░░░░░░░░░  (+0.0574)
+        + Sales            █████░░░░░░░░░░░░░░░  (+0.0516)
+        + Surge            ████░░░░░░░░░░░░░░░░  (+0.0436)
+        - Keeps            ██░░░░░░░░░░░░░░░░░░  (-0.0216)
 
       Token                  Dir       Weight
       ----------------------------------------
-      pressure               (+)    +0.093281
-      ire                    (+)    +0.084150
-      iPhones                (+)    +0.084047
-      giant                  (+)    +0.054331
-      earnings               (-)    -0.050207
-      foreign                (-)    -0.047500
-      under                  (+)    +0.044277
-      limit                  (-)    -0.043143
-      Big                    (+)    +0.042296
-      targeted               (-)    -0.040080
+      Overweight             (+)    +0.209185
+      Upside                 (+)    +0.133295
+      iPhone                 (+)    +0.076770
+      Rating                 (+)    +0.058582
+      Ahead                  (+)    +0.057396
+      Sales                  (+)    +0.051566
+      Surge                  (+)    +0.043569
+      Keeps                  (-)    -0.021558
+      Analysts               (-)    -0.020983
+      Fargo                  (+)    +0.014320
 
-  [4] Apple & Amazon have a 'black cloud' lingering ahead of earnings
-      Content: Yahoo Finance Technology Editor Dan Howley and Synovus vice president and senior portfolio manager Daniel Morgan break d
-               own what to watch from Apple (AAPL), Amazon (AMZN), and more this earnings week.
-      Article weight : 0.7441  |  Relevance to prediction : 0.7284
+  [4] The Zacks Analyst Blog Highlights Apple, Cisco Systems and IBM
+      Content: Apple leads Zacks' top research picks as strong Services growth, AI expansion and iPhone momentum shape the outlook.
+      Article weight : 0.8649  |  Relevance to prediction : 0.7874
       Token influence chart:
-        + black            ████████████████████  (+0.4885)
-        + earnings         ███░░░░░░░░░░░░░░░░░  (+0.0757)
-        - break            ███░░░░░░░░░░░░░░░░░  (-0.0660)
-        + lingering        ███░░░░░░░░░░░░░░░░░  (+0.0622)
-        + Synovus          ██░░░░░░░░░░░░░░░░░░  (+0.0559)
-        - what             ██░░░░░░░░░░░░░░░░░░  (-0.0545)
-        + senior           ██░░░░░░░░░░░░░░░░░░  (+0.0412)
-        + cloud            █░░░░░░░░░░░░░░░░░░░  (+0.0341)
+        + leads            ████████████████████  (+0.0945)
+        + strong           ████████████████████  (+0.0932)
+        + iPhone           ███████████████████░  (+0.0896)
+        + picks            █████████████████░░░  (+0.0817)
+        - IBM              ████████████░░░░░░░░  (-0.0552)
+        + top              ████████░░░░░░░░░░░░  (+0.0379)
+        + expansion        ████████░░░░░░░░░░░░  (+0.0370)
+        - research         ████████░░░░░░░░░░░░  (-0.0356)
 
       Token                  Dir       Weight
       ----------------------------------------
-      black                  (+)    +0.488474
-      earnings               (+)    +0.075678
-      break                  (-)    -0.065982
-      lingering              (+)    +0.062183
-      Synovus                (+)    +0.055896
-      what                   (-)    -0.054526
-      senior                 (+)    +0.041185
-      cloud                  (+)    +0.034084
-      AMZN                   (+)    +0.032159
-      Daniel                 (-)    -0.030423
+      leads                  (+)    +0.094459
+      strong                 (+)    +0.093211
+      iPhone                 (+)    +0.089627
+      picks                  (+)    +0.081705
+      IBM                    (-)    -0.055157
+      top                    (+)    +0.037892
+      expansion              (+)    +0.037020
+      research               (-)    -0.035589
+      momentum               (+)    +0.034477
+      Services               (-)    -0.034414
 
-  [5] Jim Cramer on Apple: “I’m Expecting an Unexciting Quarter”
-      Content: Apple Inc. (NASDAQ:AAPL) is one of the stocks in Jim Cramer’s game plan this week. Cramer mentioned that he is not expec
-               ting much from the upcoming quarterly results of the company. He remarked: “After the close, Thursday, we have two more 
-      Article weight : 0.8838  |  Relevance to prediction : 0.7154
+  [5] Apple: Foldable Phone Sparks A Revival, Not AI Overhype
+      Content: Discover how Apple's strategic iPhone expansion and innovation fuel growth.
+      Article weight : 0.8325  |  Relevance to prediction : 0.7821
       Token influence chart:
-        + Unexciting       ████████████████████  (+0.4040)
-        + company          ██░░░░░░░░░░░░░░░░░░  (+0.0493)
-        + we               ██░░░░░░░░░░░░░░░░░░  (+0.0352)
-        + Amazon           ██░░░░░░░░░░░░░░░░░░  (+0.0349)
-        + He               ██░░░░░░░░░░░░░░░░░░  (+0.0324)
-        - plan             ██░░░░░░░░░░░░░░░░░░  (-0.0323)
-        - Expecting        █░░░░░░░░░░░░░░░░░░░  (-0.0296)
-        + Cramer           █░░░░░░░░░░░░░░░░░░░  (+0.0272)
+        + Revival          ████████████████████  (+0.0990)
+        + growth           ███████████████░░░░░  (+0.0759)
+        + Overhype         ██████████████░░░░░░  (+0.0689)
+        + fuel             █████████████░░░░░░░  (+0.0668)
+        + AI               ███████████░░░░░░░░░  (+0.0520)
+        - how              ███████░░░░░░░░░░░░░  (-0.0363)
+        + Sparks           ███████░░░░░░░░░░░░░  (+0.0331)
+        - Phone            █████░░░░░░░░░░░░░░░  (-0.0232)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Unexciting             (+)    +0.404045
-      company                (+)    +0.049331
-      we                     (+)    +0.035190
-      Amazon                 (+)    +0.034854
-      He                     (+)    +0.032449
-      plan                   (-)    -0.032302
-      Expecting              (-)    -0.029645
-      Cramer                 (+)    +0.027217
-      he                     (+)    +0.026924
-      Seven                  (-)    -0.026704
+      Revival                (+)    +0.098953
+      growth                 (+)    +0.075916
+      Overhype               (+)    +0.068886
+      fuel                   (+)    +0.066777
+      AI                     (+)    +0.052047
+      how                    (-)    -0.036256
+      Sparks                 (+)    +0.033133
+      Phone                  (-)    -0.023238
+      innovation             (+)    +0.018993
+      iPhone                 (+)    +0.017105
 
 ------------------------------------------------------------
