@@ -1015,13 +1015,15 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
                 )
             lines.append("")
 
-            # Raw weight table
+            # Raw weight table (noise tokens excluded)
             lines += [
                 f"      {'Token':<22} {'Dir':<5} {'Weight':>10}",
                 f"      {'-' * 40}",
             ]
             for tw in sorted(
-                art["token_weights"], key=lambda x: abs(x["weight"]), reverse=True
+                [tw for tw in art["token_weights"]
+                 if not is_lime_noise_token(tw["token"], noise_set)],
+                key=lambda x: abs(x["weight"]), reverse=True,
             )[:10]:
                 direction = "(+)" if tw["direction"] == "supports" else "(-)"
                 lines.append(
