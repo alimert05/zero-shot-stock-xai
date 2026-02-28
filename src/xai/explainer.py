@@ -33,7 +33,7 @@ def _merge_article_data(
     prediction_result: dict[str, Any],
     articles_data: dict[str, Any],
 ) -> list[dict[str, Any]]:
-    # Build lookup: title → full article record from articles.json
+    # Build lookup: title -> full article record from articles.json
     article_lookup: dict[str, dict] = {}
     for art in articles_data.get("articles", []):
         title = art.get("title", "")
@@ -73,10 +73,10 @@ def _save_result(result: dict[str, Any], output_path: str) -> None:
     logger.info("XAI result saved to %s", output_path)
 
 
-# ── ASCII visualisation helpers ───────────────────────────────────────────────
+# -- ASCII visualisation helpers ----------------------------------------------
 
 def _ascii_bar(value: float, max_value: float, width: int = 30,
-               fill: str = "█", empty: str = "░") -> str:
+               fill: str = "\u2588", empty: str = "\u2591") -> str:
     """Fixed-width filled bar proportional to value/max_value."""
     if max_value <= 0:
         return empty * width
@@ -89,11 +89,12 @@ def _wrap(text: str, width: int = 56, indent: str = "  ") -> list[str]:
     return [f"{indent}{line}" for line in textwrap.wrap(text, width=width)]
 
 
-# ── Main report builder ───────────────────────────────────────────────────────
+# -- Main report builder ------------------------------------------------------
 
 def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None) -> str:  # noqa: C901
     W = "=" * 60
     w = "-" * 60
+    P = "\u2550" * 60          # part divider (double line)
 
     meta        = result["meta"]
     pred        = result["prediction_summary"]
@@ -104,9 +105,103 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     narrative   = result["narrative"]
     storylines  = result.get("storylines", {})
 
+    # ================================================================
+    # Precompute shared variables so sections can appear in any order
+    # ================================================================
+
+    # -- Scores ---
+    ns            = pred["normalized_scores"] or {}
+    neutral_score = ns.get("neutral", 0.0)
+
+    # -- Contrastive / flip-set ---
+    contrastive = layer2.get("contrastive", {})
+    flip_info   = layer2.get("minimum_flip_set", {})
+
+    # -- Ranked articles + sentiment distribution ---
+    ranked_arts = layer2.get("ranked_articles", [])
+    sent_counts: dict[str, int] = {}
+    for a in ranked_arts:
+        s = a.get("dominant_sentiment", "unknown")
+        sent_counts[s] = sent_counts.get(s, 0) + 1
+    total_arts = sum(sent_counts.values()) or 1
+
+    # -- LIME articles + noise set ---
+    lime_articles  = layer1.get("articles", [])
+    all_art_titles = [a.get("title", "") for a in ranked_arts]
+    noise_set = build_lime_noise_set(
+        meta.get("query", ""), meta.get("ticker", ""),
+        article_titles=all_art_titles,
+    )
+
+    # -- Reliability flags ---
+    overall_rel = reliability["overall_reliability"]
+    flags       = reliability["flags"]
+    rel_icon    = {"HIGH": "\u2713", "MEDIUM": "!", "LOW": "\u2717"}.get(overall_rel, "?")
+
+    margin_flag  = flags.get("label_margin", {}).get("flagged", False)
+    thin_flag    = flags.get("thin_evidence", {}).get("flagged", False)
+    conc_flag    = flags.get("weight_concentration", {}).get("flagged", False)
+    conf_flag    = flags.get("low_confidence", {}).get("flagged", False)
+    source_flag  = flags.get("source_diversity", {}).get("flagged", False)
+    timing_flag  = flags.get("timing_alignment", {}).get("flagged", False)
+    horizon_flag = flags.get("horizon_coverage", {}).get("flagged", False)
+
+    caution_parts: list[str] = []
+    if margin_flag:
+        caution_parts.append(
+            "the positive and negative scores are very close \u2014 "
+            "a small shift in news could change the verdict"
+        )
+    if thin_flag:
+        caution_parts.append("the prediction is based on very few articles")
+    if conc_flag:
+        caution_parts.append(
+            "weight is concentrated in one article, "
+            "making the result sensitive to that single source"
+        )
+    if conf_flag:
+        caution_parts.append("overall confidence is below the recommended threshold")
+    if source_flag:
+        caution_parts.append(
+            "most articles come from the same source, "
+            "reducing editorial independence. "
+            "Mitigation: articles are de-duplicated by title; "
+            "weighting is content-based (not source-based) so "
+            "syndicated copies receive lower combined weight if "
+            "they are older or off-horizon"
+        )
+    if timing_flag:
+        caution_parts.append(
+            "market-close time alignment is not applied (UTC timestamps used), "
+            "which can introduce timing noise or leakage risk"
+        )
+    if horizon_flag:
+        hc = flags.get("horizon_coverage", {})
+        caution_parts.append(
+            f"news lookback ({hc.get('lookback_days', '?')} days) is shorter than "
+            f"the intended backward window ({hc.get('intended_lookback_days', '?')} days, "
+            f"\u221aW scaling), signal may be incomplete"
+        )
+
+    # -- Chart label map (used in Charts + Advanced sections) ---
+    chart_label_map = {
+        "sentiment_scores":        "Sentiment score bar chart",
+        "article_distribution":    "Article sentiment pie chart",
+        "article_weights":         "Top-10 article weight chart",
+        "horizon_breakdown":       "Timing horizon breakdown chart",
+        "lime_tokens":             "Word-level attribution (LIME) chart",
+        "reliability":             "Reliability dashboard",
+        "storyline_contribution":  "Narrative storyline contribution chart",
+        "contrastive_waterfall":   "Contrastive waterfall (why A not B?)",
+        "article_timeline":        "Article timeline (recency vs influence)",
+        "cumulative_score":        "Cumulative score build-up chart",
+    }
+
     lines: list[str] = []
 
-    # ── Header ────────────────────────────────────────────────
+    # ================================================================
+    #  HEADER
+    # ================================================================
     ticker_str = f"  ({meta['ticker']})" if meta['ticker'] else ""
     lines += [
         W,
@@ -120,17 +215,30 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         W,
     ]
 
-    # ── Plain-English summary (top) ────────────────────────────
+    # ================================================================
+    #  PART 1 -- SUMMARY & KEY FINDINGS
+    #  Plain-English explanation of the result and its context
+    # ================================================================
+    lines += [
+        "",
+        P,
+        "  PART 1 \u2014 SUMMARY & KEY FINDINGS",
+        "  Plain-English explanation of what the model decided and why",
+        P,
+        "",
+    ]
+
+    # -- Plain-English summary (top) --------------------------------
     lines += [
         "  SUMMARY",
-        "  What the model decided and why — in plain English",
+        "  What the model decided and why \u2014 in plain English",
         w,
         "",
         f"  {narrative['summary']}",
         "",
     ]
 
-    # ── Prediction result + score chart ───────────────────────
+    # -- Prediction result + score chart ----------------------------
     lines += [
         "  PREDICTION RESULT",
         "  Sentiment scores across all analysed articles",
@@ -143,15 +251,13 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "                  It is NOT a calibrated probability of future return",
         "                  and should not be read as '41% chance the price drops'.",
         "",
-        "  Score chart  (each █ ≈ 2.5%):",
+        "  Score chart  (each \u2588 \u2248 2.5%):",
         "",
     ]
-    ns            = pred["normalized_scores"] or {}
-    neutral_score = ns.get("neutral", 0.0)
     for label in ["positive", "negative", "neutral"]:
         score  = ns.get(label, 0.0)
         bar    = _ascii_bar(score, 1.0, width=40)
-        marker = "  ◄ PREDICTED" if label == pred["final_label"] else ""
+        marker = "  \u25c4 PREDICTED" if label == pred["final_label"] else ""
         lines.append(f"    {label:>8} : {score * 100:5.1f}%  {bar}{marker}")
     lines += [
         "",
@@ -167,12 +273,271 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         )
     lines.append("")
 
-    # ── Contrastive explanation ────────────────────────────────
-    # "Why label A INSTEAD OF label B?" — the core XAI question.
-    # Ref: Miller (2019) Art. Intell. 267, 1-38.
-    contrastive = layer2.get("contrastive", {})
-    flip_info   = layer2.get("minimum_flip_set", {})
+    # -- Recommendation ---------------------------------------------
+    if overall_rel == "HIGH":
+        action = "This prediction has HIGH reliability and can be used with reasonable confidence."
+    elif overall_rel == "MEDIUM":
+        action = (
+            "This prediction has MEDIUM reliability \u2014 treat it as indicative, not definitive. "
+            + ("Specifically: " + "; ".join(caution_parts) + "." if caution_parts else "")
+        )
+    else:
+        action = (
+            "This prediction has LOW reliability and should NOT be used alone for decisions. "
+            + ("Reasons: " + "; ".join(caution_parts) + "." if caution_parts else "")
+        )
 
+    lines += [
+        "  RECOMMENDATION",
+        "  What you should do with this result",
+        w,
+        f"  {action}",
+        "",
+    ]
+
+    # -- Narrative themes -------------------------------------------
+    event_dist = layer3.get("event_type_distribution", {})
+    event_sent = layer3.get("event_type_sentiment", {})
+    event_short_labels = {
+        "earnings report or financial results":            "Earnings / results ",
+        "analyst rating, upgrade, or downgrade":           "Analyst action     ",
+        "product launch, innovation, or technology":       "Product / tech     ",
+        "regulatory action, legal case, or investigation": "Regulatory / legal ",
+        "strategic restructuring, merger, or acquisition": "Strategy / M&A     ",
+        "general market commentary or opinion":            "General commentary ",
+    }
+    if event_dist:
+        lines += [
+            "  NARRATIVE THEMES",
+            "  What the news is about and the dominant tone per theme",
+            w,
+        ]
+        total_e = sum(event_dist.values()) or 1
+        for etype, ecount in sorted(event_dist.items(), key=lambda x: x[1], reverse=True):
+            elabel = event_short_labels.get(etype, f"{etype[:20]:<20}")
+            pct = ecount / total_e * 100
+            # Per-theme sentiment
+            s = event_sent.get(etype, {})
+            s_pos = s.get("positive", 0)
+            s_neg = s.get("negative", 0)
+            s_neu = s.get("neutral", 0)
+            dominant_s = max(s, key=s.get) if s else "neutral"
+            tone_icon = {"positive": "\u25b2", "negative": "\u25bc", "neutral": "\u25a0"}.get(dominant_s, "?")
+            lines.append(
+                f"    {elabel}: {ecount:>3} articles ({pct:.0f}%)  "
+                f"{tone_icon} {dominant_s}  "
+                f"(+{s_pos} / -{s_neg} / ={s_neu})"
+            )
+        lines.append("")
+
+    # Storylines -- auto-discovered from article titles via TF-IDF clustering
+    # Grouped by sentiment: predicted label first, then opposing, then neutral
+    sl_list = storylines.get("storylines", [])
+    sl_other = storylines.get("other_count", 0)
+    if sl_list:
+        predicted_label = pred.get("final_label", "neutral").lower()
+
+        # Group clusters by sentiment_group (article-level, not cluster-dominant)
+        sl_by_sent: dict[str, list] = {"positive": [], "negative": [], "neutral": []}
+        for sl in sl_list:
+            grp = sl.get("sentiment_group", sl.get("sentiment", {}).get("dominant", "neutral"))
+            sl_by_sent[grp].append(sl)
+
+        # Within each group, sort by contribution_score (actual prediction impact)
+        for group in sl_by_sent.values():
+            group.sort(key=lambda s: s.get("contribution_score", 0), reverse=True)
+
+        # Display order: predicted label first, then opposing, then neutral
+        # All groups uncapped -- full transparency
+        if predicted_label == "positive":
+            order = ["positive", "negative", "neutral"]
+        elif predicted_label == "negative":
+            order = ["negative", "positive", "neutral"]
+        else:
+            order = ["neutral", "positive", "negative"]
+
+        section_headers = {
+            predicted_label: f"Storylines supporting the {predicted_label.upper()} prediction",
+        }
+        for sent_key in ["positive", "negative", "neutral"]:
+            if sent_key != predicted_label:
+                section_headers[sent_key] = (
+                    f"Opposing storylines ({sent_key})"
+                    if sent_key != "neutral"
+                    else "Neutral storylines"
+                )
+
+        lines += [
+            "  Storylines (auto-discovered from article titles):",
+            "",
+        ]
+
+        for sent_key in order:
+            group = sl_by_sent[sent_key]
+            if not group:
+                continue
+
+            lines.append(f"    {section_headers[sent_key]}:")
+            for sl in group:
+                n = sl["articles_count"]
+                sent = sl.get("sentiment", {})
+                dom = sent.get("dominant", "neutral")
+                s_pos = sent.get("positive", 0)
+                s_neg = sent.get("negative", 0)
+                s_neu = sent.get("neutral", 0)
+                tone_icon = {"positive": "\u25b2", "negative": "\u25bc", "neutral": "\u25a0"}.get(dom, "?")
+                lines.append(
+                    f"      \"{sl['label']}\" ({n} articles)  "
+                    f"{tone_icon} {dom}  (+{s_pos} / -{s_neg} / ={s_neu})"
+                )
+                for t in sl.get("top_titles", []):
+                    lines.append(f"        \u2192 {t[:68]}")
+            lines.append("")
+
+        if sl_other > 0:
+            lines.append(
+                f"    Other topics ({sl_other} articles \u2014 titles too unique to cluster "
+                f"with any other article; each covers a distinct story)"
+            )
+        lines.append("")
+
+    # -- Final plain-English overview -------------------------------
+    n_pos = sent_counts.get("positive", 0)
+    n_neg = sent_counts.get("negative", 0)
+    n_neu = sent_counts.get("neutral", 0)
+
+    top_art       = ranked_arts[0] if ranked_arts else {}
+    top_art_title = top_art.get("title", "N/A")
+    top_art_sent  = top_art.get("dominant_sentiment", "unknown")
+    top_art_share = round(top_art.get("weight_share", 0.0) * 100, 1)
+
+    lime_sentence = ""
+    if lime_articles:
+        # Try to match the top contrastive gap driver first, fall back to
+        # most-influential article so the word-level evidence connects to
+        # the "why X instead of Y?" reasoning.
+        lime_by_title = {la["title"]: la for la in lime_articles}
+        top_gap_title = None
+        if contrastive:
+            for gd in contrastive.get("top_gap_drivers", []):
+                if gd["title"] in lime_by_title:
+                    top_gap_title = gd["title"]
+                    break
+
+        if top_gap_title and top_gap_title in lime_by_title:
+            matching_lime = lime_by_title[top_gap_title]
+            source_desc = "the top gap-driving article"
+        else:
+            matching_lime = lime_by_title.get(top_art_title, lime_articles[0])
+            source_desc = "the most influential article"
+
+        top_words = matching_lime.get("top_tokens_supporting", [])
+        if top_words:
+            lime_sentence = (
+                f" At the word level, the strongest signals in {source_desc}"
+                f" included: {', '.join(top_words[:5])}."
+            )
+
+    weight_sentence = (
+        f"Articles were weighted by recency and prediction-horizon relevance \u2014"
+        f" the average article was {layer3['avg_days_ago']} days old,"
+        f" with most classified as short-term horizon."
+    )
+
+    # Contrastive sentence -- why winner instead of runner-up
+    contrastive_sentence = ""
+    if contrastive:
+        c_winner_ov = contrastive["winner"].upper()
+        c_runner_ov = contrastive["runner_up"].upper()
+        c_gap_ov    = contrastive["score_gap"]
+        c_n_w_ov    = contrastive["n_favouring_winner"]
+        c_n_r_ov    = contrastive["n_favouring_runner_up"]
+        contrastive_sentence = (
+            f" The model chose {c_winner_ov} over {c_runner_ov} by a margin of"
+            f" {c_gap_ov * 100:.1f} percentage points: {c_n_w_ov} articles"
+            f" pushed toward {c_winner_ov} while {c_n_r_ov} pushed toward {c_runner_ov}."
+        )
+
+    # Flip set sentence
+    flip_sentence = ""
+    if flip_info.get("flip_possible"):
+        flip_n_ov    = flip_info["flip_set_size"]
+        flip_total_ov = flip_info["articles_total"]
+        flip_sentence = (
+            f" The prediction is sensitive: removing as few as"
+            f" {flip_n_ov} of {flip_total_ov} articles would change the verdict."
+        )
+    elif flip_info:
+        flip_sentence = (
+            " No subset of articles can flip the verdict \u2014 the"
+            " prediction is robust across the article pool."
+        )
+
+    reliability_sentence = {
+        "HIGH":   "The prediction carries HIGH reliability and can be used with confidence.",
+        "MEDIUM": (
+            "The prediction carries MEDIUM reliability. "
+            + ("; ".join(caution_parts).capitalize() + "." if caution_parts else "")
+        ),
+        "LOW": (
+            "The prediction carries LOW reliability and should not be used in isolation. "
+            + ("; ".join(caution_parts).capitalize() + "." if caution_parts else "")
+        ),
+    }.get(overall_rel, "")
+
+    final_paragraph = (
+        f"Out of {meta['articles_analyzed']} news articles analysed for"
+        f" {meta['query']} over a {meta['prediction_window_days']}-day forecast"
+        f" horizon, {n_pos} carried positive sentiment, {n_neg} carried negative"
+        f" sentiment, and {n_neu} were neutral."
+        f" The model produced a weighted aggregation of these scores and predicted"
+        f" a {str(pred['final_label']).upper()} label with"
+        f" {pred['final_confidence'] * 100:.1f}% model support."
+        f"{contrastive_sentence}"
+        f" The single most influential article was \"{top_art_title}\""
+        f" ({top_art_sent} sentiment, contributing {top_art_share}% of total weight)."
+        f" {weight_sentence}"
+        f"{lime_sentence}"
+        f"{flip_sentence}"
+        f" {reliability_sentence}"
+    )
+
+    lines += [
+        W,
+        "  FINAL PLAIN-ENGLISH OVERVIEW",
+        "  A complete, readable summary of the entire analysis for a general reader",
+        W,
+        "",
+    ]
+    lines += _wrap(final_paragraph, width=56)
+    lines += ["", ""]
+
+    # -- Disclaimer -------------------------------------------------
+    lines += [
+        "  DISCLAIMER",
+        w,
+        "  This report presents news-based sentiment analysis only.",
+        "  It is NOT financial advice and does NOT recommend any",
+        "  trading action (buy, sell, or hold). The authors are not",
+        "  responsible for any investment decision made using this output.",
+        "",
+    ]
+
+    # ================================================================
+    #  PART 2 -- DETAILED TECHNICAL ANALYSIS
+    #  Scores, article breakdowns, and model-internal attributions
+    # ================================================================
+    lines += [
+        P,
+        "  PART 2 \u2014 DETAILED TECHNICAL ANALYSIS",
+        "  Scores, article breakdowns, and model-internal attributions",
+        P,
+        "",
+    ]
+
+    # -- Contrastive explanation ------------------------------------
+    # "Why label A INSTEAD OF label B?" -- the core XAI question.
+    # Ref: Miller (2019) Art. Intell. 267, 1-38.
     if contrastive:
         c_winner   = contrastive["winner"].upper()
         c_runner   = contrastive["runner_up"].upper()
@@ -185,7 +550,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
 
         lines += [
             f"  WHY {c_winner} INSTEAD OF {c_runner}?",
-            "  Contrastive explanation — what tipped the balance",
+            "  Contrastive explanation \u2014 what tipped the balance",
             w,
             f"  Score gap : {c_winner} {contrastive['winner_score'] * 100:.1f}%"
             f"  vs  {c_runner} {contrastive['runner_up_score'] * 100:.1f}%"
@@ -220,7 +585,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
                 effect_text = "with minimal impact on the gap"
             lines += [
                 f"  Third class: {third_upper} at {c_third_score * 100:.1f}%"
-                f" — {effect_text}.",
+                f" \u2014 {effect_text}.",
                 "",
             ]
 
@@ -232,25 +597,24 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
                 f"    {'-' * 70}",
             ]
             for i, drv in enumerate(top_drivers, 1):
-                direction = f"→ {drv['favours'][:3].upper()}"
+                direction = f"\u2192 {drv['favours'][:3].upper()}"
                 net_pct = drv["net_direction"] * 100
                 lines.append(
                     f"    {i:<4} {direction:>10}  {net_pct:>+7.2f}%  {drv['title'][:48]}"
                 )
             lines.append("")
 
-        # ── LIME ↔ contrastive bridge ──────────────────────────
+        # -- LIME <-> contrastive bridge ---
         # For each top gap driver that also has LIME data, show
         # which words pushed it toward the winner or runner-up.
         # This answers "WHY did this article favour one side?"
-        lime_articles = layer1.get("articles", [])
         if top_drivers and lime_articles:
-            lime_by_title: dict[str, dict] = {
+            lime_by_title_bridge: dict[str, dict] = {
                 la["title"]: la for la in lime_articles
             }
             bridge_entries: list[tuple[dict, dict]] = []
             for drv in top_drivers:
-                la = lime_by_title.get(drv["title"])
+                la = lime_by_title_bridge.get(drv["title"])
                 if la:
                     bridge_entries.append((drv, la))
 
@@ -307,21 +671,18 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         else:
             lines += [
                 "  Counterfactual (minimum flip set):",
-                f"    No subset of articles can flip the prediction — {c_winner}"
+                f"    No subset of articles can flip the prediction \u2014 {c_winner}"
                 " is robust across the article pool.",
                 "",
             ]
 
-    # ── Reliability ────────────────────────────────────────────
-    overall_rel = reliability["overall_reliability"]
-    flags       = reliability["flags"]
-    rel_icon    = {"HIGH": "✓", "MEDIUM": "!", "LOW": "✗"}.get(overall_rel, "?")
+    # -- Reliability ------------------------------------------------
     lines += [
         "  PREDICTION RELIABILITY",
         "  How much to trust this prediction",
         w,
         f"  Overall : [{rel_icon}] {overall_rel}  ({reliability['flags_triggered']} concern(s) found)",
-        "  Rating rule : HIGH if 0 concerns, MEDIUM if 1, LOW if ≥2.",
+        "  Rating rule : HIGH if 0 concerns, MEDIUM if 1, LOW if \u22652.",
     ]
     # Clarify when LOW is driven by data quality, not model uncertainty
     margin_is_clear = not flags.get("label_margin", {}).get("flagged", False)
@@ -347,83 +708,16 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "horizon_coverage":     "Horizon coverage",
     }
     for flag_name, flag_data in flags.items():
-        icon  = "⚠" if flag_data["flagged"] else "✓"
+        icon  = "\u26a0" if flag_data["flagged"] else "\u2713"
         label = flag_labels.get(flag_name, flag_name.replace("_", " ").title())
         lines.append(f"    [{icon}] {label:<22} {flag_data['message']}")
     lines += [
         "",
-        f"  Thresholds used  : reliability confidence ≥ {XAI_LOW_CONFIDENCE_THRESHOLD}",
+        f"  Thresholds used  : reliability confidence \u2265 {XAI_LOW_CONFIDENCE_THRESHOLD}",
         "",
     ]
 
-    # ── Recommendation ─────────────────────────────────────────
-    margin_flag  = flags.get("label_margin", {}).get("flagged", False)
-    thin_flag    = flags.get("thin_evidence", {}).get("flagged", False)
-    conc_flag    = flags.get("weight_concentration", {}).get("flagged", False)
-    conf_flag    = flags.get("low_confidence", {}).get("flagged", False)
-    source_flag  = flags.get("source_diversity", {}).get("flagged", False)
-    timing_flag  = flags.get("timing_alignment", {}).get("flagged", False)
-    horizon_flag = flags.get("horizon_coverage", {}).get("flagged", False)
-
-    caution_parts: list[str] = []
-    if margin_flag:
-        caution_parts.append(
-            "the positive and negative scores are very close — "
-            "a small shift in news could change the verdict"
-        )
-    if thin_flag:
-        caution_parts.append("the prediction is based on very few articles")
-    if conc_flag:
-        caution_parts.append(
-            "weight is concentrated in one article, "
-            "making the result sensitive to that single source"
-        )
-    if conf_flag:
-        caution_parts.append("overall confidence is below the recommended threshold")
-    if source_flag:
-        caution_parts.append(
-            "most articles come from the same source, "
-            "reducing editorial independence. "
-            "Mitigation: articles are de-duplicated by title; "
-            "weighting is content-based (not source-based) so "
-            "syndicated copies receive lower combined weight if "
-            "they are older or off-horizon"
-        )
-    if timing_flag:
-        caution_parts.append(
-            "market-close time alignment is not applied (UTC timestamps used), "
-            "which can introduce timing noise or leakage risk"
-        )
-    if horizon_flag:
-        hc = flags.get("horizon_coverage", {})
-        caution_parts.append(
-            f"news lookback ({hc.get('lookback_days', '?')} days) is shorter than "
-            f"the intended backward window ({hc.get('intended_lookback_days', '?')} days, "
-            f"√W scaling), signal may be incomplete"
-        )
-
-    if overall_rel == "HIGH":
-        action = "This prediction has HIGH reliability and can be used with reasonable confidence."
-    elif overall_rel == "MEDIUM":
-        action = (
-            "This prediction has MEDIUM reliability — treat it as indicative, not definitive. "
-            + ("Specifically: " + "; ".join(caution_parts) + "." if caution_parts else "")
-        )
-    else:
-        action = (
-            "This prediction has LOW reliability and should NOT be used alone for decisions. "
-            + ("Reasons: " + "; ".join(caution_parts) + "." if caution_parts else "")
-        )
-
-    lines += [
-        "  RECOMMENDATION",
-        "  What you should do with this result",
-        w,
-        f"  {action}",
-        "",
-    ]
-
-    # ── Calibration context ──────────────────────────────────────
+    # -- Calibration context ----------------------------------------
     calibration = result.get("calibration")
     if calibration:
         lines += [
@@ -456,18 +750,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             "",
         ]
 
-    # ── Disclaimer ─────────────────────────────────────────────
-    lines += [
-        "  DISCLAIMER",
-        w,
-        "  This report presents news-based sentiment analysis only.",
-        "  It is NOT financial advice and does NOT recommend any",
-        "  trading action (buy, sell, or hold). The authors are not",
-        "  responsible for any investment decision made using this output.",
-        "",
-    ]
-
-    # ── Layer 2 — Article influence ────────────────────────────
+    # -- Layer 2 -- Article influence --------------------------------
     lines += [
         "  WHICH ARTICLES DROVE THE PREDICTION",
         "  The articles that had the most impact on the final verdict",
@@ -475,15 +758,8 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     ]
 
     # Article sentiment distribution chart
-    ranked_arts   = layer2.get("ranked_articles", [])
-    sent_counts: dict[str, int] = {}
-    for a in ranked_arts:
-        s = a.get("dominant_sentiment", "unknown")
-        sent_counts[s] = sent_counts.get(s, 0) + 1
-    total_arts = sum(sent_counts.values()) or 1
-
     lines += ["  Article sentiment distribution:", ""]
-    for s_label, s_icon in [("positive", "▲"), ("negative", "▼"), ("neutral", "■")]:
+    for s_label, s_icon in [("positive", "\u25b2"), ("negative", "\u25bc"), ("neutral", "\u25a0")]:
         cnt = sent_counts.get(s_label, 0)
         bar = _ascii_bar(cnt, total_arts, width=30)
         pct = cnt / total_arts * 100
@@ -510,11 +786,11 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         lines.append("")
 
     # Top-10 table with weight bar chart
-    # "Weight" is the raw recency × horizon factor (0-1 scale).
+    # "Weight" is the raw recency x horizon factor (0-1 scale).
     # "Share" is the article's percentage of total weight across all articles.
     lines += [
         "  Top 10 most influential articles:",
-        "  (Weight = recency × horizon factor, 0-1 scale;  Share = % of total pool weight)",
+        "  (Weight = recency \u00d7 horizon factor, 0-1 scale;  Share = % of total pool weight)",
         f"    {'#':<4} {'Sent':>4}  {'Weight':>6}  {'Share':>6}  {'Weight chart':<32}  Title",
         f"    {w[:78]}",
     ]
@@ -531,7 +807,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     lines += [
         "",
         f"  Weight concentration (HHI): {hhi:.4f}  "
-        f"({'well spread' if hhi < 0.2 else 'concentrated'}) — "
+        f"({'well spread' if hhi < 0.2 else 'concentrated'}) \u2014 "
         f"0 = perfectly uniform across all articles, 1 = one article dominates",
         "",
     ]
@@ -546,14 +822,14 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             neg_s = top_raw.get("negative", 0.0)
             neu_s = top_raw.get("neutral", 0.0)
             lines += [
-                f"  Note on #{top['rank']} ({top['title'][:50]}…):",
+                f"  Note on #{top['rank']} ({top['title'][:50]}\u2026):",
                 f"    This article was classified as NEUTRAL despite its headline.",
                 f"    Raw scores: positive={pos_s:.3f}, negative={neg_s:.3f}, "
                 f"neutral={neu_s:.3f}.",
             ]
             if neu_s > pos_s and neu_s > neg_s:
                 lines.append(
-                    "    The neutral hypothesis captured the highest probability — "
+                    "    The neutral hypothesis captured the highest probability \u2014 "
                     "the article's language is informational or factual rather than "
                     "directionally bullish or bearish."
                 )
@@ -569,7 +845,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
                 )
             lines.append("")
 
-    # ── Layer 3 — Pipeline weighting ──────────────────────────
+    # -- Layer 3 -- Pipeline weighting -------------------------------
     lines += [
         "  HOW ARTICLES WERE WEIGHTED",
         "  More recent and near-horizon articles receive higher weight",
@@ -599,119 +875,13 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         lines.append(f"    {label} : {bar}  {count:>3} ({pct:.0f}%)")
     lines.append("")
 
-    # Narrative themes — event type with per-type sentiment breakdown
-    event_dist = layer3.get("event_type_distribution", {})
-    event_sent = layer3.get("event_type_sentiment", {})
-    event_short_labels = {
-        "earnings report or financial results":            "Earnings / results ",
-        "analyst rating, upgrade, or downgrade":           "Analyst action     ",
-        "product launch, innovation, or technology":       "Product / tech     ",
-        "regulatory action, legal case, or investigation": "Regulatory / legal ",
-        "strategic restructuring, merger, or acquisition": "Strategy / M&A     ",
-        "general market commentary or opinion":            "General commentary ",
-    }
-    if event_dist:
-        lines += [
-            "  NARRATIVE THEMES",
-            "  What the news is about and the dominant tone per theme",
-            w,
-        ]
-        total_e = sum(event_dist.values()) or 1
-        for etype, ecount in sorted(event_dist.items(), key=lambda x: x[1], reverse=True):
-            elabel = event_short_labels.get(etype, f"{etype[:20]:<20}")
-            pct = ecount / total_e * 100
-            # Per-theme sentiment
-            s = event_sent.get(etype, {})
-            s_pos = s.get("positive", 0)
-            s_neg = s.get("negative", 0)
-            s_neu = s.get("neutral", 0)
-            dominant_s = max(s, key=s.get) if s else "neutral"
-            tone_icon = {"positive": "▲", "negative": "▼", "neutral": "■"}.get(dominant_s, "?")
-            lines.append(
-                f"    {elabel}: {ecount:>3} articles ({pct:.0f}%)  "
-                f"{tone_icon} {dominant_s}  "
-                f"(+{s_pos} / -{s_neg} / ={s_neu})"
-            )
-        lines.append("")
-
-    # Storylines — auto-discovered from article titles via TF-IDF clustering
-    # Grouped by sentiment: predicted label first, then opposing, then neutral
-    sl_list = storylines.get("storylines", [])
-    sl_other = storylines.get("other_count", 0)
-    if sl_list:
-        predicted_label = pred.get("final_label", "neutral").lower()
-
-        # Group clusters by sentiment_group (article-level, not cluster-dominant)
-        sl_by_sent: dict[str, list] = {"positive": [], "negative": [], "neutral": []}
-        for sl in sl_list:
-            grp = sl.get("sentiment_group", sl.get("sentiment", {}).get("dominant", "neutral"))
-            sl_by_sent[grp].append(sl)
-
-        # Within each group, sort by contribution_score (actual prediction impact)
-        for group in sl_by_sent.values():
-            group.sort(key=lambda s: s.get("contribution_score", 0), reverse=True)
-
-        # Display order: predicted label first, then opposing, then neutral
-        # All groups uncapped — full transparency
-        if predicted_label == "positive":
-            order = ["positive", "negative", "neutral"]
-        elif predicted_label == "negative":
-            order = ["negative", "positive", "neutral"]
-        else:
-            order = ["neutral", "positive", "negative"]
-
-        section_headers = {
-            predicted_label: f"Storylines supporting the {predicted_label.upper()} prediction",
-        }
-        for sent_key in ["positive", "negative", "neutral"]:
-            if sent_key != predicted_label:
-                section_headers[sent_key] = (
-                    f"Opposing storylines ({sent_key})"
-                    if sent_key != "neutral"
-                    else "Neutral storylines"
-                )
-
-        lines += [
-            "  Storylines (auto-discovered from article titles):",
-            "",
-        ]
-
-        for sent_key in order:
-            group = sl_by_sent[sent_key]
-            if not group:
-                continue
-
-            lines.append(f"    {section_headers[sent_key]}:")
-            for sl in group:
-                n = sl["articles_count"]
-                sent = sl.get("sentiment", {})
-                dom = sent.get("dominant", "neutral")
-                s_pos = sent.get("positive", 0)
-                s_neg = sent.get("negative", 0)
-                s_neu = sent.get("neutral", 0)
-                tone_icon = {"positive": "▲", "negative": "▼", "neutral": "■"}.get(dom, "?")
-                lines.append(
-                    f"      \"{sl['label']}\" ({n} articles)  "
-                    f"{tone_icon} {dom}  (+{s_pos} / -{s_neg} / ={s_neu})"
-                )
-                for t in sl.get("top_titles", []):
-                    lines.append(f"        → {t[:68]}")
-            lines.append("")
-
-        if sl_other > 0:
-            lines.append(
-                f"    Other topics ({sl_other} articles — titles too unique to cluster "
-                f"with any other article; each covers a distinct story)"
-            )
-        lines.append("")
-
-    # ── Layer 1 — Token attribution (LIME) — summary only ─────
+    # -- Layer 1 -- Token attribution (LIME) -- summary only ---------
     lines += [
         "  WHICH WORDS DROVE THE PREDICTION",
         "  Words inside each article that pushed the model toward or away from the verdict",
         w,
         "  IMPORTANT: these tokens explain why the *sentiment model* chose its",
-        "  label — they do NOT indicate why a stock price would move. LIME",
+        "  label \u2014 they do NOT indicate why a stock price would move. LIME",
         "  (Ribeiro et al., 2016) perturbs the input text and measures which",
         "  words most change the model's output distribution. The results are",
         "  model-internal attributions, not causal drivers of market returns.",
@@ -721,12 +891,6 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "  ADVANCED / DIAGNOSTICS section at the end of this report.",
         "",
     ]
-    lime_articles = layer1.get("articles", [])
-    all_art_titles = [a.get("title", "") for a in layer2.get("ranked_articles", [])]
-    noise_set = build_lime_noise_set(
-        meta.get("query", ""), meta.get("ticker", ""),
-        article_titles=all_art_titles,
-    )
     if not lime_articles:
         lines.append("  (Word-level analysis did not run or returned no results)")
     else:
@@ -745,7 +909,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             if artefacts:
                 lines.append(
                     f"      Note: {', '.join(artefacts)} "
-                    f"{'are' if len(artefacts) > 1 else 'is a'} common filler word(s) — "
+                    f"{'are' if len(artefacts) > 1 else 'is a'} common filler word(s) \u2014 "
                     "likely a text-format artefact, not meaningful signal."
                 )
             lines.append("")
@@ -767,7 +931,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             stopword_ratio = stopword_top_tokens / total_top_tokens
             if stopword_ratio > 0.40:
                 lines += [
-                    "  ⚠ LOW INTERPRETABILITY WARNING",
+                    "  \u26a0 LOW INTERPRETABILITY WARNING",
                     f"    {stopword_top_tokens}/{total_top_tokens} "
                     f"({stopword_ratio * 100:.0f}%) of top-ranked tokens are common"
                     " stopwords or filler words.",
@@ -779,19 +943,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
                 ]
     lines.append("")
 
-    # ── Charts section (names only, paths in Advanced) ──────────
-    chart_label_map = {
-        "sentiment_scores":        "Sentiment score bar chart",
-        "article_distribution":    "Article sentiment pie chart",
-        "article_weights":         "Top-10 article weight chart",
-        "horizon_breakdown":       "Timing horizon breakdown chart",
-        "lime_tokens":             "Word-level attribution (LIME) chart",
-        "reliability":             "Reliability dashboard",
-        "storyline_contribution":  "Narrative storyline contribution chart",
-        "contrastive_waterfall":   "Contrastive waterfall (why A not B?)",
-        "article_timeline":        "Article timeline (recency vs influence)",
-        "cumulative_score":        "Cumulative score build-up chart",
-    }
+    # -- Charts section (names only, paths in Advanced) --------------
     if chart_paths:
         lines += [
             "  CHARTS",
@@ -803,119 +955,8 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             lines.append(f"    [{key}]  {label}")
         lines.append("")
 
-    # ── Final plain-English summary (dissertation reader) ──────
-    n_pos = sent_counts.get("positive", 0)
-    n_neg = sent_counts.get("negative", 0)
-    n_neu = sent_counts.get("neutral", 0)
-
-    top_art       = ranked_arts[0] if ranked_arts else {}
-    top_art_title = top_art.get("title", "N/A")
-    top_art_sent  = top_art.get("dominant_sentiment", "unknown")
-    top_art_share = round(top_art.get("weight_share", 0.0) * 100, 1)
-
-    lime_sentence = ""
-    if lime_articles:
-        # Try to match the top contrastive gap driver first, fall back to
-        # most-influential article so the word-level evidence connects to
-        # the "why X instead of Y?" reasoning.
-        lime_by_title = {la["title"]: la for la in lime_articles}
-        top_gap_title = None
-        if contrastive:
-            for gd in contrastive.get("top_gap_drivers", []):
-                if gd["title"] in lime_by_title:
-                    top_gap_title = gd["title"]
-                    break
-
-        if top_gap_title and top_gap_title in lime_by_title:
-            matching_lime = lime_by_title[top_gap_title]
-            source_desc = "the top gap-driving article"
-        else:
-            matching_lime = lime_by_title.get(top_art_title, lime_articles[0])
-            source_desc = "the most influential article"
-
-        top_words = matching_lime.get("top_tokens_supporting", [])
-        if top_words:
-            lime_sentence = (
-                f" At the word level, the strongest signals in {source_desc}"
-                f" included: {', '.join(top_words[:5])}."
-            )
-
-    weight_sentence = (
-        f"Articles were weighted by recency and prediction-horizon relevance —"
-        f" the average article was {layer3['avg_days_ago']} days old,"
-        f" with most classified as short-term horizon."
-    )
-
-    # Contrastive sentence — why winner instead of runner-up
-    contrastive_sentence = ""
-    if contrastive:
-        c_winner = contrastive["winner"].upper()
-        c_runner = contrastive["runner_up"].upper()
-        c_gap = contrastive["score_gap"]
-        c_n_w = contrastive["n_favouring_winner"]
-        c_n_r = contrastive["n_favouring_runner_up"]
-        contrastive_sentence = (
-            f" The model chose {c_winner} over {c_runner} by a margin of"
-            f" {c_gap * 100:.1f} percentage points: {c_n_w} articles"
-            f" pushed toward {c_winner} while {c_n_r} pushed toward {c_runner}."
-        )
-
-    # Flip set sentence
-    flip_sentence = ""
-    if flip_info.get("flip_possible"):
-        flip_n = flip_info["flip_set_size"]
-        flip_total = flip_info["articles_total"]
-        flip_sentence = (
-            f" The prediction is sensitive: removing as few as"
-            f" {flip_n} of {flip_total} articles would change the verdict."
-        )
-    elif flip_info:
-        flip_sentence = (
-            " No subset of articles can flip the verdict — the"
-            " prediction is robust across the article pool."
-        )
-
-    reliability_sentence = {
-        "HIGH":   "The prediction carries HIGH reliability and can be used with confidence.",
-        "MEDIUM": (
-            "The prediction carries MEDIUM reliability. "
-            + ("; ".join(caution_parts).capitalize() + "." if caution_parts else "")
-        ),
-        "LOW": (
-            "The prediction carries LOW reliability and should not be used in isolation. "
-            + ("; ".join(caution_parts).capitalize() + "." if caution_parts else "")
-        ),
-    }.get(overall_rel, "")
-
-    final_paragraph = (
-        f"Out of {meta['articles_analyzed']} news articles analysed for"
-        f" {meta['query']} over a {meta['prediction_window_days']}-day forecast"
-        f" horizon, {n_pos} carried positive sentiment, {n_neg} carried negative"
-        f" sentiment, and {n_neu} were neutral."
-        f" The model produced a weighted aggregation of these scores and predicted"
-        f" a {str(pred['final_label']).upper()} label with"
-        f" {pred['final_confidence'] * 100:.1f}% model support."
-        f"{contrastive_sentence}"
-        f" The single most influential article was \"{top_art_title}\""
-        f" ({top_art_sent} sentiment, contributing {top_art_share}% of total weight)."
-        f" {weight_sentence}"
-        f"{lime_sentence}"
-        f"{flip_sentence}"
-        f" {reliability_sentence}"
-    )
-
-    lines += [
-        W,
-        "  FINAL PLAIN-ENGLISH OVERVIEW",
-        "  A complete, readable summary of the entire analysis for a general reader",
-        W,
-        "",
-    ]
-    lines += _wrap(final_paragraph, width=56)
-    lines += ["", W]
-
-    # ── Advanced / Diagnostics ─────────────────────────────────
-    # Technical details for developers and researchers — moved
+    # -- Advanced / Diagnostics --------------------------------------
+    # Technical details for developers and researchers -- moved
     # here so the main report stays end-user friendly.
     lines += [
         "",
@@ -1053,7 +1094,7 @@ def run_xai(
     else:
         news_lookback = "N/A"
 
-    # Layer 2 + 3 first — fast, pure math
+    # Layer 2 + 3 first -- fast, pure math
     article_explanation  = explain_articles(merged_articles, prediction_result)
     pipeline_explanation = explain_pipeline(merged_articles, prediction_window_days)
 
@@ -1066,7 +1107,7 @@ def run_xai(
         max_backward_days=max_backward_days,
     )
 
-    # Layer 1 — slow (LIME forward passes)
+    # Layer 1 -- slow (LIME forward passes)
     logger.info("Running LIME token attribution (top %d articles)...", XAI_LIME_TOP_N)
     token_explanation = explain_tokens(
         merged_articles,
@@ -1079,7 +1120,7 @@ def run_xai(
     logger.info("Running narrative storyline clustering...")
     storyline_data = cluster_narratives(merged_articles)
 
-    # Narrative — Ollama
+    # Narrative -- Ollama
     narrative = generate_narrative(
         prediction_result=prediction_result,
         article_explanation=article_explanation,

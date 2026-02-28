@@ -3,10 +3,16 @@
 ============================================================
   Company           : apple  (AAPL)
   Forecast horizon  : 31 days
-  News lookback     : 2026-01-30 to 2026-02-26 (ET market-close aligned)
+  News lookback     : 2026-01-31 to 2026-02-27 (ET market-close aligned)
   Articles analysed : 128
-  Generated at      : 2026-02-27 17:39:33
+  Generated at      : 2026-02-28 11:18:51
 ============================================================
+
+════════════════════════════════════════════════════════════
+  PART 1 — SUMMARY & KEY FINDINGS
+  Plain-English explanation of what the model decided and why
+════════════════════════════════════════════════════════════
+
   SUMMARY
   What the model decided and why — in plain English
 ------------------------------------------------------------
@@ -32,6 +38,136 @@ The label margin is narrow (0.054), but reliability is LOW due to a narrow decis
 
   Verdict     : NEGATIVE
   Model support : 41.1%  (share of model weight, not a probability)
+
+  RECOMMENDATION
+  What you should do with this result
+------------------------------------------------------------
+  This prediction has LOW reliability and should NOT be used alone for decisions. Reasons: the positive and negative scores are very close — a small shift in news could change the verdict; overall confidence is below the recommended threshold; most articles come from the same source, reducing editorial independence. Mitigation: articles are de-duplicated by title; weighting is content-based (not source-based) so syndicated copies receive lower combined weight if they are older or off-horizon.
+
+  NARRATIVE THEMES
+  What the news is about and the dominant tone per theme
+------------------------------------------------------------
+    Product / tech     :  62 articles (48%)  ▲ positive  (+27 / -17 / =18)
+    General commentary :  18 articles (14%)  ▼ negative  (+4 / -12 / =2)
+    Regulatory / legal :  16 articles (12%)  ▼ negative  (+2 / -12 / =2)
+    Analyst action     :  13 articles (10%)  ▲ positive  (+8 / -2 / =3)
+    Earnings / results :  13 articles (10%)  ▼ negative  (+5 / -7 / =1)
+    Strategy / M&A     :   6 articles (5%)  ▼ negative  (+2 / -4 / =0)
+
+  Storylines (auto-discovered from article titles):
+
+    Storylines supporting the NEGATIVE prediction:
+      "Warren Buffett sells Apple stock rapidly." (3 articles)  ▼ negative  (+0 / -3 / =0)
+        → The Real Reasons Warren Buffett Is Selling Apple Stock Fast
+        → Prediction: Berkshire Hathaway Will Stop Selling Apple Stock in 2026
+        → The 76-Year-Old Reason Why Buffett Has Been Selling Apple
+      "Tech giant faces major antitrust penalty." (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Italian Competition Authority fines Apple EUR 98M over app tracking
+        → Apple to appeal EUR 98M Italian Competition Authority fine, AP repor
+      "Regulator slaps tech giant with massive fine." (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Apple Fined $115 Million in Italy Over App Tracking Policy
+        → Update: Apple Faces $115.7 Million Italian Regulator Fine Over Alleg
+      "Investment focus shifted away from AI technology." (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Apple misses on AI in 2025
+        → Apple spent 2025 setting itself up for the future — and its biggest 
+      "Tech giant faces market downturn despite growth." (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Apple (AAPL) Stock Slides as Market Rises: Facts to Know Before You 
+        → Here's Why Apple (AAPL) Fell More Than Broader Market
+      "Tech giants face leadership succession struggles." (3 articles)  ▼ negative  (+0 / -3 / =0)
+        → Netflix to acquire Warner Bros., more executive departures at Apple
+        → Apple’s executive shake-up continues with departures of general coun
+        → What Apple's executive departures mean for the iPhone maker
+      "Investors seek high returns on tech stocks." (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Prediction: These 3 Stocks Could Be Worth More Than Apple 3 Years Fr
+        → If You'd Invested $1,000 in Apple 10 Years Ago, Here's How Much You'
+
+    Opposing storylines (positive):
+      "Analyst raises price target expectations for tech giant." (3 articles)  ▲ positive  (+3 / -0 / =0)
+        → Morgan Stanley Boosts Apple (AAPL) Target, Sees Upside From Pricing 
+        → Morgan Stanley Lifts Apple Inc. (AAPL) Price Target on Earnings Grow
+        → Apple leads Morgan Stanley top IT hardware picks for 2026. Here are 
+      "iPhone demand drives stock price surge." (3 articles)  ▲ positive  (+3 / -0 / =0)
+        → JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reache
+        → Apple (AAPL) Target Raised as Jefferies Sees Stronger iPhone Demand
+        → Apple (AAPL) Price Target Raised as Loop Capital Sees Stronger iPhon
+      "Investor optimism drives stock price surge ahead." (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → Apple Stock Rises Ahead of 2026. What's Driving the Growth
+        → Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead 
+      "Investor advises sticking with long-term investments." (3 articles)  ▲ positive  (+3 / -0 / =0)
+        → Jim Cramer Says “Own Apple, Don’t Trade It”
+        → Jim Cramer Says “I Own Apple, and I Say Own it, Don’t Trade It”
+        → Jim Cramer Repeats His “Own It, Don’t Trade It” Mantra on Apple
+      "Tech giants to partner on AI project." (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → Dan Ives Is Betting That Apple and Google Will Partner in 2026. Shou
+        → Apple Just Released a New AI Model. Should You Buy AAPL Stock Here?
+      "Tech stocks surge in morning trading sessions." (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → Dow Jones Tech Giant Apple, AppLovin, Palantir, Tesla In Buy Zones
+        → Dow Jones Futures: Nvidia Tests Key Level; AppLovin, Apple, Palantir
+      "Apple's investment boosts Nike stock significantly." (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → Apple CEO Tim Cook Just Gave Nike Investors 3 Million Reasons to Che
+        → Nike shares jump after Apple CEO Cook doubles stake to $6 million
+
+    Neutral storylines:
+      "Investor optimism wavers over tech giant's future." (2 articles)  ■ neutral  (+0 / -0 / =2)
+        → UBS Reiterates Neutral on Apple (AAPL) as Interest in Apple Intellig
+        → UBS Reiterates Neutral on Apple (AAPL) as App Store Growth Slows
+      "Executive faces internal power struggle and uncertainty" (2 articles)  ■ neutral  (+0 / -0 / =2)
+        → Apple Chip Chief Considers Exit, Tim Cook's AI Reset And More: This 
+        → Apple's chip chief reportedly 'not leaving': A closer look
+      "Investors seek answers on future strategy" (2 articles)  ■ neutral  (+0 / -0 / =2)
+        → Apple's First Foldable iPhone Leak Reveals Major Design Trade-Offs: 
+        → Investors Heavily Search Apple Inc. (AAPL): Here is What You Need to
+      "Apple's investment boosts sports apparel maker's stock." (2 articles)  ■ neutral  (+0 / -0 / =2)
+        → Nike Stock Price Gets a Lift After Apple’s Tim Cook Doubles His Stak
+        → Why Apple's Tim Cook Drove Nike Stock Higher Today
+
+    Other topics (87 articles — titles too unique to cluster with any other article; each covers a distinct story)
+
+============================================================
+  FINAL PLAIN-ENGLISH OVERVIEW
+  A complete, readable summary of the entire analysis for a general reader
+============================================================
+
+  Out of 128 news articles analysed for apple over a
+  31-day forecast horizon, 48 carried positive sentiment,
+  54 carried negative sentiment, and 26 were neutral. The
+  model produced a weighted aggregation of these scores
+  and predicted a NEGATIVE label with 41.1% model support.
+  The model chose NEGATIVE over POSITIVE by a margin of
+  5.4 percentage points: 66 articles pushed toward
+  NEGATIVE while 62 pushed toward POSITIVE. The single
+  most influential article was "Apple's AI challenges in
+  2026" (negative sentiment, contributing 1.4% of total
+  weight). Articles were weighted by recency and
+  prediction-horizon relevance — the average article was
+  14.7 days old, with most classified as short-term
+  horizon. At the word level, the strongest signals in the
+  top gap-driving article included: Fails, Cringe,
+  execution, product, Letdown. The prediction is
+  sensitive: removing as few as 5 of 128 articles would
+  change the verdict. The prediction carries LOW
+  reliability and should not be used in isolation. The
+  positive and negative scores are very close — a small
+  shift in news could change the verdict; overall
+  confidence is below the recommended threshold; most
+  articles come from the same source, reducing editorial
+  independence. mitigation: articles are de-duplicated by
+  title; weighting is content-based (not source-based) so
+  syndicated copies receive lower combined weight if they
+  are older or off-horizon.
+
+
+  DISCLAIMER
+------------------------------------------------------------
+  This report presents news-based sentiment analysis only.
+  It is NOT financial advice and does NOT recommend any
+  trading action (buy, sell, or hold). The authors are not
+  responsible for any investment decision made using this output.
+
+════════════════════════════════════════════════════════════
+  PART 2 — DETAILED TECHNICAL ANALYSIS
+  Scores, article breakdowns, and model-internal attributions
+════════════════════════════════════════════════════════════
 
   WHY NEGATIVE INSTEAD OF POSITIVE?
   Contrastive explanation — what tipped the balance
@@ -101,24 +237,12 @@ The label margin is narrow (0.054), but reliability is LOW due to a narrow decis
 
   Thresholds used  : reliability confidence ≥ 0.45
 
-  RECOMMENDATION
-  What you should do with this result
-------------------------------------------------------------
-  This prediction has LOW reliability and should NOT be used alone for decisions. Reasons: the positive and negative scores are very close — a small shift in news could change the verdict; overall confidence is below the recommended threshold; most articles come from the same source, reducing editorial independence. Mitigation: articles are de-duplicated by title; weighting is content-based (not source-based) so syndicated copies receive lower combined weight if they are older or off-horizon.
-
   HISTORICAL CALIBRATION
   How this model has performed on past predictions
 ------------------------------------------------------------
   Not yet available. Run the backtest evaluation module to
   populate this section with accuracy, precision, and recall
   broken down by reliability level (HIGH / MEDIUM / LOW).
-
-  DISCLAIMER
-------------------------------------------------------------
-  This report presents news-based sentiment analysis only.
-  It is NOT financial advice and does NOT recommend any
-  trading action (buy, sell, or hold). The authors are not
-  responsible for any investment decision made using this output.
 
   WHICH ARTICLES DROVE THE PREDICTION
   The articles that had the most impact on the final verdict
@@ -169,85 +293,6 @@ The label margin is narrow (0.054), but reliability is LOW due to a narrow decis
     Medium-term (weeks) : █████░░░░░░░░░░░░░░░░░░░░░░░░░   16 (12%)
     Long-term (months)  : ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░    6 (5%)
 
-  NARRATIVE THEMES
-  What the news is about and the dominant tone per theme
-------------------------------------------------------------
-    Product / tech     :  62 articles (48%)  ▲ positive  (+27 / -17 / =18)
-    General commentary :  18 articles (14%)  ▼ negative  (+4 / -12 / =2)
-    Regulatory / legal :  16 articles (12%)  ▼ negative  (+2 / -12 / =2)
-    Analyst action     :  13 articles (10%)  ▲ positive  (+8 / -2 / =3)
-    Earnings / results :  13 articles (10%)  ▼ negative  (+5 / -7 / =1)
-    Strategy / M&A     :   6 articles (5%)  ▼ negative  (+2 / -4 / =0)
-
-  Storylines (auto-discovered from article titles):
-
-    Storylines supporting the NEGATIVE prediction:
-      "Warren Buffett sells shares due to age." (3 articles)  ▼ negative  (+0 / -3 / =0)
-        → The Real Reasons Warren Buffett Is Selling Apple Stock Fast
-        → Prediction: Berkshire Hathaway Will Stop Selling Apple Stock in 2026
-        → The 76-Year-Old Reason Why Buffett Has Been Selling Apple
-      "Tech giant faces antitrust investigation and penalty." (2 articles)  ▼ negative  (+0 / -2 / =0)
-        → Italian Competition Authority fines Apple EUR 98M over app tracking
-        → Apple to appeal EUR 98M Italian Competition Authority fine, AP repor
-      "Regulator slaps tech giant with massive fine" (2 articles)  ▼ negative  (+0 / -2 / =0)
-        → Apple Fined $115 Million in Italy Over App Tracking Policy
-        → Update: Apple Faces $115.7 Million Italian Regulator Fine Over Alleg
-      "Investment focus shifted away from AI technology." (2 articles)  ▼ negative  (+0 / -2 / =0)
-        → Apple misses on AI in 2025
-        → Apple spent 2025 setting itself up for the future — and its biggest 
-      "Tech giant faces market downturn despite growth." (2 articles)  ▼ negative  (+0 / -2 / =0)
-        → Apple (AAPL) Stock Slides as Market Rises: Facts to Know Before You 
-        → Here's Why Apple (AAPL) Fell More Than Broader Market
-      "Tech giants face leadership succession struggles" (3 articles)  ▼ negative  (+0 / -3 / =0)
-        → Netflix to acquire Warner Bros., more executive departures at Apple
-        → Apple’s executive shake-up continues with departures of general coun
-        → What Apple's executive departures mean for the iPhone maker
-      "Investors seek high returns on tech stocks." (2 articles)  ▼ negative  (+0 / -2 / =0)
-        → Prediction: These 3 Stocks Could Be Worth More Than Apple 3 Years Fr
-        → If You'd Invested $1,000 in Apple 10 Years Ago, Here's How Much You'
-
-    Opposing storylines (positive):
-      "Analyst raises price target expectations for tech giant." (3 articles)  ▲ positive  (+3 / -0 / =0)
-        → Morgan Stanley Boosts Apple (AAPL) Target, Sees Upside From Pricing 
-        → Morgan Stanley Lifts Apple Inc. (AAPL) Price Target on Earnings Grow
-        → Apple leads Morgan Stanley top IT hardware picks for 2026. Here are 
-      "iPhone demand drives stock price surge." (3 articles)  ▲ positive  (+3 / -0 / =0)
-        → JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reache
-        → Apple (AAPL) Target Raised as Jefferies Sees Stronger iPhone Demand
-        → Apple (AAPL) Price Target Raised as Loop Capital Sees Stronger iPhon
-      "Investor optimism drives stock price surge ahead." (2 articles)  ▲ positive  (+2 / -0 / =0)
-        → Apple Stock Rises Ahead of 2026. What's Driving the Growth
-        → Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead 
-      "Investor advocates for long-term ownership strategy." (3 articles)  ▲ positive  (+3 / -0 / =0)
-        → Jim Cramer Says “Own Apple, Don’t Trade It”
-        → Jim Cramer Says “I Own Apple, and I Say Own it, Don’t Trade It”
-        → Jim Cramer Repeats His “Own It, Don’t Trade It” Mantra on Apple
-      "Tech giants to partner on AI project." (2 articles)  ▲ positive  (+2 / -0 / =0)
-        → Dan Ives Is Betting That Apple and Google Will Partner in 2026. Shou
-        → Apple Just Released a New AI Model. Should You Buy AAPL Stock Here?
-      "Tech stocks surge in morning trading sessions." (2 articles)  ▲ positive  (+2 / -0 / =0)
-        → Dow Jones Tech Giant Apple, AppLovin, Palantir, Tesla In Buy Zones
-        → Dow Jones Futures: Nvidia Tests Key Level; AppLovin, Apple, Palantir
-      "Apple invests heavily in sports apparel partner." (2 articles)  ▲ positive  (+2 / -0 / =0)
-        → Apple CEO Tim Cook Just Gave Nike Investors 3 Million Reasons to Che
-        → Nike shares jump after Apple CEO Cook doubles stake to $6 million
-
-    Neutral storylines:
-      "Investor confidence wavers over tech giant's future." (2 articles)  ■ neutral  (+0 / -0 / =2)
-        → UBS Reiterates Neutral on Apple (AAPL) as Interest in Apple Intellig
-        → UBS Reiterates Neutral on Apple (AAPL) as App Store Growth Slows
-      "Executive faces internal power struggle and uncertainty" (2 articles)  ■ neutral  (+0 / -0 / =2)
-        → Apple Chip Chief Considers Exit, Tim Cook's AI Reset And More: This 
-        → Apple's chip chief reportedly 'not leaving': A closer look
-      "Investors weigh future of foldable technology plans." (2 articles)  ■ neutral  (+0 / -0 / =2)
-        → Apple's First Foldable iPhone Leak Reveals Major Design Trade-Offs: 
-        → Investors Heavily Search Apple Inc. (AAPL): Here is What You Need to
-      "Apple's investment boosts sports apparel stock." (2 articles)  ■ neutral  (+0 / -0 / =2)
-        → Nike Stock Price Gets a Lift After Apple’s Tim Cook Doubles His Stak
-        → Why Apple's Tim Cook Drove Nike Stock Higher Today
-
-    Other topics (87 articles — titles too unique to cluster with any other article; each covers a distinct story)
-
   WHICH WORDS DROVE THE PREDICTION
   Words inside each article that pushed the model toward or away from the verdict
 ------------------------------------------------------------
@@ -296,40 +341,6 @@ The label margin is narrow (0.054), but reliability is LOW due to a narrow decis
     [article_timeline]  Article timeline (recency vs influence)
     [cumulative_score]  Cumulative score build-up chart
 
-============================================================
-  FINAL PLAIN-ENGLISH OVERVIEW
-  A complete, readable summary of the entire analysis for a general reader
-============================================================
-
-  Out of 128 news articles analysed for apple over a
-  31-day forecast horizon, 48 carried positive sentiment,
-  54 carried negative sentiment, and 26 were neutral. The
-  model produced a weighted aggregation of these scores
-  and predicted a NEGATIVE label with 41.1% model support.
-  The model chose NEGATIVE over POSITIVE by a margin of
-  5.4 percentage points: 66 articles pushed toward
-  NEGATIVE while 62 pushed toward POSITIVE. The single
-  most influential article was "Apple's AI challenges in
-  2026" (negative sentiment, contributing 1.4% of total
-  weight). Articles were weighted by recency and
-  prediction-horizon relevance — the average article was
-  14.7 days old, with most classified as short-term
-  horizon. At the word level, the strongest signals in the
-  top gap-driving article included: Fails, Cringe,
-  execution, product, Letdown. The prediction is
-  sensitive: removing as few as 5 of 128 articles would
-  change the verdict. The prediction carries LOW
-  reliability and should not be used in isolation. The
-  positive and negative scores are very close — a small
-  shift in news could change the verdict; overall
-  confidence is below the recommended threshold; most
-  articles come from the same source, reducing editorial
-  independence. mitigation: articles are de-duplicated by
-  title; weighting is content-based (not source-based) so
-  syndicated copies receive lower combined weight if they
-  are older or off-horizon.
-
-============================================================
 
   ADVANCED / DIAGNOSTICS
   Technical details for developers and reproducibility
