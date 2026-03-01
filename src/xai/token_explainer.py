@@ -28,12 +28,14 @@ def _get_lime_explainer():
 
 
 def _build_predict_fn(pipeline_callable, company_name: str):
-    # Labels must match exactly what zero_shot._classify_sentiment uses on feature/xai
-    labels = [
-        f"negative sentiment toward {company_name}",
-        f"this article is factual or neutral about {company_name}",
-        f"positive sentiment toward {company_name}",
-    ]
+    # Must match _classify_sentiment() in zero_shot.py exactly
+    class_to_label = {
+        "negative": f"bad news for {company_name}'s stock price",
+        "neutral":  f"news with no clear impact on {company_name}'s stock price",
+        "positive": f"good news for {company_name}'s stock price",
+    }
+    labels = list(class_to_label.values())
+    label_to_class = {v.lower().strip(): k for k, v in class_to_label.items()}
 
     def predict_proba(texts: list[str]) -> np.ndarray:
         results = pipeline_callable(
@@ -49,11 +51,12 @@ def _build_predict_fn(pipeline_callable, company_name: str):
         probs = np.zeros((len(results), 3))
         for i, result in enumerate(results):
             for lbl, score in zip(result["labels"], result["scores"]):
-                if "positive" in lbl:
+                cls = label_to_class.get(lbl.lower().strip())
+                if cls == "positive":
                     probs[i, 0] = score
-                elif "negative" in lbl:
+                elif cls == "negative":
                     probs[i, 1] = score
-                elif "factual or neutral" in lbl:
+                elif cls == "neutral":
                     probs[i, 2] = score
         return probs
 

@@ -43,6 +43,31 @@ class Fetcher:
         self.search()
         return self.display_results()
 
+    def run_pipeline(
+        self,
+        company_name: str,
+        start_date: str,
+        end_date: str,
+        num_articles: int = 250,
+    ) -> bool:
+        """Programmatic entry point -- sets inputs directly, then runs search + save.
+
+        Parameters
+        ----------
+        company_name : str
+            e.g. "Apple Inc." or "AAPL"
+        start_date / end_date : str
+            DD-MM-YYYY format
+        num_articles : int
+            Max articles to keep after filtering (default 250).
+        """
+        self.query = company_name.strip()
+        self.start_date = start_date
+        self.end_date = end_date
+        self.number_of_news = num_articles
+        self.search()
+        return self.display_results()
+
     def __init__(self) -> None:
         self.start_date: str | None = None
         self.end_date: str | None = None
