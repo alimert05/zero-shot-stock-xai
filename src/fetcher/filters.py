@@ -59,25 +59,24 @@ def filter_company_related(articles: list[dict], company_name: str, ticker: str 
 
             headline_has = _contains_name_or_ticker(title, company_name, ticker_re)
             content_has = _contains_name_or_ticker(content, company_name, ticker_re)
-            if headline_has and content_has:
+
+            # Keep strong headline matches even if content was removed by
+            # noise reduction. This avoids losing relevant ticker headlines.
+            if headline_has:
                 kept.append(article)
+                continue
 
-            # if headline_has:
-            #     if _contains_name_or_ticker(content, company_name, ticker_re):
-            #         kept.append(article)
-            #     else:
-            #         article["content"] = None
-            #         kept.append(article)
-            #     continue
+            # If headline does not match and there is no usable content, drop.
+            if not content:
+                dropped_no_match_no_content += 1
+                continue
 
-            # if not content:
-            #     dropped_no_match_no_content += 1
-            #     continue
-
-            # if _contains_name_or_ticker(content, company_name, ticker_re):
-            #     kept.append(article)
-            # else:
-            #     dropped_no_match_in_content += 1
+            # Fallback: keep content-only matches (e.g., generic headline but
+            # company reference exists in the cleaned body).
+            if content_has:
+                kept.append(article)
+            else:
+                dropped_no_match_in_content += 1
 
         except (KeyError, AttributeError, TypeError) as exc:
             logger.warning("Error processing article while company filter: %s", exc)
