@@ -677,7 +677,7 @@ def _render_article_rankings(result: dict) -> None:
                 st.markdown(
                     f'<div style="background:#f8f9fa;padding:10px 14px;border-radius:6px;'
                     f'font-size:0.9rem;margin-bottom:12px;border-left:3px solid #3498db;">'
-                    f'{preview}</div>',
+                    f'<strong>Content:</strong> {preview}</div>',
                     unsafe_allow_html=True,
                 )
             else:
