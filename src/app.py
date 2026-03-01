@@ -322,7 +322,6 @@ def _run_full_pipeline(
     company_name: str,
     start_date_str: str,
     end_date_str: str,
-    num_articles: int,
 ) -> dict | None:
     """Execute fetcher -> predictor -> XAI and return the XAI result dict."""
     from fetcher.fetcher import Fetcher
@@ -338,7 +337,7 @@ def _run_full_pipeline(
             company_name=company_name,
             start_date=start_date_str,
             end_date=end_date_str,
-            num_articles=num_articles,
+            num_articles=10000,
         )
     except RuntimeError as exc:
         progress.update(label="Pipeline failed", state="error")
@@ -1417,15 +1416,6 @@ def main() -> None:
         with col_d2:
             end_date = st.date_input("End Date", value=today)
 
-        num_articles = st.slider(
-            "Max Articles",
-            min_value=10,
-            max_value=500,
-            value=250,
-            step=10,
-            help="Maximum number of articles to include after filtering",
-        )
-
         st.divider()
         run_btn = st.button("Run Analysis", type="primary", use_container_width=True)
 
@@ -1445,7 +1435,7 @@ def main() -> None:
         start_str = start_date.strftime("%d-%m-%Y")
         end_str = end_date.strftime("%d-%m-%Y")
 
-        xai_result = _run_full_pipeline(company_name, start_str, end_str, num_articles)
+        xai_result = _run_full_pipeline(company_name, start_str, end_str)
 
         if xai_result is not None:
             st.session_state["xai_result"] = xai_result
