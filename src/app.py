@@ -142,6 +142,7 @@ def _build_comprehensive_summary(result: dict) -> str:
     narrative = result.get("narrative", {})
     reliability = result.get("reliability", {})
     layer2 = result.get("layer_2_article", {})
+    layer3 = result.get("layer_3_pipeline", {})
     contrastive = layer2.get("contrastive", {})
     storylines_data = result.get("storylines", {})
     flip_set = layer2.get("minimum_flip_set", {})
@@ -175,6 +176,17 @@ def _build_comprehensive_summary(result: dict) -> str:
             f"The weighted sentiment distribution across all articles is: {', '.join(score_parts)}."
         )
 
+    ranked = layer2.get("ranked_articles", [])
+    if ranked:
+        sent_counts: dict[str, int] = {}
+        for a in ranked:
+            s = a.get("dominant_sentiment", "unknown")
+            sent_counts[s] = sent_counts.get(s, 0) + 1
+        count_parts = [f"**{v}** {k}" for k, v in sorted(sent_counts.items(), key=lambda x: x[1], reverse=True)]
+        parts.append(
+            f"Out of {len(ranked)} articles, the sentiment breakdown is: {', '.join(count_parts)}."
+        )
+
     narrative_text = narrative.get("summary") or narrative.get("fallback_summary") or ""
     if narrative_text:
         parts.append(narrative_text)
@@ -192,7 +204,6 @@ def _build_comprehensive_summary(result: dict) -> str:
             f"while {n_fav_r} favoured {runner}."
         )
 
-    ranked = layer2.get("ranked_articles", [])
     if ranked:
         top3 = ranked[:3]
         driver_parts = []
@@ -203,6 +214,45 @@ def _build_comprehensive_summary(result: dict) -> str:
             driver_parts.append(f'"{t}" ({s}, {w:.1%} weight)')
         parts.append(
             f"The most influential articles were: {'; '.join(driver_parts)}."
+        )
+
+    hhi = layer2.get("weight_concentration", 0)
+    if hhi:
+        if hhi > 0.4:
+            parts.append(
+                f"Evidence is **concentrated** (Herfindahl index: {hhi:.4f}) "
+                f"— a small number of articles dominate the prediction."
+            )
+        else:
+            parts.append(
+                f"Evidence is **well-distributed** across articles "
+                f"(Herfindahl index: {hhi:.4f})."
+            )
+
+    event_dist = layer3.get("event_type_distribution", {})
+    if event_dist:
+        top_events = sorted(event_dist.items(), key=lambda x: x[1], reverse=True)[:3]
+        evt_parts = [f"{evt.split(',')[0].strip()} ({cnt})" for evt, cnt in top_events]
+        parts.append(
+            f"The dominant event types driving the news are: {', '.join(evt_parts)}."
+        )
+
+    horizon_dist = layer3.get("horizon_distribution", {})
+    if horizon_dist:
+        total_h = sum(horizon_dist.values())
+        horizon_parts = [f"{cat.replace('_', ' ').lower()}: {cnt}" for cat, cnt in horizon_dist.items() if cnt > 0]
+        parts.append(
+            f"Articles span across timing horizons ({', '.join(horizon_parts)}), "
+            f"reflecting how the market is expected to absorb this news over time."
+        )
+
+    avg_days = layer3.get("avg_days_ago")
+    avg_recency = layer3.get("avg_recency_weight")
+    if avg_days is not None and avg_recency is not None:
+        parts.append(
+            f"On average, articles are **{avg_days:.1f} days old** "
+            f"with an average recency weight of **{avg_recency:.4f}**, "
+            f"meaning {'recent news is weighted heavily' if avg_recency > 0.7 else 'the news mix includes older articles with reduced weight'}."
         )
 
     storylines = storylines_data.get("storylines", [])
@@ -233,7 +283,7 @@ def _build_comprehensive_summary(result: dict) -> str:
 
     if flip_articles:
         parts.append(
-            f"The prediction is sensitive: removing any single one of "
+            f"The prediction is **sensitive**: removing any single one of "
             f"**{len(flip_articles)} article{'s' if len(flip_articles) != 1 else ''}** "
             f"would flip the label."
         )
@@ -246,7 +296,7 @@ def _build_comprehensive_summary(result: dict) -> str:
         )
     else:
         parts.append(
-            "The prediction is robust: no feasible combination of article removals "
+            "The prediction is **robust**: no feasible combination of article removals "
             "would change the label."
         )
 
