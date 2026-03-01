@@ -136,7 +136,13 @@ def _load_article_content() -> dict[str, str]:
 
 
 def _build_comprehensive_summary(result: dict) -> str:
-    """Build a large plain-English summary covering everything from the XAI result."""
+    """Build a large plain-English summary covering everything from the XAI result.
+
+    Uses <b> tags instead of markdown ** because the summary is rendered
+    inside a raw HTML <div>.
+    """
+    import re
+
     pred = result.get("prediction_summary", {})
     meta = result.get("meta", {})
     narrative = result.get("narrative", {})
@@ -160,18 +166,18 @@ def _build_comprehensive_summary(result: dict) -> str:
     parts = []
 
     parts.append(
-        f"The model analysed **{n_articles} news articles** about **{company}**"
+        f"The model analysed <b>{n_articles} news articles</b> about <b>{company}</b>"
         f"{f' ({ticker})' if ticker else ''} "
-        f"over a **{window}-day prediction window** "
+        f"over a <b>{window}-day prediction window</b> "
         f"(news lookback: {lookback}) "
-        f"and predicted a **{label.upper()}** label with **{confidence:.1%} confidence**."
+        f"and predicted a <b>{label.upper()}</b> label with <b>{confidence:.1%} confidence</b>."
     )
 
     if scores:
         score_parts = []
         for lbl in ["positive", "negative", "neutral"]:
             val = scores.get(lbl, 0)
-            score_parts.append(f"{lbl} {val:.1%}")
+            score_parts.append(f"<b>{lbl} {val:.1%}</b>")
         parts.append(
             f"The weighted sentiment distribution across all articles is: {', '.join(score_parts)}."
         )
@@ -182,13 +188,20 @@ def _build_comprehensive_summary(result: dict) -> str:
         for a in ranked:
             s = a.get("dominant_sentiment", "unknown")
             sent_counts[s] = sent_counts.get(s, 0) + 1
-        count_parts = [f"**{v}** {k}" for k, v in sorted(sent_counts.items(), key=lambda x: x[1], reverse=True)]
+        count_parts = [f"<b>{v}</b> {k}" for k, v in sorted(sent_counts.items(), key=lambda x: x[1], reverse=True)]
         parts.append(
             f"Out of {len(ranked)} articles, the sentiment breakdown is: {', '.join(count_parts)}."
         )
 
     narrative_text = narrative.get("summary") or narrative.get("fallback_summary") or ""
     if narrative_text:
+        narrative_text = re.sub(
+            r",\s*but\s+(\w)",
+            lambda m: ". " + m.group(1).upper(),
+            narrative_text,
+        )
+        if narrative_text[0:1].islower():
+            narrative_text = narrative_text[0].upper() + narrative_text[1:]
         parts.append(narrative_text)
 
     winner = contrastive.get("winner", "")
@@ -198,8 +211,8 @@ def _build_comprehensive_summary(result: dict) -> str:
     n_fav_r = contrastive.get("n_favouring_runner_up", 0)
     if winner and runner:
         parts.append(
-            f"The prediction chose **{winner.upper()}** over **{runner.upper()}** "
-            f"by a score gap of **{gap:.4f}**. "
+            f"The prediction chose <b>{winner.upper()}</b> over <b>{runner.upper()}</b> "
+            f"by a score gap of <b>{gap:.4f}</b>. "
             f"{n_fav_w} article{'s' if n_fav_w != 1 else ''} favoured {winner} "
             f"while {n_fav_r} favoured {runner}."
         )
@@ -211,7 +224,7 @@ def _build_comprehensive_summary(result: dict) -> str:
             t = a.get("title", "?")
             s = a.get("dominant_sentiment", "?")
             w = a.get("weight_share", 0)
-            driver_parts.append(f'"{t}" ({s}, {w:.1%} weight)')
+            driver_parts.append(f'"{t}" ({s}, <b>{w:.1%}</b> weight)')
         parts.append(
             f"The most influential articles were: {'; '.join(driver_parts)}."
         )
@@ -220,27 +233,29 @@ def _build_comprehensive_summary(result: dict) -> str:
     if hhi:
         if hhi > 0.4:
             parts.append(
-                f"Evidence is **concentrated** (Herfindahl index: {hhi:.4f}) "
+                f"Evidence is <b>concentrated</b> (Herfindahl index: {hhi:.4f}) "
                 f"— a small number of articles dominate the prediction."
             )
         else:
             parts.append(
-                f"Evidence is **well-distributed** across articles "
+                f"Evidence is <b>well-distributed</b> across articles "
                 f"(Herfindahl index: {hhi:.4f})."
             )
 
     event_dist = layer3.get("event_type_distribution", {})
     if event_dist:
         top_events = sorted(event_dist.items(), key=lambda x: x[1], reverse=True)[:3]
-        evt_parts = [f"{evt.split(',')[0].strip()} ({cnt})" for evt, cnt in top_events]
+        evt_parts = [f"<b>{evt.split(',')[0].strip()}</b> ({cnt})" for evt, cnt in top_events]
         parts.append(
             f"The dominant event types driving the news are: {', '.join(evt_parts)}."
         )
 
     horizon_dist = layer3.get("horizon_distribution", {})
     if horizon_dist:
-        total_h = sum(horizon_dist.values())
-        horizon_parts = [f"{cat.replace('_', ' ').lower()}: {cnt}" for cat, cnt in horizon_dist.items() if cnt > 0]
+        horizon_parts = [
+            f"<b>{cat.replace('_', ' ').lower()}</b>: {cnt}"
+            for cat, cnt in horizon_dist.items() if cnt > 0
+        ]
         parts.append(
             f"Articles span across timing horizons ({', '.join(horizon_parts)}), "
             f"reflecting how the market is expected to absorb this news over time."
@@ -250,8 +265,8 @@ def _build_comprehensive_summary(result: dict) -> str:
     avg_recency = layer3.get("avg_recency_weight")
     if avg_days is not None and avg_recency is not None:
         parts.append(
-            f"On average, articles are **{avg_days:.1f} days old** "
-            f"with an average recency weight of **{avg_recency:.4f}**, "
+            f"On average, articles are <b>{avg_days:.1f} days old</b> "
+            f"with an average recency weight of <b>{avg_recency:.4f}</b>, "
             f"meaning {'recent news is weighted heavily' if avg_recency > 0.7 else 'the news mix includes older articles with reduced weight'}."
         )
 
@@ -262,7 +277,7 @@ def _build_comprehensive_summary(result: dict) -> str:
             name = sl.get("label") or sl.get("keyword_label", "?")
             sg = sl.get("sentiment_group", "?")
             nc = sl.get("articles_count", 0)
-            theme_parts.append(f"{name} ({sg}, {nc} articles)")
+            theme_parts.append(f"<b>{name}</b> ({sg}, <b>{nc} articles</b>)")
         parts.append(
             f"The main narrative themes identified are: {'; '.join(theme_parts)}."
         )
@@ -274,7 +289,7 @@ def _build_comprehensive_summary(result: dict) -> str:
         if info.get("flagged")
     ]
     rel_text = (
-        f"Prediction confidence level is **{rel_level}** "
+        f"Prediction confidence level is <b>{rel_level}</b> "
         f"({flags_triggered} of 7 checks flagged)."
     )
     if flagged_names:
@@ -283,24 +298,24 @@ def _build_comprehensive_summary(result: dict) -> str:
 
     if flip_articles:
         parts.append(
-            f"The prediction is **sensitive**: removing any single one of "
-            f"**{len(flip_articles)} article{'s' if len(flip_articles) != 1 else ''}** "
+            f"The prediction is <b>sensitive</b>: removing any single one of "
+            f"<b>{len(flip_articles)} article{'s' if len(flip_articles) != 1 else ''}</b> "
             f"would flip the label."
         )
     elif flip_set and flip_set.get("flip_possible"):
         n_flip = flip_set.get("flip_set_size", "?")
         new_lbl = flip_set.get("new_label", "?")
         parts.append(
-            f"Removing as few as **{n_flip} articles** would flip the prediction to "
-            f"**{new_lbl.upper()}**."
+            f"Removing as few as <b>{n_flip} articles</b> would flip the prediction to "
+            f"<b>{new_lbl.upper()}</b>."
         )
     else:
         parts.append(
-            "The prediction is **robust**: no feasible combination of article removals "
+            "The prediction is <b>robust</b>: no feasible combination of article removals "
             "would change the label."
         )
 
-    return "\n\n".join(parts)
+    return "<br><br>".join(parts)
 
 
 def _run_full_pipeline(
