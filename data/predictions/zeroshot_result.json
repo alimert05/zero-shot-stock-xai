@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "query": "Nvidia",
   "company_name": "Nvidia",
   "ticker": "NVDA",
@@ -811,6 +812,115 @@
         "positive": 0.2832,
         "negative": 0.3351,
         "neutral": 0.2155
+=======
+  "query": "Apple Inc.",
+  "company_name": "Apple Inc.",
+  "ticker": "AAPL",
+  "articles_analyzed": 8,
+  "articles_total": 8,
+  "total_weight": 3.8314,
+  "weighted_scores": {
+    "positive": 1.9874,
+    "negative": 1.3856,
+    "neutral": 0.4584
+  },
+  "normalized_scores": {
+    "positive": 0.5187,
+    "negative": 0.3616,
+    "neutral": 0.1196
+  },
+  "final_label": "positive",
+  "final_confidence": 0.5187,
+  "article_details": [
+    {
+      "title": "As Apple Tests AI Devices, Should You Buy AAPL Stock Here?",
+      "final_weight": 0.8902,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9032086730003357,
+        "negative": 0.0453212670981884,
+        "neutral": 0.05147010087966919
+      },
+      "weighted_scores": {
+        "positive": 0.804,
+        "negative": 0.0403,
+        "neutral": 0.0458
+      }
+    },
+    {
+      "title": "Why Apple’s (AAPL) AI Rollout Timeline Is Raising Fresh Questions",
+      "final_weight": 0.8009,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.09658027440309525,
+        "negative": 0.6937669515609741,
+        "neutral": 0.209652841091156
+      },
+      "weighted_scores": {
+        "positive": 0.0774,
+        "negative": 0.5556,
+        "neutral": 0.1679
+      }
+    },
+    {
+      "title": "Apple Faces FTC Scrutiny And Siri AI Delays What It Means For AAPL",
+      "final_weight": 0.6957,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.057724710553884506,
+        "negative": 0.8891501426696777,
+        "neutral": 0.053125157952308655
+      },
+      "weighted_scores": {
+        "positive": 0.0402,
+        "negative": 0.6186,
+        "neutral": 0.037
+      }
+    },
+    {
+      "title": "Is the YieldMax AAPL Option Income Strategy ETF’s (APLY) 70% Yield Real or Misleading?",
+      "final_weight": 0.3929,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.43423062562942505,
+        "negative": 0.29042911529541016,
+        "neutral": 0.2753402888774872
+      },
+      "weighted_scores": {
+        "positive": 0.1706,
+        "negative": 0.1141,
+        "neutral": 0.1082
+      }
+    },
+    {
+      "title": "Apple Inc. (AAPL)’s Upcoming Hardware and AI Updates Keep Street Optimistic",
+      "final_weight": 0.3929,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9483150243759155,
+        "negative": 0.01430642232298851,
+        "neutral": 0.03737854212522507
+      },
+      "weighted_scores": {
+        "positive": 0.3726,
+        "negative": 0.0056,
+        "neutral": 0.0147
+      }
+    },
+    {
+      "title": "Here's Why Apple (AAPL) is a Great Momentum Stock to Buy",
+      "final_weight": 0.2969,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9822978973388672,
+        "negative": 0.007893115282058716,
+        "neutral": 0.009808972477912903
+      },
+      "weighted_scores": {
+        "positive": 0.2916,
+        "negative": 0.0023,
+        "neutral": 0.0029
+>>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
       }
     },
     {
@@ -818,6 +928,7 @@
       "final_weight": 0.8338,
       "input_source": "headline+content",
       "raw_scores": {
+<<<<<<< HEAD
         "positive": 0.3117963969707489,
         "negative": 0.5298876166343689,
         "neutral": 0.15831594169139862
@@ -3766,13 +3877,44 @@
         "positive": 0.082,
         "negative": 0.0939,
         "neutral": 0.0366
+=======
+        "positive": 0.5260457992553711,
+        "negative": 0.1805189847946167,
+        "neutral": 0.293435275554657
+      },
+      "weighted_scores": {
+        "positive": 0.1133,
+        "negative": 0.0389,
+        "neutral": 0.0632
+      }
+    },
+    {
+      "title": "Jim Cramer on Apple (AAPL): “Doesn’t Hurt That They’ve Avoided Spending Hundreds of Billions of Dollars on Data Centers”",
+      "final_weight": 0.1465,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8035449981689453,
+        "negative": 0.06892523169517517,
+        "neutral": 0.12752974033355713
+      },
+      "weighted_scores": {
+        "positive": 0.1177,
+        "negative": 0.0101,
+        "neutral": 0.0187
+>>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
       }
     }
   ],
   "abstention_test": {
     "method": "none",
+<<<<<<< HEAD
     "margin": 0.2781,
     "threshold": 0.005,
     "n_articles": 250
+=======
+    "margin": 0.1571,
+    "threshold": 0.005,
+    "n_articles": 8
+>>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
   }
 }

@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "query": "Nvidia",
   "ticker": "NVDA",
   "start_date": "06-01-2026",
@@ -24,6 +25,33 @@
       "coverage_count": 1,
       "days_ago": 0,
       "recency_weight": 1.0,
+=======
+  "query": "Apple Inc.",
+  "ticker": "AAPL",
+  "start_date": "22-02-2026",
+  "end_date": "01-03-2026",
+  "backward_start_date": "08-02-2026",
+  "backward_end_date": "21-02-2026",
+  "prediction_window_days": 7,
+  "max_backward_days": 14,
+  "timestamp_alignment": "ET_market_close",
+  "fetch_timestamp": "2026-03-01 16:25:18",
+  "article_count": 8,
+  "articles": [
+    {
+      "title": "As Apple Tests AI Devices, Should You Buy AAPL Stock Here?",
+      "url": "https://finnhub.io/api/news?id=4d42949b2de4cb69cb942e76251d0e638fcc41bb2380fc5bcf22f5acd6e6008b",
+      "sourceurl": "https://finnhub.io/api/news?id=4d42949b2de4cb69cb942e76251d0e638fcc41bb2380fc5bcf22f5acd6e6008b",
+      "seendate": "20260219T211459Z",
+      "seendate_et": "20260219T161459",
+      "market_date": "2026-02-20",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "As Apple ramps up its AI ambitions through consumer-focused devices, is now the perfect time to grab AAPL before its next growth wave begins?",
+      "coverage_count": 1,
+      "days_ago": 2,
+      "recency_weight": 0.8686240000000001,
+>>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
       "content_stats": {
         "total_sentences": 1,
         "relevant_sentences": 1,
@@ -35,6 +63,7 @@
         "event_type": "product launch, innovation, or technology",
         "category": "SHORT_TERM",
         "horizon_days": 7,
+<<<<<<< HEAD
         "confidence": 0.7746
       },
       "impact_horizon_weight": 0.8604,
@@ -946,6 +975,20 @@
       "seendate": "20260105T141200Z",
       "seendate_et": "20260105T091200",
       "market_date": "2026-01-05",
+=======
+        "confidence": 0.5929
+      },
+      "impact_horizon_weight": 0.9123,
+      "final_weight": 0.8902
+    },
+    {
+      "title": "Why Apple’s (AAPL) AI Rollout Timeline Is Raising Fresh Questions",
+      "url": "https://finnhub.io/api/news?id=b4a4dd192f9f976e99b69c8b8cfbc7f4e9d7b18c5b359d965b9261df73e2ce88",
+      "sourceurl": "https://finnhub.io/api/news?id=b4a4dd192f9f976e99b69c8b8cfbc7f4e9d7b18c5b359d965b9261df73e2ce88",
+      "seendate": "20260214T142153Z",
+      "seendate_et": "20260214T092153",
+      "market_date": "2026-02-17",
+>>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
       "domain": "Yahoo",
       "language": "English",
       "content": "Nvidia stock was rising as Taiwanese partner Foxconn said shipments of its AI server racks continue to ramp up.",
@@ -2985,6 +3028,7 @@
       "final_weight": 0.7
     },
     {
+<<<<<<< HEAD
       "title": "Nvidia’s Rubin Architecture Is a Game-Changer. Here’s Why.",
       "url": "https://finnhub.io/api/news?id=8be861c8fd588dc31ae691915dcf51c9b538ad0da85479f05ea8f426237633a4",
       "sourceurl": "https://finnhub.io/api/news?id=8be861c8fd588dc31ae691915dcf51c9b538ad0da85479f05ea8f426237633a4",
@@ -2997,6 +3041,78 @@
       "coverage_count": 1,
       "days_ago": 7,
       "recency_weight": 0.8079828447811298,
+=======
+      "title": "Apple Faces FTC Scrutiny And Siri AI Delays What It Means For AAPL",
+      "url": "https://finnhub.io/api/news?id=ddd7172133f55f3cc9b2b9292d5a4cb9205cdd1ca92bcead557be88ca91235b9",
+      "sourceurl": "https://finnhub.io/api/news?id=ddd7172133f55f3cc9b2b9292d5a4cb9205cdd1ca92bcead557be88ca91235b9",
+      "seendate": "20260213T091937Z",
+      "seendate_et": "20260213T041937",
+      "market_date": "2026-02-13",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "The US Federal Trade Commission has questioned the political neutrality of Apple News, sending a letter to Apple that raises concerns about potential bias in its curation. Apple has delayed major AI driven upgrades to Siri, citing technical issues affecting the rollout timeline. Ticker: NasdaqGS:AAPL. For you as an investor looking at NasdaqGS:AAPL, this combines two sensitive areas for the company: regulation around content and progress in AI. Apple News sits inside the broader services...",
+      "coverage_count": 1,
+      "days_ago": 9,
+      "recency_weight": 0.5305706366707573,
+      "content_stats": {
+        "total_sentences": 5,
+        "relevant_sentences": 5,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "regulatory action, legal case, or investigation",
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.6537
+      },
+      "impact_horizon_weight": 0.9123,
+      "final_weight": 0.6957
+    },
+    {
+      "title": "Is the YieldMax AAPL Option Income Strategy ETF’s (APLY) 70% Yield Real or Misleading?",
+      "url": "https://finnhub.io/api/news?id=021e607931094c96dacce91acb6a7389e4bdd4ec3e4588d5e73975436dc0bee8",
+      "sourceurl": "https://finnhub.io/api/news?id=021e607931094c96dacce91acb6a7389e4bdd4ec3e4588d5e73975436dc0bee8",
+      "seendate": "20260213T163516Z",
+      "seendate_et": "20260213T113516",
+      "market_date": "2026-02-13",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "With a market capitalization approaching $4 trillion, Apple (NASDAQ:AAPL) is an absolute dominator among technology gadget producers. Without a doubt, Apple sells plenty of iPhones and rakes in a boatload of revenue — but for passive income investors, AAPL stock isn’t extremely generous. Is the YieldMax AAPL Option Income Strategy ETF’s (APLY) 70% Yield Real or Misleading?",
+      "coverage_count": 1,
+      "days_ago": 9,
+      "recency_weight": 0.5305706366707573,
+      "content_stats": {
+        "total_sentences": 4,
+        "relevant_sentences": 3,
+        "relevance_ratio": 0.75,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3223
+      },
+      "impact_horizon_weight": 0.2909,
+      "final_weight": 0.3929
+    },
+    {
+      "title": "Apple Inc. (AAPL)’s Upcoming Hardware and AI Updates Keep Street Optimistic",
+      "url": "https://finnhub.io/api/news?id=7c35d4b769a5bb28a63c0523f393d4462e6c8d6bd074ca4954b156552991eca5",
+      "sourceurl": "https://finnhub.io/api/news?id=7c35d4b769a5bb28a63c0523f393d4462e6c8d6bd074ca4954b156552991eca5",
+      "seendate": "20260213T150927Z",
+      "seendate_et": "20260213T100927",
+      "market_date": "2026-02-13",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Apple Inc. (NASDAQ:AAPL) is among the most profitable mega cap stocks to buy. On February 9, TheFly disclosed that Apple Inc. (NASDAQ:AAPL) iPhone 17e with MagSafe is launching “soon,” according to Bloomberg’s Mark Gurman report. The report added that the iOS 26.4 beta with updated Siri is expected in the week of February 23, with […]",
+      "coverage_count": 1,
+      "days_ago": 9,
+      "recency_weight": 0.5305706366707573,
+>>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
       "content_stats": {
         "total_sentences": 5,
         "relevant_sentences": 5,
@@ -3008,6 +3124,7 @@
         "event_type": "product launch, innovation, or technology",
         "category": "SHORT_TERM",
         "horizon_days": 7,
+<<<<<<< HEAD
         "confidence": 0.2626
       },
       "impact_horizon_weight": 0.6065,
@@ -3200,6 +3317,26 @@
       "coverage_count": 1,
       "days_ago": 7,
       "recency_weight": 0.8079828447811298,
+=======
+        "confidence": 0.4433
+      },
+      "impact_horizon_weight": 0.2909,
+      "final_weight": 0.3929
+    },
+    {
+      "title": "Here's Why Apple (AAPL) is a Great Momentum Stock to Buy",
+      "url": "https://finnhub.io/api/news?id=6f5893b59e49925ab6faa830d1aa1168226281bec68d87b819dbec388e314f6c",
+      "sourceurl": "https://finnhub.io/api/news?id=6f5893b59e49925ab6faa830d1aa1168226281bec68d87b819dbec388e314f6c",
+      "seendate": "20260212T170003Z",
+      "seendate_et": "20260212T120003",
+      "market_date": "2026-02-12",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Does Apple (AAPL) have what it takes to be a top stock pick for momentum investors? Let's find out.",
+      "coverage_count": 1,
+      "days_ago": 10,
+      "recency_weight": 0.4944918333771458,
+>>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
       "content_stats": {
         "total_sentences": 2,
         "relevant_sentences": 2,
@@ -3208,6 +3345,7 @@
         "filter_action": "no_change"
       },
       "impact_horizon": {
+<<<<<<< HEAD
         "event_type": "product launch, innovation, or technology",
         "category": "SHORT_TERM",
         "horizon_days": 7,
@@ -3455,6 +3593,23 @@
       "seendate": "20251229T173245Z",
       "seendate_et": "20251229T123245",
       "market_date": "2025-12-29",
+=======
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3592
+      },
+      "impact_horizon_weight": 0.1783,
+      "final_weight": 0.2969
+    },
+    {
+      "title": "Apple Just Paid Investors And This Is AAPL’s Dividend Grade",
+      "url": "https://finnhub.io/api/news?id=7674e5f02316bbfd7a5e8206a2a93078d9325ef29ad11c6061f8b26854be51a1",
+      "sourceurl": "https://finnhub.io/api/news?id=7674e5f02316bbfd7a5e8206a2a93078d9325ef29ad11c6061f8b26854be51a1",
+      "seendate": "20260211T181136Z",
+      "seendate_et": "20260211T131136",
+      "market_date": "2026-02-11",
+>>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
       "domain": "Yahoo",
       "language": "English",
       "content": "Over the past three years, Nvidia (NASDAQ:NVDA) stock has climbed by over 1,200% to dizzyingly high levels. It is now the most valuable company in the world and has a $4.63 trillion market capitalization. However, Nvidia is actually cheaper today than it was back then. Investors were proactive for a brief period in early 2023 ... Nvidia’s Stock Is Cheaper Than Intel’s and AMD’s. Here’s Where I See It in 2026",
@@ -3971,6 +4126,7 @@
       "final_weight": 0.5694
     },
     {
+<<<<<<< HEAD
       "title": "Nvidia makes a deal with Groq, investing resolutions for 2026",
       "url": "https://finnhub.io/api/news?id=ed6ff6edddc39c5a15b7f00f9127e60bae46f2aacfa2c3dca96ee2ae4a7d6e52",
       "sourceurl": "https://finnhub.io/api/news?id=ed6ff6edddc39c5a15b7f00f9127e60bae46f2aacfa2c3dca96ee2ae4a7d6e52",
@@ -7134,6 +7290,14 @@
       "seendate": "20251212T153602Z",
       "seendate_et": "20251212T103602",
       "market_date": "2025-12-12",
+=======
+      "title": "Jim Cramer on Apple (AAPL): “Doesn’t Hurt That They’ve Avoided Spending Hundreds of Billions of Dollars on Data Centers”",
+      "url": "https://finnhub.io/api/news?id=850ebe6d91caf5da8998cf78e562a5ff9ac7fbdbd2a8282c37b65ff56c2da346",
+      "sourceurl": "https://finnhub.io/api/news?id=850ebe6d91caf5da8998cf78e562a5ff9ac7fbdbd2a8282c37b65ff56c2da346",
+      "seendate": "20260210T145329Z",
+      "seendate_et": "20260210T095329",
+      "market_date": "2026-02-10",
+>>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
       "domain": "Yahoo",
       "language": "English",
       "content": "Of all the mega-cap growth stocks in the market, Nvidia (NASDAQ:NVDA) has to be the most sought-after name right now, for good reason. Sales of the company’s GPUs have exploded, as demand for the highest-performance and most powerful semiconductors continues to balloon. With nearly every company in every industry at least looking at ways that artificial intelligence ... Why NVIDIA Could Hit $300 in 2026",
@@ -7153,6 +7317,7 @@
         "horizon_days": 7,
         "confidence": 0.3639
       },
+<<<<<<< HEAD
       "impact_horizon_weight": 0.0968,
       "final_weight": 0.2126
     },
@@ -7235,6 +7400,10 @@
       },
       "impact_horizon_weight": 0.0968,
       "final_weight": 0.2126
+=======
+      "impact_horizon_weight": 0.05,
+      "final_weight": 0.1465
+>>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
     }
   ]
 }
