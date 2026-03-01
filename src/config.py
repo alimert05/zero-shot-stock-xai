@@ -70,7 +70,7 @@ XAI_LLAMA_ENABLED              = True
 XAI_SOURCE_CONCENTRATION_THRESHOLD = 0.60   # flag if top domain > 60% of articles
 XAI_MIN_UNIQUE_SOURCES             = 2      # flag if fewer unique domains
 
-NEUTRAL_THRESHOLD              = 0.003      # ±0.3% close-to-close return band
+NEUTRAL_THRESHOLD              = 0.05     # ±0.3% close-to-close return band
 
 # Market timezone alignment
 MARKET_TIMEZONE    = "America/New_York"      # NYSE / NASDAQ timezone
