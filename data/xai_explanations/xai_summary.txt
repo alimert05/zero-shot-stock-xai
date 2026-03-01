@@ -1,11 +1,11 @@
 ============================================================
   SENTIMENT ANALYSIS EXPLANATION REPORT
 ============================================================
-  Company           : apple  (AAPL)
+  Company           : Apple Inc.  (AAPL)
   Forecast horizon  : 31 days
-  News lookback     : 2026-02-01 to 2026-02-28 (ET market-close aligned)
-  Articles analysed : 150
-  Generated at      : 2026-03-01 17:38:13
+  News lookback     : 2026-02-01 to 2026-02-27 (ET market-close aligned)
+  Articles analysed : 21
+  Generated at      : 2026-03-01 17:52:41
 ============================================================
 
 ════════════════════════════════════════════════════════════
@@ -17,9 +17,9 @@
   What the model decided and why — in plain English
 ------------------------------------------------------------
 
-  The model predicted a POSITIVE label with a 47.2% score share based on 150 articles over 31 days.
-The top article is "Apple's AI challenges in 2026" with a NEGATIVE sentiment, accounting for 1.3% of the total weight.
-The label margin is narrow (0.071), but reliability is MEDIUM due to a narrow decision margin and source concentration.
+  The model predicted a POSITIVE label with a 64.6% score share based on 21 articles over 31 days.
+The top article is "Apple is an Analyst Favorite, But AAPL Stock Has Been Flat - Shorting Puts Is the Best Play" with a NEGATIVE sentiment.
+The label margin is clear (0.404), but reliability is LOW due to source concentration and news lookback being shorter than the intended backward window.
 
   PREDICTION RESULT
   Sentiment scores across all analysed articles
@@ -32,130 +32,85 @@ The label margin is narrow (0.071), but reliability is MEDIUM due to a narrow de
 
   Score chart  (each █ ≈ 2.5%):
 
-    positive :  47.2%  ███████████████████░░░░░░░░░░░░░░░░░░░░░  ◄ PREDICTED
-    negative :  40.1%  ████████████████░░░░░░░░░░░░░░░░░░░░░░░░
-     neutral :  12.7%  █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+    positive :  64.6%  ██████████████████████████░░░░░░░░░░░░░░  ◄ PREDICTED
+    negative :  24.2%  ██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+     neutral :  11.2%  ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
   Verdict     : POSITIVE
-  Model support : 47.2%  (share of model weight, not a probability)
+  Model support : 64.6%  (share of model weight, not a probability)
 
   RECOMMENDATION
   What you should do with this result
 ------------------------------------------------------------
-  This prediction has MEDIUM reliability — treat it as indicative, not definitive. Specifically: the positive and negative scores are very close — a small shift in news could change the verdict.
+  This prediction has LOW reliability and should NOT be used alone for decisions. Reasons: most articles come from the same editorial source, reducing editorial independence. Note: aggregators (Yahoo, Finnhub) are excluded from this check because they collect from many independent editorial desks. Mitigation: articles are de-duplicated across all domains by title (keeping the oldest copy — the first to break the news); weighting is content-based (not source-based); news lookback (27 days) is shorter than the intended backward window (28 days, √W scaling), signal may be incomplete.
 
   NARRATIVE THEMES
   What the news is about and the dominant tone per theme
 ------------------------------------------------------------
-    Product / tech     :  73 articles (49%)  ▲ positive  (+38 / -32 / =3)
-    Earnings / results :  33 articles (22%)  ▲ positive  (+20 / -13 / =0)
-    General commentary :  23 articles (15%)  ▲ positive  (+14 / -9 / =0)
-    Analyst action     :   9 articles (6%)  ▲ positive  (+6 / -3 / =0)
-    Regulatory / legal :   8 articles (5%)  ▼ negative  (+1 / -7 / =0)
-    Strategy / M&A     :   4 articles (3%)  ▼ negative  (+1 / -3 / =0)
+    Earnings / results :   6 articles (29%)  ▲ positive  (+5 / -1 / =0)
+    Analyst action     :   5 articles (24%)  ▲ positive  (+4 / -1 / =0)
+    Product / tech     :   5 articles (24%)  ▲ positive  (+5 / -0 / =0)
+    General commentary :   5 articles (24%)  ▲ positive  (+3 / -2 / =0)
 
   Storylines (auto-discovered from article titles):
 
     Storylines supporting the POSITIVE prediction:
-      "Apple stock expected to continue strong growth." (4 articles)  ▲ positive  (+4 / -0 / =0)
-        → Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead 
-        → Apple Stock Rises Ahead of 2026. What's Driving the Growth
-        → Services Rides on Apple TV and Arcade: What's Ahead for Apple Stock?
-        → After a 42% Six-Month Rally, What's Next for Apple Stock in 2026?
-      "Tim Cook's investment boosts struggling sports brand." (6 articles)  ▲ positive  (+6 / -0 / =0)
-        → Apple CEO Tim Cook Just Gave Nike Investors 3 Million Reasons to Che
-        → Why Apple's Tim Cook Drove Nike Stock Higher Today
-        → Nike Stock Price Gets a Lift After Apple’s Tim Cook Doubles His Stak
-        → Tim Cook's Nike Buy, AI Smart Glasses, Court Victory And More: This 
-        → Whoever Replaces Tim Cook at Apple Will Have 'Big Shoes to Fill'
-        → Nike shares jump after Apple CEO Cook doubles stake to $6 million
-      "Tech giants face regulatory scrutiny nationwide." (3 articles)  ▲ positive  (+3 / -0 / =0)
-        → The Zacks Analyst Blog Highlights Apple, Cisco Systems and IBM
-        → Top Research Reports for Apple, Cisco & IBM
-        → The Zacks Analyst Blog Apple, Alphabet, Amazon and Microsoft
-      "iPhone 17 demand drives stock price surge." (5 articles)  ▲ positive  (+5 / -0 / =0)
+      "iPhone demand reaches parity with supply." (3 articles)  ▲ positive  (+3 / -0 / =0)
         → JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reache
         → Apple (AAPL) Target Raised as Jefferies Sees Stronger iPhone Demand
-        → Apple Gains Higher Wedbush Price Target on Strengthening AI Strategy
         → Apple (AAPL) Price Target Raised as Loop Capital Sees Stronger iPhon
-        → Apple Made a Comeback with the iPhone 17, But Will Executive Exits P
-      "Investors await next major product release." (3 articles)  ▲ positive  (+3 / -0 / =0)
+      "Investor confidence in tech giant's growth prospects." (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → Morgan Stanley Boosts Apple (AAPL) Target, Sees Upside From Pricing 
+        → Morgan Stanley Lifts Apple Inc. (AAPL) Price Target on Earnings Grow
+      "Tech giants to partner on AI project." (2 articles)  ▲ positive  (+2 / -0 / =0)
         → Apple Just Released a New AI Model. Should You Buy AAPL Stock Here?
-        → Analysts Are Hot on the Foldable iPhone. Should You Buy AAPL Stock B
         → Dan Ives Is Betting That Apple and Google Will Partner in 2026. Shou
-      "Investors weigh future stock performance carefully." (3 articles)  ▲ positive  (+3 / -0 / =0)
-        → Analysts Have a Moderate Buy Rating on Apple Inc. (AAPL)
-        → Apple Inc. (AAPL): A Bull Case Theory
-        → Where is Apple Inc. (AAPL) Headed According to Wall Street?
-      "Investors seek growth in popular technology stock." (3 articles)  ▲ positive  (+3 / -0 / =0)
+      "Tech giant's stock surges in market value." (2 articles)  ▲ positive  (+2 / -0 / =0)
         → Apple Inc. (AAPL) Is a Trending Stock: Facts to Know Before Betting 
-        → Investors Heavily Search Apple Inc. (AAPL): Here is What You Need to
         → Here is What to Know Beyond Why Apple Inc. (AAPL) is a Trending Stoc
 
     Opposing storylines (negative):
-      "Leadership shake-up sparks uncertainty and change." (4 articles)  ▼ negative  (+0 / -4 / =0)
-        → Apple won’t be the same in 2026. Meet the company’s next generation 
-        → Executive Exodus Hits Apple As Fears Grow Over Possible Chip Chief D
-        → Apple's executive exodus sends a signal about its AI strategy
-        → Apple's 2025 App List, AI Stumble, Executive Exodus And More: This W
-      "Stock falls despite strong app store growth." (3 articles)  ▼ negative  (+0 / -3 / =0)
+      "Tech giant faces unexpected market downturn." (2 articles)  ▼ negative  (+0 / -2 / =0)
         → Apple (AAPL) Stock Slides as Market Rises: Facts to Know Before You 
         → Here's Why Apple (AAPL) Fell More Than Broader Market
-        → UBS Reiterates Neutral on Apple (AAPL) as App Store Growth Slows
-      "Tech giant faces major challenges in 2026." (3 articles)  ▼ negative  (+0 / -3 / =0)
-        → Apple's 3 Big New Year Woes
-        → Apple punted on AI this year. Next year will be critical
-        → Will 2026 Be The Year Apple Finally Joins The AI Race?
-      "Tech giants face growing regulatory scrutiny." (4 articles)  ▼ negative  (+0 / -4 / =0)
-        → Former Met chief demands Apple and Google disable stolen phones
-        → 'India Weighs Greater Phone-Location Surveillance; Apple, Google And
-        → Why Sam Altman Sees Apple and Not Google as its Top AI Rival
-        → Oura vs Big Tech: The ring taking on Apple, Google & OpenAI
-      "Pressure mounts on tech industry leader." (3 articles)  ▼ negative  (+0 / -3 / =0)
-        → Apple CEO Tim Cook Discloses $3 Million Nike Buy With Dow Giant At 7
-        → Pressure builds on Apple and CEO Tim Cook with holiday executive sha
-        → Apple's Tim Cook reportedly on Capitol Hill, Oracle earnings watch
-      "Leadership turmoil hits tech giant headquarters." (3 articles)  ▼ negative  (+0 / -3 / =0)
-        → Apple’s executive shake-up continues with departures of general coun
-        → Netflix to acquire Warner Bros., more executive departures at Apple
-        → What Apple's executive departures mean for the iPhone maker
-      "Investor expert defends his bullish tech stock picks." (3 articles)  ▼ negative  (+0 / -3 / =0)
-        → Jim Cramer examines 'stalled' stocks Apple, Meta and Tesla
-        → Jim Cramer Repeats His “Own It, Don’t Trade It” Mantra on Apple
-        → Jim Cramer on Apple: “Bulls Like Me Were Considered Dreamers or Even
 
-    Neutral storylines:
-      "Executive's Departure Rumors Prove Unfounded Again" (2 articles)  ■ neutral  (+0 / -0 / =2)
-        → Apple’s Chips Chief Says He Isn’t Leaving
-        → Apple Chip Chief Tells Staff He’s Not Leaving ‘Anytime Soon’
-
-    Other topics (98 articles — titles too unique to cluster with any other article; each covers a distinct story)
+    Other topics (10 articles — titles too unique to cluster with any other article; each covers a distinct story)
 
 ============================================================
   FINAL PLAIN-ENGLISH OVERVIEW
   A complete, readable summary of the entire analysis for a general reader
 ============================================================
 
-  Out of 150 news articles analysed for apple over a
-  31-day forecast horizon, 80 carried positive sentiment,
-  67 carried negative sentiment, and 3 were neutral. The
+  Out of 21 news articles analysed for Apple Inc. over a
+  31-day forecast horizon, 17 carried positive sentiment,
+  4 carried negative sentiment, and 0 were neutral. The
   model produced a weighted aggregation of these scores
-  and predicted a POSITIVE label with 47.2% model support.
+  and predicted a POSITIVE label with 64.6% model support.
   The model chose POSITIVE over NEGATIVE by a margin of
-  7.1 percentage points: 82 articles pushed toward
-  POSITIVE while 68 pushed toward NEGATIVE. The single
-  most influential article was "Apple's AI challenges in
-  2026" (negative sentiment, contributing 1.3% of total
+  40.4 percentage points: 17 articles pushed toward
+  POSITIVE while 4 pushed toward NEGATIVE. The single most
+  influential article was "Apple is an Analyst Favorite,
+  But AAPL Stock Has Been Flat - Shorting Puts Is the Best
+  Play" (negative sentiment, contributing 8.6% of total
   weight). Articles were weighted by recency and
   prediction-horizon relevance — the average article was
-  15.83 days old, with most classified as short-term
+  13.86 days old, with most classified as short-term
   horizon. At the word level, the strongest signals in the
-  top gap-driving article included: Up, Win, Stock, year,
-  earlier. The prediction is sensitive: removing as few as
-  7 of 150 articles would change the verdict. The
-  prediction carries MEDIUM reliability. The positive and
-  negative scores are very close — a small shift in news
-  could change the verdict.
+  top gap-driving article included: Confident, Overweight,
+  iPhone, reiterated, Reaches. The prediction is
+  sensitive: removing as few as 9 of 21 articles would
+  change the verdict. The prediction carries LOW
+  reliability and should not be used in isolation. Most
+  articles come from the same editorial source, reducing
+  editorial independence. note: aggregators (yahoo,
+  finnhub) are excluded from this check because they
+  collect from many independent editorial desks.
+  mitigation: articles are de-duplicated across all
+  domains by title (keeping the oldest copy — the first to
+  break the news); weighting is content-based (not source-
+  based); news lookback (27 days) is shorter than the
+  intended backward window (28 days, √w scaling), signal
+  may be incomplete.
 
 
   DISCLAIMER
@@ -173,64 +128,72 @@ The label margin is narrow (0.071), but reliability is MEDIUM due to a narrow de
   WHY POSITIVE INSTEAD OF NEGATIVE?
   Contrastive explanation — what tipped the balance
 ------------------------------------------------------------
-  Score gap : POSITIVE 47.2%  vs  NEGATIVE 40.1%  (gap = 7.1 percentage points)
+  Score gap : POSITIVE 64.6%  vs  NEGATIVE 24.2%  (gap = 40.4 percentage points)
 
   Article split:
-     82 articles push toward POSITIVE  (total push: +35.2 pp)
-     68 articles push toward NEGATIVE  (total push: -28.1 pp)
+     17 articles push toward POSITIVE  (total push: +52.0 pp)
+      4 articles push toward NEGATIVE  (total push: -11.7 pp)
 
-  Third class: NEUTRAL at 12.7% — absorbing probability mass roughly equally from both sides.
+  Third class: NEUTRAL at 11.2% — drawing more mass from NEGATIVE than POSITIVE, indirectly helping POSITIVE.
 
   Top 5 articles driving the gap:
     #     Direction       Net  Title
     ----------------------------------------------------------------------
-    1         → POS    +1.24%  Apple Stock Ticks Up After a Surprise From China
-    2         → NEG    -1.21%  Apple misses on AI in 2025
-    3         → NEG    -1.14%  Big Promises, Bigger Fails: Meta's Cringe Demo, 
-    4         → POS    +1.13%  Apple Stock In Focus -- Wells Fargo Keeps 'Overw
-    5         → POS    +1.12%  The Zacks Analyst Blog Highlights Apple, Cisco S
+    1         → POS    +7.38%  JPMorgan Confident in Apple (AAPL) as iPhone 17 
+    2         → POS    +5.91%  Apple Just Released a New AI Model. Should You B
+    3         → POS    +5.44%  Morgan Stanley Boosts Apple (AAPL) Target, Sees 
+    4         → POS    +5.43%  Analysts Have a Moderate Buy Rating on Apple Inc
+    5         → NEG    -4.78%  Apple (AAPL) Stock Slides as Market Rises: Facts
 
   Word-level evidence for top gap drivers:
   (connecting article-level influence to token-level LIME attribution)
 
-    Apple Stock Ticks Up After a Surprise From China—and a Legal
-      Favours POSITIVE (+1.24% net push)
-      Words reinforcing POSITIVE: Up, Win, Stock, year
-      Words pulling against: imports, branded, foreign, After
+    JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Suppl
+      Favours POSITIVE (+7.38% net push)
+      Words reinforcing POSITIVE: Confident, Overweight, iPhone, reiterated
+      Words pulling against: According
 
-    Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Ratin
-      Favours POSITIVE (+1.13% net push)
-      Words reinforcing POSITIVE: Upside, Surge, Stock, iPhone
-      Words pulling against: Wells, Keeps, Analysts
+    Apple Just Released a New AI Model. Should You Buy AAPL Stoc
+      Favours POSITIVE (+5.91% net push)
+      Words reinforcing POSITIVE: turning, Buy, buy, heads
+      Words pulling against: driven, Model, while
 
-    The Zacks Analyst Blog Highlights Apple, Cisco Systems and I
-      Favours POSITIVE (+1.12% net push)
-      Words reinforcing POSITIVE: iPhone, momentum, strong, expansion
-      Words pulling against: Blog, Services, IBM, research
+    Morgan Stanley Boosts Apple (AAPL) Target, Sees Upside From 
+      Favours POSITIVE (+5.44% net push)
+      Words reinforcing POSITIVE: Boosts, Upside, Pricing, Inc
+      Words pulling against: target, Target, Power
+
+    Analysts Have a Moderate Buy Rating on Apple Inc. (AAPL)
+      Favours POSITIVE (+5.43% net push)
+      Words reinforcing POSITIVE: Buy, Best, among, his
+      Words pulling against: Rating, Moderate, price, target
 
   Counterfactual (minimum flip set):
-    Removing just 7 of 150 articles would flip the prediction from POSITIVE to NEGATIVE.
+    Removing just 9 of 21 articles would flip the prediction from POSITIVE to NEGATIVE.
     These articles are:
-      [!] Apple Stock Ticks Up After a Surprise From China—and a Legal Win
-      [!] Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead of
-      [!] The Zacks Analyst Blog Highlights Apple, Cisco Systems and IBM
-      [!] Apple: Foldable Phone Sparks A Revival, Not AI Overhype
       [!] JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reaches 
-      ... and 2 more
+      [!] Apple Just Released a New AI Model. Should You Buy AAPL Stock Here?
+      [!] Morgan Stanley Boosts Apple (AAPL) Target, Sees Upside From Pricing Po
+      [!] Analysts Have a Moderate Buy Rating on Apple Inc. (AAPL)
+      [!] Morgan Stanley Lifts Apple Inc. (AAPL) Price Target on Earnings Growth
+      ... and 4 more
 
   PREDICTION RELIABILITY
   How much to trust this prediction
 ------------------------------------------------------------
-  Overall : [!] MEDIUM  (1 concern(s) found)
+  Overall : [✗] LOW  (2 concern(s) found)
   Rating rule : HIGH if 0 concerns, MEDIUM if 1, LOW if ≥2.
+  Note : Reliability is LOW due to data-quality risks (source concentration,
+         timing alignment, short lookback), not because the model is
+         uncertain about the label.
 
     [✓] Evidence volume        Sufficient article count.
     [✓] Weight spread          Weight is well-distributed across articles.
-    [⚠] Decision confidence    Narrow margin between positive (0.472) and negative (0.401): margin=0.071.
-    [✓] Score confidence       Above reliability threshold (0.472 ≥ 0.45).
-    [✓] Source diversity       6 sources (5 editorial + 1 aggregators), top editorial share 34%. (79% via aggregators like Yahoo/Finnhub — these collect from many editorial sources)
-    [✓] Timing validity        Articles are 1-28 days old (ET market-close aligned), down-weighted by the recency function where applicable.
-    [✓] Horizon coverage       News lookback (28 days) covers the intended 28-day backward window.
+    [✓] Decision confidence    Clear margin between top two labels (0.404).
+    [✓] Score confidence       Above reliability threshold (0.646 ≥ 0.45).
+    [⚠] Source diversity       Source diversity concern: only 0 unique editorial source(s).
+    [✓] Timing validity        Articles are 2-28 days old (ET market-close aligned), down-weighted by the recency function where applicable.
+    [⚠] Horizon coverage       News lookback is 27 days but the intended backward window was 28 days (√W scaling, W=31), signal may be incomplete.
 
   Thresholds used  : reliability confidence ≥ 0.45
 
@@ -246,35 +209,35 @@ The label margin is narrow (0.071), but reliability is MEDIUM due to a narrow de
 ------------------------------------------------------------
   Article sentiment distribution:
 
-    ▲ positive : ████████████████░░░░░░░░░░░░░░   80 articles (53%)
-    ▼ negative : █████████████░░░░░░░░░░░░░░░░░   67 articles (45%)
-    ■  neutral : █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    3 articles (2%)
+    ▲ positive : ████████████████████████░░░░░░   17 articles (81%)
+    ▼ negative : ██████░░░░░░░░░░░░░░░░░░░░░░░░    4 articles (19%)
+    ■  neutral : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    0 articles (0%)
 
   Articles pushing toward POSITIVE:
-    [+]  Apple Stock Ticks Up After a Surprise From China—and a Legal Win
-    [+]  Wedbush Names Apple a Top AI Pick for the 2026 Market Cycle
-    [+]  Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead of 2026
+    [+]  JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reaches Parity
+    [+]  Apple Just Released a New AI Model. Should You Buy AAPL Stock Here?
+    [+]  Morgan Stanley Boosts Apple (AAPL) Target, Sees Upside From Pricing Power an
   Articles pushing toward NEGATIVE:
-    [-]  Apple misses on AI in 2025
-    [-]  Big Promises, Bigger Fails: Meta's Cringe Demo, Apple's Misfires, GPT-5's Le
-    [-]  Apple: Don't Expect Much Growth Here
+    [-]  Apple (AAPL) Stock Slides as Market Rises: Facts to Know Before You Trade
+    [-]  Apple is an Analyst Favorite, But AAPL Stock Has Been Flat - Shorting Puts I
+    [-]  Here's Why Apple (AAPL) Fell More Than Broader Market
 
   Top 10 most influential articles:
   (Weight = recency × horizon factor, 0-1 scale;  Share = % of total pool weight)
     #    Sent  Weight   Share  Weight chart                      Title
     ------------------------------------------------------------
-    #1    NEG  0.8966    1.3%  ██████████████████████████████  Apple's AI challenges in 2026
-    #2    POS  0.8966    1.3%  ██████████████████████████████  Wedbush Names Apple a Top AI Pic
-    #3    NEG  0.8966    1.3%  ██████████████████████████████  Big Promises, Bigger Fails: Meta
-    #4    NEG  0.8966    1.3%  ██████████████████████████████  Apple misses on AI in 2025
-    #5    NEG  0.8649    1.3%  █████████████████████████████░  The 76-Year-Old Reason Why Buffe
-    #6    NEG  0.8649    1.3%  █████████████████████████████░  Why Apple Might Attract More of 
-    #7    NEG  0.8649    1.3%  █████████████████████████████░  Apple is an Analyst Favorite, Bu
-    #8    NEG  0.8649    1.3%  █████████████████████████████░  Apple needs to deliver an AI-cha
-    #9    POS  0.8649    1.3%  █████████████████████████████░  The Real Reasons Warren Buffett 
-    #10   POS  0.8649    1.3%  █████████████████████████████░  Apple Inc. (AAPL) Is a Trending 
+    #1    NEG  0.8649    8.6%  ██████████████████████████████  Apple is an Analyst Favorite, Bu
+    #2    POS  0.8649    8.6%  ██████████████████████████████  Apple Inc. (AAPL) Is a Trending 
+    #3    POS  0.8325    8.2%  █████████████████████████████░  JPMorgan Confident in Apple (AAP
+    #4    POS  0.6669    6.6%  ███████████████████████░░░░░░░  Dan Ives Is Betting That Apple a
+    #5    POS  0.6340    6.3%  ██████████████████████░░░░░░░░  Apple Just Released a New AI Mod
+    #6    POS  0.6014    5.9%  █████████████████████░░░░░░░░░  Morgan Stanley Boosts Apple (AAP
+    #7    POS  0.6014    5.9%  █████████████████████░░░░░░░░░  Analysts Have a Moderate Buy Rat
+    #8    NEG  0.5390    5.3%  ███████████████████░░░░░░░░░░░  Apple (AAPL) Stock Slides as Mar
+    #9    POS  0.5071    5.0%  ██████████████████░░░░░░░░░░░░  Apple (AAPL) Target Raised as Je
+    #10   POS  0.5071    5.0%  ██████████████████░░░░░░░░░░░░  Morgan Stanley Lifts Apple Inc. 
 
-  Weight concentration (HHI): 0.0084  (well spread) — 0 = perfectly uniform across all articles, 1 = one article dominates
+  Weight concentration (HHI): 0.0573  (well spread) — 0 = perfectly uniform across all articles, 1 = one article dominates
 
   HOW ARTICLES WERE WEIGHTED
   More recent and near-horizon articles receive higher weight
@@ -287,16 +250,16 @@ The label margin is narrow (0.071), but reliability is MEDIUM due to a narrow de
                     share the same timestamp, the one with more content
                     is preferred.
 
-  Average article age      : 15.83 days old
-  Average recency weight   : 0.6388  (1.0 = today, lower = older)
-  Average horizon weight   : 0.3512  (1.0 = ideal timing, lower = off-horizon)
+  Average article age      : 13.86 days old
+  Average recency weight   : 0.6737  (1.0 = today, lower = older)
+  Average horizon weight   : 0.3631  (1.0 = ideal timing, lower = off-horizon)
 
   Article timing breakdown:
 
-    Breaking / same-day : █████████░░░░░░░░░░░░░░░░░░░░░   33 (22%)
-    Short-term (days)   : ██████████████████████████████  105 (70%)
-    Medium-term (weeks) : ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░    8 (5%)
-    Long-term (months)  : █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    4 (3%)
+    Breaking / same-day : ████████████░░░░░░░░░░░░░░░░░░    6 (29%)
+    Short-term (days)   : ██████████████████████████████   15 (71%)
+    Medium-term (weeks) : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    0 (0%)
+    Long-term (months)  : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    0 (0%)
 
   WHICH WORDS DROVE THE PREDICTION
   Words inside each article that pushed the model toward or away from the verdict
@@ -311,25 +274,25 @@ The label margin is narrow (0.071), but reliability is MEDIUM due to a narrow de
   sentiment-bearing words remain. Full token weights are in the
   ADVANCED / DIAGNOSTICS section at the end of this report.
 
-  [1] Apple Stock Ticks Up After a Surprise From China—and a Legal Win
-      Words pushing TOWARD  POSITIVE : Up, Win, Stock, year, earlier
-      Words pushing AGAINST POSITIVE : imports, branded, foreign, After
+  [1] JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reaches Pa
+      Words pushing TOWARD  POSITIVE : Confident, Overweight, iPhone, reiterated, Reaches
+      Words pushing AGAINST POSITIVE : According
 
-  [2] Wedbush Names Apple a Top AI Pick for the 2026 Market Cycle
-      Words pushing TOWARD  POSITIVE : Pick, Strength, Top, Wedbush, Analysts
-      Words pushing AGAINST POSITIVE : Subtle, AI, Think, Market, Bet
+  [2] Apple Just Released a New AI Model. Should You Buy AAPL Stock Here?
+      Words pushing TOWARD  POSITIVE : turning, Buy, buy, heads, innovation
+      Words pushing AGAINST POSITIVE : driven, Model, while
 
-  [3] Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead of 2
-      Words pushing TOWARD  POSITIVE : Upside, Surge, Stock, iPhone, Ahead
-      Words pushing AGAINST POSITIVE : Wells, Keeps, Analysts
+  [3] Morgan Stanley Boosts Apple (AAPL) Target, Sees Upside From Pricing Powe
+      Words pushing TOWARD  POSITIVE : Boosts, Upside, Pricing, Inc, raised
+      Words pushing AGAINST POSITIVE : target, Target, Power
 
-  [4] The Zacks Analyst Blog Highlights Apple, Cisco Systems and IBM
-      Words pushing TOWARD  POSITIVE : iPhone, momentum, strong, expansion, Zacks
-      Words pushing AGAINST POSITIVE : Blog, Services, IBM, research, Cisco
+  [4] Analysts Have a Moderate Buy Rating on Apple Inc. (AAPL)
+      Words pushing TOWARD  POSITIVE : Buy, Best, among, his, Malik
+      Words pushing AGAINST POSITIVE : Rating, Moderate, price, target, follows
 
-  [5] Apple: Foldable Phone Sparks A Revival, Not AI Overhype
-      Words pushing TOWARD  POSITIVE : growth, Revival, AI, Overhype, fuel
-      Words pushing AGAINST POSITIVE : Phone, how
+  [5] Apple Inc. (AAPL) Is a Trending Stock: Facts to Know Before Betting on I
+      Words pushing TOWARD  POSITIVE : Trending, Stock, quite, received, Therefore
+      Words pushing AGAINST POSITIVE : Before, impact, aware, Know, prospects
 
 
   CHARTS
@@ -371,134 +334,139 @@ The label margin is narrow (0.071), but reliability is MEDIUM due to a narrow de
   --------------------------------------------------
   (+) = supports predicted label     (-) = opposes predicted label
 
-  [1] Apple Stock Ticks Up After a Surprise From China—and a Legal Win
-      Content: China’s imports of foreign-branded mobile phones, including Apple’s iPhone, rose 128% in November from a year earlier.
-      Article weight : 0.8608  |  Relevance to prediction : 0.8521
+  [1] JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reaches Pa
+      Content: Apple Inc. (NASDAQ:AAPL) is one of the AI Stocks Investors Are Watching. On December 23, JPMorgan reiterated the stock a
+               s “Overweight” and a $305 price target. According to the firm’s survey checks, Apple’s iPhone 17 lead times have moderat
+      Article weight : 0.8325  |  Relevance to prediction : 0.7705
       Token influence chart:
-        + Up               ████████████████████  (+0.2513)
-        + Win              █████████████░░░░░░░  (+0.1668)
-        + Stock            ████████░░░░░░░░░░░░  (+0.1047)
-        + year             █████░░░░░░░░░░░░░░░  (+0.0673)
-        - imports          ████░░░░░░░░░░░░░░░░  (-0.0541)
-        + earlier          ███░░░░░░░░░░░░░░░░░  (+0.0421)
-        - branded          ███░░░░░░░░░░░░░░░░░  (-0.0359)
-        - foreign          ███░░░░░░░░░░░░░░░░░  (-0.0328)
+        + Confident        ████████████████████  (+0.2723)
+        + Overweight       ███░░░░░░░░░░░░░░░░░  (+0.0466)
+        + iPhone           ███░░░░░░░░░░░░░░░░░  (+0.0397)
+        + reiterated       ███░░░░░░░░░░░░░░░░░  (+0.0364)
+        + Reaches          ██░░░░░░░░░░░░░░░░░░  (+0.0338)
+        + stock            ██░░░░░░░░░░░░░░░░░░  (+0.0331)
+        - According        ██░░░░░░░░░░░░░░░░░░  (-0.0267)
+        + Stocks           ██░░░░░░░░░░░░░░░░░░  (+0.0259)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Up                     (+)    +0.251333
-      Win                    (+)    +0.166757
-      Stock                  (+)    +0.104660
-      year                   (+)    +0.067287
-      imports                (-)    -0.054120
-      earlier                (+)    +0.042131
-      branded                (-)    -0.035948
-      foreign                (-)    -0.032819
-      China                  (+)    +0.031441
-      rose                   (+)    +0.017831
+      Confident              (+)    +0.272253
+      Overweight             (+)    +0.046552
+      iPhone                 (+)    +0.039744
+      reiterated             (+)    +0.036416
+      Reaches                (+)    +0.033824
+      stock                  (+)    +0.033126
+      According              (-)    -0.026664
+      Stocks                 (+)    +0.025913
+      Investors              (+)    +0.024449
+      JPMorgan               (+)    +0.022985
 
-  [2] Wedbush Names Apple a Top AI Pick for the 2026 Market Cycle
-      Content: Apple's AI Bet Is Subtle. Some Analysts Think That's a Strength
-      Article weight : 0.8966  |  Relevance to prediction : 0.7905
+  [2] Apple Just Released a New AI Model. Should You Buy AAPL Stock Here?
+      Content: Apple’s AI breakthrough is turning heads on Wall Street while SHARP signals a deeper shift toward software-driven innova
+               tion. Is AAPL a buy now?
+      Article weight : 0.6340  |  Relevance to prediction : 0.6091
       Token influence chart:
-        + Pick             ████████████████████  (+0.1497)
-        + Strength         ██████████████░░░░░░  (+0.1027)
-        + Top              ███████████░░░░░░░░░  (+0.0808)
-        - Subtle           ██████████░░░░░░░░░░  (-0.0720)
-        + Wedbush          ██████░░░░░░░░░░░░░░  (+0.0446)
-        + Analysts         ███░░░░░░░░░░░░░░░░░  (+0.0250)
-        - AI               ██░░░░░░░░░░░░░░░░░░  (-0.0187)
-        - Think            ██░░░░░░░░░░░░░░░░░░  (-0.0113)
+        + turning          ████████████████████  (+0.1277)
+        + Buy              ████████████████░░░░  (+0.1047)
+        + buy              ███████████████░░░░░  (+0.0961)
+        + heads            ██████████████░░░░░░  (+0.0919)
+        + innovation       █████████████░░░░░░░  (+0.0810)
+        + Street           ███████████░░░░░░░░░  (+0.0682)
+        + breakthrough     ████████░░░░░░░░░░░░  (+0.0484)
+        + Stock            ██████░░░░░░░░░░░░░░  (+0.0393)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Pick                   (+)    +0.149733
-      Strength               (+)    +0.102728
-      Top                    (+)    +0.080805
-      Subtle                 (-)    -0.072002
-      Wedbush                (+)    +0.044592
-      Analysts               (+)    +0.024969
-      AI                     (-)    -0.018662
-      Think                  (-)    -0.011251
-      Market                 (-)    -0.010709
-      Bet                    (-)    -0.009374
+      turning                (+)    +0.127679
+      Buy                    (+)    +0.104675
+      buy                    (+)    +0.096074
+      heads                  (+)    +0.091913
+      innovation             (+)    +0.080977
+      Street                 (+)    +0.068151
+      breakthrough           (+)    +0.048377
+      Stock                  (+)    +0.039267
+      Here                   (+)    +0.026709
+      driven                 (-)    -0.024524
 
-  [3] Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead of 2
-      Content: Analysts See Upside in Apple Stock as iPhone Sales Surge
-      Article weight : 0.8325  |  Relevance to prediction : 0.7898
+  [3] Morgan Stanley Boosts Apple (AAPL) Target, Sees Upside From Pricing Powe
+      Content: Apple Inc. (NASDAQ:AAPL) is one of the AI Stocks on the Market’s Radar. On December 17, Morgan Stanley raised its price 
+               target on the stock to $315.00 from $305.00 while maintaining an Overweight rating.
+      Article weight : 0.6014  |  Relevance to prediction : 0.5669
       Token influence chart:
-        + Upside           ████████████████████  (+0.1699)
-        + Surge            ██████████░░░░░░░░░░  (+0.0852)
-        + Stock            █████████░░░░░░░░░░░  (+0.0752)
-        + iPhone           █████████░░░░░░░░░░░  (+0.0741)
-        - Wells            ██████░░░░░░░░░░░░░░  (-0.0509)
-        + Ahead            ██████░░░░░░░░░░░░░░  (+0.0481)
-        + Sales            █████░░░░░░░░░░░░░░░  (+0.0410)
-        - Keeps            ███░░░░░░░░░░░░░░░░░  (-0.0279)
+        + Boosts           ████████████████████  (+0.1004)
+        + Upside           ███████████████████░  (+0.0931)
+        - target           ███████░░░░░░░░░░░░░  (-0.0347)
+        + Pricing          ██████░░░░░░░░░░░░░░  (+0.0303)
+        - Target           ██████░░░░░░░░░░░░░░  (-0.0287)
+        + Inc              █████░░░░░░░░░░░░░░░  (+0.0260)
+        + raised           ████░░░░░░░░░░░░░░░░  (+0.0223)
+        + Radar            ████░░░░░░░░░░░░░░░░  (+0.0185)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Upside                 (+)    +0.169869
-      Surge                  (+)    +0.085226
-      Stock                  (+)    +0.075196
-      iPhone                 (+)    +0.074109
-      Wells                  (-)    -0.050869
-      Ahead                  (+)    +0.048080
-      Sales                  (+)    +0.041023
-      Keeps                  (-)    -0.027889
-      Focus                  (+)    +0.025362
-      Analysts               (-)    -0.022501
+      Boosts                 (+)    +0.100450
+      Upside                 (+)    +0.093065
+      target                 (-)    -0.034672
+      Pricing                (+)    +0.030307
+      Target                 (-)    -0.028718
+      Inc                    (+)    +0.025991
+      raised                 (+)    +0.022344
+      Radar                  (+)    +0.018458
+      Sees                   (+)    +0.017641
+      price                  (+)    +0.017384
 
-  [4] The Zacks Analyst Blog Highlights Apple, Cisco Systems and IBM
-      Content: Apple leads Zacks' top research picks as strong Services growth, AI expansion and iPhone momentum shape the outlook.
-      Article weight : 0.8649  |  Relevance to prediction : 0.7874
+  [4] Analysts Have a Moderate Buy Rating on Apple Inc. (AAPL)
+      Content: Apple Inc. (NASDAQ:AAPL) is among the 14 Best S&P 500 Stocks to Buy Now. On December 15, JPMorgan analyst Samik Chatterj
+               ee maintained an Overweight rating on the stock with a share price target of $305, a reaffirmation of an earlier update 
+      Article weight : 0.6014  |  Relevance to prediction : 0.5626
       Token influence chart:
-        + iPhone           ████████████████████  (+0.0695)
-        + momentum         ██████████████████░░  (+0.0642)
-        + strong           ██████████████████░░  (+0.0617)
-        + expansion        ██████████████░░░░░░  (+0.0492)
-        + Zacks            ██████████████░░░░░░  (+0.0473)
-        + growth           █████████████░░░░░░░  (+0.0440)
-        - Blog             ████████████░░░░░░░░  (-0.0421)
-        + picks            █████████░░░░░░░░░░░  (+0.0306)
+        + Buy              ████████████████████  (+0.3038)
+        + Best             ██████░░░░░░░░░░░░░░  (+0.0982)
+        - Rating           ████░░░░░░░░░░░░░░░░  (-0.0671)
+        - Moderate         ████░░░░░░░░░░░░░░░░  (-0.0608)
+        + among            ████░░░░░░░░░░░░░░░░  (+0.0587)
+        - price            ███░░░░░░░░░░░░░░░░░  (-0.0466)
+        + his              ███░░░░░░░░░░░░░░░░░  (+0.0400)
+        + Malik            ███░░░░░░░░░░░░░░░░░  (+0.0386)
 
       Token                  Dir       Weight
       ----------------------------------------
-      iPhone                 (+)    +0.069461
-      momentum               (+)    +0.064199
-      strong                 (+)    +0.061682
-      expansion              (+)    +0.049179
-      Zacks                  (+)    +0.047336
-      growth                 (+)    +0.043981
-      Blog                   (-)    -0.042076
-      picks                  (+)    +0.030642
-      Services               (-)    -0.028940
-      IBM                    (-)    -0.028601
+      Buy                    (+)    +0.303770
+      Best                   (+)    +0.098214
+      Rating                 (-)    -0.067082
+      Moderate               (-)    -0.060793
+      among                  (+)    +0.058721
+      price                  (-)    -0.046571
+      his                    (+)    +0.040006
+      Malik                  (+)    +0.038649
+      Stocks                 (+)    +0.037693
+      target                 (-)    -0.029953
 
-  [5] Apple: Foldable Phone Sparks A Revival, Not AI Overhype
-      Content: Discover how Apple's strategic iPhone expansion and innovation fuel growth.
-      Article weight : 0.8325  |  Relevance to prediction : 0.7821
+  [5] Apple Inc. (AAPL) Is a Trending Stock: Facts to Know Before Betting on I
+      Content: Apple (AAPL) has received quite a bit of attention from Zacks.com users lately. Therefore, it is wise to be aware of the
+                facts that can impact the stock's prospects.
+      Article weight : 0.8649  |  Relevance to prediction : 0.5514
       Token influence chart:
-        + growth           ████████████████████  (+0.1282)
-        + Revival          █████████████████░░░  (+0.1072)
-        + AI               ██████████████░░░░░░  (+0.0921)
-        + Overhype         █████████████░░░░░░░  (+0.0818)
-        + fuel             ██████████░░░░░░░░░░  (+0.0636)
-        - Phone            █████████░░░░░░░░░░░  (-0.0566)
-        + Sparks           ███████░░░░░░░░░░░░░  (+0.0453)
-        + iPhone           ███████░░░░░░░░░░░░░  (+0.0426)
+        + Trending         ████████████████████  (+0.2406)
+        - Before           ███████████░░░░░░░░░  (-0.1328)
+        + Stock            ████████░░░░░░░░░░░░  (+0.0904)
+        - impact           ███████░░░░░░░░░░░░░  (-0.0806)
+        + quite            █████░░░░░░░░░░░░░░░  (+0.0595)
+        - aware            ████░░░░░░░░░░░░░░░░  (-0.0442)
+        + received         ███░░░░░░░░░░░░░░░░░  (+0.0320)
+        - Know             ██░░░░░░░░░░░░░░░░░░  (-0.0273)
 
       Token                  Dir       Weight
       ----------------------------------------
-      growth                 (+)    +0.128166
-      Revival                (+)    +0.107213
-      AI                     (+)    +0.092080
-      Overhype               (+)    +0.081777
-      fuel                   (+)    +0.063604
-      Phone                  (-)    -0.056615
-      Sparks                 (+)    +0.045332
-      iPhone                 (+)    +0.042593
-      innovation             (+)    +0.034328
-      strategic              (+)    +0.024287
+      Trending               (+)    +0.240638
+      Before                 (-)    -0.132795
+      Stock                  (+)    +0.090360
+      impact                 (-)    -0.080613
+      quite                  (+)    +0.059468
+      aware                  (-)    -0.044187
+      received               (+)    +0.032030
+      Know                   (-)    -0.027264
+      prospects              (-)    -0.027018
+      Therefore              (+)    +0.024927
 
 ------------------------------------------------------------
