@@ -1,29 +1,145 @@
 {
-  "query": "Apple Inc.",
-  "ticker": "AAPL",
-  "start_date": "22-02-2026",
-  "end_date": "01-03-2026",
-  "backward_start_date": "08-02-2026",
-  "backward_end_date": "21-02-2026",
-  "prediction_window_days": 7,
-  "max_backward_days": 14,
+  "query": "amazon",
+  "ticker": "AMZN",
+  "start_date": "01-01-2026",
+  "end_date": "01-02-2026",
+  "backward_start_date": "04-12-2025",
+  "backward_end_date": "31-12-2025",
+  "prediction_window_days": 31,
+  "max_backward_days": 28,
   "timestamp_alignment": "ET_market_close",
-  "fetch_timestamp": "2026-03-01 16:25:18",
-  "article_count": 8,
+  "fetch_timestamp": "2026-03-01 16:41:01",
+  "article_count": 99,
   "articles": [
     {
-      "title": "As Apple Tests AI Devices, Should You Buy AAPL Stock Here?",
-      "url": "https://finnhub.io/api/news?id=4d42949b2de4cb69cb942e76251d0e638fcc41bb2380fc5bcf22f5acd6e6008b",
-      "sourceurl": "https://finnhub.io/api/news?id=4d42949b2de4cb69cb942e76251d0e638fcc41bb2380fc5bcf22f5acd6e6008b",
-      "seendate": "20260219T211459Z",
-      "seendate_et": "20260219T161459",
-      "market_date": "2026-02-20",
+      "title": "Amazon backs Flowers Foods at SCOTUS on delivery driver legal status",
+      "url": "https://finnhub.io/api/news?id=3875be82d05b2b32f32c4f376f22b93798f4410d11a54650e6b45e2c5d16a78d",
+      "sourceurl": "https://finnhub.io/api/news?id=3875be82d05b2b32f32c4f376f22b93798f4410d11a54650e6b45e2c5d16a78d",
+      "seendate": "20251230T120000Z",
+      "seendate_et": "20251230T070000",
+      "market_date": "2025-12-30",
       "domain": "Yahoo",
       "language": "English",
-      "content": "As Apple ramps up its AI ambitions through consumer-focused devices, is now the perfect time to grab AAPL before its next growth wave begins?",
+      "content": "Amazon is backing Flowers Foods before the Supreme Court in a case involving delivery drivers’ legal status. The post Amazon backs Flowers Foods at SCOTUS on delivery driver legal status appeared first on FreightWaves.",
       "coverage_count": 1,
       "days_ago": 2,
-      "recency_weight": 0.8686240000000001,
+      "recency_weight": 0.9409,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "regulatory action, legal case, or investigation",
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.492
+      },
+      "impact_horizon_weight": 0.9748,
+      "final_weight": 0.9577
+    },
+    {
+      "title": "Amazon Data Centers Aren’t Raising Your Electric Bills—They May Be Lowering Them",
+      "url": "https://finnhub.io/api/news?id=02d8466782fac2e08f057ad0bebcf1dab2f7c3f423105bc799a62b7d20c436ab",
+      "sourceurl": "https://finnhub.io/api/news?id=02d8466782fac2e08f057ad0bebcf1dab2f7c3f423105bc799a62b7d20c436ab",
+      "seendate": "20251229T182334Z",
+      "seendate_et": "20251229T132334",
+      "market_date": "2025-12-29",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "As electricity demand from data centers continues to surge, a persistent question has dogged the industry: Are residential ratepayers footing the bill for massive tech infrastructure? According to Amazon Web Services (AWS) and an independent study it commissioned, the answer is a definitive no. As a guest on The POWER Podcast, Mandy Ulrich, senior manager […]",
+      "coverage_count": 1,
+      "days_ago": 3,
+      "recency_weight": 0.912673,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "regulatory action, legal case, or investigation",
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.2853
+      },
+      "impact_horizon_weight": 0.9587,
+      "final_weight": 0.9354
+    },
+    {
+      "title": "Amazon Halts Italy Drone Delivery Plans After Strategic Review",
+      "url": "https://finnhub.io/api/news?id=4ee899564f55fbe521ce195e195a0981f329e41ca3934a865ba0e2490f3b15e9",
+      "sourceurl": "https://finnhub.io/api/news?id=4ee899564f55fbe521ce195e195a0981f329e41ca3934a865ba0e2490f3b15e9",
+      "seendate": "20251229T115246Z",
+      "seendate_et": "20251229T065246",
+      "market_date": "2025-12-29",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon says Italy's broader business regulatory framework does not support its long-term drone delivery objectives, despite positive talks with aviation regulators.",
+      "coverage_count": 1,
+      "days_ago": 3,
+      "recency_weight": 0.912673,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "regulatory action, legal case, or investigation",
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3168
+      },
+      "impact_horizon_weight": 0.9587,
+      "final_weight": 0.9354
+    },
+    {
+      "title": "Jim Cramer Thinks Amazon Stock’s a Buy After Doing Nothing All Year. Why He’s Absolutely Right.",
+      "url": "https://finnhub.io/api/news?id=a499db1964f6653116f5ecc47259e274d98ad9b7323009fb92af2911eb48d3e8",
+      "sourceurl": "https://finnhub.io/api/news?id=a499db1964f6653116f5ecc47259e274d98ad9b7323009fb92af2911eb48d3e8",
+      "seendate": "20251231T145144Z",
+      "seendate_et": "20251231T095144",
+      "market_date": "2025-12-31",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Mad Money host Jim Cramer doesn’t yet appear ready to give up on shares of Amazon (NASDAQ:AMZN), even after lagging most of its peers in the Magnificent Seven basket. Undoubtedly, where others see a slower-growing hyperscaler with AI capabilities that are dragging, others might see an opportunity. After rising just over 5% in the past ... Jim Cramer Thinks Amazon Stock’s a Buy After Doing Nothing All Year. Why He’s Absolutely Right.",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 5,
+        "relevant_sentences": 5,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3703
+      },
+      "impact_horizon_weight": 0.8288,
+      "final_weight": 0.8966
+    },
+    {
+      "title": "Zacks Investment Ideas feature highlights: Amazon, Alphabet, Meta Platforms and Microsoft",
+      "url": "https://finnhub.io/api/news?id=45752a3f3ebcf022ae866e9bd35f5578391b26a836790dd93627ff2bb213bc30",
+      "sourceurl": "https://finnhub.io/api/news?id=45752a3f3ebcf022ae866e9bd35f5578391b26a836790dd93627ff2bb213bc30",
+      "seendate": "20251230T101500Z",
+      "seendate_et": "20251230T051500",
+      "market_date": "2025-12-30",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon stands out among Mag 7 hyperscalers as rising ROIC and positive EPS revisions help ease investor concerns over massive AI-driven CapEx.",
+      "coverage_count": 1,
+      "days_ago": 2,
+      "recency_weight": 0.9409,
       "content_stats": {
         "total_sentences": 1,
         "relevant_sentences": 1,
@@ -35,86 +151,28 @@
         "event_type": "product launch, innovation, or technology",
         "category": "SHORT_TERM",
         "horizon_days": 7,
-        "confidence": 0.5929
+        "confidence": 0.4488
       },
-      "impact_horizon_weight": 0.9123,
-      "final_weight": 0.8902
+      "impact_horizon_weight": 0.795,
+      "final_weight": 0.8649
     },
     {
-      "title": "Why Apple’s (AAPL) AI Rollout Timeline Is Raising Fresh Questions",
-      "url": "https://finnhub.io/api/news?id=b4a4dd192f9f976e99b69c8b8cfbc7f4e9d7b18c5b359d965b9261df73e2ce88",
-      "sourceurl": "https://finnhub.io/api/news?id=b4a4dd192f9f976e99b69c8b8cfbc7f4e9d7b18c5b359d965b9261df73e2ce88",
-      "seendate": "20260214T142153Z",
-      "seendate_et": "20260214T092153",
-      "market_date": "2026-02-17",
+      "title": "Amazon to halt Italy drone delivery plans, Eightco stock pops",
+      "url": "https://finnhub.io/api/news?id=0eb737fcbcf4dfe0259d2670154c0ac6fdce46554014bdc2985cea121236aaef",
+      "sourceurl": "https://finnhub.io/api/news?id=0eb737fcbcf4dfe0259d2670154c0ac6fdce46554014bdc2985cea121236aaef",
+      "seendate": "20251229T210149Z",
+      "seendate_et": "20251229T160149",
+      "market_date": "2025-12-30",
       "domain": "Yahoo",
       "language": "English",
-      "content": "Apple Inc. (NASDAQ:AAPL) is one of the AI stocks currently on Wall Street’s radar. Apple’s AI roadmap is drawing in renewed scrutiny from Evercore ISI, with the research firm anticipating a delay in its Apple Intelligence 2.0 launch. On February 11, analyst Amit Daryanani reiterated an Outperform rating on the stock with a $330.00 price […]",
+      "content": "Amazon (AMZN) halting plans for drone deliveries in Italy, and Eightco (ORBS) shares surging on Monday on the company's $125 million share buyback program. To watch more expert insights and analysis on the latest market action, check out more Market Domination.",
       "coverage_count": 1,
-      "days_ago": 5,
-      "recency_weight": 0.7032011329464322,
+      "days_ago": 2,
+      "recency_weight": 0.9409,
       "content_stats": {
-        "total_sentences": 4,
-        "relevant_sentences": 4,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "event_type": "product launch, innovation, or technology",
-        "category": "SHORT_TERM",
-        "horizon_days": 7,
-        "confidence": 0.3591
-      },
-      "impact_horizon_weight": 0.9123,
-      "final_weight": 0.8009
-    },
-    {
-      "title": "Apple Faces FTC Scrutiny And Siri AI Delays What It Means For AAPL",
-      "url": "https://finnhub.io/api/news?id=ddd7172133f55f3cc9b2b9292d5a4cb9205cdd1ca92bcead557be88ca91235b9",
-      "sourceurl": "https://finnhub.io/api/news?id=ddd7172133f55f3cc9b2b9292d5a4cb9205cdd1ca92bcead557be88ca91235b9",
-      "seendate": "20260213T091937Z",
-      "seendate_et": "20260213T041937",
-      "market_date": "2026-02-13",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "The US Federal Trade Commission has questioned the political neutrality of Apple News, sending a letter to Apple that raises concerns about potential bias in its curation. Apple has delayed major AI driven upgrades to Siri, citing technical issues affecting the rollout timeline. Ticker: NasdaqGS:AAPL. For you as an investor looking at NasdaqGS:AAPL, this combines two sensitive areas for the company: regulation around content and progress in AI. Apple News sits inside the broader services...",
-      "coverage_count": 1,
-      "days_ago": 9,
-      "recency_weight": 0.5305706366707573,
-      "content_stats": {
-        "total_sentences": 5,
-        "relevant_sentences": 5,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "event_type": "regulatory action, legal case, or investigation",
-        "category": "MEDIUM_TERM",
-        "horizon_days": 14,
-        "confidence": 0.6537
-      },
-      "impact_horizon_weight": 0.9123,
-      "final_weight": 0.6957
-    },
-    {
-      "title": "Is the YieldMax AAPL Option Income Strategy ETF’s (APLY) 70% Yield Real or Misleading?",
-      "url": "https://finnhub.io/api/news?id=021e607931094c96dacce91acb6a7389e4bdd4ec3e4588d5e73975436dc0bee8",
-      "sourceurl": "https://finnhub.io/api/news?id=021e607931094c96dacce91acb6a7389e4bdd4ec3e4588d5e73975436dc0bee8",
-      "seendate": "20260213T163516Z",
-      "seendate_et": "20260213T113516",
-      "market_date": "2026-02-13",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "With a market capitalization approaching $4 trillion, Apple (NASDAQ:AAPL) is an absolute dominator among technology gadget producers. Without a doubt, Apple sells plenty of iPhones and rakes in a boatload of revenue — but for passive income investors, AAPL stock isn’t extremely generous. Is the YieldMax AAPL Option Income Strategy ETF’s (APLY) 70% Yield Real or Misleading?",
-      "coverage_count": 1,
-      "days_ago": 9,
-      "recency_weight": 0.5305706366707573,
-      "content_stats": {
-        "total_sentences": 4,
-        "relevant_sentences": 3,
-        "relevance_ratio": 0.75,
+        "total_sentences": 3,
+        "relevant_sentences": 2,
+        "relevance_ratio": 0.6667,
         "condensed": false,
         "filter_action": "filtered"
       },
@@ -122,27 +180,56 @@
         "event_type": "product launch, innovation, or technology",
         "category": "SHORT_TERM",
         "horizon_days": 7,
-        "confidence": 0.3223
+        "confidence": 0.3942
       },
-      "impact_horizon_weight": 0.2909,
-      "final_weight": 0.3929
+      "impact_horizon_weight": 0.795,
+      "final_weight": 0.8649
     },
     {
-      "title": "Apple Inc. (AAPL)’s Upcoming Hardware and AI Updates Keep Street Optimistic",
-      "url": "https://finnhub.io/api/news?id=7c35d4b769a5bb28a63c0523f393d4462e6c8d6bd074ca4954b156552991eca5",
-      "sourceurl": "https://finnhub.io/api/news?id=7c35d4b769a5bb28a63c0523f393d4462e6c8d6bd074ca4954b156552991eca5",
-      "seendate": "20260213T150927Z",
-      "seendate_et": "20260213T100927",
-      "market_date": "2026-02-13",
+      "title": "Amazon rival discount retailer files Chapter 11 bankruptcy",
+      "url": "https://finnhub.io/api/news?id=ebee4284bf03afe7be17464626b365b7baa14ca6bd613bd3a2b5d7e39a93e120",
+      "sourceurl": "https://finnhub.io/api/news?id=ebee4284bf03afe7be17464626b365b7baa14ca6bd613bd3a2b5d7e39a93e120",
+      "seendate": "20251223T013700Z",
+      "seendate_et": "20251222T203700",
+      "market_date": "2025-12-23",
       "domain": "Yahoo",
       "language": "English",
-      "content": "Apple Inc. (NASDAQ:AAPL) is among the most profitable mega cap stocks to buy. On February 9, TheFly disclosed that Apple Inc. (NASDAQ:AAPL) iPhone 17e with MagSafe is launching “soon,” according to Bloomberg’s Mark Gurman report. The report added that the iOS 26.4 beta with updated Siri is expected in the week of February 23, with […]",
+      "content": "Amazon owns so much of the online retail market that competing with it, at least for newer players, requires doing something very different than the online leader. eBay, for example, in its heyday, used an auction model, creating the possibility that consumers might be able to win an item at a ...",
       "coverage_count": 1,
       "days_ago": 9,
-      "recency_weight": 0.5305706366707573,
+      "recency_weight": 0.7602310586545651,
       "content_stats": {
-        "total_sentences": 5,
-        "relevant_sentences": 5,
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "strategic restructuring, merger, or acquisition",
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.3597
+      },
+      "impact_horizon_weight": 0.9158,
+      "final_weight": 0.8344
+    },
+    {
+      "title": "Amazon Named Evercore ISI's Top Large-Cap Internet Pick for 2026",
+      "url": "https://finnhub.io/api/news?id=1357a40d21ef1ddc05c1806021b5cde1033c9121fe961246a5fd1c0229058a78",
+      "sourceurl": "https://finnhub.io/api/news?id=1357a40d21ef1ddc05c1806021b5cde1033c9121fe961246a5fd1c0229058a78",
+      "seendate": "20251229T171753Z",
+      "seendate_et": "20251229T121753",
+      "market_date": "2025-12-29",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Analysts Eye AI and Cloud Momentum as Key Catalysts for Amazon in 2026",
+      "coverage_count": 1,
+      "days_ago": 3,
+      "recency_weight": 0.912673,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
         "relevance_ratio": 1.0,
         "condensed": false,
         "filter_action": "no_change"
@@ -151,24 +238,53 @@
         "event_type": "product launch, innovation, or technology",
         "category": "SHORT_TERM",
         "horizon_days": 7,
-        "confidence": 0.4433
+        "confidence": 0.2665
       },
-      "impact_horizon_weight": 0.2909,
-      "final_weight": 0.3929
+      "impact_horizon_weight": 0.7594,
+      "final_weight": 0.8325
     },
     {
-      "title": "Here's Why Apple (AAPL) is a Great Momentum Stock to Buy",
-      "url": "https://finnhub.io/api/news?id=6f5893b59e49925ab6faa830d1aa1168226281bec68d87b819dbec388e314f6c",
-      "sourceurl": "https://finnhub.io/api/news?id=6f5893b59e49925ab6faa830d1aa1168226281bec68d87b819dbec388e314f6c",
-      "seendate": "20260212T170003Z",
-      "seendate_et": "20260212T120003",
-      "market_date": "2026-02-12",
+      "title": "Amazon And These Two Stocks Are Analyst's Top Picks With 'Resilient' Consumer Demand",
+      "url": "https://finnhub.io/api/news?id=dc12747834ce5479f9811cd03e7289db3a5f21fab9f5869ea0df1703deb2a074",
+      "sourceurl": "https://finnhub.io/api/news?id=dc12747834ce5479f9811cd03e7289db3a5f21fab9f5869ea0df1703deb2a074",
+      "seendate": "20251229T155340Z",
+      "seendate_et": "20251229T105340",
+      "market_date": "2025-12-29",
       "domain": "Yahoo",
       "language": "English",
-      "content": "Does Apple (AAPL) have what it takes to be a top stock pick for momentum investors? Let's find out.",
+      "content": "Amazon stock is a top pick at Evercore ISI for 2026 after the tech giant's shares underperformed the S&P 500 in 2025.",
       "coverage_count": 1,
-      "days_ago": 10,
-      "recency_weight": 0.4944918333771458,
+      "days_ago": 3,
+      "recency_weight": 0.912673,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "analyst rating, upgrade, or downgrade",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.406
+      },
+      "impact_horizon_weight": 0.7594,
+      "final_weight": 0.8325
+    },
+    {
+      "title": "Amazon Is Lagging In 2025, Yet 200+ ETFs Still Can't Let It Go",
+      "url": "https://finnhub.io/api/news?id=a7f04717d3bef186d02198c06c6a584ecde6dc4685e093d767114947d1b43778",
+      "sourceurl": "https://finnhub.io/api/news?id=a7f04717d3bef186d02198c06c6a584ecde6dc4685e093d767114947d1b43778",
+      "seendate": "20251229T143750Z",
+      "seendate_et": "20251229T093750",
+      "market_date": "2025-12-29",
+      "domain": "Benzinga",
+      "language": "English",
+      "content": "Amazon stock is lagging the market in 2025, but ETFs haven&#39;t rotated away. Over 200 funds still hold AMZN, leaving investors exposed to a possible rebound.",
+      "coverage_count": 1,
+      "days_ago": 3,
+      "recency_weight": 0.912673,
       "content_stats": {
         "total_sentences": 2,
         "relevant_sentences": 2,
@@ -180,24 +296,836 @@
         "event_type": "general market commentary or opinion",
         "category": "SHORT_TERM",
         "horizon_days": 7,
-        "confidence": 0.3592
+        "confidence": 0.3119
       },
-      "impact_horizon_weight": 0.1783,
-      "final_weight": 0.2969
+      "impact_horizon_weight": 0.7594,
+      "final_weight": 0.8325
     },
     {
-      "title": "Apple Just Paid Investors And This Is AAPL’s Dividend Grade",
-      "url": "https://finnhub.io/api/news?id=7674e5f02316bbfd7a5e8206a2a93078d9325ef29ad11c6061f8b26854be51a1",
-      "sourceurl": "https://finnhub.io/api/news?id=7674e5f02316bbfd7a5e8206a2a93078d9325ef29ad11c6061f8b26854be51a1",
-      "seendate": "20260211T181136Z",
-      "seendate_et": "20260211T131136",
-      "market_date": "2026-02-11",
+      "title": "The Zacks Analyst Blog Highlights Meta Platforms, Alphabet and Amazon",
+      "url": "https://finnhub.io/api/news?id=af0466251886583d87c389a22a9d9aec0850097f4a02fc509433f6a71c55e2d3",
+      "sourceurl": "https://finnhub.io/api/news?id=af0466251886583d87c389a22a9d9aec0850097f4a02fc509433f6a71c55e2d3",
+      "seendate": "20251229T114900Z",
+      "seendate_et": "20251229T064900",
+      "market_date": "2025-12-29",
       "domain": "Yahoo",
       "language": "English",
-      "content": "Apple (Nasdaq: AAPL) just distributed $0.26 per share to shareholders on February 12, 2026, marking another quarterly payment in the company’s uninterrupted dividend streak spanning over a decade. With a current yield of 0.38% and shares trading at $279.72, Apple’s dividend profile reflects a company prioritizing capital appreciation and share buybacks over income generation. Here’s ... Apple Just Paid Investors And This Is AAPL’s Dividend Grade",
+      "content": "Meta Platforms is leaning hard into AI to lift engagement and ad performance, but rising competition from Alphabet and Amazon keeps the upside debate alive.",
       "coverage_count": 1,
-      "days_ago": 11,
-      "recency_weight": 0.4608663887074999,
+      "days_ago": 3,
+      "recency_weight": 0.912673,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.4422
+      },
+      "impact_horizon_weight": 0.7594,
+      "final_weight": 0.8325
+    },
+    {
+      "title": "The Zacks Analyst Blog Highlights Amazon, Microsoft and Alphabet",
+      "url": "https://finnhub.io/api/news?id=b16d51e806b1ad1e5994f8f659e07a3e7ff50cf14049ff0aee5c30356602966a",
+      "sourceurl": "https://finnhub.io/api/news?id=b16d51e806b1ad1e5994f8f659e07a3e7ff50cf14049ff0aee5c30356602966a",
+      "seendate": "20251229T113300Z",
+      "seendate_et": "20251229T063300",
+      "market_date": "2025-12-29",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon leads a trio of cloud giants poised to benefit from soaring AI-driven demand as data center expansion accelerates into 2026.",
+      "coverage_count": 1,
+      "days_ago": 3,
+      "recency_weight": 0.912673,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.4925
+      },
+      "impact_horizon_weight": 0.7594,
+      "final_weight": 0.8325
+    },
+    {
+      "title": "TTD vs. AMZN: Which Ad-Tech Stock Is the Smarter Buy Now?",
+      "url": "https://finnhub.io/api/news?id=82f0b3d4662c6d6410adbf6a3b95a7f1f3317c3725aa7442ccdf79fda6210f8d",
+      "sourceurl": "https://finnhub.io/api/news?id=82f0b3d4662c6d6410adbf6a3b95a7f1f3317c3725aa7442ccdf79fda6210f8d",
+      "seendate": "20251222T180800Z",
+      "seendate_et": "20251222T130800",
+      "market_date": "2025-12-22",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon's accelerating advertising business is reshaping the competitive landscape for pure-play ad-tech players like The Trade Desk.",
+      "coverage_count": 1,
+      "days_ago": 10,
+      "recency_weight": 0.7374241268949281,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "strategic restructuring, merger, or acquisition",
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.249
+      },
+      "impact_horizon_weight": 0.939,
+      "final_weight": 0.8321
+    },
+    {
+      "title": "A $1 trillion IPO looms, and Amazon may have just locked in early",
+      "url": "https://finnhub.io/api/news?id=52f5abba1b35780ba6bd82ce296f12fd756172975a8ff51306f7683c23b4b2c8",
+      "sourceurl": "https://finnhub.io/api/news?id=52f5abba1b35780ba6bd82ce296f12fd756172975a8ff51306f7683c23b4b2c8",
+      "seendate": "20251221T184700Z",
+      "seendate_et": "20251221T134700",
+      "market_date": "2025-12-22",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon is increasingly aggressive and smart in its battle to acquire a greater role in AI. Amazon will reportedly make a huge $10 billion investment in OpenAI, which shocked Wall Street and rattled Silicon Valley. If the Reuters report is confirmed in the not-so-distant future, the deal won't ...",
+      "coverage_count": 1,
+      "days_ago": 10,
+      "recency_weight": 0.7374241268949281,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "strategic restructuring, merger, or acquisition",
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.4771
+      },
+      "impact_horizon_weight": 0.939,
+      "final_weight": 0.8321
+    },
+    {
+      "title": "Target: Activist Can't Save This Company From Amazon; Reiterate 'Sell'",
+      "url": "https://finnhub.io/api/news?id=c3556eb4248cdac17a1e38f8892b56cc9f76d8fbfa08716dfc56e48e44ef9e2f",
+      "sourceurl": "https://finnhub.io/api/news?id=c3556eb4248cdac17a1e38f8892b56cc9f76d8fbfa08716dfc56e48e44ef9e2f",
+      "seendate": "20251230T162146Z",
+      "seendate_et": "20251230T112146",
+      "market_date": "2025-12-30",
+      "domain": "SeekingAlpha",
+      "language": "English",
+      "content": "Target stock's growth faces risks from Amazon and margin pressures.",
+      "coverage_count": 1,
+      "days_ago": 2,
+      "recency_weight": 0.9409,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 1,
+        "relevance_ratio": 0.5,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "earnings report or financial results",
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.3048
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7794
+    },
+    {
+      "title": "AMAZON WORKERS AT DJT6 FACILITY IN RIVERSIDE JOIN TEAMSTERS",
+      "url": "https://finnhub.io/api/news?id=58a453d0f3fcc44ed60e93b80aafa305be94d5288cd8ad24a5aacd6bb7904843",
+      "sourceurl": "https://finnhub.io/api/news?id=58a453d0f3fcc44ed60e93b80aafa305be94d5288cd8ad24a5aacd6bb7904843",
+      "seendate": "20251220T160000Z",
+      "seendate_et": "20251220T110000",
+      "market_date": "2025-12-22",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon warehouse workers at the DJT6 facility in Riverside, one of the company's largest delivery stations nationwide, have successfully organized with Teamsters Local 1932 and are demanding Amazon recognize their union. DJT6 is now the fifth Amazon facility in Southern California to join the Teamsters, along with the KSBD Air Hub in San Bernadino, DFX4 in Victorville, DAX5 in City of Industry, and DAX8 in Palmdale.",
+      "coverage_count": 1,
+      "days_ago": 10,
+      "recency_weight": 0.7374241268949281,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "regulatory action, legal case, or investigation",
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.2276
+      },
+      "impact_horizon_weight": 0.7594,
+      "final_weight": 0.7483
+    },
+    {
+      "title": "Trump's $100,000 H1B Visa Fee Sparks Shareholder Revolt As Amazon, Google Pressed On Long-Term Impact Of ICE Activity",
+      "url": "https://finnhub.io/api/news?id=3840e6b7968975f3f5843349f6f66c30e72c0abfdf82a4ba1aa9a617cd34eaa2",
+      "sourceurl": "https://finnhub.io/api/news?id=3840e6b7968975f3f5843349f6f66c30e72c0abfdf82a4ba1aa9a617cd34eaa2",
+      "seendate": "20251219T223132Z",
+      "seendate_et": "20251219T173132",
+      "market_date": "2025-12-22",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "A union-backed investment group is pressuring Amazon.com Inc. (NASDAQ: AMZN), Alphabet Inc. Trump’s H1B Fee Sparks Concerns Proxy advisor SOC Investment Group, which primarily works with pension funds affiliated with the Strategic Organizing Center union, has asked the three companies to explain how they will address workforce disru",
+      "coverage_count": 1,
+      "days_ago": 10,
+      "recency_weight": 0.7374241268949281,
+      "content_stats": {
+        "total_sentences": 5,
+        "relevant_sentences": 3,
+        "relevance_ratio": 0.6,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "regulatory action, legal case, or investigation",
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.2688
+      },
+      "impact_horizon_weight": 0.7594,
+      "final_weight": 0.7483
+    },
+    {
+      "title": "Why Amazon stock could have nearly 50% upside in 2026",
+      "url": "https://finnhub.io/api/news?id=abf4125ce1c251026382f76e1727464d3050425bee8808e0334c8768b902e39e",
+      "sourceurl": "https://finnhub.io/api/news?id=abf4125ce1c251026382f76e1727464d3050425bee8808e0334c8768b902e39e",
+      "seendate": "20251229T131405Z",
+      "seendate_et": "20251229T081405",
+      "market_date": "2025-12-29",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon's stock could bounce back in 2026 after a rough 2025.",
+      "coverage_count": 1,
+      "days_ago": 3,
+      "recency_weight": 0.912673,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "earnings report or financial results",
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.237
+      },
+      "impact_horizon_weight": 0.6065,
+      "final_weight": 0.744
+    },
+    {
+      "title": "Amazon Does It All",
+      "url": "https://finnhub.io/api/news?id=c2e776501de1d21124c7311f130ae5aaf4da86a3f3ff7a4c80c61c4372568d86",
+      "sourceurl": "https://finnhub.io/api/news?id=c2e776501de1d21124c7311f130ae5aaf4da86a3f3ff7a4c80c61c4372568d86",
+      "seendate": "20251228T093057Z",
+      "seendate_et": "20251228T043057",
+      "market_date": "2025-12-29",
+      "domain": "SeekingAlpha",
+      "language": "English",
+      "content": "Amazon is positioned as a dominant AI infrastructure and monetization leader, with Q3 2025 net sales up 13%. Read why I am bullish about AMZN stock.",
+      "coverage_count": 1,
+      "days_ago": 3,
+      "recency_weight": 0.912673,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "earnings report or financial results",
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.3968
+      },
+      "impact_horizon_weight": 0.6065,
+      "final_weight": 0.744
+    },
+    {
+      "title": "Amazon Web Service Says Services Not Hit By Outage As Social Media Buzzes Over Christmas Crash  (UPDATED)",
+      "url": "https://finnhub.io/api/news?id=11bf4d9ab5f000321d4fa5ad1449f6e25bf40763665fed246a254b2eae7c2b32",
+      "sourceurl": "https://finnhub.io/api/news?id=11bf4d9ab5f000321d4fa5ad1449f6e25bf40763665fed246a254b2eae7c2b32",
+      "seendate": "20251226T123106Z",
+      "seendate_et": "20251226T073106",
+      "market_date": "2025-12-26",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Editor’s Note: This story has been updated to include comments from an Amazon spokesperson. There are reports of another major outage at Amazon.com Inc.’s (NASDAQ:AMZN) cloud computing arm, Amazon Web Services, on Christmas Eve. The company has described these as “rumors.” AWS Outage On Christmas Outage-tracking service Downdetector posted that user reports had been flagging problems with Amazon Web Services since 8:41 p.m.",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
+      "content_stats": {
+        "total_sentences": 4,
+        "relevant_sentences": 3,
+        "relevance_ratio": 0.75,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2989
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7333
+    },
+    {
+      "title": "Billionaire Ken Griffin Sells Amazon Stock and Buys an AI Stock Up 1,030% Since 2024 (Hint: Not Nvidia)",
+      "url": "https://finnhub.io/api/news?id=b830be6cb1cdcb1d5727a4392f79d41804ec4b7d30fc29a9e86ccfe3d5d38fe4",
+      "sourceurl": "https://finnhub.io/api/news?id=b830be6cb1cdcb1d5727a4392f79d41804ec4b7d30fc29a9e86ccfe3d5d38fe4",
+      "seendate": "20251226T091500Z",
+      "seendate_et": "20251226T041500",
+      "market_date": "2025-12-26",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Top hedge fund manager Ken Griffin sold Amazon and bought Palantir in the third quarter.",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2528
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7333
+    },
+    {
+      "title": "After 23 years working for Jeff Bezos, the CEO of a $1.3 billion skills platform shares lessons he learned from Andy Jassy and the Amazon founder",
+      "url": "https://finnhub.io/api/news?id=087f2bfc50b2f5c31651cabdd9ffbec5ebde62811f69bca09809853ce0a1fe9d",
+      "sourceurl": "https://finnhub.io/api/news?id=087f2bfc50b2f5c31651cabdd9ffbec5ebde62811f69bca09809853ce0a1fe9d",
+      "seendate": "20251226T080200Z",
+      "seendate_et": "20251226T030200",
+      "market_date": "2025-12-26",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "In 1997, the day before Greg Hart joined Amazon, he was summoned to a meeting—on a Sunday—with its founder, Jeff Bezos.",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3573
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7333
+    },
+    {
+      "title": "Zacks Industry Outlook Highlights Expedia and Amazon",
+      "url": "https://finnhub.io/api/news?id=d7520ac41bcc01a610fbdf4156a2d723f1db6c28b33b39aa01dda0ab129a3413",
+      "sourceurl": "https://finnhub.io/api/news?id=d7520ac41bcc01a610fbdf4156a2d723f1db6c28b33b39aa01dda0ab129a3413",
+      "seendate": "20251226T074500Z",
+      "seendate_et": "20251226T024500",
+      "market_date": "2025-12-26",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Expedia and Amazon have been highlighted in this Industry Outlook article.",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "analyst rating, upgrade, or downgrade",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3044
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7333
+    },
+    {
+      "title": "Amazon's Stock Is Dirt Cheap",
+      "url": "https://finnhub.io/api/news?id=3f79ea16f163a0730876267dffa877fe8b0a13800bcf5c6e4aa281785f35a43b",
+      "sourceurl": "https://finnhub.io/api/news?id=3f79ea16f163a0730876267dffa877fe8b0a13800bcf5c6e4aa281785f35a43b",
+      "seendate": "20251225T071745Z",
+      "seendate_et": "20251225T021745",
+      "market_date": "2025-12-26",
+      "domain": "SeekingAlpha",
+      "language": "English",
+      "content": "Amazon is rated a Strong Buy, driven by leadership in e-commerce, cloud, and accelerating digital advertising growth. Click to read my analysis of AMZN stock.",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "analyst rating, upgrade, or downgrade",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2384
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7333
+    },
+    {
+      "title": "Amazon: A Correction Under $200 May Be Necessary Before Uptrend Resumes (Technical Analysis)",
+      "url": "https://finnhub.io/api/news?id=18b17bc9feea48fc182921f21a703157b6d6814db4618484965f92ff5c1bbe69",
+      "sourceurl": "https://finnhub.io/api/news?id=18b17bc9feea48fc182921f21a703157b6d6814db4618484965f92ff5c1bbe69",
+      "seendate": "20251225T021635Z",
+      "seendate_et": "20251224T211635",
+      "market_date": "2025-12-26",
+      "domain": "SeekingAlpha",
+      "language": "English",
+      "content": "Amazon's valuation improves for long-term investors, but technicals suggest a possible correction. Check out the technical analysis of AMZN stock.",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.276
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7333
+    },
+    {
+      "title": "Amazon.com (AMZN) Is Up 5.0% After Expanding AI Infrastructure, AWS Backlog and Strategic Partnerships – What's Changed",
+      "url": "https://finnhub.io/api/news?id=a596588fafe3ecc0615ce7b41443871651e6b2c19b86c2a4900a224ccc101b29",
+      "sourceurl": "https://finnhub.io/api/news?id=a596588fafe3ecc0615ce7b41443871651e6b2c19b86c2a4900a224ccc101b29",
+      "seendate": "20251225T002059Z",
+      "seendate_et": "20251224T192059",
+      "market_date": "2025-12-26",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "In recent days, Amazon and its partners have announced a wave of AI- and cloud-focused initiatives spanning AWS infrastructure expansion, new autonomous AI agents, and deeper collaborations such as a potential US$10 billion OpenAI investment and expanded Amazon Luna access on Comcast’s Xfinity devices. Together with a US$200 billion AWS backlog and heavy data center spending, these moves underline how AI-driven workloads are becoming central to Amazon’s long-term profit engine beyond...",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3005
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.7333
+    },
+    {
+      "title": "A $61 Billion Reason to Buy Amazon Stock for 2026",
+      "url": "https://finnhub.io/api/news?id=c48cadce15bd9b039622579094880aa3697b2b12dd678582b85a2376dc38d73b",
+      "sourceurl": "https://finnhub.io/api/news?id=c48cadce15bd9b039622579094880aa3697b2b12dd678582b85a2376dc38d73b",
+      "seendate": "20251224T143002Z",
+      "seendate_et": "20251224T093002",
+      "market_date": "2025-12-24",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "With AWS doubling power capacity, Nova and Bedrock deepening its AI stack, Wall Street assigning a Strong Buy rating, plus roughly 30% upside as data‑center deal activity hits a record 61 billion dollars, Amazon looks like a Buy.",
+      "coverage_count": 1,
+      "days_ago": 8,
+      "recency_weight": 0.7837433594376959,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3192
+      },
+      "impact_horizon_weight": 0.5675,
+      "final_weight": 0.6669
+    },
+    {
+      "title": "Tribesigns Wins \"2025 Amazon Business Brand of the Year\" Award",
+      "url": "https://finnhub.io/api/news?id=aa5aa5627560866ffb1b11c023edc887bead66f6778b5363c0d7277ea72d3749",
+      "sourceurl": "https://finnhub.io/api/news?id=aa5aa5627560866ffb1b11c023edc887bead66f6778b5363c0d7277ea72d3749",
+      "seendate": "20251224T141500Z",
+      "seendate_et": "20251224T091500",
+      "market_date": "2025-12-24",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Tribesigns, a globally prestigious furniture manufacturer and retailer, was recently awarded the 2025 Amazon Business Brand of the Year by Amazon Global Selling at its annual summit.",
+      "coverage_count": 1,
+      "days_ago": 8,
+      "recency_weight": 0.7837433594376959,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "analyst rating, upgrade, or downgrade",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2251
+      },
+      "impact_horizon_weight": 0.5675,
+      "final_weight": 0.6669
+    },
+    {
+      "title": "Charleston-Based Law Firm Yarborough Applegate Leads Nation in Holding Amazon Accountable for Delivery Driver Wrecks",
+      "url": "https://finnhub.io/api/news?id=091e41a4b311a546e1ae326a6280f146c916f6184e4f5a7c176c298803df3efd",
+      "sourceurl": "https://finnhub.io/api/news?id=091e41a4b311a546e1ae326a6280f146c916f6184e4f5a7c176c298803df3efd",
+      "seendate": "20251219T172000Z",
+      "seendate_et": "20251219T122000",
+      "market_date": "2025-12-19",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "CHARLESTON, S.C., December 19, 2025--The Charleston-based personal injury law firm of Yarborough Applegate, having secured the nation’s first-ever jury verdict holding Amazon liable for delivery driver negligence, is now leading national efforts to enforce that precedent. The firm is actively pursuing multi-state litigation against the e-commerce giant for catastrophic harm caused by its massive Delivery Service Partner (DSP) fleet, a public safety risk amplified by the billions of packages deli",
+      "coverage_count": 1,
+      "days_ago": 13,
+      "recency_weight": 0.6730270901655746,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "regulatory action, legal case, or investigation",
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.5352
+      },
+      "impact_horizon_weight": 0.6456,
+      "final_weight": 0.6592
+    },
+    {
+      "title": "The Zacks Analyst Blog Analog Devices, Amazon.com and Fortive",
+      "url": "https://finnhub.io/api/news?id=3da81997e269f2134dfe22c6eda1887ce56ae8e9f27a4ea98db06e4f9796f3eb",
+      "sourceurl": "https://finnhub.io/api/news?id=3da81997e269f2134dfe22c6eda1887ce56ae8e9f27a4ea98db06e4f9796f3eb",
+      "seendate": "20251226T140800Z",
+      "seendate_et": "20251226T090800",
+      "market_date": "2025-12-26",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon.com stands out as tech stocks rebound in a Santa Claus rally, with easing AI fears and strong earnings outlook lifting S&P 500 sentiment.",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "earnings report or financial results",
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.443
+      },
+      "impact_horizon_weight": 0.4905,
+      "final_weight": 0.6392
+    },
+    {
+      "title": "Is Amazon Stock a Buy Ahead of 2026?",
+      "url": "https://finnhub.io/api/news?id=7607a756b4623fb5d5500af33422139129f9fdd81fa32a4bedd1b9fbe1e5abe1",
+      "sourceurl": "https://finnhub.io/api/news?id=7607a756b4623fb5d5500af33422139129f9fdd81fa32a4bedd1b9fbe1e5abe1",
+      "seendate": "20251226T112924Z",
+      "seendate_et": "20251226T062924",
+      "market_date": "2025-12-26",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon Eyes Big Gains Ahead of 2026 as EPS Forecast Hits $7.85",
+      "coverage_count": 1,
+      "days_ago": 6,
+      "recency_weight": 0.8329720049289998,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "earnings report or financial results",
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.4441
+      },
+      "impact_horizon_weight": 0.4905,
+      "final_weight": 0.6392
+    },
+    {
+      "title": "Amazon Just Unveiled Some Seriously Impressive “Frontier” AI Agents. It’s Time to Buy.",
+      "url": "https://finnhub.io/api/news?id=b897d438c26b57e78db42acd3496975eeec7fc0828679d4a53a1110d7edfb97c",
+      "sourceurl": "https://finnhub.io/api/news?id=b897d438c26b57e78db42acd3496975eeec7fc0828679d4a53a1110d7edfb97c",
+      "seendate": "20251223T182431Z",
+      "seendate_et": "20251223T132431",
+      "market_date": "2025-12-23",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon (NASDAQ:AMZN) has been a quiet laggard in the Magnificent Seven this year after gaining just over 3% year to date. With just a few trading days left in the year, it’s looking like the $2.45 trillion e-commerce juggernaut is about to disappoint yet again, despite all the encouraging AI projects going on behind the ... Amazon Just Unveiled Some Seriously Impressive “Frontier” AI Agents. It’s Time to Buy.",
+      "coverage_count": 1,
+      "days_ago": 9,
+      "recency_weight": 0.7602310586545651,
+      "content_stats": {
+        "total_sentences": 4,
+        "relevant_sentences": 4,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3876
+      },
+      "impact_horizon_weight": 0.5287,
+      "final_weight": 0.634
+    },
+    {
+      "title": "Is Amazon Stock Poised to Rally With AI Expansion in Cloud & Retail?",
+      "url": "https://finnhub.io/api/news?id=43f3d6909471f4dbf9872a327e33e6a33809294bb0ca292823b983ab9498c0c6",
+      "sourceurl": "https://finnhub.io/api/news?id=43f3d6909471f4dbf9872a327e33e6a33809294bb0ca292823b983ab9498c0c6",
+      "seendate": "20251223T152100Z",
+      "seendate_et": "20251223T102100",
+      "market_date": "2025-12-23",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "AMZN stock is gaining momentum as AI investments boost AWS growth and enhance retail performance, driving revenue gains across both core businesses.",
+      "coverage_count": 1,
+      "days_ago": 9,
+      "recency_weight": 0.7602310586545651,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3699
+      },
+      "impact_horizon_weight": 0.5287,
+      "final_weight": 0.634
+    },
+    {
+      "title": "Is Amazon Still Attractively Priced After Its AI and AWS Expansion Push?",
+      "url": "https://finnhub.io/api/news?id=0659bbe2a0ec0c3f7f0ce9f2e8afd0fd48b54e24df46bea366b86ad5b83be314",
+      "sourceurl": "https://finnhub.io/api/news?id=0659bbe2a0ec0c3f7f0ce9f2e8afd0fd48b54e24df46bea366b86ad5b83be314",
+      "seendate": "20251223T091310Z",
+      "seendate_et": "20251223T041310",
+      "market_date": "2025-12-23",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "If you are wondering whether Amazon.com at around $228 a share is still a smart buy or already pricing in perfection, you are not alone. That question is exactly what this breakdown will tackle. The stock is up 2.6% over the last week and 3.5% over the last month, modest moves that sit against a flat 1 year return of around -0.3% but a powerful 175.1% gain over 3 years. Recent headlines have focused on Amazon pushing deeper into AI infrastructure via AWS and expanding its logistics and...",
+      "coverage_count": 1,
+      "days_ago": 9,
+      "recency_weight": 0.7602310586545651,
+      "content_stats": {
+        "total_sentences": 4,
+        "relevant_sentences": 4,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.4965
+      },
+      "impact_horizon_weight": 0.5287,
+      "final_weight": 0.634
+    },
+    {
+      "title": "Who has the best last-minute holiday deals --Walmart, Amazon, or Target?",
+      "url": "https://finnhub.io/api/news?id=875e55a1e8a2a96dbef47b6ca0c36c1527f63a6471b39d24c4fbfe1902a0217d",
+      "sourceurl": "https://finnhub.io/api/news?id=875e55a1e8a2a96dbef47b6ca0c36c1527f63a6471b39d24c4fbfe1902a0217d",
+      "seendate": "20251222T221216Z",
+      "seendate_et": "20251222T171216",
+      "market_date": "2025-12-23",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "It's a race to the finish. Despite concerns that a K-shaped economy could derail holiday spending, Americans are on pace to set yet another record for spending through Christmas, providing a windfall for retailers such as Walmart, Target, and Amazon. 91% of Americans celebrate the holidays and are ...",
+      "coverage_count": 1,
+      "days_ago": 9,
+      "recency_weight": 0.7602310586545651,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3093
+      },
+      "impact_horizon_weight": 0.5287,
+      "final_weight": 0.634
+    },
+    {
+      "title": "AMAZON TEAMSTERS DEMAND NEW YORK CITY COUNCIL PASS DELIVERY PROTECTION ACT IN 2026",
+      "url": "https://finnhub.io/api/news?id=d10c6f364191c71b8ef5cc2549c70f55acc56e8ee9c86b52f9a2e8883b278c64",
+      "sourceurl": "https://finnhub.io/api/news?id=d10c6f364191c71b8ef5cc2549c70f55acc56e8ee9c86b52f9a2e8883b278c64",
+      "seendate": "20251218T173000Z",
+      "seendate_et": "20251218T123000",
+      "market_date": "2025-12-18",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon Teamsters rallied outside City Hall today, during the New York City Council's final meeting of the year, to demand passage of the Delivery Protection Act in 2026 and to call out Council Speaker Adrienne Adams for siding with Amazon over eight million hardworking New Yorkers.",
+      "coverage_count": 1,
+      "days_ago": 14,
+      "recency_weight": 0.6528362774606074,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "regulatory action, legal case, or investigation",
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3327
+      },
+      "impact_horizon_weight": 0.6065,
+      "final_weight": 0.6293
+    },
+    {
+      "title": "Alphabet vs. Amazon: Which Stock Will Outperform in 2026?",
+      "url": "https://finnhub.io/api/news?id=767ac5a3e4dcd11610f1b8a56564e071a7c0e43551631e5ad63a765bcfae49d1",
+      "sourceurl": "https://finnhub.io/api/news?id=767ac5a3e4dcd11610f1b8a56564e071a7c0e43551631e5ad63a765bcfae49d1",
+      "seendate": "20251221T225200Z",
+      "seendate_et": "20251221T175200",
+      "market_date": "2025-12-22",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon and Alphabet are two market leaders in cloud computing.",
+      "coverage_count": 1,
+      "days_ago": 10,
+      "recency_weight": 0.7374241268949281,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.405
+      },
+      "impact_horizon_weight": 0.4905,
+      "final_weight": 0.6014
+    },
+    {
+      "title": "Amazon Could Invest $10 Billion in OpenAI. Should You Invest in AMZN Stock First?",
+      "url": "https://finnhub.io/api/news?id=0b0170e4923b2d1f730c6be3df0a3b9be229560c7a18f9cb5ef7bc9e83f17aa6",
+      "sourceurl": "https://finnhub.io/api/news?id=0b0170e4923b2d1f730c6be3df0a3b9be229560c7a18f9cb5ef7bc9e83f17aa6",
+      "seendate": "20251221T193002Z",
+      "seendate_et": "20251221T143002",
+      "market_date": "2025-12-22",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon is reportedly weighing a bold multi-billion $ bet on OpenAI, which can deepen its dominance in the AI race. Is AMZN a buy now?",
+      "coverage_count": 1,
+      "days_ago": 10,
+      "recency_weight": 0.7374241268949281,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.29
+      },
+      "impact_horizon_weight": 0.4905,
+      "final_weight": 0.6014
+    },
+    {
+      "title": "Jim Cramer Calls Amazon’s E-Commerce Business a “Huge, Giant Tailwind in This Backdrop”",
+      "url": "https://finnhub.io/api/news?id=bcee0cc9fab93e8b9e172e2f5aab4482f0acdb85554396c6f171ab8070b47299",
+      "sourceurl": "https://finnhub.io/api/news?id=bcee0cc9fab93e8b9e172e2f5aab4482f0acdb85554396c6f171ab8070b47299",
+      "seendate": "20251221T154455Z",
+      "seendate_et": "20251221T104455",
+      "market_date": "2025-12-22",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon.com, Inc. (NASDAQ:AMZN) is one of thetech and consumer sector stocks that Jim Cramer talked about. Cramer made a note of his appreciation of the company’s e-commerce business, as he commented: “Let’s not forget there’s a lot of consumer in tech. Amazon, for example, is more than Amazon Web Services, even though Wall Street only […]",
+      "coverage_count": 1,
+      "days_ago": 10,
+      "recency_weight": 0.7374241268949281,
       "content_stats": {
         "total_sentences": 4,
         "relevant_sentences": 4,
@@ -209,27 +1137,172 @@
         "event_type": "general market commentary or opinion",
         "category": "SHORT_TERM",
         "horizon_days": 7,
-        "confidence": 0.249
+        "confidence": 0.2723
       },
-      "impact_horizon_weight": 0.1007,
-      "final_weight": 0.2154
+      "impact_horizon_weight": 0.4905,
+      "final_weight": 0.6014
     },
     {
-      "title": "Jim Cramer on Apple (AAPL): “Doesn’t Hurt That They’ve Avoided Spending Hundreds of Billions of Dollars on Data Centers”",
-      "url": "https://finnhub.io/api/news?id=850ebe6d91caf5da8998cf78e562a5ff9ac7fbdbd2a8282c37b65ff56c2da346",
-      "sourceurl": "https://finnhub.io/api/news?id=850ebe6d91caf5da8998cf78e562a5ff9ac7fbdbd2a8282c37b65ff56c2da346",
-      "seendate": "20260210T145329Z",
-      "seendate_et": "20260210T095329",
-      "market_date": "2026-02-10",
+      "title": "Wells Fargo Reiterates Overweight Rating on Amazon.com, Inc. (AMZN)",
+      "url": "https://finnhub.io/api/news?id=9cac991d57bcd705f76947e014248c849976f24864ba5b9e9d5787c4372878b4",
+      "sourceurl": "https://finnhub.io/api/news?id=9cac991d57bcd705f76947e014248c849976f24864ba5b9e9d5787c4372878b4",
+      "seendate": "20251220T115620Z",
+      "seendate_et": "20251220T065620",
+      "market_date": "2025-12-22",
       "domain": "Yahoo",
       "language": "English",
-      "content": "Apple Inc. (NASDAQ:AAPL) is one of the stocks Jim Cramer looked at recently. Cramer highlighted how the company avoided spending too much on AI, as he commented: Last Thursday, Apple reported a magnificent quarter with blowout iPhone sales and staggeringly good numbers from China, which had previously been one of their worst regions. Apple also […]",
+      "content": "Amazon.com, Inc. (NASDAQ:AMZN) is among the 14 Best S&P 500 Stocks to Buy Now. On December 17, Wells Fargo analyst Ken Gawrelski maintained an Overweight rating on the stock with a price target of $295. This is a reaffirmation of the firm’s earlier update on December 2.",
       "coverage_count": 1,
-      "days_ago": 12,
-      "recency_weight": 0.42952747427538995,
+      "days_ago": 10,
+      "recency_weight": 0.7374241268949281,
       "content_stats": {
-        "total_sentences": 4,
+        "total_sentences": 5,
         "relevant_sentences": 4,
+        "relevance_ratio": 0.8,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2838
+      },
+      "impact_horizon_weight": 0.4905,
+      "final_weight": 0.6014
+    },
+    {
+      "title": "Amazon’s Retail Engine May Matter More Than AWS Right Now",
+      "url": "https://finnhub.io/api/news?id=28bd62f1ee0d449dcf8daee9bc4b7dca91504eb230214209b87d626f290c402c",
+      "sourceurl": "https://finnhub.io/api/news?id=28bd62f1ee0d449dcf8daee9bc4b7dca91504eb230214209b87d626f290c402c",
+      "seendate": "20251220T112354Z",
+      "seendate_et": "20251220T062354",
+      "market_date": "2025-12-22",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Watch the Video Why Amazon stands out this quarter I started the conversation by saying that one of my favorite retail stocks right now is Amazon. It is about the holiday quarter. Amazon’s e-commerce platform is built to capture peak consumer ... Amazon’s Retail Engine May Matter More Than AWS Right Now",
+      "coverage_count": 1,
+      "days_ago": 10,
+      "recency_weight": 0.7374241268949281,
+      "content_stats": {
+        "total_sentences": 5,
+        "relevant_sentences": 4,
+        "relevance_ratio": 0.8,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3302
+      },
+      "impact_horizon_weight": 0.4905,
+      "final_weight": 0.6014
+    },
+    {
+      "title": "Dominion Energy (D) Valuation After Amazon SMR Deal and Renewables Expansion Boost Investor Optimism",
+      "url": "https://finnhub.io/api/news?id=eea735bc6ef882a0d2596bf8cd198605a6e0a90cc94683ab10b16e1d60afee8e",
+      "sourceurl": "https://finnhub.io/api/news?id=eea735bc6ef882a0d2596bf8cd198605a6e0a90cc94683ab10b16e1d60afee8e",
+      "seendate": "20251219T231345Z",
+      "seendate_et": "20251219T181345",
+      "market_date": "2025-12-22",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Dominion Energy (D) just stepped further into the future of power, expanding its renewable portfolio and signing an SMR focused memorandum of understanding with Amazon to help meet booming data center and customer demand. Even with the Amazon SMR news and steady progress on renewables, Dominion’s 9.25 percent year to date share price return and 16.03 percent one year total shareholder return signal gradually improving momentum rather than a...",
+      "coverage_count": 1,
+      "days_ago": 10,
+      "recency_weight": 0.7374241268949281,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 2,
+        "relevance_ratio": 0.6667,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2583
+      },
+      "impact_horizon_weight": 0.4905,
+      "final_weight": 0.6014
+    },
+    {
+      "title": "Starbucks Taps Amazon Tech Veteran Anand Varadarajan As New CTO To Power Turnaround",
+      "url": "https://finnhub.io/api/news?id=3d67503f3eb0bce98016110e68b207cad47c07b7f7bf532729574a04bec5efea",
+      "sourceurl": "https://finnhub.io/api/news?id=3d67503f3eb0bce98016110e68b207cad47c07b7f7bf532729574a04bec5efea",
+      "seendate": "20251219T215158Z",
+      "seendate_et": "20251219T165158",
+      "market_date": "2025-12-22",
+      "domain": "Benzinga",
+      "language": "English",
+      "content": "(NASDAQ: SBUX) on Friday named Amazon veteran Anand Varadarajan its new chief technology officer, starting Jan. 19.",
+      "coverage_count": 1,
+      "days_ago": 10,
+      "recency_weight": 0.7374241268949281,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 2,
+        "relevance_ratio": 0.6667,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.4428
+      },
+      "impact_horizon_weight": 0.4905,
+      "final_weight": 0.6014
+    },
+    {
+      "title": "Amazon weighs shift from USPS as contract talks falter",
+      "url": "https://finnhub.io/api/news?id=96337c117f097d883db5eab97a9e2f4fd03dc065512c0c9aa3e4396b8c2ee1f1",
+      "sourceurl": "https://finnhub.io/api/news?id=96337c117f097d883db5eab97a9e2f4fd03dc065512c0c9aa3e4396b8c2ee1f1",
+      "seendate": "20251205T102957Z",
+      "seendate_et": "20251205T052957",
+      "market_date": "2025-12-05",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Their current agreement runs until 1 October 2026, and Amazon had been seeking a four-year extension.",
+      "coverage_count": 1,
+      "days_ago": 27,
+      "recency_weight": 0.4393765001738383,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "strategic restructuring, merger, or acquisition",
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.2514
+      },
+      "impact_horizon_weight": 0.7594,
+      "final_weight": 0.5776
+    },
+    {
+      "title": "Weak Macro Can't Stop E-commerce Stocks Expedia and Amazon",
+      "url": "https://finnhub.io/api/news?id=ac1587156376e9eb3dabe6260dcff09c83f6f1de0a3a3951327ab8e6a62ddade",
+      "sourceurl": "https://finnhub.io/api/news?id=ac1587156376e9eb3dabe6260dcff09c83f6f1de0a3a3951327ab8e6a62ddade",
+      "seendate": "20251224T163900Z",
+      "seendate_et": "20251224T113900",
+      "market_date": "2025-12-24",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Macro uncertainties are crimping holiday sales but Expedia and Amazon shareholders have reason to cheer.",
+      "coverage_count": 1,
+      "days_ago": 8,
+      "recency_weight": 0.7837433594376959,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
         "relevance_ratio": 1.0,
         "condensed": false,
         "filter_action": "no_change"
@@ -238,10 +1311,1576 @@
         "event_type": "earnings report or financial results",
         "category": "IMMEDIATE",
         "horizon_days": 3,
-        "confidence": 0.2941
+        "confidence": 0.3767
+      },
+      "impact_horizon_weight": 0.417,
+      "final_weight": 0.5717
+    },
+    {
+      "title": "Amazon-USPS Breakup Rumors Intensify Ahead of 2026 Contract Expiration",
+      "url": "https://finnhub.io/api/news?id=1d4b358fee38b939fe7c5769dcd3a1a289323c863e0db7960503fd602d1f94dc",
+      "sourceurl": "https://finnhub.io/api/news?id=1d4b358fee38b939fe7c5769dcd3a1a289323c863e0db7960503fd602d1f94dc",
+      "seendate": "20251204T193617Z",
+      "seendate_et": "20251204T143617",
+      "market_date": "2025-12-04",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "A proposed 2026 auction for postal facility slots would force Amazon to bid against national retailers and regional carriers for USPS capacity, WaPo reported.",
+      "coverage_count": 1,
+      "days_ago": 28,
+      "recency_weight": 0.42619520516862314,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "strategic restructuring, merger, or acquisition",
+        "category": "LONG_TERM",
+        "horizon_days": 31,
+        "confidence": 0.318
+      },
+      "impact_horizon_weight": 0.7224,
+      "final_weight": 0.5549
+    },
+    {
+      "title": "Billionaire Investor Bets Bigger On Amazon As Cloud, AI Soar",
+      "url": "https://finnhub.io/api/news?id=c1ca2933c4e55ca8456da1bc8454035dcc69473867ed9bb566d5a4355e5a8df7",
+      "sourceurl": "https://finnhub.io/api/news?id=c1ca2933c4e55ca8456da1bc8454035dcc69473867ed9bb566d5a4355e5a8df7",
+      "seendate": "20251223T180315Z",
+      "seendate_et": "20251223T130315",
+      "market_date": "2025-12-23",
+      "domain": "Benzinga",
+      "language": "English",
+      "content": "Dan Loeb&#39;s Third Point raised its Amazon (NASDAQ: AMZN) stake to 2.81 million shares as Q3 net sales beat Street estimates and AWS, AI drive growth.",
+      "coverage_count": 1,
+      "days_ago": 9,
+      "recency_weight": 0.7602310586545651,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "earnings report or financial results",
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.3817
+      },
+      "impact_horizon_weight": 0.3821,
+      "final_weight": 0.539
+    },
+    {
+      "title": "Starbucks taps Amazon's Anand Varadarajan as new chief technology officer",
+      "url": "https://finnhub.io/api/news?id=3d856926ddf91f633278b76e105a942291566ac024270f1f1d917d8e876b6b23",
+      "sourceurl": "https://finnhub.io/api/news?id=3d856926ddf91f633278b76e105a942291566ac024270f1f1d917d8e876b6b23",
+      "seendate": "20251219T192032Z",
+      "seendate_et": "20251219T142032",
+      "market_date": "2025-12-19",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Varadarajan will ‌fill the role after Deb Hall Lefevre stepped down in ‍September, following which the coffee chain named Ningyu Chen as interim CTO. Varadarajan comes ​after a 19-year stint at ‌Amazon, where he headed the technology and supply chain operations for its worldwide grocery business.",
+      "coverage_count": 1,
+      "days_ago": 13,
+      "recency_weight": 0.6730270901655746,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 2,
+        "relevance_ratio": 0.6667,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.4381
+      },
+      "impact_horizon_weight": 0.3821,
+      "final_weight": 0.5071
+    },
+    {
+      "title": "Jim Cramer Says “Amazon’s Strategy is Not Spend to Win, It’s Spend to Defend”",
+      "url": "https://finnhub.io/api/news?id=66fb5018eb60dbb3eca6fd153083994dc8f6c79da6b41afd3b72866e15cd1497",
+      "sourceurl": "https://finnhub.io/api/news?id=66fb5018eb60dbb3eca6fd153083994dc8f6c79da6b41afd3b72866e15cd1497",
+      "seendate": "20251219T191443Z",
+      "seendate_et": "20251219T141443",
+      "market_date": "2025-12-19",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon.com, Inc. (NASDAQ:AMZN) is one of the stocks Jim Cramer recently discussed. I’m just giving you the straight dope here because I don’t […]",
+      "coverage_count": 1,
+      "days_ago": 13,
+      "recency_weight": 0.6730270901655746,
+      "content_stats": {
+        "total_sentences": 4,
+        "relevant_sentences": 3,
+        "relevance_ratio": 0.75,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3646
+      },
+      "impact_horizon_weight": 0.3821,
+      "final_weight": 0.5071
+    },
+    {
+      "title": "Try This 'Naked' Options Trade When It Comes To Amazon Stock",
+      "url": "https://finnhub.io/api/news?id=3d1eff532557be10e1b53a7f5dd7a1aa5fd10de036c36bc54af99783d4457008",
+      "sourceurl": "https://finnhub.io/api/news?id=3d1eff532557be10e1b53a7f5dd7a1aa5fd10de036c36bc54af99783d4457008",
+      "seendate": "20251219T173838Z",
+      "seendate_et": "20251219T123838",
+      "market_date": "2025-12-19",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Now right between its 50-day and 200-day moving averages, Amazon stock could be a good candidate for a short strangle trade.",
+      "coverage_count": 1,
+      "days_ago": 13,
+      "recency_weight": 0.6730270901655746,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3759
+      },
+      "impact_horizon_weight": 0.3821,
+      "final_weight": 0.5071
+    },
+    {
+      "title": "“It’s About AWS,” Says Jim Cramer About Amazon.com (AMZN)",
+      "url": "https://finnhub.io/api/news?id=4a806a08fd74e8dc0fe5d2d7804a292d605f724566d8e4136c90e0acbe48d17f",
+      "sourceurl": "https://finnhub.io/api/news?id=4a806a08fd74e8dc0fe5d2d7804a292d605f724566d8e4136c90e0acbe48d17f",
+      "seendate": "20251219T144758Z",
+      "seendate_et": "20251219T094758",
+      "market_date": "2025-12-19",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon.com, Inc. (NASDAQ:AMZN) is one of the stocks on Jim Cramer’s radar. Amazon.com, Inc. (NASDAQ:AMZN) is a key player in the AI industry due to several factors. These include the firm’s Amazon Web Services (AWS) cloud computing business and its in-house Trainium AI chips. The highly […]",
+      "coverage_count": 1,
+      "days_ago": 13,
+      "recency_weight": 0.6730270901655746,
+      "content_stats": {
+        "total_sentences": 7,
+        "relevant_sentences": 6,
+        "relevance_ratio": 0.8571,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2188
+      },
+      "impact_horizon_weight": 0.3821,
+      "final_weight": 0.5071
+    },
+    {
+      "title": "The Zacks Analyst Blog Amazon, Atlassian and Cloudflare",
+      "url": "https://finnhub.io/api/news?id=d077a9a2f954876024e3650edf1d122a585643e55abfb5c19a5843eaf2560b43",
+      "sourceurl": "https://finnhub.io/api/news?id=d077a9a2f954876024e3650edf1d122a585643e55abfb5c19a5843eaf2560b43",
+      "seendate": "20251219T131000Z",
+      "seendate_et": "20251219T081000",
+      "market_date": "2025-12-19",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Cloud computing demand is surging, and Amazon, Atlassian and Cloudflare stand out with strong growth drivers, rising estimates and solid rankings before 2026.",
+      "coverage_count": 1,
+      "days_ago": 13,
+      "recency_weight": 0.6730270901655746,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3158
+      },
+      "impact_horizon_weight": 0.3821,
+      "final_weight": 0.5071
+    },
+    {
+      "title": "Google & Amazon join Trump admin's AI-powered 'Genesis mission'",
+      "url": "https://finnhub.io/api/news?id=4e56376ed77106d8fe729696480df80b396fb945abb893e98e0a60ee3263cd47",
+      "sourceurl": "https://finnhub.io/api/news?id=4e56376ed77106d8fe729696480df80b396fb945abb893e98e0a60ee3263cd47",
+      "seendate": "20251218T181412Z",
+      "seendate_et": "20251218T131412",
+      "market_date": "2025-12-18",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon (AMZN), Google (GOOG, GOOGL), Nvidia (NVDA), Palantir (PLTR), and other companies are partnering with the Trump administration on its new Genesis mission. Lululemon (LULU) is facing activist investor pressure from Elliott Investment Management, which recently took a $1 billion stake in the retailer. Stay up to date on the latest market action, minute-by-minute, with Yahoo Finance's Market Minute.",
+      "coverage_count": 1,
+      "days_ago": 14,
+      "recency_weight": 0.6528362774606074,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 2,
+        "relevance_ratio": 0.6667,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3273
+      },
+      "impact_horizon_weight": 0.3487,
+      "final_weight": 0.4771
+    },
+    {
+      "title": "Amazon Business Prime Offers Small and Midsize Businesses Even More Value with New Benefits from Intuit QuickBooks, CrowdStrike, and Gusto",
+      "url": "https://finnhub.io/api/news?id=85d0aee9ce37e82fd5d915f393457276d054664f7357d1a58d07d8b32ddfd64f",
+      "sourceurl": "https://finnhub.io/api/news?id=85d0aee9ce37e82fd5d915f393457276d054664f7357d1a58d07d8b32ddfd64f",
+      "seendate": "20251218T140000Z",
+      "seendate_et": "20251218T090000",
+      "market_date": "2025-12-18",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "SEATTLE, December 18, 2025--Today Amazon (NASDAQ: AMZN) announced that Amazon Business has added even more value to the Business Prime membership program with benefits from Intuit QuickBooks, CrowdStrike, and Gusto that help small and midsize business customers save time and money. Amazon Business tailors the best of Amazon—everyday low prices, vast selection, and a convenient shopping and delivery experience—alongside a diverse supplier network, a reliable global logistics system, adaptable wor",
+      "coverage_count": 1,
+      "days_ago": 14,
+      "recency_weight": 0.6528362774606074,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2559
+      },
+      "impact_horizon_weight": 0.3487,
+      "final_weight": 0.4771
+    },
+    {
+      "title": "Dow's 150-point rally led by gains in shares of Amazon.com Inc., NVIDIA Corp.",
+      "url": "https://finnhub.io/api/news?id=067366ff34bc0b33e0de527835d0771c8272aa6b3059b20b375fedabd5413c40",
+      "sourceurl": "https://finnhub.io/api/news?id=067366ff34bc0b33e0de527835d0771c8272aa6b3059b20b375fedabd5413c40",
+      "seendate": "20251218T125700Z",
+      "seendate_et": "20251218T075700",
+      "market_date": "2025-12-18",
+      "domain": "MarketWatch",
+      "language": "English",
+      "content": "Dow's 150-point rally led by gains in shares of Amazon.com Inc., NVIDIA Corp.",
+      "coverage_count": 1,
+      "days_ago": 14,
+      "recency_weight": 0.6528362774606074,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2639
+      },
+      "impact_horizon_weight": 0.3487,
+      "final_weight": 0.4771
+    },
+    {
+      "title": "Amazon.com Inc., NVIDIA Corp. share gains contribute to Dow's 325-point jump",
+      "url": "https://finnhub.io/api/news?id=bdec147ef2c281e32082d102fdc5491fa749ba361dfea666a9e2fe432f58ae4f",
+      "sourceurl": "https://finnhub.io/api/news?id=bdec147ef2c281e32082d102fdc5491fa749ba361dfea666a9e2fe432f58ae4f",
+      "seendate": "20251218T115600Z",
+      "seendate_et": "20251218T065600",
+      "market_date": "2025-12-18",
+      "domain": "MarketWatch",
+      "language": "English",
+      "content": "Amazon.com Inc., NVIDIA Corp. share gains contribute to Dow's 325-point jump",
+      "coverage_count": 1,
+      "days_ago": 14,
+      "recency_weight": 0.6528362774606074,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2621
+      },
+      "impact_horizon_weight": 0.3487,
+      "final_weight": 0.4771
+    },
+    {
+      "title": "Analysts Reaffirm Buy Ratings on Amazon.com, Inc. (AMZN) with Price Targets up to $300",
+      "url": "https://finnhub.io/api/news?id=44755041477fd75bf1ef85a83c538e4f98eed7f751cff4ed8bc67981dc050a8d",
+      "sourceurl": "https://finnhub.io/api/news?id=44755041477fd75bf1ef85a83c538e4f98eed7f751cff4ed8bc67981dc050a8d",
+      "seendate": "20251218T061457Z",
+      "seendate_et": "20251218T011457",
+      "market_date": "2025-12-18",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon.com Inc. (NASDAQ:AMZN) is one of billionaire David Tepper’s top stock picks heading into 2026. On December 10, TD Cowen’s John Blackledge kept a Buy rating on Amazon.com Inc. (NASDAQ:AMZN) with a $300 target. Two days earlier, on December 8, Roth MKM’s Rohit Kulkarni also reaffirmed a Buy, setting a $270 target. On December 9, […]",
+      "coverage_count": 1,
+      "days_ago": 14,
+      "recency_weight": 0.6528362774606074,
+      "content_stats": {
+        "total_sentences": 6,
+        "relevant_sentences": 6,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "analyst rating, upgrade, or downgrade",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3552
+      },
+      "impact_horizon_weight": 0.3487,
+      "final_weight": 0.4771
+    },
+    {
+      "title": "Zacks.com featured highlights include Amazon.com, Vertiv and Marvell",
+      "url": "https://finnhub.io/api/news?id=c6c8d54352e4781f854917fba03da2486d6e817b3662f6dc87d68c559d04d93c",
+      "sourceurl": "https://finnhub.io/api/news?id=c6c8d54352e4781f854917fba03da2486d6e817b3662f6dc87d68c559d04d93c",
+      "seendate": "20251219T122300Z",
+      "seendate_et": "20251219T072300",
+      "market_date": "2025-12-19",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon.com, Vertiv and Marvell have been highlighted in this Screen of The Week article.",
+      "coverage_count": 1,
+      "days_ago": 13,
+      "recency_weight": 0.6730270901655746,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "earnings report or financial results",
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.3461
+      },
+      "impact_horizon_weight": 0.2584,
+      "final_weight": 0.417
+    },
+    {
+      "title": "Amazon to pay more than $580 million to settle tax probe in Italy",
+      "url": "https://finnhub.io/api/news?id=3aebc438f4a64ace00b37f57f374f1166c09d232db9ed48060aa7337338e4c67",
+      "sourceurl": "https://finnhub.io/api/news?id=3aebc438f4a64ace00b37f57f374f1166c09d232db9ed48060aa7337338e4c67",
+      "seendate": "20251210T155612Z",
+      "seendate_et": "20251210T105612",
+      "market_date": "2025-12-10",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon has agreed with Italy's tax collection agency to pay 510 million euros ($582 million) ​to settle a tax dispute, two sources close to the ‌matter said on Wednesday, in one of a number of cases involving the company ‌in Italy. However, in an unusual development, Milan's prosecutors are in disagreement with the accord between the revenue agency and the U.S. tech company and plan to continue their criminal investigation, two other sources said. Amazon confirmed ⁠the settlement, but did not ‌specify how much it would pay and criticised the Italian regulatory environment.",
+      "coverage_count": 1,
+      "days_ago": 22,
+      "recency_weight": 0.5116560972597762,
+      "content_stats": {
+        "total_sentences": 4,
+        "relevant_sentences": 4,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "regulatory action, legal case, or investigation",
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.4322
+      },
+      "impact_horizon_weight": 0.3169,
+      "final_weight": 0.4026
+    },
+    {
+      "title": "Amazon Stock Climbs on Strong 2026 Outlook From Truist Securities",
+      "url": "https://finnhub.io/api/news?id=d052a84dcd926162d6dd1c9e9033deed169991957f9ac8fc374566ae1250dc6e",
+      "sourceurl": "https://finnhub.io/api/news?id=d052a84dcd926162d6dd1c9e9033deed169991957f9ac8fc374566ae1250dc6e",
+      "seendate": "20251218T161717Z",
+      "seendate_et": "20251218T111717",
+      "market_date": "2025-12-18",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon Shares Rise After Analyst Projects 10.5% Revenue Gain Next Year",
+      "coverage_count": 1,
+      "days_ago": 14,
+      "recency_weight": 0.6528362774606074,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "earnings report or financial results",
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.3036
+      },
+      "impact_horizon_weight": 0.2319,
+      "final_weight": 0.3891
+    },
+    {
+      "title": "Amazon.com Inc., NVIDIA Corp. share gains lead Dow's 450-point climb",
+      "url": "https://finnhub.io/api/news?id=6a87f60e76ea0cf3b43e2ad287010393f9b14506e03f4c22974abe0c3cf8d9a1",
+      "sourceurl": "https://finnhub.io/api/news?id=6a87f60e76ea0cf3b43e2ad287010393f9b14506e03f4c22974abe0c3cf8d9a1",
+      "seendate": "20251218T104600Z",
+      "seendate_et": "20251218T054600",
+      "market_date": "2025-12-18",
+      "domain": "MarketWatch",
+      "language": "English",
+      "content": "Amazon.com Inc., NVIDIA Corp. share gains lead Dow's 450-point climb",
+      "coverage_count": 1,
+      "days_ago": 14,
+      "recency_weight": 0.6528362774606074,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "earnings report or financial results",
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.2701
+      },
+      "impact_horizon_weight": 0.2319,
+      "final_weight": 0.3891
+    },
+    {
+      "title": "Amazon's Datacenter Boom: The Next Big Growth Driver for the Stock?",
+      "url": "https://finnhub.io/api/news?id=26f37bf476f843497372ab2cdfbb874f8a9b95a1e1bf85b8aa4123fb3616f8a2",
+      "sourceurl": "https://finnhub.io/api/news?id=26f37bf476f843497372ab2cdfbb874f8a9b95a1e1bf85b8aa4123fb3616f8a2",
+      "seendate": "20251212T161500Z",
+      "seendate_et": "20251212T111500",
+      "market_date": "2025-12-12",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "AMZN's datacenter surge, fueled by record AWS capex and massive global expansion, is emerging as the company's most powerful long-term growth driver.",
+      "coverage_count": 1,
+      "days_ago": 20,
+      "recency_weight": 0.543794342926747,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3212
+      },
+      "impact_horizon_weight": 0.1844,
+      "final_weight": 0.3167
+    },
+    {
+      "title": "TD Cowen Stays Bullish on Amazon (AMZN), Sees Multiple Growth Drivers Into 2026",
+      "url": "https://finnhub.io/api/news?id=568c1bc4c96c4e30dcb2d413bdd8ad32a236536bb2ebc0b905c473f7ab329c10",
+      "sourceurl": "https://finnhub.io/api/news?id=568c1bc4c96c4e30dcb2d413bdd8ad32a236536bb2ebc0b905c473f7ab329c10",
+      "seendate": "20251212T145812Z",
+      "seendate_et": "20251212T095812",
+      "market_date": "2025-12-12",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon.com, Inc. (NASDAQ:AMZN) is one of the AI Stocks Analysts Are Watching Closely. On December 10, TD Cowen analyst John Blackledge reiterated a “Buy” rating on the stock with a $300 price target, calling Amazon the firm’s “Top Mega Cap Internet Pick.” The firm’s optimism reflects structural tailwinds in artificial intelligence, Ads momentum, and margin expansion. TD […]",
+      "coverage_count": 1,
+      "days_ago": 20,
+      "recency_weight": 0.543794342926747,
+      "content_stats": {
+        "total_sentences": 4,
+        "relevant_sentences": 4,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2476
+      },
+      "impact_horizon_weight": 0.1844,
+      "final_weight": 0.3167
+    },
+    {
+      "title": "Meta vs. Amazon: Which Underperforming \"Magnificent Seven\" Stock Will Rebound More in 2026?",
+      "url": "https://finnhub.io/api/news?id=3e42a05b445ba87446be381b4cbcf02322131a76339244d44d0f4ebc32839325",
+      "sourceurl": "https://finnhub.io/api/news?id=3e42a05b445ba87446be381b4cbcf02322131a76339244d44d0f4ebc32839325",
+      "seendate": "20251211T232000Z",
+      "seendate_et": "20251211T182000",
+      "market_date": "2025-12-12",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Meta Platforms and Amazon can be big winners in 2026 after underperforming this year.",
+      "coverage_count": 1,
+      "days_ago": 20,
+      "recency_weight": 0.543794342926747,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3133
+      },
+      "impact_horizon_weight": 0.1844,
+      "final_weight": 0.3167
+    },
+    {
+      "title": "Guggenheim Initiates Coverage of Amazon.com (AMZN) with “Buy” Rating and $300 Price Target",
+      "url": "https://finnhub.io/api/news?id=231ad825608e124aa2bcf67a0df4f26220863d8595463894b6651b00ec291928",
+      "sourceurl": "https://finnhub.io/api/news?id=231ad825608e124aa2bcf67a0df4f26220863d8595463894b6651b00ec291928",
+      "seendate": "20251211T184153Z",
+      "seendate_et": "20251211T134153",
+      "market_date": "2025-12-11",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "With significant hedge fund interest and upside potential, Amazon.com, Inc. (NASDAQ:AMZN) secures a spot on our list of the 15 best AI stocks to watch in December 2025. On December 9, 2025, The Fly reported that Guggenheim initiated coverage of Amazon.com, Inc. (NASDAQ:AMZN) with a “Buy” rating and a $300 price target.",
+      "coverage_count": 1,
+      "days_ago": 21,
+      "recency_weight": 0.5274805126389446,
+      "content_stats": {
+        "total_sentences": 5,
+        "relevant_sentences": 4,
+        "relevance_ratio": 0.8,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "analyst rating, upgrade, or downgrade",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2771
+      },
+      "impact_horizon_weight": 0.1635,
+      "final_weight": 0.2936
+    },
+    {
+      "title": "Rogers Xfinity Introduces Amazon Luna",
+      "url": "https://finnhub.io/api/news?id=9570e600789a1adba61f42ae315d52b42a40d562a82981c5982fc123f7cb6feb",
+      "sourceurl": "https://finnhub.io/api/news?id=9570e600789a1adba61f42ae315d52b42a40d562a82981c5982fc123f7cb6feb",
+      "seendate": "20251211T180000Z",
+      "seendate_et": "20251211T130000",
+      "market_date": "2025-12-11",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Cloud gaming right from your TV – no consoles or downloads required Customers can now game, stream and catch all their favourite shows in one place TORONTO, Dec. 11, 2025 (GLOBE NEWSWIRE) -- Rogers today announced the launch of Amazon Luna on Rogers Xfinity, bringing cloud gaming to its world-class entertainment platform. This launch comes as gaming among Canadians continues to grow, with more than 70% playing video games.1 “With Amazon Luna, Rogers Xfinity customers can game, stream and catch t",
+      "coverage_count": 1,
+      "days_ago": 21,
+      "recency_weight": 0.5274805126389446,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.4535
+      },
+      "impact_horizon_weight": 0.1635,
+      "final_weight": 0.2936
+    },
+    {
+      "title": "Comcast And Amazon Announce Launch Of Amazon Luna On Xfinity TV And Streaming Devices Across US",
+      "url": "https://finnhub.io/api/news?id=83bb87e4e231a9021e256c53830eb72768dcc42e9f4914e5c0472e14aae44f8a",
+      "sourceurl": "https://finnhub.io/api/news?id=83bb87e4e231a9021e256c53830eb72768dcc42e9f4914e5c0472e14aae44f8a",
+      "seendate": "20251211T141430Z",
+      "seendate_et": "20251211T091430",
+      "market_date": "2025-12-11",
+      "domain": "Benzinga",
+      "language": "English",
+      "content": "Luna on Xfinity Enables Seamless Gaming Right From the TV, No Downloads or Consoles RequiredXfinity WiFi Offers Gamers the Fastest Speeds and Lowest Lag for the Ultimate Cloud Gaming ExperienceComcast and Amazon today",
+      "coverage_count": 1,
+      "days_ago": 21,
+      "recency_weight": 0.5274805126389446,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.6341
+      },
+      "impact_horizon_weight": 0.1635,
+      "final_weight": 0.2936
+    },
+    {
+      "title": "Amazon's Rufus Architect Leaves to Build AI for a Trillion-Dollar Industry: Construction",
+      "url": "https://finnhub.io/api/news?id=0043a125b5f7d547a19399317ec2bd212675d2bf1460cbbb052fadaba7653663",
+      "sourceurl": "https://finnhub.io/api/news?id=0043a125b5f7d547a19399317ec2bd212675d2bf1460cbbb052fadaba7653663",
+      "seendate": "20251211T133700Z",
+      "seendate_et": "20251211T083700",
+      "market_date": "2025-12-11",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Kaya AI the agentic predictive supply-chain intelligence platform for mission-critical construction, announced today that Mukesh Jain, the Amazon AI leader behind Rufus, and more than $12B in AI-driven commercial impact, has joined the company as Chief Technology Officer. Jain's move marks a significant AI leadership transition into the industrial and infrastructure sector.",
+      "coverage_count": 1,
+      "days_ago": 21,
+      "recency_weight": 0.5274805126389446,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.4444
+      },
+      "impact_horizon_weight": 0.1635,
+      "final_weight": 0.2936
+    },
+    {
+      "title": "Amazon plans new one-hour pickup service in stores, Business Insider reports",
+      "url": "https://finnhub.io/api/news?id=8c0a557c445ad93e16385247dce67e4e9f5391027c8ddfce31dceac08115e42f",
+      "sourceurl": "https://finnhub.io/api/news?id=8c0a557c445ad93e16385247dce67e4e9f5391027c8ddfce31dceac08115e42f",
+      "seendate": "20251211T122711Z",
+      "seendate_et": "20251211T072711",
+      "market_date": "2025-12-11",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon is developing a rush pickup service that would let customers collect ​orders from its stores within an ‌hour, Business Insider reported on Thursday, citing an internal document ‌and a person familiar with the matter. The feature would allow shoppers to place a unified order combining items from Amazon's online store and its ⁠physical outlets, according ‌to the report. The e-commerce giant plans to pilot the program in at ​least one metropolitan area by early 2026, ‌though the timeline may have changed, Business Insider reported.",
+      "coverage_count": 1,
+      "days_ago": 21,
+      "recency_weight": 0.5274805126389446,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2317
+      },
+      "impact_horizon_weight": 0.1635,
+      "final_weight": 0.2936
+    },
+    {
+      "title": "Amazon’s (AMZN) AI Assistant Rufus Sparks Jump in Purchases, Analysts Reaffirm Bullish View",
+      "url": "https://finnhub.io/api/news?id=0ad6bf07cbe6d0fb64248b764e0d65cb75b77df5835c69cb9305ae7496e2e0c9",
+      "sourceurl": "https://finnhub.io/api/news?id=0ad6bf07cbe6d0fb64248b764e0d65cb75b77df5835c69cb9305ae7496e2e0c9",
+      "seendate": "20251211T092505Z",
+      "seendate_et": "20251211T042505",
+      "market_date": "2025-12-11",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon.com, Inc. (NASDAQ:AMZN) is one of the Trending AI Stocks on Wall Street. On December 8, Citizens reiterated its “Market Outperform” rating on the stock with a price target of $300.00. The firm highlighted Rufus-driven engagement spike on the platform and fee cuts to boost EU fashion seller growth. Rufus is a generative AI-powered shopping assistant […]",
+      "coverage_count": 1,
+      "days_ago": 21,
+      "recency_weight": 0.5274805126389446,
+      "content_stats": {
+        "total_sentences": 5,
+        "relevant_sentences": 5,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2439
+      },
+      "impact_horizon_weight": 0.1635,
+      "final_weight": 0.2936
+    },
+    {
+      "title": "How AWS’s Graviton5 And AI Partner Push At Amazon.com (AMZN) Has Changed Its Investment Story",
+      "url": "https://finnhub.io/api/news?id=7e0579c47d3625ea32ca08f1c78b2300c3bf85930f8071e30ca33311ad13ec16",
+      "sourceurl": "https://finnhub.io/api/news?id=7e0579c47d3625ea32ca08f1c78b2300c3bf85930f8071e30ca33311ad13ec16",
+      "seendate": "20251210T231619Z",
+      "seendate_et": "20251210T181619",
+      "market_date": "2025-12-11",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "In early December 2025, Amazon Web Services introduced new Graviton5-powered EC2 M9g instances, expanded its Nova AI model portfolio, and saw partners like Dynatrace, BigID, Perion, and Reply deepen integrations with AWS and Amazon DSP, enhancing AI observability, security, advertising performance, and agentic AI capabilities across enterprise and retail ecosystems. These moves highlight how Amazon is tightening the link between its custom silicon, advanced AI services, and high-intent media...",
+      "coverage_count": 1,
+      "days_ago": 21,
+      "recency_weight": 0.5274805126389446,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.4586
+      },
+      "impact_horizon_weight": 0.1635,
+      "final_weight": 0.2936
+    },
+    {
+      "title": "Amazon Expands Same-Day Grocery Delivery. Rival Stocks Are Falling.",
+      "url": "https://finnhub.io/api/news?id=6b44f0f61964ef2bae455591876a577245d73ad1d12b0658434a87ebe50fad89",
+      "sourceurl": "https://finnhub.io/api/news?id=6b44f0f61964ef2bae455591876a577245d73ad1d12b0658434a87ebe50fad89",
+      "seendate": "20251210T230900Z",
+      "seendate_et": "20251210T180900",
+      "market_date": "2025-12-11",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "The company has long offered grocery delivery via its Amazon Fresh and Whole Foods Market services, but it only recently included perishable groceries.",
+      "coverage_count": 1,
+      "days_ago": 21,
+      "recency_weight": 0.5274805126389446,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3788
+      },
+      "impact_horizon_weight": 0.1635,
+      "final_weight": 0.2936
+    },
+    {
+      "title": "New Report: Local Governments And Schools Spent $6,919,444 On Amazon; Amazon May Have Overcharged",
+      "url": "https://finnhub.io/api/news?id=db7254200c9406059cb129dc6090f061e2e923b3f7029f6d86684c089240008b",
+      "sourceurl": "https://finnhub.io/api/news?id=db7254200c9406059cb129dc6090f061e2e923b3f7029f6d86684c089240008b",
+      "seendate": "20251205T153000Z",
+      "seendate_et": "20251205T103000",
+      "market_date": "2025-12-05",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Five cities and school districts across the state spent $6,919,444 on Amazon in 2023 — according to estimates in a new report from the Institute for Local Self-Reliance (ILSR). The report found school districts could have saved 17 percent of costs if Amazon had not overcharged them.",
+      "coverage_count": 1,
+      "days_ago": 27,
+      "recency_weight": 0.4393765001738383,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "regulatory action, legal case, or investigation",
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.2554
+      },
+      "impact_horizon_weight": 0.1844,
+      "final_weight": 0.2847
+    },
+    {
+      "title": "Amazon's USPS Partnership At Risk — As Trump's Old 'Delivery Boy' Jab Resurfaces",
+      "url": "https://finnhub.io/api/news?id=8c6193d157459d96ea587f958bc4f9e97a01872e1326f3f99b4e8492fb2d1f71",
+      "sourceurl": "https://finnhub.io/api/news?id=8c6193d157459d96ea587f958bc4f9e97a01872e1326f3f99b4e8492fb2d1f71",
+      "seendate": "20251205T151304Z",
+      "seendate_et": "20251205T101304",
+      "market_date": "2025-12-05",
+      "domain": "Benzinga",
+      "language": "English",
+      "content": "A partnership between the USPS and Amazon could end soon and see major changes to the package delivery market.",
+      "coverage_count": 1,
+      "days_ago": 27,
+      "recency_weight": 0.4393765001738383,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "regulatory action, legal case, or investigation",
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.3654
+      },
+      "impact_horizon_weight": 0.1844,
+      "final_weight": 0.2847
+    },
+    {
+      "title": "Update: Market Chatter: Amazon's Italian Unit Pays $209 Million Compensation to End Probe Into Tax, Labor Practices",
+      "url": "https://finnhub.io/api/news?id=aa7f8d4459d2733d9a3f8bd25912cdc39cdc7b4b63b8db2e3dc990b2a1c6c719",
+      "sourceurl": "https://finnhub.io/api/news?id=aa7f8d4459d2733d9a3f8bd25912cdc39cdc7b4b63b8db2e3dc990b2a1c6c719",
+      "seendate": "20251205T112049Z",
+      "seendate_et": "20251205T062049",
+      "market_date": "2025-12-05",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "(Updates to add Amazon's comment in the fifth and sixth paragraph) Amazon's (AMZN) Italian unit h",
+      "coverage_count": 1,
+      "days_ago": 27,
+      "recency_weight": 0.4393765001738383,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "regulatory action, legal case, or investigation",
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.4482
+      },
+      "impact_horizon_weight": 0.1844,
+      "final_weight": 0.2847
+    },
+    {
+      "title": "Amazon pays Italy 180 million euros to end tax, labour probe, sources say",
+      "url": "https://finnhub.io/api/news?id=c9035f0c03ab7594e366745f3029fb71998ff824255db3b8f6d1f7eded8dce84",
+      "sourceurl": "https://finnhub.io/api/news?id=c9035f0c03ab7594e366745f3029fb71998ff824255db3b8f6d1f7eded8dce84",
+      "seendate": "20251205T072559Z",
+      "seendate_et": "20251205T022559",
+      "market_date": "2025-12-05",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "An Italian unit of e-commerce giant Amazon has paid compensation and scrapped a ​monitoring system for delivery staff, ending a probe into ‌alleged tax fraud and illegal labour practices, sources with knowledge of the ‌matter said on Friday. In July 2024 the group's logistics services unit was accused of circumventing labour and tax laws, relying on cooperatives or limited liability companies that supplied it with ⁠workers, avoiding VAT tax ‌and reducing social security payments. We have clarified our position with the relevant authorities, who have recognized the high standards of our collaboration model with delivery partners, ⁠Amazon said in a statement.",
+      "coverage_count": 1,
+      "days_ago": 27,
+      "recency_weight": 0.4393765001738383,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "regulatory action, legal case, or investigation",
+        "category": "MEDIUM_TERM",
+        "horizon_days": 14,
+        "confidence": 0.2888
+      },
+      "impact_horizon_weight": 0.1844,
+      "final_weight": 0.2847
+    },
+    {
+      "title": "Amazon's Grocery Momentum Puts Scare Into Instacart Stock, DoorDash",
+      "url": "https://finnhub.io/api/news?id=d34fa5b585de1bcc9924684427354d75fefeb92622316bfdf0491a3ac29ab1bb",
+      "sourceurl": "https://finnhub.io/api/news?id=d34fa5b585de1bcc9924684427354d75fefeb92622316bfdf0491a3ac29ab1bb",
+      "seendate": "20251210T172247Z",
+      "seendate_et": "20251210T122247",
+      "market_date": "2025-12-10",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon stock was higher and rivals lower after the giant said it now offers same-day groceries to 2,300 U.S.",
+      "coverage_count": 1,
+      "days_ago": 22,
+      "recency_weight": 0.5116560972597762,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 1,
+        "relevance_ratio": 0.5,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3586
+      },
+      "impact_horizon_weight": 0.1443,
+      "final_weight": 0.2717
+    },
+    {
+      "title": "Amazon Shares Steady as Glowmade Layoffs Highlight Ongoing Gaming Challenges",
+      "url": "https://finnhub.io/api/news?id=446402822f858c909822c3c5745d04d1acf1cf2c51a1be4c362f8e48119c9551",
+      "sourceurl": "https://finnhub.io/api/news?id=446402822f858c909822c3c5745d04d1acf1cf2c51a1be4c362f8e48119c9551",
+      "seendate": "20251210T165338Z",
+      "seendate_et": "20251210T115338",
+      "market_date": "2025-12-10",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "This article first appeared on GuruFocus. Amazon (AMZN, Financials) saw little reaction in its stock Tuesday as Glowmade, the developer behind King of Meat, prepared to cut jobs early next year.Amazon Game Studios developed the game, but it had a hard time getting people to play it once it was out. The company had to cut down since the performance was so bad, which is another sign of how hard it has been for Amazon to get into the game business.",
+      "coverage_count": 1,
+      "days_ago": 22,
+      "recency_weight": 0.5116560972597762,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.211
+      },
+      "impact_horizon_weight": 0.1443,
+      "final_weight": 0.2717
+    },
+    {
+      "title": "Why Amazon Stock Is Climbing Today",
+      "url": "https://finnhub.io/api/news?id=5685f5e190376b0cf9958d8d1088ba01a6a1f9b353f15233e9daebf7202b0d83",
+      "sourceurl": "https://finnhub.io/api/news?id=5685f5e190376b0cf9958d8d1088ba01a6a1f9b353f15233e9daebf7202b0d83",
+      "seendate": "20251210T163225Z",
+      "seendate_et": "20251210T113225",
+      "market_date": "2025-12-10",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "AMZN Stock Gains as Amazon Unveils $35B India Expansion Plan",
+      "coverage_count": 1,
+      "days_ago": 22,
+      "recency_weight": 0.5116560972597762,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3216
+      },
+      "impact_horizon_weight": 0.1443,
+      "final_weight": 0.2717
+    },
+    {
+      "title": "Amazon named ’Top Mega Cap Internet Pick’ at TD Cowen",
+      "url": "https://finnhub.io/api/news?id=b6cac4499685d2efa8cdb020af45a35bf6c66c8aae8f4de9587211a33c2f9ba8",
+      "sourceurl": "https://finnhub.io/api/news?id=b6cac4499685d2efa8cdb020af45a35bf6c66c8aae8f4de9587211a33c2f9ba8",
+      "seendate": "20251210T160606Z",
+      "seendate_et": "20251210T110606",
+      "market_date": "2025-12-10",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Investing.com -- Amazon has been named TD Cowen’s “top ’26 large cap pick”, with the firm highlighting the company’s accelerating cloud growth, strengthening retail and advertising trends, and continued margin expansion as the three pillars of its bullish call.",
+      "coverage_count": 1,
+      "days_ago": 22,
+      "recency_weight": 0.5116560972597762,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "analyst rating, upgrade, or downgrade",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2718
+      },
+      "impact_horizon_weight": 0.1443,
+      "final_weight": 0.2717
+    },
+    {
+      "title": "Can AMZN's Expanding Global Investments Push the Stock Higher in 2026?",
+      "url": "https://finnhub.io/api/news?id=2652b4d933fca70de9f8580c91b8605436f114098e71d7635b24b1071473f9ca",
+      "sourceurl": "https://finnhub.io/api/news?id=2652b4d933fca70de9f8580c91b8605436f114098e71d7635b24b1071473f9ca",
+      "seendate": "20251210T160400Z",
+      "seendate_et": "20251210T110400",
+      "market_date": "2025-12-10",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon's sweeping global investments and accelerating AWS momentum spotlight the company's push for stronger growth heading into 2026.",
+      "coverage_count": 1,
+      "days_ago": 22,
+      "recency_weight": 0.5116560972597762,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.239
+      },
+      "impact_horizon_weight": 0.1443,
+      "final_weight": 0.2717
+    },
+    {
+      "title": "Amazon will be the stealth AI winner in 2026. Here's why.",
+      "url": "https://finnhub.io/api/news?id=fd8ae0f1a2d5a46643405884c483949ebc3ade731afffe534c1e71d95c4ddb46",
+      "sourceurl": "https://finnhub.io/api/news?id=fd8ae0f1a2d5a46643405884c483949ebc3ade731afffe534c1e71d95c4ddb46",
+      "seendate": "20251206T140016Z",
+      "seendate_et": "20251206T090016",
+      "market_date": "2025-12-08",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Argent Capital Management Portfolio Manager Jed Ellerbroek explains why he sees Amazon (AMZN) as a stealth winner in the AI race. To watch more expert insights and analysis on the latest market action, check out more Market Domination.",
+      "coverage_count": 1,
+      "days_ago": 24,
+      "recency_weight": 0.48141722191172337,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 2,
+        "relevance_ratio": 0.6667,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3732
+      },
+      "impact_horizon_weight": 0.111,
+      "final_weight": 0.2312
+    },
+    {
+      "title": "Piper Sandler Keeps Overweight on Amazon (AMZN), Sets $233 Target Ahead of Holiday Season and AWS Momentum",
+      "url": "https://finnhub.io/api/news?id=111f4ec24cd692ccddd362d2975d39308e374c6997e71116292ac76218691bea",
+      "sourceurl": "https://finnhub.io/api/news?id=111f4ec24cd692ccddd362d2975d39308e374c6997e71116292ac76218691bea",
+      "seendate": "20251206T110508Z",
+      "seendate_et": "20251206T060508",
+      "market_date": "2025-12-08",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon.com, Inc. (NASDAQ:AMZN) is one of the AI Stocks Analysts are Tracking Closely. On December 3, Piper Sandler analyst Tom Champion reiterated an Overweight rating on the stock with a $233.00 price target. The firm is constructive on the stock, citing both the upcoming holiday season and strengthening AWS product momentum.",
+      "coverage_count": 1,
+      "days_ago": 24,
+      "recency_weight": 0.48141722191172337,
+      "content_stats": {
+        "total_sentences": 5,
+        "relevant_sentences": 4,
+        "relevance_ratio": 0.8,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "analyst rating, upgrade, or downgrade",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2801
+      },
+      "impact_horizon_weight": 0.111,
+      "final_weight": 0.2312
+    },
+    {
+      "title": "Can Amazon Still Justify Its Valuation If Holiday E-Commerce Stumbles?",
+      "url": "https://finnhub.io/api/news?id=4479a6f77813b3267bdb181085d67d945bebcdce1d8bc11bef9da492c9018c6f",
+      "sourceurl": "https://finnhub.io/api/news?id=4479a6f77813b3267bdb181085d67d945bebcdce1d8bc11bef9da492c9018c6f",
+      "seendate": "20251206T024959Z",
+      "seendate_et": "20251205T214959",
+      "market_date": "2025-12-08",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Douglas and Lee explore whether Amazon’s valuation can hold if holiday retail disappoints, and why AWS’s strength may no longer offset weakness in the company’s legacy e-commerce business.",
+      "coverage_count": 1,
+      "days_ago": 24,
+      "recency_weight": 0.48141722191172337,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2427
+      },
+      "impact_horizon_weight": 0.111,
+      "final_weight": 0.2312
+    },
+    {
+      "title": "Amazon Developing One-Hour In-Store Pickup Service, Report Says",
+      "url": "https://finnhub.io/api/news?id=4faefe93728cf8cd77aa4a869c2c56f38c33b19fa760eeb8b18594e33b347301",
+      "sourceurl": "https://finnhub.io/api/news?id=4faefe93728cf8cd77aa4a869c2c56f38c33b19fa760eeb8b18594e33b347301",
+      "seendate": "20251211T141015Z",
+      "seendate_et": "20251211T091015",
+      "market_date": "2025-12-11",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "This article first appeared on GuruFocus. Amazon (AMZN, Financials) is developing an in-store pickup service that would allow customers to collect orders within an hour, Business Insider reported, citing internal documents and a person familiar with the project. The feature would let shoppers place a unified order across Amazon's e-commerce inventory and its physical retail outlets.",
+      "coverage_count": 1,
+      "days_ago": 21,
+      "recency_weight": 0.5274805126389446,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "earnings report or financial results",
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.332
+      },
+      "impact_horizon_weight": 0.0968,
+      "final_weight": 0.2259
+    },
+    {
+      "title": "Amazon's AI Capex Problem Is Its Superpower",
+      "url": "https://finnhub.io/api/news?id=c9e2d6bef02fe44bff5f2c0d17919234ad360a8b0a4cd570183537328f6a5192",
+      "sourceurl": "https://finnhub.io/api/news?id=c9e2d6bef02fe44bff5f2c0d17919234ad360a8b0a4cd570183537328f6a5192",
+      "seendate": "20251210T221701Z",
+      "seendate_et": "20251210T171701",
+      "market_date": "2025-12-11",
+      "domain": "SeekingAlpha",
+      "language": "English",
+      "content": "Discover why Amazon's AI-driven AWS growth signals 43% stock upside by 2026.",
+      "coverage_count": 1,
+      "days_ago": 21,
+      "recency_weight": 0.5274805126389446,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "earnings report or financial results",
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.4406
+      },
+      "impact_horizon_weight": 0.0968,
+      "final_weight": 0.2259
+    },
+    {
+      "title": "Amazon Just Released Its Graviton5 CPU. Should You Buy, Sell, or Hold AMZN Stock Here?",
+      "url": "https://finnhub.io/api/news?id=c7eba9ec83742ace77e14e0cc0f3e5f5b21018880f07ca637927cb16f2b216d9",
+      "sourceurl": "https://finnhub.io/api/news?id=c7eba9ec83742ace77e14e0cc0f3e5f5b21018880f07ca637927cb16f2b216d9",
+      "seendate": "20251205T184252Z",
+      "seendate_et": "20251205T134252",
+      "market_date": "2025-12-05",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Is Amazon’s new Graviton5 CPU the moment that finally pushes investors to pause and rethink their stance on AMZN—hold steady, pull back, or double down?",
+      "coverage_count": 1,
+      "days_ago": 27,
+      "recency_weight": 0.4393765001738383,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.4661
+      },
+      "impact_horizon_weight": 0.0726,
+      "final_weight": 0.1786
+    },
+    {
+      "title": "Amazon: Resilient Consumers, Reasonable Capex Outlook, And Flat Valuation Justify A Buy",
+      "url": "https://finnhub.io/api/news?id=43ebccc490085972e49e43fbebc03cc575bb258bd7287c1f44f454d7ea1faa47",
+      "sourceurl": "https://finnhub.io/api/news?id=43ebccc490085972e49e43fbebc03cc575bb258bd7287c1f44f454d7ea1faa47",
+      "seendate": "20251205T174344Z",
+      "seendate_et": "20251205T124344",
+      "market_date": "2025-12-05",
+      "domain": "SeekingAlpha",
+      "language": "English",
+      "content": "Amazon.com, Inc. is rated a Buy due to resilient consumers, reasonable capex outlook and flat valuation. Learn more about AMZN stock here.",
+      "coverage_count": 1,
+      "days_ago": 27,
+      "recency_weight": 0.4393765001738383,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "analyst rating, upgrade, or downgrade",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3726
+      },
+      "impact_horizon_weight": 0.0726,
+      "final_weight": 0.1786
+    },
+    {
+      "title": "Dangbei Launches Christmas Deals on Amazon.com — Save Up to $900 on 4K Home Cinema Projectors",
+      "url": "https://finnhub.io/api/news?id=faac96278cc24a9e6b1f63e7cfb1f4a476c0b3962d0d486494987068634a8ce6",
+      "sourceurl": "https://finnhub.io/api/news?id=faac96278cc24a9e6b1f63e7cfb1f4a476c0b3962d0d486494987068634a8ce6",
+      "seendate": "20251205T153000Z",
+      "seendate_et": "20251205T103000",
+      "market_date": "2025-12-05",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Exclusive on Amazon.com, December 2–15, 2025 — Flagship 4K laser and portable projectors with up to 47.4% off for Christmas movies, gaming and holiday sports NEW YORK, Dec. 05, 2025 (GLOBE NEWSWIRE) -- Dangbei, a leading innovator in smart projection technology, is bringing big-screen Christmas magic to U.S. homes with a series of limited-time deals on Amazon.com. From December 2 to December 15, 2025, shoppers can save up to 47.4% and as much as $900 on selected 4K home cinema and portable proje",
+      "coverage_count": 1,
+      "days_ago": 27,
+      "recency_weight": 0.4393765001738383,
+      "content_stats": {
+        "total_sentences": 4,
+        "relevant_sentences": 4,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.5695
+      },
+      "impact_horizon_weight": 0.0726,
+      "final_weight": 0.1786
+    },
+    {
+      "title": "Market Chatter: Amazon's Italian Unit Pays $209 Million Compensation to End Probe Into Tax, Labor Practices",
+      "url": "https://finnhub.io/api/news?id=7c9a84e05c584be4beca21d6d94c4afc4989efe9e934808c547d3c49e94e9d16",
+      "sourceurl": "https://finnhub.io/api/news?id=7c9a84e05c584be4beca21d6d94c4afc4989efe9e934808c547d3c49e94e9d16",
+      "seendate": "20251205T090127Z",
+      "seendate_et": "20251205T040127",
+      "market_date": "2025-12-05",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon's (AMZN) Italian unit has paid compensation and scrapped a monitoring system for delivery sta",
+      "coverage_count": 1,
+      "days_ago": 27,
+      "recency_weight": 0.4393765001738383,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.5399
+      },
+      "impact_horizon_weight": 0.0726,
+      "final_weight": 0.1786
+    },
+    {
+      "title": "Jim Cramer on Amazon: “Wall Street Only Seems to Care About Amazon Web Services”",
+      "url": "https://finnhub.io/api/news?id=86ad845e66568baaed4ea0327bcc11dac35214a8410f085f58f488571adb0ade",
+      "sourceurl": "https://finnhub.io/api/news?id=86ad845e66568baaed4ea0327bcc11dac35214a8410f085f58f488571adb0ade",
+      "seendate": "20251205T034529Z",
+      "seendate_et": "20251204T224529",
+      "market_date": "2025-12-05",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon.com, Inc. (NASDAQ:AMZN) is one of the stocks Jim Cramer recently looked at. Cramer called it a “great company” during the episode and stated: “Amazon is a great company with an incredible retail business.",
+      "coverage_count": 1,
+      "days_ago": 27,
+      "recency_weight": 0.4393765001738383,
+      "content_stats": {
+        "total_sentences": 4,
+        "relevant_sentences": 3,
+        "relevance_ratio": 0.75,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3366
+      },
+      "impact_horizon_weight": 0.0726,
+      "final_weight": 0.1786
+    },
+    {
+      "title": "Alphabet And Amazon Proving Potential GPU Dominance Is Nvidia's Achilles Heel",
+      "url": "https://finnhub.io/api/news?id=7650df89ffa532d4e5fbfc1641f8f3939e27e74314ced638ed05e2fbc24e3e96",
+      "sourceurl": "https://finnhub.io/api/news?id=7650df89ffa532d4e5fbfc1641f8f3939e27e74314ced638ed05e2fbc24e3e96",
+      "seendate": "20251205T022625Z",
+      "seendate_et": "20251204T212625",
+      "market_date": "2025-12-05",
+      "domain": "SeekingAlpha",
+      "language": "English",
+      "content": "Amazon and Alphabet are set to lead future AI workloads with in-house chips. Read here for an investment analysis of GOOG and AMZN stocks.",
+      "coverage_count": 1,
+      "days_ago": 27,
+      "recency_weight": 0.4393765001738383,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.4429
+      },
+      "impact_horizon_weight": 0.0726,
+      "final_weight": 0.1786
+    },
+    {
+      "title": "Amazon: Reiterating Again My Prediction Of New ATHs Before Year-End",
+      "url": "https://finnhub.io/api/news?id=2d0027d940efe53dba8a0e526496df6514a9cf7c1cc86c07bd5ab11df945ccfc",
+      "sourceurl": "https://finnhub.io/api/news?id=2d0027d940efe53dba8a0e526496df6514a9cf7c1cc86c07bd5ab11df945ccfc",
+      "seendate": "20251205T234837Z",
+      "seendate_et": "20251205T184837",
+      "market_date": "2025-12-08",
+      "domain": "SeekingAlpha",
+      "language": "English",
+      "content": "Amazon stock set to hit new highs in 2024 as AWS growth and a $38B OpenAI deal boost outlook. Read here for an investment analysis of AMZN stock.",
+      "coverage_count": 1,
+      "days_ago": 24,
+      "recency_weight": 0.48141722191172337,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "earnings report or financial results",
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.441
+      },
+      "impact_horizon_weight": 0.0625,
+      "final_weight": 0.1735
+    },
+    {
+      "title": "Amazon Reviews Options as USPS Weighs Competitive Auction for Contract",
+      "url": "https://finnhub.io/api/news?id=a6ff3599bad961cae1bd1c17c68841ca8c80177af55cbfe463194fbcdede4ffc",
+      "sourceurl": "https://finnhub.io/api/news?id=a6ff3599bad961cae1bd1c17c68841ca8c80177af55cbfe463194fbcdede4ffc",
+      "seendate": "20251204T192648Z",
+      "seendate_et": "20251204T142648",
+      "market_date": "2025-12-04",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon and USPS are in talks as their contract nears 2026 expiration.",
+      "coverage_count": 1,
+      "days_ago": 28,
+      "recency_weight": 0.42619520516862314,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3082
+      },
+      "impact_horizon_weight": 0.0625,
+      "final_weight": 0.1632
+    },
+    {
+      "title": "ChatGPT Thinks Amazon Stock Price Will Close At This Level By The End of 2025",
+      "url": "https://finnhub.io/api/news?id=155bab697316e906ee51705bf76b919a739e050232f25928c9a304bb39703e0a",
+      "sourceurl": "https://finnhub.io/api/news?id=155bab697316e906ee51705bf76b919a739e050232f25928c9a304bb39703e0a",
+      "seendate": "20251204T192453Z",
+      "seendate_et": "20251204T142453",
+      "market_date": "2025-12-04",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Shares of Amazon are moving into December with steady business momentum but a choppy tape. The underlying story is intact, but the market is testing how much of the stock's recovery is already reflected in the price. The tone has shifted from a smooth ...",
+      "coverage_count": 1,
+      "days_ago": 28,
+      "recency_weight": 0.42619520516862314,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.2632
+      },
+      "impact_horizon_weight": 0.0625,
+      "final_weight": 0.1632
+    },
+    {
+      "title": "As Amazon Launches the Trainium 3 Chip, Should You Buy, Sell, or Hold AMZN Stock?",
+      "url": "https://finnhub.io/api/news?id=1c232da1c5ad2fd7820fca733f4bbaf881ee19028e6e1a92823024cc2198cc8a",
+      "sourceurl": "https://finnhub.io/api/news?id=1c232da1c5ad2fd7820fca733f4bbaf881ee19028e6e1a92823024cc2198cc8a",
+      "seendate": "20251204T191137Z",
+      "seendate_et": "20251204T141137",
+      "market_date": "2025-12-04",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon just rolled out its Trainium3 chip, and the stock jumped. Should investors buy into the excitement, or is it a moment to stay cautious?",
+      "coverage_count": 1,
+      "days_ago": 28,
+      "recency_weight": 0.42619520516862314,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, innovation, or technology",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.7222
+      },
+      "impact_horizon_weight": 0.0625,
+      "final_weight": 0.1632
+    },
+    {
+      "title": "Amazon vs. Alphabet vs. Meta: This analyst's top AI pick",
+      "url": "https://finnhub.io/api/news?id=7b5a8faba456493e5b58cbde4f9b993d3321f558b22e436ea3cbe54f692e5221",
+      "sourceurl": "https://finnhub.io/api/news?id=7b5a8faba456493e5b58cbde4f9b993d3321f558b22e436ea3cbe54f692e5221",
+      "seendate": "20251204T183000Z",
+      "seendate_et": "20251204T133000",
+      "market_date": "2025-12-04",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "RBC Capital Markets Equity Analyst Brad Erickson comes on Market Catalysts to discuss whether Alphabet's Google (GOOG, GOOGL) may have an advantage in the AI race through its TPU chips (Tensor Processing Units), Amazon's (AMZN) newly announced AI chips, and which tech stock he prefers when choosing between Alphabet, Amazon, and Meta Platforms (META). Also catch Brad Erickson weigh in on reports that Meta will be reducing its Metaverse budget. To watch more expert insights and analysis on the latest market action, check out more Market Catalysts.",
+      "coverage_count": 1,
+      "days_ago": 28,
+      "recency_weight": 0.42619520516862314,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "general market commentary or opinion",
+        "category": "SHORT_TERM",
+        "horizon_days": 7,
+        "confidence": 0.3174
+      },
+      "impact_horizon_weight": 0.0625,
+      "final_weight": 0.1632
+    },
+    {
+      "title": "Amazon slashes seller fees in bid to compete with Shein, Temu",
+      "url": "https://finnhub.io/api/news?id=dc303fc5d90636a7c3feefee18bdfe037c16069338da4f6fe8aaeb30c4b0b7f9",
+      "sourceurl": "https://finnhub.io/api/news?id=dc303fc5d90636a7c3feefee18bdfe037c16069338da4f6fe8aaeb30c4b0b7f9",
+      "seendate": "20251205T121039Z",
+      "seendate_et": "20251205T071039",
+      "market_date": "2025-12-05",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Amazon is set to cut seller fees in Europe by 2% to 5%, suggesting it is exploring ways to compete with ultrafast-fashion e-tailers such as Shein and Temu.",
+      "coverage_count": 1,
+      "days_ago": 27,
+      "recency_weight": 0.4393765001738383,
+      "content_stats": {
+        "total_sentences": 1,
+        "relevant_sentences": 1,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "earnings report or financial results",
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.2449
       },
       "impact_horizon_weight": 0.05,
-      "final_weight": 0.1465
+      "final_weight": 0.1482
+    },
+    {
+      "title": "Amazon.com, Inc. (AMZN): A Bull Case Theory",
+      "url": "https://finnhub.io/api/news?id=b0a379519e57ac2c35aad51a3cb647c0d12f10c1b8e810b7cbeb72f14470601c",
+      "sourceurl": "https://finnhub.io/api/news?id=b0a379519e57ac2c35aad51a3cb647c0d12f10c1b8e810b7cbeb72f14470601c",
+      "seendate": "20251205T025230Z",
+      "seendate_et": "20251204T215230",
+      "market_date": "2025-12-05",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "We came across a bullish thesis on Amazon.com, Inc. on Capitalist Letter’s Substack by Oguz Erkan. In this article, we will summarize the bulls’ thesis on AMZN. Amazon.com, Inc.’s share was trading at $233.88 as of December 1st. AMZN’s trailing and forward P/E were 33.03 and 29.59 respectively according to Yahoo Finance. Amazon has doubled its operating cash […]",
+      "coverage_count": 1,
+      "days_ago": 27,
+      "recency_weight": 0.4393765001738383,
+      "content_stats": {
+        "total_sentences": 6,
+        "relevant_sentences": 6,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "earnings report or financial results",
+        "category": "IMMEDIATE",
+        "horizon_days": 3,
+        "confidence": 0.3439
+      },
+      "impact_horizon_weight": 0.05,
+      "final_weight": 0.1482
     }
   ]
 }

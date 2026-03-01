@@ -44,7 +44,7 @@ _LABEL_COLOURS = {
     "neutral":  "#95a5a6",
 }
 
-_RELIABILITY_COLOURS = {
+_CONFIDENCE_COLOURS = {
     "HIGH":   "#2ecc71",
     "MEDIUM": "#f39c12",
     "LOW":    "#e74c3c",
@@ -108,11 +108,11 @@ def _label_badge(label: str, confidence: float) -> str:
     )
 
 
-def _reliability_badge(level: str) -> str:
-    colour = _RELIABILITY_COLOURS.get(level, "#3498db")
+def _confidence_badge(level: str) -> str:
+    colour = _CONFIDENCE_COLOURS.get(level, "#3498db")
     return (
         f'<span style="background:{colour};color:#fff;padding:4px 14px;'
-        f'border-radius:4px;font-weight:600;">{level}</span>'
+        f'border-radius:4px;font-weight:600;">{level} CONFIDENCE</span>'
     )
 
 
@@ -224,7 +224,7 @@ def _build_comprehensive_summary(result: dict) -> str:
         if info.get("flagged")
     ]
     rel_text = (
-        f"Prediction reliability is **{rel_level}** "
+        f"Prediction confidence level is **{rel_level}** "
         f"({flags_triggered} of 7 checks flagged)."
     )
     if flagged_names:
@@ -417,10 +417,17 @@ def _render_reliability(result: dict) -> None:
     flags_triggered = reliability.get("flags_triggered", 0)
     summary_msg = reliability.get("summary_message", "")
 
-    st.markdown("### Prediction Reliability")
+    st.warning(
+        "**This tool is for educational and research purposes only. "
+        "It does not constitute financial advice, investment recommendation, "
+        "or any form of solicitation. Always consult a qualified financial "
+        "advisor before making investment decisions.**"
+    )
+
+    st.markdown("### Prediction Confidence")
     st.markdown(
-        f"Overall: {_reliability_badge(rel_level)}"
-        f"&nbsp;&nbsp;({flags_triggered} of 7 flags triggered)",
+        f"Overall: {_confidence_badge(rel_level)}"
+        f"&nbsp;&nbsp;({flags_triggered} of 7 checks flagged)",
         unsafe_allow_html=True,
     )
     st.write("")
@@ -430,7 +437,7 @@ def _render_reliability(result: dict) -> None:
 
     st.divider()
 
-    st.markdown("### Reliability Flags")
+    st.markdown("### Confidence Checks")
     flags = reliability.get("flags", {})
 
     _FLAG_DESCRIPTIONS = {
@@ -471,7 +478,6 @@ def _render_reliability(result: dict) -> None:
 
 def _render_storylines(result: dict) -> None:
     storylines_data = result.get("storylines", {})
-    layer3 = result.get("layer_3_pipeline", {})
 
     storylines = storylines_data.get("storylines", [])
     other_count = storylines_data.get("other_count", 0)
@@ -526,43 +532,49 @@ def _render_storylines(result: dict) -> None:
     if other_count:
         st.caption(f"_{other_count} additional article(s) did not cluster into any theme._")
 
-    st.divider()
 
+def _render_event_types(result: dict) -> None:
+    layer3 = result.get("layer_3_pipeline", {})
     event_dist = layer3.get("event_type_distribution", {})
     event_sent = layer3.get("event_type_sentiment", {})
 
-    if event_dist:
-        st.markdown("### Event Type Distribution")
-        st.write(
-            "Each article is classified into an event type using zero-shot NLI. "
-            "The event type determines the article's **impact horizon** — "
-            "how many days the market typically takes to fully price in that type of news. "
-            "Articles whose horizon aligns with the prediction window receive higher weight."
-        )
+    if not event_dist:
+        st.warning("No event type data available.")
+        return
+
+    st.markdown("### Event Type Distribution")
+    st.write(
+        "Each article is classified into an event type using zero-shot NLI. "
+        "The event type determines the article's **impact horizon** — "
+        "how many days the market typically takes to fully price in that type of news. "
+        "Articles whose horizon aligns with the prediction window receive higher weight."
+    )
+    st.write("")
+
+    evt_rows = []
+    for evt, count in sorted(event_dist.items(), key=lambda x: x[1], reverse=True):
+        sent = event_sent.get(evt, {})
+        info = _EVENT_TYPE_INFO.get(evt, {})
+        evt_rows.append({
+            "Event Type": evt.replace("_", " ").title(),
+            "Count": count,
+            "Impact Horizon": info.get("horizon", "?"),
+            "Positive": sent.get("positive", 0),
+            "Negative": sent.get("negative", 0),
+            "Neutral": sent.get("neutral", 0),
+        })
+
+    df = pd.DataFrame(evt_rows)
+    st.dataframe(df, use_container_width=True, hide_index=True)
+
+    st.divider()
+
+    st.markdown("### What Do These Event Types Mean?")
+    for evt_name, info in _EVENT_TYPE_INFO.items():
+        st.markdown(f"**{evt_name.title()}**")
+        st.write(info["description"])
+        st.caption(f"Impact horizon: {info['horizon']} — {info['why']}")
         st.write("")
-
-        evt_rows = []
-        for evt, count in sorted(event_dist.items(), key=lambda x: x[1], reverse=True):
-            sent = event_sent.get(evt, {})
-            info = _EVENT_TYPE_INFO.get(evt, {})
-            evt_rows.append({
-                "Event Type": evt.replace("_", " ").title(),
-                "Count": count,
-                "Impact Horizon": info.get("horizon", "?"),
-                "Positive": sent.get("positive", 0),
-                "Negative": sent.get("negative", 0),
-                "Neutral": sent.get("neutral", 0),
-            })
-
-        df = pd.DataFrame(evt_rows)
-        st.dataframe(df, use_container_width=True, hide_index=True)
-
-        with st.expander("What do these event types mean?"):
-            for evt_name, info in _EVENT_TYPE_INFO.items():
-                st.markdown(f"**{evt_name.title()}**")
-                st.write(info["description"])
-                st.caption(f"Impact horizon: {info['horizon']} — {info['why']}")
-                st.write("")
 
 
 def _build_merged_table(result: dict) -> pd.DataFrame:
@@ -1100,7 +1112,7 @@ def _chart_reliability(result: dict) -> go.Figure:
         hovertext=hover_msgs[::-1], hoverinfo="text",
     ))
     fig.update_layout(
-        title=f"Reliability Dashboard — Overall: {overall}",
+        title=f"Confidence Dashboard — Overall: {overall} CONFIDENCE",
         xaxis=dict(visible=False),
         template="plotly_white", height=max(280, len(names) * 45),
         margin=dict(l=160),
@@ -1294,7 +1306,7 @@ _CHART_OPTIONS = {
     "Top 10 Article Weights": _chart_article_weights,
     "Horizon Breakdown": _chart_horizon_breakdown,
     "LIME Token Attribution": _chart_lime_tokens,
-    "Reliability Dashboard": _chart_reliability,
+    "Confidence Dashboard": _chart_reliability,
     "Storyline Contribution": _chart_storyline_contribution,
     "Contrastive Waterfall": _chart_contrastive_waterfall,
     "Article Timeline": _chart_article_timeline,
@@ -1315,6 +1327,12 @@ def _render_charts(result: dict) -> None:
 def main() -> None:
     st.title("Stock Sentiment Analyser")
     st.caption("Zero-shot NLI sentiment prediction with explainable AI")
+    st.warning(
+        "**Disclaimer:** This tool is for educational and research purposes only. "
+        "It does not constitute financial advice, investment recommendation, "
+        "or any form of solicitation. Always consult a qualified financial "
+        "advisor before making investment decisions."
+    )
 
     with st.sidebar:
         st.header("Analysis Parameters")
@@ -1378,8 +1396,9 @@ def main() -> None:
 
     (
         tab_overview,
-        tab_reliability,
+        tab_confidence,
         tab_storylines,
+        tab_event_types,
         tab_rankings,
         tab_robustness,
         tab_weighting,
@@ -1387,8 +1406,9 @@ def main() -> None:
         tab_charts,
     ) = st.tabs([
         "Overview",
-        "Reliability",
+        "Confidence",
         "Storylines",
+        "Event Types",
         "Article Analysis",
         "Robustness",
         "Weighting",
@@ -1399,11 +1419,14 @@ def main() -> None:
     with tab_overview:
         _render_overview(result)
 
-    with tab_reliability:
+    with tab_confidence:
         _render_reliability(result)
 
     with tab_storylines:
         _render_storylines(result)
+
+    with tab_event_types:
+        _render_event_types(result)
 
     with tab_rankings:
         _render_article_rankings(result)

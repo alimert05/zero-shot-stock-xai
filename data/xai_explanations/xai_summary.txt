@@ -1,11 +1,11 @@
 ============================================================
   SENTIMENT ANALYSIS EXPLANATION REPORT
 ============================================================
-  Company           : Apple Inc.  (AAPL)
-  Forecast horizon  : 7 days
-  News lookback     : 2026-02-17 to 2026-02-27 (ET market-close aligned)
-  Articles analysed : 8
-  Generated at      : 2026-03-01 16:25:56
+  Company           : amazon  (AMZN)
+  Forecast horizon  : 31 days
+  News lookback     : 2026-02-01 to 2026-02-28 (ET market-close aligned)
+  Articles analysed : 99
+  Generated at      : 2026-03-01 16:41:38
 ============================================================
 
 ════════════════════════════════════════════════════════════
@@ -17,14 +17,14 @@
   What the model decided and why — in plain English
 ------------------------------------------------------------
 
-  The model predicted a POSITIVE label with a 51.9% score share based on 8 articles over 7 days.
-The top article is "As Apple Tests AI Devices, Should You Buy AAPL Stock Here?" with a positive sentiment of 23.2% of the total weight.
-The label margin is moderate (0.157), but reliability is LOW due to source concentration and news lookback being shorter than the intended backward window.
+  The model predicted a POSITIVE label with a 58.7% score share based on 99 articles over 31 days.
+The top article is "Amazon backs Flowers Foods at SCOTUS on delivery driver legal status" with a NEGATIVE sentiment, accounting for 1.9% of the total weight.
+The label margin is clear (0.285), but reliability is HIGH due to no concerns and a narrow margin.
 
   PREDICTION RESULT
   Sentiment scores across all analysed articles
 ------------------------------------------------------------
-  Ground truth : close-to-close return over 7-day forecast horizon, neutral band +/-0.3%.
+  Ground truth : close-to-close return over 31-day forecast horizon, neutral band +/-0.3%.
   Disclaimer   : Model support measures how much weight the model
                   assigns to the winning label relative to alternatives.
                   It is NOT a calibrated probability of future return
@@ -32,69 +32,121 @@ The label margin is moderate (0.157), but reliability is LOW due to source conce
 
   Score chart  (each █ ≈ 2.5%):
 
-    positive :  51.9%  █████████████████████░░░░░░░░░░░░░░░░░░░  ◄ PREDICTED
-    negative :  36.2%  ██████████████░░░░░░░░░░░░░░░░░░░░░░░░░░
-     neutral :  12.0%  █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+    positive :  58.7%  ███████████████████████░░░░░░░░░░░░░░░░░  ◄ PREDICTED
+    negative :  30.1%  ████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+     neutral :  11.2%  ████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
   Verdict     : POSITIVE
-  Model support : 51.9%  (share of model weight, not a probability)
+  Model support : 58.7%  (share of model weight, not a probability)
 
   RECOMMENDATION
   What you should do with this result
 ------------------------------------------------------------
-  This prediction has LOW reliability and should NOT be used alone for decisions. Reasons: most articles come from the same editorial source, reducing editorial independence. Note: aggregators (Yahoo, Finnhub) are excluded from this check because they collect from many independent editorial desks. Mitigation: articles are de-duplicated across all domains by title (keeping the oldest copy — the first to break the news); weighting is content-based (not source-based); news lookback (11 days) is shorter than the intended backward window (14 days, √W scaling), signal may be incomplete.
+  This prediction has HIGH reliability and can be used with reasonable confidence.
 
   NARRATIVE THEMES
   What the news is about and the dominant tone per theme
 ------------------------------------------------------------
-    Product / tech     :   4 articles (50%)  ▲ positive  (+3 / -1 / =0)
-    General commentary :   2 articles (25%)  ▲ positive  (+2 / -0 / =0)
-    Regulatory / legal :   1 articles (12%)  ▼ negative  (+0 / -1 / =0)
-    Earnings / results :   1 articles (12%)  ▲ positive  (+1 / -0 / =0)
+    Product / tech     :  34 articles (34%)  ▲ positive  (+26 / -8 / =0)
+    General commentary :  24 articles (24%)  ▲ positive  (+17 / -6 / =1)
+    Earnings / results :  15 articles (15%)  ▲ positive  (+12 / -3 / =0)
+    Regulatory / legal :  12 articles (12%)  ▼ negative  (+2 / -10 / =0)
+    Analyst action     :   9 articles (9%)  ▲ positive  (+9 / -0 / =0)
+    Strategy / M&A     :   5 articles (5%)  ▼ negative  (+1 / -4 / =0)
 
   Storylines (auto-discovered from article titles):
 
     Storylines supporting the POSITIVE prediction:
-      "Investor enthusiasm drives stock price surge." (2 articles)  ▲ positive  (+2 / -0 / =0)
-        → As Apple Tests AI Devices, Should You Buy AAPL Stock Here?
-        → Here's Why Apple (AAPL) is a Great Momentum Stock to Buy
+      "Amazon stock poised for significant long-term gains." (7 articles)  ▲ positive  (+7 / -0 / =0)
+        → Why Amazon stock could have nearly 50% upside in 2026
+        → Amazon's Stock Is Dirt Cheap
+        → A $61 Billion Reason to Buy Amazon Stock for 2026
+        → Is Amazon Stock a Buy Ahead of 2026?
+        → Try This 'Naked' Options Trade When It Comes To Amazon Stock
+        → Amazon Stock Climbs on Strong 2026 Outlook From Truist Securities
+        → Why Amazon Stock Is Climbing Today
+      "Tech giants face regulatory scrutiny nationwide." (4 articles)  ▲ positive  (+4 / -0 / =0)
+        → Zacks Investment Ideas feature highlights: Amazon, Alphabet, Meta Pl
+        → The Zacks Analyst Blog Highlights Amazon, Microsoft and Alphabet
+        → The Zacks Analyst Blog Analog Devices, Amazon.com and Fortive
+        → The Zacks Analyst Blog Amazon, Atlassian and Cloudflare
+      "Amazon's growth driven by strategic investments." (6 articles)  ▲ positive  (+6 / -0 / =0)
+        → Amazon.com (AMZN) Is Up 5.0% After Expanding AI Infrastructure, AWS 
+        → Wells Fargo Reiterates Overweight Rating on Amazon.com, Inc. (AMZN)
+        → Analysts Reaffirm Buy Ratings on Amazon.com, Inc. (AMZN) with Price 
+        → How AWS’s Graviton5 And AI Partner Push At Amazon.com (AMZN) Has Cha
+        → Guggenheim Initiates Coverage of Amazon.com (AMZN) with “Buy” Rating
+        → Amazon.com, Inc. (AMZN): A Bull Case Theory
+      "Amazon's stock is a buy due to AWS." (4 articles)  ▲ positive  (+4 / -0 / =0)
+        → Jim Cramer Thinks Amazon Stock’s a Buy After Doing Nothing All Year.
+        → Jim Cramer Calls Amazon’s E-Commerce Business a “Huge, Giant Tailwin
+        → Jim Cramer on Amazon: “Wall Street Only Seems to Care About Amazon W
+        → “It’s About AWS,” Says Jim Cramer About Amazon.com (AMZN)
+      "Tech stocks drive stock market surge upward." (3 articles)  ▲ positive  (+3 / -0 / =0)
+        → Dow's 150-point rally led by gains in shares of Amazon.com Inc., NVI
+        → Amazon.com Inc., NVIDIA Corp. share gains lead Dow's 450-point climb
+        → Amazon.com Inc., NVIDIA Corp. share gains contribute to Dow's 325-po
+      "Internet giant gets top investment pick" (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → Amazon Named Evercore ISI's Top Large-Cap Internet Pick for 2026
+        → Amazon named ’Top Mega Cap Internet Pick’ at TD Cowen
+      "Battle for dominance in tech advertising space." (3 articles)  ▲ positive  (+3 / -0 / =0)
+        → TTD vs. AMZN: Which Ad-Tech Stock Is the Smarter Buy Now?
+        → Alphabet vs. Amazon: Which Stock Will Outperform in 2026?
+        → Amazon vs. Alphabet vs. Meta: This analyst's top AI pick
 
-    Other topics (6 articles — titles too unique to cluster with any other article; each covers a distinct story)
+    Opposing storylines (negative):
+      "Amazon faces USPS contract renewal uncertainty." (4 articles)  ▼ negative  (+0 / -4 / =0)
+        → Amazon weighs shift from USPS as contract talks falter
+        → Amazon-USPS Breakup Rumors Intensify Ahead of 2026 Contract Expirati
+        → Amazon's USPS Partnership At Risk — As Trump's Old 'Delivery Boy' Ja
+        → Amazon Reviews Options as USPS Weighs Competitive Auction for Contra
+      "Rival retail chain struggles financially online." (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Amazon rival discount retailer files Chapter 11 bankruptcy
+        → Amazon Expands Same-Day Grocery Delivery. Rival Stocks Are Falling.
+      "Investor sentiment remains overly optimistic on stock." (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Amazon Is Lagging In 2025, Yet 200+ ETFs Still Can't Let It Go
+        → Amazon: A Correction Under $200 May Be Necessary Before Uptrend Resu
+      "Amazon's Italian drone delivery project faces setback" (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Amazon Halts Italy Drone Delivery Plans After Strategic Review
+        → Amazon to halt Italy drone delivery plans, Eightco stock pops
+      "Amazon faces significant financial settlement over taxes." (3 articles)  ▼ negative  (+0 / -3 / =0)
+        → Amazon to pay more than $580 million to settle tax probe in Italy
+        → Market Chatter: Amazon's Italian Unit Pays $209 Million Compensation
+        → Update: Market Chatter: Amazon's Italian Unit Pays $209 Million Comp
+      "Amazon faces accountability over worker safety issues." (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Charleston-Based Law Firm Yarborough Applegate Leads Nation in Holdi
+        → Amazon backs Flowers Foods at SCOTUS on delivery driver legal status
+      "Tech giants face challenges in 2026 outlook." (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Meta vs. Amazon: Which Underperforming "Magnificent Seven" Stock Wil
+        → The Zacks Analyst Blog Highlights Meta Platforms, Alphabet and Amazo
+
+    Other topics (53 articles — titles too unique to cluster with any other article; each covers a distinct story)
 
 ============================================================
   FINAL PLAIN-ENGLISH OVERVIEW
   A complete, readable summary of the entire analysis for a general reader
 ============================================================
 
-  Out of 8 news articles analysed for Apple Inc. over a
-  7-day forecast horizon, 6 carried positive sentiment, 2
-  carried negative sentiment, and 0 were neutral. The
+  Out of 99 news articles analysed for amazon over a
+  31-day forecast horizon, 67 carried positive sentiment,
+  31 carried negative sentiment, and 1 were neutral. The
   model produced a weighted aggregation of these scores
-  and predicted a POSITIVE label with 51.9% model support.
+  and predicted a POSITIVE label with 58.7% model support.
   The model chose POSITIVE over NEGATIVE by a margin of
-  15.7 percentage points: 6 articles pushed toward
-  POSITIVE while 2 pushed toward NEGATIVE. The single most
-  influential article was "As Apple Tests AI Devices,
-  Should You Buy AAPL Stock Here?" (positive sentiment,
-  contributing 23.2% of total weight). Articles were
-  weighted by recency and prediction-horizon relevance —
-  the average article was 8.38 days old, with most
-  classified as short-term horizon. At the word level, the
-  strongest signals in the top gap-driving article
-  included: Buy, grab, Stock, growth, perfect. The
-  prediction is sensitive: removing as few as 1 of 8
+  28.5 percentage points: 67 articles pushed toward
+  POSITIVE while 32 pushed toward NEGATIVE. The single
+  most influential article was "Amazon backs Flowers Foods
+  at SCOTUS on delivery driver legal status" (negative
+  sentiment, contributing 1.9% of total weight). Articles
+  were weighted by recency and prediction-horizon
+  relevance — the average article was 14.85 days old, with
+  most classified as short-term horizon. At the word
+  level, the strongest signals in the top gap-driving
+  article included: Buy, Cramer, Stock, After, give. The
+  prediction is sensitive: removing as few as 24 of 99
   articles would change the verdict. The prediction
-  carries LOW reliability and should not be used in
-  isolation. Most articles come from the same editorial
-  source, reducing editorial independence. note:
-  aggregators (yahoo, finnhub) are excluded from this
-  check because they collect from many independent
-  editorial desks. mitigation: articles are de-duplicated
-  across all domains by title (keeping the oldest copy —
-  the first to break the news); weighting is content-based
-  (not source-based); news lookback (11 days) is shorter
-  than the intended backward window (14 days, √w scaling),
-  signal may be incomplete.
+  carries HIGH reliability and can be used with
+  confidence.
 
 
   DISCLAIMER
@@ -112,62 +164,64 @@ The label margin is moderate (0.157), but reliability is LOW due to source conce
   WHY POSITIVE INSTEAD OF NEGATIVE?
   Contrastive explanation — what tipped the balance
 ------------------------------------------------------------
-  Score gap : POSITIVE 51.9%  vs  NEGATIVE 36.2%  (gap = 15.7 percentage points)
+  Score gap : POSITIVE 58.7%  vs  NEGATIVE 30.1%  (gap = 28.5 percentage points)
 
   Article split:
-      6 articles push toward POSITIVE  (total push: +43.3 pp)
-      2 articles push toward NEGATIVE  (total push: -27.6 pp)
+     67 articles push toward POSITIVE  (total push: +46.2 pp)
+     32 articles push toward NEGATIVE  (total push: -17.6 pp)
 
-  Third class: NEUTRAL at 12.0% — drawing more mass from NEGATIVE than POSITIVE, indirectly helping POSITIVE.
+  Third class: NEUTRAL at 11.2% — absorbing probability mass roughly equally from both sides.
 
   Top 5 articles driving the gap:
     #     Direction       Net  Title
     ----------------------------------------------------------------------
-    1         → POS   +19.93%  As Apple Tests AI Devices, Should You Buy AAPL S
-    2         → NEG   -15.10%  Apple Faces FTC Scrutiny And Siri AI Delays What
-    3         → NEG   -12.48%  Why Apple’s (AAPL) AI Rollout Timeline Is Raisin
-    4         → POS    +9.58%  Apple Inc. (AAPL)’s Upcoming Hardware and AI Upd
-    5         → POS    +7.55%  Here's Why Apple (AAPL) is a Great Momentum Stoc
+    1         → POS    +1.65%  Jim Cramer Thinks Amazon Stock’s a Buy After Doi
+    2         → POS    +1.64%  Zacks Investment Ideas feature highlights: Amazo
+    3         → NEG    -1.61%  Amazon Is Lagging In 2025, Yet 200+ ETFs Still C
+    4         → NEG    -1.54%  Amazon Halts Italy Drone Delivery Plans After St
+    5         → POS    +1.53%  Amazon Named Evercore ISI's Top Large-Cap Intern
 
   Word-level evidence for top gap drivers:
   (connecting article-level influence to token-level LIME attribution)
 
-    As Apple Tests AI Devices, Should You Buy AAPL Stock Here?
-      Favours POSITIVE (+19.93% net push)
-      Words reinforcing POSITIVE: Buy, grab, Stock, growth
-      Words pulling against: Tests, You, Inc, Devices
+    Jim Cramer Thinks Amazon Stock’s a Buy After Doing Nothing A
+      Favours POSITIVE (+1.65% net push)
+      Words reinforcing POSITIVE: Buy, Cramer, Stock, After
+      Words pulling against: Nothing, doesn, lagging
 
-    Apple Inc. (AAPL)’s Upcoming Hardware and AI Updates Keep St
-      Favours POSITIVE (+9.58% net push)
-      Words reinforcing POSITIVE: Optimistic, buy, cap, profitable
-      Words pulling against: 17e, according, TheFly, Bloomberg
+    Zacks Investment Ideas feature highlights: Amazon, Alphabet,
+      Favours POSITIVE (+1.64% net push)
+      Words reinforcing POSITIVE: ease, positive, Investment, rising
+      Words pulling against: Zacks, concerns, EPS, driven
 
-    Here's Why Apple (AAPL) is a Great Momentum Stock to Buy
-      Favours POSITIVE (+7.55% net push)
-      Words reinforcing POSITIVE: Buy, Great, takes, Inc
-      Words pulling against: Does, Let, out, stock
+    Amazon Named Evercore ISI's Top Large-Cap Internet Pick for 
+      Favours POSITIVE (+1.53% net push)
+      Words reinforcing POSITIVE: Pick, Top, AI, Large
+      Words pulling against: Evercore, Momentum
 
   Counterfactual (minimum flip set):
-    Removing just 1 of 8 articles would flip the prediction from POSITIVE to NEGATIVE.
+    Removing just 24 of 99 articles would flip the prediction from POSITIVE to NEGATIVE.
     These articles are:
-      [!] As Apple Tests AI Devices, Should You Buy AAPL Stock Here?
+      [!] Jim Cramer Thinks Amazon Stock’s a Buy After Doing Nothing All Year. W
+      [!] Zacks Investment Ideas feature highlights: Amazon, Alphabet, Meta Plat
+      [!] Amazon Named Evercore ISI's Top Large-Cap Internet Pick for 2026
+      [!] Amazon Does It All
+      [!] Why Amazon stock could have nearly 50% upside in 2026
+      ... and 19 more
 
   PREDICTION RELIABILITY
   How much to trust this prediction
 ------------------------------------------------------------
-  Overall : [✗] LOW  (2 concern(s) found)
+  Overall : [✓] HIGH  (0 concern(s) found)
   Rating rule : HIGH if 0 concerns, MEDIUM if 1, LOW if ≥2.
-  Note : Reliability is LOW due to data-quality risks (source concentration,
-         timing alignment, short lookback), not because the model is
-         uncertain about the label.
 
     [✓] Evidence volume        Sufficient article count.
     [✓] Weight spread          Weight is well-distributed across articles.
-    [✓] Decision confidence    Clear margin between top two labels (0.157).
-    [✓] Score confidence       Above reliability threshold (0.519 ≥ 0.45).
-    [⚠] Source diversity       Source diversity concern: only 0 unique editorial source(s).
-    [✓] Timing validity        Articles span 2-12 days old (ET market-close aligned); oldest exceeds the 7-day window and is down-weighted by recency.
-    [⚠] Horizon coverage       News lookback is 11 days but the intended backward window was 14 days (√W scaling, W=7), signal may be incomplete.
+    [✓] Decision confidence    Clear margin between top two labels (0.285).
+    [✓] Score confidence       Above reliability threshold (0.587 ≥ 0.45).
+    [✓] Source diversity       4 sources (3 editorial + 1 aggregators), top editorial share 50%. (84% via aggregators like Yahoo/Finnhub — these collect from many editorial sources)
+    [✓] Timing validity        Articles are 1-28 days old (ET market-close aligned), down-weighted by the recency function where applicable.
+    [✓] Horizon coverage       News lookback (28 days) covers the intended 28-day backward window.
 
   Thresholds used  : reliability confidence ≥ 0.45
 
@@ -183,36 +237,35 @@ The label margin is moderate (0.157), but reliability is LOW due to source conce
 ------------------------------------------------------------
   Article sentiment distribution:
 
-    ▲ positive : ██████████████████████░░░░░░░░    6 articles (75%)
-    ▼ negative : ████████░░░░░░░░░░░░░░░░░░░░░░    2 articles (25%)
-    ■  neutral : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    0 articles (0%)
+    ▲ positive : ████████████████████░░░░░░░░░░   67 articles (68%)
+    ▼ negative : █████████░░░░░░░░░░░░░░░░░░░░░   31 articles (31%)
+    ■  neutral : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1 articles (1%)
 
   Articles pushing toward POSITIVE:
-    [+]  As Apple Tests AI Devices, Should You Buy AAPL Stock Here?
-    [+]  Apple Inc. (AAPL)’s Upcoming Hardware and AI Updates Keep Street Optimistic
-    [+]  Here's Why Apple (AAPL) is a Great Momentum Stock to Buy
+    [+]  Jim Cramer Thinks Amazon Stock’s a Buy After Doing Nothing All Year. Why He’
+    [+]  Zacks Investment Ideas feature highlights: Amazon, Alphabet, Meta Platforms 
+    [+]  Amazon Named Evercore ISI's Top Large-Cap Internet Pick for 2026
   Articles pushing toward NEGATIVE:
-    [-]  Apple Faces FTC Scrutiny And Siri AI Delays What It Means For AAPL
-    [-]  Why Apple’s (AAPL) AI Rollout Timeline Is Raising Fresh Questions
-    [-]  Is the YieldMax AAPL Option Income Strategy ETF’s (APLY) 70% Yield Real or M
-
-  Critical articles (removing any one would flip the verdict):
-    [!]  As Apple Tests AI Devices, Should You Buy AAPL Stock Here?
+    [-]  Amazon Is Lagging In 2025, Yet 200+ ETFs Still Can't Let It Go
+    [-]  Amazon Halts Italy Drone Delivery Plans After Strategic Review
+    [-]  Amazon rival discount retailer files Chapter 11 bankruptcy
 
   Top 10 most influential articles:
   (Weight = recency × horizon factor, 0-1 scale;  Share = % of total pool weight)
     #    Sent  Weight   Share  Weight chart                      Title
     ------------------------------------------------------------
-    #1    POS  0.8902   23.2%  ██████████████████████████████  As Apple Tests AI Devices, Shoul
-    #2    NEG  0.8009   20.9%  ███████████████████████████░░░  Why Apple’s (AAPL) AI Rollout Ti
-    #3    NEG  0.6957   18.2%  ███████████████████████░░░░░░░  Apple Faces FTC Scrutiny And Sir
-    #4    POS  0.3929   10.2%  █████████████░░░░░░░░░░░░░░░░░  Is the YieldMax AAPL Option Inco
-    #5    POS  0.3929   10.2%  █████████████░░░░░░░░░░░░░░░░░  Apple Inc. (AAPL)’s Upcoming Har
-    #6    POS  0.2969    7.8%  ██████████░░░░░░░░░░░░░░░░░░░░  Here's Why Apple (AAPL) is a Gre
-    #7    POS  0.2154    5.6%  ███████░░░░░░░░░░░░░░░░░░░░░░░  Apple Just Paid Investors And Th
-    #8    POS  0.1465    3.8%  █████░░░░░░░░░░░░░░░░░░░░░░░░░  Jim Cramer on Apple (AAPL): “Doe
+    #1    NEG  0.9577    1.9%  ██████████████████████████████  Amazon backs Flowers Foods at SC
+    #2    POS  0.9354    1.9%  █████████████████████████████░  Amazon Data Centers Aren’t Raisi
+    #3    NEG  0.9354    1.9%  █████████████████████████████░  Amazon Halts Italy Drone Deliver
+    #4    POS  0.8966    1.8%  ████████████████████████████░░  Jim Cramer Thinks Amazon Stock’s
+    #5    POS  0.8649    1.8%  ███████████████████████████░░░  Zacks Investment Ideas feature h
+    #6    NEG  0.8649    1.8%  ███████████████████████████░░░  Amazon to halt Italy drone deliv
+    #7    NEG  0.8344    1.7%  ██████████████████████████░░░░  Amazon rival discount retailer f
+    #8    POS  0.8325    1.7%  ██████████████████████████░░░░  Amazon Named Evercore ISI's Top 
+    #9    POS  0.8325    1.7%  ██████████████████████████░░░░  Amazon And These Two Stocks Are 
+    #10   NEG  0.8325    1.7%  ██████████████████████████░░░░  Amazon Is Lagging In 2025, Yet 2
 
-  Weight concentration (HHI): 0.1623  (well spread) — 0 = perfectly uniform across all articles, 1 = one article dominates
+  Weight concentration (HHI): 0.0124  (well spread) — 0 = perfectly uniform across all articles, 1 = one article dominates
 
   HOW ARTICLES WERE WEIGHTED
   More recent and near-horizon articles receive higher weight
@@ -225,16 +278,16 @@ The label margin is moderate (0.157), but reliability is LOW due to source conce
                     share the same timestamp, the one with more content
                     is preferred.
 
-  Average article age      : 8.38 days old
-  Average recency weight   : 0.5686  (1.0 = today, lower = older)
-  Average horizon weight   : 0.456  (1.0 = ideal timing, lower = off-horizon)
+  Average article age      : 14.85 days old
+  Average recency weight   : 0.6581  (1.0 = today, lower = older)
+  Average horizon weight   : 0.4079  (1.0 = ideal timing, lower = off-horizon)
 
   Article timing breakdown:
 
-    Breaking / same-day : █████░░░░░░░░░░░░░░░░░░░░░░░░░    1 (12%)
-    Short-term (days)   : ██████████████████████████████    6 (75%)
-    Medium-term (weeks) : █████░░░░░░░░░░░░░░░░░░░░░░░░░    1 (12%)
-    Long-term (months)  : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    0 (0%)
+    Breaking / same-day : ███████░░░░░░░░░░░░░░░░░░░░░░░   15 (15%)
+    Short-term (days)   : ██████████████████████████████   67 (68%)
+    Medium-term (weeks) : █████░░░░░░░░░░░░░░░░░░░░░░░░░   12 (12%)
+    Long-term (months)  : ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░    5 (5%)
 
   WHICH WORDS DROVE THE PREDICTION
   Words inside each article that pushed the model toward or away from the verdict
@@ -249,25 +302,25 @@ The label margin is moderate (0.157), but reliability is LOW due to source conce
   sentiment-bearing words remain. Full token weights are in the
   ADVANCED / DIAGNOSTICS section at the end of this report.
 
-  [1] As Apple Tests AI Devices, Should You Buy AAPL Stock Here?
-      Words pushing TOWARD  POSITIVE : Buy, grab, Stock, growth, perfect
-      Words pushing AGAINST POSITIVE : Tests, You, Inc, Devices
+  [1] Jim Cramer Thinks Amazon Stock’s a Buy After Doing Nothing All Year. Why
+      Words pushing TOWARD  POSITIVE : Buy, Cramer, Stock, After, give
+      Words pushing AGAINST POSITIVE : Nothing, doesn, lagging
 
-  [2] Apple Inc. (AAPL)’s Upcoming Hardware and AI Updates Keep Street Optimis
-      Words pushing TOWARD  POSITIVE : Optimistic, buy, cap, profitable, Hardware
-      Words pushing AGAINST POSITIVE : 17e, according, TheFly, Bloomberg, Inc
+  [2] Zacks Investment Ideas feature highlights: Amazon, Alphabet, Meta Platfo
+      Words pushing TOWARD  POSITIVE : ease, positive, Investment, rising, help
+      Words pushing AGAINST POSITIVE : Zacks, concerns, EPS, driven, Mag
 
-  [3] Here's Why Apple (AAPL) is a Great Momentum Stock to Buy
-      Words pushing TOWARD  POSITIVE : Buy, Great, takes, Inc, Momentum
-      Words pushing AGAINST POSITIVE : Does, Let, out, stock
+  [3] Amazon Named Evercore ISI's Top Large-Cap Internet Pick for 2026
+      Words pushing TOWARD  POSITIVE : Pick, Top, AI, Large, Cloud
+      Words pushing AGAINST POSITIVE : Evercore, Momentum
 
-  [4] Is the YieldMax AAPL Option Income Strategy ETF’s (APLY) 70% Yield Real 
-      Words pushing TOWARD  POSITIVE : dominator, market, trillion, absolute, Real
-      Words pushing AGAINST POSITIVE : Misleading, gadget, producers, investors, stock
+  [4] Amazon Does It All
+      Words pushing TOWARD  POSITIVE : bullish, up, monetization, Q3, leader
+      Words pushing AGAINST POSITIVE : net, sales, Does
 
-  [5] Jim Cramer on Apple (AAPL): “Doesn’t Hurt That They’ve Avoided Spending 
-      Words pushing TOWARD  POSITIVE : Hurt, avoided, good, previously, Avoided
-      Words pushing AGAINST POSITIVE : worst, Dollars, Spending, Thursday
+  [5] Why Amazon stock could have nearly 50% upside in 2026
+      Words pushing TOWARD  POSITIVE : upside, bounce, after, back
+      Words pushing AGAINST POSITIVE : nearly, stock, rough, Why
 
 
   CHARTS
@@ -309,138 +362,135 @@ The label margin is moderate (0.157), but reliability is LOW due to source conce
   --------------------------------------------------
   (+) = supports predicted label     (-) = opposes predicted label
 
-  [1] As Apple Tests AI Devices, Should You Buy AAPL Stock Here?
-      Content: As Apple ramps up its AI ambitions through consumer-focused devices, is now the perfect time to grab AAPL before its nex
-               t growth wave begins?
-      Article weight : 0.8902  |  Relevance to prediction : 0.8040
+  [1] Jim Cramer Thinks Amazon Stock’s a Buy After Doing Nothing All Year. Why
+      Content: Mad Money host Jim Cramer doesn’t yet appear ready to give up on shares of Amazon (NASDAQ:AMZN), even after lagging most
+                of its peers in the Magnificent Seven basket. Undoubtedly, where others see a slower-growing hyperscaler with AI capabi
+      Article weight : 0.8966  |  Relevance to prediction : 0.8412
       Token influence chart:
-        + Buy              ████████████████████  (+0.1419)
-        + grab             ███████████████░░░░░  (+0.1040)
-        + Stock            ████████████░░░░░░░░  (+0.0866)
-        + growth           ████████████░░░░░░░░  (+0.0825)
-        + perfect          ██████████░░░░░░░░░░  (+0.0699)
-        - Tests            ███████░░░░░░░░░░░░░  (-0.0525)
-        + wave             ███████░░░░░░░░░░░░░  (+0.0520)
-        + AI               ██████░░░░░░░░░░░░░░  (+0.0435)
+        + Buy              ████████████████████  (+0.3193)
+        + Cramer           ████████░░░░░░░░░░░░  (+0.1325)
+        - Nothing          ███████░░░░░░░░░░░░░  (-0.1178)
+        + Stock            ███████░░░░░░░░░░░░░  (+0.1139)
+        + After            ███████░░░░░░░░░░░░░  (+0.1088)
+        + give             ███████░░░░░░░░░░░░░  (+0.1065)
+        + Right            █████░░░░░░░░░░░░░░░  (+0.0831)
+        - doesn            █████░░░░░░░░░░░░░░░  (-0.0794)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Buy                    (+)    +0.141868
-      grab                   (+)    +0.103984
-      Stock                  (+)    +0.086587
-      growth                 (+)    +0.082470
-      perfect                (+)    +0.069853
-      Tests                  (-)    -0.052521
-      wave                   (+)    +0.052022
-      AI                     (+)    +0.043470
-      time                   (+)    +0.039965
-      You                    (-)    -0.034513
+      Buy                    (+)    +0.319318
+      Cramer                 (+)    +0.132460
+      Nothing                (-)    -0.117758
+      Stock                  (+)    +0.113851
+      After                  (+)    +0.108811
+      give                   (+)    +0.106493
+      Right                  (+)    +0.083051
+      doesn                  (-)    -0.079397
+      lagging                (-)    -0.071969
+      shares                 (+)    +0.063240
 
-  [2] Apple Inc. (AAPL)’s Upcoming Hardware and AI Updates Keep Street Optimis
-      Content: Apple Inc. (NASDAQ:AAPL) is among the most profitable mega cap stocks to buy. On February 9, TheFly disclosed that Apple
-                Inc. (NASDAQ:AAPL) iPhone 17e with MagSafe is launching “soon,” according to Bloomberg’s Mark Gurman report. The report
-      Article weight : 0.3929  |  Relevance to prediction : 0.3726
+  [2] Zacks Investment Ideas feature highlights: Amazon, Alphabet, Meta Platfo
+      Content: Amazon stands out among Mag 7 hyperscalers as rising ROIC and positive EPS revisions help ease investor concerns over ma
+               ssive AI-driven CapEx.
+      Article weight : 0.8649  |  Relevance to prediction : 0.8251
       Token influence chart:
-        + Optimistic       ████████████████████  (+0.1338)
-        + buy              ███████████░░░░░░░░░  (+0.0729)
-        + cap              █████░░░░░░░░░░░░░░░  (+0.0364)
-        + profitable       █████░░░░░░░░░░░░░░░  (+0.0317)
-        + Hardware         █████░░░░░░░░░░░░░░░  (+0.0306)
-        + among            ████░░░░░░░░░░░░░░░░  (+0.0293)
-        - 17e              ████░░░░░░░░░░░░░░░░  (-0.0269)
-        + Updates          ████░░░░░░░░░░░░░░░░  (+0.0251)
+        + ease             ████████████████████  (+0.0620)
+        + positive         ████████████████████  (+0.0607)
+        + Investment       ██████████████████░░  (+0.0554)
+        + rising           ██████████████████░░  (+0.0548)
+        - Zacks            ██████████████░░░░░░  (-0.0426)
+        - concerns         ██████████████░░░░░░  (-0.0422)
+        + help             ███████████░░░░░░░░░  (+0.0354)
+        + massive          ███████░░░░░░░░░░░░░  (+0.0220)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Optimistic             (+)    +0.133841
-      buy                    (+)    +0.072851
-      cap                    (+)    +0.036424
-      profitable             (+)    +0.031749
-      Hardware               (+)    +0.030552
-      among                  (+)    +0.029258
-      17e                    (-)    -0.026920
-      Updates                (+)    +0.025076
-      added                  (+)    +0.020517
-      Keep                   (+)    +0.019062
+      ease                   (+)    +0.062049
+      positive               (+)    +0.060677
+      Investment             (+)    +0.055365
+      rising                 (+)    +0.054822
+      Zacks                  (-)    -0.042576
+      concerns               (-)    -0.042189
+      help                   (+)    +0.035445
+      massive                (+)    +0.021982
+      EPS                    (-)    -0.021537
+      among                  (+)    +0.019368
 
-  [3] Here's Why Apple (AAPL) is a Great Momentum Stock to Buy
-      Content: Does Apple (AAPL) have what it takes to be a top stock pick for momentum investors? Let's find out.
-      Article weight : 0.2969  |  Relevance to prediction : 0.2916
+  [3] Amazon Named Evercore ISI's Top Large-Cap Internet Pick for 2026
+      Content: Analysts Eye AI and Cloud Momentum as Key Catalysts for Amazon in 2026
+      Article weight : 0.8325  |  Relevance to prediction : 0.7832
       Token influence chart:
-        + Buy              ████████████████████  (+0.0632)
-        + Great            ████████████████░░░░  (+0.0501)
-        + takes            ████████░░░░░░░░░░░░  (+0.0240)
-        + Inc              ███████░░░░░░░░░░░░░  (+0.0208)
-        + Momentum         █████░░░░░░░░░░░░░░░  (+0.0161)
-        + pick             █████░░░░░░░░░░░░░░░  (+0.0157)
-        - Does             █████░░░░░░░░░░░░░░░  (-0.0147)
-        + top              █████░░░░░░░░░░░░░░░  (+0.0146)
+        + Pick             ████████████████████  (+0.1314)
+        + Top              ██████████░░░░░░░░░░  (+0.0672)
+        + AI               ██████░░░░░░░░░░░░░░  (+0.0392)
+        + Large            ██████░░░░░░░░░░░░░░  (+0.0362)
+        - Evercore         █████░░░░░░░░░░░░░░░  (-0.0353)
+        + Cloud            ████░░░░░░░░░░░░░░░░  (+0.0248)
+        + Cap              ████░░░░░░░░░░░░░░░░  (+0.0233)
+        + Eye              ███░░░░░░░░░░░░░░░░░  (+0.0205)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Buy                    (+)    +0.063231
-      Great                  (+)    +0.050071
-      takes                  (+)    +0.024038
-      Inc                    (+)    +0.020777
-      Momentum               (+)    +0.016080
-      pick                   (+)    +0.015749
-      Does                   (-)    -0.014699
-      top                    (+)    +0.014650
-      what                   (+)    +0.012874
-      Let                    (-)    -0.012617
+      Pick                   (+)    +0.131389
+      Top                    (+)    +0.067202
+      AI                     (+)    +0.039187
+      Large                  (+)    +0.036221
+      Evercore               (-)    -0.035262
+      Cloud                  (+)    +0.024756
+      Cap                    (+)    +0.023298
+      Eye                    (+)    +0.020521
+      Momentum               (-)    -0.012105
+      ISI                    (+)    +0.011395
 
-  [4] Is the YieldMax AAPL Option Income Strategy ETF’s (APLY) 70% Yield Real 
-      Content: With a market capitalization approaching $4 trillion, Apple (NASDAQ:AAPL) is an absolute dominator among technology gadg
-               et producers. Without a doubt, Apple sells plenty of iPhones and rakes in a boatload of revenue — but for passive income
-      Article weight : 0.3929  |  Relevance to prediction : 0.1706
+  [4] Amazon Does It All
+      Content: Amazon is positioned as a dominant AI infrastructure and monetization leader, with Q3 2025 net sales up 13%. Read why I 
+               am bullish about AMZN stock.
+      Article weight : 0.7440  |  Relevance to prediction : 0.7391
       Token influence chart:
-        - Misleading       ████████████████████  (-0.1955)
-        + dominator        ██████████░░░░░░░░░░  (+0.0986)
-        + market           ███████░░░░░░░░░░░░░  (+0.0700)
-        - gadget           ██████░░░░░░░░░░░░░░  (-0.0541)
-        - producers        █████░░░░░░░░░░░░░░░  (-0.0481)
-        + trillion         █████░░░░░░░░░░░░░░░  (+0.0479)
-        + absolute         █████░░░░░░░░░░░░░░░  (+0.0464)
-        - investors        █████░░░░░░░░░░░░░░░  (-0.0464)
+        + bullish          ████████████████████  (+0.1053)
+        + up               ████████░░░░░░░░░░░░  (+0.0418)
+        + monetization     ████░░░░░░░░░░░░░░░░  (+0.0237)
+        + Q3               ████░░░░░░░░░░░░░░░░  (+0.0191)
+        + leader           ███░░░░░░░░░░░░░░░░░  (+0.0169)
+        - net              ███░░░░░░░░░░░░░░░░░  (-0.0162)
+        + positioned       ███░░░░░░░░░░░░░░░░░  (+0.0143)
+        + dominant         ███░░░░░░░░░░░░░░░░░  (+0.0138)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Misleading             (-)    -0.195495
-      dominator              (+)    +0.098576
-      market                 (+)    +0.070026
-      gadget                 (-)    -0.054144
-      producers              (-)    -0.048058
-      trillion               (+)    +0.047944
-      absolute               (+)    +0.046406
-      investors              (-)    -0.046361
-      stock                  (-)    -0.038811
-      Real                   (+)    +0.036905
+      bullish                (+)    +0.105313
+      up                     (+)    +0.041816
+      monetization           (+)    +0.023687
+      Q3                     (+)    +0.019079
+      leader                 (+)    +0.016950
+      net                    (-)    -0.016155
+      positioned             (+)    +0.014300
+      dominant               (+)    +0.013810
+      AI                     (+)    +0.013566
+      sales                  (-)    -0.013136
 
-  [5] Jim Cramer on Apple (AAPL): “Doesn’t Hurt That They’ve Avoided Spending 
-      Content: Apple Inc. (NASDAQ:AAPL) is one of the stocks Jim Cramer looked at recently. Cramer highlighted how the company avoided 
-               spending too much on AI, as he commented: Last Thursday, Apple reported a magnificent quarter with blowout iPhone sales 
-      Article weight : 0.1465  |  Relevance to prediction : 0.1177
+  [5] Why Amazon stock could have nearly 50% upside in 2026
+      Content: Amazon's stock could bounce back in 2026 after a rough 2025.
+      Article weight : 0.7440  |  Relevance to prediction : 0.7286
       Token influence chart:
-        + Hurt             ████████████████████  (+0.1200)
-        + avoided          ████████████████░░░░  (+0.0968)
-        + good             ████████████████░░░░  (+0.0962)
-        + previously       ████████████████░░░░  (+0.0939)
-        + Avoided          ████████████░░░░░░░░  (+0.0726)
-        - worst            ███████████░░░░░░░░░  (-0.0680)
-        + blowout          ██████████░░░░░░░░░░  (+0.0612)
-        + their            █████████░░░░░░░░░░░  (+0.0539)
+        + upside           ████████████████████  (+0.5002)
+        + bounce           █████░░░░░░░░░░░░░░░  (+0.1341)
+        + after            ███░░░░░░░░░░░░░░░░░  (+0.0787)
+        - nearly           █░░░░░░░░░░░░░░░░░░░  (-0.0353)
+        - stock            █░░░░░░░░░░░░░░░░░░░  (-0.0276)
+        - rough            █░░░░░░░░░░░░░░░░░░░  (-0.0249)
+        + back             █░░░░░░░░░░░░░░░░░░░  (+0.0243)
+        - Why              ░░░░░░░░░░░░░░░░░░░░  (-0.0087)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Hurt                   (+)    +0.119994
-      avoided                (+)    +0.096813
-      good                   (+)    +0.096249
-      previously             (+)    +0.093874
-      Avoided                (+)    +0.072567
-      worst                  (-)    -0.068024
-      blowout                (+)    +0.061228
-      their                  (+)    +0.053884
-      quarter                (+)    +0.050986
-      Dollars                (-)    -0.049296
+      upside                 (+)    +0.500203
+      bounce                 (+)    +0.134071
+      after                  (+)    +0.078679
+      nearly                 (-)    -0.035291
+      stock                  (-)    -0.027576
+      rough                  (-)    -0.024893
+      back                   (+)    +0.024290
+      Why                    (-)    -0.008653
 
 ------------------------------------------------------------
