@@ -94,9 +94,9 @@ def _classify_sentiment(text: str, company_name: str) -> dict[str, float]:
     # Keep an explicit class->label mapping so parsing remains stable
     # even when label wording changes.
     class_to_label = {
-        "negative": f"bad news for {company_name}'s stock price",
-        "neutral": f"news with no clear impact on {company_name}'s stock price",
-        "positive": f"good news for {company_name}'s stock price",
+        "negative": f"negative news about {company_name}'s stock price",
+        "neutral": f"neutral news about {company_name}'s stock price",
+        "positive": f"positive news about {company_name}'s stock price",
     }
     candidate_labels = list(class_to_label.values())
     label_to_class = {v.lower().strip(): k for k, v in class_to_label.items()}
@@ -105,7 +105,7 @@ def _classify_sentiment(text: str, company_name: str) -> dict[str, float]:
     result = pipe(
         text,
         candidate_labels=candidate_labels,
-        hypothesis_template="This text expresses {}.",
+        hypothesis_template="This text is about {}.",
     )
 
     scores = {"positive": 0.0, "negative": 0.0, "neutral": 0.0}

@@ -349,10 +349,10 @@ class Fetcher:
         # enrich_articles_with_content(candidates, timeout=self.timeout)
 
 
-        candidates = clean_articles_content(
-            candidates,
-            company_name=company_name,
-            ticker=ticker)
+        # candidates = clean_articles_content(
+        #     candidates,
+        #     company_name=company_name,
+        #     ticker=ticker)
 
         filtered_after_rules = filter_company_related(
             candidates,
