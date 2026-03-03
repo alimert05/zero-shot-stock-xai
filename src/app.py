@@ -58,35 +58,35 @@ _HORIZON_COLOURS = {
 }
 
 _EVENT_TYPE_INFO = {
-    "earnings report or financial results": {
-        "description": "Quarterly/annual earnings releases, revenue figures, profit margins, and financial guidance.",
-        "horizon": "IMMEDIATE (3 days)",
-        "why": "Markets react within hours to days as traders price in financial performance.",
+    "earnings or guidance disclosure": {
+        "description": "Quarterly/annual earnings releases, margin updates, and forward guidance disclosures.",
+        "horizon": "IMMEDIATE (0-3 days)",
+        "why": "Earnings surprises are usually priced quickly in the first few trading sessions.",
     },
-    "analyst rating, upgrade, or downgrade": {
-        "description": "Buy/sell/hold ratings, price target changes, and research notes from investment banks and analysts.",
-        "horizon": "SHORT-TERM (7 days)",
-        "why": "Analyst opinions influence institutional trading decisions over the following week.",
+    "analyst recommendation revision": {
+        "description": "Buy/sell/hold recommendation changes, target price revisions, and broker research updates.",
+        "horizon": "SHORT-TERM (4-10 days)",
+        "why": "Analyst signal effects often unfold over days as institutional flows adjust.",
     },
-    "product launch, innovation, or technology": {
-        "description": "New product announcements, R&D breakthroughs, patent filings, and technology partnerships.",
-        "horizon": "SHORT-TERM (7 days)",
-        "why": "Product news generates initial buzz that settles within a week as the market assesses real impact.",
+    "product or innovation announcement": {
+        "description": "Product launches, roadmap updates, R&D milestones, and technology partnership announcements.",
+        "horizon": "SHORT-TERM (4-10 days)",
+        "why": "Markets usually need several sessions to separate hype from likely commercial impact.",
     },
-    "regulatory action, legal case, or investigation": {
-        "description": "Government investigations, lawsuits, compliance rulings, fines, and regulatory approvals.",
-        "horizon": "MEDIUM-TERM (14 days)",
-        "why": "Legal and regulatory outcomes unfold over weeks as details emerge and implications become clear.",
+    "regulatory or legal enforcement news": {
+        "description": "Investigations, lawsuits, enforcement actions, penalties, settlements, and major rulings.",
+        "horizon": "MEDIUM-TERM (11-20 days)",
+        "why": "Legal and regulatory implications often emerge over multiple weeks as details are clarified.",
     },
-    "strategic restructuring, merger, or acquisition": {
-        "description": "M&A deals, spin-offs, major reorganisations, leadership changes, and strategic pivots.",
-        "horizon": "LONG-TERM (31 days)",
-        "why": "Structural changes take weeks to months for the market to fully evaluate and price in.",
+    "merger, acquisition, or strategic restructuring news": {
+        "description": "M&A announcements, divestitures, restructurings, and major strategic reconfiguration news.",
+        "horizon": "LONG-TERM (21-31 days)",
+        "why": "Strategic transactions are often re-evaluated over longer windows as integration risk is priced.",
     },
-    "general market commentary or opinion": {
-        "description": "Broad market analysis, opinion columns, sector outlooks, and economic commentary mentioning the company.",
-        "horizon": "SHORT-TERM (7 days)",
-        "why": "Commentary sentiment fades quickly as new information replaces older opinions.",
+    "market commentary or sentiment news": {
+        "description": "Macro/sector commentary, opinion coverage, and sentiment-driven narratives mentioning the company.",
+        "horizon": "SHORT-TERM (4-10 days)",
+        "why": "Commentary effects are usually short-lived and tend to decay as fresher information arrives.",
     },
 }
 

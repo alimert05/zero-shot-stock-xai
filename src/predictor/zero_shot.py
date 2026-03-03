@@ -90,22 +90,22 @@ def _build_input_text(
 def _classify_sentiment(text: str, company_name: str) -> dict[str, float]:
     pipe = _get_deberta_pipeline()
 
-    # Company-aware market-impact labels.
-    # Keep an explicit class->label mapping so parsing remains stable
-    # even when label wording changes.
+    # Finance-outlook labels mapped to internal classes.
+    # Keep explicit class->label mapping so parsing stays stable.
     class_to_label = {
-        "negative": f"negative news about {company_name}'s stock price",
-        "neutral": f"neutral news about {company_name}'s stock price",
-        "positive": f"positive news about {company_name}'s stock price",
+        "positive": "positive financial outlook",
+        "negative": "negative financial outlook",
+        "neutral": "neutral financial outlook",
     }
     candidate_labels = list(class_to_label.values())
     label_to_class = {v.lower().strip(): k for k, v in class_to_label.items()}
 
+    analysis_text = f"Analyze this financial news about {company_name}. {text}"
 
     result = pipe(
-        text,
+        analysis_text,
         candidate_labels=candidate_labels,
-        hypothesis_template="This text is about {}.",
+        hypothesis_template="The overall sentiment indicates {}.",
     )
 
     scores = {"positive": 0.0, "negative": 0.0, "neutral": 0.0}
@@ -194,7 +194,7 @@ def predict_sentiment(
 
     final_label = max(normalized_scores, key=normalized_scores.get)
 
-    ABSTENTION_MARGIN = 0.005
+    ABSTENTION_MARGIN = 0.03
 
     sorted_labels = sorted(normalized_scores, key=normalized_scores.get, reverse=True)
     top_label = sorted_labels[0]
