@@ -56,13 +56,13 @@ PREDICTION_WINDOWS = [1, 3, 5, 7, 14, 31]
 MARKET_PERIODS = [
     {
         "label": "bull_run",
-        "description": "Q1 2025 market period (Mar–Apr)",
+        "description": "Q1 2025 market period (Apr–May)",
         "base_dates": [
-            "03-03-2025",
-            "10-03-2025",
-            "17-03-2025",
-            "24-03-2025",
-            "07-04-2025",
+            "03-04-2025",
+            "10-04-2025",
+            "17-04-2025",
+            "24-04-2025",
+            "07-05-2025",
         ],
     },
     {

@@ -40,9 +40,9 @@ EVENT_TYPE_TO_HORIZON: dict[str, dict] = {
     "earnings report or financial results":          {"days": 3,  "category": "IMMEDIATE"},
     "analyst rating, upgrade, or downgrade":         {"days": 7,  "category": "SHORT_TERM"},
     "product launch, innovation, or technology":     {"days": 7,  "category": "SHORT_TERM"},
+    "general market commentary or opinion":          {"days": 7,  "category": "SHORT_TERM"},
     "regulatory action, legal case, or investigation": {"days": 14, "category": "MEDIUM_TERM"},
     "strategic restructuring, merger, or acquisition": {"days": 31, "category": "LONG_TERM"},
-    "general market commentary or opinion":          {"days": 7,  "category": "SHORT_TERM"},
 }
 
 HORIZON_CATEGORY = {
