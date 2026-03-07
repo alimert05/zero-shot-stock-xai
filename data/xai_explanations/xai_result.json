@@ -2,10 +2,10 @@
   "meta": {
     "query": "Apple",
     "ticker": "AAPL",
-    "xai_timestamp": "2026-03-03 22:49:46",
+    "xai_timestamp": "2026-03-06 11:56:00",
     "articles_analyzed": 263,
     "prediction_window_days": 31,
-    "news_lookback": "2026-02-03 to 2026-03-02 (ET market-close aligned)",
+    "news_lookback": "2026-02-06 to 2026-03-05 (ET market-close aligned)",
     "xai_version": "1.0.0"
   },
   "prediction_summary": {
@@ -18979,17 +18979,17 @@
   },
   "narrative": {
     "model": "llama3.2:3b",
-    "summary": "The model predicted a NEUTRAL label for Apple with a 30.0% score share based on 263 articles. The most influential article was \"TSMC Shares Rise on AI Demand and Next-Gen Chip Launch\" (weight 0.897), whose removal would change the overall label. The label margin is narrow (0.010), but reliability is LOW due to confidence below threshold; a narrow decision margin.",
+    "summary": "The model predicted a NEUTRAL label with a 30.0% score share based on 263 articles over 31 days.\nThe top article is \"TSMC Shares Rise on AI Demand and Next-Gen Chip Launch\" with a NEGATIVE sentiment.\nThe label margin is narrow (0.010), but reliability is LOW due to a narrow decision margin; source concentration.",
     "prompt_used": "DATA (read-only — narrate these facts, do not add any others):\nCompany: Apple (AAPL)\nPrediction label: NEUTRAL with a 30.0% score share, based on 263 articles over 31 days.\nScore breakdown: Positive 34.5%, Negative 35.5%, Neutral 30.0%.\nThe label margin is narrow (0.010), meaning a narrow gap between the top two sentiment scores.\nTop article: \"TSMC Shares Rise on AI Demand and Next-Gen Chip Launch\" (NEGATIVE sentiment, 0.7% of total weight). Removing it would change the label.\nAverage article age: 15.4 days.\n- Key words supporting neutral: Berkshire, sold, Tech, interest, even\nReliability is LOW due to: a narrow decision margin; confidence is below threshold.\n\nWrite exactly 3 sentences starting with \"The model predicted\":\n- Sentence 1: state the predicted label in ALL-CAPS exactly as given (e.g. \"a NEUTRAL label\"), score share (not \"confidence\"), and article count. The label must appear in UPPER CASE.\n- Sentence 2: name the top article and its sentiment.\n- Sentence 3: write exactly \"The label margin is narrow (0.010), but reliability is LOW due to \" followed by ALL specific reason(s) from the warning above — do not omit any.\n\nGRAMMAR RULE: \"due to\" must be followed by noun phrases (e.g. \"due to a narrow decision margin; source concentration\"), NOT by clauses (e.g. NOT \"due to the label was decided\").",
-    "ollama_available": false,
-    "fallback_used": true,
-    "fallback_summary": "The model predicted a NEUTRAL label for Apple with a 30.0% score share based on 263 articles. The most influential article was \"TSMC Shares Rise on AI Demand and Next-Gen Chip Launch\" (weight 0.897), whose removal would change the overall label. The label margin is narrow (0.010), but reliability is LOW due to confidence below threshold; a narrow decision margin.",
+    "ollama_available": true,
+    "fallback_used": false,
+    "fallback_summary": null,
     "hallucination_violations": []
   },
   "storylines": {
     "storylines": [
       {
-        "label": "Cook, Tim, Tim Cook",
+        "label": "Tim Cook's investment and leadership shake-ups.",
         "keyword_label": "cook, tim, tim cook",
         "articles_count": 6,
         "weighted_score": 3.3141,
@@ -19011,7 +19011,7 @@
         ]
       },
       {
-        "label": "Tim Cook, Tim, Nike",
+        "label": "Apple CEO invests in Nike stock surge",
         "keyword_label": "tim cook, tim, nike",
         "articles_count": 5,
         "weighted_score": 3.478,
@@ -19032,7 +19032,7 @@
         ]
       },
       {
-        "label": "Iphone, Iphone 17, 17",
+        "label": "iPhone 17 supply meets growing demand.",
         "keyword_label": "iphone, iphone 17, 17",
         "articles_count": 7,
         "weighted_score": 3.0856,
@@ -19055,7 +19055,7 @@
         ]
       },
       {
-        "label": "Selling, Selling Apple, Apple",
+        "label": "Warren Buffett sells Apple stock rapidly.",
         "keyword_label": "selling, selling apple, apple",
         "articles_count": 4,
         "weighted_score": 2.8702,
@@ -19075,7 +19075,7 @@
         ]
       },
       {
-        "label": "Tesla, Buy, Jones",
+        "label": "Tech Giants See Boost in Stock Prices",
         "keyword_label": "tesla, buy, jones",
         "articles_count": 3,
         "weighted_score": 2.1005,
@@ -19094,7 +19094,7 @@
         ]
       },
       {
-        "label": "Apple, Stock, Apple Stock",
+        "label": "Apple stock surges on growth and services.",
         "keyword_label": "apple, stock, apple stock",
         "articles_count": 7,
         "weighted_score": 3.0159,
@@ -19117,7 +19117,7 @@
         ]
       },
       {
-        "label": "Italy, Apple, Abuse",
+        "label": "Apple Fined for Dominant Position Abuse",
         "keyword_label": "italy, apple, abuse",
         "articles_count": 4,
         "weighted_score": 3.0514,
@@ -19137,7 +19137,7 @@
         ]
       },
       {
-        "label": "Exodus, Executive, Executive Exodus",
+        "label": "Leadership shake-up signals AI strategy shift.",
         "keyword_label": "exodus, executive, executive exodus",
         "articles_count": 4,
         "weighted_score": 1.4984,
@@ -19157,7 +19157,7 @@
         ]
       },
       {
-        "label": "Apple, Aapl, Apple Aapl",
+        "label": "Stock price falls despite market gains.",
         "keyword_label": "apple, aapl, apple aapl",
         "articles_count": 4,
         "weighted_score": 1.6118,
@@ -19177,7 +19177,7 @@
         ]
       },
       {
-        "label": "Vs, Apple, Stock",
+        "label": "Tech giants face quality vs. affordability dilemma",
         "keyword_label": "vs, apple, stock",
         "articles_count": 3,
         "weighted_score": 1.7704,
@@ -19196,7 +19196,7 @@
         ]
       },
       {
-        "label": "Departures, Apple, Executive",
+        "label": "Tech giants face leadership shake-up turmoil",
         "keyword_label": "departures, apple, executive",
         "articles_count": 4,
         "weighted_score": 1.5124,
@@ -19216,7 +19216,7 @@
         ]
       },
       {
-        "label": "Trillion, Nvidia, Apple",
+        "label": "Tech giant poised for trillion-dollar valuation milestone",
         "keyword_label": "trillion, nvidia, apple",
         "articles_count": 4,
         "weighted_score": 1.4047,
@@ -19236,7 +19236,7 @@
         ]
       },
       {
-        "label": "2026, Apple, Ai",
+        "label": "Apple poised to lead AI market surge",
         "keyword_label": "2026, apple, ai",
         "articles_count": 4,
         "weighted_score": 1.8361,
@@ -19256,7 +19256,7 @@
         ]
       },
       {
-        "label": "Apple, Japan, App",
+        "label": "Apple relaxes app store restrictions globally.",
         "keyword_label": "apple, japan, app",
         "articles_count": 4,
         "weighted_score": 2.3894,
@@ -19276,7 +19276,7 @@
         ]
       },
       {
-        "label": "Jim, Jim Cramer, Cramer",
+        "label": "Investor Jim Cramer advocates for holding stocks.",
         "keyword_label": "jim, jim cramer, cramer",
         "articles_count": 4,
         "weighted_score": 1.8841,
@@ -19296,7 +19296,7 @@
         ]
       },
       {
-        "label": "Apple, Analyst, Apple Analyst",
+        "label": "Tech giants face stock market disappointment.",
         "keyword_label": "apple, analyst, apple analyst",
         "articles_count": 2,
         "weighted_score": 1.0961,
@@ -19314,7 +19314,7 @@
         ]
       },
       {
-        "label": "Leaving, Apple, Chief",
+        "label": "Executive's departure from chip division delayed.",
         "keyword_label": "leaving, apple, chief",
         "articles_count": 3,
         "weighted_score": 0.6359,
@@ -19333,7 +19333,7 @@
         ]
       },
       {
-        "label": "Technologies Otc, Technologies, Store",
+        "label": "Mobile health app technology gains global traction.",
         "keyword_label": "technologies otc, technologies, store",
         "articles_count": 2,
         "weighted_score": 1.3396,
@@ -19351,7 +19351,7 @@
         ]
       },
       {
-        "label": "Apple, Google, Apple Google",
+        "label": "Rival tech giants vie for AI supremacy",
         "keyword_label": "apple, google, apple google",
         "articles_count": 3,
         "weighted_score": 1.2805,
@@ -19370,7 +19370,7 @@
         ]
       },
       {
-        "label": "Push, Ai, Push Reshape",
+        "label": "Artificial intelligence reshapes tech industry landscape.",
         "keyword_label": "push, ai, push reshape",
         "articles_count": 3,
         "weighted_score": 1.5181,
@@ -19389,7 +19389,7 @@
         ]
       },
       {
-        "label": "Tim Cook, Tim, Cook",
+        "label": "Tech CEO invests in sports apparel maker.",
         "keyword_label": "tim cook, tim, cook",
         "articles_count": 3,
         "weighted_score": 1.6536,

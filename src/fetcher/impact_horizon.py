@@ -31,9 +31,9 @@ EVENT_TYPE_LABELS = [
     "earnings report or financial results",
     "analyst rating, upgrade, or downgrade",
     "product launch, innovation, or technology",
+    "general market commentary or opinion",
     "regulatory action, legal case, or investigation",
     "strategic restructuring, merger, or acquisition",
-    "general market commentary or opinion",
 ]
 
 EVENT_TYPE_TO_HORIZON: dict[str, dict] = {
