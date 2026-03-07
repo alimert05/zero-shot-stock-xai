@@ -58,35 +58,35 @@ _HORIZON_COLOURS = {
 }
 
 _EVENT_TYPE_INFO = {
-    "earnings or guidance disclosure": {
+    "earnings report or financial results": {
         "description": "Quarterly/annual earnings releases, margin updates, and forward guidance disclosures.",
         "horizon": "IMMEDIATE (0-3 days)",
         "why": "Earnings surprises are usually priced quickly in the first few trading sessions.",
     },
-    "analyst recommendation revision": {
+    "analyst rating, upgrade, or downgrade": {
         "description": "Buy/sell/hold recommendation changes, target price revisions, and broker research updates.",
         "horizon": "SHORT-TERM (4-10 days)",
         "why": "Analyst signal effects often unfold over days as institutional flows adjust.",
     },
-    "product or innovation announcement": {
+    "product launch, innovation, or technology": {
         "description": "Product launches, roadmap updates, R&D milestones, and technology partnership announcements.",
         "horizon": "SHORT-TERM (4-10 days)",
         "why": "Markets usually need several sessions to separate hype from likely commercial impact.",
     },
-    "regulatory or legal enforcement news": {
+        "general market commentary or opinion": {
+        "description": "Macro/sector commentary, opinion coverage, and sentiment-driven narratives mentioning the company.",
+        "horizon": "SHORT-TERM (4-10 days)",
+        "why": "Commentary effects are usually short-lived and tend to decay as fresher information arrives.",
+    },
+    "regulatory action, legal case, or investigation": {
         "description": "Investigations, lawsuits, enforcement actions, penalties, settlements, and major rulings.",
         "horizon": "MEDIUM-TERM (11-20 days)",
         "why": "Legal and regulatory implications often emerge over multiple weeks as details are clarified.",
     },
-    "merger, acquisition, or strategic restructuring news": {
+    "strategic restructuring, merger, or acquisition": {
         "description": "M&A announcements, divestitures, restructurings, and major strategic reconfiguration news.",
         "horizon": "LONG-TERM (21-31 days)",
         "why": "Strategic transactions are often re-evaluated over longer windows as integration risk is priced.",
-    },
-    "market commentary or sentiment news": {
-        "description": "Macro/sector commentary, opinion coverage, and sentiment-driven narratives mentioning the company.",
-        "horizon": "SHORT-TERM (4-10 days)",
-        "why": "Commentary effects are usually short-lived and tend to decay as fresher information arrives.",
     },
 }
 

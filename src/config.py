@@ -30,8 +30,8 @@ IMPACT_HORIZON_DEVICE = 0
 SENTIMENT_DEVICE = 0 
 
 # finbert config
-# SENTIMENT_MODEL = "ProsusAI/finbert"
-# SENTIMENT_MAX_LENGTH = 512  
+SENTIMENT_MODEL = "ProsusAI/finbert"
+SENTIMENT_MAX_LENGTH = 512  
 
 #fingpt config
 # SENTIMENT_MODEL = "fingpt"
@@ -40,7 +40,7 @@ SENTIMENT_DEVICE = 0
 # FINGPT_LOAD_IN_8BIT = True
 
 # zero-shot config
-SENTIMENT_MODEL = "zero-shot"
+# SENTIMENT_MODEL = "zero-shot"
 # MODEL_NAME = "facebook/bart-large-mnli" # facebook bart mnli
 MODEL_NAME = "roberta-large-mnli" # facebookAI roberta mnli
 # MODEL_NAME = "microsoft/deberta-large-mnli" # microsoft deberta large mnli
