@@ -1,6 +1,5 @@
 import json
 import time
-from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 import logging
@@ -48,7 +47,6 @@ class Fetcher:
         company_name: str,
         start_date: str,
         end_date: str,
-        num_articles: int = 250,
     ) -> bool:
         """Programmatic entry point -- sets inputs directly, then runs search + save.
 
@@ -58,13 +56,10 @@ class Fetcher:
             e.g. "Apple Inc." or "AAPL"
         start_date / end_date : str
             DD-MM-YYYY format
-        num_articles : int
-            Max articles to keep after filtering (default 250).
         """
         self.query = company_name.strip()
         self.start_date = start_date
         self.end_date = end_date
-        self.number_of_news = num_articles
         self.search()
         return self.display_results()
 
@@ -81,7 +76,6 @@ class Fetcher:
         self.output_file = os.path.join(self.temp_dir, "articles.json")
 
         self.timeout = REQUEST_TIMEOUT_LIMIT
-        self.number_of_news: int | None = None
         self.max_backward_days: int | None = None
         self.prediction_window_days: int | None = None
 
@@ -99,9 +93,6 @@ class Fetcher:
             self.end_date = input("Enter end date(DD-MM-YYYY): ").strip()
             if not self.end_date:
                 raise ValueError("End date cannot be empty.")
-
-            number_input = input("Enter number of news(default 250): ").strip()
-            self.number_of_news = int(number_input) if number_input else 250
 
             return self.query
 
@@ -286,46 +277,16 @@ class Fetcher:
             len(filtered_articles),
         )
 
-        # ── Time-bucketed prefetch ────────────────────────────────
-        # Instead of sorting by recency and taking the top N (which
-        # discards older articles), divide articles into weekly time
-        # buckets and allocate the prefetch budget proportionally.
-        prefetch_n = max(self.number_of_news * 3, 50)
-
-        def _bucket_key(a: dict) -> str:
-            sd = a.get("seendate", "")
-            if sd:
-                try:
-                    dt = datetime.strptime(sd, "%Y%m%dT%H%M%SZ")
-                    return dt.strftime("%Y-W%W")
-                except ValueError:
-                    pass
-            return "unknown"
-
-        buckets: dict[str, list[dict]] = defaultdict(list)
-        for art in filtered_articles:
-            buckets[_bucket_key(art)].append(art)
-
-        # Sort within each bucket by seendate descending
-        for key in buckets:
-            buckets[key].sort(key=lambda a: a.get("seendate", ""), reverse=True)
-
-        # Allocate prefetch budget proportionally across buckets
-        n_buckets = len(buckets) or 1
-        base_per_bucket = prefetch_n // n_buckets
-        remainder = prefetch_n % n_buckets
-
-        candidates: list[dict] = []
-        for i, (key, arts) in enumerate(sorted(buckets.items())):
-            quota = base_per_bucket + (1 if i < remainder else 0)
-            candidates.extend(arts[:quota])
-
-        # Re-sort by seendate for downstream compatibility
-        candidates.sort(key=lambda a: a.get("seendate", ""), reverse=True)
+        # Sort by seendate descending and use all articles
+        candidates = sorted(
+            filtered_articles,
+            key=lambda a: a.get("seendate", ""),
+            reverse=True,
+        )
 
         logger.info(
-            "Time-bucketed prefetch: %d buckets, %d candidates from %d total",
-            n_buckets, len(candidates), len(filtered_articles),
+            "Using all %d articles after dedup (no article cap)",
+            len(candidates),
         )
 
         # Log actual temporal span vs intended
@@ -379,17 +340,13 @@ class Fetcher:
             )
             logger.info("Articles sorted by final_weight (recency + impact horizon)")
 
-        final_articles = filtered_after_rules[: self.number_of_news]
+        self.data = {"articles": filtered_after_rules}
 
-        self.data = {"articles": final_articles}
-
-        if len(final_articles) < self.number_of_news:
-            logger.info(
-                "Only %s articles matched filters within %s days, but %s were requested.",
-                len(final_articles),
-                self.max_backward_days,
-                self.number_of_news,
-            )
+        logger.info(
+            "Final article count: %d (from %d-day backward window)",
+            len(filtered_after_rules),
+            self.max_backward_days,
+        )
 
     def _build_output_payload(self, articles: list[dict]) -> dict:
         return {

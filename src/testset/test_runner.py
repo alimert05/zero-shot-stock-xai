@@ -158,7 +158,6 @@ def run_single_case(case: dict) -> dict:
         fetcher.ticker = ticker
         fetcher.start_date = start_date
         fetcher.end_date = end_date
-        fetcher.number_of_news = 250
         fetcher.search()
         has_articles = fetcher.display_results()
 

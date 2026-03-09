@@ -352,7 +352,6 @@ def _run_full_pipeline(
             company_name=company_name,
             start_date=start_date_str,
             end_date=end_date_str,
-            num_articles=10000,
         )
     except RuntimeError as exc:
         progress.update(label="Pipeline failed", state="error")
