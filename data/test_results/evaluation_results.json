@@ -1,75 +1,183 @@
 {
   "metadata": {
-    "run_timestamp": "2026-03-02 16:44:50",
+    "run_timestamp": "2026-03-09 05:19:28",
     "test_set": "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\test_results\\test_set.json",
-    "sentiment_model": "zero-shot",
+    "sentiment_model": "ProsusAI/finbert",
     "total_cases": 120,
     "total_errors": 0,
     "total_issues": 0,
-    "total_duration_seconds": 2119.41
+    "total_duration_seconds": 4942.94
   },
   "overall_metrics": {
-    "accuracy": 0.2583,
+    "accuracy": 0.3583,
     "total": 120,
-    "correct": 31,
-    "macro_precision": 0.2438,
-    "macro_recall": 0.3143,
-    "macro_f1": 0.1913,
+    "correct": 43,
+    "macro_precision": 0.594,
+    "macro_recall": 0.3446,
+    "macro_f1": 0.3211,
     "per_class": {
       "negative": {
-        "precision": 0.0,
-        "recall": 0.0,
-        "f1": 0.0,
-        "support": 45,
-        "tp": 0,
+        "precision": 1.0,
+        "recall": 0.1,
+        "f1": 0.1818,
+        "support": 30,
+        "tp": 3,
         "fp": 0,
-        "fn": 45
+        "fn": 27
       },
       "neutral": {
-        "precision": 0.2315,
-        "recall": 0.8065,
-        "f1": 0.3597,
-        "support": 31,
-        "tp": 25,
-        "fp": 83,
-        "fn": 6
+        "precision": 0.5385,
+        "recall": 0.375,
+        "f1": 0.4421,
+        "support": 56,
+        "tp": 21,
+        "fp": 18,
+        "fn": 35
       },
       "positive": {
-        "precision": 0.5,
-        "recall": 0.1364,
-        "f1": 0.2143,
-        "support": 44,
-        "tp": 6,
-        "fp": 6,
-        "fn": 38
+        "precision": 0.2436,
+        "recall": 0.5588,
+        "f1": 0.3393,
+        "support": 34,
+        "tp": 19,
+        "fp": 59,
+        "fn": 15
       }
     },
     "confusion_matrix": {
       "negative": {
-        "negative": 0,
-        "neutral": 45,
-        "positive": 0
+        "negative": 3,
+        "neutral": 3,
+        "positive": 24
       },
       "neutral": {
         "negative": 0,
-        "neutral": 25,
-        "positive": 6
+        "neutral": 21,
+        "positive": 35
       },
       "positive": {
         "negative": 0,
-        "neutral": 38,
-        "positive": 6
+        "neutral": 15,
+        "positive": 19
       }
     }
   },
   "per_window_metrics": {
     "W=1": {
+      "accuracy": 0.4,
+      "total": 20,
+      "correct": 8,
+      "macro_precision": 0.6071,
+      "macro_recall": 0.4389,
+      "macro_f1": 0.3771,
+      "per_class": {
+        "negative": {
+          "precision": 1.0,
+          "recall": 0.1667,
+          "f1": 0.2857,
+          "support": 6,
+          "tp": 1,
+          "fp": 0,
+          "fn": 5
+        },
+        "neutral": {
+          "precision": 0.5714,
+          "recall": 0.4,
+          "f1": 0.4706,
+          "support": 10,
+          "tp": 4,
+          "fp": 3,
+          "fn": 6
+        },
+        "positive": {
+          "precision": 0.25,
+          "recall": 0.75,
+          "f1": 0.375,
+          "support": 4,
+          "tp": 3,
+          "fp": 9,
+          "fn": 1
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 1,
+          "neutral": 2,
+          "positive": 3
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 4,
+          "positive": 6
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 3
+        }
+      }
+    },
+    "W=3": {
       "accuracy": 0.5,
       "total": 20,
       "correct": 10,
-      "macro_precision": 0.2708,
-      "macro_recall": 0.3611,
-      "macro_f1": 0.3095,
+      "macro_precision": 0.7024,
+      "macro_recall": 0.5,
+      "macro_f1": 0.4689,
+      "per_class": {
+        "negative": {
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4,
+          "support": 4,
+          "tp": 1,
+          "fp": 0,
+          "fn": 3
+        },
+        "neutral": {
+          "precision": 0.8571,
+          "recall": 0.5,
+          "f1": 0.6316,
+          "support": 12,
+          "tp": 6,
+          "fp": 1,
+          "fn": 6
+        },
+        "positive": {
+          "precision": 0.25,
+          "recall": 0.75,
+          "f1": 0.375,
+          "support": 4,
+          "tp": 3,
+          "fp": 9,
+          "fn": 1
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 1,
+          "neutral": 0,
+          "positive": 3
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 6,
+          "positive": 6
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 3
+        }
+      }
+    },
+    "W=5": {
+      "accuracy": 0.35,
+      "total": 20,
+      "correct": 7,
+      "macro_precision": 0.2674,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.268,
       "per_class": {
         "negative": {
           "precision": 0.0,
@@ -81,157 +189,375 @@
           "fn": 5
         },
         "neutral": {
-          "precision": 0.5625,
-          "recall": 0.75,
-          "f1": 0.6429,
-          "support": 12,
-          "tp": 9,
-          "fp": 7,
-          "fn": 3
+          "precision": 0.5714,
+          "recall": 0.4,
+          "f1": 0.4706,
+          "support": 10,
+          "tp": 4,
+          "fp": 3,
+          "fn": 6
         },
         "positive": {
-          "precision": 0.25,
-          "recall": 0.3333,
-          "f1": 0.2857,
-          "support": 3,
-          "tp": 1,
-          "fp": 3,
+          "precision": 0.2308,
+          "recall": 0.6,
+          "f1": 0.3333,
+          "support": 5,
+          "tp": 3,
+          "fp": 10,
           "fn": 2
         }
       },
       "confusion_matrix": {
         "negative": {
           "negative": 0,
-          "neutral": 5,
-          "positive": 0
+          "neutral": 1,
+          "positive": 4
         },
         "neutral": {
           "negative": 0,
-          "neutral": 9,
-          "positive": 3
+          "neutral": 4,
+          "positive": 6
         },
         "positive": {
           "negative": 0,
           "neutral": 2,
-          "positive": 1
+          "positive": 3
         }
       }
     },
-    "W=3": {
-      "accuracy": 0.3,
+    "W=7": {
+      "accuracy": 0.4,
       "total": 20,
-      "correct": 6,
-      "macro_precision": 0.2593,
-      "macro_recall": 0.3444,
-      "macro_f1": 0.2341,
+      "correct": 8,
+      "macro_precision": 0.6286,
+      "macro_recall": 0.4,
+      "macro_f1": 0.3873,
+      "per_class": {
+        "negative": {
+          "precision": 1.0,
+          "recall": 0.2,
+          "f1": 0.3333,
+          "support": 5,
+          "tp": 1,
+          "fp": 0,
+          "fn": 4
+        },
+        "neutral": {
+          "precision": 0.6,
+          "recall": 0.3333,
+          "f1": 0.4286,
+          "support": 9,
+          "tp": 3,
+          "fp": 2,
+          "fn": 6
+        },
+        "positive": {
+          "precision": 0.2857,
+          "recall": 0.6667,
+          "f1": 0.4,
+          "support": 6,
+          "tp": 4,
+          "fp": 10,
+          "fn": 2
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 1,
+          "neutral": 0,
+          "positive": 4
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 3,
+          "positive": 6
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 2,
+          "positive": 4
+        }
+      }
+    },
+    "W=14": {
+      "accuracy": 0.25,
+      "total": 20,
+      "correct": 5,
+      "macro_precision": 0.1941,
+      "macro_recall": 0.2361,
+      "macro_f1": 0.2035,
       "per_class": {
         "negative": {
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
-          "support": 9,
+          "support": 6,
           "tp": 0,
           "fp": 0,
-          "fn": 9
+          "fn": 6
         },
         "neutral": {
-          "precision": 0.2778,
-          "recall": 0.8333,
-          "f1": 0.4167,
-          "support": 6,
-          "tp": 5,
-          "fp": 13,
-          "fn": 1
+          "precision": 0.4286,
+          "recall": 0.375,
+          "f1": 0.4,
+          "support": 8,
+          "tp": 3,
+          "fp": 4,
+          "fn": 5
         },
         "positive": {
-          "precision": 0.5,
-          "recall": 0.2,
-          "f1": 0.2857,
-          "support": 5,
-          "tp": 1,
-          "fp": 1,
+          "precision": 0.1538,
+          "recall": 0.3333,
+          "f1": 0.2105,
+          "support": 6,
+          "tp": 2,
+          "fp": 11,
           "fn": 4
         }
       },
       "confusion_matrix": {
         "negative": {
           "negative": 0,
-          "neutral": 9,
-          "positive": 0
+          "neutral": 0,
+          "positive": 6
         },
         "neutral": {
           "negative": 0,
-          "neutral": 5,
-          "positive": 1
+          "neutral": 3,
+          "positive": 5
         },
         "positive": {
           "negative": 0,
           "neutral": 4,
-          "positive": 1
+          "positive": 2
         }
       }
     },
-    "W=5": {
-      "accuracy": 0.3,
-      "total": 20,
-      "correct": 6,
-      "macro_precision": 0.2593,
-      "macro_recall": 0.3254,
-      "macro_f1": 0.213,
-      "per_class": {
-        "negative": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 7,
-          "tp": 0,
-          "fp": 0,
-          "fn": 7
-        },
-        "neutral": {
-          "precision": 0.2778,
-          "recall": 0.8333,
-          "f1": 0.4167,
-          "support": 6,
-          "tp": 5,
-          "fp": 13,
-          "fn": 1
-        },
-        "positive": {
-          "precision": 0.5,
-          "recall": 0.1429,
-          "f1": 0.2222,
-          "support": 7,
-          "tp": 1,
-          "fp": 1,
-          "fn": 6
-        }
-      },
-      "confusion_matrix": {
-        "negative": {
-          "negative": 0,
-          "neutral": 7,
-          "positive": 0
-        },
-        "neutral": {
-          "negative": 0,
-          "neutral": 5,
-          "positive": 1
-        },
-        "positive": {
-          "negative": 0,
-          "neutral": 6,
-          "positive": 1
-        }
-      }
-    },
-    "W=7": {
+    "W=31": {
       "accuracy": 0.25,
       "total": 20,
       "correct": 5,
-      "macro_precision": 0.2407,
-      "macro_recall": 0.3083,
-      "macro_f1": 0.1826,
+      "macro_precision": 0.1508,
+      "macro_recall": 0.1958,
+      "macro_f1": 0.1672,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "neutral": {
+          "precision": 0.1667,
+          "recall": 0.1429,
+          "f1": 0.1538,
+          "support": 7,
+          "tp": 1,
+          "fp": 5,
+          "fn": 6
+        },
+        "positive": {
+          "precision": 0.2857,
+          "recall": 0.4444,
+          "f1": 0.3478,
+          "support": 9,
+          "tp": 4,
+          "fp": 10,
+          "fn": 5
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 4
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 6
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 5,
+          "positive": 4
+        }
+      }
+    }
+  },
+  "per_company_metrics": {
+    "AAPL": {
+      "accuracy": 0.5833,
+      "total": 24,
+      "correct": 14,
+      "macro_precision": 0.6905,
+      "macro_recall": 0.6259,
+      "macro_f1": 0.579,
+      "per_class": {
+        "negative": {
+          "precision": 1.0,
+          "recall": 0.3,
+          "f1": 0.4615,
+          "support": 10,
+          "tp": 3,
+          "fp": 0,
+          "fn": 7
+        },
+        "neutral": {
+          "precision": 0.5714,
+          "recall": 0.8,
+          "f1": 0.6667,
+          "support": 5,
+          "tp": 4,
+          "fp": 3,
+          "fn": 1
+        },
+        "positive": {
+          "precision": 0.5,
+          "recall": 0.7778,
+          "f1": 0.6087,
+          "support": 9,
+          "tp": 7,
+          "fp": 7,
+          "fn": 2
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 3,
+          "neutral": 1,
+          "positive": 6
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 4,
+          "positive": 1
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 2,
+          "positive": 7
+        }
+      }
+    },
+    "AMZN": {
+      "accuracy": 0.375,
+      "total": 24,
+      "correct": 9,
+      "macro_precision": 0.2727,
+      "macro_recall": 0.15,
+      "macro_f1": 0.1935,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "neutral": {
+          "precision": 0.8182,
+          "recall": 0.45,
+          "f1": 0.5806,
+          "support": 20,
+          "tp": 9,
+          "fp": 2,
+          "fn": 11
+        },
+        "positive": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2,
+          "tp": 0,
+          "fp": 13,
+          "fn": 2
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 2
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 9,
+          "positive": 11
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 2,
+          "positive": 0
+        }
+      }
+    },
+    "GOOGL": {
+      "accuracy": 0.4167,
+      "total": 24,
+      "correct": 10,
+      "macro_precision": 0.2667,
+      "macro_recall": 0.303,
+      "macro_f1": 0.2795,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "neutral": {
+          "precision": 0.3333,
+          "recall": 0.2727,
+          "f1": 0.3,
+          "support": 11,
+          "tp": 3,
+          "fp": 6,
+          "fn": 8
+        },
+        "positive": {
+          "precision": 0.4667,
+          "recall": 0.6364,
+          "f1": 0.5385,
+          "support": 11,
+          "tp": 7,
+          "fp": 8,
+          "fn": 4
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 2,
+          "positive": 0
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 3,
+          "positive": 8
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 4,
+          "positive": 7
+        }
+      }
+    },
+    "MSFT": {
+      "accuracy": 0.3333,
+      "total": 24,
+      "correct": 8,
+      "macro_precision": 0.2963,
+      "macro_recall": 0.3434,
+      "macro_f1": 0.268,
       "per_class": {
         "negative": {
           "precision": 0.0,
@@ -243,49 +569,49 @@
           "fn": 7
         },
         "neutral": {
-          "precision": 0.2222,
-          "recall": 0.8,
-          "f1": 0.3478,
-          "support": 5,
+          "precision": 0.6667,
+          "recall": 0.3636,
+          "f1": 0.4706,
+          "support": 11,
           "tp": 4,
-          "fp": 14,
-          "fn": 1
+          "fp": 2,
+          "fn": 7
         },
         "positive": {
-          "precision": 0.5,
-          "recall": 0.125,
-          "f1": 0.2,
-          "support": 8,
-          "tp": 1,
-          "fp": 1,
-          "fn": 7
+          "precision": 0.2222,
+          "recall": 0.6667,
+          "f1": 0.3333,
+          "support": 6,
+          "tp": 4,
+          "fp": 14,
+          "fn": 2
         }
       },
       "confusion_matrix": {
         "negative": {
           "negative": 0,
-          "neutral": 7,
-          "positive": 0
+          "neutral": 0,
+          "positive": 7
         },
         "neutral": {
           "negative": 0,
           "neutral": 4,
-          "positive": 1
+          "positive": 7
         },
         "positive": {
           "negative": 0,
-          "neutral": 7,
-          "positive": 1
+          "neutral": 2,
+          "positive": 4
         }
       }
     },
-    "W=14": {
-      "accuracy": 0.1,
-      "total": 20,
+    "NVDA": {
+      "accuracy": 0.0833,
+      "total": 24,
       "correct": 2,
-      "macro_precision": 0.3509,
-      "macro_recall": 0.3667,
-      "macro_f1": 0.0939,
+      "macro_precision": 0.0741,
+      "macro_recall": 0.0926,
+      "macro_f1": 0.0722,
       "per_class": {
         "negative": {
           "precision": 0.0,
@@ -297,107 +623,71 @@
           "fn": 9
         },
         "neutral": {
-          "precision": 0.0526,
-          "recall": 1.0,
-          "f1": 0.1,
-          "support": 1,
+          "precision": 0.1667,
+          "recall": 0.1111,
+          "f1": 0.1333,
+          "support": 9,
           "tp": 1,
-          "fp": 18,
-          "fn": 0
-        },
-        "positive": {
-          "precision": 1.0,
-          "recall": 0.1,
-          "f1": 0.1818,
-          "support": 10,
-          "tp": 1,
-          "fp": 0,
-          "fn": 9
-        }
-      },
-      "confusion_matrix": {
-        "negative": {
-          "negative": 0,
-          "neutral": 9,
-          "positive": 0
-        },
-        "neutral": {
-          "negative": 0,
-          "neutral": 1,
-          "positive": 0
-        },
-        "positive": {
-          "negative": 0,
-          "neutral": 9,
-          "positive": 1
-        }
-      }
-    },
-    "W=31": {
-      "accuracy": 0.1,
-      "total": 20,
-      "correct": 2,
-      "macro_precision": 0.3509,
-      "macro_recall": 0.3636,
-      "macro_f1": 0.0889,
-      "per_class": {
-        "negative": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 8,
-          "tp": 0,
-          "fp": 0,
+          "fp": 5,
           "fn": 8
         },
-        "neutral": {
-          "precision": 0.0526,
-          "recall": 1.0,
-          "f1": 0.1,
-          "support": 1,
-          "tp": 1,
-          "fp": 18,
-          "fn": 0
-        },
         "positive": {
-          "precision": 1.0,
-          "recall": 0.0909,
-          "f1": 0.1667,
-          "support": 11,
+          "precision": 0.0556,
+          "recall": 0.1667,
+          "f1": 0.0833,
+          "support": 6,
           "tp": 1,
-          "fp": 0,
-          "fn": 10
+          "fp": 17,
+          "fn": 5
         }
       },
       "confusion_matrix": {
         "negative": {
           "negative": 0,
-          "neutral": 8,
-          "positive": 0
+          "neutral": 0,
+          "positive": 9
         },
         "neutral": {
           "negative": 0,
           "neutral": 1,
-          "positive": 0
+          "positive": 8
         },
         "positive": {
           "negative": 0,
-          "neutral": 10,
+          "neutral": 5,
           "positive": 1
         }
       }
     }
   },
-  "per_company_metrics": {
-    "AAPL": {
-      "accuracy": 0.1667,
-      "total": 24,
-      "correct": 4,
-      "macro_precision": 0.0556,
-      "macro_recall": 0.3333,
-      "macro_f1": 0.0952,
+  "per_period_metrics": {
+    "bull_run": {
+      "accuracy": 0.5667,
+      "total": 30,
+      "correct": 17,
+      "macro_precision": 0.5062,
+      "macro_recall": 0.5333,
+      "macro_f1": 0.4776,
       "per_class": {
         "negative": {
+          "precision": 1.0,
+          "recall": 0.6,
+          "f1": 0.75,
+          "support": 5,
+          "tp": 3,
+          "fp": 0,
+          "fn": 2
+        },
+        "neutral": {
+          "precision": 0.5185,
+          "recall": 1.0,
+          "f1": 0.6829,
+          "support": 14,
+          "tp": 14,
+          "fp": 13,
+          "fn": 0
+        },
+        "positive": {
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
@@ -405,397 +695,35 @@
           "tp": 0,
           "fp": 0,
           "fn": 11
-        },
-        "neutral": {
-          "precision": 0.1667,
-          "recall": 1.0,
-          "f1": 0.2857,
-          "support": 4,
-          "tp": 4,
-          "fp": 20,
-          "fn": 0
-        },
-        "positive": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 9,
-          "tp": 0,
-          "fp": 0,
-          "fn": 9
         }
       },
       "confusion_matrix": {
         "negative": {
+          "negative": 3,
+          "neutral": 2,
+          "positive": 0
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 14,
+          "positive": 0
+        },
+        "positive": {
           "negative": 0,
           "neutral": 11,
-          "positive": 0
-        },
-        "neutral": {
-          "negative": 0,
-          "neutral": 4,
-          "positive": 0
-        },
-        "positive": {
-          "negative": 0,
-          "neutral": 9,
-          "positive": 0
-        }
-      }
-    },
-    "AMZN": {
-      "accuracy": 0.4167,
-      "total": 24,
-      "correct": 10,
-      "macro_precision": 0.1515,
-      "macro_recall": 0.2778,
-      "macro_f1": 0.1961,
-      "per_class": {
-        "negative": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 5,
-          "tp": 0,
-          "fp": 0,
-          "fn": 5
-        },
-        "neutral": {
-          "precision": 0.4545,
-          "recall": 0.8333,
-          "f1": 0.5882,
-          "support": 12,
-          "tp": 10,
-          "fp": 12,
-          "fn": 2
-        },
-        "positive": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 7,
-          "tp": 0,
-          "fp": 2,
-          "fn": 7
-        }
-      },
-      "confusion_matrix": {
-        "negative": {
-          "negative": 0,
-          "neutral": 5,
-          "positive": 0
-        },
-        "neutral": {
-          "negative": 0,
-          "neutral": 10,
-          "positive": 2
-        },
-        "positive": {
-          "negative": 0,
-          "neutral": 7,
-          "positive": 0
-        }
-      }
-    },
-    "GOOGL": {
-      "accuracy": 0.3333,
-      "total": 24,
-      "correct": 8,
-      "macro_precision": 0.2667,
-      "macro_recall": 0.2667,
-      "macro_f1": 0.2333,
-      "per_class": {
-        "negative": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 4,
-          "tp": 0,
-          "fp": 0,
-          "fn": 4
-        },
-        "neutral": {
-          "precision": 0.1333,
-          "recall": 0.4,
-          "f1": 0.2,
-          "support": 5,
-          "tp": 2,
-          "fp": 13,
-          "fn": 3
-        },
-        "positive": {
-          "precision": 0.6667,
-          "recall": 0.4,
-          "f1": 0.5,
-          "support": 15,
-          "tp": 6,
-          "fp": 3,
-          "fn": 9
-        }
-      },
-      "confusion_matrix": {
-        "negative": {
-          "negative": 0,
-          "neutral": 4,
-          "positive": 0
-        },
-        "neutral": {
-          "negative": 0,
-          "neutral": 2,
-          "positive": 3
-        },
-        "positive": {
-          "negative": 0,
-          "neutral": 9,
-          "positive": 6
-        }
-      }
-    },
-    "MSFT": {
-      "accuracy": 0.125,
-      "total": 24,
-      "correct": 3,
-      "macro_precision": 0.0435,
-      "macro_recall": 0.25,
-      "macro_f1": 0.0741,
-      "per_class": {
-        "negative": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 12,
-          "tp": 0,
-          "fp": 0,
-          "fn": 12
-        },
-        "neutral": {
-          "precision": 0.1304,
-          "recall": 0.75,
-          "f1": 0.2222,
-          "support": 4,
-          "tp": 3,
-          "fp": 20,
-          "fn": 1
-        },
-        "positive": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 8,
-          "tp": 0,
-          "fp": 1,
-          "fn": 8
-        }
-      },
-      "confusion_matrix": {
-        "negative": {
-          "negative": 0,
-          "neutral": 12,
-          "positive": 0
-        },
-        "neutral": {
-          "negative": 0,
-          "neutral": 3,
-          "positive": 1
-        },
-        "positive": {
-          "negative": 0,
-          "neutral": 8,
-          "positive": 0
-        }
-      }
-    },
-    "NVDA": {
-      "accuracy": 0.25,
-      "total": 24,
-      "correct": 6,
-      "macro_precision": 0.0833,
-      "macro_recall": 0.3333,
-      "macro_f1": 0.1333,
-      "per_class": {
-        "negative": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 13,
-          "tp": 0,
-          "fp": 0,
-          "fn": 13
-        },
-        "neutral": {
-          "precision": 0.25,
-          "recall": 1.0,
-          "f1": 0.4,
-          "support": 6,
-          "tp": 6,
-          "fp": 18,
-          "fn": 0
-        },
-        "positive": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 5,
-          "tp": 0,
-          "fp": 0,
-          "fn": 5
-        }
-      },
-      "confusion_matrix": {
-        "negative": {
-          "negative": 0,
-          "neutral": 13,
-          "positive": 0
-        },
-        "neutral": {
-          "negative": 0,
-          "neutral": 6,
-          "positive": 0
-        },
-        "positive": {
-          "negative": 0,
-          "neutral": 5,
-          "positive": 0
-        }
-      }
-    }
-  },
-  "per_period_metrics": {
-    "bull_run": {
-      "accuracy": 0.1333,
-      "total": 30,
-      "correct": 4,
-      "macro_precision": 0.0444,
-      "macro_recall": 0.3333,
-      "macro_f1": 0.0784,
-      "per_class": {
-        "negative": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 9,
-          "tp": 0,
-          "fp": 0,
-          "fn": 9
-        },
-        "neutral": {
-          "precision": 0.1333,
-          "recall": 1.0,
-          "f1": 0.2353,
-          "support": 4,
-          "tp": 4,
-          "fp": 26,
-          "fn": 0
-        },
-        "positive": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 17,
-          "tp": 0,
-          "fp": 0,
-          "fn": 17
-        }
-      },
-      "confusion_matrix": {
-        "negative": {
-          "negative": 0,
-          "neutral": 9,
-          "positive": 0
-        },
-        "neutral": {
-          "negative": 0,
-          "neutral": 4,
-          "positive": 0
-        },
-        "positive": {
-          "negative": 0,
-          "neutral": 17,
           "positive": 0
         }
       }
     },
     "earnings_season": {
-      "accuracy": 0.3667,
+      "accuracy": 0.5,
       "total": 30,
-      "correct": 11,
-      "macro_precision": 0.3258,
-      "macro_recall": 0.381,
-      "macro_f1": 0.2968,
-      "per_class": {
-        "negative": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 9,
-          "tp": 0,
-          "fp": 0,
-          "fn": 9
-        },
-        "neutral": {
-          "precision": 0.2273,
-          "recall": 0.7143,
-          "f1": 0.3448,
-          "support": 7,
-          "tp": 5,
-          "fp": 17,
-          "fn": 2
-        },
-        "positive": {
-          "precision": 0.75,
-          "recall": 0.4286,
-          "f1": 0.5455,
-          "support": 14,
-          "tp": 6,
-          "fp": 2,
-          "fn": 8
-        }
-      },
-      "confusion_matrix": {
-        "negative": {
-          "negative": 0,
-          "neutral": 9,
-          "positive": 0
-        },
-        "neutral": {
-          "negative": 0,
-          "neutral": 5,
-          "positive": 2
-        },
-        "positive": {
-          "negative": 0,
-          "neutral": 8,
-          "positive": 6
-        }
-      }
-    },
-    "recent_stable": {
-      "accuracy": 0.3,
-      "total": 30,
-      "correct": 9,
-      "macro_precision": 0.1,
+      "correct": 15,
+      "macro_precision": 0.1667,
       "macro_recall": 0.3333,
-      "macro_f1": 0.1538,
+      "macro_f1": 0.2222,
       "per_class": {
         "negative": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 15,
-          "tp": 0,
-          "fp": 0,
-          "fn": 15
-        },
-        "neutral": {
-          "precision": 0.3,
-          "recall": 1.0,
-          "f1": 0.4615,
-          "support": 9,
-          "tp": 9,
-          "fp": 21,
-          "fn": 0
-        },
-        "positive": {
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0,
@@ -803,33 +731,51 @@
           "tp": 0,
           "fp": 0,
           "fn": 6
+        },
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "positive": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6667,
+          "support": 15,
+          "tp": 15,
+          "fp": 15,
+          "fn": 0
         }
       },
       "confusion_matrix": {
         "negative": {
           "negative": 0,
-          "neutral": 15,
-          "positive": 0
+          "neutral": 0,
+          "positive": 6
         },
         "neutral": {
           "negative": 0,
-          "neutral": 9,
-          "positive": 0
+          "neutral": 0,
+          "positive": 9
         },
         "positive": {
           "negative": 0,
-          "neutral": 6,
-          "positive": 0
+          "neutral": 0,
+          "positive": 15
         }
       }
     },
-    "volatile": {
-      "accuracy": 0.2333,
+    "recent_stable": {
+      "accuracy": 0.2,
       "total": 30,
-      "correct": 7,
-      "macro_precision": 0.0897,
-      "macro_recall": 0.2121,
-      "macro_f1": 0.1261,
+      "correct": 6,
+      "macro_precision": 0.2235,
+      "macro_recall": 0.2222,
+      "macro_f1": 0.1716,
       "per_class": {
         "negative": {
           "precision": 0.0,
@@ -841,39 +787,93 @@
           "fn": 12
         },
         "neutral": {
-          "precision": 0.2692,
-          "recall": 0.6364,
-          "f1": 0.3784,
-          "support": 11,
-          "tp": 7,
-          "fp": 19,
-          "fn": 4
+          "precision": 0.625,
+          "recall": 0.3333,
+          "f1": 0.4348,
+          "support": 15,
+          "tp": 5,
+          "fp": 3,
+          "fn": 10
         },
         "positive": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 7,
-          "tp": 0,
-          "fp": 4,
-          "fn": 7
+          "precision": 0.0455,
+          "recall": 0.3333,
+          "f1": 0.08,
+          "support": 3,
+          "tp": 1,
+          "fp": 21,
+          "fn": 2
         }
       },
       "confusion_matrix": {
         "negative": {
           "negative": 0,
-          "neutral": 12,
-          "positive": 0
+          "neutral": 1,
+          "positive": 11
         },
         "neutral": {
           "negative": 0,
-          "neutral": 7,
-          "positive": 4
+          "neutral": 5,
+          "positive": 10
         },
         "positive": {
           "negative": 0,
-          "neutral": 7,
-          "positive": 0
+          "neutral": 2,
+          "positive": 1
+        }
+      }
+    },
+    "volatile": {
+      "accuracy": 0.1667,
+      "total": 30,
+      "correct": 5,
+      "macro_precision": 0.2051,
+      "macro_recall": 0.237,
+      "macro_f1": 0.1251,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "neutral": {
+          "precision": 0.5,
+          "recall": 0.1111,
+          "f1": 0.1818,
+          "support": 18,
+          "tp": 2,
+          "fp": 2,
+          "fn": 16
+        },
+        "positive": {
+          "precision": 0.1154,
+          "recall": 0.6,
+          "f1": 0.1935,
+          "support": 5,
+          "tp": 3,
+          "fp": 23,
+          "fn": 2
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 7
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 2,
+          "positive": 16
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 2,
+          "positive": 3
         }
       }
     }
@@ -882,18 +882,18 @@
     {
       "id": "AAPL_W1_bull_run_001",
       "actual_label": "negative",
-      "predicted_label": "neutral",
-      "correct": false,
+      "predicted_label": "negative",
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 12.86,
+      "duration_seconds": 26.45,
       "normalized_scores": {
-        "positive": 0.2453,
-        "negative": 0.3169,
-        "neutral": 0.4377
+        "positive": 0.2841,
+        "negative": 0.3614,
+        "neutral": 0.3544
       },
       "articles_analyzed": 99,
-      "final_confidence": 0.4377,
+      "final_confidence": 0.3614,
       "prediction_window_days": 1,
       "ticker": "AAPL",
       "market_period": "bull_run"
@@ -905,14 +905,14 @@
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 10.91,
+      "duration_seconds": 22.81,
       "normalized_scores": {
-        "positive": 0.2978,
-        "negative": 0.2872,
-        "neutral": 0.415
+        "positive": 0.3721,
+        "negative": 0.2544,
+        "neutral": 0.3735
       },
       "articles_analyzed": 100,
-      "final_confidence": 0.415,
+      "final_confidence": 0.3735,
       "prediction_window_days": 1,
       "ticker": "AAPL",
       "market_period": "volatile"
@@ -920,37 +920,37 @@
     {
       "id": "AAPL_W1_earnings_season_003",
       "actual_label": "neutral",
-      "predicted_label": "neutral",
-      "correct": true,
+      "predicted_label": "positive",
+      "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 8.78,
+      "duration_seconds": 18.16,
       "normalized_scores": {
-        "positive": 0.3618,
-        "negative": 0.247,
-        "neutral": 0.3912
+        "positive": 0.4151,
+        "negative": 0.2219,
+        "neutral": 0.363
       },
       "articles_analyzed": 77,
-      "final_confidence": 0.3912,
+      "final_confidence": 0.4151,
       "prediction_window_days": 1,
       "ticker": "AAPL",
       "market_period": "earnings_season"
     },
     {
       "id": "AAPL_W1_recent_stable_004",
-      "actual_label": "neutral",
-      "predicted_label": "neutral",
-      "correct": true,
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 8.58,
+      "duration_seconds": 19.1,
       "normalized_scores": {
-        "positive": 0.3364,
-        "negative": 0.2406,
-        "neutral": 0.423
+        "positive": 0.4399,
+        "negative": 0.2395,
+        "neutral": 0.3205
       },
       "articles_analyzed": 78,
-      "final_confidence": 0.423,
+      "final_confidence": 0.4399,
       "prediction_window_days": 1,
       "ticker": "AAPL",
       "market_period": "recent_stable"
@@ -958,18 +958,18 @@
     {
       "id": "AAPL_W3_bull_run_005",
       "actual_label": "negative",
-      "predicted_label": "neutral",
-      "correct": false,
+      "predicted_label": "negative",
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 14.83,
+      "duration_seconds": 32.76,
       "normalized_scores": {
-        "positive": 0.2404,
-        "negative": 0.3153,
-        "neutral": 0.4442
+        "positive": 0.2692,
+        "negative": 0.367,
+        "neutral": 0.3637
       },
       "articles_analyzed": 137,
-      "final_confidence": 0.4442,
+      "final_confidence": 0.367,
       "prediction_window_days": 3,
       "ticker": "AAPL",
       "market_period": "bull_run"
@@ -981,14 +981,14 @@
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 16.39,
+      "duration_seconds": 36.18,
       "normalized_scores": {
-        "positive": 0.2832,
-        "negative": 0.2892,
-        "neutral": 0.4277
+        "positive": 0.3569,
+        "negative": 0.2528,
+        "neutral": 0.3903
       },
       "articles_analyzed": 150,
-      "final_confidence": 0.4277,
+      "final_confidence": 0.3903,
       "prediction_window_days": 3,
       "ticker": "AAPL",
       "market_period": "volatile"
@@ -996,18 +996,18 @@
     {
       "id": "AAPL_W3_earnings_season_007",
       "actual_label": "positive",
-      "predicted_label": "neutral",
-      "correct": false,
+      "predicted_label": "positive",
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 10.46,
+      "duration_seconds": 21.05,
       "normalized_scores": {
-        "positive": 0.3532,
-        "negative": 0.243,
-        "neutral": 0.4039
+        "positive": 0.4173,
+        "negative": 0.2327,
+        "neutral": 0.35
       },
       "articles_analyzed": 88,
-      "final_confidence": 0.4039,
+      "final_confidence": 0.4173,
       "prediction_window_days": 3,
       "ticker": "AAPL",
       "market_period": "earnings_season"
@@ -1015,18 +1015,18 @@
     {
       "id": "AAPL_W3_recent_stable_008",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 10.3,
+      "duration_seconds": 21.54,
       "normalized_scores": {
-        "positive": 0.3265,
-        "negative": 0.2521,
-        "neutral": 0.4213
+        "positive": 0.4217,
+        "negative": 0.2604,
+        "neutral": 0.3178
       },
       "articles_analyzed": 89,
-      "final_confidence": 0.4213,
+      "final_confidence": 0.4217,
       "prediction_window_days": 3,
       "ticker": "AAPL",
       "market_period": "recent_stable"
@@ -1038,14 +1038,14 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 18.04,
+      "duration_seconds": 41.9,
       "normalized_scores": {
-        "positive": 0.2405,
-        "negative": 0.3184,
-        "neutral": 0.4411
+        "positive": 0.275,
+        "negative": 0.3617,
+        "neutral": 0.3633
       },
       "articles_analyzed": 172,
-      "final_confidence": 0.4411,
+      "final_confidence": 0.3633,
       "prediction_window_days": 5,
       "ticker": "AAPL",
       "market_period": "bull_run"
@@ -1057,14 +1057,14 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 23.16,
+      "duration_seconds": 51.69,
       "normalized_scores": {
-        "positive": 0.2843,
-        "negative": 0.2872,
-        "neutral": 0.4284
+        "positive": 0.3637,
+        "negative": 0.2464,
+        "neutral": 0.3899
       },
       "articles_analyzed": 212,
-      "final_confidence": 0.4284,
+      "final_confidence": 0.3899,
       "prediction_window_days": 5,
       "ticker": "AAPL",
       "market_period": "volatile"
@@ -1072,18 +1072,18 @@
     {
       "id": "AAPL_W5_earnings_season_011",
       "actual_label": "positive",
-      "predicted_label": "neutral",
-      "correct": false,
+      "predicted_label": "positive",
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 13.36,
+      "duration_seconds": 29.64,
       "normalized_scores": {
-        "positive": 0.3463,
-        "negative": 0.2486,
-        "neutral": 0.4052
+        "positive": 0.4276,
+        "negative": 0.2356,
+        "neutral": 0.3367
       },
       "articles_analyzed": 118,
-      "final_confidence": 0.4052,
+      "final_confidence": 0.4276,
       "prediction_window_days": 5,
       "ticker": "AAPL",
       "market_period": "earnings_season"
@@ -1091,18 +1091,18 @@
     {
       "id": "AAPL_W5_recent_stable_012",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 12.82,
+      "duration_seconds": 29.47,
       "normalized_scores": {
-        "positive": 0.3129,
-        "negative": 0.2632,
-        "neutral": 0.4239
+        "positive": 0.4186,
+        "negative": 0.2584,
+        "neutral": 0.323
       },
       "articles_analyzed": 117,
-      "final_confidence": 0.4239,
+      "final_confidence": 0.4186,
       "prediction_window_days": 5,
       "ticker": "AAPL",
       "market_period": "recent_stable"
@@ -1110,18 +1110,18 @@
     {
       "id": "AAPL_W7_bull_run_013",
       "actual_label": "negative",
-      "predicted_label": "neutral",
-      "correct": false,
+      "predicted_label": "negative",
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 19.61,
+      "duration_seconds": 45.68,
       "normalized_scores": {
-        "positive": 0.2376,
-        "negative": 0.3246,
-        "neutral": 0.4378
+        "positive": 0.2673,
+        "negative": 0.3713,
+        "neutral": 0.3614
       },
       "articles_analyzed": 187,
-      "final_confidence": 0.4378,
+      "final_confidence": 0.3713,
       "prediction_window_days": 7,
       "ticker": "AAPL",
       "market_period": "bull_run"
@@ -1129,18 +1129,18 @@
     {
       "id": "AAPL_W7_volatile_014",
       "actual_label": "positive",
-      "predicted_label": "neutral",
-      "correct": false,
+      "predicted_label": "positive",
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 22.81,
+      "duration_seconds": 49.93,
       "normalized_scores": {
-        "positive": 0.2845,
-        "negative": 0.2903,
-        "neutral": 0.4252
+        "positive": 0.3781,
+        "negative": 0.2441,
+        "neutral": 0.3778
       },
       "articles_analyzed": 212,
-      "final_confidence": 0.4252,
+      "final_confidence": 0.3781,
       "prediction_window_days": 7,
       "ticker": "AAPL",
       "market_period": "volatile"
@@ -1148,18 +1148,18 @@
     {
       "id": "AAPL_W7_earnings_season_015",
       "actual_label": "positive",
-      "predicted_label": "neutral",
-      "correct": false,
+      "predicted_label": "positive",
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 17.36,
+      "duration_seconds": 38.22,
       "normalized_scores": {
-        "positive": 0.3392,
-        "negative": 0.2547,
-        "neutral": 0.4061
+        "positive": 0.4178,
+        "negative": 0.2307,
+        "neutral": 0.3515
       },
       "articles_analyzed": 157,
-      "final_confidence": 0.4061,
+      "final_confidence": 0.4178,
       "prediction_window_days": 7,
       "ticker": "AAPL",
       "market_period": "earnings_season"
@@ -1167,37 +1167,37 @@
     {
       "id": "AAPL_W7_recent_stable_016",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 16.33,
+      "duration_seconds": 35.55,
       "normalized_scores": {
-        "positive": 0.313,
-        "negative": 0.2658,
-        "neutral": 0.4213
+        "positive": 0.4279,
+        "negative": 0.2466,
+        "neutral": 0.3255
       },
       "articles_analyzed": 150,
-      "final_confidence": 0.4213,
+      "final_confidence": 0.4279,
       "prediction_window_days": 7,
       "ticker": "AAPL",
       "market_period": "recent_stable"
     },
     {
       "id": "AAPL_W14_bull_run_017",
-      "actual_label": "negative",
+      "actual_label": "neutral",
       "predicted_label": "neutral",
-      "correct": false,
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 23.17,
+      "duration_seconds": 53.13,
       "normalized_scores": {
-        "positive": 0.2309,
-        "negative": 0.3392,
-        "neutral": 0.4298
+        "positive": 0.2613,
+        "negative": 0.3622,
+        "neutral": 0.3765
       },
       "articles_analyzed": 217,
-      "final_confidence": 0.4298,
+      "final_confidence": 0.3765,
       "prediction_window_days": 14,
       "ticker": "AAPL",
       "market_period": "bull_run"
@@ -1209,14 +1209,14 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 32.25,
+      "duration_seconds": 78.72,
       "normalized_scores": {
-        "positive": 0.2765,
-        "negative": 0.2927,
-        "neutral": 0.4307
+        "positive": 0.356,
+        "negative": 0.2506,
+        "neutral": 0.3934
       },
       "articles_analyzed": 250,
-      "final_confidence": 0.4307,
+      "final_confidence": 0.3934,
       "prediction_window_days": 14,
       "ticker": "AAPL",
       "market_period": "volatile"
@@ -1224,18 +1224,18 @@
     {
       "id": "AAPL_W14_earnings_season_019",
       "actual_label": "positive",
-      "predicted_label": "neutral",
-      "correct": false,
+      "predicted_label": "positive",
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 23.36,
+      "duration_seconds": 50.88,
       "normalized_scores": {
-        "positive": 0.3278,
-        "negative": 0.2625,
-        "neutral": 0.4096
+        "positive": 0.4108,
+        "negative": 0.2281,
+        "neutral": 0.3611
       },
       "articles_analyzed": 210,
-      "final_confidence": 0.4096,
+      "final_confidence": 0.4108,
       "prediction_window_days": 14,
       "ticker": "AAPL",
       "market_period": "earnings_season"
@@ -1243,37 +1243,37 @@
     {
       "id": "AAPL_W14_recent_stable_020",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 20.09,
+      "duration_seconds": 44.12,
       "normalized_scores": {
-        "positive": 0.2938,
-        "negative": 0.2758,
-        "neutral": 0.4303
+        "positive": 0.3918,
+        "negative": 0.2454,
+        "neutral": 0.3628
       },
       "articles_analyzed": 180,
-      "final_confidence": 0.4303,
+      "final_confidence": 0.3918,
       "prediction_window_days": 14,
       "ticker": "AAPL",
       "market_period": "recent_stable"
     },
     {
       "id": "AAPL_W31_bull_run_021",
-      "actual_label": "negative",
+      "actual_label": "neutral",
       "predicted_label": "neutral",
-      "correct": false,
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 26.66,
+      "duration_seconds": 54.85,
       "normalized_scores": {
-        "positive": 0.2304,
-        "negative": 0.3488,
-        "neutral": 0.4209
+        "positive": 0.2549,
+        "negative": 0.3633,
+        "neutral": 0.3817
       },
-      "articles_analyzed": 250,
-      "final_confidence": 0.4209,
+      "articles_analyzed": 224,
+      "final_confidence": 0.3817,
       "prediction_window_days": 31,
       "ticker": "AAPL",
       "market_period": "bull_run"
@@ -1281,18 +1281,18 @@
     {
       "id": "AAPL_W31_volatile_022",
       "actual_label": "positive",
-      "predicted_label": "neutral",
-      "correct": false,
+      "predicted_label": "positive",
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 30.41,
+      "duration_seconds": 68.39,
       "normalized_scores": {
-        "positive": 0.2812,
-        "negative": 0.2881,
-        "neutral": 0.4307
+        "positive": 0.3953,
+        "negative": 0.2302,
+        "neutral": 0.3744
       },
       "articles_analyzed": 250,
-      "final_confidence": 0.4307,
+      "final_confidence": 0.3953,
       "prediction_window_days": 31,
       "ticker": "AAPL",
       "market_period": "volatile"
@@ -1300,18 +1300,18 @@
     {
       "id": "AAPL_W31_earnings_season_023",
       "actual_label": "positive",
-      "predicted_label": "neutral",
-      "correct": false,
+      "predicted_label": "positive",
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 30.88,
+      "duration_seconds": 71.2,
       "normalized_scores": {
-        "positive": 0.3324,
-        "negative": 0.2564,
-        "neutral": 0.4111
+        "positive": 0.4107,
+        "negative": 0.2218,
+        "neutral": 0.3675
       },
       "articles_analyzed": 250,
-      "final_confidence": 0.4111,
+      "final_confidence": 0.4107,
       "prediction_window_days": 31,
       "ticker": "AAPL",
       "market_period": "earnings_season"
@@ -1319,18 +1319,18 @@
     {
       "id": "AAPL_W31_recent_stable_024",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 23.68,
+      "duration_seconds": 53.09,
       "normalized_scores": {
-        "positive": 0.2945,
-        "negative": 0.2753,
-        "neutral": 0.4302
+        "positive": 0.389,
+        "negative": 0.2438,
+        "neutral": 0.3672
       },
       "articles_analyzed": 211,
-      "final_confidence": 0.4302,
+      "final_confidence": 0.389,
       "prediction_window_days": 31,
       "ticker": "AAPL",
       "market_period": "recent_stable"
@@ -1342,14 +1342,14 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 7.44,
+      "duration_seconds": 16.44,
       "normalized_scores": {
-        "positive": 0.2341,
-        "negative": 0.3518,
-        "neutral": 0.4142
+        "positive": 0.229,
+        "negative": 0.3483,
+        "neutral": 0.4228
       },
       "articles_analyzed": 65,
-      "final_confidence": 0.4142,
+      "final_confidence": 0.4228,
       "prediction_window_days": 1,
       "ticker": "MSFT",
       "market_period": "bull_run"
@@ -1361,33 +1361,33 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 10.85,
+      "duration_seconds": 24.86,
       "normalized_scores": {
-        "positive": 0.4241,
-        "negative": 0.197,
-        "neutral": 0.3789
+        "positive": 0.557,
+        "negative": 0.1628,
+        "neutral": 0.2802
       },
       "articles_analyzed": 103,
-      "final_confidence": 0.4241,
+      "final_confidence": 0.557,
       "prediction_window_days": 1,
       "ticker": "MSFT",
       "market_period": "volatile"
     },
     {
       "id": "MSFT_W1_earnings_season_027",
-      "actual_label": "neutral",
-      "predicted_label": "neutral",
+      "actual_label": "positive",
+      "predicted_label": "positive",
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 9.3,
+      "duration_seconds": 21.14,
       "normalized_scores": {
-        "positive": 0.3944,
-        "negative": 0.1954,
-        "neutral": 0.4101
+        "positive": 0.5671,
+        "negative": 0.0909,
+        "neutral": 0.342
       },
       "articles_analyzed": 87,
-      "final_confidence": 0.4101,
+      "final_confidence": 0.5671,
       "prediction_window_days": 1,
       "ticker": "MSFT",
       "market_period": "earnings_season"
@@ -1395,56 +1395,56 @@
     {
       "id": "MSFT_W1_recent_stable_028",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 9.02,
+      "duration_seconds": 20.02,
       "normalized_scores": {
-        "positive": 0.2881,
-        "negative": 0.2889,
-        "neutral": 0.423
+        "positive": 0.4214,
+        "negative": 0.2544,
+        "neutral": 0.3242
       },
       "articles_analyzed": 81,
-      "final_confidence": 0.423,
+      "final_confidence": 0.4214,
       "prediction_window_days": 1,
       "ticker": "MSFT",
       "market_period": "recent_stable"
     },
     {
       "id": "MSFT_W3_bull_run_029",
-      "actual_label": "positive",
+      "actual_label": "neutral",
       "predicted_label": "neutral",
-      "correct": false,
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 9.76,
+      "duration_seconds": 21.36,
       "normalized_scores": {
-        "positive": 0.2405,
-        "negative": 0.3382,
-        "neutral": 0.4213
+        "positive": 0.2569,
+        "negative": 0.3323,
+        "neutral": 0.4109
       },
       "articles_analyzed": 84,
-      "final_confidence": 0.4213,
+      "final_confidence": 0.4109,
       "prediction_window_days": 3,
       "ticker": "MSFT",
       "market_period": "bull_run"
     },
     {
       "id": "MSFT_W3_volatile_030",
-      "actual_label": "negative",
-      "predicted_label": "neutral",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 15.05,
+      "duration_seconds": 34.25,
       "normalized_scores": {
-        "positive": 0.4002,
-        "negative": 0.2074,
-        "neutral": 0.3925
+        "positive": 0.5543,
+        "negative": 0.1678,
+        "neutral": 0.2779
       },
       "articles_analyzed": 139,
-      "final_confidence": 0.3925,
+      "final_confidence": 0.5543,
       "prediction_window_days": 3,
       "ticker": "MSFT",
       "market_period": "volatile"
@@ -1452,18 +1452,18 @@
     {
       "id": "MSFT_W3_earnings_season_031",
       "actual_label": "positive",
-      "predicted_label": "neutral",
-      "correct": false,
+      "predicted_label": "positive",
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 11.08,
+      "duration_seconds": 23.81,
       "normalized_scores": {
-        "positive": 0.3862,
-        "negative": 0.2011,
-        "neutral": 0.4127
+        "positive": 0.5736,
+        "negative": 0.0956,
+        "neutral": 0.3308
       },
       "articles_analyzed": 98,
-      "final_confidence": 0.4127,
+      "final_confidence": 0.5736,
       "prediction_window_days": 3,
       "ticker": "MSFT",
       "market_period": "earnings_season"
@@ -1471,56 +1471,56 @@
     {
       "id": "MSFT_W3_recent_stable_032",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 12.04,
+      "duration_seconds": 26.16,
       "normalized_scores": {
-        "positive": 0.2884,
-        "negative": 0.2826,
-        "neutral": 0.4289
+        "positive": 0.4214,
+        "negative": 0.2468,
+        "neutral": 0.3318
       },
       "articles_analyzed": 105,
-      "final_confidence": 0.4289,
+      "final_confidence": 0.4214,
       "prediction_window_days": 3,
       "ticker": "MSFT",
       "market_period": "recent_stable"
     },
     {
       "id": "MSFT_W5_bull_run_033",
-      "actual_label": "positive",
+      "actual_label": "neutral",
       "predicted_label": "neutral",
-      "correct": false,
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 11.84,
+      "duration_seconds": 24.89,
       "normalized_scores": {
-        "positive": 0.2444,
-        "negative": 0.3325,
-        "neutral": 0.4231
+        "positive": 0.2681,
+        "negative": 0.3207,
+        "neutral": 0.4112
       },
       "articles_analyzed": 105,
-      "final_confidence": 0.4231,
+      "final_confidence": 0.4112,
       "prediction_window_days": 5,
       "ticker": "MSFT",
       "market_period": "bull_run"
     },
     {
       "id": "MSFT_W5_volatile_034",
-      "actual_label": "negative",
-      "predicted_label": "neutral",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 18.08,
+      "duration_seconds": 40.69,
       "normalized_scores": {
-        "positive": 0.3968,
-        "negative": 0.2106,
-        "neutral": 0.3926
+        "positive": 0.5341,
+        "negative": 0.1726,
+        "neutral": 0.2933
       },
       "articles_analyzed": 167,
-      "final_confidence": 0.3926,
+      "final_confidence": 0.5341,
       "prediction_window_days": 5,
       "ticker": "MSFT",
       "market_period": "volatile"
@@ -1528,18 +1528,18 @@
     {
       "id": "MSFT_W5_earnings_season_035",
       "actual_label": "positive",
-      "predicted_label": "neutral",
-      "correct": false,
+      "predicted_label": "positive",
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 15.18,
+      "duration_seconds": 31.18,
       "normalized_scores": {
-        "positive": 0.3801,
-        "negative": 0.2084,
-        "neutral": 0.4115
+        "positive": 0.5661,
+        "negative": 0.0978,
+        "neutral": 0.336
       },
       "articles_analyzed": 128,
-      "final_confidence": 0.4115,
+      "final_confidence": 0.5661,
       "prediction_window_days": 5,
       "ticker": "MSFT",
       "market_period": "earnings_season"
@@ -1547,37 +1547,37 @@
     {
       "id": "MSFT_W5_recent_stable_036",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 14.38,
+      "duration_seconds": 31.09,
       "normalized_scores": {
-        "positive": 0.2956,
-        "negative": 0.2792,
-        "neutral": 0.4252
+        "positive": 0.4372,
+        "negative": 0.241,
+        "neutral": 0.3218
       },
       "articles_analyzed": 124,
-      "final_confidence": 0.4252,
+      "final_confidence": 0.4372,
       "prediction_window_days": 5,
       "ticker": "MSFT",
       "market_period": "recent_stable"
     },
     {
       "id": "MSFT_W7_bull_run_037",
-      "actual_label": "negative",
+      "actual_label": "neutral",
       "predicted_label": "neutral",
-      "correct": false,
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 14.73,
+      "duration_seconds": 31.12,
       "normalized_scores": {
-        "positive": 0.2471,
-        "negative": 0.3267,
-        "neutral": 0.4262
+        "positive": 0.2644,
+        "negative": 0.309,
+        "neutral": 0.4266
       },
       "articles_analyzed": 125,
-      "final_confidence": 0.4262,
+      "final_confidence": 0.4266,
       "prediction_window_days": 7,
       "ticker": "MSFT",
       "market_period": "bull_run"
@@ -1585,18 +1585,18 @@
     {
       "id": "MSFT_W7_volatile_038",
       "actual_label": "neutral",
-      "predicted_label": "neutral",
-      "correct": true,
+      "predicted_label": "positive",
+      "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 20.13,
+      "duration_seconds": 45.14,
       "normalized_scores": {
-        "positive": 0.4037,
-        "negative": 0.2089,
-        "neutral": 0.3874
+        "positive": 0.531,
+        "negative": 0.17,
+        "neutral": 0.2989
       },
       "articles_analyzed": 188,
-      "final_confidence": 0.3874,
+      "final_confidence": 0.531,
       "prediction_window_days": 7,
       "ticker": "MSFT",
       "market_period": "volatile"
@@ -1604,18 +1604,18 @@
     {
       "id": "MSFT_W7_earnings_season_039",
       "actual_label": "positive",
-      "predicted_label": "neutral",
-      "correct": false,
+      "predicted_label": "positive",
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 17.32,
+      "duration_seconds": 38.64,
       "normalized_scores": {
-        "positive": 0.3776,
-        "negative": 0.2086,
-        "neutral": 0.4137
+        "positive": 0.5697,
+        "negative": 0.092,
+        "neutral": 0.3383
       },
       "articles_analyzed": 157,
-      "final_confidence": 0.4137,
+      "final_confidence": 0.5697,
       "prediction_window_days": 7,
       "ticker": "MSFT",
       "market_period": "earnings_season"
@@ -1623,37 +1623,37 @@
     {
       "id": "MSFT_W7_recent_stable_040",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 15.58,
+      "duration_seconds": 33.07,
       "normalized_scores": {
-        "positive": 0.3069,
-        "negative": 0.2773,
-        "neutral": 0.4158
+        "positive": 0.4605,
+        "negative": 0.2324,
+        "neutral": 0.3071
       },
       "articles_analyzed": 133,
-      "final_confidence": 0.4158,
+      "final_confidence": 0.4605,
       "prediction_window_days": 7,
       "ticker": "MSFT",
       "market_period": "recent_stable"
     },
     {
       "id": "MSFT_W14_bull_run_041",
-      "actual_label": "positive",
+      "actual_label": "neutral",
       "predicted_label": "neutral",
-      "correct": false,
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 18.59,
+      "duration_seconds": 40.82,
       "normalized_scores": {
-        "positive": 0.249,
-        "negative": 0.3264,
-        "neutral": 0.4246
+        "positive": 0.2479,
+        "negative": 0.3031,
+        "neutral": 0.449
       },
       "articles_analyzed": 163,
-      "final_confidence": 0.4246,
+      "final_confidence": 0.449,
       "prediction_window_days": 14,
       "ticker": "MSFT",
       "market_period": "bull_run"
@@ -1661,18 +1661,18 @@
     {
       "id": "MSFT_W14_volatile_042",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 23.71,
+      "duration_seconds": 51.56,
       "normalized_scores": {
-        "positive": 0.3991,
-        "negative": 0.2148,
-        "neutral": 0.3861
+        "positive": 0.5217,
+        "negative": 0.1894,
+        "neutral": 0.2889
       },
       "articles_analyzed": 215,
-      "final_confidence": 0.3861,
+      "final_confidence": 0.5217,
       "prediction_window_days": 14,
       "ticker": "MSFT",
       "market_period": "volatile"
@@ -1680,37 +1680,37 @@
     {
       "id": "MSFT_W14_earnings_season_043",
       "actual_label": "neutral",
-      "predicted_label": "neutral",
-      "correct": true,
+      "predicted_label": "positive",
+      "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 19.96,
+      "duration_seconds": 44.45,
       "normalized_scores": {
-        "positive": 0.3733,
-        "negative": 0.2046,
-        "neutral": 0.4221
+        "positive": 0.5557,
+        "negative": 0.0805,
+        "neutral": 0.3638
       },
       "articles_analyzed": 178,
-      "final_confidence": 0.4221,
+      "final_confidence": 0.5557,
       "prediction_window_days": 14,
       "ticker": "MSFT",
       "market_period": "earnings_season"
     },
     {
       "id": "MSFT_W14_recent_stable_044",
-      "actual_label": "negative",
-      "predicted_label": "neutral",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 18.73,
+      "duration_seconds": 39.34,
       "normalized_scores": {
-        "positive": 0.3075,
-        "negative": 0.2767,
-        "neutral": 0.4158
+        "positive": 0.4483,
+        "negative": 0.2433,
+        "neutral": 0.3083
       },
       "articles_analyzed": 162,
-      "final_confidence": 0.4158,
+      "final_confidence": 0.4483,
       "prediction_window_days": 14,
       "ticker": "MSFT",
       "market_period": "recent_stable"
@@ -1722,14 +1722,14 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 20.27,
+      "duration_seconds": 40.34,
       "normalized_scores": {
-        "positive": 0.2563,
-        "negative": 0.3192,
-        "neutral": 0.4245
+        "positive": 0.2403,
+        "negative": 0.3057,
+        "neutral": 0.4539
       },
-      "articles_analyzed": 176,
-      "final_confidence": 0.4245,
+      "articles_analyzed": 168,
+      "final_confidence": 0.4539,
       "prediction_window_days": 31,
       "ticker": "MSFT",
       "market_period": "bull_run"
@@ -1737,18 +1737,18 @@
     {
       "id": "MSFT_W31_volatile_046",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 27.87,
+      "duration_seconds": 59.22,
       "normalized_scores": {
-        "positive": 0.4043,
-        "negative": 0.2154,
-        "neutral": 0.3802
+        "positive": 0.5217,
+        "negative": 0.1763,
+        "neutral": 0.3021
       },
       "articles_analyzed": 250,
-      "final_confidence": 0.3802,
+      "final_confidence": 0.5217,
       "prediction_window_days": 31,
       "ticker": "MSFT",
       "market_period": "volatile"
@@ -1756,37 +1756,37 @@
     {
       "id": "MSFT_W31_earnings_season_047",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 26.92,
+      "duration_seconds": 55.8,
       "normalized_scores": {
-        "positive": 0.3641,
-        "negative": 0.2182,
-        "neutral": 0.4177
+        "positive": 0.5268,
+        "negative": 0.0943,
+        "neutral": 0.3789
       },
       "articles_analyzed": 238,
-      "final_confidence": 0.4177,
+      "final_confidence": 0.5268,
       "prediction_window_days": 31,
       "ticker": "MSFT",
       "market_period": "earnings_season"
     },
     {
       "id": "MSFT_W31_recent_stable_048",
-      "actual_label": "negative",
-      "predicted_label": "neutral",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 26.34,
+      "duration_seconds": 53.67,
       "normalized_scores": {
-        "positive": 0.3141,
-        "negative": 0.268,
-        "neutral": 0.4179
+        "positive": 0.4565,
+        "negative": 0.2439,
+        "neutral": 0.2996
       },
       "articles_analyzed": 229,
-      "final_confidence": 0.4179,
+      "final_confidence": 0.4565,
       "prediction_window_days": 31,
       "ticker": "MSFT",
       "market_period": "recent_stable"
@@ -1798,14 +1798,14 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 10.57,
+      "duration_seconds": 21.62,
       "normalized_scores": {
-        "positive": 0.2951,
-        "negative": 0.2743,
-        "neutral": 0.4305
+        "positive": 0.2876,
+        "negative": 0.2854,
+        "neutral": 0.4269
       },
       "articles_analyzed": 94,
-      "final_confidence": 0.4305,
+      "final_confidence": 0.4269,
       "prediction_window_days": 1,
       "ticker": "GOOGL",
       "market_period": "bull_run"
@@ -1817,14 +1817,14 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 4.88,
+      "duration_seconds": 9.67,
       "normalized_scores": {
-        "positive": 0.4611,
-        "negative": 0.1596,
-        "neutral": 0.3793
+        "positive": 0.523,
+        "negative": 0.1002,
+        "neutral": 0.3768
       },
       "articles_analyzed": 39,
-      "final_confidence": 0.4611,
+      "final_confidence": 0.523,
       "prediction_window_days": 1,
       "ticker": "GOOGL",
       "market_period": "volatile"
@@ -1836,14 +1836,14 @@
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 6.09,
+      "duration_seconds": 12.45,
       "normalized_scores": {
-        "positive": 0.4107,
-        "negative": 0.2221,
-        "neutral": 0.3671
+        "positive": 0.491,
+        "negative": 0.1234,
+        "neutral": 0.3857
       },
       "articles_analyzed": 51,
-      "final_confidence": 0.4107,
+      "final_confidence": 0.491,
       "prediction_window_days": 1,
       "ticker": "GOOGL",
       "market_period": "earnings_season"
@@ -1855,33 +1855,33 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 4.98,
+      "duration_seconds": 10.3,
       "normalized_scores": {
-        "positive": 0.3613,
-        "negative": 0.2436,
-        "neutral": 0.3951
+        "positive": 0.3921,
+        "negative": 0.1998,
+        "neutral": 0.4081
       },
       "articles_analyzed": 42,
-      "final_confidence": 0.3951,
+      "final_confidence": 0.4081,
       "prediction_window_days": 1,
       "ticker": "GOOGL",
       "market_period": "recent_stable"
     },
     {
       "id": "GOOGL_W3_bull_run_053",
-      "actual_label": "negative",
+      "actual_label": "neutral",
       "predicted_label": "neutral",
-      "correct": false,
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 13.56,
+      "duration_seconds": 27.1,
       "normalized_scores": {
-        "positive": 0.291,
-        "negative": 0.2723,
-        "neutral": 0.4367
+        "positive": 0.2927,
+        "negative": 0.2905,
+        "neutral": 0.4168
       },
       "articles_analyzed": 118,
-      "final_confidence": 0.4367,
+      "final_confidence": 0.4168,
       "prediction_window_days": 3,
       "ticker": "GOOGL",
       "market_period": "bull_run"
@@ -1893,14 +1893,14 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 5.8,
+      "duration_seconds": 10.92,
       "normalized_scores": {
-        "positive": 0.4569,
-        "negative": 0.1593,
-        "neutral": 0.3838
+        "positive": 0.5385,
+        "negative": 0.0901,
+        "neutral": 0.3714
       },
       "articles_analyzed": 44,
-      "final_confidence": 0.4569,
+      "final_confidence": 0.5385,
       "prediction_window_days": 3,
       "ticker": "GOOGL",
       "market_period": "volatile"
@@ -1912,14 +1912,14 @@
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 7.25,
+      "duration_seconds": 13.96,
       "normalized_scores": {
-        "positive": 0.4091,
-        "negative": 0.2218,
-        "neutral": 0.3691
+        "positive": 0.4963,
+        "negative": 0.135,
+        "neutral": 0.3687
       },
       "articles_analyzed": 58,
-      "final_confidence": 0.4091,
+      "final_confidence": 0.4963,
       "prediction_window_days": 3,
       "ticker": "GOOGL",
       "market_period": "earnings_season"
@@ -1931,14 +1931,14 @@
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 6.68,
+      "duration_seconds": 12.87,
       "normalized_scores": {
-        "positive": 0.3514,
-        "negative": 0.2575,
-        "neutral": 0.3911
+        "positive": 0.3876,
+        "negative": 0.2031,
+        "neutral": 0.4093
       },
       "articles_analyzed": 53,
-      "final_confidence": 0.3911,
+      "final_confidence": 0.4093,
       "prediction_window_days": 3,
       "ticker": "GOOGL",
       "market_period": "recent_stable"
@@ -1950,14 +1950,14 @@
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 14.44,
+      "duration_seconds": 31.34,
       "normalized_scores": {
-        "positive": 0.2865,
-        "negative": 0.2726,
-        "neutral": 0.4408
+        "positive": 0.2921,
+        "negative": 0.2994,
+        "neutral": 0.4085
       },
       "articles_analyzed": 126,
-      "final_confidence": 0.4408,
+      "final_confidence": 0.4085,
       "prediction_window_days": 5,
       "ticker": "GOOGL",
       "market_period": "bull_run"
@@ -1969,14 +1969,14 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 7.45,
+      "duration_seconds": 14.55,
       "normalized_scores": {
-        "positive": 0.4379,
-        "negative": 0.1657,
-        "neutral": 0.3964
+        "positive": 0.54,
+        "negative": 0.0977,
+        "neutral": 0.3623
       },
       "articles_analyzed": 60,
-      "final_confidence": 0.4379,
+      "final_confidence": 0.54,
       "prediction_window_days": 5,
       "ticker": "GOOGL",
       "market_period": "volatile"
@@ -1988,33 +1988,33 @@
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 9.29,
+      "duration_seconds": 18.3,
       "normalized_scores": {
-        "positive": 0.4091,
-        "negative": 0.2158,
-        "neutral": 0.3751
+        "positive": 0.5125,
+        "negative": 0.1224,
+        "neutral": 0.3651
       },
       "articles_analyzed": 79,
-      "final_confidence": 0.4091,
+      "final_confidence": 0.5125,
       "prediction_window_days": 5,
       "ticker": "GOOGL",
       "market_period": "earnings_season"
     },
     {
       "id": "GOOGL_W5_recent_stable_060",
-      "actual_label": "positive",
-      "predicted_label": "neutral",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 8.44,
+      "duration_seconds": 28.21,
       "normalized_scores": {
-        "positive": 0.3588,
-        "negative": 0.2522,
-        "neutral": 0.389
+        "positive": 0.4121,
+        "negative": 0.1851,
+        "neutral": 0.4028
       },
       "articles_analyzed": 72,
-      "final_confidence": 0.389,
+      "final_confidence": 0.4121,
       "prediction_window_days": 5,
       "ticker": "GOOGL",
       "market_period": "recent_stable"
@@ -2026,33 +2026,33 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 16.31,
+      "duration_seconds": 36.91,
       "normalized_scores": {
-        "positive": 0.2829,
-        "negative": 0.2745,
-        "neutral": 0.4426
+        "positive": 0.2835,
+        "negative": 0.2968,
+        "neutral": 0.4197
       },
       "articles_analyzed": 141,
-      "final_confidence": 0.4426,
+      "final_confidence": 0.4197,
       "prediction_window_days": 7,
       "ticker": "GOOGL",
       "market_period": "bull_run"
     },
     {
       "id": "GOOGL_W7_volatile_062",
-      "actual_label": "negative",
-      "predicted_label": "neutral",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 8.51,
+      "duration_seconds": 21.27,
       "normalized_scores": {
-        "positive": 0.429,
-        "negative": 0.1707,
-        "neutral": 0.4003
+        "positive": 0.5244,
+        "negative": 0.0959,
+        "neutral": 0.3798
       },
-      "articles_analyzed": 70,
-      "final_confidence": 0.4003,
+      "articles_analyzed": 39,
+      "final_confidence": 0.5244,
       "prediction_window_days": 7,
       "ticker": "GOOGL",
       "market_period": "volatile"
@@ -2064,33 +2064,33 @@
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 10.47,
+      "duration_seconds": 41.93,
       "normalized_scores": {
-        "positive": 0.4126,
-        "negative": 0.2126,
-        "neutral": 0.3748
+        "positive": 0.5236,
+        "negative": 0.1171,
+        "neutral": 0.3592
       },
       "articles_analyzed": 91,
-      "final_confidence": 0.4126,
+      "final_confidence": 0.5236,
       "prediction_window_days": 7,
       "ticker": "GOOGL",
       "market_period": "earnings_season"
     },
     {
       "id": "GOOGL_W7_recent_stable_064",
-      "actual_label": "positive",
-      "predicted_label": "neutral",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 10.43,
+      "duration_seconds": 44.42,
       "normalized_scores": {
-        "positive": 0.3441,
-        "negative": 0.2559,
-        "neutral": 0.4
+        "positive": 0.4164,
+        "negative": 0.1766,
+        "neutral": 0.407
       },
       "articles_analyzed": 91,
-      "final_confidence": 0.4,
+      "final_confidence": 0.4164,
       "prediction_window_days": 7,
       "ticker": "GOOGL",
       "market_period": "recent_stable"
@@ -2102,33 +2102,33 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 20.7,
+      "duration_seconds": 41.13,
       "normalized_scores": {
-        "positive": 0.274,
-        "negative": 0.2996,
-        "neutral": 0.4264
+        "positive": 0.2804,
+        "negative": 0.29,
+        "neutral": 0.4295
       },
       "articles_analyzed": 179,
-      "final_confidence": 0.4264,
+      "final_confidence": 0.4295,
       "prediction_window_days": 14,
       "ticker": "GOOGL",
       "market_period": "bull_run"
     },
     {
       "id": "GOOGL_W14_volatile_066",
-      "actual_label": "positive",
-      "predicted_label": "neutral",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 12.86,
+      "duration_seconds": 25.24,
       "normalized_scores": {
-        "positive": 0.4229,
-        "negative": 0.1758,
-        "neutral": 0.4014
+        "positive": 0.5048,
+        "negative": 0.1279,
+        "neutral": 0.3672
       },
       "articles_analyzed": 105,
-      "final_confidence": 0.4014,
+      "final_confidence": 0.5048,
       "prediction_window_days": 14,
       "ticker": "GOOGL",
       "market_period": "volatile"
@@ -2140,33 +2140,33 @@
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 13.67,
+      "duration_seconds": 26.55,
       "normalized_scores": {
-        "positive": 0.4152,
-        "negative": 0.2108,
-        "neutral": 0.374
+        "positive": 0.51,
+        "negative": 0.1175,
+        "neutral": 0.3726
       },
       "articles_analyzed": 112,
-      "final_confidence": 0.4152,
+      "final_confidence": 0.51,
       "prediction_window_days": 14,
       "ticker": "GOOGL",
       "market_period": "earnings_season"
     },
     {
       "id": "GOOGL_W14_recent_stable_068",
-      "actual_label": "positive",
-      "predicted_label": "neutral",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 12.33,
+      "duration_seconds": 24.47,
       "normalized_scores": {
-        "positive": 0.3494,
-        "negative": 0.2604,
-        "neutral": 0.3902
+        "positive": 0.4073,
+        "negative": 0.1874,
+        "neutral": 0.4053
       },
       "articles_analyzed": 103,
-      "final_confidence": 0.3902,
+      "final_confidence": 0.4073,
       "prediction_window_days": 14,
       "ticker": "GOOGL",
       "market_period": "recent_stable"
@@ -2178,14 +2178,14 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 22.89,
+      "duration_seconds": 45.04,
       "normalized_scores": {
-        "positive": 0.27,
-        "negative": 0.3052,
-        "neutral": 0.4248
+        "positive": 0.252,
+        "negative": 0.2939,
+        "neutral": 0.4541
       },
       "articles_analyzed": 194,
-      "final_confidence": 0.4248,
+      "final_confidence": 0.4541,
       "prediction_window_days": 31,
       "ticker": "GOOGL",
       "market_period": "bull_run"
@@ -2193,18 +2193,18 @@
     {
       "id": "GOOGL_W31_volatile_070",
       "actual_label": "positive",
-      "predicted_label": "neutral",
-      "correct": false,
+      "predicted_label": "positive",
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 16.48,
+      "duration_seconds": 32.45,
       "normalized_scores": {
-        "positive": 0.4181,
-        "negative": 0.189,
-        "neutral": 0.3929
+        "positive": 0.4778,
+        "negative": 0.1338,
+        "neutral": 0.3884
       },
       "articles_analyzed": 136,
-      "final_confidence": 0.3929,
+      "final_confidence": 0.4778,
       "prediction_window_days": 31,
       "ticker": "GOOGL",
       "market_period": "volatile"
@@ -2216,14 +2216,14 @@
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 15.33,
+      "duration_seconds": 28.12,
       "normalized_scores": {
-        "positive": 0.4249,
-        "negative": 0.1866,
-        "neutral": 0.3885
+        "positive": 0.5214,
+        "negative": 0.0701,
+        "neutral": 0.4085
       },
       "articles_analyzed": 116,
-      "final_confidence": 0.4249,
+      "final_confidence": 0.5214,
       "prediction_window_days": 31,
       "ticker": "GOOGL",
       "market_period": "earnings_season"
@@ -2235,33 +2235,33 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 16.18,
+      "duration_seconds": 32.69,
       "normalized_scores": {
-        "positive": 0.3595,
-        "negative": 0.2521,
-        "neutral": 0.3884
+        "positive": 0.3843,
+        "negative": 0.2056,
+        "neutral": 0.4101
       },
       "articles_analyzed": 134,
-      "final_confidence": 0.3884,
+      "final_confidence": 0.4101,
       "prediction_window_days": 31,
       "ticker": "GOOGL",
       "market_period": "recent_stable"
     },
     {
       "id": "AMZN_W1_bull_run_073",
-      "actual_label": "positive",
+      "actual_label": "neutral",
       "predicted_label": "neutral",
-      "correct": false,
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 10.94,
+      "duration_seconds": 22.37,
       "normalized_scores": {
-        "positive": 0.2547,
-        "negative": 0.3177,
-        "neutral": 0.4277
+        "positive": 0.3253,
+        "negative": 0.3333,
+        "neutral": 0.3414
       },
       "articles_analyzed": 100,
-      "final_confidence": 0.4277,
+      "final_confidence": 0.3414,
       "prediction_window_days": 1,
       "ticker": "AMZN",
       "market_period": "bull_run"
@@ -2269,18 +2269,18 @@
     {
       "id": "AMZN_W1_volatile_074",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 11.82,
+      "duration_seconds": 23.65,
       "normalized_scores": {
-        "positive": 0.324,
-        "negative": 0.2863,
-        "neutral": 0.3896
+        "positive": 0.5129,
+        "negative": 0.221,
+        "neutral": 0.2661
       },
       "articles_analyzed": 105,
-      "final_confidence": 0.3896,
+      "final_confidence": 0.5129,
       "prediction_window_days": 1,
       "ticker": "AMZN",
       "market_period": "volatile"
@@ -2292,14 +2292,14 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 14.45,
+      "duration_seconds": 31.0,
       "normalized_scores": {
-        "positive": 0.4429,
-        "negative": 0.1721,
-        "neutral": 0.385
+        "positive": 0.6075,
+        "negative": 0.1833,
+        "neutral": 0.2091
       },
       "articles_analyzed": 139,
-      "final_confidence": 0.4429,
+      "final_confidence": 0.6075,
       "prediction_window_days": 1,
       "ticker": "AMZN",
       "market_period": "earnings_season"
@@ -2311,14 +2311,14 @@
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 10.66,
+      "duration_seconds": 21.76,
       "normalized_scores": {
-        "positive": 0.357,
-        "negative": 0.2565,
-        "neutral": 0.3865
+        "positive": 0.3684,
+        "negative": 0.1553,
+        "neutral": 0.4763
       },
       "articles_analyzed": 97,
-      "final_confidence": 0.3865,
+      "final_confidence": 0.4763,
       "prediction_window_days": 1,
       "ticker": "AMZN",
       "market_period": "recent_stable"
@@ -2330,14 +2330,14 @@
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 14.08,
+      "duration_seconds": 28.62,
       "normalized_scores": {
-        "positive": 0.2465,
-        "negative": 0.3185,
-        "neutral": 0.435
+        "positive": 0.3168,
+        "negative": 0.3415,
+        "neutral": 0.3417
       },
       "articles_analyzed": 127,
-      "final_confidence": 0.435,
+      "final_confidence": 0.3417,
       "prediction_window_days": 3,
       "ticker": "AMZN",
       "market_period": "bull_run"
@@ -2345,37 +2345,37 @@
     {
       "id": "AMZN_W3_volatile_078",
       "actual_label": "neutral",
-      "predicted_label": "neutral",
-      "correct": true,
+      "predicted_label": "positive",
+      "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 13.32,
+      "duration_seconds": 28.21,
       "normalized_scores": {
-        "positive": 0.3249,
-        "negative": 0.2843,
-        "neutral": 0.3908
+        "positive": 0.5098,
+        "negative": 0.2067,
+        "neutral": 0.2835
       },
       "articles_analyzed": 119,
-      "final_confidence": 0.3908,
+      "final_confidence": 0.5098,
       "prediction_window_days": 3,
       "ticker": "AMZN",
       "market_period": "volatile"
     },
     {
       "id": "AMZN_W3_earnings_season_079",
-      "actual_label": "negative",
-      "predicted_label": "neutral",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 19.29,
+      "duration_seconds": 39.92,
       "normalized_scores": {
-        "positive": 0.4055,
-        "negative": 0.1982,
-        "neutral": 0.3963
+        "positive": 0.5611,
+        "negative": 0.2028,
+        "neutral": 0.2361
       },
       "articles_analyzed": 179,
-      "final_confidence": 0.3963,
+      "final_confidence": 0.5611,
       "prediction_window_days": 3,
       "ticker": "AMZN",
       "market_period": "earnings_season"
@@ -2387,14 +2387,14 @@
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 12.94,
+      "duration_seconds": 25.16,
       "normalized_scores": {
-        "positive": 0.3589,
-        "negative": 0.2578,
-        "neutral": 0.3833
+        "positive": 0.3687,
+        "negative": 0.1585,
+        "neutral": 0.4729
       },
       "articles_analyzed": 111,
-      "final_confidence": 0.3833,
+      "final_confidence": 0.4729,
       "prediction_window_days": 3,
       "ticker": "AMZN",
       "market_period": "recent_stable"
@@ -2406,14 +2406,14 @@
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 16.97,
+      "duration_seconds": 34.32,
       "normalized_scores": {
-        "positive": 0.2484,
-        "negative": 0.3194,
-        "neutral": 0.4322
+        "positive": 0.3099,
+        "negative": 0.3425,
+        "neutral": 0.3476
       },
       "articles_analyzed": 154,
-      "final_confidence": 0.4322,
+      "final_confidence": 0.3476,
       "prediction_window_days": 5,
       "ticker": "AMZN",
       "market_period": "bull_run"
@@ -2421,18 +2421,18 @@
     {
       "id": "AMZN_W5_volatile_082",
       "actual_label": "neutral",
-      "predicted_label": "neutral",
-      "correct": true,
+      "predicted_label": "positive",
+      "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 16.78,
+      "duration_seconds": 34.16,
       "normalized_scores": {
-        "positive": 0.3228,
-        "negative": 0.2809,
-        "neutral": 0.3964
+        "positive": 0.5038,
+        "negative": 0.2043,
+        "neutral": 0.2918
       },
       "articles_analyzed": 151,
-      "final_confidence": 0.3964,
+      "final_confidence": 0.5038,
       "prediction_window_days": 5,
       "ticker": "AMZN",
       "market_period": "volatile"
@@ -2440,18 +2440,18 @@
     {
       "id": "AMZN_W5_earnings_season_083",
       "actual_label": "neutral",
-      "predicted_label": "neutral",
-      "correct": true,
+      "predicted_label": "positive",
+      "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 20.59,
+      "duration_seconds": 42.77,
       "normalized_scores": {
-        "positive": 0.4063,
-        "negative": 0.2009,
-        "neutral": 0.3929
+        "positive": 0.5563,
+        "negative": 0.2052,
+        "neutral": 0.2385
       },
       "articles_analyzed": 192,
-      "final_confidence": 0.3929,
+      "final_confidence": 0.5563,
       "prediction_window_days": 5,
       "ticker": "AMZN",
       "market_period": "earnings_season"
@@ -2463,33 +2463,33 @@
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 15.64,
+      "duration_seconds": 32.29,
       "normalized_scores": {
-        "positive": 0.3532,
-        "negative": 0.2597,
-        "neutral": 0.3871
+        "positive": 0.3782,
+        "negative": 0.152,
+        "neutral": 0.4698
       },
       "articles_analyzed": 138,
-      "final_confidence": 0.3871,
+      "final_confidence": 0.4698,
       "prediction_window_days": 5,
       "ticker": "AMZN",
       "market_period": "recent_stable"
     },
     {
       "id": "AMZN_W7_bull_run_085",
-      "actual_label": "positive",
+      "actual_label": "neutral",
       "predicted_label": "neutral",
-      "correct": false,
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 23.53,
+      "duration_seconds": 48.4,
       "normalized_scores": {
-        "positive": 0.2493,
-        "negative": 0.3202,
-        "neutral": 0.4305
+        "positive": 0.311,
+        "negative": 0.3207,
+        "neutral": 0.3683
       },
       "articles_analyzed": 218,
-      "final_confidence": 0.4305,
+      "final_confidence": 0.3683,
       "prediction_window_days": 7,
       "ticker": "AMZN",
       "market_period": "bull_run"
@@ -2497,18 +2497,18 @@
     {
       "id": "AMZN_W7_volatile_086",
       "actual_label": "neutral",
-      "predicted_label": "neutral",
-      "correct": true,
+      "predicted_label": "positive",
+      "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 20.65,
+      "duration_seconds": 357.39,
       "normalized_scores": {
-        "positive": 0.3222,
-        "negative": 0.2818,
-        "neutral": 0.396
+        "positive": 0.4964,
+        "negative": 0.2024,
+        "neutral": 0.3012
       },
       "articles_analyzed": 191,
-      "final_confidence": 0.396,
+      "final_confidence": 0.4964,
       "prediction_window_days": 7,
       "ticker": "AMZN",
       "market_period": "volatile"
@@ -2520,14 +2520,14 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 23.37,
+      "duration_seconds": 49.53,
       "normalized_scores": {
-        "positive": 0.4221,
-        "negative": 0.1902,
-        "neutral": 0.3877
+        "positive": 0.5726,
+        "negative": 0.1877,
+        "neutral": 0.2397
       },
       "articles_analyzed": 223,
-      "final_confidence": 0.4221,
+      "final_confidence": 0.5726,
       "prediction_window_days": 7,
       "ticker": "AMZN",
       "market_period": "earnings_season"
@@ -2539,52 +2539,52 @@
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 19.93,
+      "duration_seconds": 42.18,
       "normalized_scores": {
-        "positive": 0.3415,
-        "negative": 0.2715,
-        "neutral": 0.3869
+        "positive": 0.3865,
+        "negative": 0.1635,
+        "neutral": 0.45
       },
       "articles_analyzed": 180,
-      "final_confidence": 0.3869,
+      "final_confidence": 0.45,
       "prediction_window_days": 7,
       "ticker": "AMZN",
       "market_period": "recent_stable"
     },
     {
       "id": "AMZN_W14_bull_run_089",
-      "actual_label": "positive",
+      "actual_label": "neutral",
       "predicted_label": "neutral",
-      "correct": false,
+      "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 27.13,
+      "duration_seconds": 57.73,
       "normalized_scores": {
-        "positive": 0.2418,
-        "negative": 0.331,
-        "neutral": 0.4272
+        "positive": 0.304,
+        "negative": 0.3338,
+        "neutral": 0.3623
       },
       "articles_analyzed": 248,
-      "final_confidence": 0.4272,
+      "final_confidence": 0.3623,
       "prediction_window_days": 14,
       "ticker": "AMZN",
       "market_period": "bull_run"
     },
     {
       "id": "AMZN_W14_volatile_090",
-      "actual_label": "negative",
-      "predicted_label": "neutral",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 23.11,
+      "duration_seconds": 49.75,
       "normalized_scores": {
-        "positive": 0.3125,
-        "negative": 0.292,
-        "neutral": 0.3955
+        "positive": 0.4601,
+        "negative": 0.2481,
+        "neutral": 0.2918
       },
       "articles_analyzed": 210,
-      "final_confidence": 0.3955,
+      "final_confidence": 0.4601,
       "prediction_window_days": 14,
       "ticker": "AMZN",
       "market_period": "volatile"
@@ -2592,18 +2592,18 @@
     {
       "id": "AMZN_W14_earnings_season_091",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 27.39,
+      "duration_seconds": 61.13,
       "normalized_scores": {
-        "positive": 0.4061,
-        "negative": 0.2039,
-        "neutral": 0.39
+        "positive": 0.5539,
+        "negative": 0.2002,
+        "neutral": 0.2459
       },
       "articles_analyzed": 250,
-      "final_confidence": 0.39,
+      "final_confidence": 0.5539,
       "prediction_window_days": 14,
       "ticker": "AMZN",
       "market_period": "earnings_season"
@@ -2615,14 +2615,14 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 22.31,
+      "duration_seconds": 46.58,
       "normalized_scores": {
-        "positive": 0.3403,
-        "negative": 0.2692,
-        "neutral": 0.3905
+        "positive": 0.3843,
+        "negative": 0.1932,
+        "neutral": 0.4226
       },
       "articles_analyzed": 196,
-      "final_confidence": 0.3905,
+      "final_confidence": 0.4226,
       "prediction_window_days": 14,
       "ticker": "AMZN",
       "market_period": "recent_stable"
@@ -2634,71 +2634,71 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 33.01,
+      "duration_seconds": 76.31,
       "normalized_scores": {
-        "positive": 0.2348,
-        "negative": 0.3413,
-        "neutral": 0.4238
+        "positive": 0.2922,
+        "negative": 0.3372,
+        "neutral": 0.3705
       },
       "articles_analyzed": 250,
-      "final_confidence": 0.4238,
+      "final_confidence": 0.3705,
       "prediction_window_days": 31,
       "ticker": "AMZN",
       "market_period": "bull_run"
     },
     {
       "id": "AMZN_W31_volatile_094",
-      "actual_label": "positive",
-      "predicted_label": "neutral",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 29.51,
+      "duration_seconds": 62.82,
       "normalized_scores": {
-        "positive": 0.2973,
-        "negative": 0.3043,
-        "neutral": 0.3984
+        "positive": 0.4201,
+        "negative": 0.2833,
+        "neutral": 0.2966
       },
       "articles_analyzed": 250,
-      "final_confidence": 0.3984,
+      "final_confidence": 0.4201,
       "prediction_window_days": 31,
       "ticker": "AMZN",
       "market_period": "volatile"
     },
     {
       "id": "AMZN_W31_earnings_season_095",
-      "actual_label": "negative",
-      "predicted_label": "neutral",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 30.93,
+      "duration_seconds": 70.67,
       "normalized_scores": {
-        "positive": 0.4084,
-        "negative": 0.2015,
-        "neutral": 0.3901
+        "positive": 0.5491,
+        "negative": 0.1937,
+        "neutral": 0.2572
       },
       "articles_analyzed": 250,
-      "final_confidence": 0.3901,
+      "final_confidence": 0.5491,
       "prediction_window_days": 31,
       "ticker": "AMZN",
       "market_period": "earnings_season"
     },
     {
       "id": "AMZN_W31_recent_stable_096",
-      "actual_label": "positive",
-      "predicted_label": "neutral",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 27.17,
+      "duration_seconds": 57.11,
       "normalized_scores": {
-        "positive": 0.3379,
-        "negative": 0.2651,
-        "neutral": 0.3969
+        "positive": 0.3959,
+        "negative": 0.2087,
+        "neutral": 0.3954
       },
       "articles_analyzed": 239,
-      "final_confidence": 0.3969,
+      "final_confidence": 0.3959,
       "prediction_window_days": 31,
       "ticker": "AMZN",
       "market_period": "recent_stable"
@@ -2710,14 +2710,14 @@
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 12.05,
+      "duration_seconds": 26.9,
       "normalized_scores": {
-        "positive": 0.3067,
-        "negative": 0.2952,
-        "neutral": 0.3981
+        "positive": 0.3396,
+        "negative": 0.3068,
+        "neutral": 0.3536
       },
       "articles_analyzed": 116,
-      "final_confidence": 0.3981,
+      "final_confidence": 0.3536,
       "prediction_window_days": 1,
       "ticker": "NVDA",
       "market_period": "bull_run"
@@ -2725,18 +2725,18 @@
     {
       "id": "NVDA_W1_volatile_098",
       "actual_label": "neutral",
-      "predicted_label": "neutral",
-      "correct": true,
+      "predicted_label": "positive",
+      "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 14.61,
+      "duration_seconds": 32.97,
       "normalized_scores": {
-        "positive": 0.3486,
-        "negative": 0.2693,
-        "neutral": 0.3822
+        "positive": 0.3775,
+        "negative": 0.3301,
+        "neutral": 0.2924
       },
       "articles_analyzed": 144,
-      "final_confidence": 0.3822,
+      "final_confidence": 0.3775,
       "prediction_window_days": 1,
       "ticker": "NVDA",
       "market_period": "volatile"
@@ -2744,37 +2744,37 @@
     {
       "id": "NVDA_W1_earnings_season_099",
       "actual_label": "neutral",
-      "predicted_label": "neutral",
-      "correct": true,
+      "predicted_label": "positive",
+      "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 11.64,
+      "duration_seconds": 24.45,
       "normalized_scores": {
-        "positive": 0.3311,
-        "negative": 0.3069,
-        "neutral": 0.362
+        "positive": 0.4545,
+        "negative": 0.2729,
+        "neutral": 0.2725
       },
       "articles_analyzed": 105,
-      "final_confidence": 0.362,
+      "final_confidence": 0.4545,
       "prediction_window_days": 1,
       "ticker": "NVDA",
       "market_period": "earnings_season"
     },
     {
       "id": "NVDA_W1_recent_stable_100",
-      "actual_label": "neutral",
-      "predicted_label": "neutral",
+      "actual_label": "positive",
+      "predicted_label": "positive",
       "correct": true,
       "error": null,
       "issue": null,
-      "duration_seconds": 11.7,
+      "duration_seconds": 25.06,
       "normalized_scores": {
-        "positive": 0.3527,
-        "negative": 0.2462,
-        "neutral": 0.4011
+        "positive": 0.5312,
+        "negative": 0.1185,
+        "neutral": 0.3502
       },
       "articles_analyzed": 109,
-      "final_confidence": 0.4011,
+      "final_confidence": 0.5312,
       "prediction_window_days": 1,
       "ticker": "NVDA",
       "market_period": "recent_stable"
@@ -2786,14 +2786,14 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 17.51,
+      "duration_seconds": 38.31,
       "normalized_scores": {
-        "positive": 0.2801,
-        "negative": 0.3255,
-        "neutral": 0.3944
+        "positive": 0.3331,
+        "negative": 0.3166,
+        "neutral": 0.3503
       },
       "articles_analyzed": 167,
-      "final_confidence": 0.3944,
+      "final_confidence": 0.3503,
       "prediction_window_days": 3,
       "ticker": "NVDA",
       "market_period": "bull_run"
@@ -2801,56 +2801,56 @@
     {
       "id": "NVDA_W3_volatile_102",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 18.38,
+      "duration_seconds": 40.42,
       "normalized_scores": {
-        "positive": 0.3233,
-        "negative": 0.2941,
-        "neutral": 0.3826
+        "positive": 0.3782,
+        "negative": 0.3406,
+        "neutral": 0.2812
       },
       "articles_analyzed": 177,
-      "final_confidence": 0.3826,
+      "final_confidence": 0.3782,
       "prediction_window_days": 3,
       "ticker": "NVDA",
       "market_period": "volatile"
     },
     {
       "id": "NVDA_W3_earnings_season_103",
-      "actual_label": "negative",
-      "predicted_label": "neutral",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 15.48,
+      "duration_seconds": 32.54,
       "normalized_scores": {
-        "positive": 0.3141,
-        "negative": 0.3199,
-        "neutral": 0.3661
+        "positive": 0.4724,
+        "negative": 0.2546,
+        "neutral": 0.2729
       },
       "articles_analyzed": 140,
-      "final_confidence": 0.3661,
+      "final_confidence": 0.4724,
       "prediction_window_days": 3,
       "ticker": "NVDA",
       "market_period": "earnings_season"
     },
     {
       "id": "NVDA_W3_recent_stable_104",
-      "actual_label": "negative",
-      "predicted_label": "neutral",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 15.66,
+      "duration_seconds": 33.42,
       "normalized_scores": {
-        "positive": 0.3286,
-        "negative": 0.2709,
-        "neutral": 0.4004
+        "positive": 0.495,
+        "negative": 0.144,
+        "neutral": 0.3611
       },
       "articles_analyzed": 144,
-      "final_confidence": 0.4004,
+      "final_confidence": 0.495,
       "prediction_window_days": 3,
       "ticker": "NVDA",
       "market_period": "recent_stable"
@@ -2862,14 +2862,14 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 20.26,
+      "duration_seconds": 44.58,
       "normalized_scores": {
-        "positive": 0.2736,
-        "negative": 0.3278,
-        "neutral": 0.3985
+        "positive": 0.3346,
+        "negative": 0.3164,
+        "neutral": 0.349
       },
       "articles_analyzed": 193,
-      "final_confidence": 0.3985,
+      "final_confidence": 0.349,
       "prediction_window_days": 5,
       "ticker": "NVDA",
       "market_period": "bull_run"
@@ -2877,18 +2877,18 @@
     {
       "id": "NVDA_W5_volatile_106",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 19.97,
+      "duration_seconds": 44.41,
       "normalized_scores": {
-        "positive": 0.3318,
-        "negative": 0.281,
-        "neutral": 0.3871
+        "positive": 0.3907,
+        "negative": 0.3238,
+        "neutral": 0.2855
       },
       "articles_analyzed": 192,
-      "final_confidence": 0.3871,
+      "final_confidence": 0.3907,
       "prediction_window_days": 5,
       "ticker": "NVDA",
       "market_period": "volatile"
@@ -2896,37 +2896,37 @@
     {
       "id": "NVDA_W5_earnings_season_107",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 19.43,
+      "duration_seconds": 42.4,
       "normalized_scores": {
-        "positive": 0.3145,
-        "negative": 0.3061,
-        "neutral": 0.3795
+        "positive": 0.4749,
+        "negative": 0.2513,
+        "neutral": 0.2738
       },
       "articles_analyzed": 180,
-      "final_confidence": 0.3795,
+      "final_confidence": 0.4749,
       "prediction_window_days": 5,
       "ticker": "NVDA",
       "market_period": "earnings_season"
     },
     {
       "id": "NVDA_W5_recent_stable_108",
-      "actual_label": "negative",
-      "predicted_label": "neutral",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 19.64,
+      "duration_seconds": 42.59,
       "normalized_scores": {
-        "positive": 0.3356,
-        "negative": 0.2611,
-        "neutral": 0.4033
+        "positive": 0.4926,
+        "negative": 0.1456,
+        "neutral": 0.3618
       },
       "articles_analyzed": 186,
-      "final_confidence": 0.4033,
+      "final_confidence": 0.4926,
       "prediction_window_days": 5,
       "ticker": "NVDA",
       "market_period": "recent_stable"
@@ -2938,14 +2938,14 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 25.06,
+      "duration_seconds": 55.42,
       "normalized_scores": {
-        "positive": 0.2818,
-        "negative": 0.3129,
-        "neutral": 0.4053
+        "positive": 0.3424,
+        "negative": 0.3007,
+        "neutral": 0.3569
       },
       "articles_analyzed": 242,
-      "final_confidence": 0.4053,
+      "final_confidence": 0.3569,
       "prediction_window_days": 7,
       "ticker": "NVDA",
       "market_period": "bull_run"
@@ -2953,18 +2953,18 @@
     {
       "id": "NVDA_W7_volatile_110",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 24.86,
+      "duration_seconds": 58.0,
       "normalized_scores": {
-        "positive": 0.3431,
-        "negative": 0.2727,
-        "neutral": 0.3842
+        "positive": 0.4024,
+        "negative": 0.2909,
+        "neutral": 0.3067
       },
       "articles_analyzed": 247,
-      "final_confidence": 0.3842,
+      "final_confidence": 0.4024,
       "prediction_window_days": 7,
       "ticker": "NVDA",
       "market_period": "volatile"
@@ -2972,18 +2972,18 @@
     {
       "id": "NVDA_W7_earnings_season_111",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 24.13,
+      "duration_seconds": 51.73,
       "normalized_scores": {
-        "positive": 0.3361,
-        "negative": 0.2766,
-        "neutral": 0.3873
+        "positive": 0.5062,
+        "negative": 0.2273,
+        "neutral": 0.2665
       },
       "articles_analyzed": 222,
-      "final_confidence": 0.3873,
+      "final_confidence": 0.5062,
       "prediction_window_days": 7,
       "ticker": "NVDA",
       "market_period": "earnings_season"
@@ -2991,18 +2991,18 @@
     {
       "id": "NVDA_W7_recent_stable_112",
       "actual_label": "neutral",
-      "predicted_label": "neutral",
-      "correct": true,
+      "predicted_label": "positive",
+      "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 24.65,
+      "duration_seconds": 52.3,
       "normalized_scores": {
-        "positive": 0.3436,
-        "negative": 0.2504,
-        "neutral": 0.406
+        "positive": 0.4928,
+        "negative": 0.1388,
+        "neutral": 0.3684
       },
       "articles_analyzed": 232,
-      "final_confidence": 0.406,
+      "final_confidence": 0.4928,
       "prediction_window_days": 7,
       "ticker": "NVDA",
       "market_period": "recent_stable"
@@ -3014,14 +3014,14 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 27.52,
+      "duration_seconds": 58.57,
       "normalized_scores": {
-        "positive": 0.2807,
-        "negative": 0.3224,
-        "neutral": 0.3968
+        "positive": 0.3436,
+        "negative": 0.2901,
+        "neutral": 0.3663
       },
       "articles_analyzed": 250,
-      "final_confidence": 0.3968,
+      "final_confidence": 0.3663,
       "prediction_window_days": 14,
       "ticker": "NVDA",
       "market_period": "bull_run"
@@ -3029,18 +3029,18 @@
     {
       "id": "NVDA_W14_volatile_114",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 24.73,
+      "duration_seconds": 54.54,
       "normalized_scores": {
-        "positive": 0.3376,
-        "negative": 0.2816,
-        "neutral": 0.3808
+        "positive": 0.3891,
+        "negative": 0.3203,
+        "neutral": 0.2906
       },
       "articles_analyzed": 230,
-      "final_confidence": 0.3808,
+      "final_confidence": 0.3891,
       "prediction_window_days": 14,
       "ticker": "NVDA",
       "market_period": "volatile"
@@ -3048,18 +3048,18 @@
     {
       "id": "NVDA_W14_earnings_season_115",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 22.32,
+      "duration_seconds": 47.31,
       "normalized_scores": {
-        "positive": 0.3449,
-        "negative": 0.2682,
-        "neutral": 0.3869
+        "positive": 0.4828,
+        "negative": 0.242,
+        "neutral": 0.2752
       },
       "articles_analyzed": 196,
-      "final_confidence": 0.3869,
+      "final_confidence": 0.4828,
       "prediction_window_days": 14,
       "ticker": "NVDA",
       "market_period": "earnings_season"
@@ -3067,18 +3067,18 @@
     {
       "id": "NVDA_W14_recent_stable_116",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 27.25,
+      "duration_seconds": 60.31,
       "normalized_scores": {
-        "positive": 0.3471,
-        "negative": 0.2474,
-        "neutral": 0.4055
+        "positive": 0.4903,
+        "negative": 0.1501,
+        "neutral": 0.3596
       },
       "articles_analyzed": 250,
-      "final_confidence": 0.4055,
+      "final_confidence": 0.4903,
       "prediction_window_days": 14,
       "ticker": "NVDA",
       "market_period": "recent_stable"
@@ -3090,33 +3090,33 @@
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 34.01,
+      "duration_seconds": 83.38,
       "normalized_scores": {
-        "positive": 0.2744,
-        "negative": 0.322,
-        "neutral": 0.4036
+        "positive": 0.3111,
+        "negative": 0.3354,
+        "neutral": 0.3534
       },
       "articles_analyzed": 250,
-      "final_confidence": 0.4036,
+      "final_confidence": 0.3534,
       "prediction_window_days": 31,
       "ticker": "NVDA",
       "market_period": "bull_run"
     },
     {
       "id": "NVDA_W31_volatile_118",
-      "actual_label": "negative",
-      "predicted_label": "neutral",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 27.32,
+      "duration_seconds": 61.18,
       "normalized_scores": {
-        "positive": 0.3485,
-        "negative": 0.272,
-        "neutral": 0.3795
+        "positive": 0.3806,
+        "negative": 0.3304,
+        "neutral": 0.2891
       },
       "articles_analyzed": 250,
-      "final_confidence": 0.3795,
+      "final_confidence": 0.3806,
       "prediction_window_days": 31,
       "ticker": "NVDA",
       "market_period": "volatile"
@@ -3124,18 +3124,18 @@
     {
       "id": "NVDA_W31_earnings_season_119",
       "actual_label": "negative",
-      "predicted_label": "neutral",
+      "predicted_label": "positive",
       "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 29.46,
+      "duration_seconds": 65.84,
       "normalized_scores": {
-        "positive": 0.3361,
-        "negative": 0.2707,
-        "neutral": 0.3932
+        "positive": 0.4759,
+        "negative": 0.2447,
+        "neutral": 0.2793
       },
       "articles_analyzed": 250,
-      "final_confidence": 0.3932,
+      "final_confidence": 0.4759,
       "prediction_window_days": 31,
       "ticker": "NVDA",
       "market_period": "earnings_season"
@@ -3143,18 +3143,18 @@
     {
       "id": "NVDA_W31_recent_stable_120",
       "actual_label": "neutral",
-      "predicted_label": "neutral",
-      "correct": true,
+      "predicted_label": "positive",
+      "correct": false,
       "error": null,
       "issue": null,
-      "duration_seconds": 29.39,
+      "duration_seconds": 67.4,
       "normalized_scores": {
-        "positive": 0.3624,
-        "negative": 0.2369,
-        "neutral": 0.4008
+        "positive": 0.5002,
+        "negative": 0.1471,
+        "neutral": 0.3526
       },
       "articles_analyzed": 250,
-      "final_confidence": 0.4008,
+      "final_confidence": 0.5002,
       "prediction_window_days": 31,
       "ticker": "NVDA",
       "market_period": "recent_stable"

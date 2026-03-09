@@ -8,11 +8,14 @@ Creates ~120 test cases covering:
 Ground truth labels (positive/negative/neutral) are fetched from yfinance
 and stored in the JSON so evaluations are deterministic and fast.
 
-Neutral threshold is computed per-company as k × σ_daily (volatility-scaled),
-following López de Prado (2018) "Advances in Financial Machine Learning" and
-Bollinger (1983). A single fixed threshold fails across different volatility
-regimes — Apple (σ ≈ 1.5%/day) needs a much wider neutral band than a
-low-volatility utility stock.
+Neutral threshold is computed per test case as:
+
+    threshold = k × EWMA_sigma(as of start_date) × sqrt(window_days)
+
+This is a point-in-time, volatility-scaled neutral band:
+    - point-in-time: only data available before the case start date is used
+    - EWMA: recent volatility is weighted more heavily
+    - sqrt(window): horizon-aware scaling of daily volatility
 
 Usage:
     python -m testset.generate_testset
@@ -52,7 +55,6 @@ COMPANIES = [
 
 PREDICTION_WINDOWS = [1, 3, 5, 7, 14, 31]
 
-# 4 market periods with distinct characteristics
 MARKET_PERIODS = [
     {
         "label": "bull_run",
@@ -89,7 +91,7 @@ MARKET_PERIODS = [
     },
     {
         "label": "recent_stable",
-        "description": "Late 2024 / early 2026 period",
+        "description": "Late 2025 / early 2026 period",
         "base_dates": [
             "02-12-2025",
             "09-12-2025",
@@ -100,51 +102,87 @@ MARKET_PERIODS = [
     },
 ]
 
-VOLATILITY_K             = 0.5   # |return| must exceed k×σ to be directional
-VOLATILITY_LOOKBACK_DAYS = 60    # calendar days of history used to estimate σ_daily
-FALLBACK_NEUTRAL_THRESHOLD = 0.005  # used only when yfinance data is unavailable
+VOLATILITY_K = 0.5
+EWMA_LAMBDA = 0.94
+EWMA_LOOKBACK_CALENDAR_DAYS = 180
+MIN_RETURNS_FOR_EWMA = 20
+FALLBACK_NEUTRAL_THRESHOLD = 0.005
 
 MAX_LOOKAHEAD_DAYS = 10
 OUTPUT_PATH = PRED_PATH / "test_set.json"
 
 
-def compute_volatility_threshold(
+# ── Volatility Thresholding ──
+
+def compute_point_in_time_ewma_threshold(
     ticker: str,
+    asof_date: datetime,
+    horizon_days: int,
     k: float = VOLATILITY_K,
-    lookback_days: int = VOLATILITY_LOOKBACK_DAYS,
+    ewma_lambda: float = EWMA_LAMBDA,
+    lookback_calendar_days: int = EWMA_LOOKBACK_CALENDAR_DAYS,
 ) -> float:
+    """
+    Compute point-in-time EWMA daily volatility as of `asof_date`,
+    then scale it to the requested horizon with sqrt(window_days).
+
+    Uses only data strictly before asof_date.
+    """
     try:
+        lookback_start = asof_date - timedelta(days=lookback_calendar_days)
+
         hist = yf.download(
             ticker,
-            period=f"{lookback_days}d",
+            start=lookback_start.strftime("%Y-%m-%d"),
+            end=asof_date.strftime("%Y-%m-%d"),
             interval="1d",
             progress=False,
             auto_adjust=True,
         )
+
         if hist is None or hist.empty:
-            raise ValueError("No price data returned")
+            raise ValueError("No historical data returned")
 
         closes = hist["Close"]
         if hasattr(closes, "squeeze"):
             closes = closes.squeeze()
 
         daily_returns = closes.pct_change().dropna()
-        if len(daily_returns) < 10:
-            raise ValueError(f"Too few data points ({len(daily_returns)})")
 
-        sigma = float(daily_returns.std())
-        threshold = k * sigma
+        if len(daily_returns) < MIN_RETURNS_FOR_EWMA:
+            raise ValueError(f"Too few return observations ({len(daily_returns)})")
+
+        # RiskMetrics-style EWMA variance recursion
+        returns_list = [float(x) for x in daily_returns.tolist()]
+        ewma_var = returns_list[0] ** 2
+        for r in returns_list[1:]:
+            ewma_var = (ewma_lambda * ewma_var) + ((1.0 - ewma_lambda) * (r ** 2))
+
+        sigma_daily = math.sqrt(max(ewma_var, 0.0))
+        sigma_horizon = sigma_daily * math.sqrt(max(horizon_days, 1))
+        threshold = k * sigma_horizon
 
         logger.info(
-            "  %s: σ_daily=%.4f  →  threshold = %.2f × %.4f = %.4f  (%.2f%%)",
-            ticker, sigma, k, sigma, threshold, threshold * 100,
+            "  %s @ %s: EWMA σ_1d=%.4f, σ_%dd=%.4f, threshold=%.4f (k=%.2f, λ=%.2f)",
+            ticker,
+            asof_date.strftime("%Y-%m-%d"),
+            sigma_daily,
+            horizon_days,
+            sigma_horizon,
+            threshold,
+            k,
+            ewma_lambda,
         )
         return threshold
 
     except Exception as exc:
         logger.warning(
-            "Could not compute volatility threshold for %s (%s) — using fallback %.4f",
-            ticker, exc, FALLBACK_NEUTRAL_THRESHOLD,
+            "Could not compute point-in-time EWMA threshold for %s @ %s (%s) — "
+            "using fallback %.4f",
+            ticker,
+            asof_date.strftime("%Y-%m-%d"),
+            exc,
+            FALLBACK_NEUTRAL_THRESHOLD,
         )
         return FALLBACK_NEUTRAL_THRESHOLD
 
@@ -222,15 +260,16 @@ def _compute_backward_days(prediction_window: int) -> int:
     return max(7, min(90, math.ceil(5 * math.sqrt(prediction_window))))
 
 
-def generate_test_cases(ticker_thresholds: dict[str, float]) -> list[dict]:
-    """Generate all test cases with ground truth using per-company thresholds."""
+def generate_test_cases() -> list[dict]:
+    """
+    Generate all test cases with point-in-time, horizon-scaled ground truth labels.
+    """
     test_cases = []
     case_id = 0
 
     for company in COMPANIES:
         ticker = company["ticker"]
         name = company["name"]
-        neutral_threshold = ticker_thresholds[ticker]
 
         for window in PREDICTION_WINDOWS:
             for period in MARKET_PERIODS:
@@ -244,6 +283,12 @@ def generate_test_cases(ticker_thresholds: dict[str, float]) -> list[dict]:
                 start_date = start_dt.strftime("%d-%m-%Y")
                 end_date = end_dt.strftime("%d-%m-%Y")
 
+                neutral_threshold = compute_point_in_time_ewma_threshold(
+                    ticker=ticker,
+                    asof_date=start_dt,
+                    horizon_days=window,
+                )
+
                 case_id += 1
                 test_id = f"{ticker}_W{window}_{period['label']}_{case_id:03d}"
 
@@ -254,7 +299,9 @@ def generate_test_cases(ticker_thresholds: dict[str, float]) -> list[dict]:
 
                 try:
                     ground_truth = get_ground_truth(
-                        ticker, start_date, end_date,
+                        ticker,
+                        start_date,
+                        end_date,
                         neutral_threshold=neutral_threshold,
                     )
                 except Exception as exc:
@@ -272,6 +319,9 @@ def generate_test_cases(ticker_thresholds: dict[str, float]) -> list[dict]:
                     "market_period": period["label"],
                     "market_period_description": period["description"],
                     "neutral_threshold_used": round(neutral_threshold, 6),
+                    "threshold_method": "point_in_time_ewma_sigma_sqrt_window",
+                    "ewma_lambda_used": EWMA_LAMBDA,
+                    "volatility_k_used": VOLATILITY_K,
                     **ground_truth,
                 }
                 test_cases.append(test_case)
@@ -283,48 +333,50 @@ def generate_and_save() -> None:
     """Generate the full test set and save to JSON."""
     logger.info("Starting test set generation...")
 
-    # ── Step 1: compute per-company volatility thresholds ──
-    logger.info(
-        "Computing per-company volatility thresholds  (k=%.2f × σ_daily, lookback=%dd)...",
-        VOLATILITY_K, VOLATILITY_LOOKBACK_DAYS,
-    )
-    ticker_thresholds: dict[str, float] = {}
-    for company in COMPANIES:
-        ticker = company["ticker"]
-        ticker_thresholds[ticker] = compute_volatility_threshold(ticker)
-
-    # ── Step 2: generate test cases ──
-    test_cases = generate_test_cases(ticker_thresholds)
+    test_cases = generate_test_cases()
 
     label_counts: dict[str, int] = {}
     window_counts: dict[int, int] = {}
     company_counts: dict[str, int] = {}
+
+    thresholds_by_window: dict[int, list[float]] = {w: [] for w in PREDICTION_WINDOWS}
+    thresholds_by_ticker: dict[str, list[float]] = {c["ticker"]: [] for c in COMPANIES}
+
     for case in test_cases:
         label = case["actual_label"]
         label_counts[label] = label_counts.get(label, 0) + 1
+
         w = case["prediction_window_days"]
         window_counts[w] = window_counts.get(w, 0) + 1
+        thresholds_by_window[w].append(case["neutral_threshold_used"])
+
         t = case["ticker"]
         company_counts[t] = company_counts.get(t, 0) + 1
+        thresholds_by_ticker[t].append(case["neutral_threshold_used"])
 
     output = {
         "metadata": {
             "created": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "description": "Evaluation test set for news-based stock prediction pipeline",
             "ground_truth_source": "yfinance",
-            # Volatility-scaled threshold metadata
-            "neutral_threshold_method": f"volatility_scaled_k{VOLATILITY_K}",
+            "neutral_threshold_method": "point_in_time_ewma_sigma_sqrt_window",
             "neutral_threshold_k": VOLATILITY_K,
-            "neutral_threshold_lookback_days": VOLATILITY_LOOKBACK_DAYS,
-            "neutral_thresholds_by_ticker": {
-                t: round(v, 6) for t, v in ticker_thresholds.items()
-            },
+            "ewma_lambda": EWMA_LAMBDA,
+            "ewma_lookback_calendar_days": EWMA_LOOKBACK_CALENDAR_DAYS,
             "companies": [c["ticker"] for c in COMPANIES],
             "prediction_windows": PREDICTION_WINDOWS,
             "total_cases": len(test_cases),
             "label_distribution": label_counts,
             "cases_per_window": window_counts,
             "cases_per_company": company_counts,
+            "avg_threshold_by_window": {
+                str(w): round(sum(vals) / len(vals), 6) if vals else None
+                for w, vals in thresholds_by_window.items()
+            },
+            "avg_threshold_by_ticker": {
+                t: round(sum(vals) / len(vals), 6) if vals else None
+                for t, vals in thresholds_by_ticker.items()
+            },
         },
         "test_cases": test_cases,
     }
@@ -339,8 +391,20 @@ def generate_and_save() -> None:
     logger.info("Cases per window:   %s", window_counts)
     logger.info("Cases per company:  %s", company_counts)
     logger.info(
-        "Thresholds used:    %s",
-        {t: f"{v * 100:.2f}%" for t, v in ticker_thresholds.items()},
+        "Avg threshold by window: %s",
+        {
+            w: f"{(sum(vals) / len(vals)) * 100:.2f}%"
+            for w, vals in thresholds_by_window.items()
+            if vals
+        },
+    )
+    logger.info(
+        "Avg threshold by ticker: %s",
+        {
+            t: f"{(sum(vals) / len(vals)) * 100:.2f}%"
+            for t, vals in thresholds_by_ticker.items()
+            if vals
+        },
     )
     logger.info("Saved to: %s", OUTPUT_PATH)
     logger.info("=" * 60)
