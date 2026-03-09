@@ -2,12 +2,12 @@ from __future__ import annotations
 
 import json
 import logging
-import math
 from typing import Any
 
 from transformers import pipeline
 
 from config import SENTIMENT_DEVICE, MODEL_NAME
+from predictor.abstention import apply_abstention
 
 logger = logging.getLogger(__name__)
 
@@ -120,74 +120,6 @@ def _classify_sentiment(text: str, company_name: str) -> dict[str, float]:
     return scores
 
 
-def _normalized_entropy(scores: dict[str, float]) -> float:
-    """
-    Returns entropy normalized to [0, 1].
-    0 -> very certain distribution
-    1 -> maximally uncertain distribution
-    """
-    values = [max(float(v), 1e-12) for v in scores.values()]
-    total = sum(values)
-    if total <= 0:
-        return 1.0
-
-    probs = [v / total for v in values]
-    entropy = -sum(p * math.log(p) for p in probs)
-    max_entropy = math.log(len(probs))
-    return entropy / max_entropy if max_entropy > 0 else 1.0
-
-
-def _effective_sample_size(weights: list[float]) -> float:
-    """
-    Kish-style effective sample size for weighted aggregation.
-    If one article dominates the total weight, effective evidence stays low.
-    """
-    if not weights:
-        return 0.0
-
-    weight_sum = sum(weights)
-    weight_sq_sum = sum(w * w for w in weights)
-
-    if weight_sq_sum <= 0:
-        return 0.0
-
-    return (weight_sum * weight_sum) / weight_sq_sum
-
-
-def _dynamic_abstention_margin(
-    normalized_scores: dict[str, float],
-    article_weights: list[float],
-    base_margin: float = 0.02,
-    entropy_strength: float = 0.03,
-    evidence_strength: float = 0.04,
-    min_margin: float = 0.02,
-    max_margin: float = 0.12,
-) -> float:
-    """
-    Dynamic abstention threshold.
-
-    Increases when:
-      - the class distribution is uncertain (high entropy)
-      - the effective amount of evidence is small
-
-    Decreases when:
-      - the model distribution is sharp
-      - many weighted articles support the aggregate decision
-    """
-    entropy_term = _normalized_entropy(normalized_scores)
-    n_eff = _effective_sample_size(article_weights)
-
-    evidence_term = 1.0 / math.sqrt(max(n_eff, 1.0))
-
-    threshold = (
-        base_margin
-        + (entropy_strength * entropy_term)
-        + (evidence_strength * evidence_term)
-    )
-
-    return max(min(threshold, max_margin), min_margin)
-
-
 def predict_sentiment(
     articles_json_path: str,
     company_name: str | None = None,
@@ -267,43 +199,8 @@ def predict_sentiment(
     else:
         normalized_scores = {"positive": 0.0, "negative": 0.0, "neutral": 0.0}
 
-    final_label = max(normalized_scores, key=normalized_scores.get)
-
-    sorted_labels = sorted(normalized_scores, key=normalized_scores.get, reverse=True)
-    top_label = sorted_labels[0]
-    runner_up = sorted_labels[1]
-
-    margin = round(
-        normalized_scores[top_label] - normalized_scores[runner_up], 4
-    )
-
-    dynamic_margin = round(
-        _dynamic_abstention_margin(
-            normalized_scores=normalized_scores,
-            article_weights=article_weights,
-        ),
-        4,
-    )
-
-    entropy = round(_normalized_entropy(normalized_scores), 4)
-    effective_n = round(_effective_sample_size(article_weights), 4)
-
-    abstention_method = None
-
-    if margin < dynamic_margin:
-        final_label = "neutral"
-        abstention_method = "dynamic_margin"
-        logger.info(
-            "Abstention: margin %.4f < dynamic threshold %.4f -> neutral "
-            "(top=%s, runner_up=%s, entropy=%.4f, eff_n=%.4f)",
-            margin, dynamic_margin, top_label, runner_up, entropy, effective_n,
-        )
-    else:
-        logger.info(
-            "Dynamic margin check passed: %.4f >= %.4f -> keep %s "
-            "(entropy=%.4f, eff_n=%.4f)",
-            margin, dynamic_margin, top_label, entropy, effective_n,
-        )
+    abstention = apply_abstention(normalized_scores, article_weights)
+    final_label = abstention["final_label"]
 
     result = {
         "query": query,
@@ -319,14 +216,7 @@ def predict_sentiment(
         "final_label": final_label,
         "final_confidence": normalized_scores[final_label],
         "article_details": article_sentiments,
-        "abstention_test": {
-            "method": abstention_method if abstention_method else "none",
-            "margin": margin,
-            "threshold": dynamic_margin,
-            "n_articles": len(article_sentiments),
-            "effective_n": effective_n,
-            "entropy": entropy,
-        },
+        "abstention_test": abstention["abstention_test"],
     }
 
     logger.info(
