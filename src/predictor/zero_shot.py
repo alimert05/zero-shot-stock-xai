@@ -97,17 +97,15 @@ def _classify_sentiment(text: str, company_name: str) -> dict[str, float]:
     class_to_label = {
         "positive": "positive financial outlook",
         "negative": "negative financial outlook",
-        "neutral": "no clear positive or negative financial outlook",
+        "neutral": "neutral financial outlook",
     }
     candidate_labels = list(class_to_label.values())
     label_to_class = {v.lower().strip(): k for k, v in class_to_label.items()}
 
-    analysis_text = f"Analyze this financial news about {company_name}. {text}"
-
     result = pipe(
-        analysis_text,
+        text,
         candidate_labels=candidate_labels,
-        hypothesis_template="The overall sentiment indicates {}.",
+        hypothesis_template="This text is {} about the financial outlook.",
         multi_label=False,
     )
 
@@ -167,7 +165,7 @@ def predict_sentiment(
         total_weight += final_weight
         article_weights.append(final_weight)
 
-        content_raw = article.get("content") or ""
+        content_raw = article.get("cotent") or ""
         if include_title:
             source_label = "headline+content"
         elif content_raw.strip():

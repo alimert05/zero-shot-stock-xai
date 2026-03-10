@@ -63,7 +63,7 @@ class Fetcher:
         self.search()
         return self.display_results()
 
-    def __init__(self) -> None:
+    def __init__(self, temp_dir=None) -> None:
         self.start_date: str | None = None
         self.end_date: str | None = None
         self.backward_start_date: datetime | None = None
@@ -72,8 +72,9 @@ class Fetcher:
         self.ticker: str | None = None
 
         self.data: dict | None = None
-        self.temp_dir = TEMP_PATH
+        self.temp_dir = temp_dir if temp_dir is not None else TEMP_PATH
         self.output_file = os.path.join(self.temp_dir, "articles.json")
+        self.quiet: bool = False
 
         self.timeout = REQUEST_TIMEOUT_LIMIT
         self.max_backward_days: int | None = None
@@ -243,8 +244,11 @@ class Fetcher:
         )
 
         company_name = self.query.strip()
-        ticker = resolve_ticker(company_name)
-        self.ticker = ticker
+        if self.ticker:
+            ticker = self.ticker
+        else:
+            ticker = resolve_ticker(company_name)
+            self.ticker = ticker
 
         if ticker:
             logger.info("Resolved ticker for '%s' -> %s", company_name, ticker)
@@ -395,7 +399,8 @@ class Fetcher:
 
         if not self.data:
             logger.warning("No data to display")
-            print("No data available to display.")
+            if not self.quiet:
+                print("No data available to display.")
             return False
 
         articles = self.data.get("articles", [])
@@ -406,34 +411,37 @@ class Fetcher:
             except Exception as exc:
                 logger.error("Failed to save empty article payload: %s", exc)
             logger.warning("No articles to display")
-            print("No articles found in the response.")
+            if not self.quiet:
+                print("No articles found in the response.")
             return False
 
         try:
             self.save_articles(articles)
         except Exception as exc:
             logger.error("Failed to save articles: %s", exc)
-            print("Warning: Could not save articles to file")
+            if not self.quiet:
+                print("Warning: Could not save articles to file")
 
-        print(f"\n{'='*50}")
-        print(f"Displaying {len(articles)} articles:")
-        print(f"{'='*50}\n")
+        if not self.quiet:
+            print(f"\n{'='*50}")
+            print(f"Displaying {len(articles)} articles:")
+            print(f"{'='*50}\n")
 
-        for idx, article in enumerate(articles, 1):
-            try:
-                title = article.get("title", "No title")
-                final_weight = article.get("final_weight")
-                impact_horizon = article.get("impact_horizon", {})
+            for idx, article in enumerate(articles, 1):
+                try:
+                    title = article.get("title", "No title")
+                    final_weight = article.get("final_weight")
+                    impact_horizon = article.get("impact_horizon", {})
 
-                print(f"[{idx}] Title: {title}")
-                if final_weight is not None:
-                    horizon_cat = impact_horizon.get("category", "N/A")
-                    horizon_days = impact_horizon.get("horizon_days", "N/A")
-                    print(f"     Weight: {final_weight:.3f} | Horizon: {horizon_cat} ({horizon_days}d)")
-                print("-" * 40)
-            except Exception as exc:
-                logger.warning("Error displaying article %s: %s", idx, exc)
-                continue
+                    print(f"[{idx}] Title: {title}")
+                    if final_weight is not None:
+                        horizon_cat = impact_horizon.get("category", "N/A")
+                        horizon_days = impact_horizon.get("horizon_days", "N/A")
+                        print(f"     Weight: {final_weight:.3f} | Horizon: {horizon_cat} ({horizon_days}d)")
+                    print("-" * 40)
+                except Exception as exc:
+                    logger.warning("Error displaying article %s: %s", idx, exc)
+                    continue
 
-        logger.info("Displayed %s articles", len(articles))
+        logger.info("Saved %s articles to %s", len(articles), self.output_file)
         return True

@@ -1,0 +1,241 @@
+{
+  "metadata": {
+    "run_timestamp": "2026-03-09 21:21:39",
+    "models": {
+      "roberta": {
+        "hf_name": "roberta-large-mnli",
+        "display": "RoBERTa Large MNLI"
+      }
+    },
+    "datasets": [
+      "C:\\Users\\alime\\Desktop\\financial_dataset\\financial_phrasebank_sentences_50agree.csv",
+      "C:\\Users\\alime\\Desktop\\financial_dataset\\financial_phrasebank_sentences_75agree.csv",
+      "C:\\Users\\alime\\Desktop\\financial_dataset\\financial_phrasebank_sentences_allagree.csv"
+    ],
+    "max_samples": null,
+    "device": 0,
+    "hypothesis_template": "The financial assessment in this text is {}.",
+    "label_map": {
+      "positive": "favorable",
+      "negative": "unfavorable",
+      "neutral": "neutral"
+    },
+    "evaluation_labels": [
+      "positive",
+      "negative",
+      "neutral"
+    ]
+  },
+  "results": {
+    "roberta": {
+      "financial_phrasebank_sentences_50agree.csv": {
+        "dataset_path": "C:\\Users\\alime\\Desktop\\financial_dataset\\financial_phrasebank_sentences_50agree.csv",
+        "samples": 4846,
+        "label_distribution": {
+          "neutral": 2879,
+          "negative": 604,
+          "positive": 1363
+        },
+        "duration_seconds": 52.75,
+        "metrics": {
+          "accuracy": 0.5113,
+          "macro_precision": 0.5564,
+          "macro_recall": 0.6849,
+          "macro_f1": 0.5223,
+          "f1_scores": {
+            "positive": 0.5803,
+            "negative": 0.5788,
+            "neutral": 0.4078
+          },
+          "per_class": {
+            "negative": {
+              "precision": 0.4124,
+              "recall": 0.9702,
+              "f1": 0.5788,
+              "support": 604,
+              "tp": 586,
+              "fp": 835,
+              "fn": 18
+            },
+            "neutral": {
+              "precision": 0.8053,
+              "recall": 0.273,
+              "f1": 0.4078,
+              "support": 2879,
+              "tp": 786,
+              "fp": 190,
+              "fn": 2093
+            },
+            "positive": {
+              "precision": 0.4516,
+              "recall": 0.8114,
+              "f1": 0.5803,
+              "support": 1363,
+              "tp": 1106,
+              "fp": 1343,
+              "fn": 257
+            }
+          },
+          "confusion_matrix": {
+            "negative": {
+              "negative": 586,
+              "neutral": 8,
+              "positive": 10
+            },
+            "neutral": {
+              "negative": 760,
+              "neutral": 786,
+              "positive": 1333
+            },
+            "positive": {
+              "negative": 75,
+              "neutral": 182,
+              "positive": 1106
+            }
+          },
+          "total": 4846,
+          "correct": 2478
+        }
+      },
+      "financial_phrasebank_sentences_75agree.csv": {
+        "dataset_path": "C:\\Users\\alime\\Desktop\\financial_dataset\\financial_phrasebank_sentences_75agree.csv",
+        "samples": 3453,
+        "label_distribution": {
+          "neutral": 2146,
+          "positive": 887,
+          "negative": 420
+        },
+        "duration_seconds": 37.29,
+        "metrics": {
+          "accuracy": 0.5178,
+          "macro_precision": 0.5715,
+          "macro_recall": 0.7046,
+          "macro_f1": 0.5261,
+          "f1_scores": {
+            "positive": 0.5839,
+            "negative": 0.5557,
+            "neutral": 0.4388
+          },
+          "per_class": {
+            "negative": {
+              "precision": 0.3888,
+              "recall": 0.9738,
+              "f1": 0.5557,
+              "support": 420,
+              "tp": 409,
+              "fp": 643,
+              "fn": 11
+            },
+            "neutral": {
+              "precision": 0.8806,
+              "recall": 0.2922,
+              "f1": 0.4388,
+              "support": 2146,
+              "tp": 627,
+              "fp": 85,
+              "fn": 1519
+            },
+            "positive": {
+              "precision": 0.4452,
+              "recall": 0.8478,
+              "f1": 0.5839,
+              "support": 887,
+              "tp": 752,
+              "fp": 937,
+              "fn": 135
+            }
+          },
+          "confusion_matrix": {
+            "negative": {
+              "negative": 409,
+              "neutral": 2,
+              "positive": 9
+            },
+            "neutral": {
+              "negative": 591,
+              "neutral": 627,
+              "positive": 928
+            },
+            "positive": {
+              "negative": 52,
+              "neutral": 83,
+              "positive": 752
+            }
+          },
+          "total": 3453,
+          "correct": 1788
+        }
+      },
+      "financial_phrasebank_sentences_allagree.csv": {
+        "dataset_path": "C:\\Users\\alime\\Desktop\\financial_dataset\\financial_phrasebank_sentences_allagree.csv",
+        "samples": 2264,
+        "label_distribution": {
+          "neutral": 1391,
+          "positive": 570,
+          "negative": 303
+        },
+        "duration_seconds": 24.13,
+        "metrics": {
+          "accuracy": 0.5411,
+          "macro_precision": 0.5948,
+          "macro_recall": 0.7177,
+          "macro_f1": 0.549,
+          "f1_scores": {
+            "positive": 0.6025,
+            "negative": 0.5764,
+            "neutral": 0.4682
+          },
+          "per_class": {
+            "negative": {
+              "precision": 0.4088,
+              "recall": 0.9769,
+              "f1": 0.5764,
+              "support": 303,
+              "tp": 296,
+              "fp": 428,
+              "fn": 7
+            },
+            "neutral": {
+              "precision": 0.9125,
+              "recall": 0.3149,
+              "f1": 0.4682,
+              "support": 1391,
+              "tp": 438,
+              "fp": 42,
+              "fn": 953
+            },
+            "positive": {
+              "precision": 0.4632,
+              "recall": 0.8614,
+              "f1": 0.6025,
+              "support": 570,
+              "tp": 491,
+              "fp": 569,
+              "fn": 79
+            }
+          },
+          "confusion_matrix": {
+            "negative": {
+              "negative": 296,
+              "neutral": 2,
+              "positive": 5
+            },
+            "neutral": {
+              "negative": 389,
+              "neutral": 438,
+              "positive": 564
+            },
+            "positive": {
+              "negative": 39,
+              "neutral": 40,
+              "positive": 491
+            }
+          },
+          "total": 2264,
+          "correct": 1225
+        }
+      }
+    }
+  },
+  "failures": []
+}
