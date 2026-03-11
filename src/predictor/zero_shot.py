@@ -6,7 +6,7 @@ from typing import Any
 
 from transformers import pipeline
 
-from config import SENTIMENT_DEVICE, MODEL_NAME, PRIOR_DEBIASING_ENABLED
+from config import SENTIMENT_DEVICE, MODEL_NAME, PRIOR_DEBIASING_ENABLED, PRIOR_DEBIASING_ALPHA
 from predictor.abstention import apply_abstention
 
 logger = logging.getLogger(__name__)
@@ -214,20 +214,27 @@ def estimate_prior(batch_size: int = 32) -> dict[str, float]:
 def _debias_scores(
     raw_scores: dict[str, float],
     prior: dict[str, float],
+    alpha: float = PRIOR_DEBIASING_ALPHA,
 ) -> dict[str, float]:
-    """Apply Bayesian prior correction to raw classification scores.
+    """Apply dampened Bayesian prior correction to raw classification scores.
 
-    For each label:  adjusted[label] = raw[label] / prior[label]
+    For each label:  adjusted[label] = raw[label] / prior[label]^α
     Then renormalise so the adjusted scores sum to 1.
+
+    α controls the correction strength:
+        α = 1.0  → full debiasing (original Zhao et al. 2021)
+        α = 0.5  → half-strength (gentler correction)
+        α = 0.0  → no debiasing (raw scores unchanged)
 
     This removes the model's inherent bias: a label with a high prior
     (e.g. positive) is penalised, while a label with a low prior
-    (e.g. negative) is boosted proportionally.
+    (e.g. negative) is boosted proportionally.  The damping factor α
+    prevents over-correction when the prior estimate is noisy.
     """
     adjusted = {}
     for label in raw_scores:
         p = prior.get(label, 1.0)
-        adjusted[label] = raw_scores[label] / max(p, 1e-8)
+        adjusted[label] = raw_scores[label] / max(p ** alpha, 1e-8)
 
     total = sum(adjusted.values())
     if total > 0:
@@ -360,6 +367,7 @@ def predict_sentiment(
         "total_weight": round(total_weight, 4),
         "prior_debiasing": {
             "enabled": prior is not None,
+            "alpha": PRIOR_DEBIASING_ALPHA if prior is not None else None,
             "prior": {k: round(v, 4) for k, v in prior.items()} if prior else None,
         },
         "weighted_scores": {

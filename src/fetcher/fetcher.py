@@ -155,7 +155,6 @@ class Fetcher:
 
                 normalised.append({
                     "title": item.get("headline", ""),
-                    "url": article_url,
                     "sourceurl": article_url,
                     "seendate": seendate,
                     "seendate_et": seendate_et,

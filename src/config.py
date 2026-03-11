@@ -73,6 +73,7 @@ XAI_MIN_UNIQUE_SOURCES             = 2      # flag if fewer unique domains
 
 # Prior debiasing (Bayesian correction for zero-shot label bias)
 PRIOR_DEBIASING_ENABLED        = True
+PRIOR_DEBIASING_ALPHA          = 1.0       # damping: 0=off, 1=full, 0.5=half-strength
 
 # Decision thresholds (tuned on tune set via grid search, macro F1)
 # Applied before dynamic abstention margin.

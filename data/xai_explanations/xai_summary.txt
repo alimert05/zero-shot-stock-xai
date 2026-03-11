@@ -1,11 +1,11 @@
 ============================================================
   SENTIMENT ANALYSIS EXPLANATION REPORT
 ============================================================
-  Company           : Apple  (AAPL)
-  Forecast horizon  : 28 days
-  News lookback     : 2026-02-10 to 2026-03-08 (ET market-close aligned)
-  Articles analysed : 415
-  Generated at      : 2026-03-08 15:45:20
+  Company           : Apple Inc.  (AAPL)
+  Forecast horizon  : 7 days
+  News lookback     : 2026-02-25 to 2026-03-11 (ET market-close aligned)
+  Articles analysed : 47
+  Generated at      : 2026-03-11 21:25:38
 ============================================================
 
 ════════════════════════════════════════════════════════════
@@ -17,14 +17,14 @@
   What the model decided and why — in plain English
 ------------------------------------------------------------
 
-  The model predicted a POSITIVE label with a 40.8% score share based on 415 articles over 28 days.
-The top article is "‘Hermès orange’ iPhone sparks Apple comeback in China" with a POSITIVE sentiment.
-The label margin is narrow (0.075), but reliability is LOW due to a narrow decision margin; confidence is below threshold; source concentration (yahoo has 79% of articles).
+  The model predicted a NEGATIVE label with a 36.5% score share based on 47 articles over 7 days.
+The top article is "AI Takes Center Stage: Apple Launches M5 MacBook Air, Pro And New XDR Display" with a positive sentiment.
+The label margin is moderate (0.188), but reliability is LOW due to confidence is below threshold; source concentration (yahoo has 83% of articles).
 
   PREDICTION RESULT
   Sentiment scores across all analysed articles
 ------------------------------------------------------------
-  Ground truth : close-to-close return over 28-day forecast horizon, neutral band +/-0.3%.
+  Ground truth : close-to-close return over 7-day forecast horizon, neutral band +/-0.3%.
   Disclaimer   : Model support measures how much weight the model
                   assigns to the winning label relative to alternatives.
                   It is NOT a calibrated probability of future return
@@ -32,259 +32,97 @@ The label margin is narrow (0.075), but reliability is LOW due to a narrow decis
 
   Score chart  (each █ ≈ 2.5%):
 
-    positive :  40.8%  ████████████████░░░░░░░░░░░░░░░░░░░░░░░░  ◄ PREDICTED
-    negative :  33.3%  █████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░
-     neutral :  25.8%  ██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+    positive :  55.3%  ██████████████████████░░░░░░░░░░░░░░░░░░
+    negative :  36.5%  ███████████████░░░░░░░░░░░░░░░░░░░░░░░░░  ◄ PREDICTED
+     neutral :   8.1%  ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-  Verdict     : POSITIVE
-  Model support : 40.8%  (share of model weight, not a probability)
+  Verdict     : NEGATIVE
+  Model support : 36.5%  (share of model weight, not a probability)
 
   RECOMMENDATION
   What you should do with this result
 ------------------------------------------------------------
-  This prediction has LOW reliability and should NOT be used alone for decisions. Reasons: the positive and negative scores are very close — a small shift in news could change the verdict; overall confidence is below the recommended threshold; most articles come from the same editorial source, reducing editorial independence. Note: aggregators (Yahoo, Finnhub) are excluded from this check because they collect from many independent editorial desks. Mitigation: articles are de-duplicated across all domains by title (keeping the oldest copy — the first to break the news); weighting is content-based (not source-based).
+  This prediction has LOW reliability and should NOT be used alone for decisions. Reasons: overall confidence is below the recommended threshold; most articles come from the same editorial source, reducing editorial independence. Note: aggregators (Yahoo, Finnhub) are excluded from this check because they collect from many independent editorial desks. Mitigation: articles are de-duplicated across all domains by title (keeping the oldest copy — the first to break the news); weighting is content-based (not source-based).
 
   NARRATIVE THEMES
   What the news is about and the dominant tone per theme
 ------------------------------------------------------------
-    market commentary, s: 174 articles (42%)  ▲ positive  (+91 / -70 / =13)
-    earnings report, gui: 141 articles (34%)  ▲ positive  (+83 / -41 / =17)
-    product launch, part:  47 articles (11%)  ▲ positive  (+29 / -18 / =0)
-    analyst upgrade, dow:  19 articles (5%)  ▲ positive  (+10 / -3 / =6)
-    merger, acquisition,:  13 articles (3%)  ▲ positive  (+7 / -6 / =0)
-    lawsuit, investigati:  12 articles (3%)  ▼ negative  (+3 / -9 / =0)
-    CEO change, executiv:   7 articles (2%)  ▼ negative  (+3 / -4 / =0)
-    financial distress, :   1 articles (0%)  ▼ negative  (+0 / -1 / =0)
-    share buyback, divid:   1 articles (0%)  ▲ positive  (+1 / -0 / =0)
+    market commentary, s:  22 articles (47%)  ▲ positive  (+18 / -4 / =0)
+    product launch, part:   8 articles (17%)  ▲ positive  (+8 / -0 / =0)
+    earnings report, gui:   7 articles (15%)  ▲ positive  (+5 / -2 / =0)
+    lawsuit, investigati:   6 articles (13%)  ▲ positive  (+5 / -1 / =0)
+    analyst upgrade, dow:   2 articles (4%)  ▲ positive  (+2 / -0 / =0)
+    CEO change, executiv:   1 articles (2%)  ▲ positive  (+1 / -0 / =0)
+    share buyback, divid:   1 articles (2%)  ▼ negative  (+0 / -1 / =0)
 
   Storylines (auto-discovered from article titles):
 
-    Storylines supporting the POSITIVE prediction:
-      "Tech giant's stock surges despite market downturn." (18 articles)  ▲ positive  (+18 / -0 / =0)
-        → 1 Reason to Buy Apple Stock Right Now
-        → 3 Reasons to Buy Apple Stock -- and 1 Reason to Think Twice
-        → Apple Stock Is Steady as a Rock Amid AI Selloff: How to Play AAPL St
-        → Apple stock rises as it bucks tech selloff amid AI disruption fears
-        → What's Happening With The Jump In Apple Stock?
-        → Should You Buy Apple Stock Before Earnings on January 29? This Analy
-        → Still like Apple's stock as it comes without hyperscaler risk: G Squ
-        → Buy the Dip in Apple Stock Before January 29, According to Goldman S
-        → Apple stock gains amid tech sell-off, Yum! Brands' mixed Q4 results
-        → Bank of America delivers sharp take on Apple stock after major shift
-        → Apple stock spikes after report of Siri revamp into chatbot
-        → Can Apple Stock Reach $350 in 2026?
-        → Could a Wearable AI Pin Be the Next Big Thing for Apple Stock?
-        → This Analyst Still Thinks Apple Stock Is a Top Pick for 2026
-        → How Apple Stock Could Add $100 Per Share in 2026 and Beyond
-        → Apple Stock, Part II: How To Find & Own America's Greatest Opportuni
-        → Where Will Apple Stock Be in 1 Year?
-        → Dear Apple Stock Fans, Mark Your Calendars for January 29
-      "iPhone sales drive strong Q1 earnings." (8 articles)  ▲ positive  (+8 / -0 / =0)
-        → Apple's Q1: The Quarter That Most Positively Surprised Me So Far (Up
-        → Apple Q1 Earnings Call Highlights
-        → Should You Bet on Apple's iPhone-Driven Q1 Earnings? ETFs in Focus
-        → Apple Q1 Earnings Beat Estimates, iPhone Drives Top-Line Growth
-        → Apple Inc (AAPL) Q1 2026 Earnings Call Highlights: Record Revenue an
-        → Apple's Q1 earnings beat: Key takeaways
-        → Apple: Fiscal Q1 Earnings Snapshot
-        → Apple AAPL Q1 2026 Earnings Call Transcript
-      "CEO's Positive Outlook Boosts Stock Prices" (7 articles)  ▲ positive  (+7 / -0 / =0)
-        → Apple Stock Investors Just Got Fantastic News From Tim Cook
-        → Apple CEO Tim Cook Just Gave Great News to Micron Investors
-        → Apple CEO Tim Cook talks memory shortages, other supply constraints
-        → Opinion: Why It’s Time to Follow Tim Cook and CEO Elliott Hill Into 
-        → Apple CEO Tim Cook Sees Growing Enthusiasm for Apple TV
-        → Apple CEO Says It Was a Terrific Quarter In India
-        → Apple CEO Says Store Traffic In China Grew By Double Digits In Q1
-      "Investors optimistic about future growth prospects." (8 articles)  ▲ positive  (+8 / -0 / =0)
-        → Why JPMorgan Says Apple’s (AAPL) Results Should Calm Investor Nerves
-        → Goldman Sticks With Apple (AAPL) Buy Rating Despite Early-2026 Weakn
-        → Apple’s (AAPL) AI Roadmap Strengthens With Google Deal, Says Evercor
-        → Apple (AAPL) Continued to Rebound in Q4
-        → Is Trending Stock Apple Inc. (AAPL) a Buy Now?
-        → Apple’s (AAPL) AI-Powered Siri and Foldable iPhone Are Key Catalysts
-        → As Apple Teams Up with Google on Siri AI Upgrades, Should You Buy AA
-        → As Apple Builds Its New Campos Chatbot, Should You Buy, Sell, or Hol
-      "Jim Cramer defends tech giant's stock performance." (7 articles)  ▲ positive  (+7 / -0 / =0)
-        → Jim Cramer Says “I Think Apple’s Quarter Was Fantastic and Its Futur
-        → Jim Cramer Says Apple is “Humming Along, Making a Lot of Money”
-        → “I’d Like to be as Incompetent,” As Apple (AAPL)’s CEO, Says Jim Cra
-        → Jim Cramer on Apple: “The Pessimists Are Starting to Tremble”
-        → Apple (AAPL)’s The Place to Go If You Want to Make Some Money, Says 
-        → “Please Don’t Forget Apple (AAPL),” Says Jim Cramer
-        → Jim Cramer on JPMorgan: “It Was Due for a Breather”
-      "Apple's AI investments reshape future strategy." (8 articles)  ▲ positive  (+8 / -0 / =0)
-        → Alphabet Inc. (GOOGL) Strengthens Its Position in AI and Cloud Innov
-        → Apple’s Q.ai Deal And Gemini Siri Tie Up Reframe AI Investment Case
-        → With Gemini Powering Apple's Siri, Alphabet Could Soon Be the Undisp
-        → Apple’s AI Partnerships Reframe Siri, CarPlay And Health For Investo
-        → Apple’s Gemini Deal And EU Ruling Reframe Long Term AI Story
-        → Siri to Get Smarter With Gemini: The ETF Playbook for Investors
-        → How Apple’s Gemini-Powered Siri Deal Will Impact Alphabet (GOOGL) In
-        → Investors look out for Apple’s AI plans after Siri reboot announced
-      "Tech giants report earnings and Fed decisions." (9 articles)  ▲ positive  (+9 / -0 / =0)
-        → Apple FQ1 Earnings: 2 Accounting Details To Watch For
-        → Dow Jones Futures: Tesla, Microsoft, Meta, Apple Lead Earnings Wave 
-        → Apple, Microsoft, Meta To Report Results; Fed's Interest Rate Decisi
-        → What to Expect in Markets This Week: Fed Interest Rate Decision, Ear
-        → Cramer’s week ahead: Earnings from Meta, Microsoft and Apple. Plus, 
-        → Fed Meeting, Apple, Meta, GM, Boeing, Chevron, and More to Watch Thi
-        → Stocks to watch next week: Tesla, Meta, Microsoft, Apple and Lloyds
-        → Fed Meeting, Apple, Microsoft Earnings: What to Watch Next Week
-        → Watch February Earnings From NVIDIA and Microsoft to Predict Where T
+    Storylines supporting the NEGATIVE prediction:
+      "Tech giant faces financial and regulatory challenges." (8 articles)  ▼ negative  (+0 / -8 / =0)
+        → Bitcoin Is Going Through 'Valley Of Despair,' Michael Saylor Says, C
+        → How Apple’s Lazy AI Strategy Could Crush the Competition
+        → Apple just fired warning shot that could reshape 2026 iPhone cycle
+        → Nvidia earnings, Apple CEO teases product launches: Tech Support
+        → Apple’s Stock Recovery Is No Recovery At All
+        → AAPD’s 3.43% Yield Looks Great Until You See the 40% Hangover
+        → Is Apple (AAPL) Still Fairly Priced After Recent Services Revenue St
+        → Berkshire reduces Apple stake, FDA to review Moderna vaccine
 
-    Opposing storylines (negative):
-      "Tech earnings spark market volatility and uncertainty" (21 articles)  ▼ negative  (+0 / -21 / =0)
-        → Apple Becomes Apple Again
-        → Stock market today: S&P 500, Nasdaq fall as Microsoft leads tech low
-        → Stock Market Today: Nasdaq Down As Sellers Sting Microsoft, ServiceN
-        → Trump's Fed nominee, Apple earnings, gold prices sink: 3 Things
-        → Apple Q1: Don't Buy These Earnings, Limited Upside
-        → Stock market today: Dow, S&P 500, Nasdaq futures slide as Trump's Fe
-        → Stock market today: Dow, S&P 500, Nasdaq futures slide as Apple earn
-        → Dow Jones Futures Due With Trump Tariffs, Government Shutdown, Big E
-        → Dow Jones Futures Loom: New Trump Tariff Threat, Government Shutdown
-        → Dow Jones Futures Fall; Trump Tariffs, Government Shutdown, Big Earn
-        → Earnings live: Intel stock plunges, with more Big Tech earnings from
-        → Trump picks Warsh, Apple earnings, the software bear market and more
-        → Apple Admitted Something on Its Earnings Call That Intel Investors N
-        → Apple, Microsoft, and Tesla Earnings Loom as Stocks Stall and Risks 
-        → Apple Thinks Differently, Again: Q1 FY2026 Earnings Review
-        → Apple: As Earnings Near, Valuation And Industry Weakness Should Be T
-        → Trump's credit card cap could make most of industry 'unprofitable'
-        → The Weekend: Gold rush ends and Big Tech earnings reveal mixed fortu
-        → Dow Jones Futures: Trump Threatens 100% Canada Tariff; Tesla, Micros
-        → Tech, Media & Telecom Roundup: Market Talk
-        → Apple: Setting Up For An Earnings Surprise
-      "Global memory chip shortage impacts iPhone prices" (11 articles)  ▼ negative  (+0 / -11 / =0)
-        → Pricier iPhones? Global memory chip crunch puts spotlight on Apple
-        → 5 big analyst AI moves: Apple faces ’further downside’; ASML, AMAT u
-        → ChatGPT Thinks Apple Stock Will Close At This Price In The Next 60 D
-        → Apple faces iPhone pricing challenge, supply crunch as AI demand dee
-        → Intel Faces Memory-Price Crunch. Why Apple Will Be the Next Victim.
-        → Apple Faces iPhone Shortages Amid Chip Production Constraints
-        → Apple: Booming iPhone 17 Vs. Soaring Memory Costs (Rating Downgrade)
-        → Barclays Maintains Underweight on Apple, Raises Price Target to $239
-        → Soaring Memory Prices Lift Chipmakers, Pressure Apple and HP
-        → Apple Faces Final Warning From India in Antitrust Dispute
-        → Apple: Could the memory chip shortage raise iPhone prices?
-      "Tech giants engage in AI power struggle" (10 articles)  ▼ negative  (+0 / -10 / =0)
-        → Alphabet won’t talk about the Google-Apple AI deal, even to investor
-        → Musk Says Apple Once 'Carpet Bombed' Tesla Engineers With Recruiting
-        → Elon Musk Slams Google, Apple Deal: 'Unreasonable Concentration Of P
-        → Elon Musk has strong words on new Apple-Google AI move
-        → Cathie Wood's ARK Invest Says Apple's Reliance On Google For AI Sign
-        → Is Apple's AI partnership with Google a major loss for OpenAI?
-        → Google's Apple AI deal marks 'huge loss' for OpenAI
-        → Women's, advocacy groups call on Apple, Google to drop X and Grok fr
-        → What Apple’s AI deal with Google means for the two tech giants, and 
-        → AI & Business Newsletter | Hey Google. Make Siri Work Better
-      "Tech giants invest in emerging AI industry." (10 articles)  ▼ negative  (+0 / -10 / =0)
-        → Intel Foundry Talks With Nvidia And Apple Meet Rich Valuation Concer
-        → Apple's Stock Dumped By Retail Investors, Oscar Nominations, Nvidia'
-        → Nvidia Dethrones Apple As Taiwan Semiconductor's Largest Customer
-        → Netflix, Apple Land Best Picture Oscar Nominations, But Prediction M
-        → What Nvidia didn’t show at CES, and whether AMD should care
-        → Nvidia's place in AI, Apple downgrade, JPMorgan cautious on oil
-        → Forget AI Start-Ups: This Trillion‑Dollar Tech Titan Is Emerging as 
-        → Intel Foundry Talks With Nvidia And Apple Raise Long Term Questions
-        → Apple Is Reportedly Looking to Partner with Intel Foundry. Does That
-        → President Donald Trump's Tax Policy Has Lit a Fire Under This Trilli
-      "Tim Cook's leadership under scrutiny over AI and succession." (16 articles)  ▼ negative  (+0 / -16 / =0)
-        → Ross Gerber Demands Tim Cook Resign: ‘He Hasn’t Done a Thing in Year
-        → Apple CEO Tim Cook Says Memory Prices Will Have 'a Bit More Impact' 
-        → Apple CEO sends blunt message iPhone 18 fans can’t ignore
-        → Guys, I don’t think Tim Cook knows how to monetize AI
-        → If Apple CEO Tim Cook Steps Down In 2026, Here's Who Could Take Over
-        → Apple and Qualcomm Stocks Falls -- Report Says Companies Facing Pote
-        → Apple CEO Says It's Difficult To Predict When Supply And Demand Will
-        → Apple, Qualcomm Hit AI Supply Snag
-        → Apple CFO Says Experienced Constraints For AirPods Pro 3 In Q1
-        → Apple CEO Tim Cook Says Majority Of Users On Enabled Iphones Are Usi
-        → Apple’s Cook Talks Immigration, Succession and AI at Meeting
-        → Apple CEO Tim Cook Says Co. Working To Make 100% Of Cover Glass For 
-        → Apple CEO Tim Cook Says Supply Constraints Driven By Advanced Chipma
-        → Apple CEO Tim Cook On Google Partnership Says We'll Continue To Run 
-        → Apple CFO Says Majority Of Apple Watch Customers In Q1 Were New To P
-        → Apple CEO Says Co. Gained Market Share In Handsets In December Quart
-      "AI talent drain affects tech giant profits" (10 articles)  ▼ negative  (+0 / -10 / =0)
-        → The AI Boom Is Coming for Apple’s Profit Margins
-        → Apple loses more AI researchers to Meta and Google DeepMind
-        → Can PayPal’s Latest AI Bet Spark a Stock Revival?
-        → Apple Scales Back AI Health Coach Plans
-        → 'Apple Loses More AI Researchers And A Siri Executive In Latest Depa
-        → AI’s Fundraising Frenzy Continues
-        → The Hidden Winner in Nvidia's AI Chip Boom Isn't Who You'd Expect
-        → AI Market Looks More Like Boom than Bubble After TSMC Earnings
-        → Apple had 'phenomenal' Q1, but what are its plans for AI?
-        → 'Apple Plans to Allow Outside Voice-Controlled AI Chatbots in CarPla
-      "Investor concerns over stock performance and valuation." (9 articles)  ▼ negative  (+0 / -9 / =0)
-        → Apple Inc. (AAPL): A Bear Case Theory
-        → Jim Cramer Reveals Why Apple (AAPL) Stock is Struggling
-        → Apple (AAPL) Declines More Than Market: Some Information for Investo
-        → Looking At The Apple AAPL Narrative After Gemini Deal And Margin Con
-        → Is Apple (AAPL) Still Priced Attractively After Recent Share Price W
-        → Jim Cramer on Ares Capital: “I Want to Be Very Careful There”
-        → How To Trade SPY, QQQ, AAPL, MSFT, NVDA, GOOGL, META, TSLA Using Tec
-        → Calculating The Fair Value Of Apple Inc. (NASDAQ:AAPL)
-        → Apple Inc. (AAPL) Q1 2026 Earnings Call Transcript
+    Opposing storylines (positive):
+      "Services segment drives revenue and growth." (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → Assessing Apple (AAPL) Valuation As Tariffs Pressure Hardware And Se
+        → Apple's Services Growth Ride on Strong Content & Games: What's Ahead
+      "Investment in AI manufacturing boosts supply chain." (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → Apple’s Houston Manufacturing Push Ties AI Servers To Supply Resilie
+        → What Apple (AAPL)'s Houston AI Manufacturing Push Means For Sharehol
+      "New budget-friendly products expected to disrupt market." (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → Apple unveils low-cost iPhone 17e with a price tag of $599
+        → Is Apple unveiling a low-cost MacBook Air next month?
+      "AI wearables expand product ecosystem significantly." (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → Apple’s AI Wearables And Product Week Could Reshape Long Term Growth
+        → Apple’s AI Wearables Push Extends Ecosystem Beyond Core Devices
+      "AI technology sparks stock market uncertainty concerns" (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → Apple’s New AI Devices And U.S. Manufacturing Shift Weigh On Valuati
+        → As Apple Tests AI Devices, Should You Buy AAPL Stock Here?
+      "Smart money bets on tech stocks' volatility." (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → Smart Money Is Betting Big In AAPL Options
+        → The Saturday Spread: Using Volatility Skew as a Smart Money Gauge (T
 
-    Neutral storylines:
-      "Analysts maintain neutral stance on stock." (4 articles)  ■ neutral  (+0 / -0 / =4)
-        → DA Davidson Maintains Neutral on Apple, Maintains $270 Price Target
-        → Rosenblatt Maintains Neutral on Apple, Raises Price Target to $267
-        → Jefferies Maintains Hold on Apple, Raises Price Target to $286.54
-        → UBS Reaffirms Its ‘Neutral’ Rating with a $280 Price Target on Apple
-      "Tech giants face market volatility and challenges." (2 articles)  ■ neutral  (+0 / -0 / =2)
-        → Stocks to Watch Friday Recap: Apple, Sandisk, Verizon, Roblox
-        → Stocks to Watch Friday: Apple, Chevron, Visa
-      "Stock market reacts to Fed interest rate decision" (2 articles)  ■ neutral  (+0 / -0 / =2)
-        → Dow Jones Futures Fall With Trump Fed Pick Due; Apple Rises, Tesla P
-        → Dow Jones Futures Fall; Apple Rises, Tesla Pops, Sandisk Soars After
-      "Rising memory costs threaten smartphone profits" (2 articles)  ■ neutral  (+0 / -0 / =2)
-        → Memory Costs Squeeze Tech, Apple Holds Firm
-        → Apple iPhone Upside Could Be Overshadowed by Rising Memory Costs, UB
-      "iPhone sales drive revenue surge globally." (2 articles)  ■ neutral  (+0 / -0 / =2)
-        → Apple sees surging March revenue with strong iPhone demand in Asia
-        → Morgan Stanley and JPMorgan Bullish on Apple Inc. (AAPL) on Strong  
-
-    Other topics (251 articles — titles too unique to cluster with any other article; each covers a distinct story)
+    Other topics (27 articles — titles too unique to cluster with any other article; each covers a distinct story)
 
 ============================================================
   FINAL PLAIN-ENGLISH OVERVIEW
   A complete, readable summary of the entire analysis for a general reader
 ============================================================
 
-  Out of 415 news articles analysed for Apple over a
-  28-day forecast horizon, 227 carried positive sentiment,
-  152 carried negative sentiment, and 36 were neutral. The
+  Out of 47 news articles analysed for Apple Inc. over a
+  7-day forecast horizon, 39 carried positive sentiment, 8
+  carried negative sentiment, and 0 were neutral. The
   model produced a weighted aggregation of these scores
-  and predicted a POSITIVE label with 40.8% model support.
+  and predicted a NEGATIVE label with 36.5% model support.
   The model chose POSITIVE over NEGATIVE by a margin of
-  7.5 percentage points: 251 articles pushed toward
-  POSITIVE while 164 pushed toward NEGATIVE. The single
-  most influential article was "‘Hermès orange’ iPhone
-  sparks Apple comeback in China" (positive sentiment,
-  contributing 0.5% of total weight). Articles were
-  weighted by recency and prediction-horizon relevance —
-  the average article was 11.99 days old, with most
-  classified as short-term horizon. At the word level, the
-  strongest signals in the top gap-driving article
-  included: boost, coup, manufacturing, booming, high. The
-  prediction is sensitive: removing as few as 27 of 415
-  articles would change the verdict. The prediction
-  carries LOW reliability and should not be used in
-  isolation. The positive and negative scores are very
-  close — a small shift in news could change the verdict;
-  overall confidence is below the recommended threshold;
-  most articles come from the same editorial source,
-  reducing editorial independence. note: aggregators
-  (yahoo, finnhub) are excluded from this check because
-  they collect from many independent editorial desks.
-  mitigation: articles are de-duplicated across all
-  domains by title (keeping the oldest copy — the first to
-  break the news); weighting is content-based (not source-
-  based).
+  18.8 percentage points: 29 articles pushed toward
+  POSITIVE while 18 pushed toward NEGATIVE. The single
+  most influential article was "AI Takes Center Stage:
+  Apple Launches M5 MacBook Air, Pro And New XDR Display"
+  (positive sentiment, contributing 4.3% of total weight).
+  Articles were weighted by recency and prediction-horizon
+  relevance — the average article was 7.06 days old, with
+  most classified as short-term horizon. At the word
+  level, the strongest signals in the top gap-driving
+  article included: Inc, Despair, downturn, crash,
+  October. The prediction is sensitive: removing as few as
+  1 of 47 articles would change the verdict. The
+  prediction carries LOW reliability and should not be
+  used in isolation. Overall confidence is below the
+  recommended threshold; most articles come from the same
+  editorial source, reducing editorial independence. note:
+  aggregators (yahoo, finnhub) are excluded from this
+  check because they collect from many independent
+  editorial desks. mitigation: articles are de-duplicated
+  across all domains by title (keeping the oldest copy —
+  the first to break the news); weighting is content-based
+  (not source-based).
 
 
   DISCLAIMER
@@ -302,74 +140,49 @@ The label margin is narrow (0.075), but reliability is LOW due to a narrow decis
   WHY POSITIVE INSTEAD OF NEGATIVE?
   Contrastive explanation — what tipped the balance
 ------------------------------------------------------------
-  Score gap : POSITIVE 40.8%  vs  NEGATIVE 33.3%  (gap = 7.5 percentage points)
+  Score gap : POSITIVE 55.3%  vs  NEGATIVE 36.5%  (gap = 18.8 percentage points)
 
   Article split:
-    251 articles push toward POSITIVE  (total push: +21.9 pp)
-    164 articles push toward NEGATIVE  (total push: -14.3 pp)
+     29 articles push toward POSITIVE  (total push: +34.3 pp)
+     18 articles push toward NEGATIVE  (total push: -15.5 pp)
 
-  Third class: NEUTRAL at 25.8% — absorbing probability mass roughly equally from both sides.
+  Third class: NEUTRAL at 8.1% — absorbing probability mass roughly equally from both sides.
 
   Top 5 articles driving the gap:
     #     Direction       Net  Title
     ----------------------------------------------------------------------
-    1         → POS    +0.39%  TSMC to make advanced AI semiconductors in Japan
-    2         → POS    +0.39%  Intel (INTC) Valuation Check After AI Launches, 
-    3         → POS    +0.38%  Apple, GE Aerospace Lead Five Stocks Flashing Bu
-    4         → POS    +0.37%  Corning Stock Is on Track for First Record Closi
-    5         → POS    +0.36%  1 Reason to Buy Apple Stock Right Now
+    1         → POS    +3.85%  Gene Munster Says Apple's New iPhone 17e, iPad A
+    2         → NEG    -3.51%  Bitcoin Is Going Through 'Valley Of Despair,' Mi
+    3         → POS    +3.29%  AI Takes Center Stage: Apple Launches M5 MacBook
+    4         → POS    +3.15%  The Zacks Analyst Blog Highlights Apple, TotalEn
+    5         → POS    +2.56%  Assessing Apple (AAPL) Valuation As Tariffs Pres
 
   Word-level evidence for top gap drivers:
   (connecting article-level influence to token-level LIME attribution)
 
-    TSMC to make advanced AI semiconductors in Japan in boost fo
-      Favours POSITIVE (+0.39% net push)
-      Words reinforcing POSITIVE: boost, coup, manufacturing, booming
-      Words pulling against: policies, Taiwan, country, related
-
-    Intel (INTC) Valuation Check After AI Launches, Foundry Hope
-      Favours POSITIVE (+0.39% net push)
-      Words reinforcing POSITIVE: supported, shares, string, price
-      Words pulling against: Intel, insider, focused
-
-    Apple, GE Aerospace Lead Five Stocks Flashing Buy Signals
-      Favours POSITIVE (+0.38% net push)
-      Words reinforcing POSITIVE: strong, bullish, Buy, week
-      Words pulling against: Friday, GE, made, Sterling
-
-    Corning Stock Is on Track for First Record Closing High Sinc
-      Favours POSITIVE (+0.37% net push)
-      Words reinforcing POSITIVE: up, shares, high, announced
-      Words pulling against: Corning, Data, products
-
-    1 Reason to Buy Apple Stock Right Now
-      Favours POSITIVE (+0.36% net push)
-      Words reinforcing POSITIVE: Buy, compelling, outlook, Right
-      Words pulling against: term, long
+    Bitcoin Is Going Through 'Valley Of Despair,' Michael Saylor
+      Favours NEGATIVE (-3.51% net push)
+      Words reinforcing NEGATIVE: Inc, Despair, downturn, crash
+      Words pulling against: Bitcoin, according, Through, Strategy
 
   Counterfactual (minimum flip set):
-    Removing just 27 of 415 articles would flip the prediction from POSITIVE to NEGATIVE.
+    Removing just 1 of 47 articles would flip the prediction from POSITIVE to POSITIVE.
     These articles are:
-      [!] Intel (INTC) Valuation Check After AI Launches, Foundry Hopes And Insi
-      [!] TSMC to make advanced AI semiconductors in Japan in boost for its chip
-      [!] Apple, GE Aerospace Lead Five Stocks Flashing Buy Signals
-      [!] Corning Stock Is on Track for First Record Closing High Since 2000
-      [!] 1 Reason to Buy Apple Stock Right Now
-      ... and 22 more
+      [!] Gene Munster Says Apple's New iPhone 17e, iPad Air Could Lift June Qua
 
   PREDICTION RELIABILITY
   How much to trust this prediction
 ------------------------------------------------------------
-  Overall : [✗] LOW  (3 concern(s) found)
+  Overall : [✗] LOW  (2 concern(s) found)
   Rating rule : HIGH if 0 concerns, MEDIUM if 1, LOW if ≥2.
 
     [✓] Evidence volume        Sufficient article count.
     [✓] Weight spread          Weight is well-distributed across articles.
-    [⚠] Decision confidence    Narrow margin between positive (0.408) and negative (0.333): margin=0.075.
-    [⚠] Score confidence       Below reliability threshold (0.408 < 0.45).
-    [⚠] Source diversity       Source diversity concern: top editorial source 'benzinga' has 64% of non-aggregator articles.
-    [✓] Timing validity        Articles are 0-26 days old (ET market-close aligned), down-weighted by the recency function where applicable.
-    [✓] Horizon coverage       News lookback (27 days) covers the intended 27-day backward window.
+    [✓] Decision confidence    Clear margin between top two labels (0.188).
+    [⚠] Score confidence       Below reliability threshold (0.365 < 0.45).
+    [⚠] Source diversity       Source diversity concern: top editorial source 'benzinga' has 100% of non-aggregator articles.
+    [✓] Timing validity        Articles span 0-14 days old (ET market-close aligned); oldest exceeds the 7-day window and is down-weighted by recency.
+    [✓] Horizon coverage       News lookback (15 days) covers the intended 14-day backward window.
 
   Thresholds used  : reliability confidence ≥ 0.45
 
@@ -385,35 +198,84 @@ The label margin is narrow (0.075), but reliability is LOW due to a narrow decis
 ------------------------------------------------------------
   Article sentiment distribution:
 
-    ▲ positive : ████████████████░░░░░░░░░░░░░░  227 articles (55%)
-    ▼ negative : ███████████░░░░░░░░░░░░░░░░░░░  152 articles (37%)
-    ■  neutral : ███░░░░░░░░░░░░░░░░░░░░░░░░░░░   36 articles (9%)
+    ▲ positive : █████████████████████████░░░░░   39 articles (83%)
+    ▼ negative : █████░░░░░░░░░░░░░░░░░░░░░░░░░    8 articles (17%)
+    ■  neutral : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    0 articles (0%)
 
   Articles pushing toward POSITIVE:
-    [+]  TSMC to make advanced AI semiconductors in Japan in boost for its chipmaking
-    [+]  Corning Stock Is on Track for First Record Closing High Since 2000
-    [+]  Apple, GE Aerospace Lead Five Stocks Flashing Buy Signals
+    [+]  Gene Munster Says Apple's New iPhone 17e, iPad Air Could Lift June Quarter G
+    [+]  AI Takes Center Stage: Apple Launches M5 MacBook Air, Pro And New XDR Displa
+    [+]  The Zacks Analyst Blog Highlights Apple, TotalEnergies, Boston Scientific an
   Articles pushing toward NEGATIVE:
-    [-]  Corning Stock Has First Record Close Since the Dot-Com Bubble
-    [-]  Apple Troubles Deepen, Magnificent 7 Dies
-    [-]  Mag 7 faces brutal reality check as $200B AI bill drops bombshell
+    [-]  Bitcoin Is Going Through 'Valley Of Despair,' Michael Saylor Says, Comparing
+    [-]  Is Apple (AAPL) Still Fairly Priced After Recent Services Revenue Strength?
+    [-]  Barclays Maintains Underweight on Apple, Raises Price Target to $248
+
+  Critical articles (removing any one would flip the verdict):
+    [!]  AI Takes Center Stage: Apple Launches M5 MacBook Air, Pro And New XDR Displa
+    [!]  Apple’s AI Wearables And Product Week Could Reshape Long Term Growth
+    [!]  Apple’s New AI Devices And U.S. Manufacturing Shift Weigh On Valuation
+    [!]  Gene Munster Says Apple's New iPhone 17e, iPad Air Could Lift June Quarter G
+    [!]  Gold in your iPhone? The value of the gold in these items
+    [!]  Apple unveils new MacBooks powered by M5 chips
+    [!]  Barclays Maintains Underweight on Apple, Raises Price Target to $248
+    [!]  Apple unveils low-cost iPhone 17e with a price tag of $599
+    [!]  Berkshire Hathaway's New CEO Omits Bank of America And Chevron In Letter To 
+    [!]  Assessing Apple (AAPL) Valuation As Tariffs Pressure Hardware And Services G
+    [!]  Apple’s Houston Manufacturing Push Ties AI Servers To Supply Resilience
+    [!]  Bitcoin Is Going Through 'Valley Of Despair,' Michael Saylor Says, Comparing
+    [!]  Market Chatter: Apple in Talks With Google for Hosting New Siri
+    [!]  The Zacks Analyst Blog Highlights Apple, TotalEnergies, Boston Scientific an
+    [!]  Is Apple (AAPL) Still Fairly Priced After Recent Services Revenue Strength?
+    [!]  Tim Cook Teases Apple Launch On Monday: Here's What To Expect
+    [!]  Samsung shocks Apple in smartphone war
+    [!]  Nvidia earnings, Apple CEO teases product launches: Tech Support
+    [!]  Investors Heavily Search Apple Inc. (AAPL): Here is What You Need to Know
+    [!]  The Saturday Spread: Using Volatility Skew as a Smart Money Gauge (TGT, AAPL
+    [!]  Apple, Microsoft, AppLovin And An Energy Stock: CNBC's 'Final Trades'
+    [!]  Apple vs. Adobe: Which AI-Driven Tech Stock Has an Edge Now?
+    [!]  Apple just fired warning shot that could reshape 2026 iPhone cycle
+    [!]  George Soros Is Doubling Down on Apple Stock. Should You Also Load Up on AAP
+    [!]  Apple (AAPL) Got The Best Free Ride, Says Jim Cramer
+    [!]  How Apple's Contrarian 'Nah, We're Good' Strategy Defies Amazon, Microsoft, 
+    [!]  Why smart glasses could be the next big gadget hit in 2026
+    [!]  Mark Zuckerberg Reveals He Consulted Apple's Tim Cook On Teen Social Media S
+    [!]  What Apple (AAPL)'s Houston AI Manufacturing Push Means For Shareholders
+    [!]  Smart Money Is Betting Big In AAPL Options
+    [!]  AAPD’s 3.43% Yield Looks Great Until You See the 40% Hangover
+    [!]  How Apple’s Lazy AI Strategy Could Crush the Competition
+    [!]  Apple To Move Part Of Mac Mini Production To Texas, Expand Houston Facility
+    [!]  Apple's Services Growth Ride on Strong Content & Games: What's Ahead?
+    [!]  Apple (AAPL): Buy, Sell, or Hold Post Q4 Earnings?
+    [!]  Apple stock quietly moves on a surprising Al hardware bet
+    [!]  Wedbush Maintains Bullish View on Apple (AAPL) despite AI Delay Concerns
+    [!]  Apple’s Stock Recovery Is No Recovery At All
+    [!]  Apple Stock: Is AAPL Underperforming the Technology Sector?
+    [!]  Nike, Big Tech, furniture stocks reacting to SCOTUS tariff ruling
+    [!]  Dan Ives Says Apple's AI Alone Could Be Worth $1.5 Trillion — And Almost No 
+    [!]  As Apple Tests AI Devices, Should You Buy AAPL Stock Here?
+    [!]  Apple’s AI Wearables Push Extends Ecosystem Beyond Core Devices
+    [!]  Transports, Apple's AI plans, oil prices: Market Takeaways
+    [!]  Is Apple unveiling a low-cost MacBook Air next month?
+    [!]  Berkshire reduces Apple stake, FDA to review Moderna vaccine
+    [!]  Apple (AAPL) Just Overtook the 20-Day Moving Average
 
   Top 10 most influential articles:
   (Weight = recency × horizon factor, 0-1 scale;  Share = % of total pool weight)
     #    Sent  Weight   Share  Weight chart                      Title
     ------------------------------------------------------------
-    #1    POS  0.9260    0.5%  ██████████████████████████████  ‘Hermès orange’ iPhone sparks Ap
-    #2    NEG  0.9239    0.5%  ██████████████████████████████  Corning Stock Has First Record C
-    #3    POS  0.9223    0.5%  ██████████████████████████████  Apple’s AI Partnerships Reframe 
-    #4    POS  0.9207    0.5%  ██████████████████████████████  Apple to Allow Third-Party AI Ch
-    #5    POS  0.8651    0.4%  ████████████████████████████░░  Apple’s Gemini Deal And EU Rulin
-    #6    NEG  0.8649    0.4%  ████████████████████████████░░  Apple Scales Back AI Health Coac
-    #7    POS  0.8635    0.4%  ████████████████████████████░░  Corning Stock Is on Track for Fi
-    #8    NEG  0.8426    0.4%  ███████████████████████████░░░  Apple Ads and Apple Maps should 
-    #9    NEG  0.8411    0.4%  ███████████████████████████░░░  EU Rules Apple Ads and Maps Not 
-    #10   NEG  0.8401    0.4%  ███████████████████████████░░░  Musk Says Apple Once 'Carpet Bom
+    #1    POS  0.8819    4.3%  ██████████████████████████████  AI Takes Center Stage: Apple Lau
+    #2    POS  0.8548    4.2%  █████████████████████████████░  Apple’s AI Wearables And Product
+    #3    POS  0.8507    4.1%  █████████████████████████████░  Apple’s New AI Devices And U.S. 
+    #4    POS  0.8461    4.1%  █████████████████████████████░  Gene Munster Says Apple's New iP
+    #5    POS  0.8296    4.0%  ████████████████████████████░░  Gold in your iPhone? The value o
+    #6    POS  0.8243    4.0%  ████████████████████████████░░  Apple unveils new MacBooks power
+    #7    POS  0.8225    4.0%  ████████████████████████████░░  Barclays Maintains Underweight o
+    #8    POS  0.8216    4.0%  ████████████████████████████░░  Apple unveils low-cost iPhone 17
+    #9    POS  0.8141    4.0%  ████████████████████████████░░  Berkshire Hathaway's New CEO Omi
+    #10   POS  0.7828    3.8%  ███████████████████████████░░░  Assessing Apple (AAPL) Valuation
 
-  Weight concentration (HHI): 0.0029  (well spread) — 0 = perfectly uniform across all articles, 1 = one article dominates
+  Weight concentration (HHI): 0.0290  (well spread) — 0 = perfectly uniform across all articles, 1 = one article dominates
 
   HOW ARTICLES WERE WEIGHTED
   More recent and near-horizon articles receive higher weight
@@ -426,16 +288,16 @@ The label margin is narrow (0.075), but reliability is LOW due to a narrow decis
                     share the same timestamp, the one with more content
                     is preferred.
 
-  Average article age      : 11.99 days old
-  Average recency weight   : 0.7102  (1.0 = today, lower = older)
-  Average horizon weight   : 0.34  (1.0 = ideal timing, lower = off-horizon)
+  Average article age      : 7.06 days old
+  Average recency weight   : 0.6418  (1.0 = today, lower = older)
+  Average horizon weight   : 0.3277  (1.0 = ideal timing, lower = off-horizon)
 
   Article timing breakdown:
 
-    Breaking / same-day : ██████████████████████████████  334 (80%)
-    Short-term (days)   : ███████░░░░░░░░░░░░░░░░░░░░░░░   80 (19%)
+    Breaking / same-day : ██████████████████████████████   31 (66%)
+    Short-term (days)   : ███████████████░░░░░░░░░░░░░░░   16 (34%)
     Medium-term (weeks) : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    0 (0%)
-    Long-term (months)  : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1 (0%)
+    Long-term (months)  : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    0 (0%)
 
   WHICH WORDS DROVE THE PREDICTION
   Words inside each article that pushed the model toward or away from the verdict
@@ -450,25 +312,25 @@ The label margin is narrow (0.075), but reliability is LOW due to a narrow decis
   sentiment-bearing words remain. Full token weights are in the
   ADVANCED / DIAGNOSTICS section at the end of this report.
 
-  [1] TSMC to make advanced AI semiconductors in Japan in boost for its chipma
-      Words pushing TOWARD  POSITIVE : boost, coup, manufacturing, booming, high
-      Words pushing AGAINST POSITIVE : policies, Taiwan, country, related, advanced
+  [1] Bitcoin Is Going Through 'Valley Of Despair,' Michael Saylor Says, Compa
+      Words pushing TOWARD  NEGATIVE : Inc, Despair, downturn, crash, October
+      Words pushing AGAINST NEGATIVE : Bitcoin, according, Through, Strategy
 
-  [2] Apple, GE Aerospace Lead Five Stocks Flashing Buy Signals
-      Words pushing TOWARD  POSITIVE : strong, bullish, Buy, week, Flashing
-      Words pushing AGAINST POSITIVE : Friday, GE, made, Sterling, Caribbean
+  [2] Nvidia earnings, Apple CEO teases product launches: Tech Support
+      Words pushing TOWARD  NEGATIVE : dropping, shares, down, market, earnings
+      Words pushing AGAINST NEGATIVE : action, break, coming, Support, stories
 
-  [3] Intel (INTC) Valuation Check After AI Launches, Foundry Hopes And Inside
-      Words pushing TOWARD  POSITIVE : supported, shares, string, price, focus
-      Words pushing AGAINST POSITIVE : Intel, insider, focused
+  [3] Apple just fired warning shot that could reshape 2026 iPhone cycle
+      Words pushing TOWARD  NEGATIVE : warning, ignore, fired, Inc, can
+      Words pushing AGAINST NEGATIVE : testing, late, milestone, subtle, quietly
 
-  [4] Corning Stock Is on Track for First Record Closing High Since 2000
-      Words pushing TOWARD  POSITIVE : up, shares, high, announced, Meta
-      Words pushing AGAINST POSITIVE : Corning, Data, products
+  [4] How Apple’s Lazy AI Strategy Could Crush the Competition
+      Words pushing TOWARD  NEGATIVE : Crush, Lazy, NASDAQ, Inc, concerns
+      Words pushing AGAINST NEGATIVE : How, progressed, AI, pace
 
-  [5] 1 Reason to Buy Apple Stock Right Now
-      Words pushing TOWARD  POSITIVE : Buy, compelling, outlook, Right, Reason
-      Words pushing AGAINST POSITIVE : term, long
+  [5] AAPD’s 3.43% Yield Looks Great Until You See the 40% Hangover
+      Words pushing TOWARD  NEGATIVE : Bear, Until, essential, actually, Hangover
+      Words pushing AGAINST NEGATIVE : Great, AAPD, carries, dividend, what
 
 
   CHARTS
@@ -510,136 +372,139 @@ The label margin is narrow (0.075), but reliability is LOW due to a narrow decis
   --------------------------------------------------
   (+) = supports predicted label     (-) = opposes predicted label
 
-  [1] TSMC to make advanced AI semiconductors in Japan in boost for its chipma
-      Content: Taiwan’s chipmaker TSMC said Thursday it will be manufacturing some of the world's most cutting-edge semiconductors in J
-               apan to meet booming artificial intelligence-related demand, in a boost for the country's chipmaking ambitions. Taiwan S
-      Article weight : 0.8275  |  Relevance to prediction : 0.7840
+  [1] Bitcoin Is Going Through 'Valley Of Despair,' Michael Saylor Says, Compa
+      Content: Bitcoin’s recent downturn could be just like Apple’s (NASDAQ:AAPL) in 2012, according to Strategy (NASDAQ:MSTR) Chair Mi
+               chael Saylor. Bitcoin’s recent nearly 47% drawdown from its record price of $126,000 in October is similar to Apple’s st
+      Article weight : 0.7302  |  Relevance to prediction : 0.7111
       Token influence chart:
-        + boost            ████████████████████  (+0.1318)
-        + coup             ███████████░░░░░░░░░  (+0.0741)
-        - policies         ███████░░░░░░░░░░░░░  (-0.0471)
-        - Taiwan           ███████░░░░░░░░░░░░░  (-0.0443)
-        - country          ███████░░░░░░░░░░░░░  (-0.0435)
-        + manufacturing    ███████░░░░░░░░░░░░░  (+0.0434)
-        + booming          ██████░░░░░░░░░░░░░░  (+0.0428)
-        - related          ██████░░░░░░░░░░░░░░  (-0.0425)
+        - Bitcoin          ████████████████████  (-0.1494)
+        + Inc              █████████░░░░░░░░░░░  (+0.0654)
+        + Despair          ████████░░░░░░░░░░░░  (+0.0614)
+        + downturn         ███████░░░░░░░░░░░░░  (+0.0536)
+        + crash            █████░░░░░░░░░░░░░░░  (+0.0392)
+        + October          █████░░░░░░░░░░░░░░░  (+0.0350)
+        + stock            ████░░░░░░░░░░░░░░░░  (+0.0326)
+        - according        ████░░░░░░░░░░░░░░░░  (-0.0274)
 
       Token                  Dir       Weight
       ----------------------------------------
-      boost                  (+)    +0.131804
-      coup                   (+)    +0.074062
-      policies               (-)    -0.047076
-      Taiwan                 (-)    -0.044270
-      country                (-)    -0.043500
-      manufacturing          (+)    +0.043428
-      booming                (+)    +0.042783
-      related                (-)    -0.042485
-      high                   (+)    +0.042207
-      advanced               (-)    -0.031416
+      Bitcoin                (-)    -0.149356
+      Inc                    (+)    +0.065416
+      Despair                (+)    +0.061387
+      downturn               (+)    +0.053617
+      crash                  (+)    +0.039165
+      October                (+)    +0.035010
+      stock                  (+)    +0.032597
+      according              (-)    -0.027398
+      Through                (-)    -0.024611
+      Strategy               (-)    -0.019222
 
-  [2] Apple, GE Aerospace Lead Five Stocks Flashing Buy Signals
-      Content: Apple defied techs with a strong week. GE Aerospace, Royal Caribbean, Sterling Infrastructure and Toll Brothers made bul
-               lish moves Friday.
-      Article weight : 0.8357  |  Relevance to prediction : 0.7806
+  [2] Nvidia earnings, Apple CEO teases product launches: Tech Support
+      Content: Yahoo Finance Tech Editor Dan Howley comes on Market Domination to break down the day’s leading and trending tech storie
+               s, including Nvidia (NVDA) shares dropping in Thursday's session following the AI chipmaker's fourth quarter earnings re
+      Article weight : 0.4698  |  Relevance to prediction : 0.2334
       Token influence chart:
-        + strong           ████████████████████  (+0.0840)
-        + bullish          ███████████████░░░░░  (+0.0636)
-        + Buy              ██████████████░░░░░░  (+0.0601)
-        + week             █████████░░░░░░░░░░░  (+0.0374)
-        + Flashing         ███████░░░░░░░░░░░░░  (+0.0313)
-        + Signals          ██████░░░░░░░░░░░░░░  (+0.0262)
-        + moves            ██████░░░░░░░░░░░░░░  (+0.0242)
-        - Friday           ██████░░░░░░░░░░░░░░  (-0.0235)
+        + dropping         ████████████████████  (+0.2998)
+        + shares           ███████░░░░░░░░░░░░░  (+0.1093)
+        + down             ██████░░░░░░░░░░░░░░  (+0.0875)
+        - action           █████░░░░░░░░░░░░░░░  (-0.0759)
+        - break            █████░░░░░░░░░░░░░░░  (-0.0716)
+        + market           ████░░░░░░░░░░░░░░░░  (+0.0662)
+        + earnings         ████░░░░░░░░░░░░░░░░  (+0.0644)
+        + leading          ████░░░░░░░░░░░░░░░░  (+0.0637)
 
       Token                  Dir       Weight
       ----------------------------------------
-      strong                 (+)    +0.084012
-      bullish                (+)    +0.063600
-      Buy                    (+)    +0.060139
-      week                   (+)    +0.037378
-      Flashing               (+)    +0.031319
-      Signals                (+)    +0.026224
-      moves                  (+)    +0.024216
-      Friday                 (-)    -0.023481
-      GE                     (-)    -0.020730
-      made                   (-)    -0.020656
+      dropping               (+)    +0.299843
+      shares                 (+)    +0.109266
+      down                   (+)    +0.087532
+      action                 (-)    -0.075883
+      break                  (-)    -0.071576
+      market                 (+)    +0.066167
+      earnings               (+)    +0.064353
+      leading                (+)    +0.063727
+      Nvidia                 (+)    +0.063325
+      coming                 (-)    -0.061049
 
-  [3] Intel (INTC) Valuation Check After AI Launches, Foundry Hopes And Inside
-      Content: Intel (INTC) is back in focus after a string of AI centric product launches, GPU hiring moves, and a potential Apple fou
-               ndry partnership, all supported by recent insider share buying from the CFO. See our latest analysis for Intel. Those AI
-      Article weight : 0.7878  |  Relevance to prediction : 0.7738
+  [3] Apple just fired warning shot that could reshape 2026 iPhone cycle
+      Content: Apple (AAPL) just gave a warning shot none of its peers can ignore. It quietly moved the iPhone 18 Pro and iPhone 18 Pro
+                Max into late-stage production validation testing. The move is a subtle yet critical milestone that could shape its 202
+      Article weight : 0.3455  |  Relevance to prediction : 0.2029
       Token influence chart:
-        - Intel            ████████████████████  (-0.1174)
-        + supported        █████████░░░░░░░░░░░  (+0.0541)
-        + shares           ████████░░░░░░░░░░░░  (+0.0469)
-        + string           ███████░░░░░░░░░░░░░  (+0.0400)
-        + price            ███████░░░░░░░░░░░░░  (+0.0389)
-        + focus            ██████░░░░░░░░░░░░░░  (+0.0364)
-        + positive         ██████░░░░░░░░░░░░░░  (+0.0361)
-        + headlines        ██████░░░░░░░░░░░░░░  (+0.0339)
+        + warning          ████████████████████  (+0.2234)
+        + ignore           █████████░░░░░░░░░░░  (+0.1058)
+        + fired            █████░░░░░░░░░░░░░░░  (+0.0611)
+        + Inc              █████░░░░░░░░░░░░░░░  (+0.0528)
+        - testing          ████░░░░░░░░░░░░░░░░  (-0.0474)
+        - late             ████░░░░░░░░░░░░░░░░  (-0.0447)
+        + can              ████░░░░░░░░░░░░░░░░  (+0.0419)
+        - milestone        ████░░░░░░░░░░░░░░░░  (-0.0418)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Intel                  (-)    -0.117370
-      supported              (+)    +0.054141
-      shares                 (+)    +0.046862
-      string                 (+)    +0.039961
-      price                  (+)    +0.038886
-      focus                  (+)    +0.036409
-      positive               (+)    +0.036112
-      headlines              (+)    +0.033936
-      strong                 (+)    +0.031446
-      insider                (-)    -0.030547
+      warning                (+)    +0.223413
+      ignore                 (+)    +0.105793
+      fired                  (+)    +0.061090
+      Inc                    (+)    +0.052806
+      testing                (-)    -0.047430
+      late                   (-)    -0.044676
+      can                    (+)    +0.041898
+      milestone              (-)    -0.041785
+      subtle                 (-)    -0.036199
+      quietly                (-)    -0.032112
 
-  [4] Corning Stock Is on Track for First Record Closing High Since 2000
-      Content: Corning shares are on pace for a record closing high. The stock was up 6.3% on Friday to $119.93, putting it in position
-                to beat the record of $113.10, reached on Sept. 1, 2000, according to Dow Jones Market Data. The company, which makes g
-      Article weight : 0.8635  |  Relevance to prediction : 0.7714
+  [4] How Apple’s Lazy AI Strategy Could Crush the Competition
+      Content: Apple (NASDAQ:AAPL) has trailed in the artificial intelligence (AI) race since its early stages. From the start, the com
+               pany lagged behind rivals in developing large language models and AI infrastructure. Its current initiatives, such as Ap
+      Article weight : 0.2311  |  Relevance to prediction : 0.1905
       Token influence chart:
-        - Corning          ████████████████████  (-0.1643)
-        + up               ███████░░░░░░░░░░░░░  (+0.0591)
-        + shares           █████░░░░░░░░░░░░░░░  (+0.0435)
-        + high             █████░░░░░░░░░░░░░░░  (+0.0409)
-        - Data             █████░░░░░░░░░░░░░░░  (-0.0406)
-        + announced        █████░░░░░░░░░░░░░░░  (+0.0375)
-        + Meta             ████░░░░░░░░░░░░░░░░  (+0.0361)
-        + reached          ████░░░░░░░░░░░░░░░░  (+0.0359)
+        + Crush            ████████████████████  (+0.1043)
+        + Lazy             ██████████████░░░░░░  (+0.0749)
+        + NASDAQ           █████████████░░░░░░░  (+0.0656)
+        - How              █████████░░░░░░░░░░░  (-0.0471)
+        + Inc              ████████░░░░░░░░░░░░  (+0.0417)
+        + concerns         ████████░░░░░░░░░░░░  (+0.0410)
+        + trailed          ████████░░░░░░░░░░░░  (+0.0392)
+        + language         ████████░░░░░░░░░░░░  (+0.0392)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Corning                (-)    -0.164323
-      up                     (+)    +0.059094
-      shares                 (+)    +0.043493
-      high                   (+)    +0.040889
-      Data                   (-)    -0.040617
-      announced              (+)    +0.037533
-      Meta                   (+)    +0.036099
-      reached                (+)    +0.035855
-      record                 (+)    +0.031462
-      stock                  (+)    +0.031296
+      Crush                  (+)    +0.104265
+      Lazy                   (+)    +0.074860
+      NASDAQ                 (+)    +0.065569
+      How                    (-)    -0.047054
+      Inc                    (+)    +0.041692
+      concerns               (+)    +0.041011
+      trailed                (+)    +0.039182
+      language               (+)    +0.039152
+      until                  (+)    +0.028174
+      progressed             (-)    -0.023552
 
-  [5] 1 Reason to Buy Apple Stock Right Now
-      Content: The long-term outlook is compelling.
-      Article weight : 0.7251  |  Relevance to prediction : 0.7183
+  [5] AAPD’s 3.43% Yield Looks Great Until You See the 40% Hangover
+      Content: Direxion Daily AAPL Bear 1X Shares (NYSEARCA:AAPD) carries a 3.43% dividend yield, but calling these payments “dividends
+               ” in the traditional sense is misleading. Understanding what actually generates this income is essential before treating
+      Article weight : 0.2311  |  Relevance to prediction : 0.1706
       Token influence chart:
-        + Buy              ████████████████████  (+0.1670)
-        + compelling       ██████████████░░░░░░  (+0.1159)
-        + outlook          ███████░░░░░░░░░░░░░  (+0.0550)
-        + Right            ██████░░░░░░░░░░░░░░  (+0.0466)
-        + Reason           █████░░░░░░░░░░░░░░░  (+0.0393)
-        - term             ██░░░░░░░░░░░░░░░░░░  (-0.0151)
-        - long             ██░░░░░░░░░░░░░░░░░░  (-0.0140)
-        + Stock            █░░░░░░░░░░░░░░░░░░░  (+0.0112)
+        + Bear             ████████████████████  (+0.2629)
+        + Until            ██████████░░░░░░░░░░  (+0.1293)
+        - Great            ██████████░░░░░░░░░░  (-0.1258)
+        - AAPD             █████░░░░░░░░░░░░░░░  (-0.0665)
+        + essential        █████░░░░░░░░░░░░░░░  (+0.0636)
+        + actually         █████░░░░░░░░░░░░░░░  (+0.0628)
+        + Hangover         █████░░░░░░░░░░░░░░░  (+0.0626)
+        + traditional      ████░░░░░░░░░░░░░░░░  (+0.0514)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Buy                    (+)    +0.166953
-      compelling             (+)    +0.115923
-      outlook                (+)    +0.054970
-      Right                  (+)    +0.046612
-      Reason                 (+)    +0.039297
-      term                   (-)    -0.015123
-      long                   (-)    -0.013950
-      Stock                  (+)    +0.011201
+      Bear                   (+)    +0.262867
+      Until                  (+)    +0.129342
+      Great                  (-)    -0.125828
+      AAPD                   (-)    -0.066453
+      essential              (+)    +0.063608
+      actually               (+)    +0.062824
+      Hangover               (+)    +0.062588
+      traditional            (+)    +0.051410
+      carries                (-)    -0.050095
+      calling                (+)    +0.048921
 
 ------------------------------------------------------------

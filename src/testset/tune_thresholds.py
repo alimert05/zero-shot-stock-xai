@@ -28,7 +28,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from config import PRED_PATH
 
-DEFAULT_RESULTS = PRED_PATH / "evaluation_results_debias_multi_label.json"
+DEFAULT_RESULTS = PRED_PATH / "evaluation_results.json"
 
 
 # ── Metrics ─────────────────────────────────────────────────────────────
