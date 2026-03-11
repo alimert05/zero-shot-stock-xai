@@ -1,0 +1,7297 @@
+{
+  "metadata": {
+    "run_timestamp": "2026-03-11 09:46:52",
+    "test_set": "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\test_results\\tune_set.json",
+    "sentiment_model": "zero-shot",
+    "total_cases": 288,
+    "total_errors": 0,
+    "total_issues": 0,
+    "total_duration_seconds": 5297.42,
+    "workers": 1,
+    "positive_rate": 0.8958
+  },
+  "overall_metrics": {
+    "accuracy": 0.3021,
+    "total": 288,
+    "correct": 87,
+    "macro_precision": 0.2406,
+    "macro_recall": 0.3065,
+    "macro_f1": 0.1821,
+    "per_class": {
+      "negative": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 56,
+        "tp": 0,
+        "fp": 13,
+        "fn": 56
+      },
+      "neutral": {
+        "precision": 0.4118,
+        "recall": 0.05,
+        "f1": 0.0892,
+        "support": 140,
+        "tp": 7,
+        "fp": 10,
+        "fn": 133
+      },
+      "positive": {
+        "precision": 0.3101,
+        "recall": 0.8696,
+        "f1": 0.4571,
+        "support": 92,
+        "tp": 80,
+        "fp": 178,
+        "fn": 12
+      }
+    },
+    "confusion_matrix": {
+      "negative": {
+        "negative": 0,
+        "neutral": 4,
+        "positive": 52
+      },
+      "neutral": {
+        "negative": 7,
+        "neutral": 7,
+        "positive": 126
+      },
+      "positive": {
+        "negative": 6,
+        "neutral": 6,
+        "positive": 80
+      }
+    }
+  },
+  "per_window_metrics": {
+    "W=1": {
+      "accuracy": 0.3125,
+      "total": 48,
+      "correct": 15,
+      "macro_precision": 0.1163,
+      "macro_recall": 0.2941,
+      "macro_f1": 0.1667,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 13,
+          "tp": 0,
+          "fp": 2,
+          "fn": 13
+        },
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 18,
+          "tp": 0,
+          "fp": 3,
+          "fn": 18
+        },
+        "positive": {
+          "precision": 0.3488,
+          "recall": 0.8824,
+          "f1": 0.5,
+          "support": 17,
+          "tp": 15,
+          "fp": 28,
+          "fn": 2
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 12
+        },
+        "neutral": {
+          "negative": 2,
+          "neutral": 0,
+          "positive": 16
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 2,
+          "positive": 15
+        }
+      }
+    },
+    "W=3": {
+      "accuracy": 0.25,
+      "total": 48,
+      "correct": 12,
+      "macro_precision": 0.1984,
+      "macro_recall": 0.2752,
+      "macro_f1": 0.1548,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 3,
+          "fn": 9
+        },
+        "neutral": {
+          "precision": 0.3333,
+          "recall": 0.04,
+          "f1": 0.0714,
+          "support": 25,
+          "tp": 1,
+          "fp": 2,
+          "fn": 24
+        },
+        "positive": {
+          "precision": 0.2619,
+          "recall": 0.7857,
+          "f1": 0.3929,
+          "support": 14,
+          "tp": 11,
+          "fp": 31,
+          "fn": 3
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 8
+        },
+        "neutral": {
+          "negative": 1,
+          "neutral": 1,
+          "positive": 23
+        },
+        "positive": {
+          "negative": 2,
+          "neutral": 1,
+          "positive": 11
+        }
+      }
+    },
+    "W=5": {
+      "accuracy": 0.25,
+      "total": 48,
+      "correct": 12,
+      "macro_precision": 0.1964,
+      "macro_recall": 0.2944,
+      "macro_f1": 0.1532,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 8,
+          "tp": 0,
+          "fp": 2,
+          "fn": 8
+        },
+        "neutral": {
+          "precision": 0.3333,
+          "recall": 0.037,
+          "f1": 0.0667,
+          "support": 27,
+          "tp": 1,
+          "fp": 2,
+          "fn": 26
+        },
+        "positive": {
+          "precision": 0.2558,
+          "recall": 0.8462,
+          "f1": 0.3929,
+          "support": 13,
+          "tp": 11,
+          "fp": 32,
+          "fn": 2
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 7
+        },
+        "neutral": {
+          "negative": 1,
+          "neutral": 1,
+          "positive": 25
+        },
+        "positive": {
+          "negative": 1,
+          "neutral": 1,
+          "positive": 11
+        }
+      }
+    },
+    "W=7": {
+      "accuracy": 0.25,
+      "total": 48,
+      "correct": 12,
+      "macro_precision": 0.1964,
+      "macro_recall": 0.2758,
+      "macro_f1": 0.1533,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 10,
+          "tp": 0,
+          "fp": 2,
+          "fn": 10
+        },
+        "neutral": {
+          "precision": 0.3333,
+          "recall": 0.0417,
+          "f1": 0.0741,
+          "support": 24,
+          "tp": 1,
+          "fp": 2,
+          "fn": 23
+        },
+        "positive": {
+          "precision": 0.2558,
+          "recall": 0.7857,
+          "f1": 0.386,
+          "support": 14,
+          "tp": 11,
+          "fp": 32,
+          "fn": 3
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 9
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 23
+        },
+        "positive": {
+          "negative": 2,
+          "neutral": 1,
+          "positive": 11
+        }
+      }
+    },
+    "W=14": {
+      "accuracy": 0.3333,
+      "total": 48,
+      "correct": 16,
+      "macro_precision": 0.3307,
+      "macro_recall": 0.3234,
+      "macro_f1": 0.2137,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 11,
+          "tp": 0,
+          "fp": 2,
+          "fn": 11
+        },
+        "neutral": {
+          "precision": 0.6667,
+          "recall": 0.0952,
+          "f1": 0.1667,
+          "support": 21,
+          "tp": 2,
+          "fp": 1,
+          "fn": 19
+        },
+        "positive": {
+          "precision": 0.3256,
+          "recall": 0.875,
+          "f1": 0.4746,
+          "support": 16,
+          "tp": 14,
+          "fp": 29,
+          "fn": 2
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 11
+        },
+        "neutral": {
+          "negative": 1,
+          "neutral": 2,
+          "positive": 18
+        },
+        "positive": {
+          "negative": 1,
+          "neutral": 1,
+          "positive": 14
+        }
+      }
+    },
+    "W=31": {
+      "accuracy": 0.4167,
+      "total": 48,
+      "correct": 20,
+      "macro_precision": 0.4697,
+      "macro_recall": 0.36,
+      "macro_f1": 0.2429,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 2,
+          "fn": 5
+        },
+        "neutral": {
+          "precision": 1.0,
+          "recall": 0.08,
+          "f1": 0.1481,
+          "support": 25,
+          "tp": 2,
+          "fp": 0,
+          "fn": 23
+        },
+        "positive": {
+          "precision": 0.4091,
+          "recall": 1.0,
+          "f1": 0.5806,
+          "support": 18,
+          "tp": 18,
+          "fp": 26,
+          "fn": 0
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 5
+        },
+        "neutral": {
+          "negative": 2,
+          "neutral": 2,
+          "positive": 21
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 18
+        }
+      }
+    }
+  },
+  "per_company_metrics": {
+    "AAPL": {
+      "accuracy": 0.4583,
+      "total": 24,
+      "correct": 11,
+      "macro_precision": 0.2778,
+      "macro_recall": 0.4667,
+      "macro_f1": 0.3434,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 10,
+          "tp": 0,
+          "fp": 0,
+          "fn": 10
+        },
+        "neutral": {
+          "precision": 0.3333,
+          "recall": 0.4,
+          "f1": 0.3636,
+          "support": 5,
+          "tp": 2,
+          "fp": 4,
+          "fn": 3
+        },
+        "positive": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6667,
+          "support": 9,
+          "tp": 9,
+          "fp": 9,
+          "fn": 0
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 4,
+          "positive": 6
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 2,
+          "positive": 3
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 9
+        }
+      }
+    },
+    "AMZN": {
+      "accuracy": 0.0833,
+      "total": 24,
+      "correct": 2,
+      "macro_precision": 0.0278,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.0513,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2,
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 20,
+          "tp": 0,
+          "fp": 0,
+          "fn": 20
+        },
+        "positive": {
+          "precision": 0.0833,
+          "recall": 1.0,
+          "f1": 0.1538,
+          "support": 2,
+          "tp": 2,
+          "fp": 22,
+          "fn": 0
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 2
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 20
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 2
+        }
+      }
+    },
+    "CVX": {
+      "accuracy": 0.2917,
+      "total": 24,
+      "correct": 7,
+      "macro_precision": 0.0972,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1505,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 10,
+          "tp": 0,
+          "fp": 0,
+          "fn": 10
+        },
+        "positive": {
+          "precision": 0.2917,
+          "recall": 1.0,
+          "f1": 0.4516,
+          "support": 7,
+          "tp": 7,
+          "fp": 17,
+          "fn": 0
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 7
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 10
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 7
+        }
+      }
+    },
+    "GS": {
+      "accuracy": 0.3333,
+      "total": 24,
+      "correct": 8,
+      "macro_precision": 0.1159,
+      "macro_recall": 0.2963,
+      "macro_f1": 0.1667,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 8,
+          "tp": 0,
+          "fp": 1,
+          "fn": 8
+        },
+        "positive": {
+          "precision": 0.3478,
+          "recall": 0.8889,
+          "f1": 0.5,
+          "support": 9,
+          "tp": 8,
+          "fp": 15,
+          "fn": 1
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 7
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 8
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 8
+        }
+      }
+    },
+    "JNJ": {
+      "accuracy": 0.5417,
+      "total": 24,
+      "correct": 13,
+      "macro_precision": 0.2772,
+      "macro_recall": 0.3167,
+      "macro_f1": 0.2952,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3,
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "neutral": {
+          "precision": 0.2,
+          "recall": 0.2,
+          "f1": 0.2,
+          "support": 5,
+          "tp": 1,
+          "fp": 4,
+          "fn": 4
+        },
+        "positive": {
+          "precision": 0.6316,
+          "recall": 0.75,
+          "f1": 0.6857,
+          "support": 16,
+          "tp": 12,
+          "fp": 7,
+          "fn": 4
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 3
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 4
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 4,
+          "positive": 12
+        }
+      }
+    },
+    "JPM": {
+      "accuracy": 0.3333,
+      "total": 24,
+      "correct": 8,
+      "macro_precision": 0.1111,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1667,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 15,
+          "tp": 0,
+          "fp": 0,
+          "fn": 15
+        },
+        "positive": {
+          "precision": 0.3333,
+          "recall": 1.0,
+          "f1": 0.5,
+          "support": 8,
+          "tp": 8,
+          "fp": 16,
+          "fn": 0
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 1
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 15
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 8
+        }
+      }
+    },
+    "MCD": {
+      "accuracy": 0.2917,
+      "total": 24,
+      "correct": 7,
+      "macro_precision": 0.2576,
+      "macro_recall": 0.3065,
+      "macro_f1": 0.175,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1,
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "neutral": {
+          "precision": 0.5,
+          "recall": 0.0625,
+          "f1": 0.1111,
+          "support": 16,
+          "tp": 1,
+          "fp": 1,
+          "fn": 15
+        },
+        "positive": {
+          "precision": 0.2727,
+          "recall": 0.8571,
+          "f1": 0.4138,
+          "support": 7,
+          "tp": 6,
+          "fp": 16,
+          "fn": 1
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 1
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 15
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 6
+        }
+      }
+    },
+    "META": {
+      "accuracy": 0.375,
+      "total": 24,
+      "correct": 9,
+      "macro_precision": 0.125,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1818,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 6,
+          "tp": 0,
+          "fp": 0,
+          "fn": 6
+        },
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 9,
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "positive": {
+          "precision": 0.375,
+          "recall": 1.0,
+          "f1": 0.5455,
+          "support": 9,
+          "tp": 9,
+          "fp": 15,
+          "fn": 0
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 6
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 9
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 9
+        }
+      }
+    },
+    "NKE": {
+      "accuracy": 0.2083,
+      "total": 24,
+      "correct": 5,
+      "macro_precision": 0.381,
+      "macro_recall": 0.188,
+      "macro_f1": 0.1917,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 7,
+          "fn": 5
+        },
+        "neutral": {
+          "precision": 1.0,
+          "recall": 0.2308,
+          "f1": 0.375,
+          "support": 13,
+          "tp": 3,
+          "fp": 0,
+          "fn": 10
+        },
+        "positive": {
+          "precision": 0.1429,
+          "recall": 0.3333,
+          "f1": 0.2,
+          "support": 6,
+          "tp": 2,
+          "fp": 12,
+          "fn": 4
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 5
+        },
+        "neutral": {
+          "negative": 3,
+          "neutral": 3,
+          "positive": 7
+        },
+        "positive": {
+          "negative": 4,
+          "neutral": 0,
+          "positive": 2
+        }
+      }
+    },
+    "PFE": {
+      "accuracy": 0.2083,
+      "total": 24,
+      "correct": 5,
+      "macro_precision": 0.0926,
+      "macro_recall": 0.2381,
+      "macro_f1": 0.1333,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2,
+          "tp": 0,
+          "fp": 6,
+          "fn": 2
+        },
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 15,
+          "tp": 0,
+          "fp": 0,
+          "fn": 15
+        },
+        "positive": {
+          "precision": 0.2778,
+          "recall": 0.7143,
+          "f1": 0.4,
+          "support": 7,
+          "tp": 5,
+          "fp": 13,
+          "fn": 2
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 2
+        },
+        "neutral": {
+          "negative": 4,
+          "neutral": 0,
+          "positive": 11
+        },
+        "positive": {
+          "negative": 2,
+          "neutral": 0,
+          "positive": 5
+        }
+      }
+    },
+    "V": {
+      "accuracy": 0.125,
+      "total": 24,
+      "correct": 3,
+      "macro_precision": 0.0417,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.0741,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 8,
+          "tp": 0,
+          "fp": 0,
+          "fn": 8
+        },
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 13,
+          "tp": 0,
+          "fp": 0,
+          "fn": 13
+        },
+        "positive": {
+          "precision": 0.125,
+          "recall": 1.0,
+          "f1": 0.2222,
+          "support": 3,
+          "tp": 3,
+          "fp": 21,
+          "fn": 0
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 8
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 13
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 3
+        }
+      }
+    },
+    "WMT": {
+      "accuracy": 0.375,
+      "total": 24,
+      "correct": 9,
+      "macro_precision": 0.125,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1818,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4,
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 11,
+          "tp": 0,
+          "fp": 0,
+          "fn": 11
+        },
+        "positive": {
+          "precision": 0.375,
+          "recall": 1.0,
+          "f1": 0.5455,
+          "support": 9,
+          "tp": 9,
+          "fp": 15,
+          "fn": 0
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 4
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 11
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 9
+        }
+      }
+    }
+  },
+  "per_sector_metrics": {
+    "Consumer": {
+      "accuracy": 0.2917,
+      "total": 72,
+      "correct": 21,
+      "macro_precision": 0.3611,
+      "macro_recall": 0.2909,
+      "macro_f1": 0.1975,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 10,
+          "tp": 0,
+          "fp": 7,
+          "fn": 10
+        },
+        "neutral": {
+          "precision": 0.8,
+          "recall": 0.1,
+          "f1": 0.1778,
+          "support": 40,
+          "tp": 4,
+          "fp": 1,
+          "fn": 36
+        },
+        "positive": {
+          "precision": 0.2833,
+          "recall": 0.7727,
+          "f1": 0.4146,
+          "support": 22,
+          "tp": 17,
+          "fp": 43,
+          "fn": 5
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 10
+        },
+        "neutral": {
+          "negative": 3,
+          "neutral": 4,
+          "positive": 33
+        },
+        "positive": {
+          "negative": 4,
+          "neutral": 1,
+          "positive": 17
+        }
+      }
+    },
+    "Energy": {
+      "accuracy": 0.2917,
+      "total": 24,
+      "correct": 7,
+      "macro_precision": 0.0972,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1505,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 7,
+          "tp": 0,
+          "fp": 0,
+          "fn": 7
+        },
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 10,
+          "tp": 0,
+          "fp": 0,
+          "fn": 10
+        },
+        "positive": {
+          "precision": 0.2917,
+          "recall": 1.0,
+          "f1": 0.4516,
+          "support": 7,
+          "tp": 7,
+          "fp": 17,
+          "fn": 0
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 7
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 10
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 7
+        }
+      }
+    },
+    "Finance": {
+      "accuracy": 0.2639,
+      "total": 72,
+      "correct": 19,
+      "macro_precision": 0.0892,
+      "macro_recall": 0.3167,
+      "macro_f1": 0.1392,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 16,
+          "tp": 0,
+          "fp": 0,
+          "fn": 16
+        },
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 36,
+          "tp": 0,
+          "fp": 1,
+          "fn": 36
+        },
+        "positive": {
+          "precision": 0.2676,
+          "recall": 0.95,
+          "f1": 0.4176,
+          "support": 20,
+          "tp": 19,
+          "fp": 52,
+          "fn": 1
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 16
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 36
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 1,
+          "positive": 19
+        }
+      }
+    },
+    "Healthcare": {
+      "accuracy": 0.375,
+      "total": 48,
+      "correct": 18,
+      "macro_precision": 0.2198,
+      "macro_recall": 0.263,
+      "macro_f1": 0.2156,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5,
+          "tp": 0,
+          "fp": 6,
+          "fn": 5
+        },
+        "neutral": {
+          "precision": 0.2,
+          "recall": 0.05,
+          "f1": 0.08,
+          "support": 20,
+          "tp": 1,
+          "fp": 4,
+          "fn": 19
+        },
+        "positive": {
+          "precision": 0.4595,
+          "recall": 0.7391,
+          "f1": 0.5667,
+          "support": 23,
+          "tp": 17,
+          "fp": 20,
+          "fn": 6
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 5
+        },
+        "neutral": {
+          "negative": 4,
+          "neutral": 1,
+          "positive": 15
+        },
+        "positive": {
+          "negative": 2,
+          "neutral": 4,
+          "positive": 17
+        }
+      }
+    },
+    "Tech": {
+      "accuracy": 0.3056,
+      "total": 72,
+      "correct": 22,
+      "macro_precision": 0.2121,
+      "macro_recall": 0.3529,
+      "macro_f1": 0.1884,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 18,
+          "tp": 0,
+          "fp": 0,
+          "fn": 18
+        },
+        "neutral": {
+          "precision": 0.3333,
+          "recall": 0.0588,
+          "f1": 0.1,
+          "support": 34,
+          "tp": 2,
+          "fp": 4,
+          "fn": 32
+        },
+        "positive": {
+          "precision": 0.303,
+          "recall": 1.0,
+          "f1": 0.4651,
+          "support": 20,
+          "tp": 20,
+          "fp": 46,
+          "fn": 0
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 4,
+          "positive": 14
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 2,
+          "positive": 32
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 20
+        }
+      }
+    }
+  },
+  "per_period_metrics": {
+    "bull_run": {
+      "accuracy": 0.2361,
+      "total": 72,
+      "correct": 17,
+      "macro_precision": 0.1806,
+      "macro_recall": 0.2289,
+      "macro_f1": 0.1784,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 19,
+          "tp": 0,
+          "fp": 12,
+          "fn": 19
+        },
+        "neutral": {
+          "precision": 0.25,
+          "recall": 0.1034,
+          "f1": 0.1463,
+          "support": 29,
+          "tp": 3,
+          "fp": 9,
+          "fn": 26
+        },
+        "positive": {
+          "precision": 0.2917,
+          "recall": 0.5833,
+          "f1": 0.3889,
+          "support": 24,
+          "tp": 14,
+          "fp": 34,
+          "fn": 10
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 4,
+          "positive": 15
+        },
+        "neutral": {
+          "negative": 7,
+          "neutral": 3,
+          "positive": 19
+        },
+        "positive": {
+          "negative": 5,
+          "neutral": 5,
+          "positive": 14
+        }
+      }
+    },
+    "earnings_season": {
+      "accuracy": 0.4028,
+      "total": 72,
+      "correct": 29,
+      "macro_precision": 0.3929,
+      "macro_recall": 0.3503,
+      "macro_f1": 0.2513,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 13,
+          "tp": 0,
+          "fp": 1,
+          "fn": 13
+        },
+        "neutral": {
+          "precision": 0.8,
+          "recall": 0.125,
+          "f1": 0.2162,
+          "support": 32,
+          "tp": 4,
+          "fp": 1,
+          "fn": 28
+        },
+        "positive": {
+          "precision": 0.3788,
+          "recall": 0.9259,
+          "f1": 0.5376,
+          "support": 27,
+          "tp": 25,
+          "fp": 41,
+          "fn": 2
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 13
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 4,
+          "positive": 28
+        },
+        "positive": {
+          "negative": 1,
+          "neutral": 1,
+          "positive": 25
+        }
+      }
+    },
+    "recent_stable": {
+      "accuracy": 0.2083,
+      "total": 72,
+      "correct": 15,
+      "macro_precision": 0.0694,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1149,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 16,
+          "tp": 0,
+          "fp": 0,
+          "fn": 16
+        },
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 41,
+          "tp": 0,
+          "fp": 0,
+          "fn": 41
+        },
+        "positive": {
+          "precision": 0.2083,
+          "recall": 1.0,
+          "f1": 0.3448,
+          "support": 15,
+          "tp": 15,
+          "fp": 57,
+          "fn": 0
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 16
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 41
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 15
+        }
+      }
+    },
+    "volatile": {
+      "accuracy": 0.3611,
+      "total": 72,
+      "correct": 26,
+      "macro_precision": 0.1204,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1769,
+      "per_class": {
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 8,
+          "tp": 0,
+          "fp": 0,
+          "fn": 8
+        },
+        "neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 38,
+          "tp": 0,
+          "fp": 0,
+          "fn": 38
+        },
+        "positive": {
+          "precision": 0.3611,
+          "recall": 1.0,
+          "f1": 0.5306,
+          "support": 26,
+          "tp": 26,
+          "fp": 46,
+          "fn": 0
+        }
+      },
+      "confusion_matrix": {
+        "negative": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 8
+        },
+        "neutral": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 38
+        },
+        "positive": {
+          "negative": 0,
+          "neutral": 0,
+          "positive": 26
+        }
+      }
+    }
+  },
+  "case_results": [
+    {
+      "id": "AAPL_W1_bull_run_001",
+      "actual_label": "negative",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 16.11,
+      "normalized_scores": {
+        "positive": 0.295,
+        "negative": 0.3318,
+        "neutral": 0.0635
+      },
+      "articles_analyzed": 99,
+      "final_confidence": 0.0635,
+      "prediction_window_days": 1,
+      "ticker": "AAPL",
+      "market_period": "bull_run",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W1_volatile_002",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 17.77,
+      "normalized_scores": {
+        "positive": 0.4253,
+        "negative": 0.2528,
+        "neutral": 0.0532
+      },
+      "articles_analyzed": 100,
+      "final_confidence": 0.4253,
+      "prediction_window_days": 1,
+      "ticker": "AAPL",
+      "market_period": "volatile",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W1_earnings_season_003",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 15.98,
+      "normalized_scores": {
+        "positive": 0.4981,
+        "negative": 0.1775,
+        "neutral": 0.0367
+      },
+      "articles_analyzed": 77,
+      "final_confidence": 0.4981,
+      "prediction_window_days": 1,
+      "ticker": "AAPL",
+      "market_period": "earnings_season",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W1_recent_stable_004",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 13.99,
+      "normalized_scores": {
+        "positive": 0.4749,
+        "negative": 0.1654,
+        "neutral": 0.0329
+      },
+      "articles_analyzed": 78,
+      "final_confidence": 0.4749,
+      "prediction_window_days": 1,
+      "ticker": "AAPL",
+      "market_period": "recent_stable",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W3_bull_run_005",
+      "actual_label": "negative",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 21.91,
+      "normalized_scores": {
+        "positive": 0.3017,
+        "negative": 0.3293,
+        "neutral": 0.0614
+      },
+      "articles_analyzed": 137,
+      "final_confidence": 0.0614,
+      "prediction_window_days": 3,
+      "ticker": "AAPL",
+      "market_period": "bull_run",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W3_volatile_006",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 27.36,
+      "normalized_scores": {
+        "positive": 0.4222,
+        "negative": 0.2483,
+        "neutral": 0.0568
+      },
+      "articles_analyzed": 150,
+      "final_confidence": 0.4222,
+      "prediction_window_days": 3,
+      "ticker": "AAPL",
+      "market_period": "volatile",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W3_earnings_season_007",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 17.61,
+      "normalized_scores": {
+        "positive": 0.4959,
+        "negative": 0.1742,
+        "neutral": 0.0376
+      },
+      "articles_analyzed": 88,
+      "final_confidence": 0.4959,
+      "prediction_window_days": 3,
+      "ticker": "AAPL",
+      "market_period": "earnings_season",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W3_recent_stable_008",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 17.83,
+      "normalized_scores": {
+        "positive": 0.4634,
+        "negative": 0.1758,
+        "neutral": 0.0369
+      },
+      "articles_analyzed": 101,
+      "final_confidence": 0.4634,
+      "prediction_window_days": 3,
+      "ticker": "AAPL",
+      "market_period": "recent_stable",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W5_bull_run_009",
+      "actual_label": "negative",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 27.91,
+      "normalized_scores": {
+        "positive": 0.3086,
+        "negative": 0.3372,
+        "neutral": 0.063
+      },
+      "articles_analyzed": 172,
+      "final_confidence": 0.063,
+      "prediction_window_days": 5,
+      "ticker": "AAPL",
+      "market_period": "bull_run",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W5_volatile_010",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 39.72,
+      "normalized_scores": {
+        "positive": 0.4239,
+        "negative": 0.2385,
+        "neutral": 0.0564
+      },
+      "articles_analyzed": 212,
+      "final_confidence": 0.4239,
+      "prediction_window_days": 5,
+      "ticker": "AAPL",
+      "market_period": "volatile",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W5_earnings_season_011",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 23.41,
+      "normalized_scores": {
+        "positive": 0.5,
+        "negative": 0.1777,
+        "neutral": 0.0368
+      },
+      "articles_analyzed": 118,
+      "final_confidence": 0.5,
+      "prediction_window_days": 5,
+      "ticker": "AAPL",
+      "market_period": "earnings_season",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W5_recent_stable_012",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 23.65,
+      "normalized_scores": {
+        "positive": 0.4625,
+        "negative": 0.1733,
+        "neutral": 0.0373
+      },
+      "articles_analyzed": 129,
+      "final_confidence": 0.4625,
+      "prediction_window_days": 5,
+      "ticker": "AAPL",
+      "market_period": "recent_stable",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W7_bull_run_013",
+      "actual_label": "negative",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 31.66,
+      "normalized_scores": {
+        "positive": 0.3034,
+        "negative": 0.3427,
+        "neutral": 0.0617
+      },
+      "articles_analyzed": 187,
+      "final_confidence": 0.0617,
+      "prediction_window_days": 7,
+      "ticker": "AAPL",
+      "market_period": "bull_run",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W7_volatile_014",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 43.9,
+      "normalized_scores": {
+        "positive": 0.4213,
+        "negative": 0.2439,
+        "neutral": 0.0579
+      },
+      "articles_analyzed": 212,
+      "final_confidence": 0.4213,
+      "prediction_window_days": 7,
+      "ticker": "AAPL",
+      "market_period": "volatile",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W7_earnings_season_015",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 32.58,
+      "normalized_scores": {
+        "positive": 0.5012,
+        "negative": 0.1753,
+        "neutral": 0.038
+      },
+      "articles_analyzed": 157,
+      "final_confidence": 0.5012,
+      "prediction_window_days": 7,
+      "ticker": "AAPL",
+      "market_period": "earnings_season",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W7_recent_stable_016",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 29.62,
+      "normalized_scores": {
+        "positive": 0.4717,
+        "negative": 0.1689,
+        "neutral": 0.0399
+      },
+      "articles_analyzed": 162,
+      "final_confidence": 0.4717,
+      "prediction_window_days": 7,
+      "ticker": "AAPL",
+      "market_period": "recent_stable",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W14_bull_run_017",
+      "actual_label": "neutral",
+      "predicted_label": "neutral",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 36.77,
+      "normalized_scores": {
+        "positive": 0.3085,
+        "negative": 0.3366,
+        "neutral": 0.0603
+      },
+      "articles_analyzed": 217,
+      "final_confidence": 0.0603,
+      "prediction_window_days": 14,
+      "ticker": "AAPL",
+      "market_period": "bull_run",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W14_volatile_018",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 63.67,
+      "normalized_scores": {
+        "positive": 0.4168,
+        "negative": 0.2378,
+        "neutral": 0.0563
+      },
+      "articles_analyzed": 322,
+      "final_confidence": 0.4168,
+      "prediction_window_days": 14,
+      "ticker": "AAPL",
+      "market_period": "volatile",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W14_earnings_season_019",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 45.12,
+      "normalized_scores": {
+        "positive": 0.4873,
+        "negative": 0.179,
+        "neutral": 0.0394
+      },
+      "articles_analyzed": 221,
+      "final_confidence": 0.4873,
+      "prediction_window_days": 14,
+      "ticker": "AAPL",
+      "market_period": "earnings_season",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W14_recent_stable_020",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 44.35,
+      "normalized_scores": {
+        "positive": 0.4523,
+        "negative": 0.1815,
+        "neutral": 0.0396
+      },
+      "articles_analyzed": 237,
+      "final_confidence": 0.4523,
+      "prediction_window_days": 14,
+      "ticker": "AAPL",
+      "market_period": "recent_stable",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W31_bull_run_021",
+      "actual_label": "neutral",
+      "predicted_label": "neutral",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 38.16,
+      "normalized_scores": {
+        "positive": 0.3074,
+        "negative": 0.3387,
+        "neutral": 0.0598
+      },
+      "articles_analyzed": 217,
+      "final_confidence": 0.0598,
+      "prediction_window_days": 31,
+      "ticker": "AAPL",
+      "market_period": "bull_run",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W31_volatile_022",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 84.75,
+      "normalized_scores": {
+        "positive": 0.4101,
+        "negative": 0.2377,
+        "neutral": 0.0569
+      },
+      "articles_analyzed": 423,
+      "final_confidence": 0.4101,
+      "prediction_window_days": 31,
+      "ticker": "AAPL",
+      "market_period": "volatile",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W31_earnings_season_023",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 74.43,
+      "normalized_scores": {
+        "positive": 0.4747,
+        "negative": 0.1972,
+        "neutral": 0.0474
+      },
+      "articles_analyzed": 386,
+      "final_confidence": 0.4747,
+      "prediction_window_days": 31,
+      "ticker": "AAPL",
+      "market_period": "earnings_season",
+      "sector": "Tech"
+    },
+    {
+      "id": "AAPL_W31_recent_stable_024",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 66.1,
+      "normalized_scores": {
+        "positive": 0.4599,
+        "negative": 0.1903,
+        "neutral": 0.0452
+      },
+      "articles_analyzed": 326,
+      "final_confidence": 0.4599,
+      "prediction_window_days": 31,
+      "ticker": "AAPL",
+      "market_period": "recent_stable",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W1_bull_run_073",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 20.31,
+      "normalized_scores": {
+        "positive": 0.4151,
+        "negative": 0.26,
+        "neutral": 0.0571
+      },
+      "articles_analyzed": 100,
+      "final_confidence": 0.4151,
+      "prediction_window_days": 1,
+      "ticker": "AMZN",
+      "market_period": "bull_run",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W1_volatile_074",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 23.71,
+      "normalized_scores": {
+        "positive": 0.5319,
+        "negative": 0.1836,
+        "neutral": 0.0394
+      },
+      "articles_analyzed": 105,
+      "final_confidence": 0.5319,
+      "prediction_window_days": 1,
+      "ticker": "AMZN",
+      "market_period": "volatile",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W1_earnings_season_075",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 25.91,
+      "normalized_scores": {
+        "positive": 0.6805,
+        "negative": 0.1196,
+        "neutral": 0.0596
+      },
+      "articles_analyzed": 139,
+      "final_confidence": 0.6805,
+      "prediction_window_days": 1,
+      "ticker": "AMZN",
+      "market_period": "earnings_season",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W1_recent_stable_076",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 18.15,
+      "normalized_scores": {
+        "positive": 0.528,
+        "negative": 0.157,
+        "neutral": 0.058
+      },
+      "articles_analyzed": 97,
+      "final_confidence": 0.528,
+      "prediction_window_days": 1,
+      "ticker": "AMZN",
+      "market_period": "recent_stable",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W3_bull_run_077",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 22.8,
+      "normalized_scores": {
+        "positive": 0.4001,
+        "negative": 0.2695,
+        "neutral": 0.0594
+      },
+      "articles_analyzed": 127,
+      "final_confidence": 0.4001,
+      "prediction_window_days": 3,
+      "ticker": "AMZN",
+      "market_period": "bull_run",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W3_volatile_078",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 24.76,
+      "normalized_scores": {
+        "positive": 0.5371,
+        "negative": 0.1824,
+        "neutral": 0.0393
+      },
+      "articles_analyzed": 119,
+      "final_confidence": 0.5371,
+      "prediction_window_days": 3,
+      "ticker": "AMZN",
+      "market_period": "volatile",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W3_earnings_season_079",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 36.1,
+      "normalized_scores": {
+        "positive": 0.637,
+        "negative": 0.134,
+        "neutral": 0.0553
+      },
+      "articles_analyzed": 179,
+      "final_confidence": 0.637,
+      "prediction_window_days": 3,
+      "ticker": "AMZN",
+      "market_period": "earnings_season",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W3_recent_stable_080",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 22.34,
+      "normalized_scores": {
+        "positive": 0.5202,
+        "negative": 0.1661,
+        "neutral": 0.057
+      },
+      "articles_analyzed": 111,
+      "final_confidence": 0.5202,
+      "prediction_window_days": 3,
+      "ticker": "AMZN",
+      "market_period": "recent_stable",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W5_bull_run_081",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 29.23,
+      "normalized_scores": {
+        "positive": 0.3969,
+        "negative": 0.2684,
+        "neutral": 0.0581
+      },
+      "articles_analyzed": 154,
+      "final_confidence": 0.3969,
+      "prediction_window_days": 5,
+      "ticker": "AMZN",
+      "market_period": "bull_run",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W5_volatile_082",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 30.22,
+      "normalized_scores": {
+        "positive": 0.5366,
+        "negative": 0.1857,
+        "neutral": 0.047
+      },
+      "articles_analyzed": 151,
+      "final_confidence": 0.5366,
+      "prediction_window_days": 5,
+      "ticker": "AMZN",
+      "market_period": "volatile",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W5_earnings_season_083",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 49.25,
+      "normalized_scores": {
+        "positive": 0.5832,
+        "negative": 0.1661,
+        "neutral": 0.051
+      },
+      "articles_analyzed": 240,
+      "final_confidence": 0.5832,
+      "prediction_window_days": 5,
+      "ticker": "AMZN",
+      "market_period": "earnings_season",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W5_recent_stable_084",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 30.58,
+      "normalized_scores": {
+        "positive": 0.5148,
+        "negative": 0.1675,
+        "neutral": 0.0577
+      },
+      "articles_analyzed": 144,
+      "final_confidence": 0.5148,
+      "prediction_window_days": 5,
+      "ticker": "AMZN",
+      "market_period": "recent_stable",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W7_bull_run_085",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 41.32,
+      "normalized_scores": {
+        "positive": 0.3925,
+        "negative": 0.2642,
+        "neutral": 0.057
+      },
+      "articles_analyzed": 218,
+      "final_confidence": 0.3925,
+      "prediction_window_days": 7,
+      "ticker": "AMZN",
+      "market_period": "bull_run",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W7_volatile_086",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 38.67,
+      "normalized_scores": {
+        "positive": 0.5403,
+        "negative": 0.1832,
+        "neutral": 0.0504
+      },
+      "articles_analyzed": 191,
+      "final_confidence": 0.5403,
+      "prediction_window_days": 7,
+      "ticker": "AMZN",
+      "market_period": "volatile",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W7_earnings_season_087",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 44.51,
+      "normalized_scores": {
+        "positive": 0.639,
+        "negative": 0.1286,
+        "neutral": 0.0577
+      },
+      "articles_analyzed": 223,
+      "final_confidence": 0.639,
+      "prediction_window_days": 7,
+      "ticker": "AMZN",
+      "market_period": "earnings_season",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W7_recent_stable_088",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 37.5,
+      "normalized_scores": {
+        "positive": 0.5162,
+        "negative": 0.1688,
+        "neutral": 0.0574
+      },
+      "articles_analyzed": 183,
+      "final_confidence": 0.5162,
+      "prediction_window_days": 7,
+      "ticker": "AMZN",
+      "market_period": "recent_stable",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W14_bull_run_089",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 51.18,
+      "normalized_scores": {
+        "positive": 0.3798,
+        "negative": 0.2884,
+        "neutral": 0.0599
+      },
+      "articles_analyzed": 268,
+      "final_confidence": 0.3798,
+      "prediction_window_days": 14,
+      "ticker": "AMZN",
+      "market_period": "bull_run",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W14_volatile_090",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 49.75,
+      "normalized_scores": {
+        "positive": 0.4982,
+        "negative": 0.2187,
+        "neutral": 0.0501
+      },
+      "articles_analyzed": 257,
+      "final_confidence": 0.4982,
+      "prediction_window_days": 14,
+      "ticker": "AMZN",
+      "market_period": "volatile",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W14_earnings_season_091",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 65.73,
+      "normalized_scores": {
+        "positive": 0.5596,
+        "negative": 0.1726,
+        "neutral": 0.0517
+      },
+      "articles_analyzed": 339,
+      "final_confidence": 0.5596,
+      "prediction_window_days": 14,
+      "ticker": "AMZN",
+      "market_period": "earnings_season",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W14_recent_stable_092",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 48.21,
+      "normalized_scores": {
+        "positive": 0.4813,
+        "negative": 0.2002,
+        "neutral": 0.0548
+      },
+      "articles_analyzed": 242,
+      "final_confidence": 0.4813,
+      "prediction_window_days": 14,
+      "ticker": "AMZN",
+      "market_period": "recent_stable",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W31_bull_run_093",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 75.67,
+      "normalized_scores": {
+        "positive": 0.3579,
+        "negative": 0.3089,
+        "neutral": 0.0602
+      },
+      "articles_analyzed": 408,
+      "final_confidence": 0.3579,
+      "prediction_window_days": 31,
+      "ticker": "AMZN",
+      "market_period": "bull_run",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W31_volatile_094",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 74.71,
+      "normalized_scores": {
+        "positive": 0.4797,
+        "negative": 0.231,
+        "neutral": 0.0507
+      },
+      "articles_analyzed": 404,
+      "final_confidence": 0.4797,
+      "prediction_window_days": 31,
+      "ticker": "AMZN",
+      "market_period": "volatile",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W31_earnings_season_095",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 75.79,
+      "normalized_scores": {
+        "positive": 0.584,
+        "negative": 0.1477,
+        "neutral": 0.0554
+      },
+      "articles_analyzed": 405,
+      "final_confidence": 0.584,
+      "prediction_window_days": 31,
+      "ticker": "AMZN",
+      "market_period": "earnings_season",
+      "sector": "Tech"
+    },
+    {
+      "id": "AMZN_W31_recent_stable_096",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 70.31,
+      "normalized_scores": {
+        "positive": 0.473,
+        "negative": 0.2021,
+        "neutral": 0.0523
+      },
+      "articles_analyzed": 364,
+      "final_confidence": 0.473,
+      "prediction_window_days": 31,
+      "ticker": "AMZN",
+      "market_period": "recent_stable",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W1_bull_run_121",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 14.05,
+      "normalized_scores": {
+        "positive": 0.3333,
+        "negative": 0.2188,
+        "neutral": 0.0685
+      },
+      "articles_analyzed": 84,
+      "final_confidence": 0.3333,
+      "prediction_window_days": 1,
+      "ticker": "META",
+      "market_period": "bull_run",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W1_volatile_122",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 20.92,
+      "normalized_scores": {
+        "positive": 0.6199,
+        "negative": 0.1026,
+        "neutral": 0.0414
+      },
+      "articles_analyzed": 125,
+      "final_confidence": 0.6199,
+      "prediction_window_days": 1,
+      "ticker": "META",
+      "market_period": "volatile",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W1_earnings_season_123",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 13.91,
+      "normalized_scores": {
+        "positive": 0.5634,
+        "negative": 0.1293,
+        "neutral": 0.0565
+      },
+      "articles_analyzed": 66,
+      "final_confidence": 0.5634,
+      "prediction_window_days": 1,
+      "ticker": "META",
+      "market_period": "earnings_season",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W1_recent_stable_124",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 16.2,
+      "normalized_scores": {
+        "positive": 0.4268,
+        "negative": 0.1893,
+        "neutral": 0.0313
+      },
+      "articles_analyzed": 78,
+      "final_confidence": 0.4268,
+      "prediction_window_days": 1,
+      "ticker": "META",
+      "market_period": "recent_stable",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W3_bull_run_125",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 20.25,
+      "normalized_scores": {
+        "positive": 0.333,
+        "negative": 0.2129,
+        "neutral": 0.0695
+      },
+      "articles_analyzed": 113,
+      "final_confidence": 0.333,
+      "prediction_window_days": 3,
+      "ticker": "META",
+      "market_period": "bull_run",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W3_volatile_126",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 33.15,
+      "normalized_scores": {
+        "positive": 0.5959,
+        "negative": 0.1012,
+        "neutral": 0.0386
+      },
+      "articles_analyzed": 186,
+      "final_confidence": 0.5959,
+      "prediction_window_days": 3,
+      "ticker": "META",
+      "market_period": "volatile",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W3_earnings_season_127",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 14.94,
+      "normalized_scores": {
+        "positive": 0.556,
+        "negative": 0.1312,
+        "neutral": 0.0549
+      },
+      "articles_analyzed": 78,
+      "final_confidence": 0.556,
+      "prediction_window_days": 3,
+      "ticker": "META",
+      "market_period": "earnings_season",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W3_recent_stable_128",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 19.11,
+      "normalized_scores": {
+        "positive": 0.4314,
+        "negative": 0.1884,
+        "neutral": 0.0341
+      },
+      "articles_analyzed": 91,
+      "final_confidence": 0.4314,
+      "prediction_window_days": 3,
+      "ticker": "META",
+      "market_period": "recent_stable",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W5_bull_run_129",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 25.64,
+      "normalized_scores": {
+        "positive": 0.3278,
+        "negative": 0.2201,
+        "neutral": 0.0691
+      },
+      "articles_analyzed": 144,
+      "final_confidence": 0.3278,
+      "prediction_window_days": 5,
+      "ticker": "META",
+      "market_period": "bull_run",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W5_volatile_130",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 41.45,
+      "normalized_scores": {
+        "positive": 0.5831,
+        "negative": 0.1065,
+        "neutral": 0.0399
+      },
+      "articles_analyzed": 218,
+      "final_confidence": 0.5831,
+      "prediction_window_days": 5,
+      "ticker": "META",
+      "market_period": "volatile",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W5_earnings_season_131",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 21.01,
+      "normalized_scores": {
+        "positive": 0.5625,
+        "negative": 0.1272,
+        "neutral": 0.0527
+      },
+      "articles_analyzed": 105,
+      "final_confidence": 0.5625,
+      "prediction_window_days": 5,
+      "ticker": "META",
+      "market_period": "earnings_season",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W5_recent_stable_132",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 23.91,
+      "normalized_scores": {
+        "positive": 0.4288,
+        "negative": 0.1849,
+        "neutral": 0.038
+      },
+      "articles_analyzed": 110,
+      "final_confidence": 0.4288,
+      "prediction_window_days": 5,
+      "ticker": "META",
+      "market_period": "recent_stable",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W7_bull_run_133",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 27.51,
+      "normalized_scores": {
+        "positive": 0.327,
+        "negative": 0.2223,
+        "neutral": 0.0702
+      },
+      "articles_analyzed": 161,
+      "final_confidence": 0.327,
+      "prediction_window_days": 7,
+      "ticker": "META",
+      "market_period": "bull_run",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W7_volatile_134",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 38.52,
+      "normalized_scores": {
+        "positive": 0.583,
+        "negative": 0.1121,
+        "neutral": 0.0427
+      },
+      "articles_analyzed": 212,
+      "final_confidence": 0.583,
+      "prediction_window_days": 7,
+      "ticker": "META",
+      "market_period": "volatile",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W7_earnings_season_135",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 30.2,
+      "normalized_scores": {
+        "positive": 0.5491,
+        "negative": 0.1317,
+        "neutral": 0.053
+      },
+      "articles_analyzed": 162,
+      "final_confidence": 0.5491,
+      "prediction_window_days": 7,
+      "ticker": "META",
+      "market_period": "earnings_season",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W7_recent_stable_136",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 33.16,
+      "normalized_scores": {
+        "positive": 0.4164,
+        "negative": 0.1951,
+        "neutral": 0.04
+      },
+      "articles_analyzed": 157,
+      "final_confidence": 0.4164,
+      "prediction_window_days": 7,
+      "ticker": "META",
+      "market_period": "recent_stable",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W14_bull_run_137",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 30.96,
+      "normalized_scores": {
+        "positive": 0.3355,
+        "negative": 0.2264,
+        "neutral": 0.0692
+      },
+      "articles_analyzed": 184,
+      "final_confidence": 0.3355,
+      "prediction_window_days": 14,
+      "ticker": "META",
+      "market_period": "bull_run",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W14_volatile_138",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 59.6,
+      "normalized_scores": {
+        "positive": 0.5343,
+        "negative": 0.122,
+        "neutral": 0.0414
+      },
+      "articles_analyzed": 318,
+      "final_confidence": 0.5343,
+      "prediction_window_days": 14,
+      "ticker": "META",
+      "market_period": "volatile",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W14_earnings_season_139",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 39.45,
+      "normalized_scores": {
+        "positive": 0.5256,
+        "negative": 0.1372,
+        "neutral": 0.0535
+      },
+      "articles_analyzed": 208,
+      "final_confidence": 0.5256,
+      "prediction_window_days": 14,
+      "ticker": "META",
+      "market_period": "earnings_season",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W14_recent_stable_140",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 37.27,
+      "normalized_scores": {
+        "positive": 0.3911,
+        "negative": 0.2221,
+        "neutral": 0.0426
+      },
+      "articles_analyzed": 179,
+      "final_confidence": 0.3911,
+      "prediction_window_days": 14,
+      "ticker": "META",
+      "market_period": "recent_stable",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W31_bull_run_141",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 31.16,
+      "normalized_scores": {
+        "positive": 0.3425,
+        "negative": 0.2325,
+        "neutral": 0.0691
+      },
+      "articles_analyzed": 184,
+      "final_confidence": 0.3425,
+      "prediction_window_days": 31,
+      "ticker": "META",
+      "market_period": "bull_run",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W31_volatile_142",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 78.82,
+      "normalized_scores": {
+        "positive": 0.5025,
+        "negative": 0.1475,
+        "neutral": 0.0441
+      },
+      "articles_analyzed": 397,
+      "final_confidence": 0.5025,
+      "prediction_window_days": 31,
+      "ticker": "META",
+      "market_period": "volatile",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W31_earnings_season_143",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 67.31,
+      "normalized_scores": {
+        "positive": 0.5021,
+        "negative": 0.1481,
+        "neutral": 0.0534
+      },
+      "articles_analyzed": 330,
+      "final_confidence": 0.5021,
+      "prediction_window_days": 31,
+      "ticker": "META",
+      "market_period": "earnings_season",
+      "sector": "Tech"
+    },
+    {
+      "id": "META_W31_recent_stable_144",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 54.8,
+      "normalized_scores": {
+        "positive": 0.3964,
+        "negative": 0.237,
+        "neutral": 0.0467
+      },
+      "articles_analyzed": 276,
+      "final_confidence": 0.3964,
+      "prediction_window_days": 31,
+      "ticker": "META",
+      "market_period": "recent_stable",
+      "sector": "Tech"
+    },
+    {
+      "id": "JPM_W1_bull_run_169",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 12.3,
+      "normalized_scores": {
+        "positive": 0.5146,
+        "negative": 0.1907,
+        "neutral": 0.0569
+      },
+      "articles_analyzed": 66,
+      "final_confidence": 0.5146,
+      "prediction_window_days": 1,
+      "ticker": "JPM",
+      "market_period": "bull_run",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W1_volatile_170",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 2.69,
+      "normalized_scores": {
+        "positive": 0.5064,
+        "negative": 0.2183,
+        "neutral": 0.102
+      },
+      "articles_analyzed": 16,
+      "final_confidence": 0.5064,
+      "prediction_window_days": 1,
+      "ticker": "JPM",
+      "market_period": "volatile",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W1_earnings_season_171",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 6.8,
+      "normalized_scores": {
+        "positive": 0.507,
+        "negative": 0.278,
+        "neutral": 0.0682
+      },
+      "articles_analyzed": 36,
+      "final_confidence": 0.507,
+      "prediction_window_days": 1,
+      "ticker": "JPM",
+      "market_period": "earnings_season",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W1_recent_stable_172",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 8.71,
+      "normalized_scores": {
+        "positive": 0.5859,
+        "negative": 0.1785,
+        "neutral": 0.0401
+      },
+      "articles_analyzed": 43,
+      "final_confidence": 0.5859,
+      "prediction_window_days": 1,
+      "ticker": "JPM",
+      "market_period": "recent_stable",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W3_bull_run_173",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 14.84,
+      "normalized_scores": {
+        "positive": 0.4772,
+        "negative": 0.2305,
+        "neutral": 0.0547
+      },
+      "articles_analyzed": 80,
+      "final_confidence": 0.4772,
+      "prediction_window_days": 3,
+      "ticker": "JPM",
+      "market_period": "bull_run",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W3_volatile_174",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 3.48,
+      "normalized_scores": {
+        "positive": 0.53,
+        "negative": 0.2036,
+        "neutral": 0.089
+      },
+      "articles_analyzed": 19,
+      "final_confidence": 0.53,
+      "prediction_window_days": 3,
+      "ticker": "JPM",
+      "market_period": "volatile",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W3_earnings_season_175",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 7.78,
+      "normalized_scores": {
+        "positive": 0.5004,
+        "negative": 0.2781,
+        "neutral": 0.0598
+      },
+      "articles_analyzed": 46,
+      "final_confidence": 0.5004,
+      "prediction_window_days": 3,
+      "ticker": "JPM",
+      "market_period": "earnings_season",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W3_recent_stable_176",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 10.14,
+      "normalized_scores": {
+        "positive": 0.5411,
+        "negative": 0.1911,
+        "neutral": 0.0396
+      },
+      "articles_analyzed": 52,
+      "final_confidence": 0.5411,
+      "prediction_window_days": 3,
+      "ticker": "JPM",
+      "market_period": "recent_stable",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W5_bull_run_177",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 17.49,
+      "normalized_scores": {
+        "positive": 0.4663,
+        "negative": 0.2311,
+        "neutral": 0.0555
+      },
+      "articles_analyzed": 93,
+      "final_confidence": 0.4663,
+      "prediction_window_days": 5,
+      "ticker": "JPM",
+      "market_period": "bull_run",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W5_volatile_178",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 6.47,
+      "normalized_scores": {
+        "positive": 0.5269,
+        "negative": 0.226,
+        "neutral": 0.0843
+      },
+      "articles_analyzed": 33,
+      "final_confidence": 0.5269,
+      "prediction_window_days": 5,
+      "ticker": "JPM",
+      "market_period": "volatile",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W5_earnings_season_179",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 8.88,
+      "normalized_scores": {
+        "positive": 0.4913,
+        "negative": 0.2812,
+        "neutral": 0.0576
+      },
+      "articles_analyzed": 52,
+      "final_confidence": 0.4913,
+      "prediction_window_days": 5,
+      "ticker": "JPM",
+      "market_period": "earnings_season",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W5_recent_stable_180",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 11.48,
+      "normalized_scores": {
+        "positive": 0.5472,
+        "negative": 0.1865,
+        "neutral": 0.0375
+      },
+      "articles_analyzed": 59,
+      "final_confidence": 0.5472,
+      "prediction_window_days": 5,
+      "ticker": "JPM",
+      "market_period": "recent_stable",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W7_bull_run_181",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 20.18,
+      "normalized_scores": {
+        "positive": 0.4637,
+        "negative": 0.2389,
+        "neutral": 0.0542
+      },
+      "articles_analyzed": 103,
+      "final_confidence": 0.4637,
+      "prediction_window_days": 7,
+      "ticker": "JPM",
+      "market_period": "bull_run",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W7_volatile_182",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 10.03,
+      "normalized_scores": {
+        "positive": 0.5046,
+        "negative": 0.2234,
+        "neutral": 0.0808
+      },
+      "articles_analyzed": 47,
+      "final_confidence": 0.5046,
+      "prediction_window_days": 7,
+      "ticker": "JPM",
+      "market_period": "volatile",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W7_earnings_season_183",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 13.95,
+      "normalized_scores": {
+        "positive": 0.5,
+        "negative": 0.2786,
+        "neutral": 0.0618
+      },
+      "articles_analyzed": 82,
+      "final_confidence": 0.5,
+      "prediction_window_days": 7,
+      "ticker": "JPM",
+      "market_period": "earnings_season",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W7_recent_stable_184",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 12.51,
+      "normalized_scores": {
+        "positive": 0.5463,
+        "negative": 0.1895,
+        "neutral": 0.0396
+      },
+      "articles_analyzed": 64,
+      "final_confidence": 0.5463,
+      "prediction_window_days": 7,
+      "ticker": "JPM",
+      "market_period": "recent_stable",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W14_bull_run_185",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 21.84,
+      "normalized_scores": {
+        "positive": 0.4679,
+        "negative": 0.2446,
+        "neutral": 0.0546
+      },
+      "articles_analyzed": 115,
+      "final_confidence": 0.4679,
+      "prediction_window_days": 14,
+      "ticker": "JPM",
+      "market_period": "bull_run",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W14_volatile_186",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 13.7,
+      "normalized_scores": {
+        "positive": 0.5095,
+        "negative": 0.2184,
+        "neutral": 0.0878
+      },
+      "articles_analyzed": 59,
+      "final_confidence": 0.5095,
+      "prediction_window_days": 14,
+      "ticker": "JPM",
+      "market_period": "volatile",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W14_earnings_season_187",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 18.14,
+      "normalized_scores": {
+        "positive": 0.5089,
+        "negative": 0.2586,
+        "neutral": 0.0585
+      },
+      "articles_analyzed": 102,
+      "final_confidence": 0.5089,
+      "prediction_window_days": 14,
+      "ticker": "JPM",
+      "market_period": "earnings_season",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W14_recent_stable_188",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 13.45,
+      "normalized_scores": {
+        "positive": 0.5383,
+        "negative": 0.2094,
+        "neutral": 0.0402
+      },
+      "articles_analyzed": 74,
+      "final_confidence": 0.5383,
+      "prediction_window_days": 14,
+      "ticker": "JPM",
+      "market_period": "recent_stable",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W31_bull_run_189",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 29.19,
+      "normalized_scores": {
+        "positive": 0.4375,
+        "negative": 0.2751,
+        "neutral": 0.0535
+      },
+      "articles_analyzed": 145,
+      "final_confidence": 0.4375,
+      "prediction_window_days": 31,
+      "ticker": "JPM",
+      "market_period": "bull_run",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W31_volatile_190",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 21.76,
+      "normalized_scores": {
+        "positive": 0.5342,
+        "negative": 0.2115,
+        "neutral": 0.0887
+      },
+      "articles_analyzed": 117,
+      "final_confidence": 0.5342,
+      "prediction_window_days": 31,
+      "ticker": "JPM",
+      "market_period": "volatile",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W31_earnings_season_191",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 25.76,
+      "normalized_scores": {
+        "positive": 0.511,
+        "negative": 0.248,
+        "neutral": 0.0501
+      },
+      "articles_analyzed": 139,
+      "final_confidence": 0.511,
+      "prediction_window_days": 31,
+      "ticker": "JPM",
+      "market_period": "earnings_season",
+      "sector": "Finance"
+    },
+    {
+      "id": "JPM_W31_recent_stable_192",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 18.86,
+      "normalized_scores": {
+        "positive": 0.533,
+        "negative": 0.2312,
+        "neutral": 0.0421
+      },
+      "articles_analyzed": 101,
+      "final_confidence": 0.533,
+      "prediction_window_days": 31,
+      "ticker": "JPM",
+      "market_period": "recent_stable",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W1_bull_run_217",
+      "actual_label": "positive",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 2.39,
+      "normalized_scores": {
+        "positive": 0.3347,
+        "negative": 0.3619,
+        "neutral": 0.0974
+      },
+      "articles_analyzed": 16,
+      "final_confidence": 0.0974,
+      "prediction_window_days": 1,
+      "ticker": "GS",
+      "market_period": "bull_run",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W1_volatile_218",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 2.89,
+      "normalized_scores": {
+        "positive": 0.6878,
+        "negative": 0.0802,
+        "neutral": 0.0399
+      },
+      "articles_analyzed": 21,
+      "final_confidence": 0.6878,
+      "prediction_window_days": 1,
+      "ticker": "GS",
+      "market_period": "volatile",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W1_earnings_season_219",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 3.24,
+      "normalized_scores": {
+        "positive": 0.4417,
+        "negative": 0.3363,
+        "neutral": 0.0277
+      },
+      "articles_analyzed": 20,
+      "final_confidence": 0.4417,
+      "prediction_window_days": 1,
+      "ticker": "GS",
+      "market_period": "earnings_season",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W1_recent_stable_220",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 4.04,
+      "normalized_scores": {
+        "positive": 0.7221,
+        "negative": 0.1024,
+        "neutral": 0.0669
+      },
+      "articles_analyzed": 22,
+      "final_confidence": 0.7221,
+      "prediction_window_days": 1,
+      "ticker": "GS",
+      "market_period": "recent_stable",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W3_bull_run_221",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 4.87,
+      "normalized_scores": {
+        "positive": 0.3769,
+        "negative": 0.2979,
+        "neutral": 0.0832
+      },
+      "articles_analyzed": 28,
+      "final_confidence": 0.3769,
+      "prediction_window_days": 3,
+      "ticker": "GS",
+      "market_period": "bull_run",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W3_volatile_222",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 3.43,
+      "normalized_scores": {
+        "positive": 0.6551,
+        "negative": 0.1261,
+        "neutral": 0.0384
+      },
+      "articles_analyzed": 25,
+      "final_confidence": 0.6551,
+      "prediction_window_days": 3,
+      "ticker": "GS",
+      "market_period": "volatile",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W3_earnings_season_223",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 3.64,
+      "normalized_scores": {
+        "positive": 0.4302,
+        "negative": 0.3542,
+        "neutral": 0.0265
+      },
+      "articles_analyzed": 23,
+      "final_confidence": 0.4302,
+      "prediction_window_days": 3,
+      "ticker": "GS",
+      "market_period": "earnings_season",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W3_recent_stable_224",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 4.79,
+      "normalized_scores": {
+        "positive": 0.722,
+        "negative": 0.1147,
+        "neutral": 0.0669
+      },
+      "articles_analyzed": 28,
+      "final_confidence": 0.722,
+      "prediction_window_days": 3,
+      "ticker": "GS",
+      "market_period": "recent_stable",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W5_bull_run_225",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 5.79,
+      "normalized_scores": {
+        "positive": 0.3787,
+        "negative": 0.2811,
+        "neutral": 0.0816
+      },
+      "articles_analyzed": 33,
+      "final_confidence": 0.3787,
+      "prediction_window_days": 5,
+      "ticker": "GS",
+      "market_period": "bull_run",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W5_volatile_226",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 5.73,
+      "normalized_scores": {
+        "positive": 0.6466,
+        "negative": 0.1197,
+        "neutral": 0.0362
+      },
+      "articles_analyzed": 37,
+      "final_confidence": 0.6466,
+      "prediction_window_days": 5,
+      "ticker": "GS",
+      "market_period": "volatile",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W5_earnings_season_227",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 4.82,
+      "normalized_scores": {
+        "positive": 0.4265,
+        "negative": 0.3305,
+        "neutral": 0.0266
+      },
+      "articles_analyzed": 29,
+      "final_confidence": 0.4265,
+      "prediction_window_days": 5,
+      "ticker": "GS",
+      "market_period": "earnings_season",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W5_recent_stable_228",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 5.79,
+      "normalized_scores": {
+        "positive": 0.6898,
+        "negative": 0.1541,
+        "neutral": 0.0624
+      },
+      "articles_analyzed": 34,
+      "final_confidence": 0.6898,
+      "prediction_window_days": 5,
+      "ticker": "GS",
+      "market_period": "recent_stable",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W7_bull_run_229",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 7.41,
+      "normalized_scores": {
+        "positive": 0.3664,
+        "negative": 0.285,
+        "neutral": 0.0807
+      },
+      "articles_analyzed": 47,
+      "final_confidence": 0.3664,
+      "prediction_window_days": 7,
+      "ticker": "GS",
+      "market_period": "bull_run",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W7_volatile_230",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 8.31,
+      "normalized_scores": {
+        "positive": 0.6104,
+        "negative": 0.1462,
+        "neutral": 0.0331
+      },
+      "articles_analyzed": 52,
+      "final_confidence": 0.6104,
+      "prediction_window_days": 7,
+      "ticker": "GS",
+      "market_period": "volatile",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W7_earnings_season_231",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 6.2,
+      "normalized_scores": {
+        "positive": 0.4747,
+        "negative": 0.2853,
+        "neutral": 0.0269
+      },
+      "articles_analyzed": 38,
+      "final_confidence": 0.4747,
+      "prediction_window_days": 7,
+      "ticker": "GS",
+      "market_period": "earnings_season",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W7_recent_stable_232",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 7.41,
+      "normalized_scores": {
+        "positive": 0.6866,
+        "negative": 0.15,
+        "neutral": 0.059
+      },
+      "articles_analyzed": 40,
+      "final_confidence": 0.6866,
+      "prediction_window_days": 7,
+      "ticker": "GS",
+      "market_period": "recent_stable",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W14_bull_run_233",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 11.95,
+      "normalized_scores": {
+        "positive": 0.4572,
+        "negative": 0.2487,
+        "neutral": 0.0652
+      },
+      "articles_analyzed": 73,
+      "final_confidence": 0.4572,
+      "prediction_window_days": 14,
+      "ticker": "GS",
+      "market_period": "bull_run",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W14_volatile_234",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 9.54,
+      "normalized_scores": {
+        "positive": 0.557,
+        "negative": 0.1742,
+        "neutral": 0.031
+      },
+      "articles_analyzed": 60,
+      "final_confidence": 0.557,
+      "prediction_window_days": 14,
+      "ticker": "GS",
+      "market_period": "volatile",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W14_earnings_season_235",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 9.17,
+      "normalized_scores": {
+        "positive": 0.491,
+        "negative": 0.2529,
+        "neutral": 0.0263
+      },
+      "articles_analyzed": 55,
+      "final_confidence": 0.491,
+      "prediction_window_days": 14,
+      "ticker": "GS",
+      "market_period": "earnings_season",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W14_recent_stable_236",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 12.62,
+      "normalized_scores": {
+        "positive": 0.645,
+        "negative": 0.1492,
+        "neutral": 0.0562
+      },
+      "articles_analyzed": 69,
+      "final_confidence": 0.645,
+      "prediction_window_days": 14,
+      "ticker": "GS",
+      "market_period": "recent_stable",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W31_bull_run_237",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 28.31,
+      "normalized_scores": {
+        "positive": 0.4666,
+        "negative": 0.2289,
+        "neutral": 0.0547
+      },
+      "articles_analyzed": 164,
+      "final_confidence": 0.4666,
+      "prediction_window_days": 31,
+      "ticker": "GS",
+      "market_period": "bull_run",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W31_volatile_238",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 12.67,
+      "normalized_scores": {
+        "positive": 0.5016,
+        "negative": 0.2005,
+        "neutral": 0.0285
+      },
+      "articles_analyzed": 73,
+      "final_confidence": 0.5016,
+      "prediction_window_days": 31,
+      "ticker": "GS",
+      "market_period": "volatile",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W31_earnings_season_239",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 20.9,
+      "normalized_scores": {
+        "positive": 0.5411,
+        "negative": 0.2296,
+        "neutral": 0.0373
+      },
+      "articles_analyzed": 134,
+      "final_confidence": 0.5411,
+      "prediction_window_days": 31,
+      "ticker": "GS",
+      "market_period": "earnings_season",
+      "sector": "Finance"
+    },
+    {
+      "id": "GS_W31_recent_stable_240",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 18.72,
+      "normalized_scores": {
+        "positive": 0.6198,
+        "negative": 0.1578,
+        "neutral": 0.0507
+      },
+      "articles_analyzed": 103,
+      "final_confidence": 0.6198,
+      "prediction_window_days": 31,
+      "ticker": "GS",
+      "market_period": "recent_stable",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W1_bull_run_241",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 3.93,
+      "normalized_scores": {
+        "positive": 0.4783,
+        "negative": 0.1509,
+        "neutral": 0.045
+      },
+      "articles_analyzed": 23,
+      "final_confidence": 0.4783,
+      "prediction_window_days": 1,
+      "ticker": "V",
+      "market_period": "bull_run",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W1_volatile_242",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 9.3,
+      "normalized_scores": {
+        "positive": 0.6133,
+        "negative": 0.1208,
+        "neutral": 0.0821
+      },
+      "articles_analyzed": 53,
+      "final_confidence": 0.6133,
+      "prediction_window_days": 1,
+      "ticker": "V",
+      "market_period": "volatile",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W1_earnings_season_243",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 5.02,
+      "normalized_scores": {
+        "positive": 0.5785,
+        "negative": 0.1279,
+        "neutral": 0.044
+      },
+      "articles_analyzed": 28,
+      "final_confidence": 0.5785,
+      "prediction_window_days": 1,
+      "ticker": "V",
+      "market_period": "earnings_season",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W1_recent_stable_244",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 4.32,
+      "normalized_scores": {
+        "positive": 0.609,
+        "negative": 0.1526,
+        "neutral": 0.0655
+      },
+      "articles_analyzed": 23,
+      "final_confidence": 0.609,
+      "prediction_window_days": 1,
+      "ticker": "V",
+      "market_period": "recent_stable",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W3_bull_run_245",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 4.62,
+      "normalized_scores": {
+        "positive": 0.4975,
+        "negative": 0.1422,
+        "neutral": 0.0462
+      },
+      "articles_analyzed": 26,
+      "final_confidence": 0.4975,
+      "prediction_window_days": 3,
+      "ticker": "V",
+      "market_period": "bull_run",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W3_volatile_246",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 9.84,
+      "normalized_scores": {
+        "positive": 0.6128,
+        "negative": 0.116,
+        "neutral": 0.0808
+      },
+      "articles_analyzed": 59,
+      "final_confidence": 0.6128,
+      "prediction_window_days": 3,
+      "ticker": "V",
+      "market_period": "volatile",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W3_earnings_season_247",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 5.7,
+      "normalized_scores": {
+        "positive": 0.5922,
+        "negative": 0.1224,
+        "neutral": 0.0452
+      },
+      "articles_analyzed": 32,
+      "final_confidence": 0.5922,
+      "prediction_window_days": 3,
+      "ticker": "V",
+      "market_period": "earnings_season",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W3_recent_stable_248",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 5.21,
+      "normalized_scores": {
+        "positive": 0.612,
+        "negative": 0.1368,
+        "neutral": 0.0676
+      },
+      "articles_analyzed": 28,
+      "final_confidence": 0.612,
+      "prediction_window_days": 3,
+      "ticker": "V",
+      "market_period": "recent_stable",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W5_bull_run_249",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 5.59,
+      "normalized_scores": {
+        "positive": 0.504,
+        "negative": 0.1379,
+        "neutral": 0.0484
+      },
+      "articles_analyzed": 34,
+      "final_confidence": 0.504,
+      "prediction_window_days": 5,
+      "ticker": "V",
+      "market_period": "bull_run",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W5_volatile_250",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 11.94,
+      "normalized_scores": {
+        "positive": 0.6139,
+        "negative": 0.1166,
+        "neutral": 0.08
+      },
+      "articles_analyzed": 73,
+      "final_confidence": 0.6139,
+      "prediction_window_days": 5,
+      "ticker": "V",
+      "market_period": "volatile",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W5_earnings_season_251",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 6.33,
+      "normalized_scores": {
+        "positive": 0.6035,
+        "negative": 0.122,
+        "neutral": 0.0486
+      },
+      "articles_analyzed": 39,
+      "final_confidence": 0.6035,
+      "prediction_window_days": 5,
+      "ticker": "V",
+      "market_period": "earnings_season",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W5_recent_stable_252",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 6.27,
+      "normalized_scores": {
+        "positive": 0.6184,
+        "negative": 0.126,
+        "neutral": 0.0669
+      },
+      "articles_analyzed": 38,
+      "final_confidence": 0.6184,
+      "prediction_window_days": 5,
+      "ticker": "V",
+      "market_period": "recent_stable",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W7_bull_run_253",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 6.2,
+      "normalized_scores": {
+        "positive": 0.5014,
+        "negative": 0.1449,
+        "neutral": 0.05
+      },
+      "articles_analyzed": 36,
+      "final_confidence": 0.5014,
+      "prediction_window_days": 7,
+      "ticker": "V",
+      "market_period": "bull_run",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W7_volatile_254",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 14.55,
+      "normalized_scores": {
+        "positive": 0.6182,
+        "negative": 0.1131,
+        "neutral": 0.0789
+      },
+      "articles_analyzed": 78,
+      "final_confidence": 0.6182,
+      "prediction_window_days": 7,
+      "ticker": "V",
+      "market_period": "volatile",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W7_earnings_season_255",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 9.89,
+      "normalized_scores": {
+        "positive": 0.6015,
+        "negative": 0.1232,
+        "neutral": 0.0549
+      },
+      "articles_analyzed": 54,
+      "final_confidence": 0.6015,
+      "prediction_window_days": 7,
+      "ticker": "V",
+      "market_period": "earnings_season",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W7_recent_stable_256",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 9.24,
+      "normalized_scores": {
+        "positive": 0.6147,
+        "negative": 0.1194,
+        "neutral": 0.0683
+      },
+      "articles_analyzed": 49,
+      "final_confidence": 0.6147,
+      "prediction_window_days": 7,
+      "ticker": "V",
+      "market_period": "recent_stable",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W14_bull_run_257",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 8.7,
+      "normalized_scores": {
+        "positive": 0.52,
+        "negative": 0.1406,
+        "neutral": 0.0742
+      },
+      "articles_analyzed": 53,
+      "final_confidence": 0.52,
+      "prediction_window_days": 14,
+      "ticker": "V",
+      "market_period": "bull_run",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W14_volatile_258",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 15.77,
+      "normalized_scores": {
+        "positive": 0.6094,
+        "negative": 0.1124,
+        "neutral": 0.074
+      },
+      "articles_analyzed": 97,
+      "final_confidence": 0.6094,
+      "prediction_window_days": 14,
+      "ticker": "V",
+      "market_period": "volatile",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W14_earnings_season_259",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 10.75,
+      "normalized_scores": {
+        "positive": 0.6045,
+        "negative": 0.1095,
+        "neutral": 0.0526
+      },
+      "articles_analyzed": 63,
+      "final_confidence": 0.6045,
+      "prediction_window_days": 14,
+      "ticker": "V",
+      "market_period": "earnings_season",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W14_recent_stable_260",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 10.79,
+      "normalized_scores": {
+        "positive": 0.5876,
+        "negative": 0.1307,
+        "neutral": 0.0657
+      },
+      "articles_analyzed": 64,
+      "final_confidence": 0.5876,
+      "prediction_window_days": 14,
+      "ticker": "V",
+      "market_period": "recent_stable",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W31_bull_run_261",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 8.58,
+      "normalized_scores": {
+        "positive": 0.5281,
+        "negative": 0.1438,
+        "neutral": 0.0806
+      },
+      "articles_analyzed": 53,
+      "final_confidence": 0.5281,
+      "prediction_window_days": 31,
+      "ticker": "V",
+      "market_period": "bull_run",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W31_volatile_262",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 19.41,
+      "normalized_scores": {
+        "positive": 0.5967,
+        "negative": 0.1148,
+        "neutral": 0.0683
+      },
+      "articles_analyzed": 123,
+      "final_confidence": 0.5967,
+      "prediction_window_days": 31,
+      "ticker": "V",
+      "market_period": "volatile",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W31_earnings_season_263",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 15.86,
+      "normalized_scores": {
+        "positive": 0.5947,
+        "negative": 0.1143,
+        "neutral": 0.0517
+      },
+      "articles_analyzed": 91,
+      "final_confidence": 0.5947,
+      "prediction_window_days": 31,
+      "ticker": "V",
+      "market_period": "earnings_season",
+      "sector": "Finance"
+    },
+    {
+      "id": "V_W31_recent_stable_264",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 19.95,
+      "normalized_scores": {
+        "positive": 0.5442,
+        "negative": 0.1263,
+        "neutral": 0.059
+      },
+      "articles_analyzed": 118,
+      "final_confidence": 0.5442,
+      "prediction_window_days": 31,
+      "ticker": "V",
+      "market_period": "recent_stable",
+      "sector": "Finance"
+    },
+    {
+      "id": "JNJ_W1_bull_run_265",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 4.65,
+      "normalized_scores": {
+        "positive": 0.5321,
+        "negative": 0.2638,
+        "neutral": 0.0596
+      },
+      "articles_analyzed": 23,
+      "final_confidence": 0.5321,
+      "prediction_window_days": 1,
+      "ticker": "JNJ",
+      "market_period": "bull_run",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W1_volatile_266",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 4.34,
+      "normalized_scores": {
+        "positive": 0.75,
+        "negative": 0.0875,
+        "neutral": 0.0782
+      },
+      "articles_analyzed": 22,
+      "final_confidence": 0.75,
+      "prediction_window_days": 1,
+      "ticker": "JNJ",
+      "market_period": "volatile",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W1_earnings_season_267",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 8.97,
+      "normalized_scores": {
+        "positive": 0.6327,
+        "negative": 0.1787,
+        "neutral": 0.1092
+      },
+      "articles_analyzed": 45,
+      "final_confidence": 0.6327,
+      "prediction_window_days": 1,
+      "ticker": "JNJ",
+      "market_period": "earnings_season",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W1_recent_stable_268",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 4.52,
+      "normalized_scores": {
+        "positive": 0.7012,
+        "negative": 0.127,
+        "neutral": 0.0916
+      },
+      "articles_analyzed": 18,
+      "final_confidence": 0.7012,
+      "prediction_window_days": 1,
+      "ticker": "JNJ",
+      "market_period": "recent_stable",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W3_bull_run_269",
+      "actual_label": "positive",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 12.48,
+      "normalized_scores": {
+        "positive": 0.3818,
+        "negative": 0.4038,
+        "neutral": 0.0548
+      },
+      "articles_analyzed": 66,
+      "final_confidence": 0.0548,
+      "prediction_window_days": 3,
+      "ticker": "JNJ",
+      "market_period": "bull_run",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W3_volatile_270",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 5.01,
+      "normalized_scores": {
+        "positive": 0.75,
+        "negative": 0.0963,
+        "neutral": 0.095
+      },
+      "articles_analyzed": 25,
+      "final_confidence": 0.75,
+      "prediction_window_days": 3,
+      "ticker": "JNJ",
+      "market_period": "volatile",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W3_earnings_season_271",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 10.98,
+      "normalized_scores": {
+        "positive": 0.6409,
+        "negative": 0.1643,
+        "neutral": 0.0982
+      },
+      "articles_analyzed": 52,
+      "final_confidence": 0.6409,
+      "prediction_window_days": 3,
+      "ticker": "JNJ",
+      "market_period": "earnings_season",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W3_recent_stable_272",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 5.17,
+      "normalized_scores": {
+        "positive": 0.7086,
+        "negative": 0.1292,
+        "neutral": 0.1014
+      },
+      "articles_analyzed": 20,
+      "final_confidence": 0.7086,
+      "prediction_window_days": 3,
+      "ticker": "JNJ",
+      "market_period": "recent_stable",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W5_bull_run_273",
+      "actual_label": "positive",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 13.32,
+      "normalized_scores": {
+        "positive": 0.39,
+        "negative": 0.3896,
+        "neutral": 0.0546
+      },
+      "articles_analyzed": 71,
+      "final_confidence": 0.0546,
+      "prediction_window_days": 5,
+      "ticker": "JNJ",
+      "market_period": "bull_run",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W5_volatile_274",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 6.35,
+      "normalized_scores": {
+        "positive": 0.742,
+        "negative": 0.0992,
+        "neutral": 0.0943
+      },
+      "articles_analyzed": 30,
+      "final_confidence": 0.742,
+      "prediction_window_days": 5,
+      "ticker": "JNJ",
+      "market_period": "volatile",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W5_earnings_season_275",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 14.88,
+      "normalized_scores": {
+        "positive": 0.5966,
+        "negative": 0.1732,
+        "neutral": 0.0883
+      },
+      "articles_analyzed": 67,
+      "final_confidence": 0.5966,
+      "prediction_window_days": 5,
+      "ticker": "JNJ",
+      "market_period": "earnings_season",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W5_recent_stable_276",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 6.27,
+      "normalized_scores": {
+        "positive": 0.7259,
+        "negative": 0.1196,
+        "neutral": 0.1021
+      },
+      "articles_analyzed": 24,
+      "final_confidence": 0.7259,
+      "prediction_window_days": 5,
+      "ticker": "JNJ",
+      "market_period": "recent_stable",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W7_bull_run_277",
+      "actual_label": "positive",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 15.57,
+      "normalized_scores": {
+        "positive": 0.3926,
+        "negative": 0.3791,
+        "neutral": 0.054
+      },
+      "articles_analyzed": 81,
+      "final_confidence": 0.054,
+      "prediction_window_days": 7,
+      "ticker": "JNJ",
+      "market_period": "bull_run",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W7_volatile_278",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 8.79,
+      "normalized_scores": {
+        "positive": 0.727,
+        "negative": 0.0902,
+        "neutral": 0.0872
+      },
+      "articles_analyzed": 39,
+      "final_confidence": 0.727,
+      "prediction_window_days": 7,
+      "ticker": "JNJ",
+      "market_period": "volatile",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W7_earnings_season_279",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 17.6,
+      "normalized_scores": {
+        "positive": 0.5976,
+        "negative": 0.1721,
+        "neutral": 0.0838
+      },
+      "articles_analyzed": 80,
+      "final_confidence": 0.5976,
+      "prediction_window_days": 7,
+      "ticker": "JNJ",
+      "market_period": "earnings_season",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W7_recent_stable_280",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 6.61,
+      "normalized_scores": {
+        "positive": 0.7271,
+        "negative": 0.1172,
+        "neutral": 0.1054
+      },
+      "articles_analyzed": 26,
+      "final_confidence": 0.7271,
+      "prediction_window_days": 7,
+      "ticker": "JNJ",
+      "market_period": "recent_stable",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W14_bull_run_281",
+      "actual_label": "positive",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 18.31,
+      "normalized_scores": {
+        "positive": 0.3691,
+        "negative": 0.384,
+        "neutral": 0.0505
+      },
+      "articles_analyzed": 95,
+      "final_confidence": 0.0505,
+      "prediction_window_days": 14,
+      "ticker": "JNJ",
+      "market_period": "bull_run",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W14_volatile_282",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 14.51,
+      "normalized_scores": {
+        "positive": 0.7271,
+        "negative": 0.0877,
+        "neutral": 0.0916
+      },
+      "articles_analyzed": 66,
+      "final_confidence": 0.7271,
+      "prediction_window_days": 14,
+      "ticker": "JNJ",
+      "market_period": "volatile",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W14_earnings_season_283",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 20.71,
+      "normalized_scores": {
+        "positive": 0.6087,
+        "negative": 0.1663,
+        "neutral": 0.0791
+      },
+      "articles_analyzed": 96,
+      "final_confidence": 0.6087,
+      "prediction_window_days": 14,
+      "ticker": "JNJ",
+      "market_period": "earnings_season",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W14_recent_stable_284",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 7.45,
+      "normalized_scores": {
+        "positive": 0.734,
+        "negative": 0.1108,
+        "neutral": 0.103
+      },
+      "articles_analyzed": 30,
+      "final_confidence": 0.734,
+      "prediction_window_days": 14,
+      "ticker": "JNJ",
+      "market_period": "recent_stable",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W31_bull_run_285",
+      "actual_label": "neutral",
+      "predicted_label": "neutral",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 21.77,
+      "normalized_scores": {
+        "positive": 0.3957,
+        "negative": 0.3597,
+        "neutral": 0.0516
+      },
+      "articles_analyzed": 113,
+      "final_confidence": 0.0516,
+      "prediction_window_days": 31,
+      "ticker": "JNJ",
+      "market_period": "bull_run",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W31_volatile_286",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 31.73,
+      "normalized_scores": {
+        "positive": 0.7067,
+        "negative": 0.0933,
+        "neutral": 0.0822
+      },
+      "articles_analyzed": 143,
+      "final_confidence": 0.7067,
+      "prediction_window_days": 31,
+      "ticker": "JNJ",
+      "market_period": "volatile",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W31_earnings_season_287",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 29.55,
+      "normalized_scores": {
+        "positive": 0.6125,
+        "negative": 0.1653,
+        "neutral": 0.0788
+      },
+      "articles_analyzed": 126,
+      "final_confidence": 0.6125,
+      "prediction_window_days": 31,
+      "ticker": "JNJ",
+      "market_period": "earnings_season",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "JNJ_W31_recent_stable_288",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 13.66,
+      "normalized_scores": {
+        "positive": 0.6854,
+        "negative": 0.1191,
+        "neutral": 0.085
+      },
+      "articles_analyzed": 60,
+      "final_confidence": 0.6854,
+      "prediction_window_days": 31,
+      "ticker": "JNJ",
+      "market_period": "recent_stable",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W1_bull_run_289",
+      "actual_label": "neutral",
+      "predicted_label": "negative",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 9.97,
+      "normalized_scores": {
+        "positive": 0.2629,
+        "negative": 0.3845,
+        "neutral": 0.065
+      },
+      "articles_analyzed": 55,
+      "final_confidence": 0.3845,
+      "prediction_window_days": 1,
+      "ticker": "PFE",
+      "market_period": "bull_run",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W1_volatile_290",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 13.21,
+      "normalized_scores": {
+        "positive": 0.6475,
+        "negative": 0.1188,
+        "neutral": 0.0518
+      },
+      "articles_analyzed": 65,
+      "final_confidence": 0.6475,
+      "prediction_window_days": 1,
+      "ticker": "PFE",
+      "market_period": "volatile",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W1_earnings_season_291",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 2.94,
+      "normalized_scores": {
+        "positive": 0.4817,
+        "negative": 0.0931,
+        "neutral": 0.0486
+      },
+      "articles_analyzed": 12,
+      "final_confidence": 0.4817,
+      "prediction_window_days": 1,
+      "ticker": "PFE",
+      "market_period": "earnings_season",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W1_recent_stable_292",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 8.98,
+      "normalized_scores": {
+        "positive": 0.4813,
+        "negative": 0.2743,
+        "neutral": 0.1519
+      },
+      "articles_analyzed": 41,
+      "final_confidence": 0.4813,
+      "prediction_window_days": 1,
+      "ticker": "PFE",
+      "market_period": "recent_stable",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W3_bull_run_293",
+      "actual_label": "neutral",
+      "predicted_label": "negative",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 13.2,
+      "normalized_scores": {
+        "positive": 0.2665,
+        "negative": 0.3879,
+        "neutral": 0.0628
+      },
+      "articles_analyzed": 72,
+      "final_confidence": 0.3879,
+      "prediction_window_days": 3,
+      "ticker": "PFE",
+      "market_period": "bull_run",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W3_volatile_294",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 15.67,
+      "normalized_scores": {
+        "positive": 0.619,
+        "negative": 0.1327,
+        "neutral": 0.0515
+      },
+      "articles_analyzed": 78,
+      "final_confidence": 0.619,
+      "prediction_window_days": 3,
+      "ticker": "PFE",
+      "market_period": "volatile",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W3_earnings_season_295",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 4.1,
+      "normalized_scores": {
+        "positive": 0.5036,
+        "negative": 0.0891,
+        "neutral": 0.0559
+      },
+      "articles_analyzed": 17,
+      "final_confidence": 0.5036,
+      "prediction_window_days": 3,
+      "ticker": "PFE",
+      "market_period": "earnings_season",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W3_recent_stable_296",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 9.16,
+      "normalized_scores": {
+        "positive": 0.4748,
+        "negative": 0.2639,
+        "neutral": 0.1455
+      },
+      "articles_analyzed": 44,
+      "final_confidence": 0.4748,
+      "prediction_window_days": 3,
+      "ticker": "PFE",
+      "market_period": "recent_stable",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W5_bull_run_297",
+      "actual_label": "neutral",
+      "predicted_label": "negative",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 13.51,
+      "normalized_scores": {
+        "positive": 0.2654,
+        "negative": 0.3958,
+        "neutral": 0.066
+      },
+      "articles_analyzed": 75,
+      "final_confidence": 0.3958,
+      "prediction_window_days": 5,
+      "ticker": "PFE",
+      "market_period": "bull_run",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W5_volatile_298",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 22.4,
+      "normalized_scores": {
+        "positive": 0.6023,
+        "negative": 0.1434,
+        "neutral": 0.0579
+      },
+      "articles_analyzed": 101,
+      "final_confidence": 0.6023,
+      "prediction_window_days": 5,
+      "ticker": "PFE",
+      "market_period": "volatile",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W5_earnings_season_299",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 7.86,
+      "normalized_scores": {
+        "positive": 0.5417,
+        "negative": 0.0956,
+        "neutral": 0.0572
+      },
+      "articles_analyzed": 30,
+      "final_confidence": 0.5417,
+      "prediction_window_days": 5,
+      "ticker": "PFE",
+      "market_period": "earnings_season",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W5_recent_stable_300",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 11.91,
+      "normalized_scores": {
+        "positive": 0.4809,
+        "negative": 0.2557,
+        "neutral": 0.1398
+      },
+      "articles_analyzed": 54,
+      "final_confidence": 0.4809,
+      "prediction_window_days": 5,
+      "ticker": "PFE",
+      "market_period": "recent_stable",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W7_bull_run_301",
+      "actual_label": "positive",
+      "predicted_label": "negative",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 15.17,
+      "normalized_scores": {
+        "positive": 0.2719,
+        "negative": 0.3945,
+        "neutral": 0.0661
+      },
+      "articles_analyzed": 82,
+      "final_confidence": 0.3945,
+      "prediction_window_days": 7,
+      "ticker": "PFE",
+      "market_period": "bull_run",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W7_volatile_302",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 23.86,
+      "normalized_scores": {
+        "positive": 0.6061,
+        "negative": 0.1432,
+        "neutral": 0.0594
+      },
+      "articles_analyzed": 110,
+      "final_confidence": 0.6061,
+      "prediction_window_days": 7,
+      "ticker": "PFE",
+      "market_period": "volatile",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W7_earnings_season_303",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 9.45,
+      "normalized_scores": {
+        "positive": 0.5386,
+        "negative": 0.1018,
+        "neutral": 0.054
+      },
+      "articles_analyzed": 37,
+      "final_confidence": 0.5386,
+      "prediction_window_days": 7,
+      "ticker": "PFE",
+      "market_period": "earnings_season",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W7_recent_stable_304",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 14.36,
+      "normalized_scores": {
+        "positive": 0.4917,
+        "negative": 0.245,
+        "neutral": 0.1415
+      },
+      "articles_analyzed": 64,
+      "final_confidence": 0.4917,
+      "prediction_window_days": 7,
+      "ticker": "PFE",
+      "market_period": "recent_stable",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W14_bull_run_305",
+      "actual_label": "positive",
+      "predicted_label": "negative",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 19.74,
+      "normalized_scores": {
+        "positive": 0.2925,
+        "negative": 0.3818,
+        "neutral": 0.0634
+      },
+      "articles_analyzed": 102,
+      "final_confidence": 0.3818,
+      "prediction_window_days": 14,
+      "ticker": "PFE",
+      "market_period": "bull_run",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W14_volatile_306",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 28.84,
+      "normalized_scores": {
+        "positive": 0.5898,
+        "negative": 0.1507,
+        "neutral": 0.0616
+      },
+      "articles_analyzed": 126,
+      "final_confidence": 0.5898,
+      "prediction_window_days": 14,
+      "ticker": "PFE",
+      "market_period": "volatile",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W14_earnings_season_307",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 13.79,
+      "normalized_scores": {
+        "positive": 0.5284,
+        "negative": 0.1048,
+        "neutral": 0.0596
+      },
+      "articles_analyzed": 57,
+      "final_confidence": 0.5284,
+      "prediction_window_days": 14,
+      "ticker": "PFE",
+      "market_period": "earnings_season",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W14_recent_stable_308",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 15.24,
+      "normalized_scores": {
+        "positive": 0.5,
+        "negative": 0.237,
+        "neutral": 0.1306
+      },
+      "articles_analyzed": 73,
+      "final_confidence": 0.5,
+      "prediction_window_days": 14,
+      "ticker": "PFE",
+      "market_period": "recent_stable",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W31_bull_run_309",
+      "actual_label": "neutral",
+      "predicted_label": "negative",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 25.14,
+      "normalized_scores": {
+        "positive": 0.2979,
+        "negative": 0.3621,
+        "neutral": 0.0568
+      },
+      "articles_analyzed": 140,
+      "final_confidence": 0.3621,
+      "prediction_window_days": 31,
+      "ticker": "PFE",
+      "market_period": "bull_run",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W31_volatile_310",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 35.27,
+      "normalized_scores": {
+        "positive": 0.5839,
+        "negative": 0.1577,
+        "neutral": 0.0678
+      },
+      "articles_analyzed": 156,
+      "final_confidence": 0.5839,
+      "prediction_window_days": 31,
+      "ticker": "PFE",
+      "market_period": "volatile",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W31_earnings_season_311",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 35.82,
+      "normalized_scores": {
+        "positive": 0.5746,
+        "negative": 0.1245,
+        "neutral": 0.0611
+      },
+      "articles_analyzed": 161,
+      "final_confidence": 0.5746,
+      "prediction_window_days": 31,
+      "ticker": "PFE",
+      "market_period": "earnings_season",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "PFE_W31_recent_stable_312",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 25.29,
+      "normalized_scores": {
+        "positive": 0.4998,
+        "negative": 0.2218,
+        "neutral": 0.1076
+      },
+      "articles_analyzed": 111,
+      "final_confidence": 0.4998,
+      "prediction_window_days": 31,
+      "ticker": "PFE",
+      "market_period": "recent_stable",
+      "sector": "Healthcare"
+    },
+    {
+      "id": "CVX_W1_bull_run_361",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 5.87,
+      "normalized_scores": {
+        "positive": 0.5602,
+        "negative": 0.1599,
+        "neutral": 0.0652
+      },
+      "articles_analyzed": 31,
+      "final_confidence": 0.5602,
+      "prediction_window_days": 1,
+      "ticker": "CVX",
+      "market_period": "bull_run",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W1_volatile_362",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 6.16,
+      "normalized_scores": {
+        "positive": 0.4864,
+        "negative": 0.1716,
+        "neutral": 0.0441
+      },
+      "articles_analyzed": 34,
+      "final_confidence": 0.4864,
+      "prediction_window_days": 1,
+      "ticker": "CVX",
+      "market_period": "volatile",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W1_earnings_season_363",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 4.53,
+      "normalized_scores": {
+        "positive": 0.3845,
+        "negative": 0.2697,
+        "neutral": 0.0933
+      },
+      "articles_analyzed": 29,
+      "final_confidence": 0.3845,
+      "prediction_window_days": 1,
+      "ticker": "CVX",
+      "market_period": "earnings_season",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W1_recent_stable_364",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 4.41,
+      "normalized_scores": {
+        "positive": 0.5687,
+        "negative": 0.1357,
+        "neutral": 0.0882
+      },
+      "articles_analyzed": 27,
+      "final_confidence": 0.5687,
+      "prediction_window_days": 1,
+      "ticker": "CVX",
+      "market_period": "recent_stable",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W3_bull_run_365",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 6.68,
+      "normalized_scores": {
+        "positive": 0.5525,
+        "negative": 0.1535,
+        "neutral": 0.0659
+      },
+      "articles_analyzed": 38,
+      "final_confidence": 0.5525,
+      "prediction_window_days": 3,
+      "ticker": "CVX",
+      "market_period": "bull_run",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W3_volatile_366",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 9.59,
+      "normalized_scores": {
+        "positive": 0.464,
+        "negative": 0.1998,
+        "neutral": 0.0483
+      },
+      "articles_analyzed": 50,
+      "final_confidence": 0.464,
+      "prediction_window_days": 3,
+      "ticker": "CVX",
+      "market_period": "volatile",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W3_earnings_season_367",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 4.73,
+      "normalized_scores": {
+        "positive": 0.375,
+        "negative": 0.2766,
+        "neutral": 0.0895
+      },
+      "articles_analyzed": 31,
+      "final_confidence": 0.375,
+      "prediction_window_days": 3,
+      "ticker": "CVX",
+      "market_period": "earnings_season",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W3_recent_stable_368",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 5.07,
+      "normalized_scores": {
+        "positive": 0.5668,
+        "negative": 0.14,
+        "neutral": 0.0805
+      },
+      "articles_analyzed": 30,
+      "final_confidence": 0.5668,
+      "prediction_window_days": 3,
+      "ticker": "CVX",
+      "market_period": "recent_stable",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W5_bull_run_369",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 8.69,
+      "normalized_scores": {
+        "positive": 0.5411,
+        "negative": 0.1596,
+        "neutral": 0.0644
+      },
+      "articles_analyzed": 49,
+      "final_confidence": 0.5411,
+      "prediction_window_days": 5,
+      "ticker": "CVX",
+      "market_period": "bull_run",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W5_volatile_370",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 11.56,
+      "normalized_scores": {
+        "positive": 0.4974,
+        "negative": 0.1768,
+        "neutral": 0.0455
+      },
+      "articles_analyzed": 65,
+      "final_confidence": 0.4974,
+      "prediction_window_days": 5,
+      "ticker": "CVX",
+      "market_period": "volatile",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W5_earnings_season_371",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 8.8,
+      "normalized_scores": {
+        "positive": 0.3714,
+        "negative": 0.2755,
+        "neutral": 0.079
+      },
+      "articles_analyzed": 49,
+      "final_confidence": 0.3714,
+      "prediction_window_days": 5,
+      "ticker": "CVX",
+      "market_period": "earnings_season",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W5_recent_stable_372",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 6.83,
+      "normalized_scores": {
+        "positive": 0.5518,
+        "negative": 0.131,
+        "neutral": 0.0733
+      },
+      "articles_analyzed": 36,
+      "final_confidence": 0.5518,
+      "prediction_window_days": 5,
+      "ticker": "CVX",
+      "market_period": "recent_stable",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W7_bull_run_373",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 11.31,
+      "normalized_scores": {
+        "positive": 0.5237,
+        "negative": 0.1663,
+        "neutral": 0.0655
+      },
+      "articles_analyzed": 62,
+      "final_confidence": 0.5237,
+      "prediction_window_days": 7,
+      "ticker": "CVX",
+      "market_period": "bull_run",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W7_volatile_374",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 19.14,
+      "normalized_scores": {
+        "positive": 0.5232,
+        "negative": 0.1666,
+        "neutral": 0.0442
+      },
+      "articles_analyzed": 95,
+      "final_confidence": 0.5232,
+      "prediction_window_days": 7,
+      "ticker": "CVX",
+      "market_period": "volatile",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W7_earnings_season_375",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 10.3,
+      "normalized_scores": {
+        "positive": 0.404,
+        "negative": 0.2579,
+        "neutral": 0.077
+      },
+      "articles_analyzed": 62,
+      "final_confidence": 0.404,
+      "prediction_window_days": 7,
+      "ticker": "CVX",
+      "market_period": "earnings_season",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W7_recent_stable_376",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 7.44,
+      "normalized_scores": {
+        "positive": 0.5351,
+        "negative": 0.1257,
+        "neutral": 0.0658
+      },
+      "articles_analyzed": 42,
+      "final_confidence": 0.5351,
+      "prediction_window_days": 7,
+      "ticker": "CVX",
+      "market_period": "recent_stable",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W14_bull_run_377",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 12.19,
+      "normalized_scores": {
+        "positive": 0.4835,
+        "negative": 0.186,
+        "neutral": 0.0648
+      },
+      "articles_analyzed": 72,
+      "final_confidence": 0.4835,
+      "prediction_window_days": 14,
+      "ticker": "CVX",
+      "market_period": "bull_run",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W14_volatile_378",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 20.67,
+      "normalized_scores": {
+        "positive": 0.5174,
+        "negative": 0.1722,
+        "neutral": 0.0452
+      },
+      "articles_analyzed": 109,
+      "final_confidence": 0.5174,
+      "prediction_window_days": 14,
+      "ticker": "CVX",
+      "market_period": "volatile",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W14_earnings_season_379",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 11.19,
+      "normalized_scores": {
+        "positive": 0.3965,
+        "negative": 0.2664,
+        "neutral": 0.0705
+      },
+      "articles_analyzed": 68,
+      "final_confidence": 0.3965,
+      "prediction_window_days": 14,
+      "ticker": "CVX",
+      "market_period": "earnings_season",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W14_recent_stable_380",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 10.41,
+      "normalized_scores": {
+        "positive": 0.5041,
+        "negative": 0.1573,
+        "neutral": 0.0618
+      },
+      "articles_analyzed": 60,
+      "final_confidence": 0.5041,
+      "prediction_window_days": 14,
+      "ticker": "CVX",
+      "market_period": "recent_stable",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W31_bull_run_381",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 12.08,
+      "normalized_scores": {
+        "positive": 0.4684,
+        "negative": 0.1938,
+        "neutral": 0.0644
+      },
+      "articles_analyzed": 72,
+      "final_confidence": 0.4684,
+      "prediction_window_days": 31,
+      "ticker": "CVX",
+      "market_period": "bull_run",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W31_volatile_382",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 27.47,
+      "normalized_scores": {
+        "positive": 0.5112,
+        "negative": 0.1815,
+        "neutral": 0.0453
+      },
+      "articles_analyzed": 150,
+      "final_confidence": 0.5112,
+      "prediction_window_days": 31,
+      "ticker": "CVX",
+      "market_period": "volatile",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W31_earnings_season_383",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 19.97,
+      "normalized_scores": {
+        "positive": 0.42,
+        "negative": 0.2393,
+        "neutral": 0.0655
+      },
+      "articles_analyzed": 119,
+      "final_confidence": 0.42,
+      "prediction_window_days": 31,
+      "ticker": "CVX",
+      "market_period": "earnings_season",
+      "sector": "Energy"
+    },
+    {
+      "id": "CVX_W31_recent_stable_384",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 15.16,
+      "normalized_scores": {
+        "positive": 0.4959,
+        "negative": 0.1867,
+        "neutral": 0.0588
+      },
+      "articles_analyzed": 87,
+      "final_confidence": 0.4959,
+      "prediction_window_days": 31,
+      "ticker": "CVX",
+      "market_period": "recent_stable",
+      "sector": "Energy"
+    },
+    {
+      "id": "WMT_W1_bull_run_385",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 16.27,
+      "normalized_scores": {
+        "positive": 0.4365,
+        "negative": 0.2865,
+        "neutral": 0.0906
+      },
+      "articles_analyzed": 88,
+      "final_confidence": 0.4365,
+      "prediction_window_days": 1,
+      "ticker": "WMT",
+      "market_period": "bull_run",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W1_volatile_386",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 7.3,
+      "normalized_scores": {
+        "positive": 0.4831,
+        "negative": 0.2343,
+        "neutral": 0.0732
+      },
+      "articles_analyzed": 32,
+      "final_confidence": 0.4831,
+      "prediction_window_days": 1,
+      "ticker": "WMT",
+      "market_period": "volatile",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W1_earnings_season_387",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 12.74,
+      "normalized_scores": {
+        "positive": 0.6252,
+        "negative": 0.085,
+        "neutral": 0.0343
+      },
+      "articles_analyzed": 71,
+      "final_confidence": 0.6252,
+      "prediction_window_days": 1,
+      "ticker": "WMT",
+      "market_period": "earnings_season",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W1_recent_stable_388",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 9.24,
+      "normalized_scores": {
+        "positive": 0.5319,
+        "negative": 0.1918,
+        "neutral": 0.0571
+      },
+      "articles_analyzed": 47,
+      "final_confidence": 0.5319,
+      "prediction_window_days": 1,
+      "ticker": "WMT",
+      "market_period": "recent_stable",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W3_bull_run_389",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 19.88,
+      "normalized_scores": {
+        "positive": 0.4249,
+        "negative": 0.2935,
+        "neutral": 0.0848
+      },
+      "articles_analyzed": 103,
+      "final_confidence": 0.4249,
+      "prediction_window_days": 3,
+      "ticker": "WMT",
+      "market_period": "bull_run",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W3_volatile_390",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 7.94,
+      "normalized_scores": {
+        "positive": 0.4671,
+        "negative": 0.2315,
+        "neutral": 0.0701
+      },
+      "articles_analyzed": 39,
+      "final_confidence": 0.4671,
+      "prediction_window_days": 3,
+      "ticker": "WMT",
+      "market_period": "volatile",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W3_earnings_season_391",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 13.79,
+      "normalized_scores": {
+        "positive": 0.6303,
+        "negative": 0.0877,
+        "neutral": 0.0361
+      },
+      "articles_analyzed": 77,
+      "final_confidence": 0.6303,
+      "prediction_window_days": 3,
+      "ticker": "WMT",
+      "market_period": "earnings_season",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W3_recent_stable_392",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 11.62,
+      "normalized_scores": {
+        "positive": 0.5442,
+        "negative": 0.1795,
+        "neutral": 0.0566
+      },
+      "articles_analyzed": 57,
+      "final_confidence": 0.5442,
+      "prediction_window_days": 3,
+      "ticker": "WMT",
+      "market_period": "recent_stable",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W5_bull_run_393",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 21.98,
+      "normalized_scores": {
+        "positive": 0.4246,
+        "negative": 0.2904,
+        "neutral": 0.0808
+      },
+      "articles_analyzed": 115,
+      "final_confidence": 0.4246,
+      "prediction_window_days": 5,
+      "ticker": "WMT",
+      "market_period": "bull_run",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W5_volatile_394",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 12.58,
+      "normalized_scores": {
+        "positive": 0.4582,
+        "negative": 0.2151,
+        "neutral": 0.07
+      },
+      "articles_analyzed": 57,
+      "final_confidence": 0.4582,
+      "prediction_window_days": 5,
+      "ticker": "WMT",
+      "market_period": "volatile",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W5_earnings_season_395",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 16.48,
+      "normalized_scores": {
+        "positive": 0.6158,
+        "negative": 0.1007,
+        "neutral": 0.0363
+      },
+      "articles_analyzed": 96,
+      "final_confidence": 0.6158,
+      "prediction_window_days": 5,
+      "ticker": "WMT",
+      "market_period": "earnings_season",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W5_recent_stable_396",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 15.13,
+      "normalized_scores": {
+        "positive": 0.5533,
+        "negative": 0.169,
+        "neutral": 0.0586
+      },
+      "articles_analyzed": 75,
+      "final_confidence": 0.5533,
+      "prediction_window_days": 5,
+      "ticker": "WMT",
+      "market_period": "recent_stable",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W7_bull_run_397",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 24.78,
+      "normalized_scores": {
+        "positive": 0.4153,
+        "negative": 0.2912,
+        "neutral": 0.0777
+      },
+      "articles_analyzed": 134,
+      "final_confidence": 0.4153,
+      "prediction_window_days": 7,
+      "ticker": "WMT",
+      "market_period": "bull_run",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W7_volatile_398",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 15.16,
+      "normalized_scores": {
+        "positive": 0.4308,
+        "negative": 0.2256,
+        "neutral": 0.0641
+      },
+      "articles_analyzed": 69,
+      "final_confidence": 0.4308,
+      "prediction_window_days": 7,
+      "ticker": "WMT",
+      "market_period": "volatile",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W7_earnings_season_399",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 20.16,
+      "normalized_scores": {
+        "positive": 0.612,
+        "negative": 0.1048,
+        "neutral": 0.0364
+      },
+      "articles_analyzed": 114,
+      "final_confidence": 0.612,
+      "prediction_window_days": 7,
+      "ticker": "WMT",
+      "market_period": "earnings_season",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W7_recent_stable_400",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 18.07,
+      "normalized_scores": {
+        "positive": 0.5405,
+        "negative": 0.1724,
+        "neutral": 0.06
+      },
+      "articles_analyzed": 93,
+      "final_confidence": 0.5405,
+      "prediction_window_days": 7,
+      "ticker": "WMT",
+      "market_period": "recent_stable",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W14_bull_run_401",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 29.96,
+      "normalized_scores": {
+        "positive": 0.3908,
+        "negative": 0.311,
+        "neutral": 0.0746
+      },
+      "articles_analyzed": 161,
+      "final_confidence": 0.3908,
+      "prediction_window_days": 14,
+      "ticker": "WMT",
+      "market_period": "bull_run",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W14_volatile_402",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 17.72,
+      "normalized_scores": {
+        "positive": 0.4127,
+        "negative": 0.2203,
+        "neutral": 0.0585
+      },
+      "articles_analyzed": 83,
+      "final_confidence": 0.4127,
+      "prediction_window_days": 14,
+      "ticker": "WMT",
+      "market_period": "volatile",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W14_earnings_season_403",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 24.47,
+      "normalized_scores": {
+        "positive": 0.5789,
+        "negative": 0.121,
+        "neutral": 0.0472
+      },
+      "articles_analyzed": 143,
+      "final_confidence": 0.5789,
+      "prediction_window_days": 14,
+      "ticker": "WMT",
+      "market_period": "earnings_season",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W14_recent_stable_404",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 42.88,
+      "normalized_scores": {
+        "positive": 0.5783,
+        "negative": 0.1554,
+        "neutral": 0.0602
+      },
+      "articles_analyzed": 220,
+      "final_confidence": 0.5783,
+      "prediction_window_days": 14,
+      "ticker": "WMT",
+      "market_period": "recent_stable",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W31_bull_run_405",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 35.13,
+      "normalized_scores": {
+        "positive": 0.3716,
+        "negative": 0.3159,
+        "neutral": 0.0666
+      },
+      "articles_analyzed": 199,
+      "final_confidence": 0.3716,
+      "prediction_window_days": 31,
+      "ticker": "WMT",
+      "market_period": "bull_run",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W31_volatile_406",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 27.69,
+      "normalized_scores": {
+        "positive": 0.4154,
+        "negative": 0.2289,
+        "neutral": 0.0606
+      },
+      "articles_analyzed": 137,
+      "final_confidence": 0.4154,
+      "prediction_window_days": 31,
+      "ticker": "WMT",
+      "market_period": "volatile",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W31_earnings_season_407",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 34.91,
+      "normalized_scores": {
+        "positive": 0.5594,
+        "negative": 0.1284,
+        "neutral": 0.0494
+      },
+      "articles_analyzed": 200,
+      "final_confidence": 0.5594,
+      "prediction_window_days": 31,
+      "ticker": "WMT",
+      "market_period": "earnings_season",
+      "sector": "Consumer"
+    },
+    {
+      "id": "WMT_W31_recent_stable_408",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 61.93,
+      "normalized_scores": {
+        "positive": 0.5507,
+        "negative": 0.1632,
+        "neutral": 0.059
+      },
+      "articles_analyzed": 328,
+      "final_confidence": 0.5507,
+      "prediction_window_days": 31,
+      "ticker": "WMT",
+      "market_period": "recent_stable",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W1_bull_run_433",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 1.76,
+      "normalized_scores": {
+        "positive": 0.4104,
+        "negative": 0.3012,
+        "neutral": 0.0684
+      },
+      "articles_analyzed": 12,
+      "final_confidence": 0.4104,
+      "prediction_window_days": 1,
+      "ticker": "MCD",
+      "market_period": "bull_run",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W1_volatile_434",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 2.87,
+      "normalized_scores": {
+        "positive": 0.6229,
+        "negative": 0.1154,
+        "neutral": 0.087
+      },
+      "articles_analyzed": 15,
+      "final_confidence": 0.6229,
+      "prediction_window_days": 1,
+      "ticker": "MCD",
+      "market_period": "volatile",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W1_earnings_season_435",
+      "actual_label": "positive",
+      "predicted_label": "neutral",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 3.4,
+      "normalized_scores": {
+        "positive": 0.3438,
+        "negative": 0.296,
+        "neutral": 0.1586
+      },
+      "articles_analyzed": 17,
+      "final_confidence": 0.1586,
+      "prediction_window_days": 1,
+      "ticker": "MCD",
+      "market_period": "earnings_season",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W1_recent_stable_436",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 2.1,
+      "normalized_scores": {
+        "positive": 0.4045,
+        "negative": 0.2719,
+        "neutral": 0.1483
+      },
+      "articles_analyzed": 13,
+      "final_confidence": 0.4045,
+      "prediction_window_days": 1,
+      "ticker": "MCD",
+      "market_period": "recent_stable",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W3_bull_run_437",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 2.28,
+      "normalized_scores": {
+        "positive": 0.4321,
+        "negative": 0.3139,
+        "neutral": 0.0814
+      },
+      "articles_analyzed": 16,
+      "final_confidence": 0.4321,
+      "prediction_window_days": 3,
+      "ticker": "MCD",
+      "market_period": "bull_run",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W3_volatile_438",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 4.46,
+      "normalized_scores": {
+        "positive": 0.5398,
+        "negative": 0.1634,
+        "neutral": 0.0753
+      },
+      "articles_analyzed": 20,
+      "final_confidence": 0.5398,
+      "prediction_window_days": 3,
+      "ticker": "MCD",
+      "market_period": "volatile",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W3_earnings_season_439",
+      "actual_label": "neutral",
+      "predicted_label": "neutral",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 3.59,
+      "normalized_scores": {
+        "positive": 0.3369,
+        "negative": 0.2923,
+        "neutral": 0.1505
+      },
+      "articles_analyzed": 19,
+      "final_confidence": 0.1505,
+      "prediction_window_days": 3,
+      "ticker": "MCD",
+      "market_period": "earnings_season",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W3_recent_stable_440",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 2.77,
+      "normalized_scores": {
+        "positive": 0.4551,
+        "negative": 0.256,
+        "neutral": 0.1346
+      },
+      "articles_analyzed": 17,
+      "final_confidence": 0.4551,
+      "prediction_window_days": 3,
+      "ticker": "MCD",
+      "market_period": "recent_stable",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W5_bull_run_441",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 2.69,
+      "normalized_scores": {
+        "positive": 0.442,
+        "negative": 0.3098,
+        "neutral": 0.0819
+      },
+      "articles_analyzed": 18,
+      "final_confidence": 0.442,
+      "prediction_window_days": 5,
+      "ticker": "MCD",
+      "market_period": "bull_run",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W5_volatile_442",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 5.9,
+      "normalized_scores": {
+        "positive": 0.5519,
+        "negative": 0.1576,
+        "neutral": 0.078
+      },
+      "articles_analyzed": 28,
+      "final_confidence": 0.5519,
+      "prediction_window_days": 5,
+      "ticker": "MCD",
+      "market_period": "volatile",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W5_earnings_season_443",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 4.53,
+      "normalized_scores": {
+        "positive": 0.3611,
+        "negative": 0.271,
+        "neutral": 0.1637
+      },
+      "articles_analyzed": 28,
+      "final_confidence": 0.3611,
+      "prediction_window_days": 5,
+      "ticker": "MCD",
+      "market_period": "earnings_season",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W5_recent_stable_444",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 3.62,
+      "normalized_scores": {
+        "positive": 0.4484,
+        "negative": 0.2421,
+        "neutral": 0.1229
+      },
+      "articles_analyzed": 22,
+      "final_confidence": 0.4484,
+      "prediction_window_days": 5,
+      "ticker": "MCD",
+      "market_period": "recent_stable",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W7_bull_run_445",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 4.0,
+      "normalized_scores": {
+        "positive": 0.4326,
+        "negative": 0.3099,
+        "neutral": 0.0843
+      },
+      "articles_analyzed": 24,
+      "final_confidence": 0.4326,
+      "prediction_window_days": 7,
+      "ticker": "MCD",
+      "market_period": "bull_run",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W7_volatile_446",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 15.5,
+      "normalized_scores": {
+        "positive": 0.5826,
+        "negative": 0.1634,
+        "neutral": 0.0707
+      },
+      "articles_analyzed": 77,
+      "final_confidence": 0.5826,
+      "prediction_window_days": 7,
+      "ticker": "MCD",
+      "market_period": "volatile",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W7_earnings_season_447",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 6.4,
+      "normalized_scores": {
+        "positive": 0.4225,
+        "negative": 0.2396,
+        "neutral": 0.1504
+      },
+      "articles_analyzed": 36,
+      "final_confidence": 0.4225,
+      "prediction_window_days": 7,
+      "ticker": "MCD",
+      "market_period": "earnings_season",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W7_recent_stable_448",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 5.27,
+      "normalized_scores": {
+        "positive": 0.4462,
+        "negative": 0.2292,
+        "neutral": 0.1108
+      },
+      "articles_analyzed": 30,
+      "final_confidence": 0.4462,
+      "prediction_window_days": 7,
+      "ticker": "MCD",
+      "market_period": "recent_stable",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W14_bull_run_449",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 5.35,
+      "normalized_scores": {
+        "positive": 0.4226,
+        "negative": 0.3026,
+        "neutral": 0.0779
+      },
+      "articles_analyzed": 31,
+      "final_confidence": 0.4226,
+      "prediction_window_days": 14,
+      "ticker": "MCD",
+      "market_period": "bull_run",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W14_volatile_450",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 19.13,
+      "normalized_scores": {
+        "positive": 0.5683,
+        "negative": 0.1602,
+        "neutral": 0.0678
+      },
+      "articles_analyzed": 90,
+      "final_confidence": 0.5683,
+      "prediction_window_days": 14,
+      "ticker": "MCD",
+      "market_period": "volatile",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W14_earnings_season_451",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 7.19,
+      "normalized_scores": {
+        "positive": 0.4438,
+        "negative": 0.2354,
+        "neutral": 0.1288
+      },
+      "articles_analyzed": 46,
+      "final_confidence": 0.4438,
+      "prediction_window_days": 14,
+      "ticker": "MCD",
+      "market_period": "earnings_season",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W14_recent_stable_452",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 7.73,
+      "normalized_scores": {
+        "positive": 0.395,
+        "negative": 0.2357,
+        "neutral": 0.0886
+      },
+      "articles_analyzed": 46,
+      "final_confidence": 0.395,
+      "prediction_window_days": 14,
+      "ticker": "MCD",
+      "market_period": "recent_stable",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W31_bull_run_453",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 8.04,
+      "normalized_scores": {
+        "positive": 0.4084,
+        "negative": 0.3098,
+        "neutral": 0.0774
+      },
+      "articles_analyzed": 48,
+      "final_confidence": 0.4084,
+      "prediction_window_days": 31,
+      "ticker": "MCD",
+      "market_period": "bull_run",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W31_volatile_454",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 23.15,
+      "normalized_scores": {
+        "positive": 0.5681,
+        "negative": 0.1635,
+        "neutral": 0.0652
+      },
+      "articles_analyzed": 111,
+      "final_confidence": 0.5681,
+      "prediction_window_days": 31,
+      "ticker": "MCD",
+      "market_period": "volatile",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W31_earnings_season_455",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 11.61,
+      "normalized_scores": {
+        "positive": 0.4741,
+        "negative": 0.2253,
+        "neutral": 0.1388
+      },
+      "articles_analyzed": 67,
+      "final_confidence": 0.4741,
+      "prediction_window_days": 31,
+      "ticker": "MCD",
+      "market_period": "earnings_season",
+      "sector": "Consumer"
+    },
+    {
+      "id": "MCD_W31_recent_stable_456",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 10.93,
+      "normalized_scores": {
+        "positive": 0.3969,
+        "negative": 0.2338,
+        "neutral": 0.0826
+      },
+      "articles_analyzed": 60,
+      "final_confidence": 0.3969,
+      "prediction_window_days": 31,
+      "ticker": "MCD",
+      "market_period": "recent_stable",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W1_bull_run_457",
+      "actual_label": "neutral",
+      "predicted_label": "negative",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 5.52,
+      "normalized_scores": {
+        "positive": 0.2623,
+        "negative": 0.4222,
+        "neutral": 0.0848
+      },
+      "articles_analyzed": 33,
+      "final_confidence": 0.4222,
+      "prediction_window_days": 1,
+      "ticker": "NKE",
+      "market_period": "bull_run",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W1_volatile_458",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 2.91,
+      "normalized_scores": {
+        "positive": 0.5665,
+        "negative": 0.1704,
+        "neutral": 0.0506
+      },
+      "articles_analyzed": 17,
+      "final_confidence": 0.5665,
+      "prediction_window_days": 1,
+      "ticker": "NKE",
+      "market_period": "volatile",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W1_earnings_season_459",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 1.67,
+      "normalized_scores": {
+        "positive": 0.2677,
+        "negative": 0.1555,
+        "neutral": 0.0267
+      },
+      "articles_analyzed": 10,
+      "final_confidence": 0.2677,
+      "prediction_window_days": 1,
+      "ticker": "NKE",
+      "market_period": "earnings_season",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W1_recent_stable_460",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 7.13,
+      "normalized_scores": {
+        "positive": 0.4925,
+        "negative": 0.2376,
+        "neutral": 0.0302
+      },
+      "articles_analyzed": 43,
+      "final_confidence": 0.4925,
+      "prediction_window_days": 1,
+      "ticker": "NKE",
+      "market_period": "recent_stable",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W3_bull_run_461",
+      "actual_label": "positive",
+      "predicted_label": "negative",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 6.54,
+      "normalized_scores": {
+        "positive": 0.259,
+        "negative": 0.4409,
+        "neutral": 0.0829
+      },
+      "articles_analyzed": 40,
+      "final_confidence": 0.4409,
+      "prediction_window_days": 3,
+      "ticker": "NKE",
+      "market_period": "bull_run",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W3_volatile_462",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 3.16,
+      "normalized_scores": {
+        "positive": 0.569,
+        "negative": 0.1694,
+        "neutral": 0.0502
+      },
+      "articles_analyzed": 17,
+      "final_confidence": 0.569,
+      "prediction_window_days": 3,
+      "ticker": "NKE",
+      "market_period": "volatile",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W3_earnings_season_463",
+      "actual_label": "positive",
+      "predicted_label": "negative",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 2.32,
+      "normalized_scores": {
+        "positive": 0.2385,
+        "negative": 0.3072,
+        "neutral": 0.0246
+      },
+      "articles_analyzed": 15,
+      "final_confidence": 0.3072,
+      "prediction_window_days": 3,
+      "ticker": "NKE",
+      "market_period": "earnings_season",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W3_recent_stable_464",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 8.64,
+      "normalized_scores": {
+        "positive": 0.499,
+        "negative": 0.2309,
+        "neutral": 0.0431
+      },
+      "articles_analyzed": 49,
+      "final_confidence": 0.499,
+      "prediction_window_days": 3,
+      "ticker": "NKE",
+      "market_period": "recent_stable",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W5_bull_run_465",
+      "actual_label": "positive",
+      "predicted_label": "negative",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 7.48,
+      "normalized_scores": {
+        "positive": 0.2641,
+        "negative": 0.4388,
+        "neutral": 0.0786
+      },
+      "articles_analyzed": 46,
+      "final_confidence": 0.4388,
+      "prediction_window_days": 5,
+      "ticker": "NKE",
+      "market_period": "bull_run",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W5_volatile_466",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 5.28,
+      "normalized_scores": {
+        "positive": 0.5221,
+        "negative": 0.2305,
+        "neutral": 0.0574
+      },
+      "articles_analyzed": 30,
+      "final_confidence": 0.5221,
+      "prediction_window_days": 5,
+      "ticker": "NKE",
+      "market_period": "volatile",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W5_earnings_season_467",
+      "actual_label": "neutral",
+      "predicted_label": "neutral",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 2.48,
+      "normalized_scores": {
+        "positive": 0.2703,
+        "negative": 0.2984,
+        "neutral": 0.0318
+      },
+      "articles_analyzed": 17,
+      "final_confidence": 0.0318,
+      "prediction_window_days": 5,
+      "ticker": "NKE",
+      "market_period": "earnings_season",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W5_recent_stable_468",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 11.47,
+      "normalized_scores": {
+        "positive": 0.5047,
+        "negative": 0.2211,
+        "neutral": 0.044
+      },
+      "articles_analyzed": 68,
+      "final_confidence": 0.5047,
+      "prediction_window_days": 5,
+      "ticker": "NKE",
+      "market_period": "recent_stable",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W7_bull_run_469",
+      "actual_label": "positive",
+      "predicted_label": "negative",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 10.13,
+      "normalized_scores": {
+        "positive": 0.2741,
+        "negative": 0.4337,
+        "neutral": 0.0767
+      },
+      "articles_analyzed": 53,
+      "final_confidence": 0.4337,
+      "prediction_window_days": 7,
+      "ticker": "NKE",
+      "market_period": "bull_run",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W7_volatile_470",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 6.41,
+      "normalized_scores": {
+        "positive": 0.5067,
+        "negative": 0.2439,
+        "neutral": 0.054
+      },
+      "articles_analyzed": 38,
+      "final_confidence": 0.5067,
+      "prediction_window_days": 7,
+      "ticker": "NKE",
+      "market_period": "volatile",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W7_earnings_season_471",
+      "actual_label": "neutral",
+      "predicted_label": "neutral",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 3.47,
+      "normalized_scores": {
+        "positive": 0.2894,
+        "negative": 0.2779,
+        "neutral": 0.0372
+      },
+      "articles_analyzed": 23,
+      "final_confidence": 0.0372,
+      "prediction_window_days": 7,
+      "ticker": "NKE",
+      "market_period": "earnings_season",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W7_recent_stable_472",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 16.92,
+      "normalized_scores": {
+        "positive": 0.5297,
+        "negative": 0.2153,
+        "neutral": 0.048
+      },
+      "articles_analyzed": 95,
+      "final_confidence": 0.5297,
+      "prediction_window_days": 7,
+      "ticker": "NKE",
+      "market_period": "recent_stable",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W14_bull_run_473",
+      "actual_label": "neutral",
+      "predicted_label": "negative",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 10.79,
+      "normalized_scores": {
+        "positive": 0.2796,
+        "negative": 0.4496,
+        "neutral": 0.0708
+      },
+      "articles_analyzed": 61,
+      "final_confidence": 0.4496,
+      "prediction_window_days": 14,
+      "ticker": "NKE",
+      "market_period": "bull_run",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W14_volatile_474",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 9.57,
+      "normalized_scores": {
+        "positive": 0.5047,
+        "negative": 0.239,
+        "neutral": 0.0628
+      },
+      "articles_analyzed": 51,
+      "final_confidence": 0.5047,
+      "prediction_window_days": 14,
+      "ticker": "NKE",
+      "market_period": "volatile",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W14_earnings_season_475",
+      "actual_label": "neutral",
+      "predicted_label": "neutral",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 5.78,
+      "normalized_scores": {
+        "positive": 0.307,
+        "negative": 0.2865,
+        "neutral": 0.0388
+      },
+      "articles_analyzed": 33,
+      "final_confidence": 0.0388,
+      "prediction_window_days": 14,
+      "ticker": "NKE",
+      "market_period": "earnings_season",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W14_recent_stable_476",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 29.64,
+      "normalized_scores": {
+        "positive": 0.4717,
+        "negative": 0.2805,
+        "neutral": 0.0643
+      },
+      "articles_analyzed": 192,
+      "final_confidence": 0.4717,
+      "prediction_window_days": 14,
+      "ticker": "NKE",
+      "market_period": "recent_stable",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W31_bull_run_477",
+      "actual_label": "neutral",
+      "predicted_label": "negative",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 18.08,
+      "normalized_scores": {
+        "positive": 0.2835,
+        "negative": 0.4698,
+        "neutral": 0.0708
+      },
+      "articles_analyzed": 100,
+      "final_confidence": 0.4698,
+      "prediction_window_days": 31,
+      "ticker": "NKE",
+      "market_period": "bull_run",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W31_volatile_478",
+      "actual_label": "negative",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 14.25,
+      "normalized_scores": {
+        "positive": 0.4567,
+        "negative": 0.257,
+        "neutral": 0.0607
+      },
+      "articles_analyzed": 79,
+      "final_confidence": 0.4567,
+      "prediction_window_days": 31,
+      "ticker": "NKE",
+      "market_period": "volatile",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W31_earnings_season_479",
+      "actual_label": "positive",
+      "predicted_label": "positive",
+      "correct": true,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 11.27,
+      "normalized_scores": {
+        "positive": 0.3672,
+        "negative": 0.254,
+        "neutral": 0.0452
+      },
+      "articles_analyzed": 58,
+      "final_confidence": 0.3672,
+      "prediction_window_days": 31,
+      "ticker": "NKE",
+      "market_period": "earnings_season",
+      "sector": "Consumer"
+    },
+    {
+      "id": "NKE_W31_recent_stable_480",
+      "actual_label": "neutral",
+      "predicted_label": "positive",
+      "correct": false,
+      "error": null,
+      "issue": null,
+      "duration_seconds": 38.91,
+      "normalized_scores": {
+        "positive": 0.4642,
+        "negative": 0.2901,
+        "neutral": 0.0626
+      },
+      "articles_analyzed": 239,
+      "final_confidence": 0.4642,
+      "prediction_window_days": 31,
+      "ticker": "NKE",
+      "market_period": "recent_stable",
+      "sector": "Consumer"
+    }
+  ],
+  "errors": [],
+  "issues": []
+}

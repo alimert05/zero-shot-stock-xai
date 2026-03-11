@@ -6,7 +6,7 @@ from typing import Any
 
 from transformers import pipeline
 
-from config import SENTIMENT_DEVICE, MODEL_NAME
+from config import SENTIMENT_DEVICE, MODEL_NAME, PRIOR_DEBIASING_ENABLED
 from predictor.abstention import apply_abstention
 
 logger = logging.getLogger(__name__)
@@ -107,7 +107,7 @@ def _classify_sentiment(text: str, company_name: str) -> dict[str, float]:
         text,
         candidate_labels=_CANDIDATE_LABELS,
         hypothesis_template=_HYPOTHESIS_TEMPLATE,
-        multi_label=False,
+        multi_label=True,
     )
 
     scores = {"positive": 0.0, "negative": 0.0, "neutral": 0.0}
@@ -135,7 +135,7 @@ def _batch_classify_sentiment(
         texts,
         candidate_labels=_CANDIDATE_LABELS,
         hypothesis_template=_HYPOTHESIS_TEMPLATE,
-        multi_label=False,
+        multi_label=True,
         batch_size=batch_size,
     )
 
@@ -153,6 +153,87 @@ def _batch_classify_sentiment(
         all_scores.append(scores)
 
     return all_scores
+
+
+# ── Prior debiasing (Bayesian label-bias correction) ────────────────────
+
+# Content-free financial sentences used to measure the model's inherent
+# label preference.  These carry no directional sentiment — the model's
+# output on them reveals its structural bias toward certain labels.
+_PRIOR_PROBE_TEXTS = [
+    "News about the company: A financial statement was released.",
+    "News about the company: Quarterly earnings results were reported.",
+    "News about the company: The stock market was active during the trading session.",
+    "News about the company: Trading volume was recorded for the reporting period.",
+    "News about the company: An analyst published a report covering the sector.",
+    "News about the company: The annual shareholder meeting was held as scheduled.",
+    "News about the company: Market participants observed the latest trading session.",
+    "News about the company: The financial quarter has concluded for the fiscal year.",
+]
+
+_estimated_prior: dict[str, float] | None = None
+
+
+def estimate_prior(batch_size: int = 32) -> dict[str, float]:
+    """Estimate the model's inherent label bias using content-free probe texts.
+
+    Feeds generic, sentiment-neutral financial sentences through the same
+    zero-shot classifier (same labels, same hypothesis template) and averages
+    the outputs to obtain the prior distribution P(label).
+
+    The prior is computed once and cached for the duration of the session.
+
+    Returns
+    -------
+    dict mapping class name to prior probability, e.g.
+    {"positive": 0.50, "negative": 0.20, "neutral": 0.30}
+    """
+    global _estimated_prior
+    if _estimated_prior is not None:
+        return _estimated_prior
+
+    logger.info("Estimating model prior from %d probe texts ...", len(_PRIOR_PROBE_TEXTS))
+    all_scores = _batch_classify_sentiment(_PRIOR_PROBE_TEXTS, batch_size=batch_size)
+
+    prior = {"positive": 0.0, "negative": 0.0, "neutral": 0.0}
+    for scores in all_scores:
+        for label in prior:
+            prior[label] += scores[label]
+
+    n = len(all_scores)
+    prior = {label: val / n for label, val in prior.items()}
+
+    _estimated_prior = prior
+    logger.info(
+        "Estimated prior: pos=%.4f neg=%.4f neu=%.4f",
+        prior["positive"], prior["negative"], prior["neutral"],
+    )
+    return prior
+
+
+def _debias_scores(
+    raw_scores: dict[str, float],
+    prior: dict[str, float],
+) -> dict[str, float]:
+    """Apply Bayesian prior correction to raw classification scores.
+
+    For each label:  adjusted[label] = raw[label] / prior[label]
+    Then renormalise so the adjusted scores sum to 1.
+
+    This removes the model's inherent bias: a label with a high prior
+    (e.g. positive) is penalised, while a label with a low prior
+    (e.g. negative) is boosted proportionally.
+    """
+    adjusted = {}
+    for label in raw_scores:
+        p = prior.get(label, 1.0)
+        adjusted[label] = raw_scores[label] / max(p, 1e-8)
+
+    total = sum(adjusted.values())
+    if total > 0:
+        adjusted = {label: val / total for label, val in adjusted.items()}
+
+    return adjusted
 
 
 def predict_sentiment(
@@ -221,31 +302,43 @@ def predict_sentiment(
     else:
         all_scores = []
 
+    # ── Phase 2.5: Prior debiasing (Bayesian label-bias correction) ──
+    prior = None
+    if PRIOR_DEBIASING_ENABLED and all_scores:
+        prior = estimate_prior()
+        all_debiased = [_debias_scores(s, prior) for s in all_scores]
+    else:
+        all_debiased = all_scores
+
     # ── Phase 3: Accumulate weighted scores ──
-    for meta, scores in zip(batch_meta, all_scores):
+    for meta, raw, debiased in zip(batch_meta, all_scores, all_debiased):
         final_weight = meta["final_weight"]
 
         for label in weighted_scores:
-            weighted_scores[label] += scores[label] * final_weight
+            weighted_scores[label] += debiased[label] * final_weight
         total_weight += final_weight
         article_weights.append(final_weight)
 
-        article_sentiments.append({
+        detail = {
             "title": meta["title"],
             "final_weight": final_weight,
             "input_source": meta["source_label"],
-            "raw_scores": scores,
+            "raw_scores": raw,
             "weighted_scores": {
-                k: round(v * final_weight, 4) for k, v in scores.items()
+                k: round(v * final_weight, 4) for k, v in debiased.items()
             },
-        })
+        }
+        if prior is not None:
+            detail["debiased_scores"] = {k: round(v, 4) for k, v in debiased.items()}
+        article_sentiments.append(detail)
 
         logger.info(
-            "[%d/%d] (%s) %s -> pos=%.4f neg=%.4f neu=%.4f (w=%.3f)",
+            "[%d/%d] (%s) %s -> pos=%.4f neg=%.4f neu=%.4f (w=%.3f)%s",
             meta["idx"] + 1, len(articles), meta["source_label"],
             meta["title"][:50],
-            scores["positive"], scores["negative"], scores["neutral"],
+            debiased["positive"], debiased["negative"], debiased["neutral"],
             final_weight,
+            " [debiased]" if prior else "",
         )
 
     if total_weight > 0:
@@ -265,6 +358,10 @@ def predict_sentiment(
         "articles_analyzed": len(article_sentiments),
         "articles_total": len(articles),
         "total_weight": round(total_weight, 4),
+        "prior_debiasing": {
+            "enabled": prior is not None,
+            "prior": {k: round(v, 4) for k, v in prior.items()} if prior else None,
+        },
         "weighted_scores": {
             k: round(v, 4) for k, v in weighted_scores.items()
         },

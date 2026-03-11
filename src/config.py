@@ -71,6 +71,15 @@ XAI_LLAMA_ENABLED              = True
 XAI_SOURCE_CONCENTRATION_THRESHOLD = 0.60   # flag if top domain > 60% of articles
 XAI_MIN_UNIQUE_SOURCES             = 2      # flag if fewer unique domains
 
+# Prior debiasing (Bayesian correction for zero-shot label bias)
+PRIOR_DEBIASING_ENABLED        = True
+
+# Decision thresholds (tuned on tune set via grid search, macro F1)
+# Applied before dynamic abstention margin.
+# positive must exceed tau_pos, negative must exceed tau_neg, else neutral.
+DECISION_THRESHOLD_POS         = 0.61
+DECISION_THRESHOLD_NEG         = 0.32
+
 NEUTRAL_THRESHOLD              = 0.003     # ±0.3% close-to-close return band ?
 
 # Market timezone alignment

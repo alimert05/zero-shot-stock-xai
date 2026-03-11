@@ -23,6 +23,8 @@ from __future__ import annotations
 import math
 import logging
 
+from config import DECISION_THRESHOLD_POS, DECISION_THRESHOLD_NEG
+
 logger = logging.getLogger(__name__)
 
 
@@ -99,19 +101,66 @@ def dynamic_abstention_margin(
     return max(min(threshold, max_margin), min_margin)
 
 
+def apply_decision_thresholds(
+    normalized_scores: dict[str, float],
+    tau_pos: float = DECISION_THRESHOLD_POS,
+    tau_neg: float = DECISION_THRESHOLD_NEG,
+) -> tuple[str, str | None]:
+    """Apply per-class decision thresholds to aggregated scores.
+
+    Logic:
+        if positive >= tau_pos  -> positive
+        elif negative >= tau_neg -> negative
+        else                    -> neutral
+
+    Returns
+    -------
+    (label, method)
+        method is "decision_threshold" if thresholds changed the outcome
+        from argmax, else None.
+    """
+    argmax_label = max(normalized_scores, key=normalized_scores.get)
+
+    if normalized_scores.get("positive", 0) >= tau_pos:
+        label = "positive"
+    elif normalized_scores.get("negative", 0) >= tau_neg:
+        label = "negative"
+    else:
+        label = "neutral"
+
+    method = "decision_threshold" if label != argmax_label else None
+    return label, method
+
+
 def apply_abstention(
     normalized_scores: dict[str, float],
     article_weights: list[float],
 ) -> dict:
     """
-    Apply dynamic abstention margin to final aggregated scores.
+    Apply decision thresholds and dynamic abstention margin.
+
+    Two-stage process:
+      1. Decision thresholds: positive/negative must exceed calibrated
+         cutoffs, otherwise default to neutral.
+      2. Dynamic margin: if the top-two scores are too close, override
+         to neutral as a safety net.
 
     Returns a dict with:
       - final_label: the chosen label (or "neutral" if abstained)
-      - abstention_test: diagnostic info about the margin check
+      - abstention_test: diagnostic info about both checks
     """
-    final_label = max(normalized_scores, key=normalized_scores.get)
+    # ── Stage 1: Decision thresholds ──
+    final_label, threshold_method = apply_decision_thresholds(normalized_scores)
 
+    if threshold_method:
+        logger.info(
+            "Decision threshold: pos=%.4f (tau=%.2f), neg=%.4f (tau=%.2f) -> %s",
+            normalized_scores.get("positive", 0), DECISION_THRESHOLD_POS,
+            normalized_scores.get("negative", 0), DECISION_THRESHOLD_NEG,
+            final_label,
+        )
+
+    # ── Stage 2: Dynamic margin (safety net) ──
     sorted_labels = sorted(normalized_scores, key=normalized_scores.get, reverse=True)
     top_label = sorted_labels[0]
     runner_up = sorted_labels[1]
@@ -120,7 +169,7 @@ def apply_abstention(
         normalized_scores[top_label] - normalized_scores[runner_up], 4
     )
 
-    threshold = round(
+    dyn_threshold = round(
         dynamic_abstention_margin(
             normalized_scores=normalized_scores,
             article_weights=article_weights,
@@ -131,29 +180,33 @@ def apply_abstention(
     entropy = round(normalized_entropy(normalized_scores), 4)
     n_eff = round(effective_sample_size(article_weights), 4)
 
-    abstention_method = None
+    abstention_method = threshold_method
 
-    if margin < threshold:
+    if final_label != "neutral" and margin < dyn_threshold:
         final_label = "neutral"
         abstention_method = "dynamic_margin"
         logger.info(
             "Abstention: margin %.4f < dynamic threshold %.4f -> neutral "
             "(top=%s, runner_up=%s, entropy=%.4f, eff_n=%.4f)",
-            margin, threshold, top_label, runner_up, entropy, n_eff,
+            margin, dyn_threshold, top_label, runner_up, entropy, n_eff,
         )
-    else:
+    elif not threshold_method:
         logger.info(
             "Dynamic margin check passed: %.4f >= %.4f -> keep %s "
             "(entropy=%.4f, eff_n=%.4f)",
-            margin, threshold, top_label, entropy, n_eff,
+            margin, dyn_threshold, top_label, entropy, n_eff,
         )
 
     return {
         "final_label": final_label,
         "abstention_test": {
             "method": abstention_method if abstention_method else "none",
+            "decision_thresholds": {
+                "tau_pos": DECISION_THRESHOLD_POS,
+                "tau_neg": DECISION_THRESHOLD_NEG,
+            },
             "margin": margin,
-            "threshold": threshold,
+            "threshold": dyn_threshold,
             "n_articles": len(article_weights),
             "effective_n": n_eff,
             "entropy": entropy,
