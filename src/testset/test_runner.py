@@ -17,11 +17,12 @@ Outputs metrics grouped by:
 Supports parallel execution via ThreadPoolExecutor.
 
 Usage:
-    python -m testset.test_runner
-    python -m testset.test_runner --test-set path/to/test_set.json
-    python -m testset.test_runner --max-cases 10       # quick smoke test
-    python -m testset.test_runner --workers 10          # 10 parallel workers
-    python -m testset.test_runner --workers 1           # sequential (debug)
+    python -m testset.test_runner                          # full (fetch+evaluate)
+    python -m testset.test_runner --mode fetch              # cache articles only
+    python -m testset.test_runner --mode evaluate           # evaluate from cache only
+    python -m testset.test_runner --max-cases 10            # quick smoke test
+    python -m testset.test_runner --workers 5               # 5 parallel workers
+    python -m testset.test_runner --workers 1               # sequential (debug)
 """
 
 from __future__ import annotations
@@ -43,9 +44,12 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from config import (
     PRED_PATH,
     TEMP_PATH,
+    ARTICLE_CACHE_PATH,
     SENTIMENT_MODEL,
 )
 from fetcher.fetcher import Fetcher
+from fetcher.utils import add_recency_weights
+from fetcher.impact_horizon import add_impact_horizon_data
 from predictor.zero_shot import predict_sentiment as predict_zero_shot
 from predictor.finbert import predict_sentiment as predict_finbert
 from predictor.fingpt import predict_sentiment as predict_fingpt
@@ -215,6 +219,7 @@ def _prewarm_models():
 def run_single_case(
     case: dict,
     progress: ProgressTracker | None = None,
+    use_cache: bool = False,
 ) -> dict:
     """Run the full pipeline for a single test case with isolated file I/O."""
     case_id = case["id"]
@@ -241,20 +246,69 @@ def run_single_case(
     start_time = time.time()
 
     try:
-        # Step 1: Fetch articles into per-case temp dir
-        fetcher = Fetcher(temp_dir=str(case_temp_dir))
-        fetcher.query = company_name
-        fetcher.ticker = ticker
-        fetcher.start_date = start_date
-        fetcher.end_date = end_date
-        fetcher.quiet = True
+        if use_cache:
+            # ── Load raw articles from cache, then apply processing pipeline ──
+            cache_file = ARTICLE_CACHE_PATH / f"{case_id}.json"
+            if not cache_file.exists():
+                raise FileNotFoundError(
+                    f"Cache miss for '{case_id}'. Run with --mode fetch first."
+                )
 
-        _rate_limiter.acquire()
-        fetcher.search()
-        has_articles = fetcher.display_results()
+            with open(cache_file, "r", encoding="utf-8") as f:
+                cached_data = json.load(f)
+
+            articles = cached_data.get("articles", [])
+            has_articles = len(articles) > 0
+
+            if has_articles:
+                # Apply tunable processing pipeline to raw cached articles
+                prediction_window_days = cached_data.get("prediction_window_days", 1)
+                ref_date = datetime.strptime(start_date, "%d-%m-%Y")
+                backward_end_str = cached_data.get("backward_end_date")
+                if backward_end_str:
+                    backward_end_date = datetime.strptime(backward_end_str, "%d-%m-%Y")
+                else:
+                    backward_end_date = ref_date
+
+                add_recency_weights(
+                    articles,
+                    ref_date=ref_date,
+                    backward_end_date=backward_end_date,
+                    prediction_window_days=prediction_window_days,
+                )
+                add_impact_horizon_data(
+                    articles,
+                    prediction_window_days=prediction_window_days,
+                )
+
+                # Sort by final_weight descending (same as fetcher.search)
+                if articles and "final_weight" in articles[0]:
+                    articles.sort(key=lambda x: x.get("final_weight", 0), reverse=True)
+
+                # Write processed articles to temp dir for predictor
+                cached_data["articles"] = articles
+                cached_data["article_count"] = len(articles)
+
+            with open(case_articles_path, "w", encoding="utf-8") as f:
+                json.dump(cached_data, f, indent=2, ensure_ascii=False)
+        else:
+            # ── Fetch articles from API ──
+            fetcher = Fetcher(
+                temp_dir=str(case_temp_dir),
+                rate_limiter=_rate_limiter.acquire,
+            )
+            fetcher.query = company_name
+            fetcher.ticker = ticker
+            fetcher.start_date = start_date
+            fetcher.end_date = end_date
+            fetcher.quiet = True
+
+            fetcher.search()
+            has_articles = fetcher.display_results()
 
         if not has_articles:
-            result["issue"] = "no_articles_fetched"
+            issue_type = "no_articles_in_cache" if use_cache else "no_articles_fetched"
+            result["issue"] = issue_type
             result["predicted_label"] = "neutral"
             result["correct"] = result["predicted_label"] == case["actual_label"]
             result["normalized_scores"] = {}
@@ -335,10 +389,235 @@ def _clean_orphan_temp_dirs():
             shutil.rmtree(child, ignore_errors=True)
 
 
+# ── Article Cache (fetch mode) ──
+
+def fetch_single_case(
+    case: dict,
+    progress: ProgressTracker | None = None,
+) -> dict:
+    """Fetch articles for a single test case and save to permanent cache."""
+    case_id = case["id"]
+    company_name = case["company_name"]
+    ticker = case["ticker"]
+    start_date = case["start_date"]
+    end_date = case["end_date"]
+
+    cache_file = ARTICLE_CACHE_PATH / f"{case_id}.json"
+
+    result = {
+        "id": case_id,
+        "ticker": ticker,
+        "cached": False,
+        "article_count": 0,
+        "skipped": False,
+        "issue": None,
+        "error": None,
+    }
+
+    # Skip if already cached (enables resume after interrupted fetch)
+    if cache_file.exists():
+        try:
+            with open(cache_file, "r", encoding="utf-8") as f:
+                cached_data = json.load(f)
+            result["cached"] = True
+            result["skipped"] = True
+            result["article_count"] = cached_data.get("article_count", 0)
+            if progress:
+                progress.record(correct=True, error=False)
+            return result
+        except (json.JSONDecodeError, KeyError):
+            pass  # Re-fetch if cache file is corrupt
+
+    # Use a temporary directory for the fetcher (it writes articles.json there)
+    case_temp_dir = Path(TEMP_PATH) / f"fetch_{case_id}"
+    case_temp_dir.mkdir(parents=True, exist_ok=True)
+
+    try:
+        fetcher = Fetcher(
+            temp_dir=str(case_temp_dir),
+            rate_limiter=_rate_limiter.acquire,
+        )
+        fetcher.query = company_name
+        fetcher.ticker = ticker
+        fetcher.start_date = start_date
+        fetcher.end_date = end_date
+        fetcher.quiet = True
+
+        fetcher.search(raw_fetch_only=True)
+        fetcher.display_results()
+
+        # Read the articles.json the fetcher wrote to temp dir
+        temp_articles_path = case_temp_dir / "articles.json"
+        if temp_articles_path.exists():
+            with open(temp_articles_path, "r", encoding="utf-8") as f:
+                articles_data = json.load(f)
+
+            # Copy to permanent cache
+            with open(cache_file, "w", encoding="utf-8") as f:
+                json.dump(articles_data, f, indent=2, ensure_ascii=False)
+
+            result["cached"] = True
+            n_articles = articles_data.get("article_count", 0)
+            result["article_count"] = n_articles
+            if n_articles == 0:
+                result["issue"] = "no_articles_fetched"
+                logger.warning("Case %s (%s): 0 articles fetched", case_id, ticker)
+        else:
+            # Fetcher found no articles — cache an empty-articles marker
+            empty_payload = {
+                "query": company_name,
+                "ticker": ticker,
+                "start_date": start_date,
+                "end_date": end_date,
+                "fetch_timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "article_count": 0,
+                "articles": [],
+            }
+            with open(cache_file, "w", encoding="utf-8") as f:
+                json.dump(empty_payload, f, indent=2, ensure_ascii=False)
+
+            result["cached"] = True
+            result["article_count"] = 0
+            result["issue"] = "no_articles_fetched"
+            logger.warning("Case %s (%s): 0 articles fetched (no articles.json)", case_id, ticker)
+
+    except Exception as exc:
+        logger.error("Fetch case %s FAILED: %s", case_id, exc)
+        result["error"] = str(exc)
+
+    finally:
+        shutil.rmtree(case_temp_dir, ignore_errors=True)
+
+    if progress:
+        progress.record(
+            correct=result["cached"],
+            error=result.get("error") is not None,
+            issue=result.get("issue") is not None,
+        )
+
+    return result
+
+
+def run_fetch(
+    test_set_path: str,
+    max_cases: int | None = None,
+    workers: int = 10,
+) -> None:
+    """Phase 1: Fetch articles for all test cases and store in permanent cache."""
+    with open(test_set_path, "r", encoding="utf-8") as f:
+        test_data = json.load(f)
+
+    test_cases = test_data["test_cases"]
+    if max_cases:
+        test_cases = test_cases[:max_cases]
+
+    total = len(test_cases)
+    logger.info("FETCH MODE: %d test cases, saving to %s", total, ARTICLE_CACHE_PATH)
+
+    ARTICLE_CACHE_PATH.mkdir(parents=True, exist_ok=True)
+    _clean_orphan_temp_dirs()
+
+    # Raw fetch only — no GPU models needed (no impact horizon, no sentiment)
+    logger.info("Fetch mode: raw API articles only (no impact horizon processing)")
+
+    progress = ProgressTracker(total)
+    all_results: list[dict] = []
+
+    if workers <= 1:
+        for case in test_cases:
+            result = fetch_single_case(case, progress)
+            all_results.append(result)
+    else:
+        futures = {}
+        with ThreadPoolExecutor(max_workers=workers) as executor:
+            for case in test_cases:
+                future = executor.submit(fetch_single_case, case, progress)
+                futures[future] = case
+
+            try:
+                for future in as_completed(futures):
+                    case = futures[future]
+                    try:
+                        result = future.result()
+                    except Exception as exc:
+                        result = {
+                            "id": case["id"],
+                            "cached": False,
+                            "article_count": 0,
+                            "skipped": False,
+                            "error": f"Thread exception: {exc}",
+                        }
+                    all_results.append(result)
+            except KeyboardInterrupt:
+                logger.info("Interrupted! Processing completed results...")
+                executor.shutdown(wait=False, cancel_futures=True)
+
+    print()  # Newline after progress bar
+
+    # ── Fetch Summary ──
+    cached_count = sum(1 for r in all_results if r["cached"])
+    skipped_count = sum(1 for r in all_results if r.get("skipped"))
+    zero_article_count = sum(
+        1 for r in all_results if r["cached"] and r["article_count"] == 0
+    )
+    error_count = sum(1 for r in all_results if r.get("error"))
+    total_articles = sum(r["article_count"] for r in all_results)
+
+    print("\n" + "=" * 60)
+    print("  FETCH SUMMARY")
+    print("=" * 60)
+    print(f"  Total cases      : {total}")
+    print(f"  Cached (new)     : {cached_count - skipped_count}")
+    print(f"  Cached (skipped) : {skipped_count}")
+    print(f"  Zero articles    : {zero_article_count}")
+    print(f"  Errors           : {error_count}")
+    print(f"  Total articles   : {total_articles}")
+    print(f"  Cache dir        : {ARTICLE_CACHE_PATH}")
+    print("=" * 60)
+
+    if zero_article_count > 0:
+        print(f"\n  ⚠ WARNING: {zero_article_count} cases had 0 articles fetched:")
+        for r in sorted(all_results, key=lambda x: x["id"]):
+            if r["cached"] and r["article_count"] == 0:
+                print(f"    - {r['id']} ({r.get('ticker', '?')})")
+
+    if error_count > 0:
+        print(f"\n  ERRORS ({error_count} cases):")
+        for r in all_results:
+            if r.get("error"):
+                print(f"    - {r['id']}: {r['error']}")
+
+
+# ── Evaluation ──
+
+def _prewarm_cached_mode():
+    """Pre-load impact horizon + sentiment models for cached evaluation.
+
+    Raw cached articles need processing (recency, impact horizon, weighting)
+    before prediction, so we pre-warm both GPU pipelines.
+    """
+    logger.info("Pre-loading impact horizon model (for cached article processing)...")
+    from fetcher.impact_horizon import _get_classifier
+    _get_classifier()
+
+    logger.info("Pre-loading sentiment model...")
+    if SENTIMENT_MODEL == "zero-shot":
+        from predictor.zero_shot import _get_deberta_pipeline
+        _get_deberta_pipeline()
+    elif SENTIMENT_MODEL == "ProsusAI/finbert":
+        from predictor.finbert import _get_sentiment_pipeline
+        _get_sentiment_pipeline()
+    elif SENTIMENT_MODEL == "fingpt":
+        from predictor.fingpt import _get_fingpt_model
+        _get_fingpt_model()
+    logger.info("All models loaded for cached evaluation.")
+
+
 def run_evaluation(
     test_set_path: str,
     max_cases: int | None = None,
     workers: int = 10,
+    use_cache: bool = False,
 ) -> dict:
     """Run the full evaluation with optional parallel workers."""
     with open(test_set_path, "r", encoding="utf-8") as f:
@@ -349,11 +628,33 @@ def run_evaluation(
         test_cases = test_cases[:max_cases]
 
     total = len(test_cases)
-    logger.info("Starting evaluation: %d test cases with %d workers", total, workers)
+    mode_label = "EVALUATE (cached)" if use_cache else "FULL (fetch+evaluate)"
+    logger.info("%s: %d test cases with %d workers", mode_label, total, workers)
+
+    # Validate cache if needed
+    if use_cache:
+        if not ARTICLE_CACHE_PATH.exists():
+            raise FileNotFoundError(
+                f"Article cache not found: {ARTICLE_CACHE_PATH}\n"
+                "Run with --mode fetch first to populate the cache."
+            )
+        cached_files = list(ARTICLE_CACHE_PATH.glob("*.json"))
+        logger.info("Using %d cached article files from %s", len(cached_files), ARTICLE_CACHE_PATH)
+
+        # Evaluate mode is GPU-bound: threading only adds overhead
+        # (no API I/O to overlap, inference lock serialises GPU anyway).
+        if workers > 1:
+            logger.info(
+                "Evaluate mode: forcing workers=1 (GPU-bound, threading not beneficial)"
+            )
+            workers = 1
 
     # Clean up and prepare
     _clean_orphan_temp_dirs()
-    _prewarm_models()
+    if use_cache:
+        _prewarm_cached_mode()
+    else:
+        _prewarm_models()
 
     progress = ProgressTracker(total)
     all_results = []
@@ -361,7 +662,7 @@ def run_evaluation(
     if workers <= 1:
         # Sequential fallback (useful for debugging)
         for case in test_cases:
-            result = run_single_case(case, progress)
+            result = run_single_case(case, progress, use_cache=use_cache)
             result["prediction_window_days"] = case["prediction_window_days"]
             result["ticker"] = case["ticker"]
             result["market_period"] = case["market_period"]
@@ -372,7 +673,7 @@ def run_evaluation(
         futures = {}
         with ThreadPoolExecutor(max_workers=workers) as executor:
             for case in test_cases:
-                future = executor.submit(run_single_case, case, progress)
+                future = executor.submit(run_single_case, case, progress, use_cache)
                 futures[future] = case
 
             try:
@@ -594,6 +895,11 @@ def print_report(evaluation: dict) -> None:
 
 def main():
     parser = argparse.ArgumentParser(description="Run evaluation pipeline against test set")
+    parser.add_argument("--mode", type=str, choices=["full", "fetch", "evaluate"],
+                        default="full",
+                        help="full = fetch+evaluate (default), "
+                             "fetch = populate article cache only, "
+                             "evaluate = run from cached articles only")
     parser.add_argument("--test-set", type=str, default=str(TEST_SET_PATH),
                         help="Path to test_set.json")
     parser.add_argument("--max-cases", type=int, default=None,
@@ -604,7 +910,16 @@ def main():
                         help="Path to save evaluation results JSON")
     args = parser.parse_args()
 
-    evaluation = run_evaluation(args.test_set, args.max_cases, workers=args.workers)
+    # ── fetch-only mode: populate article cache and exit ──
+    if args.mode == "fetch":
+        run_fetch(args.test_set, args.max_cases, workers=args.workers)
+        return
+
+    # ── evaluate (cached) or full (live fetch + evaluate) ──
+    use_cache = (args.mode == "evaluate")
+    evaluation = run_evaluation(
+        args.test_set, args.max_cases, workers=args.workers, use_cache=use_cache,
+    )
 
     PRED_PATH.mkdir(parents=True, exist_ok=True)
     with open(args.output, "w", encoding="utf-8") as f:

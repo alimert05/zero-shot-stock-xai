@@ -63,7 +63,7 @@ class Fetcher:
         self.search()
         return self.display_results()
 
-    def __init__(self, temp_dir=None) -> None:
+    def __init__(self, temp_dir=None, rate_limiter=None) -> None:
         self.start_date: str | None = None
         self.end_date: str | None = None
         self.backward_start_date: datetime | None = None
@@ -79,6 +79,10 @@ class Fetcher:
         self.timeout = REQUEST_TIMEOUT_LIMIT
         self.max_backward_days: int | None = None
         self.prediction_window_days: int | None = None
+
+        # Optional callable invoked before every Finnhub API call.
+        # Should block until a call is allowed (e.g. RateLimiter.acquire).
+        self._rate_limiter = rate_limiter
 
     def get_input(self) -> str:
 
@@ -107,6 +111,10 @@ class Fetcher:
                 "FINNHUB_API_KEY is not set in config.py. "
                 "Get a free key at https://finnhub.io and add it to config.py."
             )
+
+        # Per-call rate limiting (blocks until a slot is available)
+        if self._rate_limiter is not None:
+            self._rate_limiter()
 
         client = finnhub.Client(api_key=FINNHUB_API_KEY)
 
@@ -212,8 +220,15 @@ class Fetcher:
         )
         return all_articles
 
-    def search(self) -> None:
+    def search(self, raw_fetch_only: bool = False) -> None:
+        """Fetch and process articles.
 
+        Args:
+            raw_fetch_only: If True, stop after API fetch + dedup + company
+                filter.  Skips recency weighting, impact horizon classification,
+                and final_weight computation.  Used by the test-runner cache
+                mode so that those tunable stages run at evaluate time.
+        """
         if self.start_date is None or self.end_date is None or self.query is None:
             raise RuntimeError("search() called before get_input()")
 
@@ -314,16 +329,34 @@ class Fetcher:
         # enrich_articles_with_content(candidates, timeout=self.timeout)
 
 
-        # candidates = clean_articles_content(
-        #     candidates,
-        #     company_name=company_name,
-        #     ticker=ticker)
+        candidates = clean_articles_content(
+            candidates,
+            company_name=company_name,
+            ticker=ticker)
 
         filtered_after_rules = filter_company_related(
             candidates,
             company_name=company_name,
             ticker=ticker,
         )
+
+        # ── raw_fetch_only: stop here (no recency, no impact horizon, no weighting) ──
+        if raw_fetch_only:
+            # Clean content whitespace before caching
+            for article in filtered_after_rules:
+                a = article.get("content")
+                if isinstance(a, str) and a:
+                    a = a.replace("\r", " ").replace("\n", " ").replace("\t", " ").replace("\"", " ")
+                    a = re.sub(r"\s+", " ", a).strip()
+                    article["content"] = a
+
+            self.data = {"articles": filtered_after_rules}
+            logger.info(
+                "Raw fetch complete: %d articles (from %d-day backward window)",
+                len(filtered_after_rules),
+                self.max_backward_days,
+            )
+            return
 
         add_impact_horizon_data(
             filtered_after_rules,

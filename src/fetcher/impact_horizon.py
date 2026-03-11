@@ -162,24 +162,12 @@ def classify_impact_horizon(
     primary and secondary horizon priors.
 
     Returns backward-compatible keys:
-      - event_type
-      - label
-      - horizon_days
-      - category
-      - confidence
+      - event_type, label, horizon_days, category, confidence
 
     Plus richer keys:
-      - event_family
-      - primary_horizon_label
-      - primary_horizon_days
-      - primary_category
-      - secondary_horizon_label
-      - secondary_horizon_days
-      - secondary_category
-      - alternative_event_family
-      - alternative_confidence
+      - event_family, primary_horizon_label, primary_horizon_days,
+        primary_category, secondary_*, alternative_*
     """
-
     classifier = _get_classifier()
     text = _build_classification_text(title, content, max_content_chars=max_content_chars)
 
@@ -190,101 +178,11 @@ def classify_impact_horizon(
             hypothesis_template="The primary firm-specific event in this news article is {}.",
             multi_label=False,
         )
-
-        labels = result.get("labels") or []
-        scores = result.get("scores") or []
-
-        if not labels:
-            raise ValueError("Zero-shot classifier returned no labels")
-
-        top_family = str(labels[0])
-        confidence = float(scores[0]) if scores else 0.0
-
-        alternative_event_family = str(labels[1]) if len(labels) > 1 else None
-        alternative_confidence = float(scores[1]) if len(scores) > 1 else None
-
-        prior = EVENT_FAMILY_TO_PRIOR_HORIZON.get(
-            top_family,
-            EVENT_FAMILY_TO_PRIOR_HORIZON[FALLBACK_EVENT_FAMILY],
-        )
-
-        primary_horizon_label = str(prior["primary"])
-        secondary_horizon_label = prior.get("secondary")
-        secondary_horizon_label = str(secondary_horizon_label) if secondary_horizon_label else None
-
-        primary_horizon_days = HORIZON_TO_DAYS[primary_horizon_label]
-        primary_category = HORIZON_LABEL_TO_CATEGORY[primary_horizon_label]
-
-        secondary_horizon_days = (
-            HORIZON_TO_DAYS[secondary_horizon_label]
-            if secondary_horizon_label is not None
-            else None
-        )
-        secondary_category = (
-            HORIZON_LABEL_TO_CATEGORY[secondary_horizon_label]
-            if secondary_horizon_label is not None
-            else None
-        )
-
-        return {
-            # New fields
-            "event_family": top_family,
-            "primary_horizon_label": primary_horizon_label,
-            "primary_horizon_days": primary_horizon_days,
-            "primary_category": primary_category,
-            "secondary_horizon_label": secondary_horizon_label,
-            "secondary_horizon_days": secondary_horizon_days,
-            "secondary_category": secondary_category,
-            "alternative_event_family": alternative_event_family,
-            "alternative_confidence": alternative_confidence,
-            # Backward-compatible fields
-            "event_type": top_family,
-            "label": top_family,
-            "horizon_days": primary_horizon_days,
-            "category": primary_category,
-            "confidence": confidence,
-        }
+        return _map_classifier_result(result)
 
     except Exception as exc:
         logger.warning("Impact horizon classification failed: %s", exc)
-
-        fallback_prior = EVENT_FAMILY_TO_PRIOR_HORIZON[FALLBACK_EVENT_FAMILY]
-        primary_horizon_label = str(fallback_prior["primary"])
-        secondary_horizon_label = fallback_prior.get("secondary")
-        secondary_horizon_label = str(secondary_horizon_label) if secondary_horizon_label else None
-
-        primary_horizon_days = HORIZON_TO_DAYS[primary_horizon_label]
-        primary_category = HORIZON_LABEL_TO_CATEGORY[primary_horizon_label]
-
-        secondary_horizon_days = (
-            HORIZON_TO_DAYS[secondary_horizon_label]
-            if secondary_horizon_label is not None
-            else None
-        )
-        secondary_category = (
-            HORIZON_LABEL_TO_CATEGORY[secondary_horizon_label]
-            if secondary_horizon_label is not None
-            else None
-        )
-
-        return {
-            # New fields
-            "event_family": FALLBACK_EVENT_FAMILY,
-            "primary_horizon_label": primary_horizon_label,
-            "primary_horizon_days": primary_horizon_days,
-            "primary_category": primary_category,
-            "secondary_horizon_label": secondary_horizon_label,
-            "secondary_horizon_days": secondary_horizon_days,
-            "secondary_category": secondary_category,
-            "alternative_event_family": None,
-            "alternative_confidence": None,
-            # Backward-compatible fields
-            "event_type": FALLBACK_EVENT_FAMILY,
-            "label": FALLBACK_EVENT_FAMILY,
-            "horizon_days": primary_horizon_days,
-            "category": primary_category,
-            "confidence": 0.0,
-        }
+        return _fallback_horizon_result()
 
 
 def _single_horizon_weight(
@@ -364,79 +262,224 @@ def calculate_combined_weight(
     return math.sqrt(recency_weight * impact_horizon_weight)
 
 
+def _map_classifier_result(result: dict) -> dict:
+    """Map a single zero-shot classifier result dict to horizon fields.
+
+    Shared by both single-article (classify_impact_horizon) and batched paths.
+    """
+    labels = result.get("labels") or []
+    scores = result.get("scores") or []
+
+    if not labels:
+        raise ValueError("Zero-shot classifier returned no labels")
+
+    top_family = str(labels[0])
+    confidence = float(scores[0]) if scores else 0.0
+
+    alternative_event_family = str(labels[1]) if len(labels) > 1 else None
+    alternative_confidence = float(scores[1]) if len(scores) > 1 else None
+
+    prior = EVENT_FAMILY_TO_PRIOR_HORIZON.get(
+        top_family,
+        EVENT_FAMILY_TO_PRIOR_HORIZON[FALLBACK_EVENT_FAMILY],
+    )
+
+    primary_horizon_label = str(prior["primary"])
+    secondary_horizon_label = prior.get("secondary")
+    secondary_horizon_label = str(secondary_horizon_label) if secondary_horizon_label else None
+
+    primary_horizon_days = HORIZON_TO_DAYS[primary_horizon_label]
+    primary_category = HORIZON_LABEL_TO_CATEGORY[primary_horizon_label]
+
+    secondary_horizon_days = (
+        HORIZON_TO_DAYS[secondary_horizon_label]
+        if secondary_horizon_label is not None
+        else None
+    )
+    secondary_category = (
+        HORIZON_LABEL_TO_CATEGORY[secondary_horizon_label]
+        if secondary_horizon_label is not None
+        else None
+    )
+
+    return {
+        "event_family": top_family,
+        "primary_horizon_label": primary_horizon_label,
+        "primary_horizon_days": primary_horizon_days,
+        "primary_category": primary_category,
+        "secondary_horizon_label": secondary_horizon_label,
+        "secondary_horizon_days": secondary_horizon_days,
+        "secondary_category": secondary_category,
+        "alternative_event_family": alternative_event_family,
+        "alternative_confidence": alternative_confidence,
+        # Backward-compatible aliases
+        "event_type": top_family,
+        "label": top_family,
+        "horizon_days": primary_horizon_days,
+        "category": primary_category,
+        "confidence": confidence,
+    }
+
+
+def _fallback_horizon_result() -> dict:
+    """Return a fallback horizon result when classification fails."""
+    fallback_prior = EVENT_FAMILY_TO_PRIOR_HORIZON[FALLBACK_EVENT_FAMILY]
+    primary_label = str(fallback_prior["primary"])
+    secondary_label = fallback_prior.get("secondary")
+    secondary_label = str(secondary_label) if secondary_label else None
+
+    return {
+        "event_family": FALLBACK_EVENT_FAMILY,
+        "primary_horizon_label": primary_label,
+        "primary_horizon_days": HORIZON_TO_DAYS[primary_label],
+        "primary_category": HORIZON_LABEL_TO_CATEGORY[primary_label],
+        "secondary_horizon_label": secondary_label,
+        "secondary_horizon_days": (
+            HORIZON_TO_DAYS[secondary_label] if secondary_label else None
+        ),
+        "secondary_category": (
+            HORIZON_LABEL_TO_CATEGORY[secondary_label] if secondary_label else None
+        ),
+        "alternative_event_family": None,
+        "alternative_confidence": None,
+        "event_type": FALLBACK_EVENT_FAMILY,
+        "label": FALLBACK_EVENT_FAMILY,
+        "horizon_days": HORIZON_TO_DAYS[primary_label],
+        "category": HORIZON_LABEL_TO_CATEGORY[primary_label],
+        "confidence": 0.0,
+    }
+
+
+def _apply_horizon_to_article(
+    article: dict,
+    horizon_result: dict,
+    prediction_window_days: int,
+) -> None:
+    """Attach impact horizon data, weights, and final_weight to an article dict."""
+    raw_days_ago = article.get("days_ago", 0)
+    raw_recency_weight = article.get("recency_weight", 1.0)
+
+    try:
+        days_ago = int(raw_days_ago) if raw_days_ago is not None else 0
+    except (TypeError, ValueError):
+        days_ago = 0
+
+    try:
+        recency_weight = float(raw_recency_weight)
+    except (TypeError, ValueError):
+        recency_weight = 1.0
+
+    horizon_weight = calculate_impact_horizon_weight(
+        days_ago=days_ago,
+        prediction_window_days=prediction_window_days,
+        primary_horizon_days=horizon_result["primary_horizon_days"],
+        secondary_horizon_days=horizon_result["secondary_horizon_days"],
+        confidence=horizon_result["confidence"],
+    )
+
+    final_weight = calculate_combined_weight(
+        recency_weight=recency_weight,
+        impact_horizon_weight=horizon_weight,
+    )
+
+    article["impact_horizon"] = {
+        "event_type": horizon_result["event_type"],
+        "label": horizon_result["label"],
+        "category": horizon_result["category"],
+        "horizon_days": horizon_result["horizon_days"],
+        "confidence": round(horizon_result["confidence"], 4),
+        "event_family": horizon_result["event_family"],
+        "primary_horizon_label": horizon_result["primary_horizon_label"],
+        "primary_horizon_days": horizon_result["primary_horizon_days"],
+        "primary_category": horizon_result["primary_category"],
+        "secondary_horizon_label": horizon_result["secondary_horizon_label"],
+        "secondary_horizon_days": horizon_result["secondary_horizon_days"],
+        "secondary_category": horizon_result["secondary_category"],
+        "alternative_event_family": horizon_result["alternative_event_family"],
+        "alternative_confidence": (
+            round(horizon_result["alternative_confidence"], 4)
+            if horizon_result["alternative_confidence"] is not None
+            else None
+        ),
+    }
+    article["impact_horizon_weight"] = round(horizon_weight, 4)
+    article["final_weight"] = round(final_weight, 4)
+
+
 def add_impact_horizon_data(
     articles: list[dict],
     prediction_window_days: int,
+    batch_size: int = 32,
 ) -> None:
+    """Classify articles and attach impact horizon data with batched GPU inference.
+
+    Instead of N individual GPU calls, collects all classifiable texts and
+    runs a single batched pipeline call, then post-processes per article.
+    """
     logger.info(
         "Adding impact horizon data to %d articles (prediction window: %d days)",
         len(articles),
         prediction_window_days,
     )
 
+    # ── Phase 1: Partition articles (CPU only) ──
+    gpu_indices: list[int] = []
+    gpu_texts: list[str] = []
+
     for i, article in enumerate(articles):
         title = article.get("title", "")
-        content = article.get("content", "")
-        raw_days_ago = article.get("days_ago", 0)
-        raw_recency_weight = article.get("recency_weight", 1.0)
-
-        try:
-            days_ago = int(raw_days_ago) if raw_days_ago is not None else 0
-        except (TypeError, ValueError):
-            days_ago = 0
-
-        try:
-            recency_weight = float(raw_recency_weight)
-        except (TypeError, ValueError):
-            recency_weight = 1.0
 
         if not title:
+            raw_recency_weight = article.get("recency_weight", 1.0)
+            try:
+                recency_weight = float(raw_recency_weight)
+            except (TypeError, ValueError):
+                recency_weight = 1.0
             article["impact_horizon"] = None
             article["impact_horizon_weight"] = 1.0
             article["final_weight"] = recency_weight
-            continue
+        else:
+            content = article.get("content", "")
+            text = _build_classification_text(title, content)
+            gpu_indices.append(i)
+            gpu_texts.append(text)
 
-        horizon_result = classify_impact_horizon(title, content)
+    if not gpu_texts:
+        logger.info("No articles with titles — skipping impact horizon classification")
+        return
 
-        horizon_weight = calculate_impact_horizon_weight(
-            days_ago=days_ago,
-            prediction_window_days=prediction_window_days,
-            primary_horizon_days=horizon_result["primary_horizon_days"],
-            secondary_horizon_days=horizon_result["secondary_horizon_days"],
-            confidence=horizon_result["confidence"],
+    # ── Phase 2: Batch GPU inference ──
+    classifier = _get_classifier()
+    try:
+        batch_results = classifier(
+            gpu_texts,
+            candidate_labels=EVENT_FAMILY_LABELS,
+            hypothesis_template="The primary firm-specific event in this news article is {}.",
+            multi_label=False,
+            batch_size=batch_size,
         )
+    except Exception as exc:
+        logger.error("Batch impact horizon classification failed: %s — using fallback", exc)
+        fallback = _fallback_horizon_result()
+        for idx in gpu_indices:
+            _apply_horizon_to_article(articles[idx], fallback, prediction_window_days)
+        return
 
-        final_weight = calculate_combined_weight(
-            recency_weight=recency_weight,
-            impact_horizon_weight=horizon_weight,
-        )
+    # Single result → wrap in list
+    if isinstance(batch_results, dict):
+        batch_results = [batch_results]
 
-        article["impact_horizon"] = {
-            # Backward-compatible fields
-            "event_type": horizon_result["event_type"],
-            "label": horizon_result["label"],
-            "category": horizon_result["category"],
-            "horizon_days": horizon_result["horizon_days"],
-            "confidence": round(horizon_result["confidence"], 4),
-            # New richer fields
-            "event_family": horizon_result["event_family"],
-            "primary_horizon_label": horizon_result["primary_horizon_label"],
-            "primary_horizon_days": horizon_result["primary_horizon_days"],
-            "primary_category": horizon_result["primary_category"],
-            "secondary_horizon_label": horizon_result["secondary_horizon_label"],
-            "secondary_horizon_days": horizon_result["secondary_horizon_days"],
-            "secondary_category": horizon_result["secondary_category"],
-            "alternative_event_family": horizon_result["alternative_event_family"],
-            "alternative_confidence": (
-                round(horizon_result["alternative_confidence"], 4)
-                if horizon_result["alternative_confidence"] is not None
-                else None
-            ),
-        }
-        article["impact_horizon_weight"] = round(horizon_weight, 4)
-        article["final_weight"] = round(final_weight, 4)
+    # ── Phase 3: Post-process each result ──
+    for idx, raw_result in zip(gpu_indices, batch_results):
+        try:
+            horizon_result = _map_classifier_result(raw_result)
+        except Exception as exc:
+            logger.warning("Impact horizon mapping failed for article %d: %s", idx, exc)
+            horizon_result = _fallback_horizon_result()
 
-        if (i + 1) % 10 == 0:
-            logger.info("Processed %d/%d articles", i + 1, len(articles))
+        _apply_horizon_to_article(articles[idx], horizon_result, prediction_window_days)
 
-    logger.info("Impact horizon classification complete")
+    logger.info(
+        "Impact horizon classification complete (%d articles, batch_size=%d)",
+        len(gpu_texts), batch_size,
+    )

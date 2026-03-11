@@ -90,32 +90,69 @@ def _build_input_text(
     return text[:max_chars]
 
 
+_CLASS_TO_LABEL = {
+    "positive": "positive financial outlook",
+    "negative": "negative financial outlook",
+    "neutral": "neutral financial outlook",
+}
+_CANDIDATE_LABELS = list(_CLASS_TO_LABEL.values())
+_LABEL_TO_CLASS = {v.lower().strip(): k for k, v in _CLASS_TO_LABEL.items()}
+_HYPOTHESIS_TEMPLATE = "This text is {} about the financial outlook."
+
+
 def _classify_sentiment(text: str, company_name: str) -> dict[str, float]:
     pipe = _get_deberta_pipeline()
 
-    # Keep explicit class->label mapping so parsing stays stable.
-    class_to_label = {
-        "positive": "positive financial outlook",
-        "negative": "negative financial outlook",
-        "neutral": "neutral financial outlook",
-    }
-    candidate_labels = list(class_to_label.values())
-    label_to_class = {v.lower().strip(): k for k, v in class_to_label.items()}
-
     result = pipe(
         text,
-        candidate_labels=candidate_labels,
-        hypothesis_template="This text is {} about the financial outlook.",
+        candidate_labels=_CANDIDATE_LABELS,
+        hypothesis_template=_HYPOTHESIS_TEMPLATE,
         multi_label=False,
     )
 
     scores = {"positive": 0.0, "negative": 0.0, "neutral": 0.0}
     for label, score in zip(result["labels"], result["scores"]):
-        cls = label_to_class.get(label.lower().strip())
+        cls = _LABEL_TO_CLASS.get(label.lower().strip())
         if cls:
             scores[cls] = float(score)
 
     return scores
+
+
+def _batch_classify_sentiment(
+    texts: list[str],
+    batch_size: int = 32,
+) -> list[dict[str, float]]:
+    """Classify multiple texts in a single batched GPU call.
+
+    Instead of N individual forward passes (one per article), this creates
+    N × 3 NLI pairs and processes them in chunks of *batch_size*, dramatically
+    reducing GPU kernel-launch overhead and Python-loop latency.
+    """
+    pipe = _get_deberta_pipeline()
+
+    results = pipe(
+        texts,
+        candidate_labels=_CANDIDATE_LABELS,
+        hypothesis_template=_HYPOTHESIS_TEMPLATE,
+        multi_label=False,
+        batch_size=batch_size,
+    )
+
+    # Single text → pipeline returns a dict instead of list
+    if isinstance(results, dict):
+        results = [results]
+
+    all_scores: list[dict[str, float]] = []
+    for result in results:
+        scores = {"positive": 0.0, "negative": 0.0, "neutral": 0.0}
+        for label, score in zip(result["labels"], result["scores"]):
+            cls = _LABEL_TO_CLASS.get(label.lower().strip())
+            if cls:
+                scores[cls] = float(score)
+        all_scores.append(scores)
+
+    return all_scores
 
 
 def predict_sentiment(
@@ -147,6 +184,10 @@ def predict_sentiment(
     article_sentiments: list[dict] = []
     article_weights: list[float] = []
 
+    # ── Phase 1: Collect texts and metadata (CPU only) ──
+    batch_texts: list[str] = []
+    batch_meta: list[dict] = []  # parallel list: article index, weight, source_label
+
     for i, article in enumerate(articles):
         title = article.get("title", "")
         final_weight = float(article.get("final_weight", 1.0))
@@ -158,14 +199,7 @@ def predict_sentiment(
             logger.debug("Skipping article (no title and no content): %s", title[:80])
             continue
 
-        scores = _classify_sentiment(text, company_name)
-
-        for label in weighted_scores:
-            weighted_scores[label] += scores[label] * final_weight
-        total_weight += final_weight
-        article_weights.append(final_weight)
-
-        content_raw = article.get("cotent") or ""
+        content_raw = article.get("content") or ""
         if include_title:
             source_label = "headline+content"
         elif content_raw.strip():
@@ -173,10 +207,33 @@ def predict_sentiment(
         else:
             source_label = "title-fallback"
 
-        article_sentiments.append({
+        batch_texts.append(text)
+        batch_meta.append({
+            "idx": i,
             "title": title,
             "final_weight": final_weight,
-            "input_source": source_label,
+            "source_label": source_label,
+        })
+
+    # ── Phase 2: Batch GPU inference (single call for all articles) ──
+    if batch_texts:
+        all_scores = _batch_classify_sentiment(batch_texts, batch_size=32)
+    else:
+        all_scores = []
+
+    # ── Phase 3: Accumulate weighted scores ──
+    for meta, scores in zip(batch_meta, all_scores):
+        final_weight = meta["final_weight"]
+
+        for label in weighted_scores:
+            weighted_scores[label] += scores[label] * final_weight
+        total_weight += final_weight
+        article_weights.append(final_weight)
+
+        article_sentiments.append({
+            "title": meta["title"],
+            "final_weight": final_weight,
+            "input_source": meta["source_label"],
             "raw_scores": scores,
             "weighted_scores": {
                 k: round(v * final_weight, 4) for k, v in scores.items()
@@ -185,7 +242,8 @@ def predict_sentiment(
 
         logger.info(
             "[%d/%d] (%s) %s -> pos=%.4f neg=%.4f neu=%.4f (w=%.3f)",
-            i + 1, len(articles), source_label, title[:50],
+            meta["idx"] + 1, len(articles), meta["source_label"],
+            meta["title"][:50],
             scores["positive"], scores["negative"], scores["neutral"],
             final_weight,
         )
