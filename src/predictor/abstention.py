@@ -23,7 +23,7 @@ from __future__ import annotations
 import math
 import logging
 
-from config import DECISION_THRESHOLD_POS, DECISION_THRESHOLD_NEG
+from config import DECISION_THRESHOLD_ENABLED, DECISION_THRESHOLD_POS, DECISION_THRESHOLD_NEG
 
 logger = logging.getLogger(__name__)
 
@@ -120,6 +120,9 @@ def apply_decision_thresholds(
         from argmax, else None.
     """
     argmax_label = max(normalized_scores, key=normalized_scores.get)
+
+    if not DECISION_THRESHOLD_ENABLED:
+        return argmax_label, None
 
     if normalized_scores.get("positive", 0) >= tau_pos:
         label = "positive"

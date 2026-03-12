@@ -330,16 +330,16 @@ class Fetcher:
         # enrich_articles_with_content(candidates, timeout=self.timeout)
 
 
-        candidates = clean_articles_content(
-            candidates,
-            company_name=company_name,
-            ticker=ticker)
-
         filtered_after_rules = filter_company_related(
             candidates,
             company_name=company_name,
             ticker=ticker,
         )
+
+        filtered_after_rules = clean_articles_content(
+            filtered_after_rules,
+            company_name=company_name,
+            ticker=ticker)
 
         # ── raw_fetch_only: stop here (no recency, no impact horizon, no weighting) ──
         if raw_fetch_only:

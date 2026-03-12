@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import logging
 import math
+import re
 from typing import Any
 
 from transformers import pipeline
@@ -15,6 +16,7 @@ from config import (
     SENTIMENT_CONFIDENCE_WEIGHTING,
     COVERAGE_COUNT_BOOST,
     RELEVANCE_RATIO_WEIGHTING,
+    HEADLINE_ONLY_WEIGHT,
 )
 from predictor.abstention import apply_abstention
 
@@ -61,8 +63,9 @@ def _title_matches(title: str, company_name: str, ticker: str | None) -> bool:
     if company_name.lower() in title_lower:
         return True
 
-    # Ticker match (e.g. "AAPL" in title)
-    if ticker and ticker.lower() in title_lower:
+    # Ticker match — case-sensitive with word boundaries to avoid
+    # short tickers (V, A, T) matching inside random words
+    if ticker and re.search(rf"\b{re.escape(ticker)}\b", title):
         return True
 
     # Core-name match: strip common suffixes like Inc., Corp., Ltd.
@@ -307,6 +310,7 @@ def predict_sentiment(
         coverage_count = int(article.get("coverage_count", 1))
         content_stats = article.get("content_stats", {})
         relevance_ratio = float(content_stats.get("relevance_ratio", 1.0))
+        is_headline_only = not content_raw.strip()
 
         batch_texts.append(text)
         batch_meta.append({
@@ -316,6 +320,7 @@ def predict_sentiment(
             "source_label": source_label,
             "coverage_count": coverage_count,
             "relevance_ratio": relevance_ratio,
+            "is_headline_only": is_headline_only,
         })
 
     # ── Phase 2: Batch GPU inference (single call for all articles) ──
@@ -347,8 +352,14 @@ def predict_sentiment(
         # ── Relevance ratio weighting: content quality from noise reducer ──
         relevance_ratio = 1.0
         if RELEVANCE_RATIO_WEIGHTING:
-            relevance_ratio = meta["relevance_ratio"]       # ∈ [0, 1]
+            relevance_ratio = meta["relevance_ratio"]       # in [0, 1]
             effective_weight *= relevance_ratio
+
+        # ── Headline-only discount: less info = less trust ──
+        headline_discount = 1.0
+        if meta["is_headline_only"]:
+            headline_discount = HEADLINE_ONLY_WEIGHT
+            effective_weight *= headline_discount
 
         # ── Sentiment confidence weighting: margin between top-1 and top-2 ──
         sentiment_margin = 1.0
@@ -368,6 +379,7 @@ def predict_sentiment(
             "effective_weight": round(effective_weight, 4),
             "coverage_boost": round(coverage_boost, 4),
             "relevance_ratio": round(relevance_ratio, 4),
+            "headline_discount": round(headline_discount, 4),
             "sentiment_margin": round(sentiment_margin, 4),
             "input_source": meta["source_label"],
             "raw_scores": raw,
@@ -380,11 +392,11 @@ def predict_sentiment(
         article_sentiments.append(detail)
 
         logger.info(
-            "[%d/%d] (%s) %s -> pos=%.4f neg=%.4f neu=%.4f (w=%.3f->%.3f, cov=%.2f, rel=%.2f, mar=%.2f)%s",
+            "[%d/%d] (%s) %s -> pos=%.4f neg=%.4f neu=%.4f (w=%.3f->%.3f, cov=%.2f, rel=%.2f, hdl=%.2f, mar=%.2f)%s",
             meta["idx"] + 1, len(articles), meta["source_label"],
             meta["title"][:50],
             debiased["positive"], debiased["negative"], debiased["neutral"],
-            base_weight, effective_weight, coverage_boost, relevance_ratio, sentiment_margin,
+            base_weight, effective_weight, coverage_boost, relevance_ratio, headline_discount, sentiment_margin,
             " [debiased]" if prior else "",
         )
 
@@ -414,6 +426,7 @@ def predict_sentiment(
             "sentiment_confidence": SENTIMENT_CONFIDENCE_WEIGHTING,
             "coverage_boost": COVERAGE_COUNT_BOOST,
             "relevance_ratio": RELEVANCE_RATIO_WEIGHTING,
+            "headline_only_weight": HEADLINE_ONLY_WEIGHT,
         },
         "weighted_scores": {
             k: round(v, 4) for k, v in weighted_scores.items()

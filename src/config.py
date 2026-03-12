@@ -72,17 +72,19 @@ XAI_SOURCE_CONCENTRATION_THRESHOLD = 0.60   # flag if top domain > 60% of articl
 XAI_MIN_UNIQUE_SOURCES             = 2      # flag if fewer unique domains
 
 # Prior debiasing (Bayesian correction for zero-shot label bias)
-PRIOR_DEBIASING_ENABLED        = True
+PRIOR_DEBIASING_ENABLED        = False
 PRIOR_DEBIASING_ALPHA          = 1.0       # damping: 0=off, 1=full, 0.5=half-strength
 
 # Enhanced article weighting
-SENTIMENT_CONFIDENCE_WEIGHTING = True    # weight articles by sentiment margin (top1 - top2)
+SENTIMENT_CONFIDENCE_WEIGHTING = False   # disabled: scores already encode uncertainty; double-counts
 COVERAGE_COUNT_BOOST           = True    # boost multi-source articles via log2(1 + coverage)
-RELEVANCE_RATIO_WEIGHTING      = True    # weight articles by content relevance ratio from noise reducer
+RELEVANCE_RATIO_WEIGHTING      = False   # disabled: noise reducer already filters; double-penalty
+HEADLINE_ONLY_WEIGHT           = 0.5     # discount for headline-only articles (no body content)
 
 # Decision thresholds (tuned on tune set via grid search, macro F1)
 # Applied before dynamic abstention margin.
 # positive must exceed tau_pos, negative must exceed tau_neg, else neutral.
+DECISION_THRESHOLD_ENABLED     = False
 DECISION_THRESHOLD_POS         = 0.61
 DECISION_THRESHOLD_NEG         = 0.32
 
