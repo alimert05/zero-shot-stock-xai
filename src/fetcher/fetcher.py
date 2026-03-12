@@ -20,7 +20,8 @@ from config import (
 from .utils import resolve_ticker, validate_date, add_recency_weights, assign_market_date
 from .filters import (
     filter_company_related,
-    remove_duplicates
+    remove_duplicates,
+    filter_headline_content_duplicates,
 )
 from .content import enrich_articles_with_content
 from .content_noise_reducer import clean_articles_content
@@ -288,9 +289,10 @@ class Fetcher:
             raise
 
         filtered_articles = remove_duplicates(all_articles)
+        filtered_articles = filter_headline_content_duplicates(filtered_articles)
 
         logger.info(
-            "After dedup: Raw=%s, Filtered=%s",
+            "After dedup + headline filter: Raw=%s, Filtered=%s",
             len(all_articles),
             len(filtered_articles),
         )
