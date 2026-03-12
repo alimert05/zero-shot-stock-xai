@@ -14,6 +14,7 @@ from config import (
     PRIOR_DEBIASING_ALPHA,
     SENTIMENT_CONFIDENCE_WEIGHTING,
     COVERAGE_COUNT_BOOST,
+    RELEVANCE_RATIO_WEIGHTING,
 )
 from predictor.abstention import apply_abstention
 
@@ -304,6 +305,8 @@ def predict_sentiment(
             source_label = "title-fallback"
 
         coverage_count = int(article.get("coverage_count", 1))
+        content_stats = article.get("content_stats", {})
+        relevance_ratio = float(content_stats.get("relevance_ratio", 1.0))
 
         batch_texts.append(text)
         batch_meta.append({
@@ -312,6 +315,7 @@ def predict_sentiment(
             "final_weight": final_weight,
             "source_label": source_label,
             "coverage_count": coverage_count,
+            "relevance_ratio": relevance_ratio,
         })
 
     # ── Phase 2: Batch GPU inference (single call for all articles) ──
@@ -340,6 +344,12 @@ def predict_sentiment(
             coverage_boost = math.log2(1 + cc)          # cc=1→1.0, cc=3→2.0, cc=5→2.58
             effective_weight *= coverage_boost
 
+        # ── Relevance ratio weighting: content quality from noise reducer ──
+        relevance_ratio = 1.0
+        if RELEVANCE_RATIO_WEIGHTING:
+            relevance_ratio = meta["relevance_ratio"]       # ∈ [0, 1]
+            effective_weight *= relevance_ratio
+
         # ── Sentiment confidence weighting: margin between top-1 and top-2 ──
         sentiment_margin = 1.0
         if SENTIMENT_CONFIDENCE_WEIGHTING:
@@ -357,6 +367,7 @@ def predict_sentiment(
             "base_weight": base_weight,
             "effective_weight": round(effective_weight, 4),
             "coverage_boost": round(coverage_boost, 4),
+            "relevance_ratio": round(relevance_ratio, 4),
             "sentiment_margin": round(sentiment_margin, 4),
             "input_source": meta["source_label"],
             "raw_scores": raw,
@@ -369,11 +380,11 @@ def predict_sentiment(
         article_sentiments.append(detail)
 
         logger.info(
-            "[%d/%d] (%s) %s -> pos=%.4f neg=%.4f neu=%.4f (w=%.3f->%.3f, cov=%.2f, mar=%.2f)%s",
+            "[%d/%d] (%s) %s -> pos=%.4f neg=%.4f neu=%.4f (w=%.3f->%.3f, cov=%.2f, rel=%.2f, mar=%.2f)%s",
             meta["idx"] + 1, len(articles), meta["source_label"],
             meta["title"][:50],
             debiased["positive"], debiased["negative"], debiased["neutral"],
-            base_weight, effective_weight, coverage_boost, sentiment_margin,
+            base_weight, effective_weight, coverage_boost, relevance_ratio, sentiment_margin,
             " [debiased]" if prior else "",
         )
 
@@ -402,6 +413,7 @@ def predict_sentiment(
         "enhanced_weighting": {
             "sentiment_confidence": SENTIMENT_CONFIDENCE_WEIGHTING,
             "coverage_boost": COVERAGE_COUNT_BOOST,
+            "relevance_ratio": RELEVANCE_RATIO_WEIGHTING,
         },
         "weighted_scores": {
             k: round(v, 4) for k, v in weighted_scores.items()

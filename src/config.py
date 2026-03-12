@@ -8,7 +8,7 @@ LOG_PATH = LOG_DIR / "fetch.logs"
 DATA_PATH = PROJECT_ROOT / "data"
 TEMP_PATH = DATA_PATH / "temp"
 PRED_PATH = DATA_PATH / "test_results"
-ARTICLE_CACHE_PATH = DATA_PATH / "article_cache"
+ARTICLE_CACHE_PATH = DATA_PATH / "article_cache_noise_yes"
 PRED_JSON_PATH = PRED_PATH / "predictions.json"
 JSON_PATH = PROJECT_ROOT / "data" / "temp" / "articles.json"
 FINBERT_PREDS = PROJECT_ROOT / "data" / "predictions" / "finbert_result.json"
@@ -78,6 +78,7 @@ PRIOR_DEBIASING_ALPHA          = 1.0       # damping: 0=off, 1=full, 0.5=half-st
 # Enhanced article weighting
 SENTIMENT_CONFIDENCE_WEIGHTING = True    # weight articles by sentiment margin (top1 - top2)
 COVERAGE_COUNT_BOOST           = True    # boost multi-source articles via log2(1 + coverage)
+RELEVANCE_RATIO_WEIGHTING      = True    # weight articles by content relevance ratio from noise reducer
 
 # Decision thresholds (tuned on tune set via grid search, macro F1)
 # Applied before dynamic abstention margin.
