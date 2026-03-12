@@ -2,11 +2,19 @@ from __future__ import annotations
 
 import json
 import logging
+import math
 from typing import Any
 
 from transformers import pipeline
 
-from config import SENTIMENT_DEVICE, MODEL_NAME, PRIOR_DEBIASING_ENABLED, PRIOR_DEBIASING_ALPHA
+from config import (
+    SENTIMENT_DEVICE,
+    MODEL_NAME,
+    PRIOR_DEBIASING_ENABLED,
+    PRIOR_DEBIASING_ALPHA,
+    SENTIMENT_CONFIDENCE_WEIGHTING,
+    COVERAGE_COUNT_BOOST,
+)
 from predictor.abstention import apply_abstention
 
 logger = logging.getLogger(__name__)
@@ -295,12 +303,15 @@ def predict_sentiment(
         else:
             source_label = "title-fallback"
 
+        coverage_count = int(article.get("coverage_count", 1))
+
         batch_texts.append(text)
         batch_meta.append({
             "idx": i,
             "title": title,
             "final_weight": final_weight,
             "source_label": source_label,
+            "coverage_count": coverage_count,
         })
 
     # ── Phase 2: Batch GPU inference (single call for all articles) ──
@@ -319,20 +330,38 @@ def predict_sentiment(
 
     # ── Phase 3: Accumulate weighted scores ──
     for meta, raw, debiased in zip(batch_meta, all_scores, all_debiased):
-        final_weight = meta["final_weight"]
+        base_weight = meta["final_weight"]
+        effective_weight = base_weight
+
+        # ── Coverage count boost: log2(1 + coverage) ──
+        coverage_boost = 1.0
+        if COVERAGE_COUNT_BOOST:
+            cc = meta["coverage_count"]
+            coverage_boost = math.log2(1 + cc)          # cc=1→1.0, cc=3→2.0, cc=5→2.58
+            effective_weight *= coverage_boost
+
+        # ── Sentiment confidence weighting: margin between top-1 and top-2 ──
+        sentiment_margin = 1.0
+        if SENTIMENT_CONFIDENCE_WEIGHTING:
+            sorted_scores = sorted(debiased.values(), reverse=True)
+            sentiment_margin = sorted_scores[0] - sorted_scores[1]  # ∈ [0, 1]
+            effective_weight *= sentiment_margin
 
         for label in weighted_scores:
-            weighted_scores[label] += debiased[label] * final_weight
-        total_weight += final_weight
-        article_weights.append(final_weight)
+            weighted_scores[label] += debiased[label] * effective_weight
+        total_weight += effective_weight
+        article_weights.append(effective_weight)
 
         detail = {
             "title": meta["title"],
-            "final_weight": final_weight,
+            "base_weight": base_weight,
+            "effective_weight": round(effective_weight, 4),
+            "coverage_boost": round(coverage_boost, 4),
+            "sentiment_margin": round(sentiment_margin, 4),
             "input_source": meta["source_label"],
             "raw_scores": raw,
             "weighted_scores": {
-                k: round(v * final_weight, 4) for k, v in debiased.items()
+                k: round(v * effective_weight, 4) for k, v in debiased.items()
             },
         }
         if prior is not None:
@@ -340,11 +369,11 @@ def predict_sentiment(
         article_sentiments.append(detail)
 
         logger.info(
-            "[%d/%d] (%s) %s -> pos=%.4f neg=%.4f neu=%.4f (w=%.3f)%s",
+            "[%d/%d] (%s) %s -> pos=%.4f neg=%.4f neu=%.4f (w=%.3f->%.3f, cov=%.2f, mar=%.2f)%s",
             meta["idx"] + 1, len(articles), meta["source_label"],
             meta["title"][:50],
             debiased["positive"], debiased["negative"], debiased["neutral"],
-            final_weight,
+            base_weight, effective_weight, coverage_boost, sentiment_margin,
             " [debiased]" if prior else "",
         )
 
@@ -369,6 +398,10 @@ def predict_sentiment(
             "enabled": prior is not None,
             "alpha": PRIOR_DEBIASING_ALPHA if prior is not None else None,
             "prior": {k: round(v, 4) for k, v in prior.items()} if prior else None,
+        },
+        "enhanced_weighting": {
+            "sentiment_confidence": SENTIMENT_CONFIDENCE_WEIGHTING,
+            "coverage_boost": COVERAGE_COUNT_BOOST,
         },
         "weighted_scores": {
             k: round(v, 4) for k, v in weighted_scores.items()

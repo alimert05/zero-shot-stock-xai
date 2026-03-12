@@ -48,8 +48,6 @@ from config import (
     SENTIMENT_MODEL,
 )
 from fetcher.fetcher import Fetcher
-from fetcher.utils import add_recency_weights
-from fetcher.impact_horizon import add_impact_horizon_data
 from predictor.zero_shot import predict_sentiment as predict_zero_shot
 from predictor.finbert import predict_sentiment as predict_finbert
 from predictor.fingpt import predict_sentiment as predict_fingpt
@@ -247,7 +245,7 @@ def run_single_case(
 
     try:
         if use_cache:
-            # ── Load raw articles from cache, then apply processing pipeline ──
+            # ── Load fully-processed articles from cache (sentiment only) ──
             cache_file = ARTICLE_CACHE_PATH / f"{case_id}.json"
             if not cache_file.exists():
                 raise FileNotFoundError(
@@ -260,35 +258,7 @@ def run_single_case(
             articles = cached_data.get("articles", [])
             has_articles = len(articles) > 0
 
-            if has_articles:
-                # Apply tunable processing pipeline to raw cached articles
-                prediction_window_days = cached_data.get("prediction_window_days", 1)
-                ref_date = datetime.strptime(start_date, "%d-%m-%Y")
-                backward_end_str = cached_data.get("backward_end_date")
-                if backward_end_str:
-                    backward_end_date = datetime.strptime(backward_end_str, "%d-%m-%Y")
-                else:
-                    backward_end_date = ref_date
-
-                add_recency_weights(
-                    articles,
-                    ref_date=ref_date,
-                    backward_end_date=backward_end_date,
-                    prediction_window_days=prediction_window_days,
-                )
-                add_impact_horizon_data(
-                    articles,
-                    prediction_window_days=prediction_window_days,
-                )
-
-                # Sort by final_weight descending (same as fetcher.search)
-                if articles and "final_weight" in articles[0]:
-                    articles.sort(key=lambda x: x.get("final_weight", 0), reverse=True)
-
-                # Write processed articles to temp dir for predictor
-                cached_data["articles"] = articles
-                cached_data["article_count"] = len(articles)
-
+            # Write cached articles directly to temp dir for predictor
             with open(case_articles_path, "w", encoding="utf-8") as f:
                 json.dump(cached_data, f, indent=2, ensure_ascii=False)
         else:
@@ -443,7 +413,7 @@ def fetch_single_case(
         fetcher.end_date = end_date
         fetcher.quiet = True
 
-        fetcher.search(raw_fetch_only=True)
+        fetcher.search()
         fetcher.display_results()
 
         # Read the articles.json the fetcher wrote to temp dir
@@ -517,40 +487,19 @@ def run_fetch(
     ARTICLE_CACHE_PATH.mkdir(parents=True, exist_ok=True)
     _clean_orphan_temp_dirs()
 
-    # Raw fetch only — no GPU models needed (no impact horizon, no sentiment)
-    logger.info("Fetch mode: raw API articles only (no impact horizon processing)")
+    # Full pipeline: noise reduction + recency weights + impact horizon
+    # Pre-warm GPU models needed for fetch pipeline
+    _prewarm_models()
+    logger.info("Fetch mode: full pipeline (noise reduction + recency + impact horizon)")
 
+    # Sequential only — fetch uses GPU models (impact horizon, noise reduction)
+    # that are not thread-safe
     progress = ProgressTracker(total)
     all_results: list[dict] = []
 
-    if workers <= 1:
-        for case in test_cases:
-            result = fetch_single_case(case, progress)
-            all_results.append(result)
-    else:
-        futures = {}
-        with ThreadPoolExecutor(max_workers=workers) as executor:
-            for case in test_cases:
-                future = executor.submit(fetch_single_case, case, progress)
-                futures[future] = case
-
-            try:
-                for future in as_completed(futures):
-                    case = futures[future]
-                    try:
-                        result = future.result()
-                    except Exception as exc:
-                        result = {
-                            "id": case["id"],
-                            "cached": False,
-                            "article_count": 0,
-                            "skipped": False,
-                            "error": f"Thread exception: {exc}",
-                        }
-                    all_results.append(result)
-            except KeyboardInterrupt:
-                logger.info("Interrupted! Processing completed results...")
-                executor.shutdown(wait=False, cancel_futures=True)
+    for case in test_cases:
+        result = fetch_single_case(case, progress)
+        all_results.append(result)
 
     print()  # Newline after progress bar
 
@@ -591,16 +540,12 @@ def run_fetch(
 # ── Evaluation ──
 
 def _prewarm_cached_mode():
-    """Pre-load impact horizon + sentiment models for cached evaluation.
+    """Pre-load sentiment model only for cached evaluation.
 
-    Raw cached articles need processing (recency, impact horizon, weighting)
-    before prediction, so we pre-warm both GPU pipelines.
+    Cached articles are already fully processed (noise reduction, recency,
+    impact horizon), so only the sentiment model is needed.
     """
-    logger.info("Pre-loading impact horizon model (for cached article processing)...")
-    from fetcher.impact_horizon import _get_classifier
-    _get_classifier()
-
-    logger.info("Pre-loading sentiment model...")
+    logger.info("Pre-loading sentiment model (cached articles are fully processed)...")
     if SENTIMENT_MODEL == "zero-shot":
         from predictor.zero_shot import _get_deberta_pipeline
         _get_deberta_pipeline()
@@ -610,7 +555,7 @@ def _prewarm_cached_mode():
     elif SENTIMENT_MODEL == "fingpt":
         from predictor.fingpt import _get_fingpt_model
         _get_fingpt_model()
-    logger.info("All models loaded for cached evaluation.")
+    logger.info("Sentiment model loaded for cached evaluation.")
 
 
 def run_evaluation(
@@ -908,10 +853,15 @@ def main():
                         help="Number of parallel workers (default: 10, use 1 for sequential)")
     parser.add_argument("--output", type=str, default=str(RESULTS_PATH),
                         help="Path to save evaluation results JSON")
+    parser.add_argument("--force-refetch", action="store_true",
+                        help="Delete existing article cache before fetching (for rebuilding cache)")
     args = parser.parse_args()
 
     # ── fetch-only mode: populate article cache and exit ──
     if args.mode == "fetch":
+        if args.force_refetch and ARTICLE_CACHE_PATH.exists():
+            logger.info("--force-refetch: clearing existing cache at %s", ARTICLE_CACHE_PATH)
+            shutil.rmtree(ARTICLE_CACHE_PATH, ignore_errors=True)
         run_fetch(args.test_set, args.max_cases, workers=args.workers)
         return
 
