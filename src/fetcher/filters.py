@@ -33,6 +33,7 @@ _QUESTION_WORDS_RE = re.compile(
     r"(?i)^(who|what|when|where|why|how)\b"
 )
 
+
 def _is_question_headline(title: str) -> bool:
     if not title:
         return False
