@@ -28,6 +28,7 @@ MODEL_DISPLAY_NAMES = {
     "facebook/bart-large-mnli": "BART Large MNLI",
     "roberta-large-mnli": "RoBERTa Large MNLI",
     "microsoft/deberta-large-mnli": "DeBERTa Large MNLI",
+    "MoritzLaurer/deberta-v3-base-zeroshot-v2.0-c": "DeBERTa v3 Base Zeroshot v2.0",
 }
 model = MODEL_DISPLAY_NAMES.get(MODEL_NAME, MODEL_NAME)
 
@@ -103,13 +104,14 @@ def _build_input_text(
 
 
 _CLASS_TO_LABEL = {
-    "positive": "positive financial outlook",
-    "negative": "negative financial outlook",
+    "positive": "bullish financial outlook",
+    "negative": "bearish financial outlook",
     "neutral": "neutral financial outlook",
 }
 _CANDIDATE_LABELS = list(_CLASS_TO_LABEL.values())
 _LABEL_TO_CLASS = {v.lower().strip(): k for k, v in _CLASS_TO_LABEL.items()}
 _HYPOTHESIS_TEMPLATE = "This text is {} about the financial outlook."
+
 
 
 def _classify_sentiment(text: str, company_name: str) -> dict[str, float]:

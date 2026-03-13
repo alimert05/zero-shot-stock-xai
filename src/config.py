@@ -8,7 +8,7 @@ LOG_PATH = LOG_DIR / "fetch.logs"
 DATA_PATH = PROJECT_ROOT / "data"
 TEMP_PATH = DATA_PATH / "temp"
 PRED_PATH = DATA_PATH / "test_results"
-ARTICLE_CACHE_PATH = DATA_PATH / "article_cache_noise_yes"
+ARTICLE_CACHE_PATH = DATA_PATH / "articles_with_noise_reduction_roberta"
 PRED_JSON_PATH = PRED_PATH / "predictions.json"
 JSON_PATH = PROJECT_ROOT / "data" / "temp" / "articles.json"
 FINBERT_PREDS = PROJECT_ROOT / "data" / "predictions" / "finbert_result.json"
@@ -23,9 +23,9 @@ REQUEST_TIMEOUT_LIMIT = 30
 # API Configuration
 FINNHUB_API_KEY = "d5rvt19r01qq2th0b8sgd5rvt19r01qq2th0b8t0"
 
-NOISE_REDUCTION_MODEL = "microsoft/deberta-large-mnli" 
+NOISE_REDUCTION_MODEL = "roberta-large-mnli" 
 
-IMPACT_HORIZON_MODEL = "microsoft/deberta-large-mnli"
+IMPACT_HORIZON_MODEL = "roberta-large-mnli"
 IMPACT_HORIZON_DEVICE = 0
 
 SENTIMENT_DEVICE = 0 
@@ -42,9 +42,9 @@ SENTIMENT_DEVICE = 0
 
 # zero-shot config
 SENTIMENT_MODEL = "zero-shot"
-# MODEL_NAME = "facebook/bart-large-mnli" # facebook bart mnli
-# MODEL_NAME = "roberta-large-mnli" # facebookAI roberta mnli
+
 MODEL_NAME = "microsoft/deberta-large-mnli" # microsoft deberta large mnli
+# MODEL_NAME = "roberta-large-mnli" # facebookAI roberta mnli
 
 # XAI Configuration
 XAI_ENABLED                    = False
@@ -84,9 +84,9 @@ HEADLINE_ONLY_WEIGHT           = 0.5     # discount for headline-only articles (
 # Decision thresholds (tuned on tune set via grid search, macro F1)
 # Applied before dynamic abstention margin.
 # positive must exceed tau_pos, negative must exceed tau_neg, else neutral.
-DECISION_THRESHOLD_ENABLED     = False
-DECISION_THRESHOLD_POS         = 0.61
-DECISION_THRESHOLD_NEG         = 0.32
+DECISION_THRESHOLD_ENABLED     = True
+DECISION_THRESHOLD_POS         = 0.56
+DECISION_THRESHOLD_NEG         = 0.42
 
 NEUTRAL_THRESHOLD              = 0.003     # ±0.3% close-to-close return band ?
 

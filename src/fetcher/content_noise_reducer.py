@@ -60,7 +60,7 @@ def _score_sentence_relevance(
         candidate_labels=labels,
         hypothesis_template=hypothesis_template,
         batch_size=16,
-        multi_label=False
+        multi_label=True
     )
 
     if isinstance(results, dict):

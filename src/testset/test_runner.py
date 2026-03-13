@@ -117,7 +117,7 @@ class ProgressTracker:
             print(
                 f"\r  Progress: {self._completed}/{self._total} "
                 f"({pct:.0f}%) | Correct: {self._correct} | "
-                f"Errors: {self._errors} | Issues: {self._issues}",
+                f"Errors: {self._errors} | Issues: {self._issues}\n",
                 end="", flush=True,
             )
 
