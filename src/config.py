@@ -8,7 +8,7 @@ LOG_PATH = LOG_DIR / "fetch.logs"
 DATA_PATH = PROJECT_ROOT / "data"
 TEMP_PATH = DATA_PATH / "temp"
 PRED_PATH = DATA_PATH / "test_results"
-ARTICLE_CACHE_PATH = DATA_PATH / "articles_with_noise_reduction_roberta"
+ARTICLE_CACHE_PATH = DATA_PATH / "articles_with_noise_reduction_deberta"
 PRED_JSON_PATH = PRED_PATH / "predictions.json"
 JSON_PATH = PROJECT_ROOT / "data" / "temp" / "articles.json"
 FINBERT_PREDS = PROJECT_ROOT / "data" / "predictions" / "finbert_result.json"
@@ -31,8 +31,8 @@ IMPACT_HORIZON_DEVICE = 0
 SENTIMENT_DEVICE = 0 
 
 # finbert config
-# SENTIMENT_MODEL = "ProsusAI/finbert"
-# SENTIMENT_MAX_LENGTH = 512  
+SENTIMENT_MODEL = "ProsusAI/finbert"
+SENTIMENT_MAX_LENGTH = 512  
 
 #fingpt config
 # SENTIMENT_MODEL = "fingpt"
@@ -41,7 +41,7 @@ SENTIMENT_DEVICE = 0
 # FINGPT_LOAD_IN_8BIT = True
 
 # zero-shot config
-SENTIMENT_MODEL = "zero-shot"
+# SENTIMENT_MODEL = "zero-shot"
 
 MODEL_NAME = "microsoft/deberta-large-mnli" # microsoft deberta large mnli
 # MODEL_NAME = "roberta-large-mnli" # facebookAI roberta mnli
@@ -84,7 +84,7 @@ HEADLINE_ONLY_WEIGHT           = 0.5     # discount for headline-only articles (
 # Decision thresholds (tuned on tune set via grid search, macro F1)
 # Applied before dynamic abstention margin.
 # positive must exceed tau_pos, negative must exceed tau_neg, else neutral.
-DECISION_THRESHOLD_ENABLED     = True
+DECISION_THRESHOLD_ENABLED     = False
 DECISION_THRESHOLD_POS         = 0.56
 DECISION_THRESHOLD_NEG         = 0.42
 
