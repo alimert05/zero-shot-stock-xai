@@ -88,6 +88,9 @@ DECISION_THRESHOLD_ENABLED     = True
 DECISION_THRESHOLD_POS         = 0.56
 DECISION_THRESHOLD_NEG         = 0.42
 
+# Dynamic abstention margin (entropy-adaptive safety net)
+DYNAMIC_MARGIN_ENABLED         = False
+
 NEUTRAL_THRESHOLD              = 0.003     # ±0.3% close-to-close return band ?
 
 # Market timezone alignment

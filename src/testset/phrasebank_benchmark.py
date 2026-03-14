@@ -35,7 +35,11 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from config import PRED_PATH, SENTIMENT_DEVICE
+from config import (
+    PRED_PATH, SENTIMENT_DEVICE, MODEL_NAME,
+    DECISION_THRESHOLD_ENABLED, DECISION_THRESHOLD_POS, DECISION_THRESHOLD_NEG,
+    DYNAMIC_MARGIN_ENABLED,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -467,14 +471,19 @@ def _chunks(items: list[str], size: int) -> list[list[str]]:
 class DeBERTaPredictor:
     def __init__(self, device: int, batch_size: int):
         from transformers import pipeline
+        from predictor.zero_shot import _CLASS_TO_LABEL, _HYPOTHESIS_TEMPLATE, _LABEL_TO_CLASS
 
         self.batch_size = batch_size
         self.max_length = 512
-        self.candidate_labels = ["positive", "negative", "neutral"]
+        self.label_map = _CLASS_TO_LABEL          # {"positive": "bullish financial outlook", ...}
+        self.reverse_map = _LABEL_TO_CLASS         # {"bullish financial outlook": "positive", ...}
+        self.candidate_labels = list(self.label_map.values())
+        self.hypothesis_template = _HYPOTHESIS_TEMPLATE
+
         logger.info("Loading DeBERTa (zero-shot) model...")
         self.pipe = pipeline(
             "zero-shot-classification",
-            model="microsoft/deberta-large-mnli",
+            model=MODEL_NAME,
             device=device,
         )
         if getattr(self.pipe.tokenizer, "model_max_length", 0) > 10000:
@@ -487,7 +496,7 @@ class DeBERTaPredictor:
             outputs = self.pipe(
                 batch,
                 candidate_labels=self.candidate_labels,
-                hypothesis_template="This financial statement is {}.",
+                hypothesis_template=self.hypothesis_template,
                 multi_label=False,
                 batch_size=self.batch_size,
                 truncation=True,
@@ -497,9 +506,44 @@ class DeBERTaPredictor:
                 outputs = [outputs]
 
             for item in outputs:
-                labels = item.get("labels", [])
-                top_label = labels[0] if labels else "neutral"
-                predictions.append(normalize_label(top_label))
+                nli_labels = item.get("labels", [])
+                nli_scores = item.get("scores", [])
+
+                # Map NLI labels → canonical scores
+                scores = {}
+                for lbl, sc in zip(nli_labels, nli_scores):
+                    canonical = self.reverse_map.get(lbl.lower().strip(), None)
+                    if canonical:
+                        scores[canonical] = sc
+                for cls in ("positive", "negative", "neutral"):
+                    scores.setdefault(cls, 0.0)
+
+                # Argmax
+                canonical = max(scores, key=scores.get)
+
+                # Stage 1: Decision thresholds (if enabled)
+                if DECISION_THRESHOLD_ENABLED:
+                    if scores["positive"] >= DECISION_THRESHOLD_POS:
+                        canonical = "positive"
+                    elif scores["negative"] >= DECISION_THRESHOLD_NEG:
+                        canonical = "negative"
+                    else:
+                        canonical = "neutral"
+
+                # Stage 2: Dynamic margin (if enabled)
+                # For single-sentence FPB, use article_weights=[1.0] (one evidence)
+                if DYNAMIC_MARGIN_ENABLED and canonical != "neutral":
+                    from predictor.abstention import dynamic_abstention_margin
+                    sorted_labels = sorted(scores, key=scores.get, reverse=True)
+                    margin = scores[sorted_labels[0]] - scores[sorted_labels[1]]
+                    dyn_threshold = dynamic_abstention_margin(
+                        normalized_scores=scores,
+                        article_weights=[1.0],
+                    )
+                    if margin < dyn_threshold:
+                        canonical = "neutral"
+
+                predictions.append(canonical)
         return predictions
 
     def predict_with_config(
@@ -585,6 +629,8 @@ def run_benchmark(args: argparse.Namespace) -> dict[str, Any]:
             "datasets": [d.path for d in datasets],
             "max_samples": args.max_samples,
             "device": args.device,
+            "decision_threshold_enabled": DECISION_THRESHOLD_ENABLED,
+            "dynamic_margin_enabled": DYNAMIC_MARGIN_ENABLED,
         },
         "results": {},
         "failures": [],
@@ -633,9 +679,12 @@ def print_report(report: dict[str, Any]) -> None:
     config_name = metadata.get("config_name", "default")
     template = metadata.get("hypothesis_template", "N/A")
     labels = metadata.get("candidate_labels", [])
+    dt_enabled = metadata.get("decision_threshold_enabled", False)
+    dm_enabled = metadata.get("dynamic_margin_enabled", False)
     print(f"  Config: {config_name}")
     print(f"  Template: {template}")
     print(f"  Labels: {labels}")
+    print(f"  Decision Thresholds: {'ON' if dt_enabled else 'OFF'}  |  Dynamic Margin: {'ON' if dm_enabled else 'OFF'}")
     print("-" * 90)
 
     print(
