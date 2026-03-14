@@ -4,11 +4,8 @@ import json
 import logging
 from typing import Any
 
-<<<<<<< HEAD
-=======
 from predictor.abstention import apply_abstention
 
->>>>>>> fix/positive_bias
 logger = logging.getLogger(__name__)
 
 _sentiment_pipeline = None
@@ -111,18 +108,11 @@ def predict_sentiment(
     weighted_scores = {"positive": 0.0, "negative": 0.0, "neutral": 0.0}
     total_weight = 0.0
     article_sentiments: list[dict] = []
-<<<<<<< HEAD
-
-    for i, article in enumerate(articles):
-        title = article.get("title", "")
-        final_weight = article.get("final_weight", 1.0)
-=======
     article_weights: list[float] = []
 
     for i, article in enumerate(articles):
         title = article.get("title", "")
         final_weight = float(article.get("final_weight", 1.0))
->>>>>>> fix/positive_bias
 
         include_title = _title_matches(title, company_name, ticker)
         text = _build_input_text(article, include_title=include_title, company_name=company_name)
@@ -136,10 +126,7 @@ def predict_sentiment(
         for label in weighted_scores:
             weighted_scores[label] += scores[label] * final_weight
         total_weight += final_weight
-<<<<<<< HEAD
-=======
         article_weights.append(final_weight)
->>>>>>> fix/positive_bias
 
         content_raw = article.get("content") or ""
         if include_title:
@@ -172,12 +159,8 @@ def predict_sentiment(
     else:
         normalized_scores = {"positive": 0.0, "negative": 0.0, "neutral": 0.0}
 
-<<<<<<< HEAD
-    final_label = max(normalized_scores, key=normalized_scores.get)
-=======
     abstention = apply_abstention(normalized_scores, article_weights)
     final_label = abstention["final_label"]
->>>>>>> fix/positive_bias
 
     result = {
         "query": query,
@@ -193,10 +176,7 @@ def predict_sentiment(
         "final_label": final_label,
         "final_confidence": normalized_scores[final_label],
         "article_details": article_sentiments,
-<<<<<<< HEAD
-=======
         "abstention_test": abstention["abstention_test"],
->>>>>>> fix/positive_bias
     }
 
     logger.info(
@@ -245,8 +225,6 @@ def _print_summary(result: dict) -> None:
     print(f"{'-'*50}")
     print(f"  FINAL LABEL : {result['final_label'].upper()}")
     print(f"  CONFIDENCE  : {result['final_confidence']:.4f}")
-<<<<<<< HEAD
-=======
 
     abst = result.get("abstention_test", {})
     method = abst.get("method", "none")
@@ -264,5 +242,4 @@ def _print_summary(result: dict) -> None:
 
     print(f"  ENTROPY     : {entropy:.4f}")
     print(f"  EFFECTIVE N : {effective_n:.4f}")
->>>>>>> fix/positive_bias
     print(f"{'='*50}\n")

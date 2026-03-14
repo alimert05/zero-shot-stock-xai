@@ -30,16 +30,10 @@ def _contains_name_or_ticker(text: str, company_name: str, ticker_re: re.Pattern
     return False
 
 _QUESTION_WORDS_RE = re.compile(
-<<<<<<< HEAD
-    r"(?i)^(who|what|when|where|why|how|is|are|was|were|do|does|did|can|could|should|will|would)\b"
-)
-
-=======
     r"(?i)^(who|what|when|where|why|how)\b"
 )
 
 
->>>>>>> fix/positive_bias
 def _is_question_headline(title: str) -> bool:
     if not title:
         return False
@@ -195,8 +189,6 @@ def remove_duplicates(articles: list[dict]) -> list[dict]:
         len(articles), len(unique),
     )
     return unique
-<<<<<<< HEAD
-=======
 
 
 def filter_headline_content_duplicates(articles: list[dict]) -> list[dict]:
@@ -233,4 +225,3 @@ def filter_headline_content_duplicates(articles: list[dict]) -> list[dict]:
         len(articles), len(kept), cleared_content, dropped_question,
     )
     return kept
->>>>>>> fix/positive_bias
