@@ -14,6 +14,7 @@ JSON_PATH = PROJECT_ROOT / "data" / "temp" / "articles.json"
 FINBERT_PREDS = PROJECT_ROOT / "data" / "predictions" / "finbert_result.json"
 FINGPT_PREDS = PROJECT_ROOT / "data" / "predictions" / "fingpt_result.json"
 ZEROSHOT_PREDS = PROJECT_ROOT / "data" / "predictions" / "zeroshot_result.json"
+OLLAMA_PREDS = PROJECT_ROOT / "data" / "predictions" / "ollama_result.json"
 
 TEMP_PATH.mkdir(parents=True, exist_ok=True)
 LOG_DIR.mkdir(parents=True, exist_ok=True)
@@ -35,14 +36,21 @@ SENTIMENT_DEVICE = 0
 # SENTIMENT_MAX_LENGTH = 512  
 
 #fingpt config
-SENTIMENT_MODEL = "fingpt"
+# SENTIMENT_MODEL = "fingpt"
 FINGPT_BASE_MODEL = "NousResearch/Llama-2-13b-hf"
 FINGPT_LORA_MODEL = "FinGPT/fingpt-sentiment_llama2-13b_lora"
 FINGPT_LOAD_IN_8BIT = True
 
 # zero-shot config
-# SENTIMENT_MODEL = "zero-shot"
 
+
+# ollama LLM config (Llama 3.1 8B or Mistral 7B)
+# SENTIMENT_MODEL = "ollama-llama3"
+# OLLAMA_SENTIMENT_MODEL = "llama3.1:8b"
+SENTIMENT_MODEL = "ollama-mistral"
+OLLAMA_SENTIMENT_MODEL = "mistral:7b"
+
+# SENTIMENT_MODEL = "zero-shot"
 MODEL_NAME = "microsoft/deberta-large-mnli" # microsoft deberta large mnli
 # MODEL_NAME = "roberta-large-mnli" # facebookAI roberta mnli
 
@@ -84,7 +92,7 @@ HEADLINE_ONLY_WEIGHT           = 0.5     # discount for headline-only articles (
 # Decision thresholds (tuned on tune set via grid search, macro F1)
 # Applied before dynamic abstention margin.
 # positive must exceed tau_pos, negative must exceed tau_neg, else neutral.
-DECISION_THRESHOLD_ENABLED     = False
+DECISION_THRESHOLD_ENABLED     = True
 DECISION_THRESHOLD_POS         = 0.56
 DECISION_THRESHOLD_NEG         = 0.42
 

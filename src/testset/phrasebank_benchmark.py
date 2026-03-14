@@ -580,6 +580,115 @@ class DeBERTaPredictor:
         return predictions
 
 
+class OllamaPredictor:
+    """Predict sentiment using a local LLM via Ollama (Llama 3.1 8B / Mistral 7B)."""
+
+    def __init__(self, model_name: str):
+        import ollama as _ollama
+        self.ollama = _ollama
+        self.model_name = model_name
+        logger.info("OllamaPredictor ready (model=%s)", model_name)
+
+    def predict(self, texts: list[str]) -> list[str]:
+        from predictor.ollama_predictor import OLLAMA_PROMPT_TEMPLATE
+
+        predictions: list[str] = []
+        for i, text in enumerate(texts):
+            prompt = OLLAMA_PROMPT_TEMPLATE.format(text=text)
+            response = self.ollama.chat(
+                model=self.model_name,
+                messages=[
+                    {"role": "user", "content": prompt},
+                ],
+                options={"temperature": 0.0, "num_predict": 10},
+            )
+            answer = response["message"]["content"].strip().lower()
+
+            if "positive" in answer:
+                label = "positive"
+            elif "negative" in answer:
+                label = "negative"
+            elif "neutral" in answer:
+                label = "neutral"
+            else:
+                logger.warning("Ollama (%s) unexpected answer: '%s', defaulting to neutral", self.model_name, answer)
+                label = "neutral"
+
+            predictions.append(label)
+
+            if (i + 1) % 100 == 0:
+                logger.info("OllamaPredictor progress: %d/%d", i + 1, len(texts))
+
+        return predictions
+
+
+class FinBERTPredictor:
+    """Predict sentiment using FinBERT (ProsusAI/finbert)."""
+
+    def __init__(self, device: int):
+        from transformers import pipeline
+        logger.info("Loading FinBERT model...")
+        self.pipe = pipeline("sentiment-analysis", model="ProsusAI/finbert", device=device)
+        logger.info("FinBERT model ready")
+
+    def predict(self, texts: list[str]) -> list[str]:
+        predictions: list[str] = []
+        for text in texts:
+            results = self.pipe(text, top_k=None, truncation=True, max_length=512)
+            best = max(results, key=lambda x: x["score"])
+            predictions.append(best["label"])
+        return predictions
+
+
+class FinGPTPredictor:
+    """Predict sentiment using FinGPT (Llama-2-13B + LoRA)."""
+
+    def __init__(self, device: int):
+        from predictor.fingpt import _get_fingpt_model, FINGPT_PROMPT
+        self.model, self.tokenizer = _get_fingpt_model()
+        self.prompt_template = FINGPT_PROMPT
+        self.device = device
+        logger.info("FinGPT model ready for FPB benchmark")
+
+    def predict(self, texts: list[str]) -> list[str]:
+        import torch
+
+        predictions: list[str] = []
+        for i, text in enumerate(texts):
+            prompt = self.prompt_template.format(text=text)
+            tokens = self.tokenizer(
+                prompt, return_tensors="pt", padding=True,
+                truncation=True, max_length=512,
+            )
+            device = next(self.model.parameters()).device
+            tokens = {k: v.to(device) for k, v in tokens.items()}
+
+            with torch.no_grad():
+                output = self.model.generate(**tokens, max_new_tokens=5, do_sample=False)
+
+            generated = self.tokenizer.decode(output[0], skip_special_tokens=True)
+            answer = ""
+            if "Answer: " in generated:
+                answer = generated.split("Answer: ")[-1].strip().lower()
+
+            if "positive" in answer:
+                label = "positive"
+            elif "negative" in answer:
+                label = "negative"
+            elif "neutral" in answer:
+                label = "neutral"
+            else:
+                logger.warning("FinGPT unexpected answer: '%s', defaulting to neutral", answer)
+                label = "neutral"
+
+            predictions.append(label)
+
+            if (i + 1) % 100 == 0:
+                logger.info("FinGPTPredictor progress: %d/%d", i + 1, len(texts))
+
+        return predictions
+
+
 # ── Benchmark mode ───────────────────────────────────────────────────────────
 
 def _resolve_config(config_name: str | None) -> dict[str, Any] | None:
@@ -597,50 +706,84 @@ def _resolve_config(config_name: str | None) -> dict[str, Any] | None:
     )
 
 
+def _create_predictor(args: argparse.Namespace):
+    """Create the appropriate predictor based on --model argument."""
+    model = getattr(args, "model", "deberta")
+
+    if model == "deberta":
+        return DeBERTaPredictor(device=args.device, batch_size=args.batch_size)
+    elif model == "ollama-llama3":
+        return OllamaPredictor(model_name="llama3.1:8b")
+    elif model == "ollama-mistral":
+        return OllamaPredictor(model_name="mistral:7b")
+    elif model == "finbert":
+        return FinBERTPredictor(device=args.device)
+    elif model == "fingpt":
+        return FinGPTPredictor(device=args.device)
+    else:
+        raise ValueError(f"Unknown model: {model}")
+
+
+def _model_display_name(model: str) -> str:
+    names = {
+        "deberta": "microsoft/deberta-large-mnli",
+        "ollama-llama3": "llama3.1:8b (Ollama)",
+        "ollama-mistral": "mistral:7b (Ollama)",
+        "finbert": "ProsusAI/finbert",
+        "fingpt": "FinGPT (Llama-2-13B + LoRA)",
+    }
+    return names.get(model, model)
+
+
 def run_benchmark(args: argparse.Namespace) -> dict[str, Any]:
     datasets = [load_phrasebank_csv(path, max_samples=args.max_samples) for path in args.datasets]
 
     print_dataset_metadata(datasets, title="BENCHMARK DATASETS")
 
-    # Resolve optional tuning config for benchmark mode
-    config = _resolve_config(getattr(args, "config", None))
-    if config:
-        logger.info(
-            "Benchmark using tuned config: %s  template='%s'  labels=%s",
-            config["name"],
-            config["hypothesis_template"],
-            list(config["label_map"].values()),
-        )
-        print(f"\n  Config: {config['name']}")
-        print(f"  Template: {config['hypothesis_template']}")
-        print(f"  Labels: {list(config['label_map'].values())}\n")
-    else:
-        logger.info("Benchmark using default config (financial_statement + simple labels)")
+    model = getattr(args, "model", "deberta")
 
-    predictor = DeBERTaPredictor(device=args.device, batch_size=args.batch_size)
+    # Resolve optional tuning config for benchmark mode (DeBERTa only)
+    config = None
+    if model == "deberta":
+        config = _resolve_config(getattr(args, "config", None))
+        if config:
+            logger.info(
+                "Benchmark using tuned config: %s  template='%s'  labels=%s",
+                config["name"],
+                config["hypothesis_template"],
+                list(config["label_map"].values()),
+            )
+            print(f"\n  Config: {config['name']}")
+            print(f"  Template: {config['hypothesis_template']}")
+            print(f"  Labels: {list(config['label_map'].values())}\n")
+        else:
+            logger.info("Benchmark using default config (financial_statement + simple labels)")
+
+    predictor = _create_predictor(args)
+    model_name = _model_display_name(model)
 
     report: dict[str, Any] = {
         "metadata": {
             "run_timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "model": "microsoft/deberta-large-mnli",
-            "config_name": config["name"] if config else "default",
-            "hypothesis_template": config["hypothesis_template"] if config else "This financial statement is {}.",
+            "model": model_name,
+            "config_name": config["name"] if config else "default (argmax)",
+            "hypothesis_template": config["hypothesis_template"] if config else "N/A",
             "candidate_labels": list(config["label_map"].values()) if config else ["positive", "negative", "neutral"],
             "datasets": [d.path for d in datasets],
             "max_samples": args.max_samples,
             "device": args.device,
-            "decision_threshold_enabled": DECISION_THRESHOLD_ENABLED,
-            "dynamic_margin_enabled": DYNAMIC_MARGIN_ENABLED,
+            "decision_threshold_enabled": DECISION_THRESHOLD_ENABLED if model == "deberta" else False,
+            "dynamic_margin_enabled": DYNAMIC_MARGIN_ENABLED if model == "deberta" else False,
         },
         "results": {},
         "failures": [],
     }
 
     for dataset in datasets:
-        logger.info("Evaluating DeBERTa on dataset=%s samples=%d", dataset.name, len(dataset.texts))
+        logger.info("Evaluating %s on dataset=%s samples=%d", model_name, dataset.name, len(dataset.texts))
         started = time.time()
         try:
-            if config:
+            if config and model == "deberta":
                 y_pred = predictor.predict_with_config(dataset.texts, config)
             else:
                 y_pred = predictor.predict(dataset.texts)
@@ -671,11 +814,11 @@ def run_benchmark(args: argparse.Namespace) -> dict[str, Any]:
 
 
 def print_report(report: dict[str, Any]) -> None:
-    print("\n" + "=" * 90)
-    print("  DEBERTA ZERO-SHOT BENCHMARK RESULTS")
-    print("=" * 90)
-
     metadata = report.get("metadata", {})
+    model_name = metadata.get("model", "unknown")
+    print("\n" + "=" * 90)
+    print(f"  FPB BENCHMARK RESULTS — {model_name}")
+    print("=" * 90)
     config_name = metadata.get("config_name", "default")
     template = metadata.get("hypothesis_template", "N/A")
     labels = metadata.get("candidate_labels", [])
@@ -1406,6 +1549,14 @@ def parse_args() -> argparse.Namespace:
         type=str,
         default=str(DEFAULT_OUTPUT),
         help="Output JSON file path.",
+    )
+
+    # ── Model selection ──
+    parser.add_argument(
+        "--model",
+        choices=["deberta", "ollama-llama3", "ollama-mistral", "finbert", "fingpt"],
+        default="deberta",
+        help="Which model to benchmark (default: deberta).",
     )
 
     # ── Benchmark-mode options ──

@@ -3,8 +3,9 @@ from fetcher.fetcher import Fetcher
 from predictor.finbert import run_sentiment_prediction as run_finbert
 from predictor.fingpt import run_sentiment_prediction as run_fingpt
 from predictor.zero_shot import run_sentiment_prediction as run_zero_shot
-from backtest.backtester import run_backtest
-from config import JSON_PATH, SENTIMENT_MODEL, FINBERT_PREDS, FINGPT_PREDS, ZEROSHOT_PREDS, MODEL_NAME, XAI_ENABLED, XAI_OUTPUT_PATH
+from predictor.ollama_predictor import run_sentiment_prediction as run_ollama
+# from backtest.backtester import run_backtest
+from config import JSON_PATH, SENTIMENT_MODEL, FINBERT_PREDS, FINGPT_PREDS, ZEROSHOT_PREDS, OLLAMA_PREDS, MODEL_NAME, XAI_ENABLED, XAI_OUTPUT_PATH
 from xai import run_xai
 
 def main() -> None:
@@ -29,6 +30,8 @@ def main() -> None:
         if MODEL_NAME == "microsoft/deberta-large-mnli":
             path = "DeBERTa Large MNLI"
         prediction_result = run_zero_shot(articles_json_path=str(JSON_PATH), output_path=str(ZEROSHOT_PREDS))
+    elif SENTIMENT_MODEL in ("ollama-llama3", "ollama-mistral"):
+        prediction_result = run_ollama(articles_json_path=str(JSON_PATH), output_path=str(OLLAMA_PREDS))
 
     if XAI_ENABLED and prediction_result is not None:
         run_xai(

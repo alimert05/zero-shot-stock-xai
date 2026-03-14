@@ -51,6 +51,7 @@ from fetcher.fetcher import Fetcher
 from predictor.zero_shot import predict_sentiment as predict_zero_shot
 from predictor.finbert import predict_sentiment as predict_finbert
 from predictor.fingpt import predict_sentiment as predict_fingpt
+from predictor.ollama_predictor import predict_sentiment as predict_ollama
 
 logging.basicConfig(
     level=logging.INFO,
@@ -204,6 +205,16 @@ def _prewarm_models():
     elif SENTIMENT_MODEL == "fingpt":
         from predictor.fingpt import _get_fingpt_model
         _get_fingpt_model()
+    elif SENTIMENT_MODEL in ("ollama-llama3", "ollama-mistral"):
+        # Send a throwaway request to load model into Ollama memory
+        import ollama
+        from config import OLLAMA_SENTIMENT_MODEL
+        logger.info("Pre-warming Ollama model: %s", OLLAMA_SENTIMENT_MODEL)
+        ollama.chat(
+            model=OLLAMA_SENTIMENT_MODEL,
+            messages=[{"role": "user", "content": "test"}],
+            options={"num_predict": 1},
+        )
 
     # Fetcher pipeline models (impact horizon + noise reducer)
     from fetcher.impact_horizon import _get_classifier
@@ -305,6 +316,12 @@ def run_single_case(
                 )
             elif SENTIMENT_MODEL == "fingpt":
                 pred_result = predict_fingpt(
+                    articles_json_path=case_articles_path,
+                    company_name=company_name,
+                    ticker=ticker,
+                )
+            elif SENTIMENT_MODEL in ("ollama-llama3", "ollama-mistral"):
+                pred_result = predict_ollama(
                     articles_json_path=case_articles_path,
                     company_name=company_name,
                     ticker=ticker,
@@ -555,6 +572,15 @@ def _prewarm_cached_mode():
     elif SENTIMENT_MODEL == "fingpt":
         from predictor.fingpt import _get_fingpt_model
         _get_fingpt_model()
+    elif SENTIMENT_MODEL in ("ollama-llama3", "ollama-mistral"):
+        import ollama
+        from config import OLLAMA_SENTIMENT_MODEL
+        logger.info("Pre-warming Ollama model: %s", OLLAMA_SENTIMENT_MODEL)
+        ollama.chat(
+            model=OLLAMA_SENTIMENT_MODEL,
+            messages=[{"role": "user", "content": "test"}],
+            options={"num_predict": 1},
+        )
     logger.info("Sentiment model loaded for cached evaluation.")
 
 

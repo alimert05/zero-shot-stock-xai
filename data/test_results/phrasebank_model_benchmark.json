@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "run_timestamp": "2026-03-10 07:45:06",
+    "run_timestamp": "2026-03-14 21:34:33",
     "model": "microsoft/deberta-large-mnli",
-    "config_name": "about_outlook__outlook",
-    "hypothesis_template": "This text is {} about the financial outlook.",
+    "config_name": "default (argmax)",
+    "hypothesis_template": "N/A",
     "candidate_labels": [
-      "positive financial outlook",
-      "negative financial outlook",
-      "neutral financial outlook"
+      "positive",
+      "negative",
+      "neutral"
     ],
     "datasets": [
       "C:\\Users\\alime\\Desktop\\financial_dataset\\financial_phrasebank_sentences_50agree.csv",
@@ -15,7 +15,9 @@
       "C:\\Users\\alime\\Desktop\\financial_dataset\\financial_phrasebank_sentences_allagree.csv"
     ],
     "max_samples": null,
-    "device": 0
+    "device": 0,
+    "decision_threshold_enabled": true,
+    "dynamic_margin_enabled": false
   },
   "results": {
     "financial_phrasebank_sentences_50agree.csv": {
@@ -26,65 +28,65 @@
         "negative": 604,
         "positive": 1363
       },
-      "duration_seconds": 144.03,
+      "duration_seconds": 70.65,
       "metrics": {
-        "accuracy": 0.6909,
-        "macro_precision": 0.6892,
-        "macro_recall": 0.7816,
-        "macro_f1": 0.7036,
+        "accuracy": 0.4525,
+        "macro_precision": 0.6079,
+        "macro_recall": 0.562,
+        "macro_f1": 0.4379,
         "f1_scores": {
-          "positive": 0.6496,
-          "negative": 0.7629,
-          "neutral": 0.6984
+          "positive": 0.4228,
+          "negative": 0.3787,
+          "neutral": 0.5121
         },
         "per_class": {
           "negative": {
-            "precision": 0.6394,
-            "recall": 0.9454,
-            "f1": 0.7629,
+            "precision": 0.2342,
+            "recall": 0.9884,
+            "f1": 0.3787,
             "support": 604,
-            "tp": 571,
-            "fp": 322,
-            "fn": 33
+            "tp": 597,
+            "fp": 1952,
+            "fn": 7
           },
           "neutral": {
-            "precision": 0.8929,
-            "recall": 0.5735,
-            "f1": 0.6984,
+            "precision": 0.643,
+            "recall": 0.4255,
+            "f1": 0.5121,
             "support": 2879,
-            "tp": 1651,
-            "fp": 198,
-            "fn": 1228
+            "tp": 1225,
+            "fp": 680,
+            "fn": 1654
           },
           "positive": {
-            "precision": 0.5352,
-            "recall": 0.8261,
-            "f1": 0.6496,
+            "precision": 0.9464,
+            "recall": 0.2722,
+            "f1": 0.4228,
             "support": 1363,
-            "tp": 1126,
-            "fp": 978,
-            "fn": 237
+            "tp": 371,
+            "fp": 21,
+            "fn": 992
           }
         },
         "confusion_matrix": {
           "negative": {
-            "negative": 571,
-            "neutral": 16,
-            "positive": 17
+            "negative": 597,
+            "neutral": 6,
+            "positive": 1
           },
           "neutral": {
-            "negative": 267,
-            "neutral": 1651,
-            "positive": 961
+            "negative": 1634,
+            "neutral": 1225,
+            "positive": 20
           },
           "positive": {
-            "negative": 55,
-            "neutral": 182,
-            "positive": 1126
+            "negative": 318,
+            "neutral": 674,
+            "positive": 371
           }
         },
         "total": 4846,
-        "correct": 3348
+        "correct": 2193
       }
     },
     "financial_phrasebank_sentences_75agree.csv": {
@@ -95,65 +97,65 @@
         "positive": 887,
         "negative": 420
       },
-      "duration_seconds": 101.39,
+      "duration_seconds": 49.87,
       "metrics": {
-        "accuracy": 0.7428,
-        "macro_precision": 0.7247,
-        "macro_recall": 0.8298,
-        "macro_f1": 0.7455,
+        "accuracy": 0.4726,
+        "macro_precision": 0.6311,
+        "macro_recall": 0.5911,
+        "macro_f1": 0.4742,
         "f1_scores": {
-          "positive": 0.6851,
-          "negative": 0.7838,
-          "neutral": 0.7677
+          "positive": 0.5352,
+          "negative": 0.3699,
+          "neutral": 0.5176
         },
         "per_class": {
           "negative": {
-            "precision": 0.6591,
-            "recall": 0.9667,
-            "f1": 0.7838,
+            "precision": 0.2274,
+            "recall": 0.9905,
+            "f1": 0.3699,
             "support": 420,
-            "tp": 406,
-            "fp": 210,
-            "fn": 14
+            "tp": 416,
+            "fp": 1413,
+            "fn": 4
           },
           "neutral": {
-            "precision": 0.9543,
-            "recall": 0.6421,
-            "f1": 0.7677,
+            "precision": 0.6897,
+            "recall": 0.4143,
+            "f1": 0.5176,
             "support": 2146,
-            "tp": 1378,
-            "fp": 66,
-            "fn": 768
+            "tp": 889,
+            "fp": 400,
+            "fn": 1257
           },
           "positive": {
-            "precision": 0.5607,
-            "recall": 0.8805,
-            "f1": 0.6851,
+            "precision": 0.9761,
+            "recall": 0.3687,
+            "f1": 0.5352,
             "support": 887,
-            "tp": 781,
-            "fp": 612,
-            "fn": 106
+            "tp": 327,
+            "fp": 8,
+            "fn": 560
           }
         },
         "confusion_matrix": {
           "negative": {
-            "negative": 406,
+            "negative": 416,
             "neutral": 4,
-            "positive": 10
+            "positive": 0
           },
           "neutral": {
-            "negative": 166,
-            "neutral": 1378,
-            "positive": 602
+            "negative": 1249,
+            "neutral": 889,
+            "positive": 8
           },
           "positive": {
-            "negative": 44,
-            "neutral": 62,
-            "positive": 781
+            "negative": 164,
+            "neutral": 396,
+            "positive": 327
           }
         },
         "total": 3453,
-        "correct": 2565
+        "correct": 1632
       }
     },
     "financial_phrasebank_sentences_allagree.csv": {
@@ -164,65 +166,65 @@
         "positive": 570,
         "negative": 303
       },
-      "duration_seconds": 66.53,
+      "duration_seconds": 32.47,
       "metrics": {
-        "accuracy": 0.8012,
-        "macro_precision": 0.7765,
-        "macro_recall": 0.8682,
-        "macro_f1": 0.8006,
+        "accuracy": 0.5168,
+        "macro_precision": 0.6609,
+        "macro_recall": 0.6291,
+        "macro_f1": 0.5274,
         "f1_scores": {
-          "positive": 0.7353,
-          "negative": 0.8373,
-          "neutral": 0.8292
+          "positive": 0.6258,
+          "negative": 0.4095,
+          "neutral": 0.5469
         },
         "per_class": {
           "negative": {
-            "precision": 0.7327,
-            "recall": 0.9769,
-            "f1": 0.8373,
+            "precision": 0.2579,
+            "recall": 0.9934,
+            "f1": 0.4095,
             "support": 303,
-            "tp": 296,
-            "fp": 108,
-            "fn": 7
+            "tp": 301,
+            "fp": 866,
+            "fn": 2
           },
           "neutral": {
-            "precision": 0.9794,
-            "recall": 0.7189,
-            "f1": 0.8292,
+            "precision": 0.7285,
+            "recall": 0.4378,
+            "f1": 0.5469,
             "support": 1391,
-            "tp": 1000,
-            "fp": 21,
-            "fn": 391
+            "tp": 609,
+            "fp": 227,
+            "fn": 782
           },
           "positive": {
-            "precision": 0.6174,
-            "recall": 0.9088,
-            "f1": 0.7353,
+            "precision": 0.9962,
+            "recall": 0.4561,
+            "f1": 0.6258,
             "support": 570,
-            "tp": 518,
-            "fp": 321,
-            "fn": 52
+            "tp": 260,
+            "fp": 1,
+            "fn": 310
           }
         },
         "confusion_matrix": {
           "negative": {
-            "negative": 296,
+            "negative": 301,
             "neutral": 2,
-            "positive": 5
+            "positive": 0
           },
           "neutral": {
-            "negative": 75,
-            "neutral": 1000,
-            "positive": 316
+            "negative": 781,
+            "neutral": 609,
+            "positive": 1
           },
           "positive": {
-            "negative": 33,
-            "neutral": 19,
-            "positive": 518
+            "negative": 85,
+            "neutral": 225,
+            "positive": 260
           }
         },
         "total": 2264,
-        "correct": 1814
+        "correct": 1170
       }
     }
   },
