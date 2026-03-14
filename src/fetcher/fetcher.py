@@ -1,6 +1,9 @@
 import json
 import time
+<<<<<<< HEAD
 from collections import defaultdict
+=======
+>>>>>>> fix/positive_bias
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 import logging
@@ -21,7 +24,12 @@ from config import (
 from .utils import resolve_ticker, validate_date, add_recency_weights, assign_market_date
 from .filters import (
     filter_company_related,
+<<<<<<< HEAD
     remove_duplicates
+=======
+    remove_duplicates,
+    filter_headline_content_duplicates,
+>>>>>>> fix/positive_bias
 )
 from .content import enrich_articles_with_content
 from .content_noise_reducer import clean_articles_content
@@ -48,7 +56,10 @@ class Fetcher:
         company_name: str,
         start_date: str,
         end_date: str,
+<<<<<<< HEAD
         num_articles: int = 250,
+=======
+>>>>>>> fix/positive_bias
     ) -> bool:
         """Programmatic entry point -- sets inputs directly, then runs search + save.
 
@@ -58,17 +69,27 @@ class Fetcher:
             e.g. "Apple Inc." or "AAPL"
         start_date / end_date : str
             DD-MM-YYYY format
+<<<<<<< HEAD
         num_articles : int
             Max articles to keep after filtering (default 250).
+=======
+>>>>>>> fix/positive_bias
         """
         self.query = company_name.strip()
         self.start_date = start_date
         self.end_date = end_date
+<<<<<<< HEAD
         self.number_of_news = num_articles
         self.search()
         return self.display_results()
 
     def __init__(self) -> None:
+=======
+        self.search()
+        return self.display_results()
+
+    def __init__(self, temp_dir=None, rate_limiter=None) -> None:
+>>>>>>> fix/positive_bias
         self.start_date: str | None = None
         self.end_date: str | None = None
         self.backward_start_date: datetime | None = None
@@ -77,6 +98,7 @@ class Fetcher:
         self.ticker: str | None = None
 
         self.data: dict | None = None
+<<<<<<< HEAD
         self.temp_dir = TEMP_PATH
         self.output_file = os.path.join(self.temp_dir, "articles.json")
 
@@ -85,6 +107,20 @@ class Fetcher:
         self.max_backward_days: int | None = None
         self.prediction_window_days: int | None = None
 
+=======
+        self.temp_dir = temp_dir if temp_dir is not None else TEMP_PATH
+        self.output_file = os.path.join(self.temp_dir, "articles.json")
+        self.quiet: bool = False
+
+        self.timeout = REQUEST_TIMEOUT_LIMIT
+        self.max_backward_days: int | None = None
+        self.prediction_window_days: int | None = None
+
+        # Optional callable invoked before every Finnhub API call.
+        # Should block until a call is allowed (e.g. RateLimiter.acquire).
+        self._rate_limiter = rate_limiter
+
+>>>>>>> fix/positive_bias
     def get_input(self) -> str:
 
         try:
@@ -100,9 +136,12 @@ class Fetcher:
             if not self.end_date:
                 raise ValueError("End date cannot be empty.")
 
+<<<<<<< HEAD
             number_input = input("Enter number of news(default 250): ").strip()
             self.number_of_news = int(number_input) if number_input else 250
 
+=======
+>>>>>>> fix/positive_bias
             return self.query
 
         except Exception as exc:
@@ -116,6 +155,13 @@ class Fetcher:
                 "Get a free key at https://finnhub.io and add it to config.py."
             )
 
+<<<<<<< HEAD
+=======
+        # Per-call rate limiting (blocks until a slot is available)
+        if self._rate_limiter is not None:
+            self._rate_limiter()
+
+>>>>>>> fix/positive_bias
         client = finnhub.Client(api_key=FINNHUB_API_KEY)
 
         logger.info("Finnhub request: symbol=%s from=%s to=%s", symbol, from_date, to_date)
@@ -155,7 +201,10 @@ class Fetcher:
 
                 normalised.append({
                     "title": item.get("headline", ""),
+<<<<<<< HEAD
                     "url": article_url,
+=======
+>>>>>>> fix/positive_bias
                     "sourceurl": article_url,
                     "seendate": seendate,
                     "seendate_et": seendate_et,
@@ -220,8 +269,20 @@ class Fetcher:
         )
         return all_articles
 
+<<<<<<< HEAD
     def search(self) -> None:
 
+=======
+    def search(self, raw_fetch_only: bool = False) -> None:
+        """Fetch and process articles.
+
+        Args:
+            raw_fetch_only: If True, stop after API fetch + dedup + company
+                filter.  Skips recency weighting, impact horizon classification,
+                and final_weight computation.  Used by the test-runner cache
+                mode so that those tunable stages run at evaluate time.
+        """
+>>>>>>> fix/positive_bias
         if self.start_date is None or self.end_date is None or self.query is None:
             raise RuntimeError("search() called before get_input()")
 
@@ -252,8 +313,16 @@ class Fetcher:
         )
 
         company_name = self.query.strip()
+<<<<<<< HEAD
         ticker = resolve_ticker(company_name)
         self.ticker = ticker
+=======
+        if self.ticker:
+            ticker = self.ticker
+        else:
+            ticker = resolve_ticker(company_name)
+            self.ticker = ticker
+>>>>>>> fix/positive_bias
 
         if ticker:
             logger.info("Resolved ticker for '%s' -> %s", company_name, ticker)
@@ -279,13 +348,21 @@ class Fetcher:
             raise
 
         filtered_articles = remove_duplicates(all_articles)
+<<<<<<< HEAD
 
         logger.info(
             "After dedup: Raw=%s, Filtered=%s",
+=======
+        filtered_articles = filter_headline_content_duplicates(filtered_articles)
+
+        logger.info(
+            "After dedup + headline filter: Raw=%s, Filtered=%s",
+>>>>>>> fix/positive_bias
             len(all_articles),
             len(filtered_articles),
         )
 
+<<<<<<< HEAD
         # ── Time-bucketed prefetch ────────────────────────────────
         # Instead of sorting by recency and taking the top N (which
         # discards older articles), divide articles into weekly time
@@ -326,6 +403,18 @@ class Fetcher:
         logger.info(
             "Time-bucketed prefetch: %d buckets, %d candidates from %d total",
             n_buckets, len(candidates), len(filtered_articles),
+=======
+        # Sort by seendate descending and use all articles
+        candidates = sorted(
+            filtered_articles,
+            key=lambda a: a.get("seendate", ""),
+            reverse=True,
+        )
+
+        logger.info(
+            "Using all %d articles after dedup (no article cap)",
+            len(candidates),
+>>>>>>> fix/positive_bias
         )
 
         # Log actual temporal span vs intended
@@ -349,17 +438,46 @@ class Fetcher:
         # enrich_articles_with_content(candidates, timeout=self.timeout)
 
 
+<<<<<<< HEAD
         candidates = clean_articles_content(
             candidates,
             company_name=company_name,
             ticker=ticker)
 
+=======
+>>>>>>> fix/positive_bias
         filtered_after_rules = filter_company_related(
             candidates,
             company_name=company_name,
             ticker=ticker,
         )
 
+<<<<<<< HEAD
+=======
+        filtered_after_rules = clean_articles_content(
+            filtered_after_rules,
+            company_name=company_name,
+            ticker=ticker)
+
+        # ── raw_fetch_only: stop here (no recency, no impact horizon, no weighting) ──
+        if raw_fetch_only:
+            # Clean content whitespace before caching
+            for article in filtered_after_rules:
+                a = article.get("content")
+                if isinstance(a, str) and a:
+                    a = a.replace("\r", " ").replace("\n", " ").replace("\t", " ").replace("\"", " ")
+                    a = re.sub(r"\s+", " ", a).strip()
+                    article["content"] = a
+
+            self.data = {"articles": filtered_after_rules}
+            logger.info(
+                "Raw fetch complete: %d articles (from %d-day backward window)",
+                len(filtered_after_rules),
+                self.max_backward_days,
+            )
+            return
+
+>>>>>>> fix/positive_bias
         add_impact_horizon_data(
             filtered_after_rules,
             prediction_window_days=self.prediction_window_days)
@@ -379,6 +497,7 @@ class Fetcher:
             )
             logger.info("Articles sorted by final_weight (recency + impact horizon)")
 
+<<<<<<< HEAD
         final_articles = filtered_after_rules[: self.number_of_news]
 
         self.data = {"articles": final_articles}
@@ -390,6 +509,15 @@ class Fetcher:
                 self.max_backward_days,
                 self.number_of_news,
             )
+=======
+        self.data = {"articles": filtered_after_rules}
+
+        logger.info(
+            "Final article count: %d (from %d-day backward window)",
+            len(filtered_after_rules),
+            self.max_backward_days,
+        )
+>>>>>>> fix/positive_bias
 
     def _build_output_payload(self, articles: list[dict]) -> dict:
         return {
@@ -438,7 +566,12 @@ class Fetcher:
 
         if not self.data:
             logger.warning("No data to display")
+<<<<<<< HEAD
             print("No data available to display.")
+=======
+            if not self.quiet:
+                print("No data available to display.")
+>>>>>>> fix/positive_bias
             return False
 
         articles = self.data.get("articles", [])
@@ -449,13 +582,19 @@ class Fetcher:
             except Exception as exc:
                 logger.error("Failed to save empty article payload: %s", exc)
             logger.warning("No articles to display")
+<<<<<<< HEAD
             print("No articles found in the response.")
+=======
+            if not self.quiet:
+                print("No articles found in the response.")
+>>>>>>> fix/positive_bias
             return False
 
         try:
             self.save_articles(articles)
         except Exception as exc:
             logger.error("Failed to save articles: %s", exc)
+<<<<<<< HEAD
             print("Warning: Could not save articles to file")
 
         print(f"\n{'='*50}")
@@ -480,3 +619,31 @@ class Fetcher:
 
         logger.info("Displayed %s articles", len(articles))
         return True
+=======
+            if not self.quiet:
+                print("Warning: Could not save articles to file")
+
+        if not self.quiet:
+            print(f"\n{'='*50}")
+            print(f"Displaying {len(articles)} articles:")
+            print(f"{'='*50}\n")
+
+            for idx, article in enumerate(articles, 1):
+                try:
+                    title = article.get("title", "No title")
+                    final_weight = article.get("final_weight")
+                    impact_horizon = article.get("impact_horizon", {})
+
+                    print(f"[{idx}] Title: {title}")
+                    if final_weight is not None:
+                        horizon_cat = impact_horizon.get("category", "N/A")
+                        horizon_days = impact_horizon.get("horizon_days", "N/A")
+                        print(f"     Weight: {final_weight:.3f} | Horizon: {horizon_cat} ({horizon_days}d)")
+                    print("-" * 40)
+                except Exception as exc:
+                    logger.warning("Error displaying article %s: %s", idx, exc)
+                    continue
+
+        logger.info("Saved %s articles to %s", len(articles), self.output_file)
+        return True
+>>>>>>> fix/positive_bias

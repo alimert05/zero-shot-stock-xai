@@ -1,9 +1,17 @@
 from __future__ import annotations
 
+<<<<<<< HEAD
 import re
 import logging
 from typing import Optional, List
 
+=======
+import logging
+from typing import Optional, List
+
+import nltk
+
+>>>>>>> fix/positive_bias
 logger = logging.getLogger(__name__)
 
 _deberta_classifier = None
@@ -32,7 +40,11 @@ def _get_deberta_classifier():
 def _split_into_sentences(text: str) -> List[str]:
     if not text:
         return []
+<<<<<<< HEAD
     sentences = re.split(r"(?<=[.!?])\s+", text)
+=======
+    sentences = nltk.sent_tokenize(text)
+>>>>>>> fix/positive_bias
     return [s.strip() for s in sentences if s.strip()]
 
 def _score_sentence_relevance(
@@ -102,6 +114,20 @@ def reduce_content_noise(
 
     total_sentences = len(sentences)
     relevant_count = len(relevant)
+<<<<<<< HEAD
+=======
+
+    # Minimum retention: if nothing passed the threshold, keep the top-scoring sentence
+    if relevant_count == 0 and scored:
+        best_sentence = max(scored, key=lambda x: x[1])
+        relevant = [best_sentence[0]]
+        relevant_count = 1
+        logger.debug(
+            "No sentences passed threshold for %s; keeping top sentence (score=%.3f)",
+            company_name, best_sentence[1],
+        )
+
+>>>>>>> fix/positive_bias
     relevance_ratio = relevant_count / total_sentences if total_sentences > 0 else 0
 
     metadata = {

@@ -3,6 +3,7 @@
     "query": "Apple Inc.",
     "ticker": "AAPL",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "xai_timestamp": "2026-03-01 18:23:34",
     "articles_analyzed": 256,
     "prediction_window_days": 31,
@@ -46,20 +47,50 @@
 =======
         "articles_analyzed": 8,
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
+=======
+    "xai_timestamp": "2026-03-11 21:25:38",
+    "articles_analyzed": 47,
+    "prediction_window_days": 7,
+    "news_lookback": "2026-02-25 to 2026-03-11 (ET market-close aligned)",
+    "xai_version": "1.0.0"
+  },
+  "prediction_summary": {
+    "final_label": "negative",
+    "final_confidence": 0.3652,
+    "normalized_scores": {
+      "positive": 0.5534,
+      "negative": 0.3652,
+      "neutral": 0.0813
+    },
+    "total_weight": 20.5521
+  },
+  "reliability": {
+    "overall_reliability": "LOW",
+    "flags_triggered": 2,
+    "flags": {
+      "thin_evidence": {
+        "flagged": false,
+        "articles_analyzed": 47,
+>>>>>>> fix/positive_bias
         "threshold": 5,
         "message": "Sufficient article count."
       },
       "weight_concentration": {
         "flagged": false,
 <<<<<<< HEAD
+<<<<<<< HEAD
         "herfindahl_index": 0.0048,
 =======
         "herfindahl_index": 0.1623,
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
+=======
+        "herfindahl_index": 0.029,
+>>>>>>> fix/positive_bias
         "threshold": 0.4,
         "message": "Weight is well-distributed across articles."
       },
       "label_margin": {
+<<<<<<< HEAD
 <<<<<<< HEAD
         "flagged": true,
         "top_label": "positive",
@@ -99,10 +130,32 @@
         "top_domain_share": 1.0,
         "message": "Source diversity concern: only 0 unique editorial source(s)."
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
+=======
+        "flagged": false,
+        "top_label": "positive",
+        "second_label": "negative",
+        "margin": 0.1882,
+        "threshold": 0.15,
+        "message": "Clear margin between top two labels (0.188)."
+      },
+      "low_confidence": {
+        "flagged": true,
+        "final_confidence": 0.3652,
+        "threshold": 0.45,
+        "message": "Below reliability threshold (0.365 < 0.45)."
+      },
+      "source_diversity": {
+        "flagged": true,
+        "unique_sources": 2,
+        "top_domain": "yahoo",
+        "top_domain_share": 0.8298,
+        "message": "Source diversity concern: top editorial source 'benzinga' has 100% of non-aggregator articles."
+>>>>>>> fix/positive_bias
       },
       "timing_alignment": {
         "flagged": false,
         "market_close_aligned": true,
+<<<<<<< HEAD
 <<<<<<< HEAD
         "oldest_days": 28,
         "newest_days": 1,
@@ -134,6 +187,22 @@
     },
     "summary_message": "Prediction has LOW reliability: Source diversity concern: only 0 unique editorial source(s). News lookback is 11 days but the intended backward window was 14 days (√W scaling, W=7), signal may be incomplete."
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
+=======
+        "oldest_days": 14,
+        "newest_days": 0,
+        "prediction_window_days": 7,
+        "message": "Articles span 0-14 days old (ET market-close aligned); oldest exceeds the 7-day window and is down-weighted by recency."
+      },
+      "horizon_coverage": {
+        "flagged": false,
+        "lookback_days": 15,
+        "intended_lookback_days": 14,
+        "prediction_window_days": 7,
+        "message": "News lookback (15 days) covers the intended 14-day backward window."
+      }
+    },
+    "summary_message": "Prediction has LOW reliability: Below reliability threshold (0.365 < 0.45). Source diversity concern: top editorial source 'benzinga' has 100% of non-aggregator articles."
+>>>>>>> fix/positive_bias
   },
   "layer_1_token": {
     "method": "LIME",
@@ -141,6 +210,7 @@
     "articles": [
       {
         "rank": 1,
+<<<<<<< HEAD
 <<<<<<< HEAD
         "title": "Apple Stock Ticks Up After a Surprise From China—and a Legal Win",
         "content": "China’s imports of foreign-branded mobile phones, including Apple’s iPhone, rose 128% in November from a year earlier.",
@@ -696,10 +766,47 @@
           {
             "token": "next",
             "weight": 0.025165,
+=======
+        "title": "Bitcoin Is Going Through 'Valley Of Despair,' Michael Saylor Says, Comparing It To Apple",
+        "content": "Bitcoin’s recent downturn could be just like Apple’s (NASDAQ:AAPL) in 2012, according to Strategy (NASDAQ:MSTR) Chair Michael Saylor. Bitcoin’s recent nearly 47% drawdown from its record price of $126,000 in October is similar to Apple’s stock crash between 2012 and...",
+        "final_weight": 0.7302,
+        "influence_score": 0.7111,
+        "lime_label_explained": "negative",
+        "token_weights": [
+          {
+            "token": "Apple",
+            "weight": 0.166818,
+            "direction": "supports"
+          },
+          {
+            "token": "Bitcoin",
+            "weight": -0.149356,
+            "direction": "opposes"
+          },
+          {
+            "token": "AAPL",
+            "weight": 0.102363,
+            "direction": "supports"
+          },
+          {
+            "token": "Inc",
+            "weight": 0.065416,
+            "direction": "supports"
+          },
+          {
+            "token": "Despair",
+            "weight": 0.061387,
+            "direction": "supports"
+          },
+          {
+            "token": "downturn",
+            "weight": 0.053617,
+>>>>>>> fix/positive_bias
             "direction": "supports"
           },
           {
             "token": "its",
+<<<<<<< HEAD
             "weight": 0.023996,
             "direction": "supports"
           },
@@ -819,10 +926,44 @@
           {
             "token": "iPhone",
             "weight": 0.019044,
+=======
+            "weight": 0.047014,
+            "direction": "supports"
+          },
+          {
+            "token": "crash",
+            "weight": 0.039165,
+            "direction": "supports"
+          },
+          {
+            "token": "October",
+            "weight": 0.03501,
+            "direction": "supports"
+          },
+          {
+            "token": "could",
+            "weight": 0.033926,
+            "direction": "supports"
+          },
+          {
+            "token": "stock",
+            "weight": 0.032597,
+            "direction": "supports"
+          },
+          {
+            "token": "to",
+            "weight": 0.028293,
+            "direction": "supports"
+          },
+          {
+            "token": "from",
+            "weight": 0.028231,
+>>>>>>> fix/positive_bias
             "direction": "supports"
           },
           {
             "token": "according",
+<<<<<<< HEAD
             "weight": -0.017699,
             "direction": "opposes"
           },
@@ -845,10 +986,44 @@
             "token": "Inc",
             "weight": -0.01455,
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
+=======
+            "weight": -0.027398,
+            "direction": "opposes"
+          },
+          {
+            "token": "about",
+            "weight": 0.026708,
+            "direction": "supports"
+          },
+          {
+            "token": "News",
+            "weight": -0.026454,
+            "direction": "opposes"
+          },
+          {
+            "token": "Through",
+            "weight": -0.024611,
+            "direction": "opposes"
+          },
+          {
+            "token": "000",
+            "weight": 0.022592,
+            "direction": "supports"
+          },
+          {
+            "token": "Strategy",
+            "weight": -0.019222,
+            "direction": "opposes"
+          },
+          {
+            "token": "2012",
+            "weight": -0.018059,
+>>>>>>> fix/positive_bias
             "direction": "opposes"
           }
         ],
         "top_tokens_supporting": [
+<<<<<<< HEAD
 <<<<<<< HEAD
           "Upside",
           "Surge",
@@ -988,10 +1163,77 @@
           {
             "token": "News",
             "weight": 0.03349,
+=======
+          "Inc",
+          "Despair",
+          "downturn",
+          "crash",
+          "October"
+        ],
+        "top_tokens_opposing": [
+          "Bitcoin",
+          "according",
+          "Through",
+          "Strategy"
+        ]
+      },
+      {
+        "rank": 2,
+        "title": "Nvidia earnings, Apple CEO teases product launches: Tech Support",
+        "content": "Yahoo Finance Tech Editor Dan Howley comes on Market Domination to break down the day’s leading and trending tech stories, including Nvidia (NVDA) shares dropping in Thursday's session following the AI chipmaker's fourth quarter earnings results, and Apple (AAPL) CEO Tim Cook teasing multiple product launches coming next week. To watch more expert insights and analysis on the latest market action, check out more Market Domination.",
+        "final_weight": 0.4698,
+        "influence_score": 0.2334,
+        "lime_label_explained": "negative",
+        "token_weights": [
+          {
+            "token": "dropping",
+            "weight": 0.299843,
+            "direction": "supports"
+          },
+          {
+            "token": "shares",
+            "weight": 0.109266,
+            "direction": "supports"
+          },
+          {
+            "token": "down",
+            "weight": 0.087532,
+            "direction": "supports"
+          },
+          {
+            "token": "action",
+            "weight": -0.075883,
+            "direction": "opposes"
+          },
+          {
+            "token": "break",
+            "weight": -0.071576,
+            "direction": "opposes"
+          },
+          {
+            "token": "Apple",
+            "weight": 0.069883,
+            "direction": "supports"
+          },
+          {
+            "token": "market",
+            "weight": 0.066167,
+            "direction": "supports"
+          },
+          {
+            "token": "earnings",
+            "weight": 0.064353,
+            "direction": "supports"
+          },
+          {
+            "token": "leading",
+            "weight": 0.063727,
+>>>>>>> fix/positive_bias
             "direction": "supports"
           },
           {
             "token": "Nvidia",
+<<<<<<< HEAD
             "weight": -0.024891,
 =======
             "weight": -0.017119,
@@ -1229,10 +1471,93 @@
           {
             "token": "previously",
             "weight": 0.093874,
+=======
+            "weight": 0.063325,
+            "direction": "supports"
+          },
+          {
+            "token": "To",
+            "weight": -0.062023,
+            "direction": "opposes"
+          },
+          {
+            "token": "coming",
+            "weight": -0.061049,
+            "direction": "opposes"
+          },
+          {
+            "token": "Editor",
+            "weight": 0.056694,
+            "direction": "supports"
+          },
+          {
+            "token": "Tech",
+            "weight": 0.053887,
+            "direction": "supports"
+          },
+          {
+            "token": "trending",
+            "weight": 0.053614,
+            "direction": "supports"
+          },
+          {
+            "token": "Inc",
+            "weight": 0.048213,
+            "direction": "supports"
+          },
+          {
+            "token": "News",
+            "weight": -0.047614,
+            "direction": "opposes"
+          },
+          {
+            "token": "Support",
+            "weight": -0.039383,
+            "direction": "opposes"
+          },
+          {
+            "token": "on",
+            "weight": -0.03651,
+            "direction": "opposes"
+          },
+          {
+            "token": "stories",
+            "weight": -0.02831,
+            "direction": "opposes"
+          }
+        ],
+        "top_tokens_supporting": [
+          "dropping",
+          "shares",
+          "down",
+          "market",
+          "earnings"
+        ],
+        "top_tokens_opposing": [
+          "action",
+          "break",
+          "coming",
+          "Support",
+          "stories"
+        ]
+      },
+      {
+        "rank": 3,
+        "title": "Apple just fired warning shot that could reshape 2026 iPhone cycle",
+        "content": "Apple (AAPL) just gave a warning shot none of its peers can ignore. It quietly moved the iPhone 18 Pro and iPhone 18 Pro Max into late-stage production validation testing. The move is a subtle yet critical milestone that could shape its 2026 upgrade cycle, according to MacRumors. The transition to ...",
+        "final_weight": 0.3455,
+        "influence_score": 0.2029,
+        "lime_label_explained": "negative",
+        "token_weights": [
+          {
+            "token": "warning",
+            "weight": 0.223413,
+>>>>>>> fix/positive_bias
             "direction": "supports"
           },
           {
             "token": "AAPL",
+<<<<<<< HEAD
             "weight": -0.092986,
             "direction": "opposes"
           },
@@ -1249,10 +1574,34 @@
           {
             "token": "worst",
             "weight": -0.068024,
+=======
+            "weight": 0.10777,
+            "direction": "supports"
+          },
+          {
+            "token": "ignore",
+            "weight": 0.105793,
+            "direction": "supports"
+          },
+          {
+            "token": "fired",
+            "weight": 0.06109,
+            "direction": "supports"
+          },
+          {
+            "token": "Inc",
+            "weight": 0.052806,
+            "direction": "supports"
+          },
+          {
+            "token": "testing",
+            "weight": -0.04743,
+>>>>>>> fix/positive_bias
             "direction": "opposes"
           },
           {
             "token": "is",
+<<<<<<< HEAD
             "weight": 0.066019,
             "direction": "supports"
           },
@@ -1304,10 +1653,203 @@
           {
             "token": "ve",
             "weight": -0.025815,
+=======
+            "weight": -0.044832,
+            "direction": "opposes"
+          },
+          {
+            "token": "late",
+            "weight": -0.044676,
+            "direction": "opposes"
+          },
+          {
+            "token": "Apple",
+            "weight": -0.042728,
+            "direction": "opposes"
+          },
+          {
+            "token": "can",
+            "weight": 0.041898,
+            "direction": "supports"
+          },
+          {
+            "token": "milestone",
+            "weight": -0.041785,
+            "direction": "opposes"
+          },
+          {
+            "token": "News",
+            "weight": -0.037273,
+            "direction": "opposes"
+          },
+          {
+            "token": "subtle",
+            "weight": -0.036199,
+            "direction": "opposes"
+          },
+          {
+            "token": "quietly",
+            "weight": -0.032112,
+            "direction": "opposes"
+          },
+          {
+            "token": "validation",
+            "weight": 0.025906,
+            "direction": "supports"
+          },
+          {
+            "token": "MacRumors",
+            "weight": 0.023902,
+            "direction": "supports"
+          },
+          {
+            "token": "Max",
+            "weight": 0.023413,
+            "direction": "supports"
+          },
+          {
+            "token": "and",
+            "weight": 0.018123,
+            "direction": "supports"
+          },
+          {
+            "token": "none",
+            "weight": 0.012909,
+            "direction": "supports"
+          },
+          {
+            "token": "cycle",
+            "weight": 0.012842,
+            "direction": "supports"
+          }
+        ],
+        "top_tokens_supporting": [
+          "warning",
+          "ignore",
+          "fired",
+          "Inc",
+          "can"
+        ],
+        "top_tokens_opposing": [
+          "testing",
+          "late",
+          "milestone",
+          "subtle",
+          "quietly"
+        ]
+      },
+      {
+        "rank": 4,
+        "title": "How Apple’s Lazy AI Strategy Could Crush the Competition",
+        "content": "Apple (NASDAQ:AAPL) has trailed in the artificial intelligence (AI) race since its early stages. From the start, the company lagged behind rivals in developing large language models and AI infrastructure. Its current initiatives, such as Apple Intelligence and updates to Siri, have progressed slowly, with key features delayed until 2026. This pace raises concerns that ... How Apple’s Lazy AI Strategy Could Crush the Competition",
+        "final_weight": 0.2311,
+        "influence_score": 0.1905,
+        "lime_label_explained": "negative",
+        "token_weights": [
+          {
+            "token": "Crush",
+            "weight": 0.104265,
+            "direction": "supports"
+          },
+          {
+            "token": "AAPL",
+            "weight": 0.081769,
+            "direction": "supports"
+          },
+          {
+            "token": "Lazy",
+            "weight": 0.07486,
+            "direction": "supports"
+          },
+          {
+            "token": "NASDAQ",
+            "weight": 0.065569,
+            "direction": "supports"
+          },
+          {
+            "token": "How",
+            "weight": -0.047054,
+            "direction": "opposes"
+          },
+          {
+            "token": "Inc",
+            "weight": 0.041692,
+            "direction": "supports"
+          },
+          {
+            "token": "concerns",
+            "weight": 0.041011,
+            "direction": "supports"
+          },
+          {
+            "token": "trailed",
+            "weight": 0.039182,
+            "direction": "supports"
+          },
+          {
+            "token": "language",
+            "weight": 0.039152,
+            "direction": "supports"
+          },
+          {
+            "token": "and",
+            "weight": 0.02995,
+            "direction": "supports"
+          },
+          {
+            "token": "to",
+            "weight": 0.028787,
+            "direction": "supports"
+          },
+          {
+            "token": "until",
+            "weight": 0.028174,
+            "direction": "supports"
+          },
+          {
+            "token": "such",
+            "weight": 0.025607,
+            "direction": "supports"
+          },
+          {
+            "token": "progressed",
+            "weight": -0.023552,
+            "direction": "opposes"
+          },
+          {
+            "token": "behind",
+            "weight": 0.022122,
+            "direction": "supports"
+          },
+          {
+            "token": "AI",
+            "weight": -0.021794,
+            "direction": "opposes"
+          },
+          {
+            "token": "From",
+            "weight": 0.021241,
+            "direction": "supports"
+          },
+          {
+            "token": "This",
+            "weight": -0.020403,
+            "direction": "opposes"
+          },
+          {
+            "token": "about",
+            "weight": -0.017673,
+            "direction": "opposes"
+          },
+          {
+            "token": "pace",
+            "weight": -0.016112,
+>>>>>>> fix/positive_bias
             "direction": "opposes"
           }
         ],
         "top_tokens_supporting": [
+<<<<<<< HEAD
           "Hurt",
           "avoided",
           "good",
@@ -1320,6 +1862,143 @@
           "Spending",
           "Thursday"
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
+=======
+          "Crush",
+          "Lazy",
+          "NASDAQ",
+          "Inc",
+          "concerns"
+        ],
+        "top_tokens_opposing": [
+          "How",
+          "progressed",
+          "AI",
+          "pace"
+        ]
+      },
+      {
+        "rank": 5,
+        "title": "AAPD’s 3.43% Yield Looks Great Until You See the 40% Hangover",
+        "content": "Direxion Daily AAPL Bear 1X Shares (NYSEARCA:AAPD) carries a 3.43% dividend yield, but calling these payments “dividends” in the traditional sense is misleading. Understanding what actually generates this income is essential before treating AAPD as an income vehicle. How AAPD Generates Income AAPD is not a dividend stock fund. It seeks daily investment results of ... AAPD’s 3.43% Yield Looks Great Until You See the 40% Hangover",
+        "final_weight": 0.2311,
+        "influence_score": 0.1706,
+        "lime_label_explained": "negative",
+        "token_weights": [
+          {
+            "token": "Bear",
+            "weight": 0.262867,
+            "direction": "supports"
+          },
+          {
+            "token": "Until",
+            "weight": 0.129342,
+            "direction": "supports"
+          },
+          {
+            "token": "Great",
+            "weight": -0.125828,
+            "direction": "opposes"
+          },
+          {
+            "token": "Apple",
+            "weight": 0.102335,
+            "direction": "supports"
+          },
+          {
+            "token": "AAPL",
+            "weight": 0.079007,
+            "direction": "supports"
+          },
+          {
+            "token": "a",
+            "weight": -0.068477,
+            "direction": "opposes"
+          },
+          {
+            "token": "AAPD",
+            "weight": -0.066453,
+            "direction": "opposes"
+          },
+          {
+            "token": "essential",
+            "weight": 0.063608,
+            "direction": "supports"
+          },
+          {
+            "token": "actually",
+            "weight": 0.062824,
+            "direction": "supports"
+          },
+          {
+            "token": "Hangover",
+            "weight": 0.062588,
+            "direction": "supports"
+          },
+          {
+            "token": "as",
+            "weight": -0.060039,
+            "direction": "opposes"
+          },
+          {
+            "token": "an",
+            "weight": -0.054338,
+            "direction": "opposes"
+          },
+          {
+            "token": "40",
+            "weight": 0.052076,
+            "direction": "supports"
+          },
+          {
+            "token": "traditional",
+            "weight": 0.05141,
+            "direction": "supports"
+          },
+          {
+            "token": "carries",
+            "weight": -0.050095,
+            "direction": "opposes"
+          },
+          {
+            "token": "calling",
+            "weight": 0.048921,
+            "direction": "supports"
+          },
+          {
+            "token": "How",
+            "weight": 0.04778,
+            "direction": "supports"
+          },
+          {
+            "token": "dividend",
+            "weight": -0.047413,
+            "direction": "opposes"
+          },
+          {
+            "token": "what",
+            "weight": -0.043387,
+            "direction": "opposes"
+          },
+          {
+            "token": "Inc",
+            "weight": 0.039985,
+            "direction": "supports"
+          }
+        ],
+        "top_tokens_supporting": [
+          "Bear",
+          "Until",
+          "essential",
+          "actually",
+          "Hangover"
+        ],
+        "top_tokens_opposing": [
+          "Great",
+          "AAPD",
+          "carries",
+          "dividend",
+          "what"
+>>>>>>> fix/positive_bias
         ]
       }
     ]
@@ -1328,6 +2007,7 @@
     "ranked_articles": [
       {
         "rank": 1,
+<<<<<<< HEAD
 <<<<<<< HEAD
         "title": "TSMC Shares Rise on AI Demand and Next-Gen Chip Launch",
         "final_weight": 0.8966,
@@ -1385,12 +2065,42 @@
             "negative": 0.4574,
             "neutral": 0.1403
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
+=======
+        "title": "AI Takes Center Stage: Apple Launches M5 MacBook Air, Pro And New XDR Display",
+        "final_weight": 0.8819,
+        "weight_share": 0.0429,
+        "dominant_sentiment": "positive",
+        "days_ago": 1,
+        "raw_scores": {
+          "positive": 0.3424,
+          "negative": 0.0159,
+          "neutral": 0.0061
+        },
+        "weighted_scores": {
+          "positive": 0.7658,
+          "negative": 0.0888,
+          "neutral": 0.0273
+        },
+        "contribution_share": {
+          "positive": 0.0373,
+          "negative": 0.0043,
+          "neutral": 0.0013
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5393,
+          "new_normalized": {
+            "positive": 0.5393,
+            "negative": 0.3771,
+            "neutral": 0.0836
+>>>>>>> fix/positive_bias
           },
           "label_would_change": true
         }
       },
       {
         "rank": 2,
+<<<<<<< HEAD
 <<<<<<< HEAD
         "title": "Market Movers: Nike Exploding Higher on Insider Buying",
         "final_weight": 0.8966,
@@ -1450,10 +2160,42 @@
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
           },
           "label_would_change": false
+=======
+        "title": "Apple’s AI Wearables And Product Week Could Reshape Long Term Growth",
+        "final_weight": 0.8548,
+        "weight_share": 0.0416,
+        "dominant_sentiment": "positive",
+        "days_ago": 2,
+        "raw_scores": {
+          "positive": 0.6564,
+          "negative": 0.3164,
+          "neutral": 0.0345
+        },
+        "weighted_scores": {
+          "positive": 0.3695,
+          "negative": 0.4462,
+          "neutral": 0.0391
+        },
+        "contribution_share": {
+          "positive": 0.018,
+          "negative": 0.0217,
+          "neutral": 0.0019
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5587,
+          "new_normalized": {
+            "positive": 0.5587,
+            "negative": 0.3584,
+            "neutral": 0.0829
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 3,
+<<<<<<< HEAD
 <<<<<<< HEAD
         "title": "Apple's AI challenges in 2026",
         "final_weight": 0.8966,
@@ -1513,10 +2255,42 @@
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
           },
           "label_would_change": false
+=======
+        "title": "Apple’s New AI Devices And U.S. Manufacturing Shift Weigh On Valuation",
+        "final_weight": 0.8507,
+        "weight_share": 0.0414,
+        "dominant_sentiment": "positive",
+        "days_ago": 2,
+        "raw_scores": {
+          "positive": 0.5354,
+          "negative": 0.134,
+          "neutral": 0.0199
+        },
+        "weighted_scores": {
+          "positive": 0.4998,
+          "negative": 0.3134,
+          "neutral": 0.0375
+        },
+        "contribution_share": {
+          "positive": 0.0243,
+          "negative": 0.0152,
+          "neutral": 0.0018
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.552,
+          "new_normalized": {
+            "positive": 0.552,
+            "negative": 0.3651,
+            "neutral": 0.0829
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 4,
+<<<<<<< HEAD
 <<<<<<< HEAD
         "title": "Wedbush Names Apple a Top AI Pick for the 2026 Market Cycle",
         "final_weight": 0.8966,
@@ -1576,10 +2350,42 @@
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
           },
           "label_would_change": false
+=======
+        "title": "Gene Munster Says Apple's New iPhone 17e, iPad Air Could Lift June Quarter Growth Above Street Estimates",
+        "final_weight": 0.8461,
+        "weight_share": 0.0412,
+        "dominant_sentiment": "positive",
+        "days_ago": 1,
+        "raw_scores": {
+          "positive": 0.9687,
+          "negative": 0.006,
+          "neutral": 0.0174
+        },
+        "weighted_scores": {
+          "positive": 0.8045,
+          "negative": 0.0126,
+          "neutral": 0.0291
+        },
+        "contribution_share": {
+          "positive": 0.0391,
+          "negative": 0.0006,
+          "neutral": 0.0014
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5364,
+          "new_normalized": {
+            "positive": 0.5364,
+            "negative": 0.3803,
+            "neutral": 0.0834
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 5,
+<<<<<<< HEAD
 <<<<<<< HEAD
         "title": "Apple Faces High Stakes in 2026 as AI-Powered Siri Launch Slips",
         "final_weight": 0.8966,
@@ -1639,10 +2445,42 @@
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
           },
           "label_would_change": false
+=======
+        "title": "Gold in your iPhone? The value of the gold in these items",
+        "final_weight": 0.8296,
+        "weight_share": 0.0404,
+        "dominant_sentiment": "positive",
+        "days_ago": 1,
+        "raw_scores": {
+          "positive": 0.3475,
+          "negative": 0.2119,
+          "neutral": 0.0474
+        },
+        "weighted_scores": {
+          "positive": 0.2961,
+          "negative": 0.4522,
+          "neutral": 0.0813
+        },
+        "contribution_share": {
+          "positive": 0.0144,
+          "negative": 0.022,
+          "neutral": 0.004
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5617,
+          "new_normalized": {
+            "positive": 0.5617,
+            "negative": 0.3577,
+            "neutral": 0.0806
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 6,
+<<<<<<< HEAD
 <<<<<<< HEAD
         "title": "Big Promises, Bigger Fails: Meta's Cringe Demo, Apple's Misfires, GPT-5's Letdown And The Cloud Outages That Made Headlines In 2025",
         "final_weight": 0.8966,
@@ -1702,10 +2540,42 @@
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
           },
           "label_would_change": false
+=======
+        "title": "Apple unveils new MacBooks powered by M5 chips",
+        "final_weight": 0.8243,
+        "weight_share": 0.0401,
+        "dominant_sentiment": "positive",
+        "days_ago": 0,
+        "raw_scores": {
+          "positive": 0.5308,
+          "negative": 0.0724,
+          "neutral": 0.0528
+        },
+        "weighted_scores": {
+          "positive": 0.5345,
+          "negative": 0.1828,
+          "neutral": 0.107
+        },
+        "contribution_share": {
+          "positive": 0.026,
+          "negative": 0.0089,
+          "neutral": 0.0052
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5495,
+          "new_normalized": {
+            "positive": 0.5495,
+            "negative": 0.3712,
+            "neutral": 0.0793
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 7,
+<<<<<<< HEAD
 <<<<<<< HEAD
         "title": "Apple misses on AI in 2025",
         "final_weight": 0.8966,
@@ -1765,10 +2635,42 @@
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
           },
           "label_would_change": false
+=======
+        "title": "Barclays Maintains Underweight on Apple, Raises Price Target to $248",
+        "final_weight": 0.8225,
+        "weight_share": 0.04,
+        "dominant_sentiment": "positive",
+        "days_ago": 1,
+        "raw_scores": {
+          "positive": 0.7143,
+          "negative": 0.632,
+          "neutral": 0.0863
+        },
+        "weighted_scores": {
+          "positive": 0.2377,
+          "negative": 0.5269,
+          "neutral": 0.0578
+        },
+        "contribution_share": {
+          "positive": 0.0116,
+          "negative": 0.0256,
+          "neutral": 0.0028
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5644,
+          "new_normalized": {
+            "positive": 0.5644,
+            "negative": 0.3538,
+            "neutral": 0.0818
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 8,
+<<<<<<< HEAD
 <<<<<<< HEAD
         "title": "The 76-Year-Old Reason Why Buffett Has Been Selling Apple",
         "final_weight": 0.8649,
@@ -1799,10 +2701,42 @@
             "neutral": 0.1197
           },
           "label_would_change": false
+=======
+        "title": "Apple unveils low-cost iPhone 17e with a price tag of $599",
+        "final_weight": 0.8216,
+        "weight_share": 0.04,
+        "dominant_sentiment": "positive",
+        "days_ago": 1,
+        "raw_scores": {
+          "positive": 0.7354,
+          "negative": 0.1553,
+          "neutral": 0.1368
+        },
+        "weighted_scores": {
+          "positive": 0.4317,
+          "negative": 0.2283,
+          "neutral": 0.1616
+        },
+        "contribution_share": {
+          "positive": 0.021,
+          "negative": 0.0111,
+          "neutral": 0.0079
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5546,
+          "new_normalized": {
+            "positive": 0.5546,
+            "negative": 0.3689,
+            "neutral": 0.0765
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 9,
+<<<<<<< HEAD
         "title": "Why Apple Might Attract More of an AI Multiple in 2026",
         "final_weight": 0.8649,
         "weight_share": 0.0072,
@@ -1832,10 +2766,42 @@
             "neutral": 0.1202
           },
           "label_would_change": false
+=======
+        "title": "Berkshire Hathaway's New CEO Omits Bank of America And Chevron In Letter To Shareholders After Warren Buffett's Exit",
+        "final_weight": 0.8141,
+        "weight_share": 0.0396,
+        "dominant_sentiment": "positive",
+        "days_ago": 0,
+        "raw_scores": {
+          "positive": 0.6458,
+          "negative": 0.0642,
+          "neutral": 0.0218
+        },
+        "weighted_scores": {
+          "positive": 0.6181,
+          "negative": 0.154,
+          "neutral": 0.0421
+        },
+        "contribution_share": {
+          "positive": 0.0301,
+          "negative": 0.0075,
+          "neutral": 0.002
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5449,
+          "new_normalized": {
+            "positive": 0.5449,
+            "negative": 0.3725,
+            "neutral": 0.0826
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 10,
+<<<<<<< HEAD
         "title": "Apple is an Analyst Favorite, But AAPL Stock Has Been Flat - Shorting Puts Is the Best Play",
         "final_weight": 0.8649,
         "weight_share": 0.0072,
@@ -1865,10 +2831,42 @@
             "neutral": 0.1185
           },
           "label_would_change": false
+=======
+        "title": "Assessing Apple (AAPL) Valuation As Tariffs Pressure Hardware And Services Growth Supports Earnings",
+        "final_weight": 0.7828,
+        "weight_share": 0.0381,
+        "dominant_sentiment": "positive",
+        "days_ago": 1,
+        "raw_scores": {
+          "positive": 0.7026,
+          "negative": 0.0118,
+          "neutral": 0.1339
+        },
+        "weighted_scores": {
+          "positive": 0.5491,
+          "negative": 0.0231,
+          "neutral": 0.2106
+        },
+        "contribution_share": {
+          "positive": 0.0267,
+          "negative": 0.0011,
+          "neutral": 0.0102
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5476,
+          "new_normalized": {
+            "positive": 0.5476,
+            "negative": 0.3785,
+            "neutral": 0.0739
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 11,
+<<<<<<< HEAD
         "title": "Apple needs to deliver an AI-charged Siri so good it gets older iPhone users to upgrade",
         "final_weight": 0.8649,
         "weight_share": 0.0072,
@@ -1898,10 +2896,42 @@
             "neutral": 0.1198
           },
           "label_would_change": false
+=======
+        "title": "Apple’s Houston Manufacturing Push Ties AI Servers To Supply Resilience",
+        "final_weight": 0.7396,
+        "weight_share": 0.036,
+        "dominant_sentiment": "positive",
+        "days_ago": 2,
+        "raw_scores": {
+          "positive": 0.7831,
+          "negative": 0.1012,
+          "neutral": 0.0533
+        },
+        "weighted_scores": {
+          "positive": 0.5064,
+          "negative": 0.1638,
+          "neutral": 0.0694
+        },
+        "contribution_share": {
+          "positive": 0.0246,
+          "negative": 0.008,
+          "neutral": 0.0034
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5485,
+          "new_normalized": {
+            "positive": 0.5485,
+            "negative": 0.3706,
+            "neutral": 0.0809
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 12,
+<<<<<<< HEAD
         "title": "The Real Reasons Warren Buffett Is Selling Apple Stock Fast",
         "final_weight": 0.8649,
         "weight_share": 0.0072,
@@ -1931,10 +2961,42 @@
             "neutral": 0.1194
           },
           "label_would_change": false
+=======
+        "title": "Bitcoin Is Going Through 'Valley Of Despair,' Michael Saylor Says, Comparing It To Apple",
+        "final_weight": 0.7302,
+        "weight_share": 0.0355,
+        "dominant_sentiment": "negative",
+        "days_ago": 2,
+        "raw_scores": {
+          "positive": 0.0009,
+          "negative": 0.9739,
+          "neutral": 0.0146
+        },
+        "weighted_scores": {
+          "positive": 0.0003,
+          "negative": 0.7213,
+          "neutral": 0.0087
+        },
+        "contribution_share": {
+          "positive": 0.0,
+          "negative": 0.0351,
+          "neutral": 0.0004
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5738,
+          "new_normalized": {
+            "positive": 0.5738,
+            "negative": 0.3423,
+            "neutral": 0.0839
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 13,
+<<<<<<< HEAD
         "title": "Tuttle Capital Management Launches the Tuttle Capital Magnificent 7 Income Blast ETF (MAGO)",
         "final_weight": 0.8649,
         "weight_share": 0.0072,
@@ -1964,10 +3026,42 @@
             "neutral": 0.1193
           },
           "label_would_change": false
+=======
+        "title": "Market Chatter: Apple in Talks With Google for Hosting New Siri",
+        "final_weight": 0.7109,
+        "weight_share": 0.0346,
+        "dominant_sentiment": "positive",
+        "days_ago": 2,
+        "raw_scores": {
+          "positive": 0.2214,
+          "negative": 0.0591,
+          "neutral": 0.0016
+        },
+        "weighted_scores": {
+          "positive": 0.4222,
+          "negative": 0.2825,
+          "neutral": 0.0062
+        },
+        "contribution_share": {
+          "positive": 0.0205,
+          "negative": 0.0137,
+          "neutral": 0.0003
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.552,
+          "new_normalized": {
+            "positive": 0.552,
+            "negative": 0.3641,
+            "neutral": 0.0839
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 14,
+<<<<<<< HEAD
         "title": "Apple Inc. (AAPL) Is a Trending Stock: Facts to Know Before Betting on It",
         "final_weight": 0.8649,
         "weight_share": 0.0072,
@@ -1997,10 +3091,42 @@
             "neutral": 0.1193
           },
           "label_would_change": false
+=======
+        "title": "The Zacks Analyst Blog Highlights Apple, TotalEnergies, Boston Scientific and Good Times Restaurants",
+        "final_weight": 0.6804,
+        "weight_share": 0.0331,
+        "dominant_sentiment": "positive",
+        "days_ago": 1,
+        "raw_scores": {
+          "positive": 0.8682,
+          "negative": 0.006,
+          "neutral": 0.007
+        },
+        "weighted_scores": {
+          "positive": 0.6584,
+          "negative": 0.0113,
+          "neutral": 0.0107
+        },
+        "contribution_share": {
+          "positive": 0.032,
+          "negative": 0.0005,
+          "neutral": 0.0005
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5392,
+          "new_normalized": {
+            "positive": 0.5392,
+            "negative": 0.3772,
+            "neutral": 0.0836
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 15,
+<<<<<<< HEAD
         "title": "Revises Down 2026 Global Notebook Shipments to a 5.4% YoY Decline; Apple and Lenovo Demonstrate Resilience on Supply-Chain and Scale Advantages, Says TrendForce",
         "final_weight": 0.8649,
         "weight_share": 0.0072,
@@ -2030,10 +3156,42 @@
             "neutral": 0.1196
           },
           "label_would_change": false
+=======
+        "title": "Is Apple (AAPL) Still Fairly Priced After Recent Services Revenue Strength?",
+        "final_weight": 0.6165,
+        "weight_share": 0.03,
+        "dominant_sentiment": "negative",
+        "days_ago": 2,
+        "raw_scores": {
+          "positive": 0.0299,
+          "negative": 0.1589,
+          "neutral": 0.0167
+        },
+        "weighted_scores": {
+          "positive": 0.0399,
+          "negative": 0.5317,
+          "neutral": 0.0449
+        },
+        "contribution_share": {
+          "positive": 0.0019,
+          "negative": 0.0259,
+          "neutral": 0.0022
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5685,
+          "new_normalized": {
+            "positive": 0.5685,
+            "negative": 0.3499,
+            "neutral": 0.0816
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 16,
+<<<<<<< HEAD
         "title": "The Zacks Analyst Blog Highlights Apple, Cisco Systems and IBM",
         "final_weight": 0.8649,
         "weight_share": 0.0072,
@@ -2063,10 +3221,42 @@
             "neutral": 0.1203
           },
           "label_would_change": false
+=======
+        "title": "Tim Cook Teases Apple Launch On Monday: Here's What To Expect",
+        "final_weight": 0.6128,
+        "weight_share": 0.0298,
+        "dominant_sentiment": "positive",
+        "days_ago": 6,
+        "raw_scores": {
+          "positive": 0.2909,
+          "negative": 0.0105,
+          "neutral": 0.0064
+        },
+        "weighted_scores": {
+          "positive": 0.5399,
+          "negative": 0.0488,
+          "neutral": 0.0241
+        },
+        "contribution_share": {
+          "positive": 0.0263,
+          "negative": 0.0024,
+          "neutral": 0.0012
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5434,
+          "new_normalized": {
+            "positive": 0.5434,
+            "negative": 0.374,
+            "neutral": 0.0826
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 17,
+<<<<<<< HEAD
         "title": "Tim Cook's Nike Buy, AI Smart Glasses, Court Victory And More: This Week In Appleverse",
         "final_weight": 0.8649,
         "weight_share": 0.0072,
@@ -2096,10 +3286,42 @@
             "neutral": 0.1193
           },
           "label_would_change": false
+=======
+        "title": "Samsung shocks Apple in smartphone war",
+        "final_weight": 0.5097,
+        "weight_share": 0.0248,
+        "dominant_sentiment": "positive",
+        "days_ago": 5,
+        "raw_scores": {
+          "positive": 0.347,
+          "negative": 0.1458,
+          "neutral": 0.0033
+        },
+        "weighted_scores": {
+          "positive": 0.2461,
+          "negative": 0.2589,
+          "neutral": 0.0048
+        },
+        "contribution_share": {
+          "positive": 0.012,
+          "negative": 0.0126,
+          "neutral": 0.0002
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5552,
+          "new_normalized": {
+            "positive": 0.5552,
+            "negative": 0.3616,
+            "neutral": 0.0832
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 18,
+<<<<<<< HEAD
         "title": "Apple Stock Ticks Up After a Surprise From China—and a Legal Win",
         "final_weight": 0.8608,
         "weight_share": 0.0071,
@@ -2129,10 +3351,42 @@
             "neutral": 0.1207
           },
           "label_would_change": false
+=======
+        "title": "Nvidia earnings, Apple CEO teases product launches: Tech Support",
+        "final_weight": 0.4698,
+        "weight_share": 0.0229,
+        "dominant_sentiment": "negative",
+        "days_ago": 6,
+        "raw_scores": {
+          "positive": 0.1554,
+          "negative": 0.4968,
+          "neutral": 0.0582
+        },
+        "weighted_scores": {
+          "positive": 0.0481,
+          "negative": 0.3854,
+          "neutral": 0.0363
+        },
+        "contribution_share": {
+          "positive": 0.0023,
+          "negative": 0.0188,
+          "neutral": 0.0018
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.564,
+          "new_normalized": {
+            "positive": 0.564,
+            "negative": 0.3546,
+            "neutral": 0.0814
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 19,
+<<<<<<< HEAD
         "title": "Italian Competition Authority fines Apple EUR 98M over app tracking",
         "final_weight": 0.8608,
         "weight_share": 0.0071,
@@ -2162,10 +3416,42 @@
             "neutral": 0.1195
           },
           "label_would_change": false
+=======
+        "title": "Investors Heavily Search Apple Inc. (AAPL): Here is What You Need to Know",
+        "final_weight": 0.4397,
+        "weight_share": 0.0214,
+        "dominant_sentiment": "positive",
+        "days_ago": 5,
+        "raw_scores": {
+          "positive": 0.6133,
+          "negative": 0.1109,
+          "neutral": 0.018
+        },
+        "weighted_scores": {
+          "positive": 0.2909,
+          "negative": 0.1317,
+          "neutral": 0.0172
+        },
+        "contribution_share": {
+          "positive": 0.0142,
+          "negative": 0.0064,
+          "neutral": 0.0008
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5511,
+          "new_normalized": {
+            "positive": 0.5511,
+            "negative": 0.3667,
+            "neutral": 0.0823
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 20,
+<<<<<<< HEAD
         "title": "Top Research Reports for Apple, Cisco & IBM",
         "final_weight": 0.8325,
         "weight_share": 0.0069,
@@ -2195,10 +3481,42 @@
             "neutral": 0.1196
           },
           "label_would_change": false
+=======
+        "title": "The Saturday Spread: Using Volatility Skew as a Smart Money Gauge (TGT, AAPL, ORCL)",
+        "final_weight": 0.4256,
+        "weight_share": 0.0207,
+        "dominant_sentiment": "positive",
+        "days_ago": 9,
+        "raw_scores": {
+          "positive": 0.3069,
+          "negative": 0.1404,
+          "neutral": 0.014
+        },
+        "weighted_scores": {
+          "positive": 0.1902,
+          "negative": 0.2179,
+          "neutral": 0.0175
+        },
+        "contribution_share": {
+          "positive": 0.0093,
+          "negative": 0.0106,
+          "neutral": 0.0009
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5557,
+          "new_normalized": {
+            "positive": 0.5557,
+            "negative": 0.3621,
+            "neutral": 0.0822
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 21,
+<<<<<<< HEAD
         "title": "Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead of 2026",
         "final_weight": 0.8325,
         "weight_share": 0.0069,
@@ -2228,10 +3546,42 @@
             "neutral": 0.1205
           },
           "label_would_change": false
+=======
+        "title": "Apple, Microsoft, AppLovin And An Energy Stock: CNBC's 'Final Trades'",
+        "final_weight": 0.3952,
+        "weight_share": 0.0192,
+        "dominant_sentiment": "positive",
+        "days_ago": 9,
+        "raw_scores": {
+          "positive": 0.8376,
+          "negative": 0.0031,
+          "neutral": 0.0282
+        },
+        "weighted_scores": {
+          "positive": 0.3669,
+          "negative": 0.0034,
+          "neutral": 0.0249
+        },
+        "contribution_share": {
+          "positive": 0.0179,
+          "negative": 0.0002,
+          "neutral": 0.0012
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5461,
+          "new_normalized": {
+            "positive": 0.5461,
+            "negative": 0.3722,
+            "neutral": 0.0817
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 22,
+<<<<<<< HEAD
         "title": "Wells Fargo Reaffirms Overweight on Apple as China iPhone Sales Surge",
         "final_weight": 0.8325,
         "weight_share": 0.0069,
@@ -2261,10 +3611,42 @@
             "neutral": 0.1205
           },
           "label_would_change": false
+=======
+        "title": "Apple vs. Adobe: Which AI-Driven Tech Stock Has an Edge Now?",
+        "final_weight": 0.3486,
+        "weight_share": 0.017,
+        "dominant_sentiment": "positive",
+        "days_ago": 6,
+        "raw_scores": {
+          "positive": 0.3504,
+          "negative": 0.0535,
+          "neutral": 0.0052
+        },
+        "weighted_scores": {
+          "positive": 0.2468,
+          "negative": 0.0944,
+          "neutral": 0.0074
+        },
+        "contribution_share": {
+          "positive": 0.012,
+          "negative": 0.0046,
+          "neutral": 0.0004
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5508,
+          "new_normalized": {
+            "positive": 0.5508,
+            "negative": 0.3669,
+            "neutral": 0.0824
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 23,
+<<<<<<< HEAD
         "title": "The S&P 500 Is Too Exposed To Big Tech, Time To Buy JPMorgan’s Mid Cap Equity ETF Instead",
         "final_weight": 0.8325,
         "weight_share": 0.0069,
@@ -2294,10 +3676,42 @@
             "neutral": 0.1201
           },
           "label_would_change": false
+=======
+        "title": "Apple just fired warning shot that could reshape 2026 iPhone cycle",
+        "final_weight": 0.3455,
+        "weight_share": 0.0168,
+        "dominant_sentiment": "negative",
+        "days_ago": 6,
+        "raw_scores": {
+          "positive": 0.1136,
+          "negative": 0.5872,
+          "neutral": 0.0198
+        },
+        "weighted_scores": {
+          "positive": 0.0242,
+          "negative": 0.3129,
+          "neutral": 0.0085
+        },
+        "contribution_share": {
+          "positive": 0.0012,
+          "negative": 0.0152,
+          "neutral": 0.0004
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5617,
+          "new_normalized": {
+            "positive": 0.5617,
+            "negative": 0.356,
+            "neutral": 0.0823
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 24,
+<<<<<<< HEAD
         "title": "Medical Care Technologies (OTC PINK:MDCE) Achieves Global Distribution Approval from Apple's iOS App Store",
         "final_weight": 0.8325,
         "weight_share": 0.0069,
@@ -2327,10 +3741,42 @@
             "neutral": 0.1199
           },
           "label_would_change": false
+=======
+        "title": "George Soros Is Doubling Down on Apple Stock. Should You Also Load Up on AAPL in 2026?",
+        "final_weight": 0.3437,
+        "weight_share": 0.0167,
+        "dominant_sentiment": "positive",
+        "days_ago": 6,
+        "raw_scores": {
+          "positive": 0.9039,
+          "negative": 0.0402,
+          "neutral": 0.0052
+        },
+        "weighted_scores": {
+          "positive": 0.3061,
+          "negative": 0.0341,
+          "neutral": 0.0036
+        },
+        "contribution_share": {
+          "positive": 0.0149,
+          "negative": 0.0017,
+          "neutral": 0.0002
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5477,
+          "new_normalized": {
+            "positive": 0.5477,
+            "negative": 0.3698,
+            "neutral": 0.0825
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 25,
+<<<<<<< HEAD
         "title": "Apple: Foldable Phone Sparks A Revival, Not AI Overhype",
         "final_weight": 0.8325,
         "weight_share": 0.0069,
@@ -2360,10 +3806,42 @@
             "neutral": 0.1204
           },
           "label_would_change": false
+=======
+        "title": "Apple (AAPL) Got The Best Free Ride, Says Jim Cramer",
+        "final_weight": 0.342,
+        "weight_share": 0.0166,
+        "dominant_sentiment": "positive",
+        "days_ago": 6,
+        "raw_scores": {
+          "positive": 0.5031,
+          "negative": 0.239,
+          "neutral": 0.0632
+        },
+        "weighted_scores": {
+          "positive": 0.14,
+          "negative": 0.1666,
+          "neutral": 0.0354
+        },
+        "contribution_share": {
+          "positive": 0.0068,
+          "negative": 0.0081,
+          "neutral": 0.0017
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5559,
+          "new_normalized": {
+            "positive": 0.5559,
+            "negative": 0.3632,
+            "neutral": 0.081
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 26,
+<<<<<<< HEAD
         "title": "Mag 7 divide could widen in 2026 as Amazon, Meta, Apple lag year-to-date",
         "final_weight": 0.8325,
         "weight_share": 0.0069,
@@ -2393,10 +3871,42 @@
             "neutral": 0.1205
           },
           "label_would_change": false
+=======
+        "title": "How Apple's Contrarian 'Nah, We're Good' Strategy Defies Amazon, Microsoft, Alphabet",
+        "final_weight": 0.3394,
+        "weight_share": 0.0165,
+        "dominant_sentiment": "positive",
+        "days_ago": 14,
+        "raw_scores": {
+          "positive": 0.1283,
+          "negative": 0.0582,
+          "neutral": 0.0124
+        },
+        "weighted_scores": {
+          "positive": 0.1456,
+          "negative": 0.1653,
+          "neutral": 0.0284
+        },
+        "contribution_share": {
+          "positive": 0.0071,
+          "negative": 0.008,
+          "neutral": 0.0014
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5555,
+          "new_normalized": {
+            "positive": 0.5555,
+            "negative": 0.3632,
+            "neutral": 0.0813
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 27,
+<<<<<<< HEAD
         "title": "Dow Jones Futures Waver With Market At Highs; Tesla, Nvidia In Buy Areas",
         "final_weight": 0.8325,
         "weight_share": 0.0069,
@@ -2426,10 +3936,42 @@
             "neutral": 0.1202
           },
           "label_would_change": false
+=======
+        "title": "Why smart glasses could be the next big gadget hit in 2026",
+        "final_weight": 0.3192,
+        "weight_share": 0.0155,
+        "dominant_sentiment": "positive",
+        "days_ago": 13,
+        "raw_scores": {
+          "positive": 0.7908,
+          "negative": 0.2476,
+          "neutral": 0.4344
+        },
+        "weighted_scores": {
+          "positive": 0.1104,
+          "negative": 0.0866,
+          "neutral": 0.1221
+        },
+        "contribution_share": {
+          "positive": 0.0054,
+          "negative": 0.0042,
+          "neutral": 0.0059
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5567,
+          "new_normalized": {
+            "positive": 0.5567,
+            "negative": 0.3667,
+            "neutral": 0.0766
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 28,
+<<<<<<< HEAD
         "title": "Jim Cramer Repeats His “Own It, Don’t Trade It” Mantra on Apple",
         "final_weight": 0.8325,
         "weight_share": 0.0069,
@@ -2459,10 +4001,42 @@
             "neutral": 0.1191
           },
           "label_would_change": false
+=======
+        "title": "Mark Zuckerberg Reveals He Consulted Apple's Tim Cook On Teen Social Media Safety, Hails Free Expression In Court Testimony",
+        "final_weight": 0.3128,
+        "weight_share": 0.0152,
+        "dominant_sentiment": "positive",
+        "days_ago": 13,
+        "raw_scores": {
+          "positive": 0.183,
+          "negative": 0.0925,
+          "neutral": 0.0308
+        },
+        "weighted_scores": {
+          "positive": 0.1201,
+          "negative": 0.152,
+          "neutral": 0.0407
+        },
+        "contribution_share": {
+          "positive": 0.0058,
+          "negative": 0.0074,
+          "neutral": 0.002
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.556,
+          "new_normalized": {
+            "positive": 0.556,
+            "negative": 0.3634,
+            "neutral": 0.0806
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 29,
+<<<<<<< HEAD
         "title": "Israel's tech sector says more staff seek relocation abroad-report",
         "final_weight": 0.8325,
         "weight_share": 0.0069,
@@ -2492,10 +4066,42 @@
             "neutral": 0.1202
           },
           "label_would_change": false
+=======
+        "title": "What Apple (AAPL)'s Houston AI Manufacturing Push Means For Shareholders",
+        "final_weight": 0.2764,
+        "weight_share": 0.0134,
+        "dominant_sentiment": "positive",
+        "days_ago": 8,
+        "raw_scores": {
+          "positive": 0.4674,
+          "negative": 0.1908,
+          "neutral": 0.0134
+        },
+        "weighted_scores": {
+          "positive": 0.1329,
+          "negative": 0.1359,
+          "neutral": 0.0077
+        },
+        "contribution_share": {
+          "positive": 0.0065,
+          "negative": 0.0066,
+          "neutral": 0.0004
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5544,
+          "new_normalized": {
+            "positive": 0.5544,
+            "negative": 0.3635,
+            "neutral": 0.0821
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 30,
+<<<<<<< HEAD
         "title": "JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reaches Parity",
         "final_weight": 0.8325,
         "weight_share": 0.0069,
@@ -2525,10 +4131,42 @@
             "neutral": 0.1204
           },
           "label_would_change": false
+=======
+        "title": "Smart Money Is Betting Big In AAPL Options",
+        "final_weight": 0.2395,
+        "weight_share": 0.0117,
+        "dominant_sentiment": "positive",
+        "days_ago": 12,
+        "raw_scores": {
+          "positive": 0.7452,
+          "negative": 0.1017,
+          "neutral": 0.0309
+        },
+        "weighted_scores": {
+          "positive": 0.168,
+          "negative": 0.0575,
+          "neutral": 0.014
+        },
+        "contribution_share": {
+          "positive": 0.0082,
+          "negative": 0.0028,
+          "neutral": 0.0007
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5517,
+          "new_normalized": {
+            "positive": 0.5517,
+            "negative": 0.3667,
+            "neutral": 0.0816
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 31,
+<<<<<<< HEAD
         "title": "America’s 3 Most Important Companies Are About to Get New Leadership. Trust the Process.",
         "final_weight": 0.8061,
         "weight_share": 0.0067,
@@ -2558,10 +4196,42 @@
             "neutral": 0.1204
           },
           "label_would_change": false
+=======
+        "title": "AAPD’s 3.43% Yield Looks Great Until You See the 40% Hangover",
+        "final_weight": 0.2311,
+        "weight_share": 0.0112,
+        "dominant_sentiment": "negative",
+        "days_ago": 9,
+        "raw_scores": {
+          "positive": 0.196,
+          "negative": 0.7384,
+          "neutral": 0.0657
+        },
+        "weighted_scores": {
+          "positive": 0.0208,
+          "negative": 0.1963,
+          "neutral": 0.014
+        },
+        "contribution_share": {
+          "positive": 0.001,
+          "negative": 0.0096,
+          "neutral": 0.0007
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5587,
+          "new_normalized": {
+            "positive": 0.5587,
+            "negative": 0.3597,
+            "neutral": 0.0816
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 32,
+<<<<<<< HEAD
         "title": "Walmart and 2 More American Icons Are About to Get New Leadership. Trust the Process.",
         "final_weight": 0.8061,
         "weight_share": 0.0067,
@@ -2591,10 +4261,42 @@
             "neutral": 0.1204
           },
           "label_would_change": false
+=======
+        "title": "How Apple’s Lazy AI Strategy Could Crush the Competition",
+        "final_weight": 0.2311,
+        "weight_share": 0.0112,
+        "dominant_sentiment": "negative",
+        "days_ago": 9,
+        "raw_scores": {
+          "positive": 0.0112,
+          "negative": 0.8243,
+          "neutral": 0.0471
+        },
+        "weighted_scores": {
+          "positive": 0.0012,
+          "negative": 0.2198,
+          "neutral": 0.0101
+        },
+        "contribution_share": {
+          "positive": 0.0001,
+          "negative": 0.0107,
+          "neutral": 0.0005
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5597,
+          "new_normalized": {
+            "positive": 0.5597,
+            "negative": 0.3586,
+            "neutral": 0.0818
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 33,
+<<<<<<< HEAD
         "title": "Apple Agrees to Open iOS App Stores in Brazil After Antitrust Case",
         "final_weight": 0.8059,
         "weight_share": 0.0067,
@@ -2624,10 +4326,42 @@
             "neutral": 0.1193
           },
           "label_would_change": false
+=======
+        "title": "Apple To Move Part Of Mac Mini Production To Texas, Expand Houston Facility",
+        "final_weight": 0.2305,
+        "weight_share": 0.0112,
+        "dominant_sentiment": "positive",
+        "days_ago": 8,
+        "raw_scores": {
+          "positive": 0.2343,
+          "negative": 0.0852,
+          "neutral": 0.0079
+        },
+        "weighted_scores": {
+          "positive": 0.1165,
+          "negative": 0.1061,
+          "neutral": 0.0079
+        },
+        "contribution_share": {
+          "positive": 0.0057,
+          "negative": 0.0052,
+          "neutral": 0.0004
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.554,
+          "new_normalized": {
+            "positive": 0.554,
+            "negative": 0.3642,
+            "neutral": 0.0819
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 34,
+<<<<<<< HEAD
         "title": "Apple's iPhone Market Share Rises in China, Still Below Prior Peaks",
         "final_weight": 0.7794,
         "weight_share": 0.0065,
@@ -2657,10 +4391,42 @@
             "neutral": 0.12
           },
           "label_would_change": false
+=======
+        "title": "Apple's Services Growth Ride on Strong Content & Games: What's Ahead?",
+        "final_weight": 0.2299,
+        "weight_share": 0.0112,
+        "dominant_sentiment": "positive",
+        "days_ago": 8,
+        "raw_scores": {
+          "positive": 0.5065,
+          "negative": 0.0093,
+          "neutral": 0.0085
+        },
+        "weighted_scores": {
+          "positive": 0.2129,
+          "negative": 0.0098,
+          "neutral": 0.0072
+        },
+        "contribution_share": {
+          "positive": 0.0104,
+          "negative": 0.0005,
+          "neutral": 0.0004
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5492,
+          "new_normalized": {
+            "positive": 0.5492,
+            "negative": 0.3689,
+            "neutral": 0.0819
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 35,
+<<<<<<< HEAD
         "title": "Apple: Don't Expect Much Growth Here",
         "final_weight": 0.7794,
         "weight_share": 0.0065,
@@ -2690,10 +4456,42 @@
             "neutral": 0.1206
           },
           "label_would_change": false
+=======
+        "title": "Apple (AAPL): Buy, Sell, or Hold Post Q4 Earnings?",
+        "final_weight": 0.2131,
+        "weight_share": 0.0104,
+        "dominant_sentiment": "positive",
+        "days_ago": 12,
+        "raw_scores": {
+          "positive": 0.7224,
+          "negative": 0.0091,
+          "neutral": 0.0164
+        },
+        "weighted_scores": {
+          "positive": 0.1978,
+          "negative": 0.0063,
+          "neutral": 0.009
+        },
+        "contribution_share": {
+          "positive": 0.0096,
+          "negative": 0.0003,
+          "neutral": 0.0004
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5495,
+          "new_normalized": {
+            "positive": 0.5495,
+            "negative": 0.3688,
+            "neutral": 0.0817
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       },
       {
         "rank": 36,
+<<<<<<< HEAD
         "title": "Italy fines Ryanair $300 mn for abuse of dominant position",
         "final_weight": 0.7774,
         "weight_share": 0.0064,
@@ -3999,10 +5797,31 @@
         "contribution_share": {
           "positive": 0.0022,
           "negative": 0.0018,
+=======
+        "title": "Apple stock quietly moves on a surprising Al hardware bet",
+        "final_weight": 0.195,
+        "weight_share": 0.0095,
+        "dominant_sentiment": "positive",
+        "days_ago": 13,
+        "raw_scores": {
+          "positive": 0.8814,
+          "negative": 0.086,
+          "neutral": 0.0847
+        },
+        "weighted_scores": {
+          "positive": 0.1356,
+          "negative": 0.0331,
+          "neutral": 0.0262
+        },
+        "contribution_share": {
+          "positive": 0.0066,
+          "negative": 0.0016,
+>>>>>>> fix/positive_bias
           "neutral": 0.0013
         },
         "counterfactual": {
           "new_label": "positive",
+<<<<<<< HEAD
           "new_confidence": 0.4758,
           "new_normalized": {
             "positive": 0.4758,
@@ -4593,10 +6412,42 @@
         "contribution_share": {
           "positive": 0.0006,
           "negative": 0.0034,
+=======
+          "new_confidence": 0.5521,
+          "new_normalized": {
+            "positive": 0.5521,
+            "negative": 0.3671,
+            "neutral": 0.0808
+          },
+          "label_would_change": true
+        }
+      },
+      {
+        "rank": 37,
+        "title": "Wedbush Maintains Bullish View on Apple (AAPL) despite AI Delay Concerns",
+        "final_weight": 0.1893,
+        "weight_share": 0.0092,
+        "dominant_sentiment": "positive",
+        "days_ago": 9,
+        "raw_scores": {
+          "positive": 0.9543,
+          "negative": 0.0068,
+          "neutral": 0.04
+        },
+        "weighted_scores": {
+          "positive": 0.1718,
+          "negative": 0.0031,
+          "neutral": 0.0145
+        },
+        "contribution_share": {
+          "positive": 0.0084,
+          "negative": 0.0002,
+>>>>>>> fix/positive_bias
           "neutral": 0.0007
         },
         "counterfactual": {
           "new_label": "positive",
+<<<<<<< HEAD
           "new_confidence": 0.4771,
           "new_normalized": {
             "positive": 0.4771,
@@ -5292,10 +7143,42 @@
         "contribution_share": {
           "positive": 0.0017,
           "negative": 0.0015,
+=======
+          "new_confidence": 0.5501,
+          "new_normalized": {
+            "positive": 0.5501,
+            "negative": 0.3685,
+            "neutral": 0.0814
+          },
+          "label_would_change": true
+        }
+      },
+      {
+        "rank": 38,
+        "title": "Apple’s Stock Recovery Is No Recovery At All",
+        "final_weight": 0.1874,
+        "weight_share": 0.0091,
+        "dominant_sentiment": "negative",
+        "days_ago": 9,
+        "raw_scores": {
+          "positive": 0.0341,
+          "negative": 0.8825,
+          "neutral": 0.1356
+        },
+        "weighted_scores": {
+          "positive": 0.0025,
+          "negative": 0.1645,
+          "neutral": 0.0203
+        },
+        "contribution_share": {
+          "positive": 0.0001,
+          "negative": 0.008,
+>>>>>>> fix/positive_bias
           "neutral": 0.001
         },
         "counterfactual": {
           "new_label": "positive",
+<<<<<<< HEAD
           "new_confidence": 0.4758,
           "new_normalized": {
             "positive": 0.4758,
@@ -8757,10 +10640,141 @@
         "contribution_share": {
           "positive": 0.0009,
           "negative": 0.0007,
+=======
+          "new_confidence": 0.5584,
+          "new_normalized": {
+            "positive": 0.5584,
+            "negative": 0.3605,
+            "neutral": 0.0811
+          },
+          "label_would_change": true
+        }
+      },
+      {
+        "rank": 39,
+        "title": "Apple Stock: Is AAPL Underperforming the Technology Sector?",
+        "final_weight": 0.1816,
+        "weight_share": 0.0088,
+        "dominant_sentiment": "positive",
+        "days_ago": 9,
+        "raw_scores": {
+          "positive": 0.93,
+          "negative": 0.0119,
+          "neutral": 0.4805
+        },
+        "weighted_scores": {
+          "positive": 0.0876,
+          "negative": 0.0028,
+          "neutral": 0.0912
+        },
+        "contribution_share": {
+          "positive": 0.0043,
+          "negative": 0.0001,
+          "neutral": 0.0044
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5541,
+          "new_normalized": {
+            "positive": 0.5541,
+            "negative": 0.3684,
+            "neutral": 0.0776
+          },
+          "label_would_change": true
+        }
+      },
+      {
+        "rank": 40,
+        "title": "Nike, Big Tech, furniture stocks reacting to SCOTUS tariff ruling",
+        "final_weight": 0.1465,
+        "weight_share": 0.0071,
+        "dominant_sentiment": "positive",
+        "days_ago": 12,
+        "raw_scores": {
+          "positive": 0.719,
+          "negative": 0.2837,
+          "neutral": 0.1895
+        },
+        "weighted_scores": {
+          "positive": 0.0582,
+          "negative": 0.0575,
+          "neutral": 0.0309
+        },
+        "contribution_share": {
+          "positive": 0.0028,
+          "negative": 0.0028,
+          "neutral": 0.0015
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5545,
+          "new_normalized": {
+            "positive": 0.5545,
+            "negative": 0.365,
+            "neutral": 0.0804
+          },
+          "label_would_change": true
+        }
+      },
+      {
+        "rank": 41,
+        "title": "Dan Ives Says Apple's AI Alone Could Be Worth $1.5 Trillion — And Almost No One Is Pricing It In",
+        "final_weight": 0.1465,
+        "weight_share": 0.0071,
+        "dominant_sentiment": "positive",
+        "days_ago": 12,
+        "raw_scores": {
+          "positive": 0.7143,
+          "negative": 0.5275,
+          "neutral": 0.2114
+        },
+        "weighted_scores": {
+          "positive": 0.0425,
+          "negative": 0.0786,
+          "neutral": 0.0253
+        },
+        "contribution_share": {
+          "positive": 0.0021,
+          "negative": 0.0038,
+          "neutral": 0.0012
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5553,
+          "new_normalized": {
+            "positive": 0.5553,
+            "negative": 0.364,
+            "neutral": 0.0807
+          },
+          "label_would_change": true
+        }
+      },
+      {
+        "rank": 42,
+        "title": "As Apple Tests AI Devices, Should You Buy AAPL Stock Here?",
+        "final_weight": 0.1465,
+        "weight_share": 0.0071,
+        "dominant_sentiment": "positive",
+        "days_ago": 12,
+        "raw_scores": {
+          "positive": 0.4239,
+          "negative": 0.0333,
+          "neutral": 0.0084
+        },
+        "weighted_scores": {
+          "positive": 0.1184,
+          "negative": 0.0233,
+          "neutral": 0.0047
+        },
+        "contribution_share": {
+          "positive": 0.0058,
+          "negative": 0.0011,
+>>>>>>> fix/positive_bias
           "neutral": 0.0002
         },
         "counterfactual": {
           "new_label": "positive",
+<<<<<<< HEAD
           "new_confidence": 0.4754,
           "new_normalized": {
             "positive": 0.4754,
@@ -8790,10 +10804,75 @@
         "contribution_share": {
           "positive": 0.0002,
           "negative": 0.0007,
+=======
+          "new_confidence": 0.5516,
+          "new_normalized": {
+            "positive": 0.5516,
+            "negative": 0.3667,
+            "neutral": 0.0817
+          },
+          "label_would_change": true
+        }
+      },
+      {
+        "rank": 43,
+        "title": "Apple’s AI Wearables Push Extends Ecosystem Beyond Core Devices",
+        "final_weight": 0.1415,
+        "weight_share": 0.0069,
+        "dominant_sentiment": "positive",
+        "days_ago": 13,
+        "raw_scores": {
+          "positive": 0.8858,
+          "negative": 0.0706,
+          "neutral": 0.0476
+        },
+        "weighted_scores": {
+          "positive": 0.1082,
+          "negative": 0.0216,
+          "neutral": 0.0117
+        },
+        "contribution_share": {
+          "positive": 0.0053,
+          "negative": 0.0011,
+          "neutral": 0.0006
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.552,
+          "new_normalized": {
+            "positive": 0.552,
+            "negative": 0.3667,
+            "neutral": 0.0813
+          },
+          "label_would_change": true
+        }
+      },
+      {
+        "rank": 44,
+        "title": "Transports, Apple's AI plans, oil prices: Market Takeaways",
+        "final_weight": 0.1415,
+        "weight_share": 0.0069,
+        "dominant_sentiment": "positive",
+        "days_ago": 13,
+        "raw_scores": {
+          "positive": 0.8222,
+          "negative": 0.015,
+          "neutral": 0.0705
+        },
+        "weighted_scores": {
+          "positive": 0.1161,
+          "negative": 0.0053,
+          "neutral": 0.0201
+        },
+        "contribution_share": {
+          "positive": 0.0056,
+          "negative": 0.0003,
+>>>>>>> fix/positive_bias
           "neutral": 0.001
         },
         "counterfactual": {
           "new_label": "positive",
+<<<<<<< HEAD
           "new_confidence": 0.4762,
           "new_normalized": {
             "positive": 0.4762,
@@ -10012,10 +12091,119 @@
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
           },
           "label_would_change": false
+=======
+          "new_confidence": 0.5516,
+          "new_normalized": {
+            "positive": 0.5516,
+            "negative": 0.3675,
+            "neutral": 0.0809
+          },
+          "label_would_change": true
+        }
+      },
+      {
+        "rank": 45,
+        "title": "Is Apple unveiling a low-cost MacBook Air next month?",
+        "final_weight": 0.1415,
+        "weight_share": 0.0069,
+        "dominant_sentiment": "positive",
+        "days_ago": 13,
+        "raw_scores": {
+          "positive": 0.5214,
+          "negative": 0.1615,
+          "neutral": 0.0732
+        },
+        "weighted_scores": {
+          "positive": 0.0687,
+          "negative": 0.0533,
+          "neutral": 0.0194
+        },
+        "contribution_share": {
+          "positive": 0.0033,
+          "negative": 0.0026,
+          "neutral": 0.0009
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5539,
+          "new_normalized": {
+            "positive": 0.5539,
+            "negative": 0.3652,
+            "neutral": 0.081
+          },
+          "label_would_change": true
+        }
+      },
+      {
+        "rank": 46,
+        "title": "Berkshire reduces Apple stake, FDA to review Moderna vaccine",
+        "final_weight": 0.1366,
+        "weight_share": 0.0066,
+        "dominant_sentiment": "negative",
+        "days_ago": 14,
+        "raw_scores": {
+          "positive": 0.1229,
+          "negative": 0.5495,
+          "neutral": 0.0459
+        },
+        "weighted_scores": {
+          "positive": 0.0106,
+          "negative": 0.1181,
+          "neutral": 0.0079
+        },
+        "contribution_share": {
+          "positive": 0.0005,
+          "negative": 0.0057,
+          "neutral": 0.0004
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5566,
+          "new_normalized": {
+            "positive": 0.5566,
+            "negative": 0.3619,
+            "neutral": 0.0815
+          },
+          "label_would_change": true
+        }
+      },
+      {
+        "rank": 47,
+        "title": "Apple (AAPL) Just Overtook the 20-Day Moving Average",
+        "final_weight": 0.1366,
+        "weight_share": 0.0066,
+        "dominant_sentiment": "positive",
+        "days_ago": 14,
+        "raw_scores": {
+          "positive": 0.1902,
+          "negative": 0.0134,
+          "neutral": 0.0257
+        },
+        "weighted_scores": {
+          "positive": 0.0943,
+          "negative": 0.0166,
+          "neutral": 0.0256
+        },
+        "contribution_share": {
+          "positive": 0.0046,
+          "negative": 0.0008,
+          "neutral": 0.0012
+        },
+        "counterfactual": {
+          "new_label": "positive",
+          "new_confidence": 0.5525,
+          "new_normalized": {
+            "positive": 0.5525,
+            "negative": 0.3669,
+            "neutral": 0.0806
+          },
+          "label_would_change": true
+>>>>>>> fix/positive_bias
         }
       }
     ],
     "label_flipping_articles": [
+<<<<<<< HEAD
       "As Apple Tests AI Devices, Should You Buy AAPL Stock Here?"
     ],
     "top_positive_drivers": [
@@ -10042,10 +12230,72 @@
     ],
     "weight_concentration": 0.1623,
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
+=======
+      "AI Takes Center Stage: Apple Launches M5 MacBook Air, Pro And New XDR Display",
+      "Apple’s AI Wearables And Product Week Could Reshape Long Term Growth",
+      "Apple’s New AI Devices And U.S. Manufacturing Shift Weigh On Valuation",
+      "Gene Munster Says Apple's New iPhone 17e, iPad Air Could Lift June Quarter Growth Above Street Estimates",
+      "Gold in your iPhone? The value of the gold in these items",
+      "Apple unveils new MacBooks powered by M5 chips",
+      "Barclays Maintains Underweight on Apple, Raises Price Target to $248",
+      "Apple unveils low-cost iPhone 17e with a price tag of $599",
+      "Berkshire Hathaway's New CEO Omits Bank of America And Chevron In Letter To Shareholders After Warren Buffett's Exit",
+      "Assessing Apple (AAPL) Valuation As Tariffs Pressure Hardware And Services Growth Supports Earnings",
+      "Apple’s Houston Manufacturing Push Ties AI Servers To Supply Resilience",
+      "Bitcoin Is Going Through 'Valley Of Despair,' Michael Saylor Says, Comparing It To Apple",
+      "Market Chatter: Apple in Talks With Google for Hosting New Siri",
+      "The Zacks Analyst Blog Highlights Apple, TotalEnergies, Boston Scientific and Good Times Restaurants",
+      "Is Apple (AAPL) Still Fairly Priced After Recent Services Revenue Strength?",
+      "Tim Cook Teases Apple Launch On Monday: Here's What To Expect",
+      "Samsung shocks Apple in smartphone war",
+      "Nvidia earnings, Apple CEO teases product launches: Tech Support",
+      "Investors Heavily Search Apple Inc. (AAPL): Here is What You Need to Know",
+      "The Saturday Spread: Using Volatility Skew as a Smart Money Gauge (TGT, AAPL, ORCL)",
+      "Apple, Microsoft, AppLovin And An Energy Stock: CNBC's 'Final Trades'",
+      "Apple vs. Adobe: Which AI-Driven Tech Stock Has an Edge Now?",
+      "Apple just fired warning shot that could reshape 2026 iPhone cycle",
+      "George Soros Is Doubling Down on Apple Stock. Should You Also Load Up on AAPL in 2026?",
+      "Apple (AAPL) Got The Best Free Ride, Says Jim Cramer",
+      "How Apple's Contrarian 'Nah, We're Good' Strategy Defies Amazon, Microsoft, Alphabet",
+      "Why smart glasses could be the next big gadget hit in 2026",
+      "Mark Zuckerberg Reveals He Consulted Apple's Tim Cook On Teen Social Media Safety, Hails Free Expression In Court Testimony",
+      "What Apple (AAPL)'s Houston AI Manufacturing Push Means For Shareholders",
+      "Smart Money Is Betting Big In AAPL Options",
+      "AAPD’s 3.43% Yield Looks Great Until You See the 40% Hangover",
+      "How Apple’s Lazy AI Strategy Could Crush the Competition",
+      "Apple To Move Part Of Mac Mini Production To Texas, Expand Houston Facility",
+      "Apple's Services Growth Ride on Strong Content & Games: What's Ahead?",
+      "Apple (AAPL): Buy, Sell, or Hold Post Q4 Earnings?",
+      "Apple stock quietly moves on a surprising Al hardware bet",
+      "Wedbush Maintains Bullish View on Apple (AAPL) despite AI Delay Concerns",
+      "Apple’s Stock Recovery Is No Recovery At All",
+      "Apple Stock: Is AAPL Underperforming the Technology Sector?",
+      "Nike, Big Tech, furniture stocks reacting to SCOTUS tariff ruling",
+      "Dan Ives Says Apple's AI Alone Could Be Worth $1.5 Trillion — And Almost No One Is Pricing It In",
+      "As Apple Tests AI Devices, Should You Buy AAPL Stock Here?",
+      "Apple’s AI Wearables Push Extends Ecosystem Beyond Core Devices",
+      "Transports, Apple's AI plans, oil prices: Market Takeaways",
+      "Is Apple unveiling a low-cost MacBook Air next month?",
+      "Berkshire reduces Apple stake, FDA to review Moderna vaccine",
+      "Apple (AAPL) Just Overtook the 20-Day Moving Average"
+    ],
+    "top_positive_drivers": [
+      "Gene Munster Says Apple's New iPhone 17e, iPad Air Could Lift June Quarter Growth Above Street Estimates",
+      "AI Takes Center Stage: Apple Launches M5 MacBook Air, Pro And New XDR Display",
+      "The Zacks Analyst Blog Highlights Apple, TotalEnergies, Boston Scientific and Good Times Restaurants"
+    ],
+    "top_negative_drivers": [
+      "Bitcoin Is Going Through 'Valley Of Despair,' Michael Saylor Says, Comparing It To Apple",
+      "Is Apple (AAPL) Still Fairly Priced After Recent Services Revenue Strength?",
+      "Barclays Maintains Underweight on Apple, Raises Price Target to $248"
+    ],
+    "weight_concentration": 0.029,
+>>>>>>> fix/positive_bias
     "contrastive": {
       "winner": "positive",
       "runner_up": "negative",
       "third_place": "neutral",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "winner_score": 0.4755,
       "runner_up_score": 0.4047,
@@ -10090,11 +12340,57 @@
           "net_direction": 0.0065,
           "weighted_winner": 0.7967,
           "weighted_runner_up": 0.0169,
+=======
+      "winner_score": 0.5534,
+      "runner_up_score": 0.3652,
+      "third_score": 0.0813,
+      "score_gap": 0.1882,
+      "total_push_toward_winner": 0.3429,
+      "total_push_toward_runner_up": -0.1547,
+      "n_favouring_winner": 29,
+      "n_favouring_runner_up": 18,
+      "neutral_effect": "balanced",
+      "top_gap_drivers": [
+        {
+          "title": "Gene Munster Says Apple's New iPhone 17e, iPad Air Could Lift June Quarter Growth Above Street Estimates",
+          "net_direction": 0.0385,
+          "weighted_winner": 0.8045,
+          "weighted_runner_up": 0.0126,
+          "favours": "positive"
+        },
+        {
+          "title": "Bitcoin Is Going Through 'Valley Of Despair,' Michael Saylor Says, Comparing It To Apple",
+          "net_direction": -0.0351,
+          "weighted_winner": 0.0003,
+          "weighted_runner_up": 0.7213,
+          "favours": "negative"
+        },
+        {
+          "title": "AI Takes Center Stage: Apple Launches M5 MacBook Air, Pro And New XDR Display",
+          "net_direction": 0.0329,
+          "weighted_winner": 0.7658,
+          "weighted_runner_up": 0.0888,
+          "favours": "positive"
+        },
+        {
+          "title": "The Zacks Analyst Blog Highlights Apple, TotalEnergies, Boston Scientific and Good Times Restaurants",
+          "net_direction": 0.0315,
+          "weighted_winner": 0.6584,
+          "weighted_runner_up": 0.0113,
+          "favours": "positive"
+        },
+        {
+          "title": "Assessing Apple (AAPL) Valuation As Tariffs Pressure Hardware And Services Growth Supports Earnings",
+          "net_direction": 0.0256,
+          "weighted_winner": 0.5491,
+          "weighted_runner_up": 0.0231,
+>>>>>>> fix/positive_bias
           "favours": "positive"
         }
       ],
       "all_contributions": [
         {
+<<<<<<< HEAD
           "title": "Apple Stock Ticks Up After a Surprise From China—and a Legal Win",
           "net_direction": 0.007,
           "weighted_winner": 0.852,
@@ -11281,10 +13577,247 @@
           "title": "Intel Stock Surged 10% on Apple Chip Manufacturing Hopes—Time to Buy?",
           "net_direction": 0.0013,
           "weighted_winner": 0.1579,
+=======
+          "title": "Gene Munster Says Apple's New iPhone 17e, iPad Air Could Lift June Quarter Growth Above Street Estimates",
+          "net_direction": 0.0385,
+          "weighted_winner": 0.8045,
+          "weighted_runner_up": 0.0126,
+          "favours": "positive"
+        },
+        {
+          "title": "Bitcoin Is Going Through 'Valley Of Despair,' Michael Saylor Says, Comparing It To Apple",
+          "net_direction": -0.0351,
+          "weighted_winner": 0.0003,
+          "weighted_runner_up": 0.7213,
+          "favours": "negative"
+        },
+        {
+          "title": "AI Takes Center Stage: Apple Launches M5 MacBook Air, Pro And New XDR Display",
+          "net_direction": 0.0329,
+          "weighted_winner": 0.7658,
+          "weighted_runner_up": 0.0888,
+          "favours": "positive"
+        },
+        {
+          "title": "The Zacks Analyst Blog Highlights Apple, TotalEnergies, Boston Scientific and Good Times Restaurants",
+          "net_direction": 0.0315,
+          "weighted_winner": 0.6584,
+          "weighted_runner_up": 0.0113,
+          "favours": "positive"
+        },
+        {
+          "title": "Assessing Apple (AAPL) Valuation As Tariffs Pressure Hardware And Services Growth Supports Earnings",
+          "net_direction": 0.0256,
+          "weighted_winner": 0.5491,
+          "weighted_runner_up": 0.0231,
+          "favours": "positive"
+        },
+        {
+          "title": "Is Apple (AAPL) Still Fairly Priced After Recent Services Revenue Strength?",
+          "net_direction": -0.0239,
+          "weighted_winner": 0.0399,
+          "weighted_runner_up": 0.5317,
+          "favours": "negative"
+        },
+        {
+          "title": "Tim Cook Teases Apple Launch On Monday: Here's What To Expect",
+          "net_direction": 0.0239,
+          "weighted_winner": 0.5399,
+          "weighted_runner_up": 0.0488,
+          "favours": "positive"
+        },
+        {
+          "title": "Berkshire Hathaway's New CEO Omits Bank of America And Chevron In Letter To Shareholders After Warren Buffett's Exit",
+          "net_direction": 0.0226,
+          "weighted_winner": 0.6181,
+          "weighted_runner_up": 0.154,
+          "favours": "positive"
+        },
+        {
+          "title": "Apple, Microsoft, AppLovin And An Energy Stock: CNBC's 'Final Trades'",
+          "net_direction": 0.0177,
+          "weighted_winner": 0.3669,
+          "weighted_runner_up": 0.0034,
+          "favours": "positive"
+        },
+        {
+          "title": "Apple unveils new MacBooks powered by M5 chips",
+          "net_direction": 0.0171,
+          "weighted_winner": 0.5345,
+          "weighted_runner_up": 0.1828,
+          "favours": "positive"
+        },
+        {
+          "title": "Apple’s Houston Manufacturing Push Ties AI Servers To Supply Resilience",
+          "net_direction": 0.0167,
+          "weighted_winner": 0.5064,
+          "weighted_runner_up": 0.1638,
+          "favours": "positive"
+        },
+        {
+          "title": "Nvidia earnings, Apple CEO teases product launches: Tech Support",
+          "net_direction": -0.0164,
+          "weighted_winner": 0.0481,
+          "weighted_runner_up": 0.3854,
+          "favours": "negative"
+        },
+        {
+          "title": "Barclays Maintains Underweight on Apple, Raises Price Target to $248",
+          "net_direction": -0.0141,
+          "weighted_winner": 0.2377,
+          "weighted_runner_up": 0.5269,
+          "favours": "negative"
+        },
+        {
+          "title": "Apple just fired warning shot that could reshape 2026 iPhone cycle",
+          "net_direction": -0.014,
+          "weighted_winner": 0.0242,
+          "weighted_runner_up": 0.3129,
+          "favours": "negative"
+        },
+        {
+          "title": "George Soros Is Doubling Down on Apple Stock. Should You Also Load Up on AAPL in 2026?",
+          "net_direction": 0.0132,
+          "weighted_winner": 0.3061,
+          "weighted_runner_up": 0.0341,
+          "favours": "positive"
+        },
+        {
+          "title": "How Apple’s Lazy AI Strategy Could Crush the Competition",
+          "net_direction": -0.0106,
+          "weighted_winner": 0.0012,
+          "weighted_runner_up": 0.2198,
+          "favours": "negative"
+        },
+        {
+          "title": "Apple unveils low-cost iPhone 17e with a price tag of $599",
+          "net_direction": 0.0099,
+          "weighted_winner": 0.4317,
+          "weighted_runner_up": 0.2283,
+          "favours": "positive"
+        },
+        {
+          "title": "Apple's Services Growth Ride on Strong Content & Games: What's Ahead?",
+          "net_direction": 0.0099,
+          "weighted_winner": 0.2129,
+          "weighted_runner_up": 0.0098,
+          "favours": "positive"
+        },
+        {
+          "title": "Apple (AAPL): Buy, Sell, or Hold Post Q4 Earnings?",
+          "net_direction": 0.0093,
+          "weighted_winner": 0.1978,
+          "weighted_runner_up": 0.0063,
+          "favours": "positive"
+        },
+        {
+          "title": "Apple’s New AI Devices And U.S. Manufacturing Shift Weigh On Valuation",
+          "net_direction": 0.0091,
+          "weighted_winner": 0.4998,
+          "weighted_runner_up": 0.3134,
+          "favours": "positive"
+        },
+        {
+          "title": "AAPD’s 3.43% Yield Looks Great Until You See the 40% Hangover",
+          "net_direction": -0.0085,
+          "weighted_winner": 0.0208,
+          "weighted_runner_up": 0.1963,
+          "favours": "negative"
+        },
+        {
+          "title": "Wedbush Maintains Bullish View on Apple (AAPL) despite AI Delay Concerns",
+          "net_direction": 0.0082,
+          "weighted_winner": 0.1718,
+          "weighted_runner_up": 0.0031,
+          "favours": "positive"
+        },
+        {
+          "title": "Apple’s Stock Recovery Is No Recovery At All",
+          "net_direction": -0.0079,
+          "weighted_winner": 0.0025,
+          "weighted_runner_up": 0.1645,
+          "favours": "negative"
+        },
+        {
+          "title": "Investors Heavily Search Apple Inc. (AAPL): Here is What You Need to Know",
+          "net_direction": 0.0077,
+          "weighted_winner": 0.2909,
+          "weighted_runner_up": 0.1317,
+          "favours": "positive"
+        },
+        {
+          "title": "Gold in your iPhone? The value of the gold in these items",
+          "net_direction": -0.0076,
+          "weighted_winner": 0.2961,
+          "weighted_runner_up": 0.4522,
+          "favours": "negative"
+        },
+        {
+          "title": "Apple vs. Adobe: Which AI-Driven Tech Stock Has an Edge Now?",
+          "net_direction": 0.0074,
+          "weighted_winner": 0.2468,
+          "weighted_runner_up": 0.0944,
+          "favours": "positive"
+        },
+        {
+          "title": "Market Chatter: Apple in Talks With Google for Hosting New Siri",
+          "net_direction": 0.0068,
+          "weighted_winner": 0.4222,
+          "weighted_runner_up": 0.2825,
+          "favours": "positive"
+        },
+        {
+          "title": "Smart Money Is Betting Big In AAPL Options",
+          "net_direction": 0.0054,
+          "weighted_winner": 0.168,
+          "weighted_runner_up": 0.0575,
+          "favours": "positive"
+        },
+        {
+          "title": "Transports, Apple's AI plans, oil prices: Market Takeaways",
+          "net_direction": 0.0054,
+          "weighted_winner": 0.1161,
+          "weighted_runner_up": 0.0053,
+          "favours": "positive"
+        },
+        {
+          "title": "Berkshire reduces Apple stake, FDA to review Moderna vaccine",
+          "net_direction": -0.0052,
+          "weighted_winner": 0.0106,
+          "weighted_runner_up": 0.1181,
+          "favours": "negative"
+        },
+        {
+          "title": "Apple stock quietly moves on a surprising Al hardware bet",
+          "net_direction": 0.005,
+          "weighted_winner": 0.1356,
+          "weighted_runner_up": 0.0331,
+          "favours": "positive"
+        },
+        {
+          "title": "As Apple Tests AI Devices, Should You Buy AAPL Stock Here?",
+          "net_direction": 0.0046,
+          "weighted_winner": 0.1184,
+          "weighted_runner_up": 0.0233,
+          "favours": "positive"
+        },
+        {
+          "title": "Apple’s AI Wearables Push Extends Ecosystem Beyond Core Devices",
+          "net_direction": 0.0042,
+          "weighted_winner": 0.1082,
+          "weighted_runner_up": 0.0216,
+          "favours": "positive"
+        },
+        {
+          "title": "Apple Stock: Is AAPL Underperforming the Technology Sector?",
+          "net_direction": 0.0041,
+          "weighted_winner": 0.0876,
+>>>>>>> fix/positive_bias
           "weighted_runner_up": 0.0028,
           "favours": "positive"
         },
         {
+<<<<<<< HEAD
           "title": "Apple Just Dropped a Global Fitness Bombshell--And It's Not What You Think",
           "net_direction": 0.0012,
           "weighted_winner": 0.1768,
@@ -11379,10 +13912,93 @@
           "title": "Apple: Inventory Does Not Lie",
           "net_direction": -0.0011,
           "weighted_winner": 0.0042,
+=======
+          "title": "Apple (AAPL) Just Overtook the 20-Day Moving Average",
+          "net_direction": 0.0038,
+          "weighted_winner": 0.0943,
+          "weighted_runner_up": 0.0166,
+          "favours": "positive"
+        },
+        {
+          "title": "Apple’s AI Wearables And Product Week Could Reshape Long Term Growth",
+          "net_direction": -0.0037,
+          "weighted_winner": 0.3695,
+          "weighted_runner_up": 0.4462,
+          "favours": "negative"
+        },
+        {
+          "title": "Dan Ives Says Apple's AI Alone Could Be Worth $1.5 Trillion — And Almost No One Is Pricing It In",
+          "net_direction": -0.0018,
+          "weighted_winner": 0.0425,
+          "weighted_runner_up": 0.0786,
+          "favours": "negative"
+        },
+        {
+          "title": "Mark Zuckerberg Reveals He Consulted Apple's Tim Cook On Teen Social Media Safety, Hails Free Expression In Court Testimony",
+          "net_direction": -0.0016,
+          "weighted_winner": 0.1201,
+          "weighted_runner_up": 0.152,
+          "favours": "negative"
+        },
+        {
+          "title": "The Saturday Spread: Using Volatility Skew as a Smart Money Gauge (TGT, AAPL, ORCL)",
+          "net_direction": -0.0013,
+          "weighted_winner": 0.1902,
+          "weighted_runner_up": 0.2179,
+          "favours": "negative"
+        },
+        {
+          "title": "Apple (AAPL) Got The Best Free Ride, Says Jim Cramer",
+          "net_direction": -0.0013,
+          "weighted_winner": 0.14,
+          "weighted_runner_up": 0.1666,
+          "favours": "negative"
+        },
+        {
+          "title": "Why smart glasses could be the next big gadget hit in 2026",
+          "net_direction": 0.0012,
+          "weighted_winner": 0.1104,
+          "weighted_runner_up": 0.0866,
+          "favours": "positive"
+        },
+        {
+          "title": "How Apple's Contrarian 'Nah, We're Good' Strategy Defies Amazon, Microsoft, Alphabet",
+          "net_direction": -0.001,
+          "weighted_winner": 0.1456,
+          "weighted_runner_up": 0.1653,
+          "favours": "negative"
+        },
+        {
+          "title": "Is Apple unveiling a low-cost MacBook Air next month?",
+          "net_direction": 0.0007,
+          "weighted_winner": 0.0687,
+          "weighted_runner_up": 0.0533,
+          "favours": "positive"
+        },
+        {
+          "title": "Samsung shocks Apple in smartphone war",
+          "net_direction": -0.0006,
+          "weighted_winner": 0.2461,
+          "weighted_runner_up": 0.2589,
+          "favours": "negative"
+        },
+        {
+          "title": "Apple To Move Part Of Mac Mini Production To Texas, Expand Houston Facility",
+          "net_direction": 0.0005,
+          "weighted_winner": 0.1165,
+          "weighted_runner_up": 0.1061,
+          "favours": "positive"
+        },
+        {
+          "title": "What Apple (AAPL)'s Houston AI Manufacturing Push Means For Shareholders",
+          "net_direction": -0.0001,
+          "weighted_winner": 0.1329,
+>>>>>>> fix/positive_bias
           "weighted_runner_up": 0.1359,
           "favours": "negative"
         },
         {
+<<<<<<< HEAD
           "title": "2M Raised in 100 Days: Seoul Beauty Club Rides K-Beauty Export Surge to the U.S.",
           "net_direction": 0.001,
           "weighted_winner": 0.1756,
@@ -11987,12 +14603,19 @@
           "weighted_winner": 0.1706,
           "weighted_runner_up": 0.1141,
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
+=======
+          "title": "Nike, Big Tech, furniture stocks reacting to SCOTUS tariff ruling",
+          "net_direction": 0.0,
+          "weighted_winner": 0.0582,
+          "weighted_runner_up": 0.0575,
+>>>>>>> fix/positive_bias
           "favours": "positive"
         }
       ]
     },
     "minimum_flip_set": {
       "flip_possible": true,
+<<<<<<< HEAD
 <<<<<<< HEAD
       "flip_set_size": 12,
       "flip_set_titles": [
@@ -12231,11 +14854,56 @@
           "interpretation": "Article is 2 day(s) old; EWMA λ=0.9700 gives recency weight 0.9409 (λ^2 = 0.97^2)"
 =======
         "title": "As Apple Tests AI Devices, Should You Buy AAPL Stock Here?",
+=======
+      "flip_set_size": 1,
+      "flip_set_titles": [
+        "Gene Munster Says Apple's New iPhone 17e, iPad Air Could Lift June Quarter Growth Above Street Estimates"
+      ],
+      "new_label": "positive",
+      "articles_total": 47
+    }
+  },
+  "layer_3_pipeline": {
+    "prediction_window_days": 7,
+    "weight_formula": "final_weight = sqrt(recency_weight * impact_horizon_weight); recency_weight = lambda^days_ago (EWMA, lambda interpolated by window size); impact_horizon_weight = exp(-((horizon_days - days_ago - W/2)^2) / (2*(W/2)^2))",
+    "articles": [
+      {
+        "title": "AI Takes Center Stage: Apple Launches M5 MacBook Air, Pro And New XDR Display",
+        "recency_explanation": {
+          "days_ago": 1,
+          "recency_weight": 0.932,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 1 day(s) old; EWMA λ=0.9320 gives recency weight 0.9320 (λ^1 = 0.932^1)"
+        },
+        "horizon_explanation": {
+          "event_type": "product launch, partnership, contract, or business development",
+          "horizon_category": "SHORT_TERM",
+          "horizon_days": 5,
+          "horizon_confidence": 0.7114,
+          "impact_day": 4.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.8346,
+          "interpretation": "event type: product launch, partnership, contract, or business development → SHORT_TERM horizon (5 days); expected impact day = 4 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(4-3.5)²/(2×3.5²)) = 0.8346"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.932,
+          "impact_horizon_weight": 0.8346,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.8819,
+          "interpretation": "geometric mean: sqrt(0.9320 × 0.8346) = 0.8819"
+        },
+        "final_weight": 0.8819
+      },
+      {
+        "title": "Apple’s AI Wearables And Product Week Could Reshape Long Term Growth",
+>>>>>>> fix/positive_bias
         "recency_explanation": {
           "days_ago": 2,
           "recency_weight": 0.8686,
           "ewma_lambda": 0.932,
           "interpretation": "Article is 2 day(s) old; EWMA λ=0.9320 gives recency weight 0.8686 (λ^2 = 0.932^2)"
+<<<<<<< HEAD
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
         },
         "horizon_explanation": {
@@ -15226,10 +17894,481 @@
           "interpretation": "geometric mean: sqrt(0.6730 × 0.3821) = 0.5071"
         },
         "final_weight": 0.5071
+=======
+        },
+        "horizon_explanation": {
+          "event_type": "product launch, partnership, contract, or business development",
+          "horizon_category": "SHORT_TERM",
+          "horizon_days": 5,
+          "horizon_confidence": 0.5239,
+          "impact_day": 3.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.8413,
+          "interpretation": "event type: product launch, partnership, contract, or business development → SHORT_TERM horizon (5 days); expected impact day = 3 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(3-3.5)²/(2×3.5²)) = 0.8413"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.8686,
+          "impact_horizon_weight": 0.8413,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.8548,
+          "interpretation": "geometric mean: sqrt(0.8686 × 0.8413) = 0.8548"
+        },
+        "final_weight": 0.8548
+      },
+      {
+        "title": "Apple’s New AI Devices And U.S. Manufacturing Shift Weigh On Valuation",
+        "recency_explanation": {
+          "days_ago": 2,
+          "recency_weight": 0.8686,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 2 day(s) old; EWMA λ=0.9320 gives recency weight 0.8686 (λ^2 = 0.932^2)"
+        },
+        "horizon_explanation": {
+          "event_type": "product launch, partnership, contract, or business development",
+          "horizon_category": "SHORT_TERM",
+          "horizon_days": 5,
+          "horizon_confidence": 0.4657,
+          "impact_day": 3.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.8332,
+          "interpretation": "event type: product launch, partnership, contract, or business development → SHORT_TERM horizon (5 days); expected impact day = 3 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(3-3.5)²/(2×3.5²)) = 0.8332"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.8686,
+          "impact_horizon_weight": 0.8332,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.8507,
+          "interpretation": "geometric mean: sqrt(0.8686 × 0.8332) = 0.8507"
+        },
+        "final_weight": 0.8507
+      },
+      {
+        "title": "Gene Munster Says Apple's New iPhone 17e, iPad Air Could Lift June Quarter Growth Above Street Estimates",
+        "recency_explanation": {
+          "days_ago": 1,
+          "recency_weight": 0.932,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 1 day(s) old; EWMA λ=0.9320 gives recency weight 0.9320 (λ^1 = 0.932^1)"
+        },
+        "horizon_explanation": {
+          "event_type": "product launch, partnership, contract, or business development",
+          "horizon_category": "SHORT_TERM",
+          "horizon_days": 5,
+          "horizon_confidence": 0.3308,
+          "impact_day": 4.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.7681,
+          "interpretation": "event type: product launch, partnership, contract, or business development → SHORT_TERM horizon (5 days); expected impact day = 4 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(4-3.5)²/(2×3.5²)) = 0.7681"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.932,
+          "impact_horizon_weight": 0.7681,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.8461,
+          "interpretation": "geometric mean: sqrt(0.9320 × 0.7681) = 0.8461"
+        },
+        "final_weight": 0.8461
+      },
+      {
+        "title": "Gold in your iPhone? The value of the gold in these items",
+        "recency_explanation": {
+          "days_ago": 1,
+          "recency_weight": 0.932,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 1 day(s) old; EWMA λ=0.9320 gives recency weight 0.9320 (λ^1 = 0.932^1)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.2241,
+          "impact_day": 0.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.7384,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = 0 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(0-3.5)²/(2×3.5²)) = 0.7384"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.932,
+          "impact_horizon_weight": 0.7384,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.8296,
+          "interpretation": "geometric mean: sqrt(0.9320 × 0.7384) = 0.8296"
+        },
+        "final_weight": 0.8296
+      },
+      {
+        "title": "Apple unveils new MacBooks powered by M5 chips",
+        "recency_explanation": {
+          "days_ago": 0,
+          "recency_weight": 1.0,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 0 day(s) old; EWMA λ=0.9320 gives recency weight 1.0000 (λ^0 = 0.932^0)"
+        },
+        "horizon_explanation": {
+          "event_type": "product launch, partnership, contract, or business development",
+          "horizon_category": "SHORT_TERM",
+          "horizon_days": 5,
+          "horizon_confidence": 0.3313,
+          "impact_day": 5.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.6795,
+          "interpretation": "event type: product launch, partnership, contract, or business development → SHORT_TERM horizon (5 days); expected impact day = 5 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(5-3.5)²/(2×3.5²)) = 0.6795"
+        },
+        "combination_explanation": {
+          "recency_weight": 1.0,
+          "impact_horizon_weight": 0.6795,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.8243,
+          "interpretation": "geometric mean: sqrt(1.0000 × 0.6795) = 0.8243"
+        },
+        "final_weight": 0.8243
+      },
+      {
+        "title": "Barclays Maintains Underweight on Apple, Raises Price Target to $248",
+        "recency_explanation": {
+          "days_ago": 1,
+          "recency_weight": 0.932,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 1 day(s) old; EWMA λ=0.9320 gives recency weight 0.9320 (λ^1 = 0.932^1)"
+        },
+        "horizon_explanation": {
+          "event_type": "analyst upgrade, downgrade, or price target revision",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.3548,
+          "impact_day": 0.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.7259,
+          "interpretation": "event type: analyst upgrade, downgrade, or price target revision → IMMEDIATE horizon (1 days); expected impact day = 0 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(0-3.5)²/(2×3.5²)) = 0.7259"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.932,
+          "impact_horizon_weight": 0.7259,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.8225,
+          "interpretation": "geometric mean: sqrt(0.9320 × 0.7259) = 0.8225"
+        },
+        "final_weight": 0.8225
+      },
+      {
+        "title": "Apple unveils low-cost iPhone 17e with a price tag of $599",
+        "recency_explanation": {
+          "days_ago": 1,
+          "recency_weight": 0.932,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 1 day(s) old; EWMA λ=0.9320 gives recency weight 0.9320 (λ^1 = 0.932^1)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.3717,
+          "impact_day": 0.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.7242,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = 0 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(0-3.5)²/(2×3.5²)) = 0.7242"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.932,
+          "impact_horizon_weight": 0.7242,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.8216,
+          "interpretation": "geometric mean: sqrt(0.9320 × 0.7242) = 0.8216"
+        },
+        "final_weight": 0.8216
+      },
+      {
+        "title": "Berkshire Hathaway's New CEO Omits Bank of America And Chevron In Letter To Shareholders After Warren Buffett's Exit",
+        "recency_explanation": {
+          "days_ago": 0,
+          "recency_weight": 1.0,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 0 day(s) old; EWMA λ=0.9320 gives recency weight 1.0000 (λ^0 = 0.932^0)"
+        },
+        "horizon_explanation": {
+          "event_type": "CEO change, executive departure, or board appointment",
+          "horizon_category": "SHORT_TERM",
+          "horizon_days": 5,
+          "horizon_confidence": 0.2407,
+          "impact_day": 5.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.6628,
+          "interpretation": "event type: CEO change, executive departure, or board appointment → SHORT_TERM horizon (5 days); expected impact day = 5 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(5-3.5)²/(2×3.5²)) = 0.6628"
+        },
+        "combination_explanation": {
+          "recency_weight": 1.0,
+          "impact_horizon_weight": 0.6628,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.8141,
+          "interpretation": "geometric mean: sqrt(1.0000 × 0.6628) = 0.8141"
+        },
+        "final_weight": 0.8141
+      },
+      {
+        "title": "Assessing Apple (AAPL) Valuation As Tariffs Pressure Hardware And Services Growth Supports Earnings",
+        "recency_explanation": {
+          "days_ago": 1,
+          "recency_weight": 0.932,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 1 day(s) old; EWMA λ=0.9320 gives recency weight 0.9320 (λ^1 = 0.932^1)"
+        },
+        "horizon_explanation": {
+          "event_type": "lawsuit, investigation, regulatory action, or compliance issue",
+          "horizon_category": "SHORT_TERM",
+          "horizon_days": 5,
+          "horizon_confidence": 0.1854,
+          "impact_day": 4.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.6575,
+          "interpretation": "event type: lawsuit, investigation, regulatory action, or compliance issue → SHORT_TERM horizon (5 days); expected impact day = 4 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(4-3.5)²/(2×3.5²)) = 0.6575"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.932,
+          "impact_horizon_weight": 0.6575,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.7828,
+          "interpretation": "geometric mean: sqrt(0.9320 × 0.6575) = 0.7828"
+        },
+        "final_weight": 0.7828
+      },
+      {
+        "title": "Apple’s Houston Manufacturing Push Ties AI Servers To Supply Resilience",
+        "recency_explanation": {
+          "days_ago": 2,
+          "recency_weight": 0.8686,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 2 day(s) old; EWMA λ=0.9320 gives recency weight 0.8686 (λ^2 = 0.932^2)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.2081,
+          "impact_day": -1.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.6297,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -1 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-1-3.5)²/(2×3.5²)) = 0.6297"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.8686,
+          "impact_horizon_weight": 0.6297,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.7396,
+          "interpretation": "geometric mean: sqrt(0.8686 × 0.6297) = 0.7396"
+        },
+        "final_weight": 0.7396
+      },
+      {
+        "title": "Bitcoin Is Going Through 'Valley Of Despair,' Michael Saylor Says, Comparing It To Apple",
+        "recency_explanation": {
+          "days_ago": 2,
+          "recency_weight": 0.8686,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 2 day(s) old; EWMA λ=0.9320 gives recency weight 0.8686 (λ^2 = 0.932^2)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.3237,
+          "impact_day": -1.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.6138,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -1 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-1-3.5)²/(2×3.5²)) = 0.6138"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.8686,
+          "impact_horizon_weight": 0.6138,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.7302,
+          "interpretation": "geometric mean: sqrt(0.8686 × 0.6138) = 0.7302"
+        },
+        "final_weight": 0.7302
+      },
+      {
+        "title": "Market Chatter: Apple in Talks With Google for Hosting New Siri",
+        "recency_explanation": {
+          "days_ago": 2,
+          "recency_weight": 0.8686,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 2 day(s) old; EWMA λ=0.9320 gives recency weight 0.8686 (λ^2 = 0.932^2)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.5557,
+          "impact_day": -1.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.5817,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -1 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-1-3.5)²/(2×3.5²)) = 0.5817"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.8686,
+          "impact_horizon_weight": 0.5817,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.7109,
+          "interpretation": "geometric mean: sqrt(0.8686 × 0.5817) = 0.7109"
+        },
+        "final_weight": 0.7109
+      },
+      {
+        "title": "The Zacks Analyst Blog Highlights Apple, TotalEnergies, Boston Scientific and Good Times Restaurants",
+        "recency_explanation": {
+          "days_ago": 1,
+          "recency_weight": 0.932,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 1 day(s) old; EWMA λ=0.9320 gives recency weight 0.9320 (λ^1 = 0.932^1)"
+        },
+        "horizon_explanation": {
+          "event_type": "earnings report, guidance, or financial results",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.2081,
+          "impact_day": 0.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.4967,
+          "interpretation": "event type: earnings report, guidance, or financial results → IMMEDIATE horizon (1 days); expected impact day = 0 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(0-3.5)²/(2×3.5²)) = 0.4967"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.932,
+          "impact_horizon_weight": 0.4967,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.6804,
+          "interpretation": "geometric mean: sqrt(0.9320 × 0.4967) = 0.6804"
+        },
+        "final_weight": 0.6804
+      },
+      {
+        "title": "Is Apple (AAPL) Still Fairly Priced After Recent Services Revenue Strength?",
+        "recency_explanation": {
+          "days_ago": 2,
+          "recency_weight": 0.8686,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 2 day(s) old; EWMA λ=0.9320 gives recency weight 0.8686 (λ^2 = 0.932^2)"
+        },
+        "horizon_explanation": {
+          "event_type": "earnings report, guidance, or financial results",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.1615,
+          "impact_day": -1.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.4376,
+          "interpretation": "event type: earnings report, guidance, or financial results → IMMEDIATE horizon (1 days); expected impact day = -1 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-1-3.5)²/(2×3.5²)) = 0.4376"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.8686,
+          "impact_horizon_weight": 0.4376,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.6165,
+          "interpretation": "geometric mean: sqrt(0.8686 × 0.4376) = 0.6165"
+        },
+        "final_weight": 0.6165
+      },
+      {
+        "title": "Tim Cook Teases Apple Launch On Monday: Here's What To Expect",
+        "recency_explanation": {
+          "days_ago": 6,
+          "recency_weight": 0.6554,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 6 day(s) old; EWMA λ=0.9320 gives recency weight 0.6554 (λ^6 = 0.932^6)"
+        },
+        "horizon_explanation": {
+          "event_type": "product launch, partnership, contract, or business development",
+          "horizon_category": "SHORT_TERM",
+          "horizon_days": 5,
+          "horizon_confidence": 0.6191,
+          "impact_day": -1.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.573,
+          "interpretation": "event type: product launch, partnership, contract, or business development → SHORT_TERM horizon (5 days); expected impact day = -1 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-1-3.5)²/(2×3.5²)) = 0.5730"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.6554,
+          "impact_horizon_weight": 0.573,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.6128,
+          "interpretation": "geometric mean: sqrt(0.6554 × 0.5730) = 0.6128"
+        },
+        "final_weight": 0.6128
+      },
+      {
+        "title": "Samsung shocks Apple in smartphone war",
+        "recency_explanation": {
+          "days_ago": 5,
+          "recency_weight": 0.7032,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 5 day(s) old; EWMA λ=0.9320 gives recency weight 0.7032 (λ^5 = 0.932^5)"
+        },
+        "horizon_explanation": {
+          "event_type": "earnings report, guidance, or financial results",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.275,
+          "impact_day": -4.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.3695,
+          "interpretation": "event type: earnings report, guidance, or financial results → IMMEDIATE horizon (1 days); expected impact day = -4 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-4-3.5)²/(2×3.5²)) = 0.3695"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.7032,
+          "impact_horizon_weight": 0.3695,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.5097,
+          "interpretation": "geometric mean: sqrt(0.7032 × 0.3695) = 0.5097"
+        },
+        "final_weight": 0.5097
+      },
+      {
+        "title": "Nvidia earnings, Apple CEO teases product launches: Tech Support",
+        "recency_explanation": {
+          "days_ago": 6,
+          "recency_weight": 0.6554,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 6 day(s) old; EWMA λ=0.9320 gives recency weight 0.6554 (λ^6 = 0.932^6)"
+        },
+        "horizon_explanation": {
+          "event_type": "earnings report, guidance, or financial results",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.3869,
+          "impact_day": -5.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.3367,
+          "interpretation": "event type: earnings report, guidance, or financial results → IMMEDIATE horizon (1 days); expected impact day = -5 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-5-3.5)²/(2×3.5²)) = 0.3367"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.6554,
+          "impact_horizon_weight": 0.3367,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.4698,
+          "interpretation": "geometric mean: sqrt(0.6554 × 0.3367) = 0.4698"
+        },
+        "final_weight": 0.4698
+>>>>>>> fix/positive_bias
       },
       {
         "title": "Investors Heavily Search Apple Inc. (AAPL): Here is What You Need to Know",
         "recency_explanation": {
+<<<<<<< HEAD
           "days_ago": 13,
           "recency_weight": 0.673,
           "ewma_lambda": 0.97,
@@ -15901,11 +19040,41 @@
           "interpretation": "Article is 21 day(s) old; EWMA λ=0.9700 gives recency weight 0.5275 (λ^21 = 0.97^21)"
 =======
         "title": "Apple Faces FTC Scrutiny And Siri AI Delays What It Means For AAPL",
+=======
+          "days_ago": 5,
+          "recency_weight": 0.7032,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 5 day(s) old; EWMA λ=0.9320 gives recency weight 0.7032 (λ^5 = 0.932^5)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.2223,
+          "impact_day": -4.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.2749,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -4 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-4-3.5)²/(2×3.5²)) = 0.2749"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.7032,
+          "impact_horizon_weight": 0.2749,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.4397,
+          "interpretation": "geometric mean: sqrt(0.7032 × 0.2749) = 0.4397"
+        },
+        "final_weight": 0.4397
+      },
+      {
+        "title": "The Saturday Spread: Using Volatility Skew as a Smart Money Gauge (TGT, AAPL, ORCL)",
+>>>>>>> fix/positive_bias
         "recency_explanation": {
           "days_ago": 9,
           "recency_weight": 0.5306,
           "ewma_lambda": 0.932,
           "interpretation": "Article is 9 day(s) old; EWMA λ=0.9320 gives recency weight 0.5306 (λ^9 = 0.932^9)"
+<<<<<<< HEAD
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
         },
         "horizon_explanation": {
@@ -18850,11 +22019,289 @@
       },
       {
         "title": "Jim Cramer on Apple (AAPL): “Doesn’t Hurt That They’ve Avoided Spending Hundreds of Billions of Dollars on Data Centers”",
+=======
+        },
+        "horizon_explanation": {
+          "event_type": "product launch, partnership, contract, or business development",
+          "horizon_category": "SHORT_TERM",
+          "horizon_days": 5,
+          "horizon_confidence": 0.1716,
+          "impact_day": -4.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.3414,
+          "interpretation": "event type: product launch, partnership, contract, or business development → SHORT_TERM horizon (5 days); expected impact day = -4 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-4-3.5)²/(2×3.5²)) = 0.3414"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.5306,
+          "impact_horizon_weight": 0.3414,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.4256,
+          "interpretation": "geometric mean: sqrt(0.5306 × 0.3414) = 0.4256"
+        },
+        "final_weight": 0.4256
+      },
+      {
+        "title": "Apple, Microsoft, AppLovin And An Energy Stock: CNBC's 'Final Trades'",
+        "recency_explanation": {
+          "days_ago": 9,
+          "recency_weight": 0.5306,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 9 day(s) old; EWMA λ=0.9320 gives recency weight 0.5306 (λ^9 = 0.932^9)"
+        },
+        "horizon_explanation": {
+          "event_type": "earnings report, guidance, or financial results",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.2514,
+          "impact_day": -8.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.2944,
+          "interpretation": "event type: earnings report, guidance, or financial results → IMMEDIATE horizon (1 days); expected impact day = -8 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-8-3.5)²/(2×3.5²)) = 0.2944"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.5306,
+          "impact_horizon_weight": 0.2944,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.3952,
+          "interpretation": "geometric mean: sqrt(0.5306 × 0.2944) = 0.3952"
+        },
+        "final_weight": 0.3952
+      },
+      {
+        "title": "Apple vs. Adobe: Which AI-Driven Tech Stock Has an Edge Now?",
+        "recency_explanation": {
+          "days_ago": 6,
+          "recency_weight": 0.6554,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 6 day(s) old; EWMA λ=0.9320 gives recency weight 0.6554 (λ^6 = 0.932^6)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.218,
+          "impact_day": -5.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.1855,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -5 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-5-3.5)²/(2×3.5²)) = 0.1855"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.6554,
+          "impact_horizon_weight": 0.1855,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.3486,
+          "interpretation": "geometric mean: sqrt(0.6554 × 0.1855) = 0.3486"
+        },
+        "final_weight": 0.3486
+      },
+      {
+        "title": "Apple just fired warning shot that could reshape 2026 iPhone cycle",
+        "recency_explanation": {
+          "days_ago": 6,
+          "recency_weight": 0.6554,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 6 day(s) old; EWMA λ=0.9320 gives recency weight 0.6554 (λ^6 = 0.932^6)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.2528,
+          "impact_day": -5.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.1821,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -5 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-5-3.5)²/(2×3.5²)) = 0.1821"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.6554,
+          "impact_horizon_weight": 0.1821,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.3455,
+          "interpretation": "geometric mean: sqrt(0.6554 × 0.1821) = 0.3455"
+        },
+        "final_weight": 0.3455
+      },
+      {
+        "title": "George Soros Is Doubling Down on Apple Stock. Should You Also Load Up on AAPL in 2026?",
+        "recency_explanation": {
+          "days_ago": 6,
+          "recency_weight": 0.6554,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 6 day(s) old; EWMA λ=0.9320 gives recency weight 0.6554 (λ^6 = 0.932^6)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.2727,
+          "impact_day": -5.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.1802,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -5 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-5-3.5)²/(2×3.5²)) = 0.1802"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.6554,
+          "impact_horizon_weight": 0.1802,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.3437,
+          "interpretation": "geometric mean: sqrt(0.6554 × 0.1802) = 0.3437"
+        },
+        "final_weight": 0.3437
+      },
+      {
+        "title": "Apple (AAPL) Got The Best Free Ride, Says Jim Cramer",
+        "recency_explanation": {
+          "days_ago": 6,
+          "recency_weight": 0.6554,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 6 day(s) old; EWMA λ=0.9320 gives recency weight 0.6554 (λ^6 = 0.932^6)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.2907,
+          "impact_day": -5.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.1785,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -5 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-5-3.5)²/(2×3.5²)) = 0.1785"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.6554,
+          "impact_horizon_weight": 0.1785,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.342,
+          "interpretation": "geometric mean: sqrt(0.6554 × 0.1785) = 0.3420"
+        },
+        "final_weight": 0.342
+      },
+      {
+        "title": "How Apple's Contrarian 'Nah, We're Good' Strategy Defies Amazon, Microsoft, Alphabet",
+        "recency_explanation": {
+          "days_ago": 14,
+          "recency_weight": 0.3731,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 14 day(s) old; EWMA λ=0.9320 gives recency weight 0.3731 (λ^14 = 0.932^14)"
+        },
+        "horizon_explanation": {
+          "event_type": "lawsuit, investigation, regulatory action, or compliance issue",
+          "horizon_category": "SHORT_TERM",
+          "horizon_days": 5,
+          "horizon_confidence": 0.1717,
+          "impact_day": -9.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.3088,
+          "interpretation": "event type: lawsuit, investigation, regulatory action, or compliance issue → SHORT_TERM horizon (5 days); expected impact day = -9 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-9-3.5)²/(2×3.5²)) = 0.3088"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.3731,
+          "impact_horizon_weight": 0.3088,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.3394,
+          "interpretation": "geometric mean: sqrt(0.3731 × 0.3088) = 0.3394"
+        },
+        "final_weight": 0.3394
+      },
+      {
+        "title": "Why smart glasses could be the next big gadget hit in 2026",
+        "recency_explanation": {
+          "days_ago": 13,
+          "recency_weight": 0.4003,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 13 day(s) old; EWMA λ=0.9320 gives recency weight 0.4003 (λ^13 = 0.932^13)"
+        },
+        "horizon_explanation": {
+          "event_type": "lawsuit, investigation, regulatory action, or compliance issue",
+          "horizon_category": "SHORT_TERM",
+          "horizon_days": 5,
+          "horizon_confidence": 0.1299,
+          "impact_day": -8.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.2545,
+          "interpretation": "event type: lawsuit, investigation, regulatory action, or compliance issue → SHORT_TERM horizon (5 days); expected impact day = -8 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-8-3.5)²/(2×3.5²)) = 0.2545"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.4003,
+          "impact_horizon_weight": 0.2545,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.3192,
+          "interpretation": "geometric mean: sqrt(0.4003 × 0.2545) = 0.3192"
+        },
+        "final_weight": 0.3192
+      },
+      {
+        "title": "Mark Zuckerberg Reveals He Consulted Apple's Tim Cook On Teen Social Media Safety, Hails Free Expression In Court Testimony",
+        "recency_explanation": {
+          "days_ago": 13,
+          "recency_weight": 0.4003,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 13 day(s) old; EWMA λ=0.9320 gives recency weight 0.4003 (λ^13 = 0.932^13)"
+        },
+        "horizon_explanation": {
+          "event_type": "lawsuit, investigation, regulatory action, or compliance issue",
+          "horizon_category": "SHORT_TERM",
+          "horizon_days": 5,
+          "horizon_confidence": 0.203,
+          "impact_day": -8.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.2444,
+          "interpretation": "event type: lawsuit, investigation, regulatory action, or compliance issue → SHORT_TERM horizon (5 days); expected impact day = -8 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-8-3.5)²/(2×3.5²)) = 0.2444"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.4003,
+          "impact_horizon_weight": 0.2444,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.3128,
+          "interpretation": "geometric mean: sqrt(0.4003 × 0.2444) = 0.3128"
+        },
+        "final_weight": 0.3128
+      },
+      {
+        "title": "What Apple (AAPL)'s Houston AI Manufacturing Push Means For Shareholders",
+        "recency_explanation": {
+          "days_ago": 8,
+          "recency_weight": 0.5693,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 8 day(s) old; EWMA λ=0.9320 gives recency weight 0.5693 (λ^8 = 0.932^8)"
+        },
+        "horizon_explanation": {
+          "event_type": "lawsuit, investigation, regulatory action, or compliance issue",
+          "horizon_category": "SHORT_TERM",
+          "horizon_days": 5,
+          "horizon_confidence": 0.1984,
+          "impact_day": -3.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.1342,
+          "interpretation": "event type: lawsuit, investigation, regulatory action, or compliance issue → SHORT_TERM horizon (5 days); expected impact day = -3 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-3-3.5)²/(2×3.5²)) = 0.1342"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.5693,
+          "impact_horizon_weight": 0.1342,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.2764,
+          "interpretation": "geometric mean: sqrt(0.5693 × 0.1342) = 0.2764"
+        },
+        "final_weight": 0.2764
+      },
+      {
+        "title": "Smart Money Is Betting Big In AAPL Options",
+>>>>>>> fix/positive_bias
         "recency_explanation": {
           "days_ago": 12,
           "recency_weight": 0.4295,
           "ewma_lambda": 0.932,
           "interpretation": "Article is 12 day(s) old; EWMA λ=0.9320 gives recency weight 0.4295 (λ^12 = 0.932^12)"
+<<<<<<< HEAD
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
         },
         "horizon_explanation": {
@@ -19360,6 +22807,299 @@
           "gaussian_sigma": 3.5,
           "impact_horizon_weight": 0.05,
           "interpretation": "event type: earnings report or financial results → IMMEDIATE horizon (3 days); expected impact day = -9 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-9-3.5)²/(2×3.5²)) = 0.0500"
+=======
+        },
+        "horizon_explanation": {
+          "event_type": "earnings report, guidance, or financial results",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.2128,
+          "impact_day": -11.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.1336,
+          "interpretation": "event type: earnings report, guidance, or financial results → IMMEDIATE horizon (1 days); expected impact day = -11 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-11-3.5)²/(2×3.5²)) = 0.1336"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.4295,
+          "impact_horizon_weight": 0.1336,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.2395,
+          "interpretation": "geometric mean: sqrt(0.4295 × 0.1336) = 0.2395"
+        },
+        "final_weight": 0.2395
+      },
+      {
+        "title": "AAPD’s 3.43% Yield Looks Great Until You See the 40% Hangover",
+        "recency_explanation": {
+          "days_ago": 9,
+          "recency_weight": 0.5306,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 9 day(s) old; EWMA λ=0.9320 gives recency weight 0.5306 (λ^9 = 0.932^9)"
+        },
+        "horizon_explanation": {
+          "event_type": "share buyback, dividend, stock offering, or debt issuance",
+          "horizon_category": "SHORT_TERM",
+          "horizon_days": 5,
+          "horizon_confidence": 0.246,
+          "impact_day": -4.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.1007,
+          "interpretation": "event type: share buyback, dividend, stock offering, or debt issuance → SHORT_TERM horizon (5 days); expected impact day = -4 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-4-3.5)²/(2×3.5²)) = 0.1007"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.5306,
+          "impact_horizon_weight": 0.1007,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.2311,
+          "interpretation": "geometric mean: sqrt(0.5306 × 0.1007) = 0.2311"
+        },
+        "final_weight": 0.2311
+      },
+      {
+        "title": "How Apple’s Lazy AI Strategy Could Crush the Competition",
+        "recency_explanation": {
+          "days_ago": 9,
+          "recency_weight": 0.5306,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 9 day(s) old; EWMA λ=0.9320 gives recency weight 0.5306 (λ^9 = 0.932^9)"
+        },
+        "horizon_explanation": {
+          "event_type": "lawsuit, investigation, regulatory action, or compliance issue",
+          "horizon_category": "SHORT_TERM",
+          "horizon_days": 5,
+          "horizon_confidence": 0.19,
+          "impact_day": -4.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.1007,
+          "interpretation": "event type: lawsuit, investigation, regulatory action, or compliance issue → SHORT_TERM horizon (5 days); expected impact day = -4 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-4-3.5)²/(2×3.5²)) = 0.1007"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.5306,
+          "impact_horizon_weight": 0.1007,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.2311,
+          "interpretation": "geometric mean: sqrt(0.5306 × 0.1007) = 0.2311"
+        },
+        "final_weight": 0.2311
+      },
+      {
+        "title": "Apple To Move Part Of Mac Mini Production To Texas, Expand Houston Facility",
+        "recency_explanation": {
+          "days_ago": 8,
+          "recency_weight": 0.5693,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 8 day(s) old; EWMA λ=0.9320 gives recency weight 0.5693 (λ^8 = 0.932^8)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.2492,
+          "impact_day": -7.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.0933,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -7 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-7-3.5)²/(2×3.5²)) = 0.0933"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.5693,
+          "impact_horizon_weight": 0.0933,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.2305,
+          "interpretation": "geometric mean: sqrt(0.5693 × 0.0933) = 0.2305"
+        },
+        "final_weight": 0.2305
+      },
+      {
+        "title": "Apple's Services Growth Ride on Strong Content & Games: What's Ahead?",
+        "recency_explanation": {
+          "days_ago": 8,
+          "recency_weight": 0.5693,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 8 day(s) old; EWMA λ=0.9320 gives recency weight 0.5693 (λ^8 = 0.932^8)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.2645,
+          "impact_day": -7.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.0928,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -7 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-7-3.5)²/(2×3.5²)) = 0.0928"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.5693,
+          "impact_horizon_weight": 0.0928,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.2299,
+          "interpretation": "geometric mean: sqrt(0.5693 × 0.0928) = 0.2299"
+        },
+        "final_weight": 0.2299
+      },
+      {
+        "title": "Apple (AAPL): Buy, Sell, or Hold Post Q4 Earnings?",
+        "recency_explanation": {
+          "days_ago": 12,
+          "recency_weight": 0.4295,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 12 day(s) old; EWMA λ=0.9320 gives recency weight 0.4295 (λ^12 = 0.932^12)"
+        },
+        "horizon_explanation": {
+          "event_type": "earnings report, guidance, or financial results",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.6749,
+          "impact_day": -11.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.1057,
+          "interpretation": "event type: earnings report, guidance, or financial results → IMMEDIATE horizon (1 days); expected impact day = -11 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-11-3.5)²/(2×3.5²)) = 0.1057"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.4295,
+          "impact_horizon_weight": 0.1057,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.2131,
+          "interpretation": "geometric mean: sqrt(0.4295 × 0.1057) = 0.2131"
+        },
+        "final_weight": 0.2131
+      },
+      {
+        "title": "Apple stock quietly moves on a surprising Al hardware bet",
+        "recency_explanation": {
+          "days_ago": 13,
+          "recency_weight": 0.4003,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 13 day(s) old; EWMA λ=0.9320 gives recency weight 0.4003 (λ^13 = 0.932^13)"
+        },
+        "horizon_explanation": {
+          "event_type": "product launch, partnership, contract, or business development",
+          "horizon_category": "SHORT_TERM",
+          "horizon_days": 5,
+          "horizon_confidence": 0.1971,
+          "impact_day": -8.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.095,
+          "interpretation": "event type: product launch, partnership, contract, or business development → SHORT_TERM horizon (5 days); expected impact day = -8 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-8-3.5)²/(2×3.5²)) = 0.0950"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.4003,
+          "impact_horizon_weight": 0.095,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.195,
+          "interpretation": "geometric mean: sqrt(0.4003 × 0.0950) = 0.1950"
+        },
+        "final_weight": 0.195
+      },
+      {
+        "title": "Wedbush Maintains Bullish View on Apple (AAPL) despite AI Delay Concerns",
+        "recency_explanation": {
+          "days_ago": 9,
+          "recency_weight": 0.5306,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 9 day(s) old; EWMA λ=0.9320 gives recency weight 0.5306 (λ^9 = 0.932^9)"
+        },
+        "horizon_explanation": {
+          "event_type": "analyst upgrade, downgrade, or price target revision",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.215,
+          "impact_day": -8.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.0675,
+          "interpretation": "event type: analyst upgrade, downgrade, or price target revision → IMMEDIATE horizon (1 days); expected impact day = -8 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-8-3.5)²/(2×3.5²)) = 0.0675"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.5306,
+          "impact_horizon_weight": 0.0675,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.1893,
+          "interpretation": "geometric mean: sqrt(0.5306 × 0.0675) = 0.1893"
+        },
+        "final_weight": 0.1893
+      },
+      {
+        "title": "Apple’s Stock Recovery Is No Recovery At All",
+        "recency_explanation": {
+          "days_ago": 9,
+          "recency_weight": 0.5306,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 9 day(s) old; EWMA λ=0.9320 gives recency weight 0.5306 (λ^9 = 0.932^9)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.3217,
+          "impact_day": -8.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.0662,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -8 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-8-3.5)²/(2×3.5²)) = 0.0662"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.5306,
+          "impact_horizon_weight": 0.0662,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.1874,
+          "interpretation": "geometric mean: sqrt(0.5306 × 0.0662) = 0.1874"
+        },
+        "final_weight": 0.1874
+      },
+      {
+        "title": "Apple Stock: Is AAPL Underperforming the Technology Sector?",
+        "recency_explanation": {
+          "days_ago": 9,
+          "recency_weight": 0.5306,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 9 day(s) old; EWMA λ=0.9320 gives recency weight 0.5306 (λ^9 = 0.932^9)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.6391,
+          "impact_day": -8.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.0622,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -8 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-8-3.5)²/(2×3.5²)) = 0.0622"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.5306,
+          "impact_horizon_weight": 0.0622,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.1816,
+          "interpretation": "geometric mean: sqrt(0.5306 × 0.0622) = 0.1816"
+        },
+        "final_weight": 0.1816
+      },
+      {
+        "title": "Nike, Big Tech, furniture stocks reacting to SCOTUS tariff ruling",
+        "recency_explanation": {
+          "days_ago": 12,
+          "recency_weight": 0.4295,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 12 day(s) old; EWMA λ=0.9320 gives recency weight 0.4295 (λ^12 = 0.932^12)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.3511,
+          "impact_day": -11.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.05,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -11 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-11-3.5)²/(2×3.5²)) = 0.0500"
+>>>>>>> fix/positive_bias
         },
         "combination_explanation": {
           "recency_weight": 0.4295,
@@ -19369,6 +23109,7 @@
           "interpretation": "geometric mean: sqrt(0.4295 × 0.0500) = 0.1465"
         },
         "final_weight": 0.1465
+<<<<<<< HEAD
       }
     ],
     "horizon_distribution": {
@@ -19395,10 +23136,238 @@
         "neutral": 0
       },
       "general market commentary or opinion": {
+=======
+      },
+      {
+        "title": "Dan Ives Says Apple's AI Alone Could Be Worth $1.5 Trillion — And Almost No One Is Pricing It In",
+        "recency_explanation": {
+          "days_ago": 12,
+          "recency_weight": 0.4295,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 12 day(s) old; EWMA λ=0.9320 gives recency weight 0.4295 (λ^12 = 0.932^12)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.2357,
+          "impact_day": -11.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.05,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -11 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-11-3.5)²/(2×3.5²)) = 0.0500"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.4295,
+          "impact_horizon_weight": 0.05,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.1465,
+          "interpretation": "geometric mean: sqrt(0.4295 × 0.0500) = 0.1465"
+        },
+        "final_weight": 0.1465
+      },
+      {
+        "title": "As Apple Tests AI Devices, Should You Buy AAPL Stock Here?",
+        "recency_explanation": {
+          "days_ago": 12,
+          "recency_weight": 0.4295,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 12 day(s) old; EWMA λ=0.9320 gives recency weight 0.4295 (λ^12 = 0.932^12)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.3768,
+          "impact_day": -11.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.05,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -11 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-11-3.5)²/(2×3.5²)) = 0.0500"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.4295,
+          "impact_horizon_weight": 0.05,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.1465,
+          "interpretation": "geometric mean: sqrt(0.4295 × 0.0500) = 0.1465"
+        },
+        "final_weight": 0.1465
+      },
+      {
+        "title": "Apple’s AI Wearables Push Extends Ecosystem Beyond Core Devices",
+        "recency_explanation": {
+          "days_ago": 13,
+          "recency_weight": 0.4003,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 13 day(s) old; EWMA λ=0.9320 gives recency weight 0.4003 (λ^13 = 0.932^13)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.2094,
+          "impact_day": -12.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.05,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -12 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-12-3.5)²/(2×3.5²)) = 0.0500"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.4003,
+          "impact_horizon_weight": 0.05,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.1415,
+          "interpretation": "geometric mean: sqrt(0.4003 × 0.0500) = 0.1415"
+        },
+        "final_weight": 0.1415
+      },
+      {
+        "title": "Transports, Apple's AI plans, oil prices: Market Takeaways",
+        "recency_explanation": {
+          "days_ago": 13,
+          "recency_weight": 0.4003,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 13 day(s) old; EWMA λ=0.9320 gives recency weight 0.4003 (λ^13 = 0.932^13)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.3764,
+          "impact_day": -12.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.05,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -12 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-12-3.5)²/(2×3.5²)) = 0.0500"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.4003,
+          "impact_horizon_weight": 0.05,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.1415,
+          "interpretation": "geometric mean: sqrt(0.4003 × 0.0500) = 0.1415"
+        },
+        "final_weight": 0.1415
+      },
+      {
+        "title": "Is Apple unveiling a low-cost MacBook Air next month?",
+        "recency_explanation": {
+          "days_ago": 13,
+          "recency_weight": 0.4003,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 13 day(s) old; EWMA λ=0.9320 gives recency weight 0.4003 (λ^13 = 0.932^13)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.333,
+          "impact_day": -12.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.05,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -12 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-12-3.5)²/(2×3.5²)) = 0.0500"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.4003,
+          "impact_horizon_weight": 0.05,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.1415,
+          "interpretation": "geometric mean: sqrt(0.4003 × 0.0500) = 0.1415"
+        },
+        "final_weight": 0.1415
+      },
+      {
+        "title": "Berkshire reduces Apple stake, FDA to review Moderna vaccine",
+        "recency_explanation": {
+          "days_ago": 14,
+          "recency_weight": 0.3731,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 14 day(s) old; EWMA λ=0.9320 gives recency weight 0.3731 (λ^14 = 0.932^14)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.2063,
+          "impact_day": -13.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.05,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -13 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-13-3.5)²/(2×3.5²)) = 0.0500"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.3731,
+          "impact_horizon_weight": 0.05,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.1366,
+          "interpretation": "geometric mean: sqrt(0.3731 × 0.0500) = 0.1366"
+        },
+        "final_weight": 0.1366
+      },
+      {
+        "title": "Apple (AAPL) Just Overtook the 20-Day Moving Average",
+        "recency_explanation": {
+          "days_ago": 14,
+          "recency_weight": 0.3731,
+          "ewma_lambda": 0.932,
+          "interpretation": "Article is 14 day(s) old; EWMA λ=0.9320 gives recency weight 0.3731 (λ^14 = 0.932^14)"
+        },
+        "horizon_explanation": {
+          "event_type": "market commentary, sector outlook, or opinion piece",
+          "horizon_category": "IMMEDIATE",
+          "horizon_days": 1,
+          "horizon_confidence": 0.3548,
+          "impact_day": -13.0,
+          "gaussian_mu": 3.5,
+          "gaussian_sigma": 3.5,
+          "impact_horizon_weight": 0.05,
+          "interpretation": "event type: market commentary, sector outlook, or opinion piece → IMMEDIATE horizon (1 days); expected impact day = -13 (horizon_days - days_ago); Gaussian centre μ=3.5, σ=3.5; weight = exp(-(-13-3.5)²/(2×3.5²)) = 0.0500"
+        },
+        "combination_explanation": {
+          "recency_weight": 0.3731,
+          "impact_horizon_weight": 0.05,
+          "combination_method": "geometric_mean",
+          "final_weight": 0.1366,
+          "interpretation": "geometric mean: sqrt(0.3731 × 0.0500) = 0.1366"
+        },
+        "final_weight": 0.1366
+      }
+    ],
+    "horizon_distribution": {
+      "IMMEDIATE": 31,
+      "SHORT_TERM": 16,
+      "MEDIUM_TERM": 0,
+      "LONG_TERM": 0
+    },
+    "event_type_distribution": {
+      "product launch, partnership, contract, or business development": 8,
+      "market commentary, sector outlook, or opinion piece": 22,
+      "analyst upgrade, downgrade, or price target revision": 2,
+      "CEO change, executive departure, or board appointment": 1,
+      "lawsuit, investigation, regulatory action, or compliance issue": 6,
+      "earnings report, guidance, or financial results": 7,
+      "share buyback, dividend, stock offering, or debt issuance": 1
+    },
+    "event_type_sentiment": {
+      "product launch, partnership, contract, or business development": {
+        "positive": 8,
+        "negative": 0,
+        "neutral": 0
+      },
+      "market commentary, sector outlook, or opinion piece": {
+        "positive": 18,
+        "negative": 4,
+        "neutral": 0
+      },
+      "analyst upgrade, downgrade, or price target revision": {
+>>>>>>> fix/positive_bias
         "positive": 2,
         "negative": 0,
         "neutral": 0
       },
+<<<<<<< HEAD
       "earnings report or financial results": {
         "positive": 1,
         "negative": 0,
@@ -19414,6 +23383,37 @@
     "summary": "The model predicted a POSITIVE label with a 51.9% score share based on 8 articles over 7 days.\nThe top article is \"As Apple Tests AI Devices, Should You Buy AAPL Stock Here?\" with a positive sentiment of 23.2% of the total weight.\nThe label margin is moderate (0.157), but reliability is LOW due to source concentration and news lookback being shorter than the intended backward window.",
     "prompt_used": "DATA (read-only — narrate these facts, do not add any others):\nCompany: Apple Inc. (AAPL)\nPrediction label: POSITIVE with a 51.9% score share, based on 8 articles over 7 days.\nScore breakdown: Positive 51.9%, Negative 36.2%, Neutral 12.0%.\nThe label margin is moderate (0.157), meaning a moderate gap between the top two sentiment scores.\nTop article: \"As Apple Tests AI Devices, Should You Buy AAPL Stock Here?\" (POSITIVE sentiment, 23.2% of total weight). Removing it would change the label.\nAverage article age: 8.4 days.\n- Key words supporting positive: Buy, grab, Stock, growth, perfect\nReliability is LOW due to: source concentration (yahoo has 100% of articles); news lookback (11 days) is shorter than the intended backward window (14 days).\n\nWrite exactly 3 sentences starting with \"The model predicted\":\n- Sentence 1: state the predicted label in ALL-CAPS exactly as given (e.g. \"a NEUTRAL label\"), score share (not \"confidence\"), and article count. The label must appear in UPPER CASE.\n- Sentence 2: name the top article and its sentiment.\n- Sentence 3: write exactly \"The label margin is moderate (0.157), but reliability is LOW due to \" followed by ALL specific reason(s) from the warning above — do not omit any.\n\nGRAMMAR RULE: \"due to\" must be followed by noun phrases (e.g. \"due to a narrow decision margin; source concentration\"), NOT by clauses (e.g. NOT \"due to the label was decided\").",
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
+=======
+      "CEO change, executive departure, or board appointment": {
+        "positive": 1,
+        "negative": 0,
+        "neutral": 0
+      },
+      "lawsuit, investigation, regulatory action, or compliance issue": {
+        "positive": 5,
+        "negative": 1,
+        "neutral": 0
+      },
+      "earnings report, guidance, or financial results": {
+        "positive": 5,
+        "negative": 2,
+        "neutral": 0
+      },
+      "share buyback, dividend, stock offering, or debt issuance": {
+        "positive": 0,
+        "negative": 1,
+        "neutral": 0
+      }
+    },
+    "avg_days_ago": 7.06,
+    "avg_recency_weight": 0.6418,
+    "avg_horizon_weight": 0.3277
+  },
+  "narrative": {
+    "model": "llama3.2:3b",
+    "summary": "The model predicted a NEGATIVE label with a 36.5% score share based on 47 articles over 7 days.\nThe top article is \"AI Takes Center Stage: Apple Launches M5 MacBook Air, Pro And New XDR Display\" with a positive sentiment.\nThe label margin is moderate (0.188), but reliability is LOW due to confidence is below threshold; source concentration (yahoo has 83% of articles).",
+    "prompt_used": "DATA (read-only — narrate these facts, do not add any others):\nCompany: Apple Inc. (AAPL)\nPrediction label: NEGATIVE with a 36.5% score share, based on 47 articles over 7 days.\nScore breakdown: Positive 55.3%, Negative 36.5%, Neutral 8.1%.\nThe label margin is moderate (0.188), meaning a moderate gap between the top two sentiment scores.\nTop article: \"AI Takes Center Stage: Apple Launches M5 MacBook Air, Pro And New XDR Display\" (POSITIVE sentiment, 4.3% of total weight). Removing it would change the label.\nAverage article age: 7.1 days.\n- Key words supporting negative: Inc, Despair, downturn, crash, October\nReliability is LOW due to: confidence is below threshold; source concentration (yahoo has 83% of articles).\n\nWrite exactly 3 sentences starting with \"The model predicted\":\n- Sentence 1: state the predicted label in ALL-CAPS exactly as given (e.g. \"a NEUTRAL label\"), score share (not \"confidence\"), and article count. The label must appear in UPPER CASE.\n- Sentence 2: name the top article and its sentiment.\n- Sentence 3: write exactly \"The label margin is moderate (0.188), but reliability is LOW due to \" followed by ALL specific reason(s) from the warning above — do not omit any.\n\nGRAMMAR RULE: \"due to\" must be followed by noun phrases (e.g. \"due to a narrow decision margin; source concentration\"), NOT by clauses (e.g. NOT \"due to the label was decided\").",
+>>>>>>> fix/positive_bias
     "ollama_available": true,
     "fallback_used": false,
     "fallback_summary": null,
@@ -19422,6 +23422,7 @@
   "storylines": {
     "storylines": [
       {
+<<<<<<< HEAD
 <<<<<<< HEAD
         "label": "Tim Cook's investment boosts stock prices significantly.",
         "keyword_label": "cook, tim cook, tim",
@@ -19438,15 +23439,50 @@
         "articles_count": 2,
         "weighted_score": 1.1871,
         "contribution_score": 1.053,
+=======
+        "label": "Tech giant faces financial and regulatory challenges.",
+        "keyword_label": "apple, recovery, stock",
+        "articles_count": 8,
+        "weighted_score": 2.9482,
+        "contribution_score": 1.6445,
+        "sentiment_group": "negative",
+        "sentiment": {
+          "dominant": "negative",
+          "positive": 0,
+          "negative": 8,
+          "neutral": 0
+        },
+        "top_titles": [
+          "Bitcoin Is Going Through 'Valley Of Despair,' Michael Saylor Says, Comparing It To Apple",
+          "How Apple’s Lazy AI Strategy Could Crush the Competition",
+          "Apple just fired warning shot that could reshape 2026 iPhone cycle",
+          "Nvidia earnings, Apple CEO teases product launches: Tech Support",
+          "Apple’s Stock Recovery Is No Recovery At All",
+          "AAPD’s 3.43% Yield Looks Great Until You See the 40% Hangover",
+          "Is Apple (AAPL) Still Fairly Priced After Recent Services Revenue Strength?",
+          "Berkshire reduces Apple stake, FDA to review Moderna vaccine"
+        ]
+      },
+      {
+        "label": "Services segment drives revenue and growth.",
+        "keyword_label": "services, services growth, apple",
+        "articles_count": 2,
+        "weighted_score": 1.0127,
+        "contribution_score": 0.655,
+>>>>>>> fix/positive_bias
         "sentiment_group": "positive",
         "sentiment": {
           "dominant": "positive",
           "positive": 2,
+<<<<<<< HEAD
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
+=======
+>>>>>>> fix/positive_bias
           "negative": 0,
           "neutral": 0
         },
         "top_titles": [
+<<<<<<< HEAD
 <<<<<<< HEAD
           "Apple CEO Tim Cook Just Gave Nike Investors 3 Million Reasons to Cheer",
           "Nike (NKE) Jumps 4.6% as Tim Cook Hikes Stake",
@@ -19469,10 +23505,27 @@
         "sentiment": {
           "dominant": "positive",
           "positive": 7,
+=======
+          "Assessing Apple (AAPL) Valuation As Tariffs Pressure Hardware And Services Growth Supports Earnings",
+          "Apple's Services Growth Ride on Strong Content & Games: What's Ahead?"
+        ]
+      },
+      {
+        "label": "Investment in AI manufacturing boosts supply chain.",
+        "keyword_label": "manufacturing push, push, manufacturing",
+        "articles_count": 2,
+        "weighted_score": 1.016,
+        "contribution_score": 0.5808,
+        "sentiment_group": "positive",
+        "sentiment": {
+          "dominant": "positive",
+          "positive": 2,
+>>>>>>> fix/positive_bias
           "negative": 0,
           "neutral": 0
         },
         "top_titles": [
+<<<<<<< HEAD
           "Apple Stock Ticks Up After a Surprise From China—and a Legal Win",
           "Apple Stock Rises Ahead of 2026. What's Driving the Growth",
           "Services Rides on Apple TV and Arcade: What's Ahead for Apple Stock?",
@@ -19492,10 +23545,27 @@
         "sentiment": {
           "dominant": "positive",
           "positive": 6,
+=======
+          "Apple’s Houston Manufacturing Push Ties AI Servers To Supply Resilience",
+          "What Apple (AAPL)'s Houston AI Manufacturing Push Means For Shareholders"
+        ]
+      },
+      {
+        "label": "New budget-friendly products expected to disrupt market.",
+        "keyword_label": "low, low cost, apple",
+        "articles_count": 2,
+        "weighted_score": 0.9631,
+        "contribution_score": 0.5276,
+        "sentiment_group": "positive",
+        "sentiment": {
+          "dominant": "positive",
+          "positive": 2,
+>>>>>>> fix/positive_bias
           "negative": 0,
           "neutral": 0
         },
         "top_titles": [
+<<<<<<< HEAD
           "JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reaches Parity",
           "Apple iPhone 17 Wait Times Fall as Supply Meets Demand",
           "Lead times across the iPhone  17 series are moderating: analyst",
@@ -19556,10 +23626,27 @@
         "sentiment": {
           "dominant": "positive",
           "positive": 4,
+=======
+          "Apple unveils low-cost iPhone 17e with a price tag of $599",
+          "Is Apple unveiling a low-cost MacBook Air next month?"
+        ]
+      },
+      {
+        "label": "AI wearables expand product ecosystem significantly.",
+        "keyword_label": "wearables, apple, apple ai",
+        "articles_count": 2,
+        "weighted_score": 0.9963,
+        "contribution_score": 0.406,
+        "sentiment_group": "positive",
+        "sentiment": {
+          "dominant": "positive",
+          "positive": 2,
+>>>>>>> fix/positive_bias
           "negative": 0,
           "neutral": 0
         },
         "top_titles": [
+<<<<<<< HEAD
           "1 Unstoppable Stock That Could Join Nvidia, Alphabet, Apple, and Microsoft in the $3 Trillion Club in 2026",
           "Apple's $4 Trillion Comeback: Why It's Now Beating Nvidia, Microsoft, and Meta at Their Own Game",
           "1 Unstoppable Stock to Buy Before It Joins Nvidia, Apple, Microsoft, and Alphabet in the $3 Trillion Club",
@@ -19616,10 +23703,27 @@
         "sentiment": {
           "dominant": "positive",
           "positive": 4,
+=======
+          "Apple’s AI Wearables And Product Week Could Reshape Long Term Growth",
+          "Apple’s AI Wearables Push Extends Ecosystem Beyond Core Devices"
+        ]
+      },
+      {
+        "label": "AI technology sparks stock market uncertainty concerns",
+        "keyword_label": "apple, ai devices, ai",
+        "articles_count": 2,
+        "weighted_score": 0.9972,
+        "contribution_score": 0.3987,
+        "sentiment_group": "positive",
+        "sentiment": {
+          "dominant": "positive",
+          "positive": 2,
+>>>>>>> fix/positive_bias
           "negative": 0,
           "neutral": 0
         },
         "top_titles": [
+<<<<<<< HEAD
           "Euronet Worldwide (EEFT) Stock Is Up, What You Need To Know",
           "Apple Inc. (AAPL) Is a Trending Stock: Facts to Know Before Betting on It",
           "Investors Heavily Search Apple Inc. (AAPL): Here is What You Need to Know",
@@ -19679,10 +23783,27 @@
         "sentiment": {
           "dominant": "positive",
           "positive": 4,
+=======
+          "Apple’s New AI Devices And U.S. Manufacturing Shift Weigh On Valuation",
+          "As Apple Tests AI Devices, Should You Buy AAPL Stock Here?"
+        ]
+      },
+      {
+        "label": "Smart money bets on tech stocks' volatility.",
+        "keyword_label": "smart money, smart, aapl",
+        "articles_count": 2,
+        "weighted_score": 0.6651,
+        "contribution_score": 0.225,
+        "sentiment_group": "positive",
+        "sentiment": {
+          "dominant": "positive",
+          "positive": 2,
+>>>>>>> fix/positive_bias
           "negative": 0,
           "neutral": 0
         },
         "top_titles": [
+<<<<<<< HEAD
           "Medical Care Technologies (OTC PINK:MDCE) Achieves Global Distribution Approval from Apple's iOS App Store",
           "Apple (AAPL) Earns $320 Target as Services Strength Offsets App Store Slowdown",
           "Apple unveils the winners of the 2025 App Store Awards",
@@ -19760,6 +23881,14 @@
     ],
     "other_count": 6,
 >>>>>>> 60211f8 ( 'Content:' added for clearity when displaying contents)
+=======
+          "Smart Money Is Betting Big In AAPL Options",
+          "The Saturday Spread: Using Volatility Skew as a Smart Money Gauge (TGT, AAPL, ORCL)"
+        ]
+      }
+    ],
+    "other_count": 27,
+>>>>>>> fix/positive_bias
     "method": "tfidf_agglomerative_by_sentiment"
   }
 }

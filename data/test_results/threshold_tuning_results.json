@@ -1,0 +1,218 @@
+{
+  "source_results": "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\test_results\\evaluation_results.json",
+  "grid": {
+    "tau_pos_range": [
+      0.33,
+      0.7,
+      0.01
+    ],
+    "tau_neg_range": [
+      0.2,
+      0.6,
+      0.01
+    ]
+  },
+  "baseline": {
+    "accuracy": 0.4167,
+    "macro_precision": 0.3281,
+    "macro_recall": 0.3272,
+    "macro_f1": 0.3124,
+    "positive_rate": 0.1806
+  },
+  "best": {
+    "best_tau_pos": 0.56,
+    "best_tau_neg": 0.42,
+    "macro_f1": 0.332,
+    "accuracy": 0.4236,
+    "macro_precision": 0.3479,
+    "macro_recall": 0.3427,
+    "positive_rate": 0.1806,
+    "per_class": {
+      "negative": {
+        "precision": 0.186,
+        "recall": 0.1429,
+        "f1": 0.1616
+      },
+      "neutral": {
+        "precision": 0.4922,
+        "recall": 0.6786,
+        "f1": 0.5706
+      },
+      "positive": {
+        "precision": 0.3654,
+        "recall": 0.2065,
+        "f1": 0.2639
+      }
+    },
+    "confusion_matrix": {
+      "negative": {
+        "negative": 8,
+        "neutral": 41,
+        "positive": 7
+      },
+      "neutral": {
+        "neutral": 95,
+        "negative": 19,
+        "positive": 26
+      },
+      "positive": {
+        "neutral": 57,
+        "positive": 19,
+        "negative": 16
+      }
+    },
+    "candidates_checked": 1558
+  },
+  "top_n": [
+    {
+      "tau_pos": 0.56,
+      "tau_neg": 0.42,
+      "macro_f1": 0.332,
+      "accuracy": 0.4236,
+      "pos_rate": 0.1806,
+      "neg_recall": 0.1429,
+      "neu_recall": 0.6786,
+      "pos_recall": 0.2065
+    },
+    {
+      "tau_pos": 0.57,
+      "tau_neg": 0.42,
+      "macro_f1": 0.3306,
+      "accuracy": 0.441,
+      "pos_rate": 0.1285,
+      "neg_recall": 0.1429,
+      "neu_recall": 0.7429,
+      "pos_recall": 0.163
+    },
+    {
+      "tau_pos": 0.55,
+      "tau_neg": 0.42,
+      "macro_f1": 0.3303,
+      "accuracy": 0.4167,
+      "pos_rate": 0.2014,
+      "neg_recall": 0.1429,
+      "neu_recall": 0.6571,
+      "pos_recall": 0.2174
+    },
+    {
+      "tau_pos": 0.6,
+      "tau_neg": 0.42,
+      "macro_f1": 0.3278,
+      "accuracy": 0.4549,
+      "pos_rate": 0.0903,
+      "neg_recall": 0.1429,
+      "neu_recall": 0.7929,
+      "pos_recall": 0.1304
+    },
+    {
+      "tau_pos": 0.59,
+      "tau_neg": 0.42,
+      "macro_f1": 0.3259,
+      "accuracy": 0.4514,
+      "pos_rate": 0.0938,
+      "neg_recall": 0.1429,
+      "neu_recall": 0.7857,
+      "pos_recall": 0.1304
+    },
+    {
+      "tau_pos": 0.53,
+      "tau_neg": 0.42,
+      "macro_f1": 0.3223,
+      "accuracy": 0.3993,
+      "pos_rate": 0.2396,
+      "neg_recall": 0.1429,
+      "neu_recall": 0.6143,
+      "pos_recall": 0.2283
+    },
+    {
+      "tau_pos": 0.56,
+      "tau_neg": 0.41,
+      "macro_f1": 0.3222,
+      "accuracy": 0.4062,
+      "pos_rate": 0.1806,
+      "neg_recall": 0.1429,
+      "neu_recall": 0.6429,
+      "pos_recall": 0.2065
+    },
+    {
+      "tau_pos": 0.54,
+      "tau_neg": 0.42,
+      "macro_f1": 0.3221,
+      "accuracy": 0.4028,
+      "pos_rate": 0.2222,
+      "neg_recall": 0.1429,
+      "neu_recall": 0.6286,
+      "pos_recall": 0.2174
+    },
+    {
+      "tau_pos": 0.58,
+      "tau_neg": 0.42,
+      "macro_f1": 0.3221,
+      "accuracy": 0.4375,
+      "pos_rate": 0.1146,
+      "neg_recall": 0.1429,
+      "neu_recall": 0.75,
+      "pos_recall": 0.1413
+    },
+    {
+      "tau_pos": 0.57,
+      "tau_neg": 0.41,
+      "macro_f1": 0.3212,
+      "accuracy": 0.4236,
+      "pos_rate": 0.1285,
+      "neg_recall": 0.1429,
+      "neu_recall": 0.7071,
+      "pos_recall": 0.163
+    },
+    {
+      "tau_pos": 0.55,
+      "tau_neg": 0.41,
+      "macro_f1": 0.3203,
+      "accuracy": 0.3993,
+      "pos_rate": 0.2014,
+      "neg_recall": 0.1429,
+      "neu_recall": 0.6214,
+      "pos_recall": 0.2174
+    },
+    {
+      "tau_pos": 0.6,
+      "tau_neg": 0.41,
+      "macro_f1": 0.3187,
+      "accuracy": 0.4375,
+      "pos_rate": 0.0903,
+      "neg_recall": 0.1429,
+      "neu_recall": 0.7571,
+      "pos_recall": 0.1304
+    },
+    {
+      "tau_pos": 0.56,
+      "tau_neg": 0.4,
+      "macro_f1": 0.3185,
+      "accuracy": 0.3993,
+      "pos_rate": 0.1806,
+      "neg_recall": 0.1429,
+      "neu_recall": 0.6286,
+      "pos_recall": 0.2065
+    },
+    {
+      "tau_pos": 0.52,
+      "tau_neg": 0.42,
+      "macro_f1": 0.3178,
+      "accuracy": 0.3854,
+      "pos_rate": 0.2708,
+      "neg_recall": 0.1429,
+      "neu_recall": 0.5714,
+      "pos_recall": 0.25
+    },
+    {
+      "tau_pos": 0.57,
+      "tau_neg": 0.4,
+      "macro_f1": 0.3178,
+      "accuracy": 0.4167,
+      "pos_rate": 0.1285,
+      "neg_recall": 0.1429,
+      "neu_recall": 0.6929,
+      "pos_recall": 0.163
+    }
+  ]
+}

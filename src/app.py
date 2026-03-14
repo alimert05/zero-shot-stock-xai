@@ -58,35 +58,50 @@ _HORIZON_COLOURS = {
 }
 
 _EVENT_TYPE_INFO = {
-    "earnings report or financial results": {
-        "description": "Quarterly/annual earnings releases, revenue figures, profit margins, and financial guidance.",
-        "horizon": "IMMEDIATE (3 days)",
-        "why": "Markets react within hours to days as traders price in financial performance.",
+    "earnings report, guidance, or financial results": {
+        "description": "Quarterly or annual earnings releases, revenue or margin updates, profit warnings, and forward guidance disclosures.",
+        "horizon": "IMMEDIATE (0-1 days), secondary DIFFUSION (6-10 days)",
+        "why": "Earnings are priced almost instantly on Day 0 (Ball & Brown, 1968), but post-earnings announcement drift (PEAD) extends 60+ days for small caps (Bernard & Thomas, 1989, 1990).",
     },
-    "analyst rating, upgrade, or downgrade": {
-        "description": "Buy/sell/hold ratings, price target changes, and research notes from investment banks and analysts.",
-        "horizon": "SHORT-TERM (7 days)",
-        "why": "Analyst opinions influence institutional trading decisions over the following week.",
+    "analyst upgrade, downgrade, or price target revision": {
+        "description": "Broker upgrades, downgrades, initiations, price target revisions, and other analyst research signals.",
+        "horizon": "IMMEDIATE (0-1 days), secondary SHORT-TERM (2-5 days)",
+        "why": "Kim et al. (1997) show prices incorporate analyst signals within 5-15 minutes. Lloyd Davies & Canes (1978) find significance limited to 2 days.",
     },
-    "product launch, innovation, or technology": {
-        "description": "New product announcements, R&D breakthroughs, patent filings, and technology partnerships.",
-        "horizon": "SHORT-TERM (7 days)",
-        "why": "Product news generates initial buzz that settles within a week as the market assesses real impact.",
+    "product launch, partnership, contract, or business development": {
+        "description": "Product launches, technology milestones, customer wins, commercial partnerships, major contracts, and operational developments.",
+        "horizon": "SHORT-TERM (2-5 days), secondary DIFFUSION (6-10 days)",
+        "why": "Warren & Sorescu (2017) use a 5-day standard window. Markets need a few sessions to judge whether the announcement translates into real commercial impact.",
     },
-    "regulatory action, legal case, or investigation": {
-        "description": "Government investigations, lawsuits, compliance rulings, fines, and regulatory approvals.",
-        "horizon": "MEDIUM-TERM (14 days)",
-        "why": "Legal and regulatory outcomes unfold over weeks as details emerge and implications become clear.",
+    "share buyback, dividend, stock offering, or debt issuance": {
+        "description": "Share repurchases, dividend announcements, equity or debt issuance, refinancing, and other capital structure or payout decisions.",
+        "horizon": "SHORT-TERM (2-5 days), secondary EXTENDED (11-20 days)",
+        "why": "Vermaelen (1981) documents positive Day 0-2 reaction to buybacks. Post-announcement drift from signaling and capital structure adjustment extends over weeks.",
     },
-    "strategic restructuring, merger, or acquisition": {
-        "description": "M&A deals, spin-offs, major reorganisations, leadership changes, and strategic pivots.",
-        "horizon": "LONG-TERM (31 days)",
-        "why": "Structural changes take weeks to months for the market to fully evaluate and price in.",
+    "lawsuit, investigation, regulatory action, or compliance issue": {
+        "description": "Investigations, lawsuits, enforcement actions, regulatory probes, settlements, penalties, and major court or agency rulings.",
+        "horizon": "SHORT-TERM (2-5 days), secondary EXTENDED (11-20 days)",
+        "why": "Holthausen & Leftwich (1986) find CAR of -7.5% at [-1,0]. Investigation-to-filing gap has a median of 9 days (SCA literature), with ongoing uncertainty as scope clarifies.",
     },
-    "general market commentary or opinion": {
-        "description": "Broad market analysis, opinion columns, sector outlooks, and economic commentary mentioning the company.",
-        "horizon": "SHORT-TERM (7 days)",
-        "why": "Commentary sentiment fades quickly as new information replaces older opinions.",
+    "merger, acquisition, takeover, or corporate restructuring": {
+        "description": "Mergers, acquisitions, takeovers, divestitures, spin-offs, strategic reorganisations, and major portfolio reconfiguration announcements.",
+        "horizon": "DIFFUSION (6-10 days), secondary PERSISTENT (21-31 days)",
+        "why": "Target premiums are priced at [-1,+1], but deal uncertainty, regulatory approval, and integration risk are reassessed over weeks to months (Rosen, 2006).",
+    },
+    "CEO change, executive departure, or board appointment": {
+        "description": "CEO or CFO changes, board appointments, founder departures, activist developments, governance actions, and leadership transitions.",
+        "horizon": "SHORT-TERM (2-5 days), secondary DIFFUSION (6-10 days)",
+        "why": "CARs are significant in 3-5 day windows (Clayton, Hartzell & Rosenberg). Succession planning reduces uncertainty speed; outside successions increase volatility longer.",
+    },
+    "market commentary, sector outlook, or opinion piece": {
+        "description": "Macro or sector commentary, opinion pieces, thematic narratives, sentiment-driven coverage, and non-specific discussion mentioning the company.",
+        "horizon": "IMMEDIATE (0-1 days), secondary SHORT-TERM (2-5 days)",
+        "why": "Commentary-driven effects are short-lived with exponential decay (Barberis et al., 2015). Heston & Sinha (2016) show these fade as firm-specific information arrives.",
+    },
+    "financial distress, credit downgrade, or going concern warning": {
+        "description": "Credit rating downgrades, going concern audit opinions, financial distress signals, and survival risk indicators.",
+        "horizon": "PERSISTENT (21-31 days), secondary EXTENDED (11-20 days)",
+        "why": "Modelling choice: these represent ongoing conditions without clean event dates. Informational relevance persists over longer windows as uncertainty resolves (Altman, 1968; Campbell et al., 2008).",
     },
 }
 
@@ -337,7 +352,6 @@ def _run_full_pipeline(
             company_name=company_name,
             start_date=start_date_str,
             end_date=end_date_str,
-            num_articles=10000,
         )
     except RuntimeError as exc:
         progress.update(label="Pipeline failed", state="error")

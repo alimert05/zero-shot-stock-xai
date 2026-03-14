@@ -30,9 +30,16 @@ def _contains_name_or_ticker(text: str, company_name: str, ticker_re: re.Pattern
     return False
 
 _QUESTION_WORDS_RE = re.compile(
+<<<<<<< HEAD
     r"(?i)^(who|what|when|where|why|how|is|are|was|were|do|does|did|can|could|should|will|would)\b"
 )
 
+=======
+    r"(?i)^(who|what|when|where|why|how)\b"
+)
+
+
+>>>>>>> fix/positive_bias
 def _is_question_headline(title: str) -> bool:
     if not title:
         return False
@@ -188,3 +195,42 @@ def remove_duplicates(articles: list[dict]) -> list[dict]:
         len(articles), len(unique),
     )
     return unique
+<<<<<<< HEAD
+=======
+
+
+def filter_headline_content_duplicates(articles: list[dict]) -> list[dict]:
+    """Handle articles where headline and content are identical.
+
+    Case 1: headline == content, NOT a question -> clear content (headline-only)
+    Case 2: headline == content, IS a question  -> drop entirely (noisy clickbait)
+    """
+    kept: list[dict] = []
+    cleared_content = 0
+    dropped_question = 0
+
+    for article in articles:
+        title = (article.get("title") or "").strip()
+        content = (article.get("content") or "").strip()
+
+        if not title or not content:
+            kept.append(article)
+            continue
+
+        if title.lower() == content.lower():
+            if _is_question_headline(title):
+                dropped_question += 1
+                continue
+            else:
+                article["content"] = ""
+                cleared_content += 1
+
+        kept.append(article)
+
+    logger.info(
+        "filter_headline_content_duplicates: in=%d kept=%d | "
+        "cleared_content=%d dropped_question=%d",
+        len(articles), len(kept), cleared_content, dropped_question,
+    )
+    return kept
+>>>>>>> fix/positive_bias
