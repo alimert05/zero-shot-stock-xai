@@ -1,0 +1,678 @@
+2026-03-14 09:48:23,721 - INFO - Impact horizon classification complete (37 articles, batch_size=32)
+2026-03-14 09:48:23,721 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:48:23,721 - INFO - Final article count: 37 (from 12-day backward window)
+2026-03-14 09:48:23,723 - INFO - Saved 37 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_GS_W5_volatile_226\articles.json
+2026-03-14 09:48:23,723 - INFO - Saved 37 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_GS_W5_volatile_226\articles.json
+2026-03-14 09:48:23,733 - INFO -   -> Got 37 articles
+2026-03-14 09:48:24,733 - INFO - Retrying GS_W7_bull_run_229 (GS, 07-05-2025 -> 14-05-2025)...
+2026-03-14 09:48:24,734 - INFO - Prediction window: 7 days
+2026-03-14 09:48:24,734 - INFO - Computed max_backward_days: 14 (from √W scaling, W=7)
+2026-03-14 09:48:24,734 - INFO - Backward search window: 23-04-2025 to 06-05-2025 (max 14 days)
+2026-03-14 09:48:24,734 - INFO - Resolved ticker for 'Goldman Sachs' -> GS
+2026-03-14 09:48:24,734 - INFO - Finnhub request: symbol=GS from=2025-04-23 to=2025-04-29
+2026-03-14 09:48:25,285 - INFO - Finnhub returned 57 raw articles
+2026-03-14 09:48:25,287 - INFO - Chunk 2025-04-23 to 2025-04-29: fetched 57 articles
+2026-03-14 09:48:25,287 - INFO - Finnhub request: symbol=GS from=2025-04-30 to=2025-05-06
+2026-03-14 09:48:25,805 - INFO - Finnhub returned 46 raw articles
+2026-03-14 09:48:25,806 - INFO - Chunk 2025-04-30 to 2025-05-06: fetched 46 articles
+2026-03-14 09:48:25,806 - INFO - Chunked fetch complete: 103 total articles from 14-day window in 7-day chunks
+2026-03-14 09:48:25,806 - INFO - Removed duplicates (cross-domain, title-based): 103 -> 102
+2026-03-14 09:48:25,807 - INFO - filter_headline_content_duplicates: in=102 kept=102 | cleared_content=14 dropped_question=0
+2026-03-14 09:48:25,807 - INFO - After dedup + headline filter: Raw=103, Filtered=102
+2026-03-14 09:48:25,807 - INFO - Using all 102 articles after dedup (no article cap)
+2026-03-14 09:48:25,807 - INFO - Temporal coverage: articles span 20250423 to 20250506 (intended window: 20250423 to 20250506)
+2026-03-14 09:48:25,809 - INFO - filter_company_related: in=102 kept=47 | dropped(question_no_content)=1 dropped(no_match_no_content)=13 dropped(no_match_in_content)=41
+2026-03-14 09:48:25,809 - INFO - Cleaning article content for Goldman Sachs (ticker: GS) — DeBERTa-only pipeline
+2026-03-14 09:48:26,896 - INFO - Content cleaning complete:
+  Total articles: 47
+  Articles with content: 41
+  Articles filtered (DeBERTa only): 8
+  Articles with no content after: 0
+  Sentences: 72 → 60
+2026-03-14 09:48:26,896 - INFO -   Noise reduction: 16.7%
+2026-03-14 09:48:26,896 - INFO - Adding impact horizon data to 47 articles (prediction window: 7 days)
+2026-03-14 09:48:30,224 - INFO - Impact horizon classification complete (47 articles, batch_size=32)
+2026-03-14 09:48:30,224 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:48:30,225 - INFO - Final article count: 47 (from 14-day backward window)
+2026-03-14 09:48:30,226 - INFO - Saved 47 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_GS_W7_bull_run_229\articles.json
+2026-03-14 09:48:30,226 - INFO - Saved 47 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_GS_W7_bull_run_229\articles.json
+2026-03-14 09:48:30,236 - INFO -   -> Got 47 articles
+2026-03-14 09:48:31,236 - INFO - Retrying GS_W7_earnings_season_231 (GS, 11-11-2025 -> 18-11-2025)...
+2026-03-14 09:48:31,237 - INFO - Prediction window: 7 days
+2026-03-14 09:48:31,237 - INFO - Computed max_backward_days: 14 (from √W scaling, W=7)
+2026-03-14 09:48:31,238 - INFO - Backward search window: 28-10-2025 to 10-11-2025 (max 14 days)
+2026-03-14 09:48:31,238 - INFO - Resolved ticker for 'Goldman Sachs' -> GS
+2026-03-14 09:48:31,238 - INFO - Finnhub request: symbol=GS from=2025-10-28 to=2025-11-03
+2026-03-14 09:48:31,863 - INFO - Finnhub returned 36 raw articles
+2026-03-14 09:48:31,865 - INFO - Chunk 2025-10-28 to 2025-11-03: fetched 36 articles
+2026-03-14 09:48:31,865 - INFO - Finnhub request: symbol=GS from=2025-11-04 to=2025-11-10
+2026-03-14 09:48:32,373 - INFO - Finnhub returned 58 raw articles
+2026-03-14 09:48:32,375 - INFO - Chunk 2025-11-04 to 2025-11-10: fetched 58 articles
+2026-03-14 09:48:32,375 - INFO - Chunked fetch complete: 94 total articles from 14-day window in 7-day chunks
+2026-03-14 09:48:32,375 - INFO - Removed duplicates (cross-domain, title-based): 94 -> 93
+2026-03-14 09:48:32,375 - INFO - filter_headline_content_duplicates: in=93 kept=93 | cleared_content=7 dropped_question=0
+2026-03-14 09:48:32,375 - INFO - After dedup + headline filter: Raw=94, Filtered=93
+2026-03-14 09:48:32,376 - INFO - Using all 93 articles after dedup (no article cap)
+2026-03-14 09:48:32,376 - INFO - Temporal coverage: articles span 20251028 to 20251110 (intended window: 20251028 to 20251110)
+2026-03-14 09:48:32,377 - INFO - filter_company_related: in=93 kept=38 | dropped(question_no_content)=0 dropped(no_match_no_content)=7 dropped(no_match_in_content)=48
+2026-03-14 09:48:32,377 - INFO - Cleaning article content for Goldman Sachs (ticker: GS) — DeBERTa-only pipeline
+2026-03-14 09:48:33,326 - INFO - Content cleaning complete:
+  Total articles: 38
+  Articles with content: 36
+  Articles filtered (DeBERTa only): 9
+  Articles with no content after: 0
+  Sentences: 64 → 51
+2026-03-14 09:48:33,326 - INFO -   Noise reduction: 20.3%
+2026-03-14 09:48:33,326 - INFO - Adding impact horizon data to 38 articles (prediction window: 7 days)
+2026-03-14 09:48:36,004 - INFO - Impact horizon classification complete (38 articles, batch_size=32)
+2026-03-14 09:48:36,004 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:48:36,004 - INFO - Final article count: 38 (from 14-day backward window)
+2026-03-14 09:48:36,006 - INFO - Saved 38 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_GS_W7_earnings_season_231\articles.json
+2026-03-14 09:48:36,006 - INFO - Saved 38 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_GS_W7_earnings_season_231\articles.json
+2026-03-14 09:48:36,014 - INFO -   -> Got 38 articles
+2026-03-14 09:48:37,015 - INFO - Retrying GS_W7_recent_stable_232 (GS, 06-01-2026 -> 13-01-2026)...
+2026-03-14 09:48:37,016 - INFO - Prediction window: 7 days
+2026-03-14 09:48:37,016 - INFO - Computed max_backward_days: 14 (from √W scaling, W=7)
+2026-03-14 09:48:37,016 - INFO - Backward search window: 23-12-2025 to 05-01-2026 (max 14 days)
+2026-03-14 09:48:37,016 - INFO - Resolved ticker for 'Goldman Sachs' -> GS
+2026-03-14 09:48:37,017 - INFO - Finnhub request: symbol=GS from=2025-12-23 to=2025-12-29
+2026-03-14 09:48:37,603 - INFO - Finnhub returned 46 raw articles
+2026-03-14 09:48:37,605 - INFO - Chunk 2025-12-23 to 2025-12-29: fetched 46 articles
+2026-03-14 09:48:37,605 - INFO - Finnhub request: symbol=GS from=2025-12-30 to=2026-01-05
+2026-03-14 09:48:38,141 - INFO - Finnhub returned 53 raw articles
+2026-03-14 09:48:38,142 - INFO - Chunk 2025-12-30 to 2026-01-05: fetched 53 articles
+2026-03-14 09:48:38,142 - INFO - Chunked fetch complete: 99 total articles from 14-day window in 7-day chunks
+2026-03-14 09:48:38,142 - INFO - Removed duplicates (cross-domain, title-based): 99 -> 99
+2026-03-14 09:48:38,143 - INFO - filter_headline_content_duplicates: in=99 kept=99 | cleared_content=1 dropped_question=0
+2026-03-14 09:48:38,143 - INFO - After dedup + headline filter: Raw=99, Filtered=99
+2026-03-14 09:48:38,143 - INFO - Using all 99 articles after dedup (no article cap)
+2026-03-14 09:48:38,143 - INFO - Temporal coverage: articles span 20251223 to 20260105 (intended window: 20251223 to 20260105)
+2026-03-14 09:48:38,145 - INFO - filter_company_related: in=99 kept=40 | dropped(question_no_content)=0 dropped(no_match_no_content)=2 dropped(no_match_in_content)=57
+2026-03-14 09:48:38,145 - INFO - Cleaning article content for Goldman Sachs (ticker: GS) — DeBERTa-only pipeline
+2026-03-14 09:48:39,306 - INFO - Content cleaning complete:
+  Total articles: 40
+  Articles with content: 39
+  Articles filtered (DeBERTa only): 15
+  Articles with no content after: 2
+  Sentences: 81 → 57
+2026-03-14 09:48:39,306 - INFO -   Noise reduction: 29.6%
+2026-03-14 09:48:39,307 - INFO - Adding impact horizon data to 40 articles (prediction window: 7 days)
+2026-03-14 09:48:41,944 - INFO - Impact horizon classification complete (40 articles, batch_size=32)
+2026-03-14 09:48:41,950 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:48:41,977 - INFO - Final article count: 40 (from 14-day backward window)
+2026-03-14 09:48:41,988 - INFO - Saved 40 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_GS_W7_recent_stable_232\articles.json
+2026-03-14 09:48:41,990 - INFO - Saved 40 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_GS_W7_recent_stable_232\articles.json
+2026-03-14 09:48:42,000 - INFO -   -> Got 40 articles
+2026-03-14 09:48:43,000 - INFO - Retrying GS_W7_volatile_230 (GS, 26-08-2025 -> 02-09-2025)...
+2026-03-14 09:48:43,001 - INFO - Prediction window: 7 days
+2026-03-14 09:48:43,002 - INFO - Computed max_backward_days: 14 (from √W scaling, W=7)
+2026-03-14 09:48:43,002 - INFO - Backward search window: 12-08-2025 to 25-08-2025 (max 14 days)
+2026-03-14 09:48:43,002 - INFO - Resolved ticker for 'Goldman Sachs' -> GS
+2026-03-14 09:48:43,002 - INFO - Finnhub request: symbol=GS from=2025-08-12 to=2025-08-18
+2026-03-14 09:48:43,592 - INFO - Finnhub returned 60 raw articles
+2026-03-14 09:48:43,594 - INFO - Chunk 2025-08-12 to 2025-08-18: fetched 60 articles
+2026-03-14 09:48:43,594 - INFO - Finnhub request: symbol=GS from=2025-08-19 to=2025-08-25
+2026-03-14 09:48:44,135 - INFO - Finnhub returned 50 raw articles
+2026-03-14 09:48:44,137 - INFO - Chunk 2025-08-19 to 2025-08-25: fetched 50 articles
+2026-03-14 09:48:44,137 - INFO - Chunked fetch complete: 110 total articles from 14-day window in 7-day chunks
+2026-03-14 09:48:44,137 - INFO - Removed duplicates (cross-domain, title-based): 110 -> 108
+2026-03-14 09:48:44,138 - INFO - filter_headline_content_duplicates: in=108 kept=108 | cleared_content=8 dropped_question=0
+2026-03-14 09:48:44,138 - INFO - After dedup + headline filter: Raw=110, Filtered=108
+2026-03-14 09:48:44,138 - INFO - Using all 108 articles after dedup (no article cap)
+2026-03-14 09:48:44,138 - INFO - Temporal coverage: articles span 20250725 to 20250825 (intended window: 20250812 to 20250825)
+2026-03-14 09:48:44,142 - INFO - filter_company_related: in=108 kept=52 | dropped(question_no_content)=0 dropped(no_match_no_content)=9 dropped(no_match_in_content)=47
+2026-03-14 09:48:44,142 - INFO - Cleaning article content for Goldman Sachs (ticker: GS) — DeBERTa-only pipeline
+2026-03-14 09:48:45,373 - INFO - Content cleaning complete:
+  Total articles: 52
+  Articles with content: 50
+  Articles filtered (DeBERTa only): 9
+  Articles with no content after: 0
+  Sentences: 85 → 71
+2026-03-14 09:48:45,373 - INFO -   Noise reduction: 16.5%
+2026-03-14 09:48:45,373 - INFO - Adding impact horizon data to 52 articles (prediction window: 7 days)
+2026-03-14 09:48:48,631 - INFO - Impact horizon classification complete (52 articles, batch_size=32)
+2026-03-14 09:48:48,631 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:48:48,631 - INFO - Final article count: 52 (from 14-day backward window)
+2026-03-14 09:48:48,633 - INFO - Saved 52 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_GS_W7_volatile_230\articles.json
+2026-03-14 09:48:48,633 - INFO - Saved 52 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_GS_W7_volatile_230\articles.json
+2026-03-14 09:48:48,642 - INFO -   -> Got 52 articles
+2026-03-14 09:48:49,643 - INFO - Retrying META_W31_bull_run_141 (META, 03-04-2025 -> 04-05-2025)...
+2026-03-14 09:48:49,644 - INFO - Prediction window: 31 days
+2026-03-14 09:48:49,644 - INFO - Computed max_backward_days: 28 (from √W scaling, W=31)
+2026-03-14 09:48:49,645 - INFO - Backward search window: 06-03-2025 to 02-04-2025 (max 28 days)
+2026-03-14 09:48:49,645 - INFO - Resolved ticker for 'Meta Platforms' -> META
+2026-03-14 09:48:49,645 - INFO - Finnhub request: symbol=META from=2025-03-06 to=2025-03-12
+2026-03-14 09:48:50,121 - INFO - Finnhub returned 0 raw articles
+2026-03-14 09:48:50,121 - INFO - Chunk 2025-03-06 to 2025-03-12: fetched 0 articles
+2026-03-14 09:48:50,122 - INFO - Finnhub request: symbol=META from=2025-03-13 to=2025-03-19
+2026-03-14 09:48:50,552 - INFO - Finnhub returned 10 raw articles
+2026-03-14 09:48:50,553 - INFO - Chunk 2025-03-13 to 2025-03-19: fetched 10 articles
+2026-03-14 09:48:50,553 - INFO - Finnhub request: symbol=META from=2025-03-20 to=2025-03-26
+2026-03-14 09:48:51,259 - INFO - Finnhub returned 161 raw articles
+2026-03-14 09:48:51,262 - INFO - Chunk 2025-03-20 to 2025-03-26: fetched 161 articles
+2026-03-14 09:48:51,262 - INFO - Finnhub request: symbol=META from=2025-03-27 to=2025-04-02
+2026-03-14 09:48:51,930 - INFO - Finnhub returned 157 raw articles
+2026-03-14 09:48:51,933 - INFO - Chunk 2025-03-27 to 2025-04-02: fetched 157 articles
+2026-03-14 09:48:51,933 - INFO - Chunked fetch complete: 328 total articles from 28-day window in 7-day chunks
+2026-03-14 09:48:51,934 - INFO - Removed duplicates (cross-domain, title-based): 328 -> 327
+2026-03-14 09:48:51,943 - INFO - filter_headline_content_duplicates: in=327 kept=326 | cleared_content=30 dropped_question=1
+2026-03-14 09:48:51,943 - INFO - After dedup + headline filter: Raw=328, Filtered=326
+2026-03-14 09:48:51,943 - INFO - Using all 326 articles after dedup (no article cap)
+2026-03-14 09:48:51,943 - INFO - Temporal coverage: articles span 20241213 to 20250402 (intended window: 20250306 to 20250402)
+2026-03-14 09:48:51,950 - INFO - filter_company_related: in=326 kept=164 | dropped(question_no_content)=0 dropped(no_match_no_content)=29 dropped(no_match_in_content)=133
+2026-03-14 09:48:51,950 - INFO - Cleaning article content for Meta Platforms (ticker: META) — DeBERTa-only pipeline
+2026-03-14 09:48:56,226 - INFO - Content cleaning complete:
+  Total articles: 164
+  Articles with content: 157
+  Articles filtered (DeBERTa only): 37
+  Articles with no content after: 0
+  Sentences: 324 → 273
+2026-03-14 09:48:56,227 - INFO -   Noise reduction: 15.7%
+2026-03-14 09:48:56,227 - INFO - Adding impact horizon data to 164 articles (prediction window: 31 days)
+2026-03-14 09:49:07,706 - INFO - Impact horizon classification complete (164 articles, batch_size=32)
+2026-03-14 09:49:07,707 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:49:07,707 - INFO - Final article count: 164 (from 28-day backward window)
+2026-03-14 09:49:07,712 - INFO - Saved 164 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_META_W31_bull_run_141\articles.json
+2026-03-14 09:49:07,712 - INFO - Saved 164 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_META_W31_bull_run_141\articles.json
+2026-03-14 09:49:07,766 - INFO -   -> Got 164 articles
+2026-03-14 09:49:08,766 - INFO - Retrying META_W31_earnings_season_143 (META, 14-10-2025 -> 14-11-2025)...
+2026-03-14 09:49:08,768 - INFO - Prediction window: 31 days
+2026-03-14 09:49:08,768 - INFO - Computed max_backward_days: 28 (from √W scaling, W=31)
+2026-03-14 09:49:08,768 - INFO - Backward search window: 16-09-2025 to 13-10-2025 (max 28 days)
+2026-03-14 09:49:08,768 - INFO - Resolved ticker for 'Meta Platforms' -> META
+2026-03-14 09:49:08,768 - INFO - Finnhub request: symbol=META from=2025-09-16 to=2025-09-22
+2026-03-14 09:49:09,478 - INFO - Finnhub returned 174 raw articles
+2026-03-14 09:49:09,481 - INFO - Chunk 2025-09-16 to 2025-09-22: fetched 174 articles
+2026-03-14 09:49:09,482 - INFO - Finnhub request: symbol=META from=2025-09-23 to=2025-09-29
+2026-03-14 09:49:10,222 - INFO - Finnhub returned 198 raw articles
+2026-03-14 09:49:10,227 - INFO - Chunk 2025-09-23 to 2025-09-29: fetched 198 articles
+2026-03-14 09:49:10,227 - INFO - Finnhub request: symbol=META from=2025-09-30 to=2025-10-06
+2026-03-14 09:49:10,963 - INFO - Finnhub returned 226 raw articles
+2026-03-14 09:49:10,967 - INFO - Chunk 2025-09-30 to 2025-10-06: fetched 226 articles
+2026-03-14 09:49:10,967 - INFO - Finnhub request: symbol=META from=2025-10-07 to=2025-10-13
+2026-03-14 09:49:11,653 - INFO - Finnhub returned 187 raw articles
+2026-03-14 09:49:11,657 - INFO - Chunk 2025-10-07 to 2025-10-13: fetched 187 articles
+2026-03-14 09:49:11,657 - INFO - Chunked fetch complete: 785 total articles from 28-day window in 7-day chunks
+2026-03-14 09:49:11,658 - INFO - Removed duplicates (cross-domain, title-based): 785 -> 785
+2026-03-14 09:49:11,659 - INFO - filter_headline_content_duplicates: in=785 kept=778 | cleared_content=23 dropped_question=7
+2026-03-14 09:49:11,659 - INFO - After dedup + headline filter: Raw=785, Filtered=778
+2026-03-14 09:49:11,659 - INFO - Using all 778 articles after dedup (no article cap)
+2026-03-14 09:49:11,659 - INFO - Temporal coverage: articles span 20250916 to 20251013 (intended window: 20250916 to 20251013)
+2026-03-14 09:49:11,676 - INFO - filter_company_related: in=778 kept=326 | dropped(question_no_content)=1 dropped(no_match_no_content)=17 dropped(no_match_in_content)=434
+2026-03-14 09:49:11,676 - INFO - Cleaning article content for Meta Platforms (ticker: META) — DeBERTa-only pipeline
+2026-03-14 09:49:19,984 - INFO - Content cleaning complete:
+  Total articles: 326
+  Articles with content: 317
+  Articles filtered (DeBERTa only): 57
+  Articles with no content after: 2
+  Sentences: 634 → 560
+2026-03-14 09:49:19,984 - INFO -   Noise reduction: 11.7%
+2026-03-14 09:49:19,985 - INFO - Adding impact horizon data to 326 articles (prediction window: 31 days)
+2026-03-14 09:49:44,046 - INFO - Impact horizon classification complete (326 articles, batch_size=32)
+2026-03-14 09:49:44,048 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:49:44,048 - INFO - Final article count: 326 (from 28-day backward window)
+2026-03-14 09:49:44,057 - INFO - Saved 326 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_META_W31_earnings_season_143\articles.json
+2026-03-14 09:49:44,057 - INFO - Saved 326 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_META_W31_earnings_season_143\articles.json
+2026-03-14 09:49:44,077 - INFO -   -> Got 326 articles
+2026-03-14 09:49:45,077 - INFO - Retrying META_W31_recent_stable_144 (META, 02-12-2025 -> 02-01-2026)...
+2026-03-14 09:49:45,078 - INFO - Prediction window: 31 days
+2026-03-14 09:49:45,078 - INFO - Computed max_backward_days: 28 (from √W scaling, W=31)
+2026-03-14 09:49:45,078 - INFO - Backward search window: 04-11-2025 to 01-12-2025 (max 28 days)
+2026-03-14 09:49:45,078 - INFO - Resolved ticker for 'Meta Platforms' -> META
+2026-03-14 09:49:45,078 - INFO - Finnhub request: symbol=META from=2025-11-04 to=2025-11-10
+2026-03-14 09:49:45,774 - INFO - Finnhub returned 179 raw articles
+2026-03-14 09:49:45,778 - INFO - Chunk 2025-11-04 to 2025-11-10: fetched 179 articles
+2026-03-14 09:49:45,778 - INFO - Finnhub request: symbol=META from=2025-11-11 to=2025-11-17
+2026-03-14 09:49:46,508 - INFO - Finnhub returned 238 raw articles
+2026-03-14 09:49:46,512 - INFO - Chunk 2025-11-11 to 2025-11-17: fetched 238 articles
+2026-03-14 09:49:46,513 - INFO - Finnhub request: symbol=META from=2025-11-18 to=2025-11-24
+2026-03-14 09:49:47,237 - INFO - Finnhub returned 244 raw articles
+2026-03-14 09:49:47,242 - INFO - Chunk 2025-11-18 to 2025-11-24: fetched 244 articles
+2026-03-14 09:49:47,242 - INFO - Finnhub request: symbol=META from=2025-11-25 to=2025-12-01
+2026-03-14 09:49:48,028 - INFO - Finnhub returned 242 raw articles
+2026-03-14 09:49:48,033 - INFO - Chunk 2025-11-25 to 2025-12-01: fetched 242 articles
+2026-03-14 09:49:48,033 - INFO - Chunked fetch complete: 903 total articles from 28-day window in 7-day chunks
+2026-03-14 09:49:48,033 - INFO - Removed duplicates (cross-domain, title-based): 903 -> 901
+2026-03-14 09:49:48,034 - INFO - filter_headline_content_duplicates: in=901 kept=899 | cleared_content=19 dropped_question=2
+2026-03-14 09:49:48,034 - INFO - After dedup + headline filter: Raw=903, Filtered=899
+2026-03-14 09:49:48,034 - INFO - Using all 899 articles after dedup (no article cap)
+2026-03-14 09:49:48,035 - INFO - Temporal coverage: articles span 20251104 to 20251201 (intended window: 20251104 to 20251201)
+2026-03-14 09:49:48,057 - INFO - filter_company_related: in=899 kept=276 | dropped(question_no_content)=1 dropped(no_match_no_content)=21 dropped(no_match_in_content)=601
+2026-03-14 09:49:48,057 - INFO - Cleaning article content for Meta Platforms (ticker: META) — DeBERTa-only pipeline
+2026-03-14 09:49:55,371 - INFO - Content cleaning complete:
+  Total articles: 276
+  Articles with content: 265
+  Articles filtered (DeBERTa only): 53
+  Articles with no content after: 0
+  Sentences: 561 → 490
+2026-03-14 09:49:55,371 - INFO -   Noise reduction: 12.7%
+2026-03-14 09:49:55,371 - INFO - Adding impact horizon data to 276 articles (prediction window: 31 days)
+2026-03-14 09:50:16,018 - INFO - Impact horizon classification complete (276 articles, batch_size=32)
+2026-03-14 09:50:16,020 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:50:16,020 - INFO - Final article count: 276 (from 28-day backward window)
+2026-03-14 09:50:16,028 - INFO - Saved 276 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_META_W31_recent_stable_144\articles.json
+2026-03-14 09:50:16,028 - INFO - Saved 276 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_META_W31_recent_stable_144\articles.json
+2026-03-14 09:50:16,047 - INFO -   -> Got 276 articles
+2026-03-14 09:50:17,047 - INFO - Retrying META_W31_volatile_142 (META, 01-08-2025 -> 01-09-2025)...
+2026-03-14 09:50:17,048 - INFO - Prediction window: 31 days
+2026-03-14 09:50:17,048 - INFO - Computed max_backward_days: 28 (from √W scaling, W=31)
+2026-03-14 09:50:17,048 - INFO - Backward search window: 04-07-2025 to 31-07-2025 (max 28 days)
+2026-03-14 09:50:17,048 - INFO - Resolved ticker for 'Meta Platforms' -> META
+2026-03-14 09:50:17,048 - INFO - Finnhub request: symbol=META from=2025-07-04 to=2025-07-10
+2026-03-14 09:50:17,781 - INFO - Finnhub returned 186 raw articles
+2026-03-14 09:50:17,784 - INFO - Chunk 2025-07-04 to 2025-07-10: fetched 186 articles
+2026-03-14 09:50:17,784 - INFO - Finnhub request: symbol=META from=2025-07-11 to=2025-07-17
+2026-03-14 09:50:18,545 - INFO - Finnhub returned 203 raw articles
+2026-03-14 09:50:18,549 - INFO - Chunk 2025-07-11 to 2025-07-17: fetched 203 articles
+2026-03-14 09:50:18,549 - INFO - Finnhub request: symbol=META from=2025-07-18 to=2025-07-24
+2026-03-14 09:50:19,295 - INFO - Finnhub returned 222 raw articles
+2026-03-14 09:50:19,300 - INFO - Chunk 2025-07-18 to 2025-07-24: fetched 222 articles
+2026-03-14 09:50:19,300 - INFO - Finnhub request: symbol=META from=2025-07-25 to=2025-07-31
+2026-03-14 09:50:20,017 - INFO - Finnhub returned 245 raw articles
+2026-03-14 09:50:20,022 - INFO - Chunk 2025-07-25 to 2025-07-31: fetched 245 articles
+2026-03-14 09:50:20,022 - INFO - Chunked fetch complete: 856 total articles from 28-day window in 7-day chunks
+2026-03-14 09:50:20,022 - INFO - Removed duplicates (cross-domain, title-based): 856 -> 852
+2026-03-14 09:50:20,023 - INFO - filter_headline_content_duplicates: in=852 kept=846 | cleared_content=36 dropped_question=6
+2026-03-14 09:50:20,023 - INFO - After dedup + headline filter: Raw=856, Filtered=846
+2026-03-14 09:50:20,023 - INFO - Using all 846 articles after dedup (no article cap)
+2026-03-14 09:50:20,023 - INFO - Temporal coverage: articles span 20250704 to 20250731 (intended window: 20250704 to 20250731)
+2026-03-14 09:50:20,039 - INFO - filter_company_related: in=846 kept=394 | dropped(question_no_content)=3 dropped(no_match_no_content)=64 dropped(no_match_in_content)=385
+2026-03-14 09:50:20,039 - INFO - Cleaning article content for Meta Platforms (ticker: META) — DeBERTa-only pipeline
+2026-03-14 09:50:29,807 - INFO - Content cleaning complete:
+  Total articles: 394
+  Articles with content: 373
+  Articles filtered (DeBERTa only): 75
+  Articles with no content after: 5
+  Sentences: 775 → 676
+2026-03-14 09:50:29,808 - INFO -   Noise reduction: 12.8%
+2026-03-14 09:50:29,808 - INFO - Adding impact horizon data to 394 articles (prediction window: 31 days)
+2026-03-14 09:50:58,979 - INFO - Impact horizon classification complete (394 articles, batch_size=32)
+2026-03-14 09:50:58,981 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:50:58,981 - INFO - Final article count: 394 (from 28-day backward window)
+2026-03-14 09:50:58,992 - INFO - Saved 394 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_META_W31_volatile_142\articles.json
+2026-03-14 09:50:58,992 - INFO - Saved 394 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_META_W31_volatile_142\articles.json
+2026-03-14 09:50:59,014 - INFO -   -> Got 394 articles
+2026-03-14 09:51:00,014 - INFO - Retrying TSLA_W1_bull_run_145 (TSLA, 10-04-2025 -> 11-04-2025)...
+2026-03-14 09:51:00,015 - INFO - Prediction window: 1 days
+2026-03-14 09:51:00,015 - INFO - Computed max_backward_days: 7 (from √W scaling, W=1)
+2026-03-14 09:51:00,015 - INFO - Backward search window: 03-04-2025 to 09-04-2025 (max 7 days)
+2026-03-14 09:51:00,015 - INFO - Resolved ticker for 'Tesla' -> TSLA
+2026-03-14 09:51:00,016 - INFO - Finnhub request: symbol=TSLA from=2025-04-03 to=2025-04-09
+2026-03-14 09:51:00,770 - INFO - Finnhub returned 240 raw articles
+2026-03-14 09:51:00,774 - INFO - Chunk 2025-04-03 to 2025-04-09: fetched 240 articles
+2026-03-14 09:51:00,774 - INFO - Chunked fetch complete: 240 total articles from 7-day window in 7-day chunks
+2026-03-14 09:51:00,774 - INFO - Removed duplicates (cross-domain, title-based): 240 -> 240
+2026-03-14 09:51:00,774 - INFO - filter_headline_content_duplicates: in=240 kept=237 | cleared_content=33 dropped_question=3
+2026-03-14 09:51:00,774 - INFO - After dedup + headline filter: Raw=240, Filtered=237
+2026-03-14 09:51:00,775 - INFO - Using all 237 articles after dedup (no article cap)
+2026-03-14 09:51:00,775 - INFO - Temporal coverage: articles span 20250404 to 20250409 (intended window: 20250403 to 20250409)
+2026-03-14 09:51:00,779 - INFO - filter_company_related: in=237 kept=153 | dropped(question_no_content)=0 dropped(no_match_no_content)=21 dropped(no_match_in_content)=63
+2026-03-14 09:51:00,779 - INFO - Cleaning article content for Tesla (ticker: TSLA) — DeBERTa-only pipeline
+2026-03-14 09:51:03,915 - INFO - Content cleaning complete:
+  Total articles: 153
+  Articles with content: 131
+  Articles filtered (DeBERTa only): 26
+  Articles with no content after: 4
+  Sentences: 256 → 223
+2026-03-14 09:51:03,915 - INFO -   Noise reduction: 12.9%
+2026-03-14 09:51:03,916 - INFO - Adding impact horizon data to 153 articles (prediction window: 1 days)
+2026-03-14 09:51:14,503 - INFO - Impact horizon classification complete (153 articles, batch_size=32)
+2026-03-14 09:51:14,504 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:51:14,504 - INFO - Final article count: 153 (from 7-day backward window)
+2026-03-14 09:51:14,508 - INFO - Saved 153 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W1_bull_run_145\articles.json
+2026-03-14 09:51:14,508 - INFO - Saved 153 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W1_bull_run_145\articles.json
+2026-03-14 09:51:14,522 - INFO -   -> Got 153 articles
+2026-03-14 09:51:15,522 - INFO - Retrying TSLA_W1_earnings_season_147 (TSLA, 21-10-2025 -> 22-10-2025)...
+2026-03-14 09:51:15,523 - INFO - Prediction window: 1 days
+2026-03-14 09:51:15,524 - INFO - Computed max_backward_days: 7 (from √W scaling, W=1)
+2026-03-14 09:51:15,524 - INFO - Backward search window: 14-10-2025 to 20-10-2025 (max 7 days)
+2026-03-14 09:51:15,524 - INFO - Resolved ticker for 'Tesla' -> TSLA
+2026-03-14 09:51:15,524 - INFO - Finnhub request: symbol=TSLA from=2025-10-14 to=2025-10-20
+2026-03-14 09:51:16,262 - INFO - Finnhub returned 218 raw articles
+2026-03-14 09:51:16,266 - INFO - Chunk 2025-10-14 to 2025-10-20: fetched 218 articles
+2026-03-14 09:51:16,266 - INFO - Chunked fetch complete: 218 total articles from 7-day window in 7-day chunks
+2026-03-14 09:51:16,266 - INFO - Removed duplicates (cross-domain, title-based): 218 -> 218
+2026-03-14 09:51:16,267 - INFO - filter_headline_content_duplicates: in=218 kept=217 | cleared_content=15 dropped_question=1
+2026-03-14 09:51:16,267 - INFO - After dedup + headline filter: Raw=218, Filtered=217
+2026-03-14 09:51:16,267 - INFO - Using all 217 articles after dedup (no article cap)
+2026-03-14 09:51:16,267 - INFO - Temporal coverage: articles span 20251014 to 20251020 (intended window: 20251014 to 20251020)
+2026-03-14 09:51:16,271 - INFO - filter_company_related: in=217 kept=110 | dropped(question_no_content)=1 dropped(no_match_no_content)=9 dropped(no_match_in_content)=97
+2026-03-14 09:51:16,271 - INFO - Cleaning article content for Tesla (ticker: TSLA) — DeBERTa-only pipeline
+2026-03-14 09:51:18,660 - INFO - Content cleaning complete:
+  Total articles: 110
+  Articles with content: 103
+  Articles filtered (DeBERTa only): 28
+  Articles with no content after: 0
+  Sentences: 207 → 167
+2026-03-14 09:51:18,660 - INFO -   Noise reduction: 19.3%
+2026-03-14 09:51:18,660 - INFO - Adding impact horizon data to 110 articles (prediction window: 1 days)
+2026-03-14 09:51:25,858 - INFO - Impact horizon classification complete (110 articles, batch_size=32)
+2026-03-14 09:51:25,859 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:51:25,859 - INFO - Final article count: 110 (from 7-day backward window)
+2026-03-14 09:51:25,863 - INFO - Saved 110 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W1_earnings_season_147\articles.json
+2026-03-14 09:51:25,863 - INFO - Saved 110 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W1_earnings_season_147\articles.json
+2026-03-14 09:51:25,875 - INFO -   -> Got 110 articles
+2026-03-14 09:51:26,876 - INFO - Retrying TSLA_W1_recent_stable_148 (TSLA, 09-12-2025 -> 10-12-2025)...
+2026-03-14 09:51:26,877 - INFO - Prediction window: 1 days
+2026-03-14 09:51:26,877 - INFO - Computed max_backward_days: 7 (from √W scaling, W=1)
+2026-03-14 09:51:26,877 - INFO - Backward search window: 02-12-2025 to 08-12-2025 (max 7 days)
+2026-03-14 09:51:26,877 - INFO - Resolved ticker for 'Tesla' -> TSLA
+2026-03-14 09:51:26,877 - INFO - Finnhub request: symbol=TSLA from=2025-12-02 to=2025-12-08
+2026-03-14 09:51:27,600 - INFO - Finnhub returned 242 raw articles
+2026-03-14 09:51:27,604 - INFO - Chunk 2025-12-02 to 2025-12-08: fetched 242 articles
+2026-03-14 09:51:27,604 - INFO - Chunked fetch complete: 242 total articles from 7-day window in 7-day chunks
+2026-03-14 09:51:27,604 - INFO - Removed duplicates (cross-domain, title-based): 242 -> 242
+2026-03-14 09:51:27,604 - INFO - filter_headline_content_duplicates: in=242 kept=242 | cleared_content=5 dropped_question=0
+2026-03-14 09:51:27,604 - INFO - After dedup + headline filter: Raw=242, Filtered=242
+2026-03-14 09:51:27,604 - INFO - Using all 242 articles after dedup (no article cap)
+2026-03-14 09:51:27,604 - INFO - Temporal coverage: articles span 20251202 to 20251208 (intended window: 20251202 to 20251208)
+2026-03-14 09:51:27,608 - INFO - filter_company_related: in=242 kept=137 | dropped(question_no_content)=0 dropped(no_match_no_content)=3 dropped(no_match_in_content)=102
+2026-03-14 09:51:27,608 - INFO - Cleaning article content for Tesla (ticker: TSLA) — DeBERTa-only pipeline
+2026-03-14 09:51:30,689 - INFO - Content cleaning complete:
+  Total articles: 137
+  Articles with content: 133
+  Articles filtered (DeBERTa only): 28
+  Articles with no content after: 0
+  Sentences: 255 → 222
+2026-03-14 09:51:30,689 - INFO -   Noise reduction: 12.9%
+2026-03-14 09:51:30,689 - INFO - Adding impact horizon data to 137 articles (prediction window: 1 days)
+2026-03-14 09:51:39,645 - INFO - Impact horizon classification complete (137 articles, batch_size=32)
+2026-03-14 09:51:39,646 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:51:39,646 - INFO - Final article count: 137 (from 7-day backward window)
+2026-03-14 09:51:39,650 - INFO - Saved 137 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W1_recent_stable_148\articles.json
+2026-03-14 09:51:39,650 - INFO - Saved 137 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W1_recent_stable_148\articles.json
+2026-03-14 09:51:39,663 - INFO -   -> Got 137 articles
+2026-03-14 09:51:40,664 - INFO - Retrying TSLA_W1_volatile_146 (TSLA, 05-08-2025 -> 06-08-2025)...
+2026-03-14 09:51:40,664 - INFO - Prediction window: 1 days
+2026-03-14 09:51:40,664 - INFO - Computed max_backward_days: 7 (from √W scaling, W=1)
+2026-03-14 09:51:40,665 - INFO - Backward search window: 29-07-2025 to 04-08-2025 (max 7 days)
+2026-03-14 09:51:40,665 - INFO - Resolved ticker for 'Tesla' -> TSLA
+2026-03-14 09:51:40,665 - INFO - Finnhub request: symbol=TSLA from=2025-07-29 to=2025-08-04
+2026-03-14 09:51:41,411 - INFO - Finnhub returned 228 raw articles
+2026-03-14 09:51:41,415 - INFO - Chunk 2025-07-29 to 2025-08-04: fetched 228 articles
+2026-03-14 09:51:41,415 - INFO - Chunked fetch complete: 228 total articles from 7-day window in 7-day chunks
+2026-03-14 09:51:41,416 - INFO - Removed duplicates (cross-domain, title-based): 228 -> 228
+2026-03-14 09:51:41,416 - INFO - filter_headline_content_duplicates: in=228 kept=227 | cleared_content=17 dropped_question=1
+2026-03-14 09:51:41,416 - INFO - After dedup + headline filter: Raw=228, Filtered=227
+2026-03-14 09:51:41,416 - INFO - Using all 227 articles after dedup (no article cap)
+2026-03-14 09:51:41,416 - INFO - Temporal coverage: articles span 20200611 to 20250804 (intended window: 20250729 to 20250804)
+2026-03-14 09:51:41,420 - INFO - filter_company_related: in=227 kept=122 | dropped(question_no_content)=2 dropped(no_match_no_content)=10 dropped(no_match_in_content)=93
+2026-03-14 09:51:41,421 - INFO - Cleaning article content for Tesla (ticker: TSLA) — DeBERTa-only pipeline
+2026-03-14 09:51:44,263 - INFO - Content cleaning complete:
+  Total articles: 122
+  Articles with content: 111
+  Articles filtered (DeBERTa only): 18
+  Articles with no content after: 0
+  Sentences: 222 → 195
+2026-03-14 09:51:44,263 - INFO -   Noise reduction: 12.2%
+2026-03-14 09:51:44,263 - INFO - Adding impact horizon data to 122 articles (prediction window: 1 days)
+2026-03-14 09:51:52,986 - INFO - Impact horizon classification complete (122 articles, batch_size=32)
+2026-03-14 09:51:52,986 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:51:52,987 - INFO - Final article count: 122 (from 7-day backward window)
+2026-03-14 09:51:52,990 - INFO - Saved 122 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W1_volatile_146\articles.json
+2026-03-14 09:51:52,990 - INFO - Saved 122 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W1_volatile_146\articles.json
+2026-03-14 09:51:53,003 - INFO -   -> Got 122 articles
+2026-03-14 09:51:54,003 - INFO - Retrying TSLA_W3_bull_run_149 (TSLA, 10-04-2025 -> 13-04-2025)...
+2026-03-14 09:51:54,004 - INFO - Prediction window: 3 days
+2026-03-14 09:51:54,004 - INFO - Computed max_backward_days: 9 (from √W scaling, W=3)
+2026-03-14 09:51:54,004 - INFO - Backward search window: 01-04-2025 to 09-04-2025 (max 9 days)
+2026-03-14 09:51:54,004 - INFO - Resolved ticker for 'Tesla' -> TSLA
+2026-03-14 09:51:54,004 - INFO - Finnhub request: symbol=TSLA from=2025-04-01 to=2025-04-07
+2026-03-14 09:51:54,706 - INFO - Finnhub returned 234 raw articles
+2026-03-14 09:51:54,710 - INFO - Chunk 2025-04-01 to 2025-04-07: fetched 234 articles
+2026-03-14 09:51:54,712 - INFO - Finnhub request: symbol=TSLA from=2025-04-08 to=2025-04-09
+2026-03-14 09:51:55,336 - INFO - Finnhub returned 106 raw articles
+2026-03-14 09:51:55,339 - INFO - Chunk 2025-04-08 to 2025-04-09: fetched 106 articles
+2026-03-14 09:51:55,339 - INFO - Chunked fetch complete: 340 total articles from 9-day window in 7-day chunks
+2026-03-14 09:51:55,339 - INFO - Removed duplicates (cross-domain, title-based): 340 -> 339
+2026-03-14 09:51:55,339 - INFO - filter_headline_content_duplicates: in=339 kept=335 | cleared_content=44 dropped_question=4
+2026-03-14 09:51:55,340 - INFO - After dedup + headline filter: Raw=340, Filtered=335
+2026-03-14 09:51:55,340 - INFO - Using all 335 articles after dedup (no article cap)
+2026-03-14 09:51:55,340 - INFO - Temporal coverage: articles span 20250402 to 20250409 (intended window: 20250401 to 20250409)
+2026-03-14 09:51:55,345 - INFO - filter_company_related: in=335 kept=212 | dropped(question_no_content)=0 dropped(no_match_no_content)=29 dropped(no_match_in_content)=94
+2026-03-14 09:51:55,345 - INFO - Cleaning article content for Tesla (ticker: TSLA) — DeBERTa-only pipeline
+2026-03-14 09:51:59,714 - INFO - Content cleaning complete:
+  Total articles: 212
+  Articles with content: 186
+  Articles filtered (DeBERTa only): 34
+  Articles with no content after: 7
+  Sentences: 353 → 310
+2026-03-14 09:51:59,714 - INFO -   Noise reduction: 12.2%
+2026-03-14 09:51:59,714 - INFO - Adding impact horizon data to 212 articles (prediction window: 3 days)
+2026-03-14 09:52:14,162 - INFO - Impact horizon classification complete (212 articles, batch_size=32)
+2026-03-14 09:52:14,163 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:52:14,163 - INFO - Final article count: 212 (from 9-day backward window)
+2026-03-14 09:52:14,169 - INFO - Saved 212 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W3_bull_run_149\articles.json
+2026-03-14 09:52:14,170 - INFO - Saved 212 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W3_bull_run_149\articles.json
+2026-03-14 09:52:14,188 - INFO -   -> Got 212 articles
+2026-03-14 09:52:15,197 - INFO - Retrying TSLA_W3_earnings_season_151 (TSLA, 21-10-2025 -> 24-10-2025)...
+2026-03-14 09:52:15,211 - INFO - Prediction window: 3 days
+2026-03-14 09:52:15,212 - INFO - Computed max_backward_days: 9 (from √W scaling, W=3)
+2026-03-14 09:52:15,212 - INFO - Backward search window: 12-10-2025 to 20-10-2025 (max 9 days)
+2026-03-14 09:52:15,212 - INFO - Resolved ticker for 'Tesla' -> TSLA
+2026-03-14 09:52:15,213 - INFO - Finnhub request: symbol=TSLA from=2025-10-12 to=2025-10-18
+2026-03-14 09:52:15,922 - INFO - Finnhub returned 231 raw articles
+2026-03-14 09:52:15,926 - INFO - Chunk 2025-10-12 to 2025-10-18: fetched 231 articles
+2026-03-14 09:52:15,927 - INFO - Finnhub request: symbol=TSLA from=2025-10-19 to=2025-10-20
+2026-03-14 09:52:16,464 - INFO - Finnhub returned 63 raw articles
+2026-03-14 09:52:16,466 - INFO - Chunk 2025-10-19 to 2025-10-20: fetched 63 articles
+2026-03-14 09:52:16,466 - INFO - Chunked fetch complete: 294 total articles from 9-day window in 7-day chunks
+2026-03-14 09:52:16,466 - INFO - Removed duplicates (cross-domain, title-based): 294 -> 294
+2026-03-14 09:52:16,467 - INFO - filter_headline_content_duplicates: in=294 kept=292 | cleared_content=15 dropped_question=2
+2026-03-14 09:52:16,467 - INFO - After dedup + headline filter: Raw=294, Filtered=292
+2026-03-14 09:52:16,467 - INFO - Using all 292 articles after dedup (no article cap)
+2026-03-14 09:52:16,467 - INFO - Temporal coverage: articles span 20251012 to 20251020 (intended window: 20251012 to 20251020)
+2026-03-14 09:52:16,471 - INFO - filter_company_related: in=292 kept=150 | dropped(question_no_content)=1 dropped(no_match_no_content)=9 dropped(no_match_in_content)=132
+2026-03-14 09:52:16,472 - INFO - Cleaning article content for Tesla (ticker: TSLA) — DeBERTa-only pipeline
+2026-03-14 09:52:19,911 - INFO - Content cleaning complete:
+  Total articles: 150
+  Articles with content: 143
+  Articles filtered (DeBERTa only): 35
+  Articles with no content after: 2
+  Sentences: 282 → 233
+2026-03-14 09:52:19,911 - INFO -   Noise reduction: 17.4%
+2026-03-14 09:52:19,911 - INFO - Adding impact horizon data to 150 articles (prediction window: 3 days)
+2026-03-14 09:52:29,718 - INFO - Impact horizon classification complete (150 articles, batch_size=32)
+2026-03-14 09:52:29,719 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:52:29,719 - INFO - Final article count: 150 (from 9-day backward window)
+2026-03-14 09:52:29,723 - INFO - Saved 150 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W3_earnings_season_151\articles.json
+2026-03-14 09:52:29,724 - INFO - Saved 150 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W3_earnings_season_151\articles.json
+2026-03-14 09:52:29,738 - INFO -   -> Got 150 articles
+2026-03-14 09:52:30,738 - INFO - Retrying TSLA_W3_recent_stable_152 (TSLA, 09-12-2025 -> 12-12-2025)...
+2026-03-14 09:52:30,739 - INFO - Prediction window: 3 days
+2026-03-14 09:52:30,739 - INFO - Computed max_backward_days: 9 (from √W scaling, W=3)
+2026-03-14 09:52:30,739 - INFO - Backward search window: 30-11-2025 to 08-12-2025 (max 9 days)
+2026-03-14 09:52:30,739 - INFO - Resolved ticker for 'Tesla' -> TSLA
+2026-03-14 09:52:30,739 - INFO - Finnhub request: symbol=TSLA from=2025-11-30 to=2025-12-06
+2026-03-14 09:52:31,508 - INFO - Finnhub returned 233 raw articles
+2026-03-14 09:52:31,513 - INFO - Chunk 2025-11-30 to 2025-12-06: fetched 233 articles
+2026-03-14 09:52:31,513 - INFO - Finnhub request: symbol=TSLA from=2025-12-07 to=2025-12-08
+2026-03-14 09:52:32,109 - INFO - Finnhub returned 53 raw articles
+2026-03-14 09:52:32,110 - INFO - Chunk 2025-12-07 to 2025-12-08: fetched 53 articles
+2026-03-14 09:52:32,111 - INFO - Chunked fetch complete: 286 total articles from 9-day window in 7-day chunks
+2026-03-14 09:52:32,120 - INFO - Removed duplicates (cross-domain, title-based): 286 -> 284
+2026-03-14 09:52:32,120 - INFO - filter_headline_content_duplicates: in=284 kept=284 | cleared_content=8 dropped_question=0
+2026-03-14 09:52:32,120 - INFO - After dedup + headline filter: Raw=286, Filtered=284
+2026-03-14 09:52:32,120 - INFO - Using all 284 articles after dedup (no article cap)
+2026-03-14 09:52:32,121 - INFO - Temporal coverage: articles span 20251130 to 20251208 (intended window: 20251130 to 20251208)
+2026-03-14 09:52:32,125 - INFO - filter_company_related: in=284 kept=157 | dropped(question_no_content)=0 dropped(no_match_no_content)=6 dropped(no_match_in_content)=121
+2026-03-14 09:52:32,125 - INFO - Cleaning article content for Tesla (ticker: TSLA) — DeBERTa-only pipeline
+2026-03-14 09:52:35,716 - INFO - Content cleaning complete:
+  Total articles: 157
+  Articles with content: 152
+  Articles filtered (DeBERTa only): 32
+  Articles with no content after: 0
+  Sentences: 293 → 255
+2026-03-14 09:52:35,716 - INFO -   Noise reduction: 13.0%
+2026-03-14 09:52:35,716 - INFO - Adding impact horizon data to 157 articles (prediction window: 3 days)
+2026-03-14 09:52:46,099 - INFO - Impact horizon classification complete (157 articles, batch_size=32)
+2026-03-14 09:52:46,100 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:52:46,100 - INFO - Final article count: 157 (from 9-day backward window)
+2026-03-14 09:52:46,105 - INFO - Saved 157 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W3_recent_stable_152\articles.json
+2026-03-14 09:52:46,105 - INFO - Saved 157 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W3_recent_stable_152\articles.json
+2026-03-14 09:52:46,118 - INFO -   -> Got 157 articles
+2026-03-14 09:52:47,119 - INFO - Retrying TSLA_W3_volatile_150 (TSLA, 05-08-2025 -> 08-08-2025)...
+2026-03-14 09:52:47,119 - INFO - Prediction window: 3 days
+2026-03-14 09:52:47,119 - INFO - Computed max_backward_days: 9 (from √W scaling, W=3)
+2026-03-14 09:52:47,119 - INFO - Backward search window: 27-07-2025 to 04-08-2025 (max 9 days)
+2026-03-14 09:52:47,119 - INFO - Resolved ticker for 'Tesla' -> TSLA
+2026-03-14 09:52:47,120 - INFO - Finnhub request: symbol=TSLA from=2025-07-27 to=2025-08-02
+2026-03-14 09:52:47,815 - INFO - Finnhub returned 217 raw articles
+2026-03-14 09:52:47,819 - INFO - Chunk 2025-07-27 to 2025-08-02: fetched 217 articles
+2026-03-14 09:52:47,819 - INFO - Finnhub request: symbol=TSLA from=2025-08-03 to=2025-08-04
+2026-03-14 09:52:48,418 - INFO - Finnhub returned 80 raw articles
+2026-03-14 09:52:48,420 - INFO - Chunk 2025-08-03 to 2025-08-04: fetched 80 articles
+2026-03-14 09:52:48,420 - INFO - Chunked fetch complete: 297 total articles from 9-day window in 7-day chunks
+2026-03-14 09:52:48,420 - INFO - Removed duplicates (cross-domain, title-based): 297 -> 294
+2026-03-14 09:52:48,420 - INFO - filter_headline_content_duplicates: in=294 kept=293 | cleared_content=21 dropped_question=1
+2026-03-14 09:52:48,420 - INFO - After dedup + headline filter: Raw=297, Filtered=293
+2026-03-14 09:52:48,420 - INFO - Using all 293 articles after dedup (no article cap)
+2026-03-14 09:52:48,421 - INFO - Temporal coverage: articles span 20200611 to 20250804 (intended window: 20250727 to 20250804)
+2026-03-14 09:52:48,425 - INFO - filter_company_related: in=293 kept=160 | dropped(question_no_content)=2 dropped(no_match_no_content)=11 dropped(no_match_in_content)=120
+2026-03-14 09:52:48,425 - INFO - Cleaning article content for Tesla (ticker: TSLA) — DeBERTa-only pipeline
+2026-03-14 09:52:52,138 - INFO - Content cleaning complete:
+  Total articles: 160
+  Articles with content: 144
+  Articles filtered (DeBERTa only): 28
+  Articles with no content after: 0
+  Sentences: 290 → 249
+2026-03-14 09:52:52,138 - INFO -   Noise reduction: 14.1%
+2026-03-14 09:52:52,138 - INFO - Adding impact horizon data to 160 articles (prediction window: 3 days)
+2026-03-14 09:53:03,240 - INFO - Impact horizon classification complete (160 articles, batch_size=32)
+2026-03-14 09:53:03,241 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:53:03,241 - INFO - Final article count: 160 (from 9-day backward window)
+2026-03-14 09:53:03,245 - INFO - Saved 160 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W3_volatile_150\articles.json
+2026-03-14 09:53:03,245 - INFO - Saved 160 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W3_volatile_150\articles.json
+2026-03-14 09:53:03,259 - INFO -   -> Got 160 articles
+2026-03-14 09:53:04,260 - INFO - Retrying TSLA_W5_bull_run_153 (TSLA, 10-04-2025 -> 15-04-2025)...
+2026-03-14 09:53:04,260 - INFO - Prediction window: 5 days
+2026-03-14 09:53:04,260 - INFO - Computed max_backward_days: 12 (from √W scaling, W=5)
+2026-03-14 09:53:04,260 - INFO - Backward search window: 29-03-2025 to 09-04-2025 (max 12 days)
+2026-03-14 09:53:04,261 - INFO - Resolved ticker for 'Tesla' -> TSLA
+2026-03-14 09:53:04,261 - INFO - Finnhub request: symbol=TSLA from=2025-03-29 to=2025-04-04
+2026-03-14 09:53:04,988 - INFO - Finnhub returned 232 raw articles
+2026-03-14 09:53:04,992 - INFO - Chunk 2025-03-29 to 2025-04-04: fetched 232 articles
+2026-03-14 09:53:04,993 - INFO - Finnhub request: symbol=TSLA from=2025-04-05 to=2025-04-09
+2026-03-14 09:53:05,676 - INFO - Finnhub returned 195 raw articles
+2026-03-14 09:53:05,680 - INFO - Chunk 2025-04-05 to 2025-04-09: fetched 195 articles
+2026-03-14 09:53:05,680 - INFO - Chunked fetch complete: 427 total articles from 12-day window in 7-day chunks
+2026-03-14 09:53:05,680 - INFO - Removed duplicates (cross-domain, title-based): 427 -> 425
+2026-03-14 09:53:05,681 - INFO - filter_headline_content_duplicates: in=425 kept=421 | cleared_content=58 dropped_question=4
+2026-03-14 09:53:05,681 - INFO - After dedup + headline filter: Raw=427, Filtered=421
+2026-03-14 09:53:05,681 - INFO - Using all 421 articles after dedup (no article cap)
+2026-03-14 09:53:05,681 - INFO - Temporal coverage: articles span 20250401 to 20250409 (intended window: 20250329 to 20250409)
+2026-03-14 09:53:05,688 - INFO - filter_company_related: in=421 kept=272 | dropped(question_no_content)=0 dropped(no_match_no_content)=33 dropped(no_match_in_content)=116
+2026-03-14 09:53:05,688 - INFO - Cleaning article content for Tesla (ticker: TSLA) — DeBERTa-only pipeline
+2026-03-14 09:53:11,076 - INFO - Content cleaning complete:
+  Total articles: 272
+  Articles with content: 235
+  Articles filtered (DeBERTa only): 44
+  Articles with no content after: 8
+  Sentences: 445 → 390
+2026-03-14 09:53:11,076 - INFO -   Noise reduction: 12.4%
+2026-03-14 09:53:11,076 - INFO - Adding impact horizon data to 272 articles (prediction window: 5 days)
+2026-03-14 09:53:29,494 - INFO - Impact horizon classification complete (272 articles, batch_size=32)
+2026-03-14 09:53:29,495 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:53:29,495 - INFO - Final article count: 272 (from 12-day backward window)
+2026-03-14 09:53:29,502 - INFO - Saved 272 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W5_bull_run_153\articles.json
+2026-03-14 09:53:29,502 - INFO - Saved 272 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W5_bull_run_153\articles.json
+2026-03-14 09:53:29,522 - INFO -   -> Got 272 articles
+2026-03-14 09:53:30,522 - INFO - Retrying TSLA_W5_earnings_season_155 (TSLA, 21-10-2025 -> 26-10-2025)...
+2026-03-14 09:53:30,523 - INFO - Prediction window: 5 days
+2026-03-14 09:53:30,523 - INFO - Computed max_backward_days: 12 (from √W scaling, W=5)
+2026-03-14 09:53:30,523 - INFO - Backward search window: 09-10-2025 to 20-10-2025 (max 12 days)
+2026-03-14 09:53:30,523 - INFO - Resolved ticker for 'Tesla' -> TSLA
+2026-03-14 09:53:30,523 - INFO - Finnhub request: symbol=TSLA from=2025-10-09 to=2025-10-15
+2026-03-14 09:53:31,330 - INFO - Finnhub returned 241 raw articles
+2026-03-14 09:53:31,334 - INFO - Chunk 2025-10-09 to 2025-10-15: fetched 241 articles
+2026-03-14 09:53:31,335 - INFO - Finnhub request: symbol=TSLA from=2025-10-16 to=2025-10-20
+2026-03-14 09:53:31,959 - INFO - Finnhub returned 150 raw articles
+2026-03-14 09:53:31,962 - INFO - Chunk 2025-10-16 to 2025-10-20: fetched 150 articles
+2026-03-14 09:53:31,962 - INFO - Chunked fetch complete: 391 total articles from 12-day window in 7-day chunks
+2026-03-14 09:53:31,963 - INFO - Removed duplicates (cross-domain, title-based): 391 -> 389
+2026-03-14 09:53:31,963 - INFO - filter_headline_content_duplicates: in=389 kept=387 | cleared_content=15 dropped_question=2
+2026-03-14 09:53:31,964 - INFO - After dedup + headline filter: Raw=391, Filtered=387
+2026-03-14 09:53:31,964 - INFO - Using all 387 articles after dedup (no article cap)
+2026-03-14 09:53:31,964 - INFO - Temporal coverage: articles span 20251009 to 20251020 (intended window: 20251009 to 20251020)
+2026-03-14 09:53:31,972 - INFO - filter_company_related: in=387 kept=201 | dropped(question_no_content)=1 dropped(no_match_no_content)=10 dropped(no_match_in_content)=175
+2026-03-14 09:53:31,972 - INFO - Cleaning article content for Tesla (ticker: TSLA) — DeBERTa-only pipeline
+2026-03-14 09:53:36,425 - INFO - Content cleaning complete:
+  Total articles: 201
+  Articles with content: 194
+  Articles filtered (DeBERTa only): 43
+  Articles with no content after: 2
+  Sentences: 377 → 316
+2026-03-14 09:53:36,425 - INFO -   Noise reduction: 16.2%
+2026-03-14 09:53:36,425 - INFO - Adding impact horizon data to 201 articles (prediction window: 5 days)
+2026-03-14 09:53:49,556 - INFO - Impact horizon classification complete (201 articles, batch_size=32)
+2026-03-14 09:53:49,557 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:53:49,557 - INFO - Final article count: 201 (from 12-day backward window)
+2026-03-14 09:53:49,563 - INFO - Saved 201 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W5_earnings_season_155\articles.json
+2026-03-14 09:53:49,563 - INFO - Saved 201 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W5_earnings_season_155\articles.json
+2026-03-14 09:53:49,578 - INFO -   -> Got 201 articles
+2026-03-14 09:53:50,579 - INFO - Retrying TSLA_W5_recent_stable_156 (TSLA, 09-12-2025 -> 14-12-2025)...
+2026-03-14 09:53:50,580 - INFO - Prediction window: 5 days
+2026-03-14 09:53:50,583 - INFO - Computed max_backward_days: 12 (from √W scaling, W=5)
+2026-03-14 09:53:50,583 - INFO - Backward search window: 27-11-2025 to 08-12-2025 (max 12 days)
+2026-03-14 09:53:50,583 - INFO - Resolved ticker for 'Tesla' -> TSLA
+2026-03-14 09:53:50,583 - INFO - Finnhub request: symbol=TSLA from=2025-11-27 to=2025-12-03
+2026-03-14 09:53:51,324 - INFO - Finnhub returned 183 raw articles
+2026-03-14 09:53:51,328 - INFO - Chunk 2025-11-27 to 2025-12-03: fetched 183 articles
+2026-03-14 09:53:51,328 - INFO - Finnhub request: symbol=TSLA from=2025-12-04 to=2025-12-08
+2026-03-14 09:53:51,976 - INFO - Finnhub returned 139 raw articles
+2026-03-14 09:53:51,979 - INFO - Chunk 2025-12-04 to 2025-12-08: fetched 139 articles
+2026-03-14 09:53:51,980 - INFO - Chunked fetch complete: 322 total articles from 12-day window in 7-day chunks
+2026-03-14 09:53:51,980 - INFO - Removed duplicates (cross-domain, title-based): 322 -> 321
+2026-03-14 09:53:51,980 - INFO - filter_headline_content_duplicates: in=321 kept=321 | cleared_content=10 dropped_question=0
+2026-03-14 09:53:51,980 - INFO - After dedup + headline filter: Raw=322, Filtered=321
+2026-03-14 09:53:51,980 - INFO - Using all 321 articles after dedup (no article cap)
+2026-03-14 09:53:51,980 - INFO - Temporal coverage: articles span 20251127 to 20251208 (intended window: 20251127 to 20251208)
+2026-03-14 09:53:51,987 - INFO - filter_company_related: in=321 kept=176 | dropped(question_no_content)=0 dropped(no_match_no_content)=7 dropped(no_match_in_content)=138
+2026-03-14 09:53:51,987 - INFO - Cleaning article content for Tesla (ticker: TSLA) — DeBERTa-only pipeline
+2026-03-14 09:53:55,930 - INFO - Content cleaning complete:
+  Total articles: 176
+  Articles with content: 170
+  Articles filtered (DeBERTa only): 34
+  Articles with no content after: 0
+  Sentences: 333 → 293
+2026-03-14 09:53:55,930 - INFO -   Noise reduction: 12.0%
+2026-03-14 09:53:55,931 - INFO - Adding impact horizon data to 176 articles (prediction window: 5 days)
+2026-03-14 09:54:07,592 - INFO - Impact horizon classification complete (176 articles, batch_size=32)
+2026-03-14 09:54:07,593 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:54:07,593 - INFO - Final article count: 176 (from 12-day backward window)
+2026-03-14 09:54:07,597 - INFO - Saved 176 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W5_recent_stable_156\articles.json
+2026-03-14 09:54:07,598 - INFO - Saved 176 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W5_recent_stable_156\articles.json
+2026-03-14 09:54:07,614 - INFO -   -> Got 176 articles
+2026-03-14 09:54:08,614 - INFO - Retrying TSLA_W5_volatile_154 (TSLA, 05-08-2025 -> 10-08-2025)...
+2026-03-14 09:54:08,615 - INFO - Prediction window: 5 days
+2026-03-14 09:54:08,615 - INFO - Computed max_backward_days: 12 (from √W scaling, W=5)
+2026-03-14 09:54:08,615 - INFO - Backward search window: 24-07-2025 to 04-08-2025 (max 12 days)
+2026-03-14 09:54:08,615 - INFO - Resolved ticker for 'Tesla' -> TSLA
+2026-03-14 09:54:08,615 - INFO - Finnhub request: symbol=TSLA from=2025-07-24 to=2025-07-30
+2026-03-14 09:54:09,376 - INFO - Finnhub returned 239 raw articles
+2026-03-14 09:54:09,380 - INFO - Chunk 2025-07-24 to 2025-07-30: fetched 239 articles
+2026-03-14 09:54:09,380 - INFO - Finnhub request: symbol=TSLA from=2025-07-31 to=2025-08-04
+2026-03-14 09:54:10,067 - INFO - Finnhub returned 160 raw articles
+2026-03-14 09:54:10,071 - INFO - Chunk 2025-07-31 to 2025-08-04: fetched 160 articles
+2026-03-14 09:54:10,071 - INFO - Chunked fetch complete: 399 total articles from 12-day window in 7-day chunks
+2026-03-14 09:54:10,071 - INFO - Removed duplicates (cross-domain, title-based): 399 -> 395
+2026-03-14 09:54:10,072 - INFO - filter_headline_content_duplicates: in=395 kept=393 | cleared_content=26 dropped_question=2
+2026-03-14 09:54:10,072 - INFO - After dedup + headline filter: Raw=399, Filtered=393
+2026-03-14 09:54:10,072 - INFO - Using all 393 articles after dedup (no article cap)
+2026-03-14 09:54:10,072 - INFO - Temporal coverage: articles span 20200611 to 20250804 (intended window: 20250724 to 20250804)
+2026-03-14 09:54:10,080 - INFO - filter_company_related: in=393 kept=220 | dropped(question_no_content)=3 dropped(no_match_no_content)=12 dropped(no_match_in_content)=158
+2026-03-14 09:54:10,080 - INFO - Cleaning article content for Tesla (ticker: TSLA) — DeBERTa-only pipeline
+2026-03-14 09:54:14,962 - INFO - Content cleaning complete:
+  Total articles: 220
+  Articles with content: 198
+  Articles filtered (DeBERTa only): 38
+  Articles with no content after: 0
+  Sentences: 398 → 343
+2026-03-14 09:54:14,962 - INFO -   Noise reduction: 13.8%
+2026-03-14 09:54:14,962 - INFO - Adding impact horizon data to 220 articles (prediction window: 5 days)
+2026-03-14 09:54:29,880 - INFO - Impact horizon classification complete (220 articles, batch_size=32)
+2026-03-14 09:54:29,882 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-03-14 09:54:29,882 - INFO - Final article count: 220 (from 12-day backward window)
+2026-03-14 09:54:29,890 - INFO - Saved 220 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W5_volatile_154\articles.json
+2026-03-14 09:54:29,890 - INFO - Saved 220 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\retry_TSLA_W5_volatile_154\articles.json
+2026-03-14 09:54:29,905 - INFO -   -> Got 220 articles
