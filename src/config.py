@@ -23,22 +23,22 @@ REQUEST_TIMEOUT_LIMIT = 30
 # API Configuration
 FINNHUB_API_KEY = "d5rvt19r01qq2th0b8sgd5rvt19r01qq2th0b8t0"
 
-NOISE_REDUCTION_MODEL = "roberta-large-mnli" 
+NOISE_REDUCTION_MODEL = "microsoft/deberta-large-mnli" 
 
-IMPACT_HORIZON_MODEL = "roberta-large-mnli"
+IMPACT_HORIZON_MODEL = "microsoft/deberta-large-mnli"
 IMPACT_HORIZON_DEVICE = 0
 
 SENTIMENT_DEVICE = 0 
 
 # finbert config
-SENTIMENT_MODEL = "ProsusAI/finbert"
-SENTIMENT_MAX_LENGTH = 512  
+# SENTIMENT_MODEL = "ProsusAI/finbert"
+# SENTIMENT_MAX_LENGTH = 512  
 
 #fingpt config
-# SENTIMENT_MODEL = "fingpt"
-# FINGPT_BASE_MODEL = "NousResearch/Llama-2-13b-hf"
-# FINGPT_LORA_MODEL = "FinGPT/fingpt-sentiment_llama2-13b_lora"
-# FINGPT_LOAD_IN_8BIT = True
+SENTIMENT_MODEL = "fingpt"
+FINGPT_BASE_MODEL = "NousResearch/Llama-2-13b-hf"
+FINGPT_LORA_MODEL = "FinGPT/fingpt-sentiment_llama2-13b_lora"
+FINGPT_LOAD_IN_8BIT = True
 
 # zero-shot config
 # SENTIMENT_MODEL = "zero-shot"

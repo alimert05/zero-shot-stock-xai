@@ -23,7 +23,10 @@ from __future__ import annotations
 import math
 import logging
 
-from config import DECISION_THRESHOLD_ENABLED, DECISION_THRESHOLD_POS, DECISION_THRESHOLD_NEG
+from config import (
+    DECISION_THRESHOLD_ENABLED, DECISION_THRESHOLD_POS, DECISION_THRESHOLD_NEG,
+    DYNAMIC_MARGIN_ENABLED,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -185,7 +188,7 @@ def apply_abstention(
 
     abstention_method = threshold_method
 
-    if final_label != "neutral" and margin < dyn_threshold:
+    if DYNAMIC_MARGIN_ENABLED and final_label != "neutral" and margin < dyn_threshold:
         final_label = "neutral"
         abstention_method = "dynamic_margin"
         logger.info(
@@ -193,7 +196,7 @@ def apply_abstention(
             "(top=%s, runner_up=%s, entropy=%.4f, eff_n=%.4f)",
             margin, dyn_threshold, top_label, runner_up, entropy, n_eff,
         )
-    elif not threshold_method:
+    elif DYNAMIC_MARGIN_ENABLED and not threshold_method:
         logger.info(
             "Dynamic margin check passed: %.4f >= %.4f -> keep %s "
             "(entropy=%.4f, eff_n=%.4f)",
