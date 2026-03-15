@@ -47,15 +47,15 @@ FINGPT_LOAD_IN_8BIT = True
 # ollama LLM config (Llama 3.1 8B or Mistral 7B)
 # SENTIMENT_MODEL = "ollama-llama3"
 # OLLAMA_SENTIMENT_MODEL = "llama3.1:8b"
-SENTIMENT_MODEL = "ollama-mistral"
+# SENTIMENT_MODEL = "ollama-mistral"
 OLLAMA_SENTIMENT_MODEL = "mistral:7b"
 
-# SENTIMENT_MODEL = "zero-shot"
+SENTIMENT_MODEL = "zero-shot"
 MODEL_NAME = "microsoft/deberta-large-mnli" # microsoft deberta large mnli
 # MODEL_NAME = "roberta-large-mnli" # facebookAI roberta mnli
 
 # XAI Configuration
-XAI_ENABLED                    = False
+XAI_ENABLED                    = True
 XAI_EXPLANATIONS_PATH          = PROJECT_ROOT / "data" / "xai_explanations"
 XAI_OUTPUT_PATH                = XAI_EXPLANATIONS_PATH / "xai_result.json"
 XAI_SUMMARY_PATH               = XAI_EXPLANATIONS_PATH / "xai_summary.txt"
