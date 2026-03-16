@@ -299,6 +299,7 @@ def _print_top_n(top_results: list[dict]) -> None:
 # ── CLI entry point ─────────────────────────────────────────────────────
 
 def main():
+    """CLI entry point: run grid search, print results, and save JSON."""
     parser = argparse.ArgumentParser(
         description="Grid search for optimal decision thresholds"
     )

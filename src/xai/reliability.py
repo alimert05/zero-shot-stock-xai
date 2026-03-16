@@ -1,3 +1,9 @@
+"""Reliability flags for sentiment predictions.
+
+Checks evidence volume, weight concentration, label margin, confidence,
+source diversity, timing alignment, and horizon coverage to produce an
+overall HIGH / MEDIUM / LOW reliability rating.
+"""
 from __future__ import annotations
 
 import logging
@@ -277,6 +283,7 @@ def compute_reliability(
     prediction_window_days: int = 7,
     max_backward_days: int | None = None,
 ) -> dict[str, Any]:
+    """Run all reliability checks and return an overall rating with flag details."""
     articles_analyzed = prediction_result.get("articles_analyzed", 0)
     normalized_scores = prediction_result.get("normalized_scores", {})
     final_confidence = prediction_result.get("final_confidence", 0.0)

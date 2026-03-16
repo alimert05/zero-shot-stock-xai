@@ -282,6 +282,7 @@ def _build_group_storylines(
 def cluster_narratives(
     merged_articles: list[dict[str, Any]],
 ) -> dict[str, Any]:
+    """Cluster articles into narrative storylines grouped by sentiment."""
     from .utils import get_dominant_label
 
     if len(merged_articles) < 3:

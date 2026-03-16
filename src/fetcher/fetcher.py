@@ -36,6 +36,7 @@ logger = logging.getLogger(__name__)
 
 
 class Fetcher:
+    """Fetches, filters, and scores financial news articles for a given company."""
 
     def run_fetcher(self) -> bool:
         self.get_input()
@@ -85,7 +86,7 @@ class Fetcher:
         self._rate_limiter = rate_limiter
 
     def get_input(self) -> str:
-
+        """Prompt the user for company name, start date, and end date via stdin."""
         try:
             self.query = input("Enter company's name: ").strip()
             if not self.query:
@@ -106,6 +107,7 @@ class Fetcher:
             raise
 
     def _fetch_finnhub_news(self, symbol: str, from_date: str, to_date: str) -> list[dict]:
+        """Fetch company news from Finnhub and normalise into a standard article format."""
         if not FINNHUB_API_KEY:
             raise RuntimeError(
                 "FINNHUB_API_KEY is not set in config.py. "
@@ -383,6 +385,7 @@ class Fetcher:
         )
 
     def _build_output_payload(self, articles: list[dict]) -> dict:
+        """Build the full JSON-serialisable output dict including query metadata."""
         return {
             "query": self.query,
             "ticker": self.ticker,
@@ -407,6 +410,7 @@ class Fetcher:
         }
 
     def save_articles(self, articles: list[dict]) -> None:
+        """Serialise articles and metadata to the output JSON file."""
         try:
             output_data = self._build_output_payload(articles)
 
@@ -426,7 +430,7 @@ class Fetcher:
             raise Exception(msg) from exc
 
     def display_results(self) -> bool:
-
+        """Display fetched articles to stdout and persist them to disk."""
         if not self.data:
             logger.warning("No data to display")
             if not self.quiet:

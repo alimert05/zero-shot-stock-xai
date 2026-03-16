@@ -1,3 +1,5 @@
+"""Filtering utilities for removing irrelevant, duplicate, and low-quality articles."""
+
 from __future__ import annotations
 
 import re
@@ -41,7 +43,7 @@ def _is_question_headline(title: str) -> bool:
     return "?" in t or bool(_QUESTION_WORDS_RE.search(t))
 
 def filter_company_related(articles: list[dict], company_name: str, ticker: str | None) -> list[dict]:
-
+    """Keep only articles that mention the company name or ticker in headline or body."""
     kept: list[dict] = []
     ticker_re = _ticker_regex(ticker) if ticker else None
 
@@ -97,6 +99,7 @@ def filter_company_related(articles: list[dict], company_name: str, ticker: str 
 def filter_financial_keywords(
     articles: list[dict], financial_keywords: Iterable[str]
 ) -> list[dict]:
+    """Retain articles whose title contains at least one of the given financial keywords."""
     financial_articles: list[dict] = []
     keywords_lower = [k.lower() for k in financial_keywords]
 
@@ -118,6 +121,7 @@ def filter_financial_keywords(
 
 
 def filter_language(articles: list[dict], allowed_languages: list[str]) -> list[dict]:
+    """Keep only articles whose language field matches one of the allowed languages."""
     allowed = {lang.lower() for lang in allowed_languages}
     filtered = [
         article

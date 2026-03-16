@@ -77,6 +77,7 @@ def _safe_pearson(x: list[float], y: list[float]):
 # ── core analysis ──────────────────────────────────────────────────────
 
 def analyse(holdout_path: Path, eval_path: Path) -> dict:
+    """Run the full return-correlation analysis and return a results dict."""
     holdout = _load_json(holdout_path)
     evaluation = _load_json(eval_path)
 
@@ -334,6 +335,7 @@ def analyse(holdout_path: Path, eval_path: Path) -> dict:
 # ── pretty print ───────────────────────────────────────────────────────
 
 def print_report(results: dict) -> None:
+    """Print a formatted summary of return-correlation results to stdout."""
     ov_all = results["overall_all_cases"]
     ov_dir = results["directional_only"]
     pcr = results["per_class_mean_return"]
@@ -428,6 +430,7 @@ def print_report(results: dict) -> None:
 # ── main ───────────────────────────────────────────────────────────────
 
 def main():
+    """CLI entry point: load data, run analysis, print report, and save JSON."""
     parser = argparse.ArgumentParser(description="Return correlation analysis")
     parser.add_argument("--holdout", type=Path, default=DEFAULT_HOLDOUT,
                         help="Path to holdout_set.json")

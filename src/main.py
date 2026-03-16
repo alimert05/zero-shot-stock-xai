@@ -1,3 +1,8 @@
+"""Main entry point for the sentiment prediction pipeline.
+
+Fetches news articles, runs the configured sentiment model, and optionally
+generates an XAI explainability report.
+"""
 from fetcher.fetcher import Fetcher
 from predictor.finbert import run_sentiment_prediction as run_finbert
 from predictor.fingpt import run_sentiment_prediction as run_fingpt
@@ -8,7 +13,7 @@ from config import JSON_PATH, SENTIMENT_MODEL, FINBERT_PREDS, FINGPT_PREDS, ZERO
 from xai import run_xai
 
 def main() -> None:
-
+    """Fetch articles, run sentiment prediction, and generate XAI output."""
     fetcher = Fetcher()
     has_articles = fetcher.run_fetcher()
     if not has_articles:

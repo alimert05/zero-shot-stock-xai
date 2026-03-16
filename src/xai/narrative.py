@@ -1,3 +1,10 @@
+"""LLM-generated narrative summaries for XAI prediction reports.
+
+Builds a constrained prompt from pre-computed prediction data, calls Ollama
+(LLaMA) to produce a 3-sentence narrative, and validates the output against
+hallucination guards. Falls back to a deterministic template when the LLM
+is unavailable or produces invalid text.
+"""
 from __future__ import annotations
 
 import logging
@@ -40,6 +47,7 @@ def _build_prompt(
     token_explanation: list[dict[str, Any]],
     company_name: str,
 ) -> str:
+    """Assemble the data-grounded prompt sent to Ollama for narrative generation."""
     final_label = prediction_result.get("final_label", "unknown").upper()
     final_confidence = prediction_result.get("final_confidence", 0.0)
     conf_pct = round(final_confidence * 100, 1)
@@ -145,6 +153,7 @@ def _build_fallback_summary(
     reliability: dict[str, Any],
     company_name: str,
 ) -> str:
+    """Build a deterministic template summary when the LLM is unavailable."""
     final_label = prediction_result.get("final_label", "unknown")
     conf_pct = round(prediction_result.get("final_confidence", 0.0) * 100, 1)
     articles_analyzed = prediction_result.get("articles_analyzed", 0)
@@ -272,6 +281,7 @@ def generate_narrative(
     token_explanation: list[dict[str, Any]],
     company_name: str,
 ) -> dict[str, Any]:
+    """Generate a natural-language narrative for the XAI report."""
     if not XAI_LLAMA_ENABLED:
         logger.info("LLaMA narrative disabled via config; using fallback.")
         fallback = _build_fallback_summary(

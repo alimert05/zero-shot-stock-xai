@@ -1,3 +1,5 @@
+"""Impact horizon classification and weighting based on event-family priors."""
+
 from __future__ import annotations
 
 import logging
