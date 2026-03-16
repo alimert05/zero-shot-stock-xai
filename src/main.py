@@ -1,4 +1,3 @@
-import atexit
 from fetcher.fetcher import Fetcher
 from predictor.finbert import run_sentiment_prediction as run_finbert
 from predictor.fingpt import run_sentiment_prediction as run_fingpt
