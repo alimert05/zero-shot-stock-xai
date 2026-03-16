@@ -1,4 +1,3 @@
-import os
 from pathlib import Path
 
 # Project paths
@@ -79,14 +78,8 @@ XAI_LLAMA_ENABLED              = True
 XAI_SOURCE_CONCENTRATION_THRESHOLD = 0.60   # flag if top domain > 60% of articles
 XAI_MIN_UNIQUE_SOURCES             = 2      # flag if fewer unique domains
 
-# Prior debiasing (Bayesian correction for zero-shot label bias)
-PRIOR_DEBIASING_ENABLED        = False
-PRIOR_DEBIASING_ALPHA          = 1.0       # damping: 0=off, 1=full, 0.5=half-strength
-
 # Enhanced article weighting
-SENTIMENT_CONFIDENCE_WEIGHTING = False   # disabled: scores already encode uncertainty; double-counts
 COVERAGE_COUNT_BOOST           = True    # boost multi-source articles via log2(1 + coverage)
-RELEVANCE_RATIO_WEIGHTING      = False   # disabled: noise reducer already filters; double-penalty
 HEADLINE_ONLY_WEIGHT           = 0.5     # discount for headline-only articles (no body content)
 
 # Decision thresholds (tuned on tune set via grid search, macro F1)

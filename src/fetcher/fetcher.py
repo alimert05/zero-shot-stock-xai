@@ -23,7 +23,6 @@ from .filters import (
     remove_duplicates,
     filter_headline_content_duplicates,
 )
-from .content import enrich_articles_with_content
 from .content_noise_reducer import clean_articles_content
 from .impact_horizon import add_impact_horizon_data
 
@@ -326,9 +325,6 @@ class Fetcher:
             backward_end_date=self.backward_end_date,
             prediction_window_days=self.prediction_window_days,
         )
-
-        # enrich_articles_with_content(candidates, timeout=self.timeout)
-
 
         filtered_after_rules = filter_company_related(
             candidates,

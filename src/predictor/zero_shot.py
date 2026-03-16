@@ -19,9 +19,7 @@ from transformers import pipeline
 from config import (
     SENTIMENT_DEVICE,
     MODEL_NAME,
-    SENTIMENT_CONFIDENCE_WEIGHTING,
     COVERAGE_COUNT_BOOST,
-    RELEVANCE_RATIO_WEIGHTING,
     HEADLINE_ONLY_WEIGHT,
 )
 from predictor.abstention import apply_abstention
@@ -222,8 +220,6 @@ def predict_sentiment(
             source_label = "title-fallback"
 
         coverage_count = int(article.get("coverage_count", 1))
-        content_stats = article.get("content_stats", {})
-        relevance_ratio = float(content_stats.get("relevance_ratio", 1.0))
         is_headline_only = not content_raw.strip()
 
         batch_texts.append(text)
@@ -233,7 +229,6 @@ def predict_sentiment(
             "final_weight": final_weight,
             "source_label": source_label,
             "coverage_count": coverage_count,
-            "relevance_ratio": relevance_ratio,
             "is_headline_only": is_headline_only,
         })
 
@@ -255,24 +250,11 @@ def predict_sentiment(
             coverage_boost = math.log2(1 + cc)          # cc=1→1.0, cc=3→2.0, cc=5→2.58
             effective_weight *= coverage_boost
 
-        # ── Relevance ratio weighting: content quality from noise reducer ──
-        relevance_ratio = 1.0
-        if RELEVANCE_RATIO_WEIGHTING:
-            relevance_ratio = meta["relevance_ratio"]       # in [0, 1]
-            effective_weight *= relevance_ratio
-
         # ── Headline-only discount: less info = less trust ──
         headline_discount = 1.0
         if meta["is_headline_only"]:
             headline_discount = HEADLINE_ONLY_WEIGHT
             effective_weight *= headline_discount
-
-        # ── Sentiment confidence weighting: margin between top-1 and top-2 ──
-        sentiment_margin = 1.0
-        if SENTIMENT_CONFIDENCE_WEIGHTING:
-            sorted_scores = sorted(raw.values(), reverse=True)
-            sentiment_margin = sorted_scores[0] - sorted_scores[1]  # ∈ [0, 1]
-            effective_weight *= sentiment_margin
 
         for label in weighted_scores:
             weighted_scores[label] += raw[label] * effective_weight
@@ -284,9 +266,7 @@ def predict_sentiment(
             "base_weight": base_weight,
             "effective_weight": round(effective_weight, 4),
             "coverage_boost": round(coverage_boost, 4),
-            "relevance_ratio": round(relevance_ratio, 4),
             "headline_discount": round(headline_discount, 4),
-            "sentiment_margin": round(sentiment_margin, 4),
             "input_source": meta["source_label"],
             "raw_scores": raw,
             "weighted_scores": {
@@ -296,11 +276,11 @@ def predict_sentiment(
         article_sentiments.append(detail)
 
         logger.info(
-            "[%d/%d] (%s) %s -> pos=%.4f neg=%.4f neu=%.4f (w=%.3f->%.3f, cov=%.2f, rel=%.2f, hdl=%.2f, mar=%.2f)",
+            "[%d/%d] (%s) %s -> pos=%.4f neg=%.4f neu=%.4f (w=%.3f->%.3f, cov=%.2f, hdl=%.2f)",
             meta["idx"] + 1, len(articles), meta["source_label"],
             meta["title"][:50],
             raw["positive"], raw["negative"], raw["neutral"],
-            base_weight, effective_weight, coverage_boost, relevance_ratio, headline_discount, sentiment_margin,
+            base_weight, effective_weight, coverage_boost, headline_discount,
         )
 
     if total_weight > 0:
@@ -321,9 +301,7 @@ def predict_sentiment(
         "articles_total": len(articles),
         "total_weight": round(total_weight, 4),
         "enhanced_weighting": {
-            "sentiment_confidence": SENTIMENT_CONFIDENCE_WEIGHTING,
             "coverage_boost": COVERAGE_COUNT_BOOST,
-            "relevance_ratio": RELEVANCE_RATIO_WEIGHTING,
             "headline_only_weight": HEADLINE_ONLY_WEIGHT,
         },
         "weighted_scores": {
