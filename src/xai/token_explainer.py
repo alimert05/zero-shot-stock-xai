@@ -6,7 +6,7 @@ from typing import Any
 import numpy as np
 
 from config import XAI_LIME_TOP_N, XAI_LIME_NUM_SAMPLES, XAI_LIME_NUM_FEATURES
-from predictor.zero_shot import _title_matches, _build_input_text
+from predictor.common import title_matches, build_input_text
 from .utils import label_index, get_dominant_label, build_lime_noise_set, is_lime_noise_token, safe_round
 
 logger = logging.getLogger(__name__)
@@ -134,8 +134,8 @@ def explain_tokens(
         raw_scores = article.get("raw_scores", {})
 
         # Use the predictor's own function so LIME explains the exact same text
-        include_title = _title_matches(title, company_name, ticker)
-        text_to_explain = _build_input_text(
+        include_title = title_matches(title, company_name, ticker)
+        text_to_explain = build_input_text(
             article, include_title=include_title,
             company_name=company_name, max_chars=1500,
         )

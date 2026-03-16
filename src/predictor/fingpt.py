@@ -2,16 +2,10 @@ from __future__ import annotations
 
 import json
 import logging
-import re
 from typing import Any
 
 from predictor.abstention import apply_abstention
-
-_COMPANY_SUFFIXES = {
-    "inc", "inc.", "corp", "corp.", "ltd", "ltd.", "co", "co.",
-    "plc", "llc", "group", "holdings", "sa", "ag", "se", "nv",
-    "the", "company",
-}
+from predictor.common import title_matches, build_input_text, print_summary
 
 logger = logging.getLogger(__name__)
 
@@ -73,52 +67,6 @@ def _get_fingpt_model():
             raise
 
     return _fingpt_model, _fingpt_tokenizer
-
-
-def _title_matches(title: str, company_name: str, ticker: str | None) -> bool:
-    title_lower = title.lower()
-
-    # Full company name match
-    if company_name.lower() in title_lower:
-        return True
-
-    # Ticker match — word boundaries to avoid short tickers matching inside words
-    if ticker and re.search(rf"\b{re.escape(ticker)}\b", title):
-        return True
-
-    # Core-name match: strip common suffixes like Inc., Corp., Ltd.
-    core_words = [w for w in company_name.lower().split() if w not in _COMPANY_SUFFIXES]
-    if core_words:
-        core_name = " ".join(core_words)
-        if core_name in title_lower:
-            return True
-
-    return False
-
-
-def _build_input_text(
-    article: dict,
-    include_title: bool,
-    company_name: str,
-    max_chars: int = 1500,
-) -> str:
-    title = article.get("title", "").strip()
-    content = article.get("content") or ""
-    content = content.strip()
-
-    if include_title:
-        body = f"{title}. {content}" if content else title
-    elif content:
-        body = content
-    else:
-        body = title
-
-    if not body:
-        return ""
-
-    text = f"Sentiment for {company_name}: {body}"
-
-    return text[:max_chars]
 
 
 def _classify_sentiment(text: str) -> dict[str, float]:
@@ -196,8 +144,8 @@ def predict_sentiment(
         title = article.get("title", "")
         final_weight = float(article.get("final_weight", 1.0))
 
-        include_title = _title_matches(title, company_name, ticker)
-        text = _build_input_text(article, include_title=include_title, company_name=company_name)
+        include_title = title_matches(title, company_name, ticker)
+        text = build_input_text(article, include_title=include_title, company_name=company_name)
 
         if not text:
             logger.debug("Skipping article (no title and no content): %s", title[:80])
@@ -287,42 +235,5 @@ def run_sentiment_prediction(
             json.dump(result, f, indent=2, ensure_ascii=False)
         logger.info("Sentiment result saved to %s", output_path)
 
-    _print_summary(result)
+    print_summary(result, model_label="FinGPT")
     return result
-
-
-def _print_summary(result: dict) -> None:
-    print(f"\n{'='*50}")
-    print(f"  SENTIMENT PREDICTION RESULT (FinGPT)")
-    print(f"{'='*50}")
-    print(f"  Company : {result['company_name']}")
-    if result.get("ticker"):
-        print(f"  Ticker  : {result['ticker']}")
-    print(f"  Articles: {result['articles_analyzed']}/{result['articles_total']} matched")
-    print(f"{'-'*50}")
-    print(f"  Normalized Scores (weighted by article importance):")
-    for label in ["positive", "negative", "neutral"]:
-        score = result["normalized_scores"][label]
-        bar = "#" * int(score * 30)
-        print(f"    {label:>8}: {score:.4f}  {bar}")
-    print(f"{'-'*50}")
-    print(f"  FINAL LABEL : {result['final_label'].upper()}")
-    print(f"  CONFIDENCE  : {result['final_confidence']:.4f}")
-
-    abst = result.get("abstention_test", {})
-    method = abst.get("method", "none")
-    margin = abst.get("margin", 0.0)
-    threshold = abst.get("threshold", 0.0)
-    entropy = abst.get("entropy", 0.0)
-    effective_n = abst.get("effective_n", 0.0)
-
-    if method != "none":
-        print(f"  ABSTAINED   : Yes ({method})")
-        print(f"  MARGIN      : {margin:.4f}")
-        print(f"  THRESHOLD   : {threshold:.4f}")
-    else:
-        print(f"  MARGIN      : {margin:.4f} (threshold={threshold:.4f})")
-
-    print(f"  ENTROPY     : {entropy:.4f}")
-    print(f"  EFFECTIVE N : {effective_n:.4f}")
-    print(f"{'='*50}\n")
