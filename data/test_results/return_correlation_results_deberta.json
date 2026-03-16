@@ -1,0 +1,224 @@
+{
+  "metadata": {
+    "holdout_file": "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\test_results\\holdout_set.json",
+    "evaluation_file": "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\test_results\\evaluation_results_deberta.json",
+    "total_cases_matched": 192,
+    "model": "zero-shot"
+  },
+  "overall_all_cases": {
+    "n": 192,
+    "spearman_rho": -0.1566879618048967,
+    "spearman_p": 0.02997819060171704,
+    "pearson_r": -0.05699546303832565,
+    "pearson_p": 0.4323165045160623
+  },
+  "directional_only": {
+    "n": 64,
+    "spearman_rho": 0.15996062227035032,
+    "spearman_p": 0.2067287403597529,
+    "pearson_r": 0.15407380871782264,
+    "pearson_p": 0.22414836715455527,
+    "directional_accuracy": 0.546875,
+    "directional_n": 64
+  },
+  "per_class_mean_return": {
+    "positive": {
+      "count": 41,
+      "mean_return_pct": 1.9985,
+      "median_return_pct": 0.2823,
+      "std_return_pct": 5.2383
+    },
+    "negative": {
+      "count": 23,
+      "mean_return_pct": 0.4985,
+      "median_return_pct": 0.6775,
+      "std_return_pct": 9.3612
+    },
+    "neutral": {
+      "count": 128,
+      "mean_return_pct": 1.0177,
+      "median_return_pct": 0.003,
+      "std_return_pct": 5.4532
+    }
+  },
+  "confidence_analysis": {
+    "weighted_spearman_rho": -0.10651887802185303,
+    "weighted_spearman_p": 0.14142159130622847,
+    "high_confidence_half": {
+      "n": 96,
+      "spearman_rho": 0.08676130467515379,
+      "spearman_p": 0.40060872615413423
+    },
+    "low_confidence_half": {
+      "n": 96,
+      "spearman_rho": -0.5369511252681382,
+      "spearman_p": 1.7030633193992208e-08
+    }
+  },
+  "per_window": {
+    "W=1": {
+      "n": 32,
+      "spearman_rho": -0.2107771260997067,
+      "spearman_p": 0.2468788681010718,
+      "pearson_r": -0.17229973670467041,
+      "pearson_p": 0.3456940352187796,
+      "directional_accuracy": 0.45454545454545453,
+      "directional_n": 11,
+      "mean_return_by_class": {
+        "neutral": -0.3646,
+        "positive": 0.0991,
+        "negative": 0.2272
+      }
+    },
+    "W=3": {
+      "n": 32,
+      "spearman_rho": -0.17082111436950145,
+      "spearman_p": 0.3499119390971561,
+      "pearson_r": -0.15345511978804893,
+      "pearson_p": 0.40173912491480224,
+      "directional_accuracy": 0.6363636363636364,
+      "directional_n": 11,
+      "mean_return_by_class": {
+        "neutral": 0.3254,
+        "positive": 0.8908,
+        "negative": 1.0601
+      }
+    },
+    "W=5": {
+      "n": 32,
+      "spearman_rho": -0.15835777126099704,
+      "spearman_p": 0.3866836439898629,
+      "pearson_r": -0.13115466898400552,
+      "pearson_p": 0.474297320325082,
+      "directional_accuracy": 0.45454545454545453,
+      "directional_n": 11,
+      "mean_return_by_class": {
+        "neutral": 0.5931,
+        "positive": 0.5988,
+        "negative": 1.2955
+      }
+    },
+    "W=7": {
+      "n": 32,
+      "spearman_rho": -0.1156630927779578,
+      "spearman_p": 0.5284466256286603,
+      "pearson_r": -0.07297193195309531,
+      "pearson_p": 0.6914425596213382,
+      "directional_accuracy": 0.5,
+      "directional_n": 12,
+      "mean_return_by_class": {
+        "neutral": 1.3983,
+        "positive": 0.8844,
+        "negative": 0.5959
+      }
+    },
+    "W=14": {
+      "n": 32,
+      "spearman_rho": -0.20161290322580644,
+      "spearman_p": 0.26849727372271764,
+      "pearson_r": -0.08703430493831854,
+      "pearson_p": 0.6357475849725397,
+      "directional_accuracy": 0.5555555555555556,
+      "directional_n": 9,
+      "mean_return_by_class": {
+        "neutral": 0.558,
+        "positive": 2.4792,
+        "negative": 0.9226
+      }
+    },
+    "W=31": {
+      "n": 32,
+      "spearman_rho": -0.11950146627565982,
+      "spearman_p": 0.5147574640689447,
+      "pearson_r": 0.014433162145268623,
+      "pearson_p": 0.9375083963064557,
+      "directional_accuracy": 0.7,
+      "directional_n": 10,
+      "mean_return_by_class": {
+        "neutral": 3.5381,
+        "positive": 8.1448,
+        "negative": -1.0041
+      }
+    }
+  },
+  "per_ticker": {
+    "BAC": {
+      "n": 24,
+      "spearman_rho": -0.5614264103148249,
+      "spearman_p": 0.00430931626671735,
+      "directional_accuracy": 0.5,
+      "directional_n": 6
+    },
+    "GOOGL": {
+      "n": 24,
+      "spearman_rho": -0.08480104570983024,
+      "spearman_p": 0.693601791219585,
+      "directional_accuracy": 0.8461538461538461,
+      "directional_n": 13
+    },
+    "KO": {
+      "n": 24,
+      "spearman_rho": -0.2835399066810734,
+      "spearman_p": 0.17938476553842825,
+      "directional_accuracy": null,
+      "directional_n": 0
+    },
+    "MSFT": {
+      "n": 24,
+      "spearman_rho": -0.17391304347826084,
+      "spearman_p": 0.4163699952935561,
+      "directional_accuracy": 0.25,
+      "directional_n": 4
+    },
+    "NVDA": {
+      "n": 24,
+      "spearman_rho": -0.5041322790959761,
+      "spearman_p": 0.012007782523757421,
+      "directional_accuracy": null,
+      "directional_n": 0
+    },
+    "TSLA": {
+      "n": 24,
+      "spearman_rho": -0.14782608695652172,
+      "spearman_p": 0.49061007074296004,
+      "directional_accuracy": 0.3333333333333333,
+      "directional_n": 12
+    },
+    "UNH": {
+      "n": 24,
+      "spearman_rho": 0.14260869565217388,
+      "spearman_p": 0.506209233952854,
+      "directional_accuracy": 0.47619047619047616,
+      "directional_n": 21
+    },
+    "XOM": {
+      "n": 24,
+      "spearman_rho": 0.07655503116556671,
+      "spearman_p": 0.722182947131158,
+      "directional_accuracy": 0.75,
+      "directional_n": 8
+    }
+  },
+  "per_market_period": {
+    "bull_run": {
+      "n": 48,
+      "spearman_rho": 0.163663012581056,
+      "spearman_p": 0.266346062597121
+    },
+    "earnings_season": {
+      "n": 48,
+      "spearman_rho": 0.39730785931393836,
+      "spearman_p": 0.005170948086746686
+    },
+    "recent_stable": {
+      "n": 48,
+      "spearman_rho": -0.2917933130699088,
+      "spearman_p": 0.04418383511280967
+    },
+    "volatile": {
+      "n": 48,
+      "spearman_rho": -0.28888587421041045,
+      "spearman_p": 0.046438550396281864
+    }
+  }
+}

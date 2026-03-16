@@ -127,9 +127,16 @@ def apply_decision_thresholds(
     if not DECISION_THRESHOLD_ENABLED:
         return argmax_label, None
 
-    if normalized_scores.get("positive", 0) >= tau_pos:
+    pos = normalized_scores.get("positive", 0)
+    neg = normalized_scores.get("negative", 0)
+
+    if pos >= tau_pos and pos >= neg:
         label = "positive"
-    elif normalized_scores.get("negative", 0) >= tau_neg:
+    elif neg >= tau_neg and neg >= pos:
+        label = "negative"
+    elif pos >= tau_pos:
+        label = "positive"
+    elif neg >= tau_neg:
         label = "negative"
     else:
         label = "neutral"

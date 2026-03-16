@@ -3,6 +3,7 @@ from __future__ import annotations
 import logging
 from typing import Any
 
+from predictor.abstention import apply_decision_thresholds
 from .utils import herfindahl_index, safe_round, get_dominant_label
 
 logger = logging.getLogger(__name__)
@@ -44,7 +45,7 @@ def _run_counterfactual(
         new_w = total_weighted.get(label, 0.0) - article_weighted_scores.get(label, 0.0)
         new_normalized[label] = safe_round(new_w / new_total_weight)
 
-    new_label = max(new_normalized, key=new_normalized.get)
+    new_label, _ = apply_decision_thresholds(new_normalized)
     new_confidence = safe_round(new_normalized[new_label])
 
     return {
@@ -231,7 +232,7 @@ def _compute_minimum_flip_set(
         new_norm = {
             k: v / remaining_weight for k, v in remaining_weighted.items()
         }
-        new_label = max(new_norm, key=new_norm.get)
+        new_label, _ = apply_decision_thresholds(new_norm)
         if new_label != current_label:
             logger.info(
                 "Minimum flip set: %d articles → label changes from %s to %s",

@@ -27,21 +27,15 @@ def _get_lime_explainer():
     return _lime_explainer
 
 
-def _build_predict_fn(pipeline_callable, company_name: str):
-    # Must match _classify_sentiment() in zero_shot.py exactly
-    class_to_label = {
-        "negative": f"bad news for {company_name}'s stock price",
-        "neutral":  f"news with no clear impact on {company_name}'s stock price",
-        "positive": f"good news for {company_name}'s stock price",
-    }
-    labels = list(class_to_label.values())
-    label_to_class = {v.lower().strip(): k for k, v in class_to_label.items()}
+def _build_predict_fn(pipeline_callable, company_name: str = ""):
+    # Import the EXACT labels and template used by the predictor
+    from predictor.zero_shot import _CANDIDATE_LABELS, _HYPOTHESIS_TEMPLATE, _LABEL_TO_CLASS
 
     def predict_proba(texts: list[str]) -> np.ndarray:
         results = pipeline_callable(
             texts,
-            candidate_labels=labels,
-            hypothesis_template="This text expresses {}.",
+            candidate_labels=_CANDIDATE_LABELS,
+            hypothesis_template=_HYPOTHESIS_TEMPLATE,
             batch_size=4,
         )
         # pipeline returns dict when given single string, list when given list
@@ -51,7 +45,7 @@ def _build_predict_fn(pipeline_callable, company_name: str):
         probs = np.zeros((len(results), 3))
         for i, result in enumerate(results):
             for lbl, score in zip(result["labels"], result["scores"]):
-                cls = label_to_class.get(lbl.lower().strip())
+                cls = _LABEL_TO_CLASS.get(lbl.lower().strip())
                 if cls == "positive":
                     probs[i, 0] = score
                 elif cls == "negative":

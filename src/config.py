@@ -31,7 +31,7 @@ IMPACT_HORIZON_DEVICE = 0
 
 SENTIMENT_DEVICE = 0 
 
-# finbert config
+# # finbert config
 # SENTIMENT_MODEL = "ProsusAI/finbert"
 # SENTIMENT_MAX_LENGTH = 512  
 
@@ -92,12 +92,12 @@ HEADLINE_ONLY_WEIGHT           = 0.5     # discount for headline-only articles (
 # Decision thresholds (tuned on tune set via grid search, macro F1)
 # Applied before dynamic abstention margin.
 # positive must exceed tau_pos, negative must exceed tau_neg, else neutral.
-DECISION_THRESHOLD_ENABLED     = True
+DECISION_THRESHOLD_ENABLED     = False
 DECISION_THRESHOLD_POS         = 0.56
 DECISION_THRESHOLD_NEG         = 0.42
 
 # Dynamic abstention margin (entropy-adaptive safety net)
-DYNAMIC_MARGIN_ENABLED         = False
+DYNAMIC_MARGIN_ENABLED         = True
 
 NEUTRAL_THRESHOLD              = 0.003     # ±0.3% close-to-close return band ?
 
