@@ -113,6 +113,17 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     ns            = pred["normalized_scores"] or {}
     neutral_score = ns.get("neutral", 0.0)
 
+    # -- Threshold-triggered neutral detection ---
+    abst_test = pred.get("abstention_test") or {}
+    abst_method = abst_test.get("method", "none")
+    threshold_neutral = (
+        pred.get("final_label") == "neutral"
+        and abst_method in ("decision_threshold", "dynamic_margin")
+    )
+    pos_pct = ns.get("positive", 0.0) * 100
+    neg_pct = ns.get("negative", 0.0) * 100
+    neu_pct = ns.get("neutral", 0.0) * 100
+
     # -- Contrastive / flip-set ---
     contrastive = layer2.get("contrastive", {})
     flip_info   = layer2.get("minimum_flip_set", {})
@@ -260,18 +271,43 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         bar    = _ascii_bar(score, 1.0, width=40)
         marker = "  \u25c4 PREDICTED" if label == pred["final_label"] else ""
         lines.append(f"    {label:>8} : {score * 100:5.1f}%  {bar}{marker}")
-    lines += [
-        "",
-        f"  Verdict     : {str(pred['final_label']).upper()}",
-        f"  Model support : {pred['final_confidence'] * 100:.1f}%"
-        "  (share of model weight, not a probability)",
-    ]
-    if neutral_score == 0.0:
-        lines.append(
-            "  Note        : Neutral shows 0% because no articles carried"
-            " sufficient neutral signal after weighting. The model supports"
-            " 3-way classification (positive / negative / neutral)."
-        )
+    if threshold_neutral:
+        verdict_label = "NEUTRAL — Mixed Sentiment"
+        tau_pos_val = abst_test.get("decision_thresholds", {}).get("tau_pos", 0.0)
+        tau_neg_val = abst_test.get("decision_thresholds", {}).get("tau_neg", 0.0)
+        lines += [
+            "",
+            f"  Verdict     : {verdict_label}",
+            f"  Model support : {pred['final_confidence'] * 100:.1f}%"
+            "  (share of model weight, not a probability)",
+            "",
+            "  ┌─ Why Neutral? ─────────────────────────────────────┐",
+            f"  │ Articles show divided sentiment:                   │",
+            f"  │   Positive: {pos_pct:5.1f}%   Negative: {neg_pct:5.1f}%              │",
+            f"  │                                                    │",
+            f"  │ Neither direction reaches the consensus threshold  │",
+            f"  │ required for a directional prediction:             │",
+            f"  │   Positive needs ≥ {tau_pos_val * 100:.0f}%  (got {pos_pct:.1f}%)              │",
+            f"  │   Negative needs ≥ {tau_neg_val * 100:.0f}%  (got {neg_pct:.1f}%)              │",
+            f"  │                                                    │",
+            f"  │ When positive and negative signals are closely     │",
+            f"  │ balanced, a directional call would be unreliable.  │",
+            f"  │ The system classifies this as mixed/inconclusive.  │",
+            "  └────────────────────────────────────────────────────┘",
+        ]
+    else:
+        lines += [
+            "",
+            f"  Verdict     : {str(pred['final_label']).upper()}",
+            f"  Model support : {pred['final_confidence'] * 100:.1f}%"
+            "  (share of model weight, not a probability)",
+        ]
+        if neutral_score == 0.0:
+            lines.append(
+                "  Note        : Neutral shows 0% because no articles carried"
+                " sufficient neutral signal after weighting. The model supports"
+                " 3-way classification (positive / negative / neutral)."
+            )
     lines.append("")
 
     # -- Recommendation ---------------------------------------------
@@ -486,22 +522,41 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         ),
     }.get(overall_rel, "")
 
-    final_paragraph = (
-        f"Out of {meta['articles_analyzed']} news articles analysed for"
-        f" {meta['query']} over a {meta['prediction_window_days']}-day forecast"
-        f" horizon, {n_pos} carried positive sentiment, {n_neg} carried negative"
-        f" sentiment, and {n_neu} were neutral."
-        f" The model produced a weighted aggregation of these scores and predicted"
-        f" a {str(pred['final_label']).upper()} label with"
-        f" {pred['final_confidence'] * 100:.1f}% model support."
-        f"{contrastive_sentence}"
-        f" The single most influential article was \"{top_art_title}\""
-        f" ({top_art_sent} sentiment, contributing {top_art_share}% of total weight)."
-        f" {weight_sentence}"
-        f"{lime_sentence}"
-        f"{flip_sentence}"
-        f" {reliability_sentence}"
-    )
+    if threshold_neutral:
+        tau_pos_ov = abst_test.get("decision_thresholds", {}).get("tau_pos", 0.0)
+        final_paragraph = (
+            f"Out of {meta['articles_analyzed']} news articles analysed for"
+            f" {meta['query']} over a {meta['prediction_window_days']}-day forecast"
+            f" horizon, articles showed divided sentiment: {pos_pct:.1f}% of"
+            f" aggregated weight leaned positive while {neg_pct:.1f}% leaned negative."
+            f" Because neither direction reached the {tau_pos_ov * 100:.0f}% consensus"
+            f" threshold required for a directional prediction, the overall outlook"
+            f" is classified as NEUTRAL (mixed/inconclusive)."
+            f"{contrastive_sentence}"
+            f" The single most influential article was \"{top_art_title}\""
+            f" ({top_art_sent} sentiment, contributing {top_art_share}% of total weight)."
+            f" {weight_sentence}"
+            f"{lime_sentence}"
+            f"{flip_sentence}"
+            f" {reliability_sentence}"
+        )
+    else:
+        final_paragraph = (
+            f"Out of {meta['articles_analyzed']} news articles analysed for"
+            f" {meta['query']} over a {meta['prediction_window_days']}-day forecast"
+            f" horizon, {n_pos} carried positive sentiment, {n_neg} carried negative"
+            f" sentiment, and {n_neu} were neutral."
+            f" The model produced a weighted aggregation of these scores and predicted"
+            f" a {str(pred['final_label']).upper()} label with"
+            f" {pred['final_confidence'] * 100:.1f}% model support."
+            f"{contrastive_sentence}"
+            f" The single most influential article was \"{top_art_title}\""
+            f" ({top_art_sent} sentiment, contributing {top_art_share}% of total weight)."
+            f" {weight_sentence}"
+            f"{lime_sentence}"
+            f"{flip_sentence}"
+            f" {reliability_sentence}"
+        )
 
     lines += [
         W,
@@ -765,6 +820,20 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         bar = _ascii_bar(cnt, total_arts, width=30)
         pct = cnt / total_arts * 100
         lines.append(f"    {s_icon} {s_label:>8} : {bar}  {cnt:>3} articles ({pct:.0f}%)")
+    if threshold_neutral:
+        lines.append("")
+        lines.append(
+            "  Note: Although most articles lean positive or negative,"
+        )
+        lines.append(
+            "  the sentiment is closely divided. The system requires a clear"
+        )
+        lines.append(
+            "  directional majority to issue a positive or negative prediction."
+        )
+        lines.append(
+            "  Because the split is too close, the verdict is NEUTRAL (mixed)."
+        )
     lines.append("")
 
     # Drivers
@@ -1166,6 +1235,7 @@ def run_xai(
             "final_confidence":  prediction_result.get("final_confidence"),
             "normalized_scores": prediction_result.get("normalized_scores"),
             "total_weight":      prediction_result.get("total_weight"),
+            "abstention_test":   prediction_result.get("abstention_test"),
         },
         "reliability":      reliability,
         "layer_1_token":    {

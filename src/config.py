@@ -55,7 +55,7 @@ MODEL_NAME = "microsoft/deberta-large-mnli" # microsoft deberta large mnli
 # MODEL_NAME = "roberta-large-mnli" # facebookAI roberta mnli
 
 # XAI Configuration
-XAI_ENABLED                    = True
+XAI_ENABLED                    = False
 XAI_EXPLANATIONS_PATH          = PROJECT_ROOT / "data" / "xai_explanations"
 XAI_OUTPUT_PATH                = XAI_EXPLANATIONS_PATH / "xai_result.json"
 XAI_SUMMARY_PATH               = XAI_EXPLANATIONS_PATH / "xai_summary.txt"
@@ -80,7 +80,7 @@ XAI_SOURCE_CONCENTRATION_THRESHOLD = 0.60   # flag if top domain > 60% of articl
 XAI_MIN_UNIQUE_SOURCES             = 2      # flag if fewer unique domains
 
 # Prior debiasing (Bayesian correction for zero-shot label bias)
-PRIOR_DEBIASING_ENABLED        = False
+PRIOR_DEBIASING_ENABLED        = True
 PRIOR_DEBIASING_ALPHA          = 1.0       # damping: 0=off, 1=full, 0.5=half-strength
 
 # Enhanced article weighting
@@ -92,12 +92,12 @@ HEADLINE_ONLY_WEIGHT           = 0.5     # discount for headline-only articles (
 # Decision thresholds (tuned on tune set via grid search, macro F1)
 # Applied before dynamic abstention margin.
 # positive must exceed tau_pos, negative must exceed tau_neg, else neutral.
-DECISION_THRESHOLD_ENABLED     = False
+DECISION_THRESHOLD_ENABLED     = True
 DECISION_THRESHOLD_POS         = 0.56
 DECISION_THRESHOLD_NEG         = 0.42
 
 # Dynamic abstention margin (entropy-adaptive safety net)
-DYNAMIC_MARGIN_ENABLED         = True
+DYNAMIC_MARGIN_ENABLED         = False
 
 NEUTRAL_THRESHOLD              = 0.003     # ±0.3% close-to-close return band ?
 

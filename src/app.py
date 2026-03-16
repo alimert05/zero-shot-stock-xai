@@ -114,12 +114,13 @@ def _badge(text: str, colour: str, size: str = "0.85rem") -> str:
     )
 
 
-def _label_badge(label: str, confidence: float) -> str:
+def _label_badge(label: str, confidence: float, threshold_neutral: bool = False) -> str:
     colour = _LABEL_COLOURS.get(label, "#3498db")
+    display_label = "NEUTRAL — Mixed Sentiment" if threshold_neutral else label.upper()
     return (
         f'<span style="background:{colour};color:#fff;padding:8px 22px;'
         f'border-radius:6px;font-size:1.5rem;font-weight:700;">'
-        f'{label.upper()}&nbsp;&nbsp;{confidence:.1%}</span>'
+        f'{display_label}&nbsp;&nbsp;{confidence:.1%}</span>'
     )
 
 
@@ -178,15 +179,39 @@ def _build_comprehensive_summary(result: dict) -> str:
     lookback = meta.get("news_lookback", "?")
     scores = pred.get("normalized_scores", {})
 
+    # Detect threshold-triggered neutral
+    abst_test = pred.get("abstention_test") or {}
+    abst_method = abst_test.get("method", "none")
+    threshold_neutral = (
+        label == "neutral"
+        and abst_method in ("decision_threshold", "dynamic_margin")
+    )
+
     parts = []
 
-    parts.append(
-        f"The model analysed <b>{n_articles} news articles</b> about <b>{company}</b>"
-        f"{f' ({ticker})' if ticker else ''} "
-        f"over a <b>{window}-day prediction window</b> "
-        f"(news lookback: {lookback}) "
-        f"and predicted a <b>{label.upper()}</b> label with <b>{confidence:.1%} confidence</b>."
-    )
+    if threshold_neutral:
+        pos_pct = scores.get("positive", 0) * 100
+        neg_pct = scores.get("negative", 0) * 100
+        tau_pos = abst_test.get("decision_thresholds", {}).get("tau_pos", 0)
+        parts.append(
+            f"The model analysed <b>{n_articles} news articles</b> about <b>{company}</b>"
+            f"{f' ({ticker})' if ticker else ''} "
+            f"over a <b>{window}-day prediction window</b> "
+            f"(news lookback: {lookback}). "
+            f"Articles showed <b>divided sentiment</b>: <b>{pos_pct:.1f}%</b> of aggregated "
+            f"weight leaned positive while <b>{neg_pct:.1f}%</b> leaned negative. "
+            f"Because neither direction reached the <b>{tau_pos * 100:.0f}%</b> consensus "
+            f"threshold required for a directional prediction, the overall outlook is "
+            f"classified as <b>NEUTRAL (mixed/inconclusive)</b>."
+        )
+    else:
+        parts.append(
+            f"The model analysed <b>{n_articles} news articles</b> about <b>{company}</b>"
+            f"{f' ({ticker})' if ticker else ''} "
+            f"over a <b>{window}-day prediction window</b> "
+            f"(news lookback: {lookback}) "
+            f"and predicted a <b>{label.upper()}</b> label with <b>{confidence:.1%} confidence</b>."
+        )
 
     if scores:
         score_parts = []
@@ -421,8 +446,19 @@ def _render_overview(result: dict) -> None:
     n_articles = meta.get("articles_analyzed", "?")
     window = meta.get("prediction_window_days", "?")
 
+    # Detect threshold-triggered neutral
+    abst_test = pred.get("abstention_test") or {}
+    abst_method = abst_test.get("method", "none")
+    threshold_neutral = (
+        label == "neutral"
+        and abst_method in ("decision_threshold", "dynamic_margin")
+    )
+
     st.markdown("### Prediction Result")
-    st.markdown(_label_badge(label, confidence), unsafe_allow_html=True)
+    st.markdown(
+        _label_badge(label, confidence, threshold_neutral=threshold_neutral),
+        unsafe_allow_html=True,
+    )
     st.write("")
 
     m1, m2, m3, m4 = st.columns(4)
@@ -451,6 +487,21 @@ def _render_overview(result: dict) -> None:
                     f'<div style="text-align:center;">{val:.2%}</div>',
                     unsafe_allow_html=True,
                 )
+
+        if threshold_neutral:
+            tau_pos = abst_test.get("decision_thresholds", {}).get("tau_pos", 0)
+            tau_neg = abst_test.get("decision_thresholds", {}).get("tau_neg", 0)
+            pos_pct = scores.get("positive", 0) * 100
+            neg_pct = scores.get("negative", 0) * 100
+            st.info(
+                f"**Why Neutral?** Articles show divided sentiment — "
+                f"**{pos_pct:.1f}%** lean positive while **{neg_pct:.1f}%** lean negative. "
+                f"Neither direction reaches the consensus threshold "
+                f"(positive needs ≥{tau_pos * 100:.0f}%, negative needs ≥{tau_neg * 100:.0f}%). "
+                f"When signals are closely balanced, a directional call would be unreliable, "
+                f"so the system classifies this as **mixed/inconclusive**.",
+                icon="ℹ️",
+            )
 
     st.divider()
 
