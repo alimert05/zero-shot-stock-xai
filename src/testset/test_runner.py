@@ -61,7 +61,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 TEST_SET_PATH = PRED_PATH / "test_set.json"
-RESULTS_PATH = PRED_PATH / "evaluation_results_mistral.json"
+RESULTS_PATH = PRED_PATH / "evaluation_results_fingpt.json"
 LABELS = ["positive", "negative", "neutral"]
 
 

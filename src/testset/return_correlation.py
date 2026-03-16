@@ -34,8 +34,8 @@ ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data" / "test_results"
 
 DEFAULT_HOLDOUT = DATA / "holdout_set.json"
-DEFAULT_EVAL    = DATA / "evaluation_results_mistral.json"
-OUTPUT_FILE     = DATA / "return_correlation_results_mistral.json"
+DEFAULT_EVAL    = DATA / "evaluation_results_fingpt.json"
+OUTPUT_FILE     = DATA / "return_correlation_results_fingpt.json"
 
 
 # ── helpers ─────────────────────────────────────────────────────────────
