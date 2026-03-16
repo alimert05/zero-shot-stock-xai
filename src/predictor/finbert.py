@@ -2,11 +2,19 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from typing import Any
 
 from predictor.abstention import apply_abstention
+from config import SENTIMENT_DEVICE
 
 logger = logging.getLogger(__name__)
+
+_COMPANY_SUFFIXES = {
+    "inc", "inc.", "corp", "corp.", "ltd", "ltd.", "co", "co.",
+    "plc", "llc", "group", "holdings", "sa", "ag", "se", "nv",
+    "the", "company",
+}
 
 _sentiment_pipeline = None
 
@@ -21,7 +29,7 @@ def _get_sentiment_pipeline():
             _sentiment_pipeline = pipeline(
                 "sentiment-analysis",
                 model="ProsusAI/finbert",
-                device=0,
+                device=SENTIMENT_DEVICE,
             )
             logger.info("FinBERT model loaded successfully")
         except Exception as exc:
@@ -39,10 +47,22 @@ FINBERT_LABEL_MAP = {
 
 def _title_matches(title: str, company_name: str, ticker: str | None) -> bool:
     title_lower = title.lower()
+
+    # Full company name match
     if company_name.lower() in title_lower:
         return True
-    if ticker and ticker.lower() in title_lower:
+
+    # Ticker match — word boundaries to avoid short tickers matching inside words
+    if ticker and re.search(rf"\b{re.escape(ticker)}\b", title):
         return True
+
+    # Core-name match: strip common suffixes like Inc., Corp., Ltd.
+    core_words = [w for w in company_name.lower().split() if w not in _COMPANY_SUFFIXES]
+    if core_words:
+        core_name = " ".join(core_words)
+        if core_name in title_lower:
+            return True
+
     return False
 
 
@@ -94,9 +114,12 @@ def predict_sentiment(
 
     articles = data.get("articles", [])
     query = data.get("query", "")
+    json_ticker = data.get("ticker")
 
     if not company_name:
         company_name = query
+    if not ticker:
+        ticker = json_ticker
     if not company_name:
         raise ValueError("company_name must be provided or present in articles.json query field")
 

@@ -23,7 +23,6 @@ import argparse
 import csv
 import json
 import logging
-import math
 import random
 import sys
 import time
@@ -518,30 +517,9 @@ class DeBERTaPredictor:
                 for cls in ("positive", "negative", "neutral"):
                     scores.setdefault(cls, 0.0)
 
-                # Argmax
-                canonical = max(scores, key=scores.get)
-
-                # Stage 1: Decision thresholds (if enabled)
-                if DECISION_THRESHOLD_ENABLED:
-                    if scores["positive"] >= DECISION_THRESHOLD_POS:
-                        canonical = "positive"
-                    elif scores["negative"] >= DECISION_THRESHOLD_NEG:
-                        canonical = "negative"
-                    else:
-                        canonical = "neutral"
-
-                # Stage 2: Dynamic margin (if enabled)
-                # For single-sentence FPB, use article_weights=[1.0] (one evidence)
-                if DYNAMIC_MARGIN_ENABLED and canonical != "neutral":
-                    from predictor.abstention import dynamic_abstention_margin
-                    sorted_labels = sorted(scores, key=scores.get, reverse=True)
-                    margin = scores[sorted_labels[0]] - scores[sorted_labels[1]]
-                    dyn_threshold = dynamic_abstention_margin(
-                        normalized_scores=scores,
-                        article_weights=[1.0],
-                    )
-                    if margin < dyn_threshold:
-                        canonical = "neutral"
+                # Apply abstention (thresholds + dynamic margin if enabled)
+                from predictor.abstention import apply_abstention
+                canonical, _ = apply_abstention(scores, article_weights=[1.0])
 
                 predictions.append(canonical)
         return predictions

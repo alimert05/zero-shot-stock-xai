@@ -21,7 +21,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -63,8 +62,9 @@ def _safe_corr(x: list[float], y: list[float]):
     """Return (statistic, p-value) or (None, None) if not enough data."""
     if len(x) < 3:
         return None, None
-    return float(np.nan_to_num(stats.spearmanr(x, y).statistic)), \
-           float(np.nan_to_num(stats.spearmanr(x, y).pvalue))
+    result = stats.spearmanr(x, y)
+    return float(np.nan_to_num(result.statistic)), \
+           float(np.nan_to_num(result.pvalue))
 
 
 def _safe_pearson(x: list[float], y: list[float]):
@@ -348,8 +348,12 @@ def print_report(results: dict) -> None:
 
     # All cases
     print("\n-- All Cases (n=%d) -------------------------------------" % ov_all["n"])
-    print(f"  Spearman rho (polarity vs return): {ov_all['spearman_rho']:.4f}  (p = {ov_all['spearman_p']:.4f})")
-    print(f"  Pearson  r   (polarity vs return): {ov_all['pearson_r']:.4f}  (p = {ov_all['pearson_p']:.4f})")
+    _rho = f"{ov_all['spearman_rho']:.4f}" if ov_all["spearman_rho"] is not None else "N/A"
+    _sp  = f"{ov_all['spearman_p']:.4f}" if ov_all["spearman_p"] is not None else "N/A"
+    _pr  = f"{ov_all['pearson_r']:.4f}" if ov_all["pearson_r"] is not None else "N/A"
+    _pp  = f"{ov_all['pearson_p']:.4f}" if ov_all["pearson_p"] is not None else "N/A"
+    print(f"  Spearman rho (polarity vs return): {_rho}  (p = {_sp})")
+    print(f"  Pearson  r   (polarity vs return): {_pr}  (p = {_pp})")
 
     # Directional only
     print("\n-- Directional Only (n=%d, excludes neutral predictions) -" % ov_dir["n"])
@@ -377,11 +381,17 @@ def print_report(results: dict) -> None:
 
     # Confidence analysis
     print("\n-- Confidence Analysis ----------------------------------")
-    print(f"  Weighted polarity Spearman rho:    {ca['weighted_spearman_rho']:.4f}  (p = {ca['weighted_spearman_p']:.4f})")
+    _wr = f"{ca['weighted_spearman_rho']:.4f}" if ca["weighted_spearman_rho"] is not None else "N/A"
+    _wp = f"{ca['weighted_spearman_p']:.4f}" if ca["weighted_spearman_p"] is not None else "N/A"
+    print(f"  Weighted polarity Spearman rho:    {_wr}  (p = {_wp})")
     hc = ca["high_confidence_half"]
     lc = ca["low_confidence_half"]
-    print(f"  High-confidence half (n={hc['n']}):     rho = {hc['spearman_rho']:.4f}  (p = {hc['spearman_p']:.4f})")
-    print(f"  Low-confidence  half (n={lc['n']}):     rho = {lc['spearman_rho']:.4f}  (p = {lc['spearman_p']:.4f})")
+    _hr = f"{hc['spearman_rho']:.4f}" if hc["spearman_rho"] is not None else "N/A"
+    _hp = f"{hc['spearman_p']:.4f}" if hc["spearman_p"] is not None else "N/A"
+    _lr = f"{lc['spearman_rho']:.4f}" if lc["spearman_rho"] is not None else "N/A"
+    _lp = f"{lc['spearman_p']:.4f}" if lc["spearman_p"] is not None else "N/A"
+    print(f"  High-confidence half (n={hc['n']}):     rho = {_hr}  (p = {_hp})")
+    print(f"  Low-confidence  half (n={lc['n']}):     rho = {_lr}  (p = {_lp})")
 
     # Per-window
     print("\n-- Per-Window Breakdown ---------------------------------")

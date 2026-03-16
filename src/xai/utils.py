@@ -22,21 +22,10 @@ def label_index(label: str) -> int:
     return {"positive": 0, "negative": 1, "neutral": 2}.get(label, 0)
 
 
-def top_n_by_key(
-    items: list[dict],
-    key: str,
-    n: int,
-    reverse: bool = True,
-) -> list[dict]:
-    return sorted(items, key=lambda x: x.get(key, 0), reverse=reverse)[:n]
-
-
 def get_dominant_label(raw_scores: dict[str, float]) -> str:
+    if not raw_scores:
+        return "neutral"
     return max(raw_scores, key=raw_scores.get)
-
-
-def scores_to_pct(scores: dict[str, float]) -> dict[str, float]:
-    return {k: round(v * 100, 2) for k, v in scores.items()}
 
 
 # ── LIME noise-token filter ──────────────────────────────────────────────────
@@ -87,17 +76,6 @@ def build_lime_noise_set(
             for match in _TICKER_RE.finditer(title):
                 extra.add(match.group(1).lower())
     return LIME_NOISE_WORDS | frozenset(extra)
-
-
-def headline_tokens_set(title: str) -> frozenset[str]:
-    """Extract lower-cased word tokens from an article headline.
-
-    Used to filter headline words from LIME top-token lists so that only
-    words from the article *body* appear in the summary display.
-    """
-    # Split on non-alpha, keep tokens ≥ 2 chars
-    tokens = re.findall(r"[A-Za-z]{2,}", title)
-    return frozenset(t.lower() for t in tokens)
 
 
 def is_lime_noise_token(

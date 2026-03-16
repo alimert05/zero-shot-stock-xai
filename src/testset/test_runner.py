@@ -1,29 +1,14 @@
-"""Run the full pipeline against the test set and compute evaluation metrics.
-
-For each test case:
-    1. Programmatically runs Fetcher (bypassing interactive input)
-    2. Runs the configured sentiment predictor
-    3. Compares predicted label to ground truth
-    4. Computes metrics (accuracy, precision, recall, F1, confusion matrix)
-
-Outputs metrics grouped by:
-    - Overall
-    - Per prediction window (1, 3, 5, 7, 14, 31 days)
-    - Per company
-    - Per sector (Tech, Finance, Healthcare, Energy, Consumer)
-    - Per market period
-    - Per class (positive, negative, neutral)
-
-Supports parallel execution via ThreadPoolExecutor.
-
-Usage:
-    python -m testset.test_runner                          # full (fetch+evaluate)
-    python -m testset.test_runner --mode fetch              # cache articles only
-    python -m testset.test_runner --mode evaluate           # evaluate from cache only
-    python -m testset.test_runner --max-cases 10            # quick smoke test
-    python -m testset.test_runner --workers 5               # 5 parallel workers
-    python -m testset.test_runner --workers 1               # sequential (debug)
 """
+test_runner.py — Evaluation harness for the sentiment prediction pipeline.
+
+Runs the full pipeline (fetch + predict) or cached evaluation against a
+labelled test set and computes per-class precision, recall, F1, and macro
+averages.  Supports multiple sentiment models via config dispatch.
+"""
+
+# ══════════════════════════════════════════════════════════════════════════════
+#  IMPORTS & PATHS
+# ══════════════════════════════════════════════════════════════════════════════
 
 from __future__ import annotations
 
@@ -61,11 +46,15 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 TEST_SET_PATH = PRED_PATH / "test_set.json"
-RESULTS_PATH = PRED_PATH / "evaluation_results_fingpt.json"
+# Dynamic results filename based on configured model
+_MODEL_TAG = SENTIMENT_MODEL.replace("/", "_").replace("-", "_")
+RESULTS_PATH = PRED_PATH / f"evaluation_results_{_MODEL_TAG}.json"
 LABELS = ["positive", "negative", "neutral"]
 
 
-# ── Rate Limiter ──
+# ══════════════════════════════════════════════════════════════════════════════
+#  RATE LIMITER
+# ══════════════════════════════════════════════════════════════════════════════
 
 class RateLimiter:
     """Token-bucket rate limiter for Finnhub API (free tier: 60 calls/min)."""
@@ -92,7 +81,9 @@ _rate_limiter = RateLimiter(calls_per_minute=55)
 _inference_lock = threading.Lock()
 
 
-# ── Progress Tracker ──
+# ══════════════════════════════════════════════════════════════════════════════
+#  PROGRESS TRACKING
+# ══════════════════════════════════════════════════════════════════════════════
 
 class ProgressTracker:
     """Thread-safe progress reporting for parallel test execution."""
@@ -123,7 +114,9 @@ class ProgressTracker:
             )
 
 
-# ── Metrics Computation ──
+# ══════════════════════════════════════════════════════════════════════════════
+#  METRICS COMPUTATION
+# ══════════════════════════════════════════════════════════════════════════════
 
 def compute_metrics(y_true: list[str], y_pred: list[str]) -> dict:
     """Compute classification metrics without sklearn dependency."""
@@ -190,7 +183,9 @@ def compute_metrics(y_true: list[str], y_pred: list[str]) -> dict:
     }
 
 
-# ── Model Pre-warming ──
+# ══════════════════════════════════════════════════════════════════════════════
+#  MODEL PRE-WARMING
+# ══════════════════════════════════════════════════════════════════════════════
 
 def _prewarm_models():
     """Pre-load all GPU models before spawning threads to avoid race conditions."""
@@ -223,7 +218,9 @@ def _prewarm_models():
     logger.info("All models loaded.")
 
 
-# ── Pipeline Runner ──
+# ══════════════════════════════════════════════════════════════════════════════
+#  SINGLE CASE EVALUATION
+# ══════════════════════════════════════════════════════════════════════════════
 
 def run_single_case(
     case: dict,
@@ -360,7 +357,9 @@ def run_single_case(
     return result
 
 
-# ── Main Evaluation ──
+# ══════════════════════════════════════════════════════════════════════════════
+#  CLEANUP HELPERS
+# ══════════════════════════════════════════════════════════════════════════════
 
 def _clean_orphan_temp_dirs():
     """Remove leftover temp dirs from previous crashed test runner runs.
@@ -376,7 +375,9 @@ def _clean_orphan_temp_dirs():
             shutil.rmtree(child, ignore_errors=True)
 
 
-# ── Article Cache (fetch mode) ──
+# ══════════════════════════════════════════════════════════════════════════════
+#  ARTICLE FETCHING
+# ══════════════════════════════════════════════════════════════════════════════
 
 def fetch_single_case(
     case: dict,
@@ -554,7 +555,9 @@ def run_fetch(
                 print(f"    - {r['id']}: {r['error']}")
 
 
-# ── Evaluation ──
+# ══════════════════════════════════════════════════════════════════════════════
+#  CACHED EVALUATION
+# ══════════════════════════════════════════════════════════════════════════════
 
 def _prewarm_cached_mode():
     """Pre-load sentiment model only for cached evaluation.
@@ -760,6 +763,10 @@ def run_evaluation(
     return evaluation
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+#  REPORT GENERATION
+# ══════════════════════════════════════════════════════════════════════════════
+
 def print_report(evaluation: dict) -> None:
     """Print a human-readable evaluation report."""
     meta = evaluation["metadata"]
@@ -863,6 +870,10 @@ def print_report(evaluation: dict) -> None:
 
     print("\n" + "=" * 70)
 
+
+# ══════════════════════════════════════════════════════════════════════════════
+#  MAIN ENTRY POINT
+# ══════════════════════════════════════════════════════════════════════════════
 
 def main():
     parser = argparse.ArgumentParser(description="Run evaluation pipeline against test set")

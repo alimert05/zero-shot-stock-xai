@@ -1,10 +1,17 @@
 """
-Streamlit web interface for the Zero-Shot Stock Sentiment & XAI pipeline.
+app.py — Streamlit web interface for the stock sentiment analysis pipeline.
+
+Provides an interactive dashboard for running sentiment predictions,
+viewing XAI explanations, and exploring article-level breakdowns.
 
 Run with:
     cd src
     streamlit run app.py
 """
+
+# ══════════════════════════════════════════════════════════════════════════════
+#  IMPORTS & PAGE CONFIG
+# ══════════════════════════════════════════════════════════════════════════════
 from __future__ import annotations
 
 import sys
@@ -25,6 +32,9 @@ from plotly.subplots import make_subplots
 from config import (
     JSON_PATH,
     ZEROSHOT_PREDS,
+    FINBERT_PREDS,
+    FINGPT_PREDS,
+    OLLAMA_PREDS,
     XAI_OUTPUT_PATH,
     XAI_EXPLANATIONS_PATH,
     SENTIMENT_MODEL,
@@ -38,6 +48,9 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+# ══════════════════════════════════════════════════════════════════════════════
+#  CONSTANTS & COLOUR MAPS
+# ══════════════════════════════════════════════════════════════════════════════
 _LABEL_COLOURS = {
     "positive": "#2ecc71",
     "negative": "#e74c3c",
@@ -106,6 +119,9 @@ _EVENT_TYPE_INFO = {
 }
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+#  SUMMARY & EXPLANATION BUILDERS
+# ══════════════════════════════════════════════════════════════════════════════
 def _badge(text: str, colour: str, size: str = "0.85rem") -> str:
     return (
         f'<span style="background:{colour};color:#fff;padding:3px 10px;'
@@ -193,6 +209,7 @@ def _build_comprehensive_summary(result: dict) -> str:
         pos_pct = scores.get("positive", 0) * 100
         neg_pct = scores.get("negative", 0) * 100
         tau_pos = abst_test.get("decision_thresholds", {}).get("tau_pos", 0)
+        tau_neg = abst_test.get("decision_thresholds", {}).get("tau_neg", 0)
         parts.append(
             f"The model analysed <b>{n_articles} news articles</b> about <b>{company}</b>"
             f"{f' ({ticker})' if ticker else ''} "
@@ -200,9 +217,9 @@ def _build_comprehensive_summary(result: dict) -> str:
             f"(news lookback: {lookback}). "
             f"Articles showed <b>divided sentiment</b>: <b>{pos_pct:.1f}%</b> of aggregated "
             f"weight leaned positive while <b>{neg_pct:.1f}%</b> leaned negative. "
-            f"Because neither direction reached the <b>{tau_pos * 100:.0f}%</b> consensus "
-            f"threshold required for a directional prediction, the overall outlook is "
-            f"classified as <b>NEUTRAL (mixed/inconclusive)</b>."
+            f"Because neither direction reached its consensus threshold "
+            f"(positive needs ≥{tau_pos * 100:.0f}%, negative needs ≥{tau_neg * 100:.0f}%), "
+            f"the overall outlook is classified as <b>NEUTRAL (mixed/inconclusive)</b>."
         )
     else:
         parts.append(
@@ -358,6 +375,9 @@ def _build_comprehensive_summary(result: dict) -> str:
     return "<br><br>".join(parts)
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+#  PIPELINE EXECUTION
+# ══════════════════════════════════════════════════════════════════════════════
 def _run_full_pipeline(
     company_name: str,
     start_date_str: str,
@@ -365,8 +385,24 @@ def _run_full_pipeline(
 ) -> dict | None:
     """Execute fetcher -> predictor -> XAI and return the XAI result dict."""
     from fetcher.fetcher import Fetcher
-    from predictor.zero_shot import run_sentiment_prediction
     from xai import run_xai
+
+    # Dispatch to the correct predictor based on config
+    if SENTIMENT_MODEL == "zero-shot":
+        from predictor.zero_shot import run_sentiment_prediction
+        preds_path = str(ZEROSHOT_PREDS)
+    elif SENTIMENT_MODEL == "ProsusAI/finbert":
+        from predictor.finbert import run_sentiment_prediction
+        preds_path = str(FINBERT_PREDS)
+    elif SENTIMENT_MODEL == "fingpt":
+        from predictor.fingpt import run_sentiment_prediction
+        preds_path = str(FINGPT_PREDS)
+    elif SENTIMENT_MODEL in ("ollama-llama3", "ollama-mistral"):
+        from predictor.ollama_predictor import run_sentiment_prediction
+        preds_path = str(OLLAMA_PREDS)
+    else:
+        st.error(f"Unknown sentiment model: {SENTIMENT_MODEL}")
+        return None
 
     progress = st.status("Running analysis pipeline...", expanded=True)
 
@@ -403,11 +439,11 @@ def _run_full_pipeline(
         n_articles = "?"
     progress.write(f"Fetched **{n_articles}** articles.")
 
-    progress.write("Running zero-shot sentiment prediction...")
+    progress.write(f"Running sentiment prediction ({SENTIMENT_MODEL})...")
     try:
         prediction_result = run_sentiment_prediction(
             articles_json_path=str(JSON_PATH),
-            output_path=str(ZEROSHOT_PREDS),
+            output_path=preds_path,
         )
     except Exception as exc:
         progress.update(label="Prediction failed", state="error")
@@ -435,6 +471,9 @@ def _run_full_pipeline(
     return xai_result
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+#  OVERVIEW PAGE
+# ══════════════════════════════════════════════════════════════════════════════
 def _render_overview(result: dict) -> None:
     pred = result.get("prediction_summary", {})
     narrative = result.get("narrative", {})
@@ -539,6 +578,9 @@ def _render_overview(result: dict) -> None:
         st.write(f"**Model:** `{MODEL_NAME}`")
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+#  DETAILED ANALYSIS PAGES
+# ══════════════════════════════════════════════════════════════════════════════
 def _render_reliability(result: dict) -> None:
     reliability = result.get("reliability", {})
 
@@ -1057,6 +1099,9 @@ def _render_lime(result: dict) -> None:
                 )
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+#  CHARTS & VISUALISATIONS
+# ══════════════════════════════════════════════════════════════════════════════
 def _chart_sentiment_scores(result: dict) -> go.Figure:
     pred = result.get("prediction_summary", {})
     ns = pred.get("normalized_scores", {})
@@ -1453,6 +1498,9 @@ def _render_charts(result: dict) -> None:
     st.plotly_chart(fig, use_container_width=True)
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+#  SIDEBAR & MAIN LAYOUT
+# ══════════════════════════════════════════════════════════════════════════════
 def main() -> None:
     st.title("Stock Sentiment Analyser")
     st.caption("Zero-shot NLI sentiment prediction with explainable AI")

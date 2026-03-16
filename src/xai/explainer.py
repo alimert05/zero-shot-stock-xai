@@ -1,3 +1,14 @@
+"""
+explainer.py -- Main XAI orchestrator for the sentiment analysis pipeline.
+
+Coordinates all explanation layers (token-level LIME, article-level
+counterfactuals, pipeline-level aggregation, narrative clustering) and
+generates a human-readable summary report with supporting charts.
+"""
+# ══════════════════════════════════════════════════════════════════════════════
+#  IMPORTS & CONSTANTS
+# ══════════════════════════════════════════════════════════════════════════════
+
 from __future__ import annotations
 
 import json
@@ -23,6 +34,10 @@ from .utils               import build_lime_noise_set, is_lime_noise_token
 
 logger = logging.getLogger(__name__)
 
+
+# ══════════════════════════════════════════════════════════════════════════════
+#  DATA LOADING & MERGING
+# ══════════════════════════════════════════════════════════════════════════════
 
 def _load_articles(articles_json_path: str) -> dict[str, Any]:
     with open(articles_json_path, "r", encoding="utf-8") as f:
@@ -65,6 +80,10 @@ def _merge_article_data(
     return merged
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+#  FILE I/O
+# ══════════════════════════════════════════════════════════════════════════════
+
 def _save_result(result: dict[str, Any], output_path: str) -> None:
     path = Path(output_path)
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -73,7 +92,9 @@ def _save_result(result: dict[str, Any], output_path: str) -> None:
     logger.info("XAI result saved to %s", output_path)
 
 
-# -- ASCII visualisation helpers ----------------------------------------------
+# ══════════════════════════════════════════════════════════════════════════════
+#  ASCII VISUALISATION HELPERS
+# ══════════════════════════════════════════════════════════════════════════════
 
 def _ascii_bar(value: float, max_value: float, width: int = 30,
                fill: str = "\u2588", empty: str = "\u2591") -> str:
@@ -89,7 +110,9 @@ def _wrap(text: str, width: int = 56, indent: str = "  ") -> list[str]:
     return [f"{indent}{line}" for line in textwrap.wrap(text, width=width)]
 
 
-# -- Main report builder ------------------------------------------------------
+# ══════════════════════════════════════════════════════════════════════════════
+#  SUMMARY TEXT BUILDER
+# ══════════════════════════════════════════════════════════════════════════════
 
 def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None) -> str:  # noqa: C901
     W = "=" * 60
@@ -1124,6 +1147,10 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     return "\n".join(lines)
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+#  FILE I/O (SUMMARY)
+# ══════════════════════════════════════════════════════════════════════════════
+
 def _save_summary(
     result: dict[str, Any],
     summary_path: str,
@@ -1136,6 +1163,10 @@ def _save_summary(
         f.write(text)
     logger.info("XAI summary saved to %s", summary_path)
 
+
+# ══════════════════════════════════════════════════════════════════════════════
+#  MAIN ORCHESTRATOR
+# ══════════════════════════════════════════════════════════════════════════════
 
 def run_xai(
     prediction_result: dict[str, Any],
@@ -1255,9 +1286,16 @@ def run_xai(
     logger.info("Generating PNG charts into %s ...", charts_dir_path)
     chart_paths = generate_all_charts(result, charts_dir_path)
 
-    _save_summary(result, summary_path, chart_paths=chart_paths)
+    summary_text = _build_summary_text(result, chart_paths=chart_paths)
+
+    # Save to file
+    path = Path(summary_path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(summary_text)
+    logger.info("XAI summary saved to %s", summary_path)
 
     # Console preview
-    print(_build_summary_text(result, chart_paths=chart_paths))
+    print(summary_text)
 
     return result

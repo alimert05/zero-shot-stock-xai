@@ -7,7 +7,7 @@ import numpy as np
 
 from config import XAI_LIME_TOP_N, XAI_LIME_NUM_SAMPLES, XAI_LIME_NUM_FEATURES
 from predictor.zero_shot import _title_matches, _build_input_text
-from .utils import label_index, get_dominant_label, build_lime_noise_set, is_lime_noise_token
+from .utils import label_index, get_dominant_label, build_lime_noise_set, is_lime_noise_token, safe_round
 
 logger = logging.getLogger(__name__)
 
@@ -145,7 +145,7 @@ def explain_tokens(
             continue
 
         dominant_raw = max(raw_scores.values()) if raw_scores else 0.0
-        influence = _safe_round(final_weight * dominant_raw)
+        influence = safe_round(final_weight * dominant_raw)
 
         try:
             logger.info(
@@ -180,7 +180,7 @@ def explain_tokens(
                 "rank": rank,
                 "title": title,
                 "content": (article.get("content") or "").strip(),
-                "final_weight": _safe_round(final_weight),
+                "final_weight": safe_round(final_weight),
                 "influence_score": influence,
                 "lime_label_explained": predicted_label,
                 "token_weights": token_weights,
@@ -194,10 +194,3 @@ def explain_tokens(
 
     logger.info("Token explanation complete: %d articles explained.", len(results))
     return results
-
-
-def _safe_round(v, d=4):
-    try:
-        return round(float(v), d)
-    except Exception:
-        return 0.0
