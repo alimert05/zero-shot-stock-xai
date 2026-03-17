@@ -216,16 +216,12 @@ def plot_horizon_breakdown(
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
+    from ui_constants import HORIZON_DISPLAY_LABELS
+
     horizon_dist   = layer3.get("horizon_distribution", {})
-    horizon_labels = {
-        "IMMEDIATE":   "Immediate (0-1 days)",
-        "SHORT_TERM":  "Short-term (2-5 days)",
-        "DIFFUSION":   "Diffusion (6-10 days)",
-        "LONG_TERM":   "Long-term (11-31 days)",
-    }
     cats   = list(horizon_dist.keys())
     counts = list(horizon_dist.values())
-    xlabels = [horizon_labels.get(c, c) for c in cats]
+    xlabels = [HORIZON_DISPLAY_LABELS.get(c, c) for c in cats]
 
     if not counts:
         return out_dir / filename

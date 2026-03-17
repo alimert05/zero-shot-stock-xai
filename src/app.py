@@ -37,8 +37,15 @@ from config import (
     XAI_EXPLANATIONS_PATH,
     SENTIMENT_MODEL,
     MODEL_NAME,
-    DECISION_THRESHOLD_POS,
-    DECISION_THRESHOLD_NEG,
+    XAI_CONCENTRATION_THRESHOLD,
+)
+from fetcher.impact_horizon import HORIZON_LABEL_TO_CATEGORY
+from ui_constants import (
+    LABEL_COLOURS,
+    EVIDENCE_QUALITY_COLOURS,
+    HORIZON_COLOURS,
+    HORIZON_DISPLAY_LABELS,
+    horizon_text_for_event,
 )
 
 st.set_page_config(
@@ -49,69 +56,47 @@ st.set_page_config(
 )
 
 # ── Constants & Colour Maps ───────────────────────────────────────────────────
-_LABEL_COLOURS = {
-    "positive": "#2ecc71",
-    "negative": "#e74c3c",
-    "neutral":  "#95a5a6",
-}
-
-_CONFIDENCE_COLOURS = {
-    "HIGH":   "#2ecc71",
-    "MEDIUM": "#f39c12",
-    "LOW":    "#e74c3c",
-}
-
-_HORIZON_COLOURS = {
-    "IMMEDIATE":   "#e74c3c",
-    "SHORT_TERM":  "#f39c12",
-    "DIFFUSION": "#3498db",
-    "LONG_TERM":   "#2ecc71",
-}
+# Sentiment / evidence-quality / horizon colours are imported from ui_constants.
+# Local aliases keep existing references short.
+_LABEL_COLOURS = LABEL_COLOURS
+_CONFIDENCE_COLOURS = EVIDENCE_QUALITY_COLOURS
+_HORIZON_COLOURS = HORIZON_COLOURS
 
 _EVENT_TYPE_INFO = {
     "earnings report, guidance, or financial results": {
         "description": "Quarterly or annual earnings releases, revenue or margin updates, profit warnings, and forward guidance disclosures.",
-        "horizon": "IMMEDIATE (0-1 days), secondary DIFFUSION (6-10 days)",
         "why": "Earnings are priced almost instantly on Day 0 (Ball & Brown, 1968), but post-earnings announcement drift (PEAD) extends 60+ days for small caps (Bernard & Thomas, 1989, 1990).",
     },
     "analyst upgrade, downgrade, or price target revision": {
         "description": "Broker upgrades, downgrades, initiations, price target revisions, and other analyst research signals.",
-        "horizon": "IMMEDIATE (0-1 days), secondary SHORT-TERM (2-5 days)",
         "why": "Kim et al. (1997) show prices incorporate analyst signals within 5-15 minutes. Lloyd Davies & Canes (1978) find significance limited to 2 days.",
     },
     "product launch, partnership, contract, or business development": {
         "description": "Product launches, technology milestones, customer wins, commercial partnerships, major contracts, and operational developments.",
-        "horizon": "SHORT-TERM (2-5 days), secondary DIFFUSION (6-10 days)",
         "why": "Warren & Sorescu (2017) use a 5-day standard window. Markets need a few sessions to judge whether the announcement translates into real commercial impact.",
     },
     "share buyback, dividend, stock offering, or debt issuance": {
         "description": "Share repurchases, dividend announcements, equity or debt issuance, refinancing, and other capital structure or payout decisions.",
-        "horizon": "SHORT-TERM (2-5 days), secondary EXTENDED (11-20 days)",
         "why": "Vermaelen (1981) documents positive Day 0-2 reaction to buybacks. Post-announcement drift from signaling and capital structure adjustment extends over weeks.",
     },
     "lawsuit, investigation, regulatory action, or compliance issue": {
         "description": "Investigations, lawsuits, enforcement actions, regulatory probes, settlements, penalties, and major court or agency rulings.",
-        "horizon": "SHORT-TERM (2-5 days), secondary EXTENDED (11-20 days)",
         "why": "Holthausen & Leftwich (1986) find CAR of -7.5% at [-1,0]. Investigation-to-filing gap has a median of 9 days (SCA literature), with ongoing uncertainty as scope clarifies.",
     },
     "merger, acquisition, takeover, or corporate restructuring": {
         "description": "Mergers, acquisitions, takeovers, divestitures, spin-offs, strategic reorganisations, and major portfolio reconfiguration announcements.",
-        "horizon": "DIFFUSION (6-10 days), secondary PERSISTENT (21-31 days)",
         "why": "Target premiums are priced at [-1,+1], but deal uncertainty, regulatory approval, and integration risk are reassessed over weeks to months (Rosen, 2006).",
     },
     "CEO change, executive departure, or board appointment": {
         "description": "CEO or CFO changes, board appointments, founder departures, activist developments, governance actions, and leadership transitions.",
-        "horizon": "SHORT-TERM (2-5 days), secondary DIFFUSION (6-10 days)",
         "why": "CARs are significant in 3-5 day windows (Clayton, Hartzell & Rosenberg). Succession planning reduces uncertainty speed; outside successions increase volatility longer.",
     },
     "market commentary, sector outlook, or opinion piece": {
         "description": "Macro or sector commentary, opinion pieces, thematic narratives, sentiment-driven coverage, and non-specific discussion mentioning the company.",
-        "horizon": "IMMEDIATE (0-1 days), secondary SHORT-TERM (2-5 days)",
         "why": "Commentary-driven effects are short-lived with exponential decay (Barberis et al., 2015). Heston & Sinha (2016) show these fade as firm-specific information arrives.",
     },
     "financial distress, credit downgrade, or going concern warning": {
         "description": "Credit rating downgrades, going concern audit opinions, financial distress signals, and survival risk indicators.",
-        "horizon": "PERSISTENT (21-31 days), secondary EXTENDED (11-20 days)",
         "why": "Modelling choice: these represent ongoing conditions without clean event dates. Informational relevance persists over longer windows as uncertainty resolves (Altman, 1968; Campbell et al., 2008).",
     },
 }
@@ -753,7 +738,7 @@ def _render_event_types(result: dict) -> None:
         evt_rows.append({
             "Event Type": evt.replace("_", " ").title(),
             "Count": count,
-            "Impact Horizon": info.get("horizon", "?"),
+            "Impact Horizon": horizon_text_for_event(evt),
             "Positive": sent.get("positive", 0),
             "Negative": sent.get("negative", 0),
             "Neutral": sent.get("neutral", 0),
@@ -780,7 +765,6 @@ def _render_event_types(result: dict) -> None:
         st.divider()
 
     # -- Primary vs secondary horizon distribution --
-    from fetcher.impact_horizon import HORIZON_LABEL_TO_CATEGORY
     articles = layer3.get("articles", [])
     if articles:
         primary_counts: dict[str, int] = {}
@@ -828,7 +812,7 @@ def _render_event_types(result: dict) -> None:
     for evt_name, info in _EVENT_TYPE_INFO.items():
         st.markdown(f"**{evt_name.title()}**")
         st.write(info["description"])
-        st.caption(f"Impact horizon: {info['horizon']} — {info['why']}")
+        st.caption(f"Impact horizon: {horizon_text_for_event(evt_name)} — {info['why']}")
         st.write("")
 
 
@@ -895,7 +879,7 @@ def _render_article_rankings(result: dict) -> None:
     st.markdown("### Article Analysis")
     st.write(
         f"**Weight concentration (Herfindahl index):** {hhi:.4f}"
-        f" {'(concentrated)' if hhi > 0.4 else '(well-distributed)'}"
+        f" {'(concentrated)' if hhi > XAI_CONCENTRATION_THRESHOLD else '(well-distributed)'}"
     )
     st.write("")
 
@@ -1262,16 +1246,9 @@ def _chart_article_weights(result: dict) -> go.Figure:
 def _chart_horizon_breakdown(result: dict) -> go.Figure:
     layer3 = result.get("layer_3_pipeline", {})
     horizon_dist = layer3.get("horizon_distribution", {})
-    horizon_labels = {
-        "IMMEDIATE": "Immediate (0-1 days)",
-        "SHORT_TERM": "Short-term (2-5 days)",
-        "DIFFUSION": "Diffusion (6-10 days)",
-        "LONG_TERM": "Long-term (11-31 days)",
-    }
-
     cats = list(horizon_dist.keys())
     counts = list(horizon_dist.values())
-    xlabels = [horizon_labels.get(c, c) for c in cats]
+    xlabels = [HORIZON_DISPLAY_LABELS.get(c, c) for c in cats]
     colors = [_HORIZON_COLOURS.get(c, "#3498db") for c in cats]
 
     if not counts:
