@@ -97,8 +97,6 @@ DECISION_THRESHOLD_NEG         = 0.42
 # Dynamic abstention margin (entropy-adaptive safety net)
 DYNAMIC_MARGIN_ENABLED         = False
 
-NEUTRAL_THRESHOLD              = 0.003     # ±0.3% close-to-close return band ?
-
 # ── Market Timezone Alignment ────────────────────────────────────────────────
 MARKET_TIMEZONE    = "America/New_York"      # NYSE / NASDAQ timezone
 MARKET_CLOSE_HOUR  = 16                      # 4:00 PM ET

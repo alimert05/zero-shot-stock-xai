@@ -18,7 +18,7 @@ from typing import Any
 
 from config import (
     JSON_PATH, XAI_OUTPUT_PATH, XAI_SUMMARY_PATH, XAI_LIME_TOP_N,
-    NEUTRAL_THRESHOLD,
+    XAI_CONCENTRATION_THRESHOLD,
 )
 
 from .article_explainer  import explain_articles
@@ -267,7 +267,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         w,
         f"  Ground truth : close-to-close return over "
         f"{meta['prediction_window_days']}-day forecast horizon, "
-        f"neutral band +/-{NEUTRAL_THRESHOLD * 100:.1f}%.",
+        f"neutral band scaled by EWMA volatility (per-stock, per-period).",
         "  Disclaimer   : Model support measures how much weight the model",
         "                  assigns to the winning label relative to alternatives.",
         "                  It is NOT a calibrated probability of future return",
@@ -346,12 +346,15 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     event_dist = layer3.get("event_type_distribution", {})
     event_sent = layer3.get("event_type_sentiment", {})
     event_short_labels = {
-        "earnings report or financial results":            "Earnings / results ",
-        "analyst rating, upgrade, or downgrade":           "Analyst action     ",
-        "product launch, innovation, or technology":       "Product / tech     ",
-        "regulatory action, legal case, or investigation": "Regulatory / legal ",
-        "strategic restructuring, merger, or acquisition": "Strategy / M&A     ",
-        "general market commentary or opinion":            "General commentary ",
+        "earnings report, guidance, or financial results":                   "Earnings / results ",
+        "analyst upgrade, downgrade, or price target revision":              "Analyst action     ",
+        "product launch, partnership, contract, or business development":    "Product / business ",
+        "share buyback, dividend, stock offering, or debt issuance":         "Capital / payout   ",
+        "lawsuit, investigation, regulatory action, or compliance issue":    "Regulatory / legal ",
+        "merger, acquisition, takeover, or corporate restructuring":         "Strategy / M&A     ",
+        "CEO change, executive departure, or board appointment":             "Leadership change  ",
+        "market commentary, sector outlook, or opinion piece":               "General commentary ",
+        "financial distress, credit downgrade, or going concern warning":    "Distress / credit  ",
     }
     if event_dist:
         lines += [
@@ -500,8 +503,8 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         c_n_w_ov    = contrastive["n_favouring_winner"]
         c_n_r_ov    = contrastive["n_favouring_runner_up"]
         contrastive_sentence = (
-            f" The model chose {c_winner_ov} over {c_runner_ov} by a margin of"
-            f" {c_gap_ov * 100:.1f} percentage points: {c_n_w_ov} articles"
+            f" The model chose {c_winner_ov} over {c_runner_ov} by a score gap of"
+            f" {c_gap_ov:.4f}: {c_n_w_ov} articles"
             f" pushed toward {c_winner_ov} while {c_n_r_ov} pushed toward {c_runner_ov}."
         )
 
@@ -618,15 +621,15 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             f"  WHY {c_winner} INSTEAD OF {c_runner}?",
             "  Contrastive explanation \u2014 what tipped the balance",
             w,
-            f"  Score gap : {c_winner} {contrastive['winner_score'] * 100:.1f}%"
-            f"  vs  {c_runner} {contrastive['runner_up_score'] * 100:.1f}%"
-            f"  (gap = {c_gap * 100:.1f} percentage points)",
+            f"  Score gap : {c_winner} {contrastive['winner_score']:.4f}"
+            f"  vs  {c_runner} {contrastive['runner_up_score']:.4f}"
+            f"  (gap = {c_gap:.4f})",
             "",
             f"  Article split:",
             f"    {c_n_w:>3} articles push toward {c_winner}"
-            f"  (total push: +{c_push_w * 100:.1f} pp)",
+            f"  (total push: +{c_push_w:.4f})",
             f"    {c_n_r:>3} articles push toward {c_runner}"
-            f"  (total push: {c_push_r * 100:.1f} pp)",
+            f"  (total push: {c_push_r:.4f})",
             "",
         ]
 
@@ -763,17 +766,9 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             "         uncertain about the label."
         )
     lines.append("")
-    flag_labels = {
-        "thin_evidence":        "Evidence volume",
-        "weight_concentration": "Weight spread",
-        "label_margin":         "Decision confidence",
-        "source_diversity":     "Source diversity",
-        "timing_alignment":     "Timing validity",
-        "horizon_coverage":     "Horizon coverage",
-    }
     for flag_name, flag_data in flags.items():
         icon  = "\u26a0" if flag_data["flagged"] else "\u2713"
-        label = flag_labels.get(flag_name, flag_name.replace("_", " ").title())
+        label = flag_name.replace("_", " ")
         lines.append(f"    [{icon}] {label:<22} {flag_data['message']}")
     lines += [
         "",
@@ -883,7 +878,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     lines += [
         "",
         f"  Weight concentration (HHI): {hhi:.4f}  "
-        f"({'well spread' if hhi < 0.2 else 'concentrated'}) \u2014 "
+        f"({'well-distributed' if hhi <= XAI_CONCENTRATION_THRESHOLD else 'concentrated'}) \u2014 "
         f"0 = perfectly uniform across all articles, 1 = one article dominates",
         "",
     ]
