@@ -148,7 +148,7 @@ def _confidence_badge(level: str) -> str:
     colour = _CONFIDENCE_COLOURS.get(level, "#3498db")
     return (
         f'<span style="background:{colour};color:#fff;padding:4px 14px;'
-        f'border-radius:4px;font-weight:600;">{level} CONFIDENCE</span>'
+        f'border-radius:4px;font-weight:600;">{level} EVIDENCE QUALITY</span>'
     )
 
 
@@ -231,7 +231,7 @@ def _build_comprehensive_summary(result: dict) -> str:
             f"{f' ({ticker})' if ticker else ''} "
             f"over a <b>{window}-day prediction window</b> "
             f"(news lookback: {lookback}) "
-            f"and predicted a <b>{label.upper()}</b> label with <b>{confidence:.1%} confidence</b>."
+            f"and predicted a <b>{label.upper()}</b> label with <b>{confidence:.1%}</b> score."
         )
 
     if scores:
@@ -350,8 +350,8 @@ def _build_comprehensive_summary(result: dict) -> str:
         if info.get("flagged")
     ]
     rel_text = (
-        f"Prediction confidence level is <b>{rel_level}</b> "
-        f"({flags_triggered} of 7 checks flagged)."
+        f"Evidence quality level is <b>{rel_level}</b> "
+        f"({flags_triggered} of 6 checks flagged)."
     )
     if flagged_names:
         rel_text += f" Concerns: {', '.join(flagged_names)}."
@@ -454,7 +454,21 @@ def _run_full_pipeline(
 
     label = prediction_result.get("final_label", "?").upper()
     conf = prediction_result.get("final_confidence", 0)
-    progress.write(f"Prediction: **{label}** (confidence {conf:.2%})")
+    abst = prediction_result.get("abstention_test") or {}
+    is_threshold_neutral = (
+        label == "NEUTRAL"
+        and abst.get("method", "none") in ("decision_threshold", "dynamic_margin")
+    )
+    if is_threshold_neutral:
+        scores_msg = prediction_result.get("normalized_scores", {})
+        pos_pct = scores_msg.get("positive", 0)
+        neg_pct = scores_msg.get("negative", 0)
+        progress.write(
+            f"Prediction: **NEUTRAL — No Clear Direction** "
+            f"(positive {pos_pct:.1%} · negative {neg_pct:.1%})"
+        )
+    else:
+        progress.write(f"Prediction: **{label}** ({conf:.2%})")
 
     progress.write("Running XAI explainability analysis (this may take a few minutes)...")
     try:
@@ -605,10 +619,10 @@ def _render_reliability(result: dict) -> None:
     flags_triggered = reliability.get("flags_triggered", 0)
     summary_msg = reliability.get("summary_message", "")
 
-    st.markdown("### Prediction Confidence")
+    st.markdown("### Evidence Quality")
     st.markdown(
         f"Overall: {_confidence_badge(rel_level)}"
-        f"&nbsp;&nbsp;({flags_triggered} of 7 checks flagged)",
+        f"&nbsp;&nbsp;({flags_triggered} of 6 checks flagged)",
         unsafe_allow_html=True,
     )
     st.write("")
@@ -618,17 +632,16 @@ def _render_reliability(result: dict) -> None:
 
     st.divider()
 
-    st.markdown("### Confidence Checks")
+    st.markdown("### Evidence Quality Checks")
     flags = reliability.get("flags", {})
 
     _FLAG_DESCRIPTIONS = {
-        "thin_evidence":      "Are there enough articles to make a reliable prediction?",
-        "weight_concentration": "Is the prediction driven by too few articles?",
-        "label_margin":       "Is the gap between the top two labels large enough?",
-        "low_confidence":     "Is the overall confidence above the minimum threshold?",
-        "source_diversity":   "Do the articles come from diverse editorial sources?",
-        "timing_alignment":   "Are article timestamps aligned to market-close sessions?",
-        "horizon_coverage":   "Does the news span cover the intended backward window?",
+        "thin evidence":      "Are there enough articles to make a reliable prediction?",
+        "weight concentration": "Is the prediction driven by too few articles?",
+        "label margin":       "Is the gap between the top two labels large enough?",
+        "source diversity":   "Do the articles come from diverse editorial sources?",
+        "timing alignment":   "Are article timestamps aligned to market-close sessions?",
+        "horizon coverage":   "Does the news span cover the intended backward window?",
     }
 
     for name, info in flags.items():
@@ -908,12 +921,12 @@ def _render_article_rankings(result: dict) -> None:
                 if would_flip:
                     st.warning(
                         f"Removing this article would flip the prediction to "
-                        f"**{new_lbl.upper()}** (confidence {new_conf:.2%})"
+                        f"**{new_lbl.upper()}** ({new_conf:.2%})"
                     )
                 else:
                     st.caption(
                         f"Removing this article: label stays **{new_lbl}** "
-                        f"(confidence {new_conf:.2%})"
+                        f"({new_conf:.2%})"
                     )
 
 
@@ -1134,7 +1147,7 @@ def _chart_sentiment_scores(result: dict) -> go.Figure:
         textposition="outside",
     ))
     fig.update_layout(
-        title=f"Sentiment Scores — Verdict: {final.upper()} ({conf:.1%} confidence)",
+        title=f"Sentiment Scores — Verdict: {final.upper()} ({conf:.1%})",
         xaxis_title="Score", xaxis=dict(range=[0, 1.15]),
         template="plotly_white", height=300, margin=dict(l=80),
     )
@@ -1283,7 +1296,7 @@ def _chart_reliability(result: dict) -> go.Figure:
         hover_msgs.append(data.get("message", ""))
 
     if not names:
-        return go.Figure().update_layout(title="No reliability data available")
+        return go.Figure().update_layout(title="No evidence quality data available")
 
     fig = go.Figure()
     fig.add_trace(go.Bar(
@@ -1294,7 +1307,7 @@ def _chart_reliability(result: dict) -> go.Figure:
         hovertext=hover_msgs[::-1], hoverinfo="text",
     ))
     fig.update_layout(
-        title=f"Confidence Dashboard — Overall: {overall} CONFIDENCE",
+        title=f"Evidence Quality Dashboard — Overall: {overall}",
         xaxis=dict(visible=False),
         template="plotly_white", height=max(280, len(names) * 45),
         margin=dict(l=160),
@@ -1488,7 +1501,7 @@ _CHART_OPTIONS = {
     "Top 10 Article Weights": _chart_article_weights,
     "Horizon Breakdown": _chart_horizon_breakdown,
     "LIME Token Attribution": _chart_lime_tokens,
-    "Confidence Dashboard": _chart_reliability,
+    "Evidence Quality Dashboard": _chart_reliability,
     "Storyline Contribution": _chart_storyline_contribution,
     "Contrastive Waterfall": _chart_contrastive_waterfall,
     "Article Timeline": _chart_article_timeline,
@@ -1580,7 +1593,7 @@ def main() -> None:
         tab_charts,
     ) = st.tabs([
         "Overview",
-        "Confidence",
+        "Evidence Quality",
         "Storylines",
         "Event Types",
         "Article Analysis",

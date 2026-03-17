@@ -78,7 +78,7 @@ def _build_prompt(
     # Pipeline averages
     avg_days = pipeline_explanation.get("avg_days_ago", 0)
 
-    # Reliability flags
+    # Evidence-quality flags
     flags = reliability.get("flags", {})
 
     # LIME tokens (top article if available)
@@ -108,8 +108,6 @@ def _build_prompt(
                 active_warnings.append("evidence is thin (few articles)")
             elif flag_name == "weight_concentration":
                 active_warnings.append("weight is concentrated in one article")
-            elif flag_name == "low_confidence":
-                active_warnings.append("confidence is below threshold")
             elif flag_name == "label_margin":
                 active_warnings.append(f"a {margin_qualifier} decision margin")
             elif flag_name == "horizon_coverage":
@@ -121,11 +119,11 @@ def _build_prompt(
 
     if active_warnings:
         warning_fact = (
-            f"Reliability is {overall_reliability} due to: "
+            f"Evidence quality is {overall_reliability} due to: "
             + "; ".join(active_warnings) + "."
         )
     else:
-        warning_fact = f"Reliability is {overall_reliability} with no concerns."
+        warning_fact = f"Evidence quality is {overall_reliability} with no concerns."
 
     prompt = f"""DATA (read-only — narrate these facts, do not add any others):
 Company: {company_name}{f' ({ticker})' if ticker else ''}
@@ -140,7 +138,7 @@ Average article age: {avg_days:.1f} days.
 Write exactly 3 sentences starting with "The model predicted":
 - Sentence 1: state the predicted label in ALL-CAPS exactly as given (e.g. "a NEUTRAL label"), score share (not "confidence"), and article count. The label must appear in UPPER CASE.
 - Sentence 2: name the top article and its sentiment.
-- Sentence 3: write exactly "The label margin is {margin_qualifier} ({margin:.3f}), but reliability is {overall_reliability} due to " followed by ALL specific reason(s) from the warning above — do not omit any.
+- Sentence 3: write exactly "The label margin is {margin_qualifier} ({margin:.3f}), but evidence quality is {overall_reliability} due to " followed by ALL specific reason(s) from the warning above — do not omit any.
 
 GRAMMAR RULE: "due to" must be followed by noun phrases (e.g. "due to a narrow decision margin; source concentration"), NOT by clauses (e.g. NOT "due to the label was decided")."""
 
@@ -172,7 +170,7 @@ def _build_fallback_summary(
     margin = (sorted_scores[0] - sorted_scores[1]) if len(sorted_scores) >= 2 else 0.0
     margin_q = _margin_qualifier(margin)
 
-    # Collect specific reliability concerns (not the margin — it's stated separately)
+    # Collect specific evidence-quality concerns (not the margin — it's stated separately)
     flags = reliability.get("flags", {})
     concern_parts: list[str] = []
     if flags.get("source_diversity", {}).get("flagged"):
@@ -187,8 +185,6 @@ def _build_fallback_summary(
         concern_parts.append("thin evidence (few articles)")
     if flags.get("weight_concentration", {}).get("flagged"):
         concern_parts.append("weight concentrated in one article")
-    if flags.get("low_confidence", {}).get("flagged"):
-        concern_parts.append("confidence below threshold")
     if flags.get("label_margin", {}).get("flagged"):
         concern_parts.append(f"a {margin_q} decision margin")
     if flags.get("horizon_coverage", {}).get("flagged"):
@@ -201,12 +197,12 @@ def _build_fallback_summary(
     if concern_parts and overall != "HIGH":
         reliability_sentence = (
             f"The label margin is {margin_q} ({margin:.3f}), "
-            f"but reliability is {overall} due to {'; '.join(concern_parts)}."
+            f"but evidence quality is {overall} due to {'; '.join(concern_parts)}."
         )
     else:
         reliability_sentence = (
             f"The label margin is {margin_q} ({margin:.3f}) "
-            f"and prediction reliability is {overall}."
+            f"and prediction evidence quality is {overall}."
         )
 
     return (

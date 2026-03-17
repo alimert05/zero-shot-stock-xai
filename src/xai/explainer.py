@@ -18,7 +18,7 @@ from typing import Any
 
 from config import (
     JSON_PATH, XAI_OUTPUT_PATH, XAI_SUMMARY_PATH, XAI_LIME_TOP_N,
-    NEUTRAL_THRESHOLD, XAI_LOW_CONFIDENCE_THRESHOLD,
+    NEUTRAL_THRESHOLD,
 )
 
 from .article_explainer  import explain_articles
@@ -157,7 +157,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         article_titles=all_art_titles,
     )
 
-    # -- Reliability flags ---
+    # -- Evidence-quality flags ---
     overall_rel = reliability["overall_reliability"]
     flags       = reliability["flags"]
     rel_icon    = {"HIGH": "\u2713", "MEDIUM": "!", "LOW": "\u2717"}.get(overall_rel, "?")
@@ -165,7 +165,6 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     margin_flag  = flags.get("label_margin", {}).get("flagged", False)
     thin_flag    = flags.get("thin_evidence", {}).get("flagged", False)
     conc_flag    = flags.get("weight_concentration", {}).get("flagged", False)
-    conf_flag    = flags.get("low_confidence", {}).get("flagged", False)
     source_flag  = flags.get("source_diversity", {}).get("flagged", False)
     timing_flag  = flags.get("timing_alignment", {}).get("flagged", False)
     horizon_flag = flags.get("horizon_coverage", {}).get("flagged", False)
@@ -183,8 +182,6 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             "weight is concentrated in one article, "
             "making the result sensitive to that single source"
         )
-    if conf_flag:
-        caution_parts.append("overall confidence is below the recommended threshold")
     if source_flag:
         caution_parts.append(
             "most articles come from the same editorial source, "
@@ -215,7 +212,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "article_weights":         "Top-10 article weight chart",
         "horizon_breakdown":       "Timing horizon breakdown chart",
         "lime_tokens":             "Word-level attribution (LIME) chart",
-        "reliability":             "Reliability dashboard",
+        "reliability":             "Evidence quality dashboard",
         "storyline_contribution":  "Narrative storyline contribution chart",
         "contrastive_waterfall":   "Contrastive waterfall (why A not B?)",
         "article_timeline":        "Article timeline (recency vs influence)",
@@ -325,15 +322,15 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
 
     # -- Recommendation ---------------------------------------------
     if overall_rel == "HIGH":
-        action = "This prediction has HIGH reliability and can be used with reasonable confidence."
+        action = "This prediction has HIGH evidence quality and can be used with reasonable confidence."
     elif overall_rel == "MEDIUM":
         action = (
-            "This prediction has MEDIUM reliability \u2014 treat it as indicative, not definitive. "
+            "This prediction has MEDIUM evidence quality \u2014 treat it as indicative, not definitive. "
             + ("Specifically: " + "; ".join(caution_parts) + "." if caution_parts else "")
         )
     else:
         action = (
-            "This prediction has LOW reliability and should NOT be used alone for decisions. "
+            "This prediction has LOW evidence quality and should NOT be used alone for decisions. "
             + ("Reasons: " + "; ".join(caution_parts) + "." if caution_parts else "")
         )
 
@@ -524,13 +521,13 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         )
 
     reliability_sentence = {
-        "HIGH":   "The prediction carries HIGH reliability and can be used with confidence.",
+        "HIGH":   "The prediction carries HIGH evidence quality and can be used with confidence.",
         "MEDIUM": (
-            "The prediction carries MEDIUM reliability. "
+            "The prediction carries MEDIUM evidence quality. "
             + ("; ".join(caution_parts).capitalize() + "." if caution_parts else "")
         ),
         "LOW": (
-            "The prediction carries LOW reliability and should not be used in isolation. "
+            "The prediction carries LOW evidence quality and should not be used in isolation. "
             + ("; ".join(caution_parts).capitalize() + "." if caution_parts else "")
         ),
     }.get(overall_rel, "")
@@ -745,20 +742,19 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
                 "",
             ]
 
-    # -- Reliability ------------------------------------------------
+    # -- Evidence quality ------------------------------------------------
     lines += [
         "  PREDICTION RELIABILITY",
         "  How much to trust this prediction",
         w,
         f"  Overall : [{rel_icon}] {overall_rel}  ({reliability['flags_triggered']} concern(s) found)",
-        "  Rating rule : HIGH if 0 concerns, MEDIUM if 1, LOW if \u22652.",
+        "  Rating rule : HIGH evidence quality if 0 concerns, MEDIUM if 1, LOW if \u22652.",
     ]
     # Clarify when LOW is driven by data quality, not model uncertainty
     margin_is_clear = not flags.get("label_margin", {}).get("flagged", False)
-    conf_is_ok      = not flags.get("low_confidence", {}).get("flagged", False)
-    if overall_rel == "LOW" and margin_is_clear and conf_is_ok:
+    if overall_rel == "LOW" and margin_is_clear:
         lines.append(
-            "  Note : Reliability is LOW due to data-quality risks (source concentration,"
+            "  Note : Evidence quality is LOW due to data-quality risks (source concentration,"
         )
         lines.append(
             "         timing alignment, short lookback), not because the model is"
@@ -771,7 +767,6 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "thin_evidence":        "Evidence volume",
         "weight_concentration": "Weight spread",
         "label_margin":         "Decision confidence",
-        "low_confidence":       "Score confidence",
         "source_diversity":     "Source diversity",
         "timing_alignment":     "Timing validity",
         "horizon_coverage":     "Horizon coverage",
@@ -781,8 +776,6 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         label = flag_labels.get(flag_name, flag_name.replace("_", " ").title())
         lines.append(f"    [{icon}] {label:<22} {flag_data['message']}")
     lines += [
-        "",
-        f"  Thresholds used  : reliability confidence \u2265 {XAI_LOW_CONFIDENCE_THRESHOLD}",
         "",
     ]
 
@@ -800,7 +793,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
                 n = cal.get("n", 0)
                 acc = cal.get("accuracy", 0.0) * 100
                 lines.append(
-                    f"    {level:<8} reliability predictions: "
+                    f"    {level:<8} evidence-quality predictions: "
                     f"{acc:.0f}% correct direction  (n={n})"
                 )
         lines += [
@@ -815,7 +808,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             w,
             "  Not yet available. Run the backtest evaluation module to",
             "  populate this section with accuracy, precision, and recall",
-            "  broken down by reliability level (HIGH / MEDIUM / LOW).",
+            "  broken down by evidence-quality level (HIGH / MEDIUM / LOW).",
             "",
         ]
 
@@ -1205,7 +1198,7 @@ def run_xai(
     article_explanation  = explain_articles(merged_articles, prediction_result)
     pipeline_explanation = explain_pipeline(merged_articles, prediction_window_days)
 
-    # Reliability (needs HHI from article_explanation + merged_articles)
+    # Evidence quality (needs HHI from article_explanation + merged_articles)
     hhi = article_explanation.get("weight_concentration", 0.0)
     reliability = compute_reliability(
         prediction_result, hhi,

@@ -1,8 +1,8 @@
-"""Reliability flags for sentiment predictions.
+"""Evidence-quality flags for sentiment predictions.
 
 Checks evidence volume, weight concentration, label margin, confidence,
 source diversity, timing alignment, and horizon coverage to produce an
-overall HIGH / MEDIUM / LOW reliability rating.
+overall HIGH / MEDIUM / LOW evidence-quality rating.
 """
 from __future__ import annotations
 
@@ -13,7 +13,6 @@ from config import (
     XAI_THIN_EVIDENCE_THRESHOLD,
     XAI_CONCENTRATION_THRESHOLD,
     XAI_MARGIN_THRESHOLD,
-    XAI_LOW_CONFIDENCE_THRESHOLD,
     XAI_SOURCE_CONCENTRATION_THRESHOLD,
     XAI_MIN_UNIQUE_SOURCES,
 )
@@ -72,20 +71,6 @@ def _check_label_margin(normalized_scores: dict[str, float]) -> dict[str, Any]:
         ),
     }
 
-
-def _check_low_confidence(final_confidence: float) -> dict[str, Any]:
-    threshold = XAI_LOW_CONFIDENCE_THRESHOLD
-    flagged = final_confidence < threshold
-    return {
-        "flagged": flagged,
-        "final_confidence": round(final_confidence, 4),
-        "threshold": threshold,
-        "message": (
-            f"Below reliability threshold ({final_confidence:.3f} < {threshold})."
-            if flagged
-            else f"Above reliability threshold ({final_confidence:.3f} ≥ {threshold})."
-        ),
-    }
 
 
 # Known news aggregators — these collect articles from many independent
@@ -283,7 +268,7 @@ def compute_reliability(
     prediction_window_days: int = 7,
     max_backward_days: int | None = None,
 ) -> dict[str, Any]:
-    """Run all reliability checks and return an overall rating with flag details."""
+    """Run all evidence-quality checks and return an overall rating with flag details."""
     articles_analyzed = prediction_result.get("articles_analyzed", 0)
     normalized_scores = prediction_result.get("normalized_scores", {})
     final_confidence = prediction_result.get("final_confidence", 0.0)
@@ -292,7 +277,6 @@ def compute_reliability(
         "thin_evidence":        _check_thin_evidence(articles_analyzed),
         "weight_concentration": _check_weight_concentration(herfindahl_index),
         "label_margin":         _check_label_margin(normalized_scores),
-        "low_confidence":       _check_low_confidence(final_confidence),
         "source_diversity":     _check_source_diversity(merged_articles or []),
         "timing_alignment":     _check_timing_alignment(
             merged_articles or [], prediction_window_days
@@ -304,23 +288,23 @@ def compute_reliability(
 
     flags_triggered = sum(1 for f in flags.values() if f["flagged"])
 
-    if flags_triggered == 0:
+    if flags_triggered <= 1:
         overall = "HIGH"
-    elif flags_triggered == 1:
+    elif flags_triggered <= 2:
         overall = "MEDIUM"
     else:
         overall = "LOW"
 
     flagged_messages = [f["message"] for f in flags.values() if f["flagged"]]
     if flagged_messages:
-        summary = f"Prediction has {overall} reliability: " + " ".join(flagged_messages)
+        summary = f"Prediction has {overall} evidence quality: " + " ".join(flagged_messages)
     else:
         summary = (
-            f"Prediction has HIGH reliability: {articles_analyzed} articles analyzed "
+            f"Prediction has HIGH evidence quality: {articles_analyzed} articles analyzed "
             f"with clear {prediction_result.get('final_label', '')} margin."
         )
 
-    logger.info("Reliability: %s (%d flags)", overall, flags_triggered)
+    logger.info("Evidence quality: %s (%d flags)", overall, flags_triggered)
 
     return {
         "overall_reliability": overall,

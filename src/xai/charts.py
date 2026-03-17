@@ -93,7 +93,7 @@ def plot_sentiment_scores(
     ax.set_xlabel("Score", fontsize=10, fontname=_FONT)
     ax.set_title(
         f"Sentiment Scores  —  Verdict: {final.upper()}  "
-        f"({pred.get('final_confidence', 0) * 100:.1f}% confidence)",
+        f"({pred.get('final_confidence', 0) * 100:.1f}%)",
         fontsize=11, fontname=_FONT, pad=10,
     )
     ax.xaxis.grid(True, color=_COL["grid"], linewidth=0.7, linestyle="--")
@@ -323,7 +323,7 @@ def plot_lime_tokens(
     return _savefig(fig, out_dir / filename)
 
 
-# ── 6. Reliability flag dashboard ────────────────────────────────────────────
+# ── 6. Evidence quality dashboard ────────────────────────────────────────────
 
 def plot_reliability(
     reliability: dict[str, Any],
@@ -331,8 +331,8 @@ def plot_reliability(
     filename: str = "06_reliability.png",
 ) -> Path:
     """
-    Colour-coded table / dashboard showing each reliability flag status
-    and the overall reliability level.
+    Colour-coded table / dashboard showing each evidence-quality flag status
+    and the overall evidence-quality level.
     """
     import matplotlib
     matplotlib.use("Agg")
@@ -345,8 +345,7 @@ def plot_reliability(
     flag_labels = {
         "thin_evidence":        "Evidence Volume",
         "weight_concentration": "Evidence Diversity",
-        "label_margin":         "Decision Confidence",
-        "low_confidence":       "Score Confidence",
+        "label_margin":         "Label Margin",
     }
 
     rows = []
@@ -399,7 +398,7 @@ def plot_reliability(
                 fontsize=8.5, fontname=_FONT, va="center", ha="right",
                 color="#555")
 
-    ax.set_title("Prediction Reliability Dashboard", fontsize=12,
+    ax.set_title("Evidence Quality Dashboard", fontsize=12,
                  fontname=_FONT, pad=10)
     fig.tight_layout()
     return _savefig(fig, out_dir / filename)
