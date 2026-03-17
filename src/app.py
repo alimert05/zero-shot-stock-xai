@@ -647,15 +647,16 @@ def _render_reliability(result: dict) -> None:
     for name, info in flags.items():
         flagged = info.get("flagged", False)
         msg = info.get("message", "")
-        description = _FLAG_DESCRIPTIONS.get(name, "")
+        display_name = name.replace("_", " ")
+        description = _FLAG_DESCRIPTIONS.get(display_name, "")
 
         if flagged:
             st.markdown(
-                f"**:orange[{name}]** &nbsp; :orange[FLAGGED]",
+                f"**:orange[{display_name}]** &nbsp; :orange[FLAGGED]",
             )
         else:
             st.markdown(
-                f"**:green[{name}]** &nbsp; :green[PASS]",
+                f"**:green[{display_name}]** &nbsp; :green[PASS]",
             )
 
         st.caption(description)
@@ -663,7 +664,7 @@ def _render_reliability(result: dict) -> None:
 
         details = {k: v for k, v in info.items() if k not in ("flagged", "message")}
         if details:
-            with st.expander(f"Details for {name}"):
+            with st.expander(f"Details for {display_name}"):
                 for k, v in details.items():
                     st.write(f"**{k}:** {v}")
 
