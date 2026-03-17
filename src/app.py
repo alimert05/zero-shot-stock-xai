@@ -64,7 +64,7 @@ _CONFIDENCE_COLOURS = {
 _HORIZON_COLOURS = {
     "IMMEDIATE":   "#e74c3c",
     "SHORT_TERM":  "#f39c12",
-    "MEDIUM_TERM": "#3498db",
+    "DIFFUSION": "#3498db",
     "LONG_TERM":   "#2ecc71",
 }
 
@@ -764,6 +764,66 @@ def _render_event_types(result: dict) -> None:
 
     st.divider()
 
+    # -- Horizon category distribution (moved from Weighting tab) --
+    horizon_dist = layer3.get("horizon_distribution", {})
+    if horizon_dist:
+        st.markdown("### Horizon Category Distribution")
+        h_cols = st.columns(len(horizon_dist))
+        for i, (cat, count) in enumerate(horizon_dist.items()):
+            colour = _HORIZON_COLOURS.get(cat, "#3498db")
+            with h_cols[i]:
+                st.markdown(
+                    _badge(cat.replace("_", " "), colour),
+                    unsafe_allow_html=True,
+                )
+                st.metric("Articles", count, label_visibility="collapsed")
+        st.divider()
+
+    # -- Primary vs secondary horizon distribution --
+    from fetcher.impact_horizon import HORIZON_LABEL_TO_CATEGORY
+    articles = layer3.get("articles", [])
+    if articles:
+        primary_counts: dict[str, int] = {}
+        secondary_counts: dict[str, int] = {}
+        for art in articles:
+            ih = art.get("impact_horizon", {}) if isinstance(art.get("impact_horizon"), dict) else {}
+            pri_label = ih.get("primary", "")
+            sec_label = ih.get("secondary", "")
+            pri_cat = HORIZON_LABEL_TO_CATEGORY.get(pri_label, pri_label)
+            sec_cat = HORIZON_LABEL_TO_CATEGORY.get(sec_label, sec_label)
+            if pri_cat:
+                primary_counts[pri_cat] = primary_counts.get(pri_cat, 0) + 1
+            if sec_cat:
+                secondary_counts[sec_cat] = secondary_counts.get(sec_cat, 0) + 1
+
+        if primary_counts or secondary_counts:
+            st.markdown("### Primary vs Secondary Horizon")
+            st.caption(
+                "Each event type assigns a **primary** horizon (strongest price impact) "
+                "and an optional **secondary** horizon (delayed or residual effect)."
+            )
+            col_pri, col_sec = st.columns(2)
+            with col_pri:
+                st.markdown("**Primary Horizon**")
+                for h, c in sorted(primary_counts.items(), key=lambda x: x[1], reverse=True):
+                    colour = _HORIZON_COLOURS.get(h, "#3498db")
+                    st.markdown(
+                        f"{_badge(h.replace('_', ' '), colour)} &nbsp; **{c}** articles",
+                        unsafe_allow_html=True,
+                    )
+            with col_sec:
+                st.markdown("**Secondary Horizon**")
+                if secondary_counts:
+                    for h, c in sorted(secondary_counts.items(), key=lambda x: x[1], reverse=True):
+                        colour = _HORIZON_COLOURS.get(h, "#3498db")
+                        st.markdown(
+                            f"{_badge(h.replace('_', ' '), colour)} &nbsp; **{c}** articles",
+                            unsafe_allow_html=True,
+                        )
+                else:
+                    st.write("No secondary horizons assigned.")
+            st.divider()
+
     st.markdown("### What Do These Event Types Mean?")
     for evt_name, info in _EVENT_TYPE_INFO.items():
         st.markdown(f"**{evt_name.title()}**")
@@ -1011,21 +1071,6 @@ def _render_weighting(result: dict) -> None:
 
     st.divider()
 
-    horizon_dist = layer3.get("horizon_distribution", {})
-    if horizon_dist:
-        st.markdown("### Horizon Category Distribution")
-        h_cols = st.columns(len(horizon_dist))
-        for i, (cat, count) in enumerate(horizon_dist.items()):
-            colour = _HORIZON_COLOURS.get(cat, "#3498db")
-            with h_cols[i]:
-                st.markdown(
-                    _badge(cat.replace("_", " "), colour),
-                    unsafe_allow_html=True,
-                )
-                st.metric("Articles", count, label_visibility="collapsed")
-
-    st.divider()
-
     articles = layer3.get("articles", [])
     if articles:
         st.markdown("### Detailed Weight Interpretations")
@@ -1216,10 +1261,10 @@ def _chart_horizon_breakdown(result: dict) -> go.Figure:
     layer3 = result.get("layer_3_pipeline", {})
     horizon_dist = layer3.get("horizon_distribution", {})
     horizon_labels = {
-        "IMMEDIATE": "Breaking / same-day",
-        "SHORT_TERM": "Short-term (days)",
-        "MEDIUM_TERM": "Medium-term (weeks)",
-        "LONG_TERM": "Long-term (months)",
+        "IMMEDIATE": "Immediate (0-1 days)",
+        "SHORT_TERM": "Short-term (2-5 days)",
+        "DIFFUSION": "Diffusion (6-10 days)",
+        "LONG_TERM": "Long-term (11-31 days)",
     }
 
     cats = list(horizon_dist.keys())

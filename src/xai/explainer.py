@@ -944,10 +944,10 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "",
     ]
     horizon_labels = {
-        "IMMEDIATE":   "Breaking / same-day",
-        "SHORT_TERM":  "Short-term (days)  ",
-        "MEDIUM_TERM": "Medium-term (weeks)",
-        "LONG_TERM":   "Long-term (months) ",
+        "IMMEDIATE":   "Immediate (0-1 days) ",
+        "SHORT_TERM":  "Short-term (2-5 days)",
+        "DIFFUSION":   "Diffusion (6-10 days)",
+        "LONG_TERM":   "Long-term (11-31 days)",
     }
     horizon_dist = layer3["horizon_distribution"]
     max_h        = max(horizon_dist.values(), default=1)

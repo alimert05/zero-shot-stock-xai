@@ -106,7 +106,7 @@ def explain_pipeline(
     horizon_distribution = {
         "IMMEDIATE": 0,
         "SHORT_TERM": 0,
-        "MEDIUM_TERM": 0,
+        "DIFFUSION": 0,
         "LONG_TERM": 0,
     }
     event_type_distribution: dict[str, int] = {}
@@ -153,6 +153,7 @@ def explain_pipeline(
             "horizon_explanation": horizon_exp,
             "combination_explanation": combo_exp,
             "final_weight": safe_round(final_weight),
+            "impact_horizon": impact_horizon,
         })
 
         recency_weights.append(recency_weight)
