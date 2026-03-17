@@ -37,6 +37,8 @@ from config import (
     XAI_EXPLANATIONS_PATH,
     SENTIMENT_MODEL,
     MODEL_NAME,
+    DECISION_THRESHOLD_POS,
+    DECISION_THRESHOLD_NEG,
 )
 
 st.set_page_config(
@@ -124,13 +126,21 @@ def _badge(text: str, colour: str, size: str = "0.85rem") -> str:
     )
 
 
-def _label_badge(label: str, confidence: float, threshold_neutral: bool = False) -> str:
+def _label_badge(
+    label: str,
+    confidence: float,
+    threshold_neutral: bool = False,
+    threshold_gap: dict | None = None,
+) -> str:
     colour = _LABEL_COLOURS.get(label, "#3498db")
-    display_label = "NEUTRAL — Mixed Sentiment" if threshold_neutral else label.upper()
+    if threshold_neutral:
+        display_label = "NEUTRAL — No Clear Direction"
+    else:
+        display_label = f"{label.upper()}&nbsp;&nbsp;{confidence:.1%}"
     return (
         f'<span style="background:{colour};color:#fff;padding:8px 22px;'
         f'border-radius:6px;font-size:1.5rem;font-weight:700;">'
-        f'{display_label}&nbsp;&nbsp;{confidence:.1%}</span>'
+        f'{display_label}</span>'
     )
 
 
@@ -482,23 +492,42 @@ def _render_overview(result: dict) -> None:
         label == "neutral"
         and abst_method in ("decision_threshold", "dynamic_margin")
     )
+    threshold_gap = abst_test.get("threshold_gap")
 
     st.markdown("### Prediction Result")
     st.markdown(
-        _label_badge(label, confidence, threshold_neutral=threshold_neutral),
+        _label_badge(
+            label, confidence,
+            threshold_neutral=threshold_neutral,
+            threshold_gap=threshold_gap,
+        ),
         unsafe_allow_html=True,
     )
     st.write("")
 
-    m1, m2, m3, m4 = st.columns(4)
-    m1.metric("Confidence", f"{confidence:.2%}")
-    m2.metric("Articles Analysed", n_articles)
-    m3.metric("Prediction Window", f"{window} days")
-    m4.metric("Total Weight", f"{total_weight:.2f}" if isinstance(total_weight, (int, float)) else "?")
+    scores = pred.get("normalized_scores", {})
+    if threshold_neutral:
+        pos_score = scores.get("positive", 0)
+        neg_score = scores.get("negative", 0)
+        m1, m2, m3, m4, m5 = st.columns(5)
+        m1.metric("Positive Score", f"{pos_score:.2%}")
+        m2.metric("Negative Score", f"{neg_score:.2%}")
+        m3.metric("Articles Analysed", n_articles)
+        m4.metric("Prediction Window", f"{window} days")
+        m5.metric("Total Weight", f"{total_weight:.2f}" if isinstance(total_weight, (int, float)) else "?")
+        # Small caption explaining the threshold
+        if threshold_gap:
+            tau = threshold_gap["threshold"]
+            nearest = threshold_gap["nearest_label"]
+    else:
+        m1, m2, m3, m4 = st.columns(4)
+        m1.metric("Confidence", f"{confidence:.2%}")
+        m2.metric("Articles Analysed", n_articles)
+        m3.metric("Prediction Window", f"{window} days")
+        m4.metric("Total Weight", f"{total_weight:.2f}" if isinstance(total_weight, (int, float)) else "?")
 
     st.divider()
 
-    scores = pred.get("normalized_scores", {})
     if scores:
         st.markdown("### Sentiment Score Distribution")
         cols = st.columns(3)
@@ -575,13 +604,6 @@ def _render_reliability(result: dict) -> None:
     rel_level = reliability.get("overall_reliability", "?")
     flags_triggered = reliability.get("flags_triggered", 0)
     summary_msg = reliability.get("summary_message", "")
-
-    st.warning(
-        "**This tool is for educational and research purposes only. "
-        "It does not constitute financial advice, investment recommendation, "
-        "or any form of solicitation. Always consult a qualified financial "
-        "advisor before making investment decisions.**"
-    )
 
     st.markdown("### Prediction Confidence")
     st.markdown(

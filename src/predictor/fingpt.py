@@ -193,6 +193,12 @@ def predict_sentiment(
     abstention = apply_abstention(normalized_scores, article_weights)
     final_label = abstention["final_label"]
 
+    threshold_gap = abstention["abstention_test"].get("threshold_gap")
+    if threshold_gap:
+        final_confidence = threshold_gap["score"]
+    else:
+        final_confidence = normalized_scores[final_label]
+
     result = {
         "query": query,
         "company_name": company_name,
@@ -205,7 +211,7 @@ def predict_sentiment(
         },
         "normalized_scores": normalized_scores,
         "final_label": final_label,
-        "final_confidence": normalized_scores[final_label],
+        "final_confidence": final_confidence,
         "article_details": article_sentiments,
         "abstention_test": abstention["abstention_test"],
     }

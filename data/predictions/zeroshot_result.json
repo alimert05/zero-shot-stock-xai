@@ -20,7 +20,7 @@
     "neutral": 0.0443
   },
   "final_label": "neutral",
-  "final_confidence": 0.0443,
+  "final_confidence": 0.4538,
   "article_details": [
     {
       "title": "Warren Buffett Added a Big Chunk of This Tech Stock. Should You Add It Too?",
@@ -4744,6 +4744,12 @@
     "decision_thresholds": {
       "tau_pos": 0.56,
       "tau_neg": 0.42
+    },
+    "threshold_gap": {
+      "nearest_label": "positive",
+      "score": 0.4538,
+      "threshold": 0.56,
+      "shortfall": 0.1062
     },
     "margin": 0.1127,
     "threshold": 0.0461,

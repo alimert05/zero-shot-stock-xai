@@ -210,6 +210,29 @@ def apply_abstention(
             margin, dyn_threshold, top_label, entropy, n_eff,
         )
 
+    # Build threshold gap info for explainability
+    pos = normalized_scores.get("positive", 0)
+    neg = normalized_scores.get("negative", 0)
+    threshold_gap = None
+    if abstention_method == "decision_threshold" and final_label == "neutral":
+        # Identify the closest directional score and how far it fell short
+        pos_gap = DECISION_THRESHOLD_POS - pos
+        neg_gap = DECISION_THRESHOLD_NEG - neg
+        if pos >= neg:
+            threshold_gap = {
+                "nearest_label": "positive",
+                "score": round(pos, 4),
+                "threshold": DECISION_THRESHOLD_POS,
+                "shortfall": round(pos_gap, 4),
+            }
+        else:
+            threshold_gap = {
+                "nearest_label": "negative",
+                "score": round(neg, 4),
+                "threshold": DECISION_THRESHOLD_NEG,
+                "shortfall": round(neg_gap, 4),
+            }
+
     return {
         "final_label": final_label,
         "abstention_test": {
@@ -218,6 +241,7 @@ def apply_abstention(
                 "tau_pos": DECISION_THRESHOLD_POS,
                 "tau_neg": DECISION_THRESHOLD_NEG,
             },
+            "threshold_gap": threshold_gap,
             "margin": margin,
             "threshold": dyn_threshold,
             "n_articles": len(article_weights),

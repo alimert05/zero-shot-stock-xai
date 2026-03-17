@@ -2,15 +2,15 @@
   "meta": {
     "query": "Apple",
     "ticker": "AAPL",
-    "xai_timestamp": "2026-03-16 19:13:08",
+    "xai_timestamp": "2026-03-17 13:23:58",
     "articles_analyzed": 262,
     "prediction_window_days": 31,
-    "news_lookback": "2026-02-16 to 2026-03-15 (ET market-close aligned)",
+    "news_lookback": "2026-02-17 to 2026-03-16 (ET market-close aligned)",
     "xai_version": "1.0.0"
   },
   "prediction_summary": {
     "final_label": "neutral",
-    "final_confidence": 0.0443,
+    "final_confidence": 0.4538,
     "normalized_scores": {
       "positive": 0.4538,
       "negative": 0.3411,
@@ -23,6 +23,12 @@
         "tau_pos": 0.56,
         "tau_neg": 0.42
       },
+      "threshold_gap": {
+        "nearest_label": "positive",
+        "score": 0.4538,
+        "threshold": 0.56,
+        "shortfall": 0.1062
+      },
       "margin": 0.1127,
       "threshold": 0.0461,
       "n_articles": 262,
@@ -31,8 +37,8 @@
     }
   },
   "reliability": {
-    "overall_reliability": "LOW",
-    "flags_triggered": 2,
+    "overall_reliability": "MEDIUM",
+    "flags_triggered": 1,
     "flags": {
       "thin_evidence": {
         "flagged": false,
@@ -55,10 +61,10 @@
         "message": "Narrow margin between positive (0.454) and negative (0.341): margin=0.113."
       },
       "low_confidence": {
-        "flagged": true,
-        "final_confidence": 0.0443,
+        "flagged": false,
+        "final_confidence": 0.4538,
         "threshold": 0.45,
-        "message": "Below reliability threshold (0.044 < 0.45)."
+        "message": "Above reliability threshold (0.454 ≥ 0.45)."
       },
       "source_diversity": {
         "flagged": false,
@@ -83,7 +89,7 @@
         "message": "News lookback (28 days) covers the intended 28-day backward window."
       }
     },
-    "summary_message": "Prediction has LOW reliability: Narrow margin between positive (0.454) and negative (0.341): margin=0.113. Below reliability threshold (0.044 < 0.45)."
+    "summary_message": "Prediction has MEDIUM reliability: Narrow margin between positive (0.454) and negative (0.341): margin=0.113."
   },
   "layer_1_token": {
     "method": "LIME",
@@ -18700,8 +18706,8 @@
   },
   "narrative": {
     "model": "llama3.2:3b",
-    "summary": "The model predicted a NEUTRAL label with a 4.4% score share based on 262 articles over 31 days.\nThe top article is \"Warren Buffett Added a Big Chunk of This Tech Stock. Should You Add It Too?\" with a POSITIVE sentiment.\nThe label margin is moderate (0.113), but reliability is LOW due to a moderate decision margin; confidence is below threshold.",
-    "prompt_used": "DATA (read-only — narrate these facts, do not add any others):\nCompany: Apple (AAPL)\nPrediction label: NEUTRAL with a 4.4% score share, based on 262 articles over 31 days.\nScore breakdown: Positive 45.4%, Negative 34.1%, Neutral 4.4%.\nThe label margin is moderate (0.113), meaning a moderate gap between the top two sentiment scores.\nTop article: \"Warren Buffett Added a Big Chunk of This Tech Stock. Should You Add It Too?\" (POSITIVE sentiment, 0.9% of total weight). Removing it would NOT change the label.\nAverage article age: 15.4 days.\n- Key words supporting neutral: Neutral, neutral, due, one, rating\nReliability is LOW due to: a moderate decision margin; confidence is below threshold.\n\nWrite exactly 3 sentences starting with \"The model predicted\":\n- Sentence 1: state the predicted label in ALL-CAPS exactly as given (e.g. \"a NEUTRAL label\"), score share (not \"confidence\"), and article count. The label must appear in UPPER CASE.\n- Sentence 2: name the top article and its sentiment.\n- Sentence 3: write exactly \"The label margin is moderate (0.113), but reliability is LOW due to \" followed by ALL specific reason(s) from the warning above — do not omit any.\n\nGRAMMAR RULE: \"due to\" must be followed by noun phrases (e.g. \"due to a narrow decision margin; source concentration\"), NOT by clauses (e.g. NOT \"due to the label was decided\").",
+    "summary": "The model predicted a NEUTRAL label with a 45.4% score share based on 262 articles over 31 days.\nThe top article is \"Warren Buffett Added a Big Chunk of This Tech Stock. Should You Add It Too?\" with a positive sentiment.\nThe label margin is moderate (0.113), but reliability is MEDIUM due to a moderate decision margin and source concentration.",
+    "prompt_used": "DATA (read-only — narrate these facts, do not add any others):\nCompany: Apple (AAPL)\nPrediction label: NEUTRAL with a 45.4% score share, based on 262 articles over 31 days.\nScore breakdown: Positive 45.4%, Negative 34.1%, Neutral 4.4%.\nThe label margin is moderate (0.113), meaning a moderate gap between the top two sentiment scores.\nTop article: \"Warren Buffett Added a Big Chunk of This Tech Stock. Should You Add It Too?\" (POSITIVE sentiment, 0.9% of total weight). Removing it would NOT change the label.\nAverage article age: 15.4 days.\n- Key words supporting neutral: Neutral, neutral, due, one, rating\nReliability is MEDIUM due to: a moderate decision margin.\n\nWrite exactly 3 sentences starting with \"The model predicted\":\n- Sentence 1: state the predicted label in ALL-CAPS exactly as given (e.g. \"a NEUTRAL label\"), score share (not \"confidence\"), and article count. The label must appear in UPPER CASE.\n- Sentence 2: name the top article and its sentiment.\n- Sentence 3: write exactly \"The label margin is moderate (0.113), but reliability is MEDIUM due to \" followed by ALL specific reason(s) from the warning above — do not omit any.\n\nGRAMMAR RULE: \"due to\" must be followed by noun phrases (e.g. \"due to a narrow decision margin; source concentration\"), NOT by clauses (e.g. NOT \"due to the label was decided\").",
     "ollama_available": true,
     "fallback_used": false,
     "fallback_summary": null,
@@ -18710,7 +18716,7 @@
   "storylines": {
     "storylines": [
       {
-        "label": "Apple stock surges on China and services growth",
+        "label": "Apple stock surges on China and services growth.",
         "keyword_label": "apple, stock, apple stock",
         "articles_count": 7,
         "weighted_score": 7.0,
@@ -18733,7 +18739,7 @@
         ]
       },
       {
-        "label": "Tim Cook boosts Nike stock value significantly.",
+        "label": "Apple CEO invests in Nike stock surge",
         "keyword_label": "tim, tim cook, cook",
         "articles_count": 8,
         "weighted_score": 8.0,
@@ -18808,7 +18814,7 @@
         ]
       },
       {
-        "label": "Tech giants vie for top spot in 2026.",
+        "label": "Apple poised to surpass Nvidia in 2026.",
         "keyword_label": "2026, apple, biggest",
         "articles_count": 6,
         "weighted_score": 6.0,
@@ -18830,7 +18836,7 @@
         ]
       },
       {
-        "label": "AI challenges impact 2026 product launches.",
+        "label": "AI-powered upgrades face significant challenges and risks.",
         "keyword_label": "apple, ai, 2026",
         "articles_count": 12,
         "weighted_score": 12.0,
@@ -18952,7 +18958,7 @@
         ]
       },
       {
-        "label": "Investor advises sticking with winning stocks.",
+        "label": "Investor Jim Cramer advocates for long-term ownership.",
         "keyword_label": "trade, don trade, don",
         "articles_count": 5,
         "weighted_score": 5.0,
@@ -18997,7 +19003,7 @@
         ]
       },
       {
-        "label": "Apple loosens grip on app store control globally.",
+        "label": "Apple relaxes app store restrictions globally.",
         "keyword_label": "apple, japan, app",
         "articles_count": 9,
         "weighted_score": 9.0,
@@ -19022,7 +19028,7 @@
         ]
       },
       {
-        "label": "Apple explores chip manufacturing in India",
+        "label": "Chip manufacturing partnership with Indian firms discussed",
         "keyword_label": "apple, chip, apple chip",
         "articles_count": 5,
         "weighted_score": 5.0,
