@@ -1110,14 +1110,16 @@ def _render_lime(result: dict) -> None:
         title = art.get("title", "?")
         influence = art.get("influence_score", 0)
         weight = art.get("final_weight", 0)
+        article_label = art.get("article_label", "?")
         explained_label = art.get("lime_label_explained", "?")
 
         with st.expander(f"[{rank}] {title}"):
 
-            mc1, mc2, mc3 = st.columns(3)
-            mc1.metric("Explaining Label", explained_label.upper())
-            mc2.metric("Influence Score", f"{influence:.4f}")
-            mc3.metric("Article Weight", f"{weight:.4f}")
+            mc1, mc2, mc3, mc4 = st.columns(4)
+            mc1.metric("Article Label", article_label.upper())
+            mc2.metric("Explaining Toward", explained_label.upper())
+            mc3.metric("Influence Score", f"{influence:.4f}")
+            mc4.metric("Article Weight", f"{weight:.4f}")
 
             content = art.get("content", "")
             if content:

@@ -182,6 +182,7 @@ def explain_tokens(
                 "content": (article.get("content") or "").strip(),
                 "final_weight": safe_round(final_weight),
                 "influence_score": influence,
+                "article_label": get_dominant_label(raw_scores),
                 "lime_label_explained": predicted_label,
                 "token_weights": token_weights,
                 "top_tokens_supporting": supporting,
