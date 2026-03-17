@@ -1,6 +1,10 @@
+"""Central configuration for the sentiment analysis pipeline."""
+
+from __future__ import annotations
+
 from pathlib import Path
 
-# Project paths
+# ── Paths ────────────────────────────────────────────────────────────────────
 PROJECT_ROOT = Path(__file__).parent.parent
 LOG_DIR = PROJECT_ROOT / "logs"
 LOG_PATH = LOG_DIR / "fetch.logs"
@@ -20,7 +24,7 @@ LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 REQUEST_TIMEOUT_LIMIT = 30
 
-# API Configuration
+# ── Api & Network ────────────────────────────────────────────────────────────
 FINNHUB_API_KEY = "d5rvt19r01qq2th0b8sgd5rvt19r01qq2th0b8t0"
 
 NOISE_REDUCTION_MODEL = "microsoft/deberta-large-mnli" 
@@ -29,6 +33,8 @@ IMPACT_HORIZON_MODEL = "microsoft/deberta-large-mnli"
 IMPACT_HORIZON_DEVICE = 0
 
 SENTIMENT_DEVICE = 0 
+
+# ── Model Selection ───────────────────────────────────────────────────────────
 
 # # finbert config
 # SENTIMENT_MODEL = "ProsusAI/finbert"
@@ -53,7 +59,7 @@ SENTIMENT_MODEL = "zero-shot"
 MODEL_NAME = "microsoft/deberta-large-mnli" # microsoft deberta large mnli
 # MODEL_NAME = "roberta-large-mnli" # facebookAI roberta mnli
 
-# XAI Configuration
+# ── Xai Configuration ────────────────────────────────────────────────────────
 XAI_ENABLED                    = False
 XAI_EXPLANATIONS_PATH          = PROJECT_ROOT / "data" / "xai_explanations"
 XAI_OUTPUT_PATH                = XAI_EXPLANATIONS_PATH / "xai_result.json"
@@ -78,7 +84,7 @@ XAI_LLAMA_ENABLED              = True
 XAI_SOURCE_CONCENTRATION_THRESHOLD = 0.60   # flag if top domain > 60% of articles
 XAI_MIN_UNIQUE_SOURCES             = 2      # flag if fewer unique domains
 
-# Enhanced article weighting
+# ── Aggregation & Post-Processing ────────────────────────────────────────────
 COVERAGE_COUNT_BOOST           = True    # boost multi-source articles via log2(1 + coverage)
 HEADLINE_ONLY_WEIGHT           = 0.5     # discount for headline-only articles (no body content)
 
@@ -94,6 +100,6 @@ DYNAMIC_MARGIN_ENABLED         = False
 
 NEUTRAL_THRESHOLD              = 0.003     # ±0.3% close-to-close return band ?
 
-# Market timezone alignment
+# ── Market Timezone Alignment ────────────────────────────────────────────────
 MARKET_TIMEZONE    = "America/New_York"      # NYSE / NASDAQ timezone
 MARKET_CLOSE_HOUR  = 16                      # 4:00 PM ET

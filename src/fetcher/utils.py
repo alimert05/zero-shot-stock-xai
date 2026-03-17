@@ -5,7 +5,6 @@ from __future__ import annotations
 import logging
 import time
 from datetime import datetime, timedelta, timezone
-from typing import Optional
 from zoneinfo import ZoneInfo
 
 import exchange_calendars as xcals
@@ -23,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 def resolve_ticker(
     company_name: str, max_retries: int = 5, timeout: int = 5
-) -> Optional[str]:
+) -> str | None:
     url = "https://query2.finance.yahoo.com/v1/finance/search"
 
     params = {"q": company_name, "quotesCount": 5, "newsCount": 0}

@@ -3,6 +3,11 @@
 Fetches news articles, runs the configured sentiment model, and optionally
 generates an XAI explainability report.
 """
+
+from __future__ import annotations
+
+import logging
+
 from fetcher.fetcher import Fetcher
 from predictor.finbert import run_sentiment_prediction as run_finbert
 from predictor.fingpt import run_sentiment_prediction as run_fingpt
@@ -12,12 +17,15 @@ from predictor.ollama_predictor import run_sentiment_prediction as run_ollama
 from config import JSON_PATH, SENTIMENT_MODEL, FINBERT_PREDS, FINGPT_PREDS, ZEROSHOT_PREDS, OLLAMA_PREDS, MODEL_NAME, XAI_ENABLED, XAI_OUTPUT_PATH
 from xai import run_xai
 
+logger = logging.getLogger(__name__)
+
+
 def main() -> None:
     """Fetch articles, run sentiment prediction, and generate XAI output."""
     fetcher = Fetcher()
     has_articles = fetcher.run_fetcher()
     if not has_articles:
-        print("No articles fetched for the selected date window. Stopping pipeline safely.")
+        logger.warning("No articles fetched for the selected date window. Stopping pipeline safely.")
         return
 
     prediction_result = None

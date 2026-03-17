@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import logging
-from typing import Optional, List
 
 import nltk
 
@@ -32,17 +31,17 @@ def _get_deberta_classifier():
             raise
     return _deberta_classifier
 
-def _split_into_sentences(text: str) -> List[str]:
+def _split_into_sentences(text: str) -> list[str]:
     if not text:
         return []
     sentences = nltk.sent_tokenize(text)
     return [s.strip() for s in sentences if s.strip()]
 
 def _score_sentence_relevance(
-    sentences: List[str],
+    sentences: list[str],
     company_name: str,
-    ticker: Optional[str], 
-) -> List[tuple[str, float]]:
+    ticker: str | None, 
+) -> list[tuple[str, float]]:
 
     if not sentences:
         return []
@@ -68,7 +67,7 @@ def _score_sentence_relevance(
     if isinstance(results, dict):
         results = [results]
 
-    scored: List[tuple[str, float]] = []
+    scored: list[tuple[str, float]] = []
     for sentence, result in zip(sentences, results):
         relevance_score = 0.0
         for label, score in zip(result["labels"], result["scores"]):
@@ -80,17 +79,17 @@ def _score_sentence_relevance(
     return scored
 
 def _filter_relevant_sentences(
-    scored_sentences: List[tuple[str, float]],
+    scored_sentences: list[tuple[str, float]],
     threshold: float = 0.5,
-) -> List[str]:
+) -> list[str]:
     return [sent for sent, score in scored_sentences if score >= threshold]
 
 def reduce_content_noise(
     content: str,
     company_name: str,
-    ticker: Optional[str] = None,
+    ticker: str | None = None,
     relevance_threshold: float = 0.5,
-) -> tuple[Optional[str], dict]:
+) -> tuple[str | None, dict]:
 
     if not content:
         return None, {"error": "no_content"}
@@ -138,11 +137,11 @@ def reduce_content_noise(
 
 
 def clean_articles_content(
-    articles: List[dict],
+    articles: list[dict],
     company_name: str,
-    ticker: Optional[str] = None,
+    ticker: str | None = None,
     relevance_threshold: float = 0.5,
-) -> List[dict]:
+) -> list[dict]:
 
     if not articles:
         return []

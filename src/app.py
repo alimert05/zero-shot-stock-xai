@@ -9,9 +9,7 @@ Run with:
     streamlit run app.py
 """
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  IMPORTS & PAGE CONFIG
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Imports & Page Config ─────────────────────────────────────────────────────
 from __future__ import annotations
 
 import sys
@@ -48,9 +46,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  CONSTANTS & COLOUR MAPS
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Constants & Colour Maps ───────────────────────────────────────────────────
 _LABEL_COLOURS = {
     "positive": "#2ecc71",
     "negative": "#e74c3c",
@@ -119,9 +115,7 @@ _EVENT_TYPE_INFO = {
 }
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  SUMMARY & EXPLANATION BUILDERS
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Summary & Explanation Builders ────────────────────────────────────────────
 def _badge(text: str, colour: str, size: str = "0.85rem") -> str:
     return (
         f'<span style="background:{colour};color:#fff;padding:3px 10px;'
@@ -375,9 +369,7 @@ def _build_comprehensive_summary(result: dict) -> str:
     return "<br><br>".join(parts)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  PIPELINE EXECUTION
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Pipeline Execution ────────────────────────────────────────────────────────
 def _run_full_pipeline(
     company_name: str,
     start_date_str: str,
@@ -471,9 +463,7 @@ def _run_full_pipeline(
     return xai_result
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  OVERVIEW PAGE
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Overview Page ─────────────────────────────────────────────────────────────
 def _render_overview(result: dict) -> None:
     pred = result.get("prediction_summary", {})
     narrative = result.get("narrative", {})
@@ -578,9 +568,7 @@ def _render_overview(result: dict) -> None:
         st.write(f"**Model:** `{MODEL_NAME}`")
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  DETAILED ANALYSIS PAGES
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Detailed Analysis Pages ───────────────────────────────────────────────────
 def _render_reliability(result: dict) -> None:
     reliability = result.get("reliability", {})
 
@@ -1099,9 +1087,7 @@ def _render_lime(result: dict) -> None:
                 )
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  CHARTS & VISUALISATIONS
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Charts & Visualisations ───────────────────────────────────────────────────
 def _chart_sentiment_scores(result: dict) -> go.Figure:
     pred = result.get("prediction_summary", {})
     ns = pred.get("normalized_scores", {})
@@ -1498,9 +1484,7 @@ def _render_charts(result: dict) -> None:
     st.plotly_chart(fig, use_container_width=True)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  SIDEBAR & MAIN LAYOUT
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Sidebar & Main Layout ─────────────────────────────────────────────────────
 def main() -> None:
     st.title("Stock Sentiment Analyser")
     st.caption("Zero-shot NLI sentiment prediction with explainable AI")

@@ -5,9 +5,7 @@ Coordinates all explanation layers (token-level LIME, article-level
 counterfactuals, pipeline-level aggregation, narrative clustering) and
 generates a human-readable summary report with supporting charts.
 """
-# ══════════════════════════════════════════════════════════════════════════════
-#  IMPORTS & CONSTANTS
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Imports & Constants ───────────────────────────────────────────────────────
 
 from __future__ import annotations
 
@@ -35,9 +33,7 @@ from .utils               import build_lime_noise_set, is_lime_noise_token
 logger = logging.getLogger(__name__)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  DATA LOADING & MERGING
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Data Loading & Merging ────────────────────────────────────────────────────
 
 def _load_articles(articles_json_path: str) -> dict[str, Any]:
     with open(articles_json_path, "r", encoding="utf-8") as f:
@@ -80,9 +76,7 @@ def _merge_article_data(
     return merged
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  FILE I/O
-# ══════════════════════════════════════════════════════════════════════════════
+# ── File I/O ──────────────────────────────────────────────────────────────────
 
 def _save_result(result: dict[str, Any], output_path: str) -> None:
     path = Path(output_path)
@@ -92,9 +86,7 @@ def _save_result(result: dict[str, Any], output_path: str) -> None:
     logger.info("XAI result saved to %s", output_path)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  ASCII VISUALISATION HELPERS
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Ascii Visualisation Helpers ───────────────────────────────────────────────
 
 def _ascii_bar(value: float, max_value: float, width: int = 30,
                fill: str = "\u2588", empty: str = "\u2591") -> str:
@@ -110,9 +102,7 @@ def _wrap(text: str, width: int = 56, indent: str = "  ") -> list[str]:
     return [f"{indent}{line}" for line in textwrap.wrap(text, width=width)]
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  SUMMARY TEXT BUILDER
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Summary Text Builder ──────────────────────────────────────────────────────
 
 def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None) -> str:  # noqa: C901
     W = "=" * 60
@@ -1147,9 +1137,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     return "\n".join(lines)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  FILE I/O (SUMMARY)
-# ══════════════════════════════════════════════════════════════════════════════
+# ── File I/O (Summary) ────────────────────────────────────────────────────────
 
 def _save_summary(
     result: dict[str, Any],
@@ -1164,9 +1152,7 @@ def _save_summary(
     logger.info("XAI summary saved to %s", summary_path)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  MAIN ORCHESTRATOR
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Main Orchestrator ─────────────────────────────────────────────────────────
 
 def run_xai(
     prediction_result: dict[str, Any],

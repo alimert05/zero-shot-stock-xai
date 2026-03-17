@@ -6,9 +6,7 @@ labelled test set and computes per-class precision, recall, F1, and macro
 averages.  Supports multiple sentiment models via config dispatch.
 """
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  IMPORTS & PATHS
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Imports & Paths ───────────────────────────────────────────────────────────
 
 from __future__ import annotations
 
@@ -52,9 +50,7 @@ RESULTS_PATH = PRED_PATH / f"evaluation_results_{_MODEL_TAG}.json"
 LABELS = ["positive", "negative", "neutral"]
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  RATE LIMITER
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Rate Limiter ──────────────────────────────────────────────────────────────
 
 class RateLimiter:
     """Token-bucket rate limiter for Finnhub API (free tier: 60 calls/min)."""
@@ -81,9 +77,7 @@ _rate_limiter = RateLimiter(calls_per_minute=55)
 _inference_lock = threading.Lock()
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  PROGRESS TRACKING
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Progress Tracking ─────────────────────────────────────────────────────────
 
 class ProgressTracker:
     """Thread-safe progress reporting for parallel test execution."""
@@ -114,9 +108,7 @@ class ProgressTracker:
             )
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  METRICS COMPUTATION
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Metrics Computation ───────────────────────────────────────────────────────
 
 def compute_metrics(y_true: list[str], y_pred: list[str]) -> dict:
     """Compute classification metrics without sklearn dependency."""
@@ -183,9 +175,7 @@ def compute_metrics(y_true: list[str], y_pred: list[str]) -> dict:
     }
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  MODEL PRE-WARMING
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Model Pre-Warming ─────────────────────────────────────────────────────────
 
 def _prewarm_models():
     """Pre-load all GPU models before spawning threads to avoid race conditions."""
@@ -218,9 +208,7 @@ def _prewarm_models():
     logger.info("All models loaded.")
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  SINGLE CASE EVALUATION
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Single Case Evaluation ────────────────────────────────────────────────────
 
 def run_single_case(
     case: dict,
@@ -357,9 +345,7 @@ def run_single_case(
     return result
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  CLEANUP HELPERS
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Cleanup Helpers ───────────────────────────────────────────────────────────
 
 def _clean_orphan_temp_dirs():
     """Remove leftover temp dirs from previous crashed test runner runs.
@@ -375,9 +361,7 @@ def _clean_orphan_temp_dirs():
             shutil.rmtree(child, ignore_errors=True)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  ARTICLE FETCHING
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Article Fetching ──────────────────────────────────────────────────────────
 
 def fetch_single_case(
     case: dict,
@@ -555,9 +539,7 @@ def run_fetch(
                 print(f"    - {r['id']}: {r['error']}")
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  CACHED EVALUATION
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Cached Evaluation ─────────────────────────────────────────────────────────
 
 def _prewarm_cached_mode():
     """Pre-load sentiment model only for cached evaluation.
@@ -763,9 +745,7 @@ def run_evaluation(
     return evaluation
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  REPORT GENERATION
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Report Generation ─────────────────────────────────────────────────────────
 
 def print_report(evaluation: dict) -> None:
     """Print a human-readable evaluation report."""
@@ -871,9 +851,7 @@ def print_report(evaluation: dict) -> None:
     print("\n" + "=" * 70)
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  MAIN ENTRY POINT
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Main Entry Point ──────────────────────────────────────────────────────────
 
 def main():
     parser = argparse.ArgumentParser(description="Run evaluation pipeline against test set")

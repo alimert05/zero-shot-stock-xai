@@ -26,9 +26,7 @@ from predictor.common import title_matches, build_input_text, print_summary
 
 logger = logging.getLogger(__name__)
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  MODEL CONFIGURATION
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Model Configuration ───────────────────────────────────────────────────────
 
 _deberta_pipeline = None
 
@@ -41,9 +39,7 @@ MODEL_DISPLAY_NAMES = {
 _display_model = MODEL_DISPLAY_NAMES.get(MODEL_NAME, MODEL_NAME)
 
 
-# ═════════════════════════════════════════════════════════════════════════════
-#  MODEL LOADING
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Model Loading ─────────────────────────────────────────────────────────────
 
 
 def _get_deberta_pipeline():
@@ -63,9 +59,7 @@ def _get_deberta_pipeline():
     return _deberta_pipeline
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  ARTICLE FILTERING  (delegated to predictor.common)
-# ══════════════════════════════════════════════════════════════════════════════
+# ── Article Filtering (Delegated To Predictor.Common) ─────────────────────────
 
 
 _CLASS_TO_LABEL = {
