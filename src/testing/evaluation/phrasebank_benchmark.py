@@ -35,7 +35,7 @@ from typing import Any
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from config import (
-    PRED_PATH, SENTIMENT_DEVICE, MODEL_NAME,
+    FPB_PATH, FPB_DATASETS_PATH, SENTIMENT_DEVICE, MODEL_NAME,
     DECISION_THRESHOLD_ENABLED, DECISION_THRESHOLD_POS, DECISION_THRESHOLD_NEG,
     DYNAMIC_MARGIN_ENABLED,
 )
@@ -43,13 +43,13 @@ from config import (
 logger = logging.getLogger(__name__)
 
 DEFAULT_DATASETS = [
-    r"C:\Users\alime\Desktop\financial_dataset\financial_phrasebank_sentences_50agree.csv",
-    r"C:\Users\alime\Desktop\financial_dataset\financial_phrasebank_sentences_75agree.csv",
-    r"C:\Users\alime\Desktop\financial_dataset\financial_phrasebank_sentences_allagree.csv",
+    str(FPB_DATASETS_PATH / "financial_phrasebank_sentences_50agree.csv"),
+    str(FPB_DATASETS_PATH / "financial_phrasebank_sentences_75agree.csv"),
+    str(FPB_DATASETS_PATH / "financial_phrasebank_sentences_allagree.csv"),
 ]
 
-DEFAULT_OUTPUT = PRED_PATH / "phrasebank_model_benchmark.json"
-CHECKPOINT_PATH = PRED_PATH / "label_tuning_checkpoint.json"
+DEFAULT_OUTPUT = FPB_PATH / "phrasebank_model_benchmark.json"
+CHECKPOINT_PATH = FPB_PATH / "label_tuning_checkpoint.json"
 LABELS = ["positive", "negative", "neutral"]
 
 # Coarse screen uses the largest dataset (50agree) for stable estimates.
@@ -1613,7 +1613,7 @@ def main() -> None:
     if args.mode == "tune":
         report = run_label_tuning(args)
 
-        output_path = Path(args.output).with_name("phrasebank_label_tuning.json")
+        output_path = FPB_PATH / "phrasebank_label_tuning.json"
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(report, f, indent=2, ensure_ascii=False)

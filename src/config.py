@@ -10,14 +10,25 @@ LOG_DIR = PROJECT_ROOT / "logs"
 LOG_PATH = LOG_DIR / "fetch.logs"
 DATA_PATH = PROJECT_ROOT / "data"
 TEMP_PATH = DATA_PATH / "temp"
-PRED_PATH = DATA_PATH / "test_results"
-ARTICLE_CACHE_PATH = DATA_PATH / "articles_with_noise_reduction_deberta"
-PRED_JSON_PATH = PRED_PATH / "predictions.json"
-JSON_PATH = PROJECT_ROOT / "data" / "temp" / "articles.json"
-FINBERT_PREDS = PROJECT_ROOT / "data" / "predictions" / "finbert_result.json"
-FINGPT_PREDS = PROJECT_ROOT / "data" / "predictions" / "fingpt_result.json"
-ZEROSHOT_PREDS = PROJECT_ROOT / "data" / "predictions" / "zeroshot_result.json"
-OLLAMA_PREDS = PROJECT_ROOT / "data" / "predictions" / "ollama_result.json"
+EVAL_PATH = DATA_PATH / "evaluation"
+ARTICLE_CACHE_PATH = DATA_PATH / "articles" / "articles_with_noise_reduction_deberta"
+
+# Sub-directories under evaluation/
+EVAL_RESULTS_PATH       = EVAL_PATH / "evaluation_results"
+CORRELATION_PATH        = EVAL_PATH / "correlation_results"
+FPB_PATH                = EVAL_PATH / "FPB"
+DATASET_PATH            = EVAL_PATH / "pipeline_evaluation_dataset"
+THRESHOLD_PATH          = EVAL_PATH / "threshold_calibration"
+FPB_DATASETS_PATH       = DATA_PATH / "financial_phrasebank_datasets"
+
+# Pipeline intermediary files
+JSON_PATH      = TEMP_PATH / "articles.json"
+PRED_JSON_PATH = TEMP_PATH / "predictions.json"
+PREDS_PATH     = DATA_PATH / "predictions"
+FINBERT_PREDS  = PREDS_PATH / "finbert_result.json"
+FINGPT_PREDS   = PREDS_PATH / "fingpt_result.json"
+ZEROSHOT_PREDS = PREDS_PATH / "zeroshot_result.json"
+OLLAMA_PREDS   = PREDS_PATH / "ollama_result.json"
 
 TEMP_PATH.mkdir(parents=True, exist_ok=True)
 LOG_DIR.mkdir(parents=True, exist_ok=True)

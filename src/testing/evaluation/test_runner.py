@@ -25,7 +25,9 @@ from collections import defaultdict
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from config import (
-    PRED_PATH,
+    EVAL_PATH,
+    EVAL_RESULTS_PATH,
+    DATASET_PATH,
     TEMP_PATH,
     ARTICLE_CACHE_PATH,
     SENTIMENT_MODEL,
@@ -43,10 +45,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-TEST_SET_PATH = PRED_PATH / "test_set.json"
+TEST_SET_PATH = DATASET_PATH / "test_set.json"
 # Dynamic results filename based on configured model
 _MODEL_TAG = SENTIMENT_MODEL.replace("/", "_").replace("-", "_")
-RESULTS_PATH = PRED_PATH / f"evaluation_results_{_MODEL_TAG}.json"
+RESULTS_PATH = EVAL_RESULTS_PATH / f"evaluation_results_{_MODEL_TAG}.json"
 LABELS = ["positive", "negative", "neutral"]
 
 
@@ -886,7 +888,7 @@ def main():
         args.test_set, args.max_cases, workers=args.workers, use_cache=use_cache,
     )
 
-    PRED_PATH.mkdir(parents=True, exist_ok=True)
+    EVAL_RESULTS_PATH.mkdir(parents=True, exist_ok=True)
     with open(args.output, "w", encoding="utf-8") as f:
         json.dump(evaluation, f, indent=2, ensure_ascii=False)
     logger.info("Results saved to: %s", args.output)

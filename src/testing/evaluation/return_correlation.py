@@ -29,12 +29,13 @@ import numpy as np
 from scipy import stats
 
 # ── paths ───────────────────────────────────────────────────────────────
-ROOT = Path(__file__).resolve().parents[3]
-DATA = ROOT / "data" / "test_results"
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-DEFAULT_HOLDOUT = DATA / "holdout_set.json"
-DEFAULT_EVAL    = DATA / "evaluation_results_fingpt.json"
-OUTPUT_FILE     = DATA / "return_correlation_results_fingpt.json"
+from config import DATASET_PATH, EVAL_RESULTS_PATH, CORRELATION_PATH
+
+DEFAULT_HOLDOUT = DATASET_PATH / "holdout_set.json"
+DEFAULT_EVAL    = EVAL_RESULTS_PATH / "evaluation_results_fingpt.json"
+OUTPUT_FILE     = CORRELATION_PATH / "return_correlation_results_fingpt.json"
 
 
 # ── helpers ─────────────────────────────────────────────────────────────

@@ -34,7 +34,7 @@ import yfinance as yf
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from config import PRED_PATH
+from config import DATASET_PATH
 
 logging.basicConfig(
     level=logging.INFO,
@@ -129,7 +129,7 @@ MIN_RETURNS_FOR_EWMA = 20
 FALLBACK_NEUTRAL_THRESHOLD = 0.005
 
 MAX_LOOKAHEAD_DAYS = 10
-OUTPUT_PATH = PRED_PATH / "test_set.json"
+OUTPUT_PATH = DATASET_PATH / "test_set.json"
 
 
 # ── Volatility Thresholding ──
@@ -408,7 +408,7 @@ def generate_and_save() -> None:
         "test_cases": test_cases,
     }
 
-    PRED_PATH.mkdir(parents=True, exist_ok=True)
+    DATASET_PATH.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 

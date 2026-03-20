@@ -34,9 +34,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from config import PRED_PATH
+from config import DATASET_PATH
 
-TEST_SET_PATH = PRED_PATH / "test_set.json"
+TEST_SET_PATH = DATASET_PATH / "test_set.json"
 HOLDOUT_SIZE = 8
 
 # -- Optimal ticker assignment (verified by exhaustive search) -----------

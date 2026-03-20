@@ -26,9 +26,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from config import PRED_PATH
+from config import EVAL_RESULTS_PATH, THRESHOLD_PATH
 
-DEFAULT_RESULTS = PRED_PATH / "evaluation_results.json"
+DEFAULT_RESULTS = EVAL_RESULTS_PATH / "evaluation_results.json"
 
 
 # ── Metrics ─────────────────────────────────────────────────────────────
@@ -351,7 +351,8 @@ def main():
     _print_top_n(top)
 
     # Save results
-    output_path = results_path.parent / "threshold_tuning_results.json"
+    THRESHOLD_PATH.mkdir(parents=True, exist_ok=True)
+    output_path = THRESHOLD_PATH / "threshold_tuning_results.json"
     save_data = {
         "source_results": str(results_path),
         "grid": {

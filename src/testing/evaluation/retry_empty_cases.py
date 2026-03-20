@@ -21,7 +21,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from config import ARTICLE_CACHE_PATH, TEMP_PATH, PRED_PATH
+from config import ARTICLE_CACHE_PATH, TEMP_PATH, DATASET_PATH
 from news_retriever.retriever import Fetcher
 
 logging.basicConfig(
@@ -30,7 +30,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-TEST_SET_PATH = PRED_PATH / "test_set.json"
+TEST_SET_PATH = DATASET_PATH / "test_set.json"
 
 
 def _load_test_cases() -> dict[str, dict]:
