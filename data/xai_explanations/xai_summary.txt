@@ -3,9 +3,9 @@
 ============================================================
   Company           : Apple  (AAPL)
   Forecast horizon  : 31 days
-  News lookback     : 2026-02-17 to 2026-03-16 (ET market-close aligned)
+  News lookback     : 2026-02-20 to 2026-03-19 (ET market-close aligned)
   Articles analysed : 262
-  Generated at      : 2026-03-17 17:57:19
+  Generated at      : 2026-03-20 09:21:34
 ============================================================
 
 ════════════════════════════════════════════════════════════
@@ -18,13 +18,13 @@
 ------------------------------------------------------------
 
   The model predicted a NEUTRAL label with a 45.4% score share based on 262 articles over 31 days.
-The top article is "Warren Buffett Added a Big Chunk of This Tech Stock. Should You Add It Too?" with a POSITIVE sentiment.
+The top article is "Warren Buffett Added a Big Chunk of This Tech Stock. Should You Add It Too?" with a positive sentiment.
 The label margin is moderate (0.113), but evidence quality is HIGH due to a moderate decision margin and source concentration.
 
   PREDICTION RESULT
   Sentiment scores across all analysed articles
 ------------------------------------------------------------
-  Ground truth : close-to-close return over 31-day forecast horizon, neutral band +/-0.3%.
+  Ground truth : close-to-close return over 31-day forecast horizon, neutral band scaled by EWMA volatility (per-stock, per-period).
   Disclaimer   : Model support measures how much weight the model
                   assigns to the winning label relative to alternatives.
                   It is NOT a calibrated probability of future return
@@ -61,20 +61,20 @@ The label margin is moderate (0.113), but evidence quality is HIGH due to a mode
   NARRATIVE THEMES
   What the news is about and the dominant tone per theme
 ------------------------------------------------------------
-    market commentary, s:  67 articles (26%)  ▲ positive  (+41 / -24 / =2)
-    lawsuit, investigati:  66 articles (25%)  ▼ negative  (+24 / -42 / =0)
-    earnings report, gui:  47 articles (18%)  ▲ positive  (+33 / -14 / =0)
-    CEO change, executiv:  27 articles (10%)  ▼ negative  (+7 / -20 / =0)
-    product launch, part:  25 articles (10%)  ▲ positive  (+16 / -9 / =0)
-    analyst upgrade, dow:  15 articles (6%)  ▲ positive  (+14 / -1 / =0)
-    share buyback, divid:  10 articles (4%)  ▲ positive  (+9 / -1 / =0)
-    merger, acquisition,:   4 articles (2%)  ▲ positive  (+3 / -1 / =0)
-    financial distress, :   1 articles (0%)  ▼ negative  (+0 / -1 / =0)
+    General commentary :  67 articles (26%)  ▲ positive  (+41 / -24 / =2)
+    Regulatory / legal :  66 articles (25%)  ▼ negative  (+24 / -42 / =0)
+    Earnings / results :  47 articles (18%)  ▲ positive  (+33 / -14 / =0)
+    Leadership change  :  27 articles (10%)  ▼ negative  (+7 / -20 / =0)
+    Product / business :  25 articles (10%)  ▲ positive  (+16 / -9 / =0)
+    Analyst action     :  15 articles (6%)  ▲ positive  (+14 / -1 / =0)
+    Capital / payout   :  10 articles (4%)  ▲ positive  (+9 / -1 / =0)
+    Strategy / M&A     :   4 articles (2%)  ▲ positive  (+3 / -1 / =0)
+    Distress / credit  :   1 articles (0%)  ▼ negative  (+0 / -1 / =0)
 
   Storylines (auto-discovered from article titles):
 
     Opposing storylines (positive):
-      "Apple stock surges on China and services growth" (7 articles)  ▲ positive  (+7 / -0 / =0)
+      "Apple stock surges on China and services growth." (7 articles)  ▲ positive  (+7 / -0 / =0)
         → Apple Stock In Focus -- Wells Fargo Keeps 'Overweight' Rating Ahead 
         → Apple Stock Rises Ahead of 2026. What's Driving the Growth
         → Wells Fargo Reaffirms Overweight on Apple as China iPhone Sales Surg
@@ -98,7 +98,7 @@ The label margin is moderate (0.113), but evidence quality is HIGH due to a mode
         → Apple (AAPL) Price Target Raised as Loop Capital Sees Stronger iPhon
         → Apple (AAPL) Target Raised as Jefferies Sees Stronger iPhone Demand
         → Apple Made a Comeback with the iPhone 17, But Will Executive Exits P
-      "Tech Giants Set for Dominance in 2026" (6 articles)  ▲ positive  (+6 / -0 / =0)
+      "Tech giants vie for top spot in 2026." (6 articles)  ▲ positive  (+6 / -0 / =0)
         → 1 Reason I'm Watching Apple Heading Into 2026
         → Why 2026 May Be Apple’s Year
         → Here's Why Apple Is My Second Biggest Holding Going Into 2026
@@ -111,13 +111,13 @@ The label margin is moderate (0.113), but evidence quality is HIGH due to a mode
         → 1 Unstoppable Stock to Buy Before It Joins Nvidia, Apple, Microsoft,
         → 1 Unstoppable Stock That Could Join Nvidia, Alphabet, Apple, and Mic
         → Nvidia Topples Apple As Best-Managed U.S. Company; Is Nvidia A Buy N
-      "Investor Jim Cramer advocates for long-term ownership." (5 articles)  ▲ positive  (+5 / -0 / =0)
+      "Investor advises sticking with winning stocks." (5 articles)  ▲ positive  (+5 / -0 / =0)
         → Jim Cramer Says “Own Apple, Don’t Trade It”
         → Jim Cramer Says “I Own Apple, and I Say Own it, Don’t Trade It”
         → Jim Cramer Repeats His “Own It, Don’t Trade It” Mantra on Apple
         → Jim Cramer on Apple: “Bulls Like Me Were Considered Dreamers or Even
         → 'Own it, don't trade it,' says Jim Cramer on Nvidia
-      "Apple explores chip manufacturing in India and Malaysia." (5 articles)  ▲ positive  (+5 / -0 / =0)
+      "Chip manufacturing deal with Indian partners discussed" (5 articles)  ▲ positive  (+5 / -0 / =0)
         → Intel Stock Surged 10% on Apple Chip Manufacturing Hopes—Time to Buy
         → Could Intel’s Apple Chip Ambitions and Malaysia Bet Redefine Its Fou
         → Apple chip leader Johny Srouji squashes exit rumors
@@ -125,7 +125,7 @@ The label margin is moderate (0.113), but evidence quality is HIGH due to a mode
         → Apple Chip Chief Tells Staff He’s Not Leaving ‘Anytime Soon’
 
     Opposing storylines (negative):
-      "Apple faces leadership crisis and AI strategy shift" (13 articles)  ▼ negative  (+0 / -13 / =0)
+      "Apple faces leadership and AI strategy challenges." (13 articles)  ▼ negative  (+0 / -13 / =0)
         → Top Midday Stories: Pfizer Falls Following 2026 Outlook; Netflix-iHe
         → Executive Exodus Hits Apple As Fears Grow Over Possible Chip Chief D
         → Apple's executive exodus sends a signal about its AI strategy
@@ -139,7 +139,7 @@ The label margin is moderate (0.113), but evidence quality is HIGH due to a mode
         → What Apple's executive departures mean for the iPhone maker
         → Netflix to acquire Warner Bros., more executive departures at Apple
         → Apple won’t be the same in 2026. Meet the company’s next generation 
-      "AI-powered products face production challenges and costs." (12 articles)  ▼ negative  (+0 / -12 / =0)
+      "AI-powered upgrades face significant challenges and delays." (12 articles)  ▼ negative  (+0 / -12 / =0)
         → Revises Down 2026 Global Notebook Shipments to a 5.4% YoY Decline; A
         → Smartphone Shipments Seen Falling in 2026 on Higher Memory Costs
         → Apple misses on AI in 2025
@@ -162,7 +162,7 @@ The label margin is moderate (0.113), but evidence quality is HIGH due to a mode
         → Is Apple Inc. (NASDAQ:AAPL) Expensive For A Reason? A Look At Its In
         → Apple's iPhone Market Share Rises in China, Still Below Prior Peaks
         → Visa, Mastercard make a global push for mobile wallets
-      "Tech industry faces regulatory and financial scrutiny." (8 articles)  ▼ negative  (+0 / -8 / =0)
+      "Tech industry faces regulatory and financial challenges." (8 articles)  ▼ negative  (+0 / -8 / =0)
         → Jim Cramer examines 'stalled' stocks Apple, Meta and Tesla
         → Jim Cramer Says “Apple Might Be Hurt By Higher Memory Prices From Mi
         → Israel's tech sector says more staff seek relocation abroad-report
@@ -171,7 +171,7 @@ The label margin is moderate (0.113), but evidence quality is HIGH due to a mode
         → Evercore Says Apple Exec Exits Not A Crisis
         → Jim Cramer Says “We Need More Winners, But It’s Just Alphabet”
         → Trump admin to hire 1,000 specialists for 'Tech Force' to build AI, 
-      "Tech giants face regulatory and security challenges." (8 articles)  ▼ negative  (+0 / -8 / =0)
+      "Tech giants face regulatory challenges ahead." (8 articles)  ▼ negative  (+0 / -8 / =0)
         → Apple punted on AI this year. Next year will be critical
         → Dan Ives Is Betting That Apple and Google Will Partner in 2026. Shou
         → Former Met chief demands Apple and Google disable stolen phones
@@ -189,7 +189,7 @@ The label margin is moderate (0.113), but evidence quality is HIGH due to a mode
         → Apple CEO Tim Cook Discloses $3 Million Nike Buy With Dow Giant At 7
         → Stock Market Today: Dow Edges Up As Tesla Jumps Near Buy Point, Appl
         → Nike shares jump after Apple CEO Cook doubles stake to $6 million
-      "Apple loosens grip on app store control globally." (9 articles)  ▼ negative  (+0 / -9 / =0)
+      "Apple loosens grip on iOS app stores globally." (9 articles)  ▼ negative  (+0 / -9 / =0)
         → Apple announces changes to iOS in Japan
         → ICEBlock developer sues U.S. government after DOJ demanded Apple rem
         → Apple Loosens iOS Grip in Japan
@@ -214,21 +214,21 @@ The label margin is moderate (0.113), but evidence quality is HIGH due to a mode
   reached the 56% consensus threshold required for a
   directional prediction, the overall outlook is
   classified as NEUTRAL (mixed/inconclusive). The model
-  chose POSITIVE over NEGATIVE by a margin of 11.3
-  percentage points: 150 articles pushed toward POSITIVE
-  while 112 pushed toward NEGATIVE. The single most
-  influential article was "Warren Buffett Added a Big
-  Chunk of This Tech Stock. Should You Add It Too?"
-  (positive sentiment, contributing 0.9% of total weight).
-  Articles were weighted by recency and prediction-horizon
-  relevance — the average article was 15.38 days old, with
-  most classified as short-term horizon. At the word
-  level, the strongest signals in the top gap-driving
-  article included: Fiscal, Services, Like, outlook,
-  return. The prediction is sensitive: removing as few as
-  24 of 262 articles would change the verdict. The
-  prediction carries HIGH evidence quality and can be used
-  with confidence.
+  chose POSITIVE over NEGATIVE by a score gap of 0.1127:
+  150 articles pushed toward POSITIVE while 112 pushed
+  toward NEGATIVE. The single most influential article was
+  "Warren Buffett Added a Big Chunk of This Tech Stock.
+  Should You Add It Too?" (positive sentiment,
+  contributing 0.9% of total weight). Articles were
+  weighted by recency and prediction-horizon relevance —
+  the average article was 15.38 days old, with most
+  classified as short-term horizon. At the word level, the
+  strongest signals in the top gap-driving article
+  included: Fiscal, Services, Like, outlook, return. The
+  prediction is sensitive: removing as few as 24 of 262
+  articles would change the verdict. The prediction
+  carries HIGH evidence quality and can be used with
+  confidence.
 
 
   DISCLAIMER
@@ -246,11 +246,11 @@ The label margin is moderate (0.113), but evidence quality is HIGH due to a mode
   WHY POSITIVE INSTEAD OF NEGATIVE?
   Contrastive explanation — what tipped the balance
 ------------------------------------------------------------
-  Score gap : POSITIVE 45.4%  vs  NEGATIVE 34.1%  (gap = 11.3 percentage points)
+  Score gap : POSITIVE 0.4538  vs  NEGATIVE 0.3411  (gap = 0.1127)
 
   Article split:
-    150 articles push toward POSITIVE  (total push: +29.1 pp)
-    112 articles push toward NEGATIVE  (total push: -17.7 pp)
+    150 articles push toward POSITIVE  (total push: +0.2907)
+    112 articles push toward NEGATIVE  (total push: -0.1772)
 
   Third class: NEUTRAL at 4.4% — absorbing probability mass roughly equally from both sides.
 
@@ -287,12 +287,12 @@ The label margin is moderate (0.113), but evidence quality is HIGH due to a mode
   Overall : [✓] HIGH  (1 concern(s) found)
   Rating rule : HIGH evidence quality if 0 concerns, MEDIUM if 1, LOW if ≥2.
 
-    [✓] Evidence volume        Sufficient article count.
-    [✓] Weight spread          Weight is well-distributed across articles.
-    [⚠] Decision confidence    Narrow margin between positive (0.454) and negative (0.341): margin=0.113.
-    [✓] Source diversity       6 sources (5 editorial + 1 aggregators), top editorial share 33%. (81% via aggregators like Yahoo/Finnhub — these collect from many editorial sources)
-    [✓] Timing validity        Articles are 1-28 days old (ET market-close aligned), down-weighted by the recency function where applicable.
-    [✓] Horizon coverage       News lookback (28 days) covers the intended 28-day backward window.
+    [✓] thin evidence          Sufficient article count.
+    [✓] weight concentration   Weight is well-distributed across articles.
+    [⚠] label margin           Narrow margin between positive (0.454) and negative (0.341): margin=0.113.
+    [✓] source diversity       6 sources (5 editorial + 1 aggregators), top editorial share 33%. (81% via aggregators like Yahoo/Finnhub — these collect from many editorial sources)
+    [✓] timing alignment       Articles are 1-28 days old (ET market-close aligned), down-weighted by the recency function where applicable.
+    [✓] horizon coverage       News lookback (28 days) covers the intended 28-day backward window.
 
   HISTORICAL CALIBRATION
   How this model has performed on past predictions
@@ -339,7 +339,7 @@ The label margin is moderate (0.113), but evidence quality is HIGH due to a mode
     #9    POS  1.0000    0.9%  ██████████████████████████████  Tuttle Capital Management Launch
     #10   NEG  1.0000    0.9%  ██████████████████████████████  The S&P 500 Is Too Exposed To Bi
 
-  Weight concentration (HHI): 0.0038  (well spread) — 0 = perfectly uniform across all articles, 1 = one article dominates
+  Weight concentration (HHI): 0.0038  (well-distributed) — 0 = perfectly uniform across all articles, 1 = one article dominates
 
   HOW ARTICLES WERE WEIGHTED
   More recent and near-horizon articles receive higher weight

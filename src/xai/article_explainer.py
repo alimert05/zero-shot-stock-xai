@@ -3,7 +3,7 @@ from __future__ import annotations
 import logging
 from typing import Any
 
-from predictor.abstention import apply_decision_thresholds
+from predictors.abstention import apply_decision_thresholds
 from .utils import herfindahl_index, safe_round, get_dominant_label
 
 logger = logging.getLogger(__name__)

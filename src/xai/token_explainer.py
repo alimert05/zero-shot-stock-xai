@@ -6,7 +6,7 @@ from typing import Any
 import numpy as np
 
 from config import XAI_LIME_TOP_N, XAI_LIME_NUM_SAMPLES, XAI_LIME_NUM_FEATURES
-from predictor.common import title_matches, build_input_text
+from predictors.common import title_matches, build_input_text
 from .utils import label_index, get_dominant_label, build_lime_noise_set, is_lime_noise_token, safe_round
 
 logger = logging.getLogger(__name__)
@@ -29,7 +29,7 @@ def _get_lime_explainer():
 
 def _build_predict_fn(pipeline_callable, company_name: str = ""):
     # Import the EXACT labels and template used by the predictor
-    from predictor.zero_shot import _CANDIDATE_LABELS, _HYPOTHESIS_TEMPLATE, _LABEL_TO_CLASS
+    from predictors.zero_shot import _CANDIDATE_LABELS, _HYPOTHESIS_TEMPLATE, _LABEL_TO_CLASS
 
     def predict_proba(texts: list[str]) -> np.ndarray:
         results = pipeline_callable(
@@ -113,7 +113,7 @@ def explain_tokens(
     num_features: int = XAI_LIME_NUM_FEATURES,
 ) -> list[dict[str, Any]]:
     try:
-        from predictor.zero_shot import _get_deberta_pipeline
+        from predictors.zero_shot import _get_deberta_pipeline
         pipeline_callable = _get_deberta_pipeline()
     except Exception as exc:
         logger.error("Could not load zero-shot pipeline for LIME: %s", exc)

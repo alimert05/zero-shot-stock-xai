@@ -2,10 +2,10 @@
   "meta": {
     "query": "Apple",
     "ticker": "AAPL",
-    "xai_timestamp": "2026-03-17 17:57:19",
+    "xai_timestamp": "2026-03-20 09:21:34",
     "articles_analyzed": 262,
     "prediction_window_days": 31,
-    "news_lookback": "2026-02-17 to 2026-03-16 (ET market-close aligned)",
+    "news_lookback": "2026-02-20 to 2026-03-19 (ET market-close aligned)",
     "xai_version": "1.0.0"
   },
   "prediction_summary": {
@@ -22897,7 +22897,7 @@
   },
   "narrative": {
     "model": "llama3.2:3b",
-    "summary": "The model predicted a NEUTRAL label with a 45.4% score share based on 262 articles over 31 days.\nThe top article is \"Warren Buffett Added a Big Chunk of This Tech Stock. Should You Add It Too?\" with a POSITIVE sentiment.\nThe label margin is moderate (0.113), but evidence quality is HIGH due to a moderate decision margin and source concentration.",
+    "summary": "The model predicted a NEUTRAL label with a 45.4% score share based on 262 articles over 31 days.\nThe top article is \"Warren Buffett Added a Big Chunk of This Tech Stock. Should You Add It Too?\" with a positive sentiment.\nThe label margin is moderate (0.113), but evidence quality is HIGH due to a moderate decision margin and source concentration.",
     "prompt_used": "DATA (read-only — narrate these facts, do not add any others):\nCompany: Apple (AAPL)\nPrediction label: NEUTRAL with a 45.4% score share, based on 262 articles over 31 days.\nScore breakdown: Positive 45.4%, Negative 34.1%, Neutral 4.4%.\nThe label margin is moderate (0.113), meaning a moderate gap between the top two sentiment scores.\nTop article: \"Warren Buffett Added a Big Chunk of This Tech Stock. Should You Add It Too?\" (POSITIVE sentiment, 0.9% of total weight). Removing it would NOT change the label.\nAverage article age: 15.4 days.\n- Key words supporting neutral: Neutral, neutral, due, one, rating\nEvidence quality is HIGH due to: a moderate decision margin.\n\nWrite exactly 3 sentences starting with \"The model predicted\":\n- Sentence 1: state the predicted label in ALL-CAPS exactly as given (e.g. \"a NEUTRAL label\"), score share (not \"confidence\"), and article count. The label must appear in UPPER CASE.\n- Sentence 2: name the top article and its sentiment.\n- Sentence 3: write exactly \"The label margin is moderate (0.113), but evidence quality is HIGH due to \" followed by ALL specific reason(s) from the warning above — do not omit any.\n\nGRAMMAR RULE: \"due to\" must be followed by noun phrases (e.g. \"due to a narrow decision margin; source concentration\"), NOT by clauses (e.g. NOT \"due to the label was decided\").",
     "ollama_available": true,
     "fallback_used": false,
@@ -22907,7 +22907,7 @@
   "storylines": {
     "storylines": [
       {
-        "label": "Apple stock surges on China and services growth",
+        "label": "Apple stock surges on China and services growth.",
         "keyword_label": "apple, stock, apple stock",
         "articles_count": 7,
         "weighted_score": 7.0,
@@ -22976,7 +22976,7 @@
         ]
       },
       {
-        "label": "Apple faces leadership crisis and AI strategy shift",
+        "label": "Apple faces leadership and AI strategy challenges.",
         "keyword_label": "apple, executive, departures",
         "articles_count": 13,
         "weighted_score": 13.0,
@@ -23005,7 +23005,7 @@
         ]
       },
       {
-        "label": "Tech Giants Set for Dominance in 2026",
+        "label": "Tech giants vie for top spot in 2026.",
         "keyword_label": "2026, apple, biggest",
         "articles_count": 6,
         "weighted_score": 6.0,
@@ -23027,7 +23027,7 @@
         ]
       },
       {
-        "label": "AI-powered products face production challenges and costs.",
+        "label": "AI-powered upgrades face significant challenges and delays.",
         "keyword_label": "apple, ai, 2026",
         "articles_count": 12,
         "weighted_score": 12.0,
@@ -23101,7 +23101,7 @@
         ]
       },
       {
-        "label": "Tech industry faces regulatory and financial scrutiny.",
+        "label": "Tech industry faces regulatory and financial challenges.",
         "keyword_label": "says, apple, jim",
         "articles_count": 8,
         "weighted_score": 8.0,
@@ -23125,7 +23125,7 @@
         ]
       },
       {
-        "label": "Tech giants face regulatory and security challenges.",
+        "label": "Tech giants face regulatory challenges ahead.",
         "keyword_label": "apple, google, year",
         "articles_count": 8,
         "weighted_score": 8.0,
@@ -23149,7 +23149,7 @@
         ]
       },
       {
-        "label": "Investor Jim Cramer advocates for long-term ownership.",
+        "label": "Investor advises sticking with winning stocks.",
         "keyword_label": "trade, don trade, don",
         "articles_count": 5,
         "weighted_score": 5.0,
@@ -23194,7 +23194,7 @@
         ]
       },
       {
-        "label": "Apple loosens grip on app store control globally.",
+        "label": "Apple loosens grip on iOS app stores globally.",
         "keyword_label": "apple, japan, app",
         "articles_count": 9,
         "weighted_score": 9.0,
@@ -23219,7 +23219,7 @@
         ]
       },
       {
-        "label": "Apple explores chip manufacturing in India and Malaysia.",
+        "label": "Chip manufacturing deal with Indian partners discussed",
         "keyword_label": "apple, chip, apple chip",
         "articles_count": 5,
         "weighted_score": 5.0,

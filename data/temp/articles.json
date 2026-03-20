@@ -1,5 +1,5 @@
 {
-  "query": "Apple",
+  "query": "apple",
   "ticker": "AAPL",
   "start_date": "01-01-2026",
   "end_date": "01-02-2026",
@@ -8,7 +8,7 @@
   "prediction_window_days": 31,
   "max_backward_days": 28,
   "timestamp_alignment": "ET_market_close",
-  "fetch_timestamp": "2026-03-17 17:56:19",
+  "fetch_timestamp": "2026-03-20 09:23:40",
   "article_count": 262,
   "articles": [
     {
@@ -164,6 +164,44 @@
       "final_weight": 0.8879
     },
     {
+      "title": "Market Movers: Nike Exploding Higher on Insider Buying",
+      "sourceurl": "https://finnhub.io/api/news?id=bb7adb31ef2ca1c6685344da9ecaea58681521e3f3db23ceab58bb7e4ad2e252",
+      "seendate": "20251231T150851Z",
+      "seendate_et": "20251231T100851",
+      "market_date": "2025-12-31",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "All on news that CEO Elliott Hill bought 16,400 shares for about $1 million. This follows news that Apple’s Tim Cook bought $3 million worth of Nike stock. Cook, who has been on the NKE board since 2005, bought 50,000 shares at an average price ... Market Movers: Nike Exploding Higher on Insider Buying",
+      "coverage_count": 1,
+      "days_ago": 1,
+      "recency_weight": 0.97,
+      "content_stats": {
+        "total_sentences": 4,
+        "relevant_sentences": 3,
+        "relevance_ratio": 0.75,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "CEO change, executive departure, or board appointment",
+        "label": "CEO change, executive departure, or board appointment",
+        "category": "SHORT_TERM",
+        "horizon_days": 5,
+        "confidence": 0.4496,
+        "event_family": "CEO change, executive departure, or board appointment",
+        "primary_horizon_label": "D2_5_SHORT",
+        "primary_horizon_days": 5,
+        "primary_category": "SHORT_TERM",
+        "secondary_horizon_label": "D6_10_DIFFUSION",
+        "secondary_horizon_days": 10,
+        "secondary_category": "DIFFUSION",
+        "alternative_event_family": "market commentary, sector outlook, or opinion piece",
+        "alternative_confidence": 0.1822
+      },
+      "impact_horizon_weight": 0.8044,
+      "final_weight": 0.8833
+    },
+    {
       "title": "TSMC Shares Rise on AI Demand and Next-Gen Chip Launch",
       "sourceurl": "https://finnhub.io/api/news?id=6a176c0e58cba8b48011574540b27d933c4ab76fe3d46ea2e7f8ac4335ff66f2",
       "seendate": "20251231T160914Z",
@@ -276,6 +314,44 @@
       },
       "impact_horizon_weight": 0.8172,
       "final_weight": 0.8769
+    },
+    {
+      "title": "Apple is an Analyst Favorite, But AAPL Stock Has Been Flat - Shorting Puts Is the Best Play",
+      "sourceurl": "https://finnhub.io/api/news?id=bc2c330e051bd8d7e8860b8b6a80f93c31ac97ab8f96447d4f50d8e92fb84980",
+      "seendate": "20251230T164844Z",
+      "seendate_et": "20251230T114844",
+      "market_date": "2025-12-30",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Shorting out-of-the-money (OTM) put options in Apple stock has clearly been the best play, as AAPL has been trading in a range over the last month.",
+      "coverage_count": 1,
+      "days_ago": 2,
+      "recency_weight": 0.9409,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 1,
+        "relevance_ratio": 0.5,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "lawsuit, investigation, regulatory action, or compliance issue",
+        "label": "lawsuit, investigation, regulatory action, or compliance issue",
+        "category": "SHORT_TERM",
+        "horizon_days": 5,
+        "confidence": 0.1873,
+        "event_family": "lawsuit, investigation, regulatory action, or compliance issue",
+        "primary_horizon_label": "D2_5_SHORT",
+        "primary_horizon_days": 5,
+        "primary_category": "SHORT_TERM",
+        "secondary_horizon_label": "D11_20_EXTENDED",
+        "secondary_horizon_days": 20,
+        "secondary_category": "LONG_TERM",
+        "alternative_event_family": "market commentary, sector outlook, or opinion piece",
+        "alternative_confidence": 0.1815
+      },
+      "impact_horizon_weight": 0.8159,
+      "final_weight": 0.8762
     },
     {
       "title": "The Real Reasons Warren Buffett Is Selling Apple Stock Fast",
@@ -696,44 +772,6 @@
       "final_weight": 0.7987
     },
     {
-      "title": "Market Movers: Nike Exploding Higher on Insider Buying",
-      "sourceurl": "https://finnhub.io/api/news?id=bb7adb31ef2ca1c6685344da9ecaea58681521e3f3db23ceab58bb7e4ad2e252",
-      "seendate": "20251231T150851Z",
-      "seendate_et": "20251231T100851",
-      "market_date": "2025-12-31",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "All on news that CEO Elliott Hill bought 16,400 shares for about $1 million. This follows news that Apple’s Tim Cook bought $3 million worth of Nike stock.",
-      "coverage_count": 1,
-      "days_ago": 1,
-      "recency_weight": 0.97,
-      "content_stats": {
-        "total_sentences": 4,
-        "relevant_sentences": 2,
-        "relevance_ratio": 0.5,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "impact_horizon": {
-        "event_type": "market commentary, sector outlook, or opinion piece",
-        "label": "market commentary, sector outlook, or opinion piece",
-        "category": "IMMEDIATE",
-        "horizon_days": 1,
-        "confidence": 0.3193,
-        "event_family": "market commentary, sector outlook, or opinion piece",
-        "primary_horizon_label": "D1_IMMEDIATE",
-        "primary_horizon_days": 1,
-        "primary_category": "IMMEDIATE",
-        "secondary_horizon_label": "D2_5_SHORT",
-        "secondary_horizon_days": 5,
-        "secondary_category": "SHORT_TERM",
-        "alternative_event_family": "share buyback, dividend, stock offering, or debt issuance",
-        "alternative_confidence": 0.1464
-      },
-      "impact_horizon_weight": 0.6555,
-      "final_weight": 0.7974
-    },
-    {
       "title": "Apple Stock Ticks Up After a Surprise From China—and a Legal Win",
       "sourceurl": "https://finnhub.io/api/news?id=67460b79d0c591251a8c9ff0da475113165d268e2c19c250d9e664fb2a99532c",
       "seendate": "20251226T155800Z",
@@ -922,44 +960,6 @@
       },
       "impact_horizon_weight": 0.6204,
       "final_weight": 0.764
-    },
-    {
-      "title": "Apple is an Analyst Favorite, But AAPL Stock Has Been Flat - Shorting Puts Is the Best Play",
-      "sourceurl": "https://finnhub.io/api/news?id=bc2c330e051bd8d7e8860b8b6a80f93c31ac97ab8f96447d4f50d8e92fb84980",
-      "seendate": "20251230T164844Z",
-      "seendate_et": "20251230T114844",
-      "market_date": "2025-12-30",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Shorting out-of-the-money (OTM) put options in Apple stock has clearly been the best play, as AAPL has been trading in a range over the last month. Their price target is over 5% higher, but my price target is $325, 19% above today's price.",
-      "coverage_count": 1,
-      "days_ago": 2,
-      "recency_weight": 0.9409,
-      "content_stats": {
-        "total_sentences": 2,
-        "relevant_sentences": 2,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "event_type": "analyst upgrade, downgrade, or price target revision",
-        "label": "analyst upgrade, downgrade, or price target revision",
-        "category": "IMMEDIATE",
-        "horizon_days": 1,
-        "confidence": 0.2798,
-        "event_family": "analyst upgrade, downgrade, or price target revision",
-        "primary_horizon_label": "D1_IMMEDIATE",
-        "primary_horizon_days": 1,
-        "primary_category": "IMMEDIATE",
-        "secondary_horizon_label": "D2_5_SHORT",
-        "secondary_horizon_days": 5,
-        "secondary_category": "SHORT_TERM",
-        "alternative_event_family": "market commentary, sector outlook, or opinion piece",
-        "alternative_confidence": 0.1734
-      },
-      "impact_horizon_weight": 0.6186,
-      "final_weight": 0.7629
     },
     {
       "title": "Why Apple Might Attract More of an AI Multiple in 2026",
@@ -1235,14 +1235,14 @@
       "market_date": "2025-12-26",
       "domain": "Yahoo",
       "language": "English",
-      "content": "The agency said, “The Authority found the App Tracking Transparency policy to restrict competition. The policy lays down the privacy rules imposed by the company on third-party developers of apps offered on the App Store. The Italian Competition Authority has imposed a 98,635,416.67 euro fine on Apple, Apple Distribution International and Apple Italia for abuse of a dominant position.",
+      "content": "The agency said, “The Authority found the App Tracking Transparency policy to restrict competition. The Italian Competition Authority has imposed a 98,635,416.67 euro fine on Apple, Apple Distribution International and Apple Italia for abuse of a dominant position.",
       "coverage_count": 1,
       "days_ago": 6,
       "recency_weight": 0.8329720049289998,
       "content_stats": {
         "total_sentences": 4,
-        "relevant_sentences": 3,
-        "relevance_ratio": 0.75,
+        "relevant_sentences": 2,
+        "relevance_ratio": 0.5,
         "condensed": false,
         "filter_action": "filtered"
       },
@@ -1251,7 +1251,7 @@
         "label": "lawsuit, investigation, regulatory action, or compliance issue",
         "category": "SHORT_TERM",
         "horizon_days": 5,
-        "confidence": 0.7154,
+        "confidence": 0.6751,
         "event_family": "lawsuit, investigation, regulatory action, or compliance issue",
         "primary_horizon_label": "D2_5_SHORT",
         "primary_horizon_days": 5,
@@ -1260,10 +1260,10 @@
         "secondary_horizon_days": 20,
         "secondary_category": "LONG_TERM",
         "alternative_event_family": "market commentary, sector outlook, or opinion piece",
-        "alternative_confidence": 0.0837
+        "alternative_confidence": 0.0899
       },
-      "impact_horizon_weight": 0.6621,
-      "final_weight": 0.7426
+      "impact_horizon_weight": 0.6664,
+      "final_weight": 0.745
     },
     {
       "title": "Apple: Quality Vs. Price",
@@ -2855,44 +2855,6 @@
       "final_weight": 0.5844
     },
     {
-      "title": "OpenAI’s hardware push could reshape the AI trade",
-      "sourceurl": "https://finnhub.io/api/news?id=e5c64585fc550bb286739919a35b3f0794b68b81a297f5da57b7fb9bd73dddd0",
-      "seendate": "20251215T115825Z",
-      "seendate_et": "20251215T065825",
-      "market_date": "2025-12-15",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Opening Bid Unfiltered is available on Apple Podcasts, Spotify, YouTube, or wherever you get your podcasts. There has been one company at the very center of the AI trade this year. Some are speculating it could be a challenger to the Apple (AAPL) iPhone. Why? OpenAI, in May, bought Jony Ive's AI devices startup io for approximately $6.4 billion in an all-equity deal. I've worked closely with Apple co-founder Steve Jobs to develop the iPhone. Listen on your favorite podcast platform or watch on our website for full episodes of Opening Bid Unfiltered.",
-      "coverage_count": 1,
-      "days_ago": 17,
-      "recency_weight": 0.5958260438588049,
-      "content_stats": {
-        "total_sentences": 12,
-        "relevant_sentences": 7,
-        "relevance_ratio": 0.5833,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "impact_horizon": {
-        "event_type": "merger, acquisition, takeover, or corporate restructuring",
-        "label": "merger, acquisition, takeover, or corporate restructuring",
-        "category": "DIFFUSION",
-        "horizon_days": 10,
-        "confidence": 0.2444,
-        "event_family": "merger, acquisition, takeover, or corporate restructuring",
-        "primary_horizon_label": "D6_10_DIFFUSION",
-        "primary_horizon_days": 10,
-        "primary_category": "DIFFUSION",
-        "secondary_horizon_label": "D21_31_PERSISTENT",
-        "secondary_horizon_days": 31,
-        "secondary_category": "LONG_TERM",
-        "alternative_event_family": "product launch, partnership, contract, or business development",
-        "alternative_confidence": 0.1952
-      },
-      "impact_horizon_weight": 0.5678,
-      "final_weight": 0.5817
-    },
-    {
       "title": "Here’s Why Apple (AAPL) is on the Detractors List of Parnassus Core Equity Fund",
       "sourceurl": "https://finnhub.io/api/news?id=f7e495e3f81fcc913722fdee14570200fc70e3534a77323327dcb952a058071c",
       "seendate": "20251223T131420Z",
@@ -3499,6 +3461,44 @@
       },
       "impact_horizon_weight": 0.3994,
       "final_weight": 0.5427
+    },
+    {
+      "title": "How Caterpillar Crushed the Magnificent 7 in 2025 — And It’s Not Done Yet!",
+      "sourceurl": "https://finnhub.io/api/news?id=3638dd11e5fe0bed65d018bc98dca781426486bd7e825f9971da608545814083",
+      "seendate": "20251222T162223Z",
+      "seendate_et": "20251222T112223",
+      "market_date": "2025-12-22",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "While artificial intelligence (AI) continues to dominate market headlines in 2025, many of the stocks most closely tied to the technology — the Magnificent 7 stocks of Alphabet (NASDAQ:GOOG)(NASDAQ:GOOGL), Amazon (NASDAQ:AMZN), Apple (NASDAQ:AAPL), Meta Platforms (NASDAQ:META), Microsoft (NASDAQ:MSFT), Nvidia (NASDAQ:NVDA), and Tesla (NASDAQ:TSLA) — have shown volatility or lagged.",
+      "coverage_count": 1,
+      "days_ago": 10,
+      "recency_weight": 0.7374241268949281,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 1,
+        "relevance_ratio": 0.5,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "earnings report, guidance, or financial results",
+        "label": "earnings report, guidance, or financial results",
+        "category": "IMMEDIATE",
+        "horizon_days": 1,
+        "confidence": 0.2013,
+        "event_family": "earnings report, guidance, or financial results",
+        "primary_horizon_label": "D1_IMMEDIATE",
+        "primary_horizon_days": 1,
+        "primary_category": "IMMEDIATE",
+        "secondary_horizon_label": "D6_10_DIFFUSION",
+        "secondary_horizon_days": 10,
+        "secondary_category": "DIFFUSION",
+        "alternative_event_family": "market commentary, sector outlook, or opinion piece",
+        "alternative_confidence": 0.1975
+      },
+      "impact_horizon_weight": 0.3986,
+      "final_weight": 0.5421
     },
     {
       "title": "Apple announces changes to iOS in Japan",
@@ -4109,44 +4109,6 @@
       "final_weight": 0.5167
     },
     {
-      "title": "Jim Cramer Says “We Need More Winners, But It’s Just Alphabet”",
-      "sourceurl": "https://finnhub.io/api/news?id=1d661098e57d5b06e7d4114f7854d585a0b89620cc0180b283f8fe9e638378d1",
-      "seendate": "20251219T191447Z",
-      "seendate_et": "20251219T141447",
-      "market_date": "2025-12-19",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Cramer highlighted the company’s deal with Apple during the episode, as he said: “Almost every single tech company I follow has a monstrous set of rivals spending tens of billions of dollars to dominate the particular industry. Now, in one case, that spending […]",
-      "coverage_count": 1,
-      "days_ago": 13,
-      "recency_weight": 0.6730270901655746,
-      "content_stats": {
-        "total_sentences": 3,
-        "relevant_sentences": 2,
-        "relevance_ratio": 0.6667,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "impact_horizon": {
-        "event_type": "product launch, partnership, contract, or business development",
-        "label": "product launch, partnership, contract, or business development",
-        "category": "SHORT_TERM",
-        "horizon_days": 5,
-        "confidence": 0.1694,
-        "event_family": "product launch, partnership, contract, or business development",
-        "primary_horizon_label": "D2_5_SHORT",
-        "primary_horizon_days": 5,
-        "primary_category": "SHORT_TERM",
-        "secondary_horizon_label": "D6_10_DIFFUSION",
-        "secondary_horizon_days": 10,
-        "secondary_category": "DIFFUSION",
-        "alternative_event_family": "earnings report, guidance, or financial results",
-        "alternative_confidence": 0.1414
-      },
-      "impact_horizon_weight": 0.379,
-      "final_weight": 0.505
-    },
-    {
       "title": "Exclusive-Nasdaq seeks to extend trading hours, as Wall Street gears up for 24/7 move",
       "sourceurl": "https://finnhub.io/api/news?id=ada7de5266813f9ed8299c6e8eb88f40f580c49eeae7447de9eca5076aa888d6",
       "seendate": "20251215T211843Z",
@@ -4297,44 +4259,6 @@
       },
       "impact_horizon_weight": 0.4099,
       "final_weight": 0.5018
-    },
-    {
-      "title": "How Caterpillar Crushed the Magnificent 7 in 2025 — And It’s Not Done Yet!",
-      "sourceurl": "https://finnhub.io/api/news?id=3638dd11e5fe0bed65d018bc98dca781426486bd7e825f9971da608545814083",
-      "seendate": "20251222T162223Z",
-      "seendate_et": "20251222T112223",
-      "market_date": "2025-12-22",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "While artificial intelligence (AI) continues to dominate market headlines in 2025, many of the stocks most closely tied to the technology — the Magnificent 7 stocks of Alphabet (NASDAQ:GOOG)(NASDAQ:GOOGL), Amazon (NASDAQ:AMZN), Apple (NASDAQ:AAPL), Meta Platforms (NASDAQ:META), Microsoft (NASDAQ:MSFT), Nvidia (NASDAQ:NVDA), and Tesla (NASDAQ:TSLA) — have shown volatility or lagged. Six of the seven have experienced ... How Caterpillar Crushed the Magnificent 7 in 2025 — And It’s Not Done Yet!",
-      "coverage_count": 1,
-      "days_ago": 10,
-      "recency_weight": 0.7374241268949281,
-      "content_stats": {
-        "total_sentences": 2,
-        "relevant_sentences": 2,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "event_type": "market commentary, sector outlook, or opinion piece",
-        "label": "market commentary, sector outlook, or opinion piece",
-        "category": "IMMEDIATE",
-        "horizon_days": 1,
-        "confidence": 0.1987,
-        "event_family": "market commentary, sector outlook, or opinion piece",
-        "primary_horizon_label": "D1_IMMEDIATE",
-        "primary_horizon_days": 1,
-        "primary_category": "IMMEDIATE",
-        "secondary_horizon_label": "D2_5_SHORT",
-        "secondary_horizon_days": 5,
-        "secondary_category": "SHORT_TERM",
-        "alternative_event_family": "lawsuit, investigation, regulatory action, or compliance issue",
-        "alternative_confidence": 0.1563
-      },
-      "impact_horizon_weight": 0.3324,
-      "final_weight": 0.4951
     },
     {
       "title": "Analysts Are Hot on the Foldable iPhone. Should You Buy AAPL Stock Before Apple’s Next Big Product Launch?",
@@ -4831,6 +4755,44 @@
       "final_weight": 0.4678
     },
     {
+      "title": "Jim Cramer Says “We Need More Winners, But It’s Just Alphabet”",
+      "sourceurl": "https://finnhub.io/api/news?id=1d661098e57d5b06e7d4114f7854d585a0b89620cc0180b283f8fe9e638378d1",
+      "seendate": "20251219T191447Z",
+      "seendate_et": "20251219T141447",
+      "market_date": "2025-12-19",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Now, in one case, that spending […]",
+      "coverage_count": 1,
+      "days_ago": 13,
+      "recency_weight": 0.6730270901655746,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 1,
+        "relevance_ratio": 0.3333,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "earnings report, guidance, or financial results",
+        "label": "earnings report, guidance, or financial results",
+        "category": "IMMEDIATE",
+        "horizon_days": 1,
+        "confidence": 0.1698,
+        "event_family": "earnings report, guidance, or financial results",
+        "primary_horizon_label": "D1_IMMEDIATE",
+        "primary_horizon_days": 1,
+        "primary_category": "IMMEDIATE",
+        "secondary_horizon_label": "D6_10_DIFFUSION",
+        "secondary_horizon_days": 10,
+        "secondary_category": "DIFFUSION",
+        "alternative_event_family": "lawsuit, investigation, regulatory action, or compliance issue",
+        "alternative_confidence": 0.1472
+      },
+      "impact_horizon_weight": 0.3085,
+      "final_weight": 0.4557
+    },
+    {
       "title": "Apple Plans More Ads in App Store",
       "sourceurl": "https://finnhub.io/api/news?id=6e547b1983ff15ed38f3330dc5e20b0869ea193a2158e2da5ed9ff03f4034cb9",
       "seendate": "20251218T190435Z",
@@ -5285,6 +5247,44 @@
       },
       "impact_horizon_weight": 0.2847,
       "final_weight": 0.3935
+    },
+    {
+      "title": "OpenAI’s hardware push could reshape the AI trade",
+      "sourceurl": "https://finnhub.io/api/news?id=e5c64585fc550bb286739919a35b3f0794b68b81a297f5da57b7fb9bd73dddd0",
+      "seendate": "20251215T115825Z",
+      "seendate_et": "20251215T065825",
+      "market_date": "2025-12-15",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Opening Bid Unfiltered is available on Apple Podcasts, Spotify, YouTube, or wherever you get your podcasts. There has been one company at the very center of the AI trade this year. Some are speculating it could be a challenger to the Apple (AAPL) iPhone. Why? I've worked closely with Apple co-founder Steve Jobs to develop the iPhone. Listen on your favorite podcast platform or watch on our website for full episodes of Opening Bid Unfiltered.",
+      "coverage_count": 1,
+      "days_ago": 17,
+      "recency_weight": 0.5958260438588049,
+      "content_stats": {
+        "total_sentences": 12,
+        "relevant_sentences": 6,
+        "relevance_ratio": 0.5,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "product launch, partnership, contract, or business development",
+        "label": "product launch, partnership, contract, or business development",
+        "category": "SHORT_TERM",
+        "horizon_days": 5,
+        "confidence": 0.1553,
+        "event_family": "product launch, partnership, contract, or business development",
+        "primary_horizon_label": "D2_5_SHORT",
+        "primary_horizon_days": 5,
+        "primary_category": "SHORT_TERM",
+        "secondary_horizon_label": "D6_10_DIFFUSION",
+        "secondary_horizon_days": 10,
+        "secondary_category": "DIFFUSION",
+        "alternative_event_family": "lawsuit, investigation, regulatory action, or compliance issue",
+        "alternative_confidence": 0.1552
+      },
+      "impact_horizon_weight": 0.2583,
+      "final_weight": 0.3923
     },
     {
       "title": "Netflix reaches $72B Warner Bros. deal, PCE inflation data",
@@ -6195,6 +6195,44 @@
       "final_weight": 0.3278
     },
     {
+      "title": "Pixalate’s Q3 2025 Report Uncovers 1,248 APAC-Registered Mobile Apps Across Apple App & Google Play Stores Violating COPPA, Impacting 117 Million Child-App Users in USA",
+      "sourceurl": "https://finnhub.io/api/news?id=e5ea2a49e79c6be39b54719adf3a361f9bf0e701883734abe154eb7660a46a45",
+      "seendate": "20251207T050000Z",
+      "seendate_et": "20251207T000000",
+      "market_date": "2025-12-08",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "According to new research from Pixalate, 962 apps failed to provide the requisite ‘children’s privacy’ disclosure as specified under COPPA; Out of 1,003 APAC-registered, ad-enabled, child-directed mobile apps analyzed, 1,001 (99%) failed to obtain a Verifiable Parent Consent (VPC)LONDON, Dec. 07, 2025 (GLOBE NEWSWIRE) -- Pixalate today released the Q3 2025 State of Children’s Privacy Risk Report for Asia-Pacific (APAC) Mobile Apps. The analysis reveals significant privacy gaps in mobile apps ava",
+      "coverage_count": 1,
+      "days_ago": 24,
+      "recency_weight": 0.48141722191172337,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 2,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "lawsuit, investigation, regulatory action, or compliance issue",
+        "label": "lawsuit, investigation, regulatory action, or compliance issue",
+        "category": "SHORT_TERM",
+        "horizon_days": 5,
+        "confidence": 0.1543,
+        "event_family": "lawsuit, investigation, regulatory action, or compliance issue",
+        "primary_horizon_label": "D2_5_SHORT",
+        "primary_horizon_days": 5,
+        "primary_category": "SHORT_TERM",
+        "secondary_horizon_label": "D11_20_EXTENDED",
+        "secondary_horizon_days": 20,
+        "secondary_category": "LONG_TERM",
+        "alternative_event_family": "merger, acquisition, takeover, or corporate restructuring",
+        "alternative_confidence": 0.1356
+      },
+      "impact_horizon_weight": 0.2174,
+      "final_weight": 0.3235
+    },
+    {
       "title": "Oura vs Big Tech: The ring taking on Apple, Google & OpenAI",
       "sourceurl": "https://finnhub.io/api/news?id=450934db1a3e7c18140706327e1d8560c7eb1f27323c941762ae984fa14b58cb",
       "seendate": "20251208T130020Z",
@@ -6202,14 +6240,14 @@
       "market_date": "2025-12-08",
       "domain": "Yahoo",
       "language": "English",
-      "content": "Opening Bid Unfiltered is available on Apple Podcasts, Spotify, YouTube, or wherever you get your podcasts. The battle to analyze your health data has arguably never been fiercer. The Apple (AAPL) Watch has sold tens of millions of units, all of which are collecting health data. Whoop is eyeing an IPO. Does there need to be one winner, though, as the longevity industry continues to grow in size? The proceeds are being earmarked for international expansion, and perhaps a foray into payments. Listen on your favorite podcast platform or watch on our website for full episodes of Opening Bid Unfiltered.",
+      "content": "Opening Bid Unfiltered is available on Apple Podcasts, Spotify, YouTube, or wherever you get your podcasts. The battle to analyze your health data has arguably never been fiercer. The Apple (AAPL) Watch has sold tens of millions of units, all of which are collecting health data. Whoop is eyeing an IPO. Does there need to be one winner, though, as the longevity industry continues to grow in size? Oura — the maker of the popular health tracking ring — is fresh off raising $900 million from a series of investors. The proceeds are being earmarked for international expansion, and perhaps a foray into payments. Listen on your favorite podcast platform or watch on our website for full episodes of Opening Bid Unfiltered.",
       "coverage_count": 1,
       "days_ago": 24,
       "recency_weight": 0.48141722191172337,
       "content_stats": {
         "total_sentences": 12,
-        "relevant_sentences": 7,
-        "relevance_ratio": 0.5833,
+        "relevant_sentences": 8,
+        "relevance_ratio": 0.6667,
         "condensed": false,
         "filter_action": "filtered"
       },
@@ -6218,7 +6256,7 @@
         "label": "lawsuit, investigation, regulatory action, or compliance issue",
         "category": "SHORT_TERM",
         "horizon_days": 5,
-        "confidence": 0.1764,
+        "confidence": 0.1693,
         "event_family": "lawsuit, investigation, regulatory action, or compliance issue",
         "primary_horizon_label": "D2_5_SHORT",
         "primary_horizon_days": 5,
@@ -6226,11 +6264,11 @@
         "secondary_horizon_label": "D11_20_EXTENDED",
         "secondary_horizon_days": 20,
         "secondary_category": "LONG_TERM",
-        "alternative_event_family": "market commentary, sector outlook, or opinion piece",
-        "alternative_confidence": 0.128
+        "alternative_event_family": "merger, acquisition, takeover, or corporate restructuring",
+        "alternative_confidence": 0.1361
       },
-      "impact_horizon_weight": 0.2154,
-      "final_weight": 0.322
+      "impact_horizon_weight": 0.2161,
+      "final_weight": 0.3225
     },
     {
       "title": "Prediction: These 3 Stocks Could Be Worth More Than Apple 3 Years From Now",
@@ -6347,6 +6385,44 @@
       "final_weight": 0.3206
     },
     {
+      "title": "Google Must Limit Default Contracts to One Year, Judge Rules",
+      "sourceurl": "https://finnhub.io/api/news?id=0241605a4fae74aada5836d52cae35d28eb8b7518af1b1638c3e687ff05d21ad",
+      "seendate": "20251205T222442Z",
+      "seendate_et": "20251205T172442",
+      "market_date": "2025-12-08",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Judge Amit Mehta in Washington sided with the US Justice Department on the one year limitation in his final ruling on what changes the search giant must make in the wake of a landmark ruling that the company illegally monopolized online search. The final judgment will still allow Google to offer its products to Apple Inc. for use in its popular iPhone and pay other electronics makers like Samsung Electronics Co. for default placement. Mehta noted in his ruling that both Google and the US government said they could work with the one-year limitation on default contracts.",
+      "coverage_count": 1,
+      "days_ago": 24,
+      "recency_weight": 0.48141722191172337,
+      "content_stats": {
+        "total_sentences": 3,
+        "relevant_sentences": 3,
+        "relevance_ratio": 1.0,
+        "condensed": false,
+        "filter_action": "no_change"
+      },
+      "impact_horizon": {
+        "event_type": "lawsuit, investigation, regulatory action, or compliance issue",
+        "label": "lawsuit, investigation, regulatory action, or compliance issue",
+        "category": "SHORT_TERM",
+        "horizon_days": 5,
+        "confidence": 0.2202,
+        "event_family": "lawsuit, investigation, regulatory action, or compliance issue",
+        "primary_horizon_label": "D2_5_SHORT",
+        "primary_horizon_days": 5,
+        "primary_category": "SHORT_TERM",
+        "secondary_horizon_label": "D11_20_EXTENDED",
+        "secondary_horizon_days": 20,
+        "secondary_category": "LONG_TERM",
+        "alternative_event_family": "product launch, partnership, contract, or business development",
+        "alternative_confidence": 0.1394
+      },
+      "impact_horizon_weight": 0.2114,
+      "final_weight": 0.319
+    },
+    {
       "title": "Apple expands manufacturing training program with online courses",
       "sourceurl": "https://finnhub.io/api/news?id=42c61477338887f75082ecc5ece95bcaec7147df706b2fc58d44a54d2ab40321",
       "seendate": "20251208T103809Z",
@@ -6421,44 +6497,6 @@
       },
       "impact_horizon_weight": 0.206,
       "final_weight": 0.3149
-    },
-    {
-      "title": "Google Must Limit Default Contracts to One Year, Judge Rules",
-      "sourceurl": "https://finnhub.io/api/news?id=0241605a4fae74aada5836d52cae35d28eb8b7518af1b1638c3e687ff05d21ad",
-      "seendate": "20251205T222442Z",
-      "seendate_et": "20251205T172442",
-      "market_date": "2025-12-08",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Judge Amit Mehta in Washington sided with the US Justice Department on the one year limitation in his final ruling on what changes the search giant must make in the wake of a landmark ruling that the company illegally monopolized online search. The final judgment will still allow Google to offer its products to Apple Inc. for use in its popular iPhone and pay other electronics makers like Samsung Electronics Co. for default placement.",
-      "coverage_count": 1,
-      "days_ago": 24,
-      "recency_weight": 0.48141722191172337,
-      "content_stats": {
-        "total_sentences": 3,
-        "relevant_sentences": 2,
-        "relevance_ratio": 0.6667,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "impact_horizon": {
-        "event_type": "lawsuit, investigation, regulatory action, or compliance issue",
-        "label": "lawsuit, investigation, regulatory action, or compliance issue",
-        "category": "SHORT_TERM",
-        "horizon_days": 5,
-        "confidence": 0.3683,
-        "event_family": "lawsuit, investigation, regulatory action, or compliance issue",
-        "primary_horizon_label": "D2_5_SHORT",
-        "primary_horizon_days": 5,
-        "primary_category": "SHORT_TERM",
-        "secondary_horizon_label": "D11_20_EXTENDED",
-        "secondary_horizon_days": 20,
-        "secondary_category": "LONG_TERM",
-        "alternative_event_family": "product launch, partnership, contract, or business development",
-        "alternative_confidence": 0.143
-      },
-      "impact_horizon_weight": 0.1977,
-      "final_weight": 0.3085
     },
     {
       "title": "The Zacks Analyst Blog Apple, Alphabet, Amazon and Microsoft",
@@ -7677,44 +7715,6 @@
       "final_weight": 0.2366
     },
     {
-      "title": "Apple's Tim Cook reportedly on Capitol Hill, Oracle earnings watch",
-      "sourceurl": "https://finnhub.io/api/news?id=c72f50963dc866cbcb8db57376dbbc11b0fb71f39adfa35bdb789bbd1930851b",
-      "seendate": "20251210T181349Z",
-      "seendate_et": "20251210T131349",
-      "market_date": "2025-12-10",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "Meanwhile, Apple (AAPL) CEO Tim Cook is reportedly on Capitol Hill in Washington, D.C., talking to lawmakers about tech safeguards to protect children, according to reporting from Punchbowl. Stay up to date on the latest market action, minute-by-minute, with Yahoo Finance's Market Minute.",
-      "coverage_count": 1,
-      "days_ago": 22,
-      "recency_weight": 0.5116560972597762,
-      "content_stats": {
-        "total_sentences": 4,
-        "relevant_sentences": 2,
-        "relevance_ratio": 0.5,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "impact_horizon": {
-        "event_type": "earnings report, guidance, or financial results",
-        "label": "earnings report, guidance, or financial results",
-        "category": "IMMEDIATE",
-        "horizon_days": 1,
-        "confidence": 0.3111,
-        "event_family": "earnings report, guidance, or financial results",
-        "primary_horizon_label": "D1_IMMEDIATE",
-        "primary_horizon_days": 1,
-        "primary_category": "IMMEDIATE",
-        "secondary_horizon_label": "D6_10_DIFFUSION",
-        "secondary_horizon_days": 10,
-        "secondary_category": "DIFFUSION",
-        "alternative_event_family": "lawsuit, investigation, regulatory action, or compliance issue",
-        "alternative_confidence": 0.1391
-      },
-      "impact_horizon_weight": 0.1091,
-      "final_weight": 0.2363
-    },
-    {
       "title": "What the heck is going on at Apple?",
       "sourceurl": "https://finnhub.io/api/news?id=36ddfc5ecbfabec53fc2f3d055bbc916a595d10ef97099b43e01b63379daccde",
       "seendate": "20251206T080059Z",
@@ -8399,44 +8399,6 @@
       "final_weight": 0.2144
     },
     {
-      "title": "Pixalate’s Q3 2025 Report Uncovers 1,248 APAC-Registered Mobile Apps Across Apple App & Google Play Stores Violating COPPA, Impacting 117 Million Child-App Users in USA",
-      "sourceurl": "https://finnhub.io/api/news?id=e5ea2a49e79c6be39b54719adf3a361f9bf0e701883734abe154eb7660a46a45",
-      "seendate": "20251207T050000Z",
-      "seendate_et": "20251207T000000",
-      "market_date": "2025-12-08",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "The analysis reveals significant privacy gaps in mobile apps ava",
-      "coverage_count": 1,
-      "days_ago": 24,
-      "recency_weight": 0.48141722191172337,
-      "content_stats": {
-        "total_sentences": 2,
-        "relevant_sentences": 1,
-        "relevance_ratio": 0.5,
-        "condensed": false,
-        "filter_action": "filtered"
-      },
-      "impact_horizon": {
-        "event_type": "earnings report, guidance, or financial results",
-        "label": "earnings report, guidance, or financial results",
-        "category": "IMMEDIATE",
-        "horizon_days": 1,
-        "confidence": 0.1345,
-        "event_family": "earnings report, guidance, or financial results",
-        "primary_horizon_label": "D1_IMMEDIATE",
-        "primary_horizon_days": 1,
-        "primary_category": "IMMEDIATE",
-        "secondary_horizon_label": "D6_10_DIFFUSION",
-        "secondary_horizon_days": 10,
-        "secondary_category": "DIFFUSION",
-        "alternative_event_family": "product launch, partnership, contract, or business development",
-        "alternative_confidence": 0.1306
-      },
-      "impact_horizon_weight": 0.0916,
-      "final_weight": 0.21
-    },
-    {
       "title": "China's Phone Makers Smell Opportunity As Apple Stumbles On AI",
       "sourceurl": "https://finnhub.io/api/news?id=d2cf10e7a9011793c6c4b8c1c19cdcec36bea04fe3fd1c5715fb886c1d81caa1",
       "seendate": "20251208T062421Z",
@@ -8697,6 +8659,44 @@
       },
       "impact_horizon_weight": 0.0794,
       "final_weight": 0.2015
+    },
+    {
+      "title": "Apple's Tim Cook reportedly on Capitol Hill, Oracle earnings watch",
+      "sourceurl": "https://finnhub.io/api/news?id=c72f50963dc866cbcb8db57376dbbc11b0fb71f39adfa35bdb789bbd1930851b",
+      "seendate": "20251210T181349Z",
+      "seendate_et": "20251210T131349",
+      "market_date": "2025-12-10",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "Yahoo Finance Senior Producer John Hyland examines some of the top stories on Wall Street as part of Yahoo Finance's Market Minute. Meanwhile, Apple (AAPL) CEO Tim Cook is reportedly on Capitol Hill in Washington, D.C., talking to lawmakers about tech safeguards to protect children, according to reporting from Punchbowl. Stay up to date on the latest market action, minute-by-minute, with Yahoo Finance's Market Minute.",
+      "coverage_count": 1,
+      "days_ago": 22,
+      "recency_weight": 0.5116560972597762,
+      "content_stats": {
+        "total_sentences": 4,
+        "relevant_sentences": 3,
+        "relevance_ratio": 0.75,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "market commentary, sector outlook, or opinion piece",
+        "label": "market commentary, sector outlook, or opinion piece",
+        "category": "IMMEDIATE",
+        "horizon_days": 1,
+        "confidence": 0.223,
+        "event_family": "market commentary, sector outlook, or opinion piece",
+        "primary_horizon_label": "D1_IMMEDIATE",
+        "primary_horizon_days": 1,
+        "primary_category": "IMMEDIATE",
+        "secondary_horizon_label": "D2_5_SHORT",
+        "secondary_horizon_days": 5,
+        "secondary_category": "SHORT_TERM",
+        "alternative_event_family": "earnings report, guidance, or financial results",
+        "alternative_confidence": 0.2111
+      },
+      "impact_horizon_weight": 0.0792,
+      "final_weight": 0.2013
     },
     {
       "title": "Apple’s Slow AI Pace Becomes a Strength as Market Grows Weary of Spending",
@@ -9338,44 +9338,6 @@
       "final_weight": 0.1738
     },
     {
-      "title": "Apple Chip Chief Tells Staff He’s Not Leaving ‘Anytime Soon’",
-      "sourceurl": "https://finnhub.io/api/news?id=897785751f6134f86914bbbf48cf49e6846900de4760afb786ccc555fa42d2b9",
-      "seendate": "20251208T162528Z",
-      "seendate_et": "20251208T112528",
-      "market_date": "2025-12-08",
-      "domain": "Yahoo",
-      "language": "English",
-      "content": "“I know you’ve been reading all kind of rumors and speculations about my future at Apple, and I feel that you need to hear from me directly,” he said in a memo to his division. “I love my team, and I love my job at Apple, and I don’t plan on leaving anytime soon.” Bloomberg News reported over the weekend that Srouji had discussed leaving the company, indicating that he might work for a different technology firm.",
-      "coverage_count": 1,
-      "days_ago": 24,
-      "recency_weight": 0.48141722191172337,
-      "content_stats": {
-        "total_sentences": 2,
-        "relevant_sentences": 2,
-        "relevance_ratio": 1.0,
-        "condensed": false,
-        "filter_action": "no_change"
-      },
-      "impact_horizon": {
-        "event_type": "market commentary, sector outlook, or opinion piece",
-        "label": "market commentary, sector outlook, or opinion piece",
-        "category": "IMMEDIATE",
-        "horizon_days": 1,
-        "confidence": 0.2132,
-        "event_family": "market commentary, sector outlook, or opinion piece",
-        "primary_horizon_label": "D1_IMMEDIATE",
-        "primary_horizon_days": 1,
-        "primary_category": "IMMEDIATE",
-        "secondary_horizon_label": "D2_5_SHORT",
-        "secondary_horizon_days": 5,
-        "secondary_category": "SHORT_TERM",
-        "alternative_event_family": "CEO change, executive departure, or board appointment",
-        "alternative_confidence": 0.165
-      },
-      "impact_horizon_weight": 0.0618,
-      "final_weight": 0.1725
-    },
-    {
       "title": "Nvidia Topples Apple As Best-Managed U.S. Company; Is Nvidia A Buy Now?",
       "sourceurl": "https://finnhub.io/api/news?id=5892ca92f121c685163475b2d5c5450a8da320e2acb5d52ca71317c7eb7303a0",
       "seendate": "20251208T152952Z",
@@ -9412,6 +9374,44 @@
       },
       "impact_horizon_weight": 0.0617,
       "final_weight": 0.1723
+    },
+    {
+      "title": "Apple Chip Chief Tells Staff He’s Not Leaving ‘Anytime Soon’",
+      "sourceurl": "https://finnhub.io/api/news?id=897785751f6134f86914bbbf48cf49e6846900de4760afb786ccc555fa42d2b9",
+      "seendate": "20251208T162528Z",
+      "seendate_et": "20251208T112528",
+      "market_date": "2025-12-08",
+      "domain": "Yahoo",
+      "language": "English",
+      "content": "“I love my team, and I love my job at Apple, and I don’t plan on leaving anytime soon.” Bloomberg News reported over the weekend that Srouji had discussed leaving the company, indicating that he might work for a different technology firm.",
+      "coverage_count": 1,
+      "days_ago": 24,
+      "recency_weight": 0.48141722191172337,
+      "content_stats": {
+        "total_sentences": 2,
+        "relevant_sentences": 1,
+        "relevance_ratio": 0.5,
+        "condensed": false,
+        "filter_action": "filtered"
+      },
+      "impact_horizon": {
+        "event_type": "market commentary, sector outlook, or opinion piece",
+        "label": "market commentary, sector outlook, or opinion piece",
+        "category": "IMMEDIATE",
+        "horizon_days": 1,
+        "confidence": 0.2461,
+        "event_family": "market commentary, sector outlook, or opinion piece",
+        "primary_horizon_label": "D1_IMMEDIATE",
+        "primary_horizon_days": 1,
+        "primary_category": "IMMEDIATE",
+        "secondary_horizon_label": "D2_5_SHORT",
+        "secondary_horizon_days": 5,
+        "secondary_category": "SHORT_TERM",
+        "alternative_event_family": "CEO change, executive departure, or board appointment",
+        "alternative_confidence": 0.1793
+      },
+      "impact_horizon_weight": 0.0615,
+      "final_weight": 0.1721
     },
     {
       "title": "Apple Stock Can Rise on Services Segment, Says Analyst. Plus, Uber, American Eagle, and More.",

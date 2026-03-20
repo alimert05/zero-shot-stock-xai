@@ -216,7 +216,7 @@ def plot_horizon_breakdown(
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
-    from ui_constants import HORIZON_DISPLAY_LABELS
+    from ui.ui_constants import HORIZON_DISPLAY_LABELS
 
     horizon_dist   = layer3.get("horizon_distribution", {})
     cats   = list(horizon_dist.keys())

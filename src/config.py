@@ -37,14 +37,14 @@ SENTIMENT_DEVICE = 0
 # ── Model Selection ───────────────────────────────────────────────────────────
 
 # # finbert config
-# SENTIMENT_MODEL = "ProsusAI/finbert"
-# SENTIMENT_MAX_LENGTH = 512  
+SENTIMENT_MODEL = "ProsusAI/finbert"
+SENTIMENT_MAX_LENGTH = 512  
 
 #fingpt config
 # SENTIMENT_MODEL = "fingpt"
-FINGPT_BASE_MODEL = "NousResearch/Llama-2-13b-hf"
-FINGPT_LORA_MODEL = "FinGPT/fingpt-sentiment_llama2-13b_lora"
-FINGPT_LOAD_IN_8BIT = True
+# FINGPT_BASE_MODEL = "NousResearch/Llama-2-13b-hf"
+# FINGPT_LORA_MODEL = "FinGPT/fingpt-sentiment_llama2-13b_lora"
+# FINGPT_LOAD_IN_8BIT = True
 
 # zero-shot config
 

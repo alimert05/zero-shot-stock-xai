@@ -8,12 +8,11 @@ from __future__ import annotations
 
 import logging
 
-from fetcher.fetcher import Fetcher
-from predictor.finbert import run_sentiment_prediction as run_finbert
-from predictor.fingpt import run_sentiment_prediction as run_fingpt
-from predictor.zero_shot import run_sentiment_prediction as run_zero_shot
-from predictor.ollama_predictor import run_sentiment_prediction as run_ollama
-# from backtest.backtester import run_backtest
+from news_retriever.retriever import Fetcher
+from predictors.finbert import run_sentiment_prediction as run_finbert
+from predictors.fingpt import run_sentiment_prediction as run_fingpt
+from predictors.zero_shot import run_sentiment_prediction as run_zero_shot
+from predictors.ollama_predictor import run_sentiment_prediction as run_ollama
 from config import JSON_PATH, SENTIMENT_MODEL, FINBERT_PREDS, FINGPT_PREDS, ZEROSHOT_PREDS, OLLAMA_PREDS, MODEL_NAME, XAI_ENABLED, XAI_OUTPUT_PATH
 from xai import run_xai
 
