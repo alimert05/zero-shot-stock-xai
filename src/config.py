@@ -24,7 +24,7 @@ FPB_DATASETS_PATH       = DATA_PATH / "financial_phrasebank_datasets"
 # Pipeline intermediary files
 JSON_PATH      = TEMP_PATH / "articles.json"
 PRED_JSON_PATH = TEMP_PATH / "predictions.json"
-PREDS_PATH     = DATA_PATH / "predictions"
+PREDS_PATH     = TEMP_PATH / "predictions"
 FINBERT_PREDS  = PREDS_PATH / "finbert_result.json"
 FINGPT_PREDS   = PREDS_PATH / "fingpt_result.json"
 ZEROSHOT_PREDS = PREDS_PATH / "zeroshot_result.json"

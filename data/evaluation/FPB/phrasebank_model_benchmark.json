@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "run_timestamp": "2026-03-20 10:36:51",
+    "run_timestamp": "2026-03-20 22:01:37",
     "model": "microsoft/deberta-large-mnli",
     "config_name": "default (argmax)",
     "hypothesis_template": "N/A",
@@ -10,9 +10,9 @@
       "neutral"
     ],
     "datasets": [
-      "C:\\Users\\alime\\Desktop\\financial_dataset\\financial_phrasebank_sentences_50agree.csv",
-      "C:\\Users\\alime\\Desktop\\financial_dataset\\financial_phrasebank_sentences_75agree.csv",
-      "C:\\Users\\alime\\Desktop\\financial_dataset\\financial_phrasebank_sentences_allagree.csv"
+      "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\financial_phrasebank_datasets\\financial_phrasebank_sentences_50agree.csv",
+      "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\financial_phrasebank_datasets\\financial_phrasebank_sentences_75agree.csv",
+      "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\financial_phrasebank_datasets\\financial_phrasebank_sentences_allagree.csv"
     ],
     "max_samples": null,
     "device": 0,
@@ -21,14 +21,14 @@
   },
   "results": {
     "financial_phrasebank_sentences_50agree.csv": {
-      "dataset_path": "C:\\Users\\alime\\Desktop\\financial_dataset\\financial_phrasebank_sentences_50agree.csv",
+      "dataset_path": "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\financial_phrasebank_datasets\\financial_phrasebank_sentences_50agree.csv",
       "samples": 4846,
       "label_distribution": {
         "neutral": 2879,
         "negative": 604,
         "positive": 1363
       },
-      "duration_seconds": 75.86,
+      "duration_seconds": 77.0,
       "metrics": {
         "accuracy": 0.3194,
         "macro_precision": 0.6104,
@@ -90,14 +90,14 @@
       }
     },
     "financial_phrasebank_sentences_75agree.csv": {
-      "dataset_path": "C:\\Users\\alime\\Desktop\\financial_dataset\\financial_phrasebank_sentences_75agree.csv",
+      "dataset_path": "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\financial_phrasebank_datasets\\financial_phrasebank_sentences_75agree.csv",
       "samples": 3453,
       "label_distribution": {
         "neutral": 2146,
         "positive": 887,
         "negative": 420
       },
-      "duration_seconds": 53.55,
+      "duration_seconds": 55.99,
       "metrics": {
         "accuracy": 0.3385,
         "macro_precision": 0.6473,
@@ -159,14 +159,14 @@
       }
     },
     "financial_phrasebank_sentences_allagree.csv": {
-      "dataset_path": "C:\\Users\\alime\\Desktop\\financial_dataset\\financial_phrasebank_sentences_allagree.csv",
+      "dataset_path": "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\financial_phrasebank_datasets\\financial_phrasebank_sentences_allagree.csv",
       "samples": 2264,
       "label_distribution": {
         "neutral": 1391,
         "positive": 570,
         "negative": 303
       },
-      "duration_seconds": 35.36,
+      "duration_seconds": 36.26,
       "metrics": {
         "accuracy": 0.3852,
         "macro_precision": 0.6971,
