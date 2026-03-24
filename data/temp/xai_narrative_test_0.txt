@@ -1,0 +1,502 @@
+============================================================
+  SENTIMENT ANALYSIS EXPLANATION REPORT
+============================================================
+  Company           : UnitedHealth Group  (UNH)
+  Forecast horizon  : 31 days
+  News lookback     : 2026-02-23 to 2026-03-23 (ET market-close aligned)
+  Articles analysed : 139
+  Generated at      : 2026-03-23 10:20:07
+============================================================
+
+════════════════════════════════════════════════════════════
+  PART 1 — SUMMARY & KEY FINDINGS
+  Plain-English explanation of what the model decided and why
+════════════════════════════════════════════════════════════
+
+  SUMMARY
+  What the model decided and why — in plain English
+------------------------------------------------------------
+
+  The model predicted a NEGATIVE label with a 53.5% score share based on 139 articles over 31 days.
+The top article is "UnitedHealth spent $1.7 million on executive security last year, 4 times the corporate average. Experts expect the figure to keep climbing" with a NEGATIVE sentiment.
+The label margin is moderate (0.229), but evidence quality is HIGH due to a HIGH evidence quality with no concerns.
+
+  PREDICTION RESULT
+  Sentiment scores across all analysed articles
+------------------------------------------------------------
+  Ground truth : close-to-close return over 31-day forecast horizon, neutral band scaled by EWMA volatility (per-stock, per-period).
+  Disclaimer   : Model support measures how much weight the model
+                  assigns to the winning label relative to alternatives.
+                  It is NOT a calibrated probability of future return
+                  and should not be read as '41% chance the price drops'.
+
+  Score chart  (each █ ≈ 2.5%):
+
+    positive :  30.6%  ████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+    negative :  53.5%  █████████████████████░░░░░░░░░░░░░░░░░░░  ◄ PREDICTED
+     neutral :   5.8%  ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+  Verdict     : NEGATIVE
+  Model support : 53.5%  (share of model weight, not a probability)
+
+  RECOMMENDATION
+  What you should do with this result
+------------------------------------------------------------
+  This prediction has HIGH evidence quality and can be used with reasonable confidence.
+
+  NARRATIVE THEMES
+  What the news is about and the dominant tone per theme
+------------------------------------------------------------
+    Earnings / results :  68 articles (49%)  ▼ negative  (+17 / -51 / =0)
+    General commentary :  29 articles (21%)  ▲ positive  (+22 / -7 / =0)
+    Regulatory / legal :  27 articles (19%)  ▼ negative  (+4 / -23 / =0)
+    Distress / credit  :   5 articles (4%)  ▼ negative  (+0 / -5 / =0)
+    Capital / payout   :   5 articles (4%)  ▲ positive  (+5 / -0 / =0)
+    Analyst action     :   3 articles (2%)  ▲ positive  (+2 / -1 / =0)
+    Strategy / M&A     :   1 articles (1%)  ▼ negative  (+0 / -1 / =0)
+    Product / business :   1 articles (1%)  ▲ positive  (+1 / -0 / =0)
+
+  Storylines (auto-discovered from article titles):
+
+    Storylines supporting the NEGATIVE prediction:
+      "Investor confidence in healthcare giant wavers." (7 articles)  ▼ negative  (+0 / -7 / =0)
+        → HSBC Downgrades UnitedHealth Group (UNH)
+        → Argus Research Downgrades UnitedHealth Group (UNH)
+        → UnitedHealth Group (UNH) Dips More Than Broader Market: What You Sho
+        → UnitedHealth Group (UNH) Stock Moves -0.07%: What You Should Know
+        → Jim Cramer on UnitedHealth Group Inc. (UNH): A Juggernaut That Rarel
+        → Jim Cramer on UnitedHealth (UNH): Totally Domestic. Totally Independ
+        → UnitedHealth Group (UNH) – Jim Cramer Calls for Patience: ‘Wait Befo
+      "Medical costs drive stock price downward sharply." (4 articles)  ▼ negative  (+0 / -4 / =0)
+        → UnitedHealth shares tank after earnings miss, forecast cut as medica
+        → UnitedHealth shares crash after surprise earnings miss, cuts to fore
+        → UnitedHealth shares tank on steep forecast cut as medical care costs
+        → UnitedHealth Shares Tumble After Outlook Cut, Higher Medicare Activi
+      "Stocks rise despite health insurer's massive loss." (5 articles)  ▼ negative  (+0 / -5 / =0)
+        → UnitedHealth Stock Is Having Its Worst Day in 25 Years After Earning
+        → UnitedHealth Loses $120 Billion in Value on Stock's Worst Day Since 
+        → UnitedHealth's worst day in decades keeps Wall Street in check even 
+        → Most US stocks rise, but UnitedHealth's worst day in decades keeps W
+        → UnitedHealth's worst day in decades keeps Wall Street in check as mo
+      "Executive faces death penalty for murder charge." (4 articles)  ▼ negative  (+0 / -4 / =0)
+        → Mangione faces federal charges, death penalty in UnitedHealth execut
+        → Mangione lawyers ask judge to prevent US prosecutors from seeking de
+        → U.S. prosecutors to seek death penalty for Luigi Mangione, Bondi say
+        → US prosecutors to seek death penalty for Luigi Mangione, Bondi says
+      "Medicare Advantage faces financial and regulatory challenges." (3 articles)  ▼ negative  (+0 / -3 / =0)
+        → UnitedHealth Q1 earnings signal trouble for Medicare Advantage playe
+        → UnitedHealth Is Struggling. How Trump’s Medicare Advantage Plan Will
+        → End Of An Era? Special Master Recommends Dismissing Long-Running Med
+      "Billionaires bet on defensive healthcare stocks." (6 articles)  ▼ negative  (+0 / -6 / =0)
+        → Is UnitedHealth Group Incorporated (UNH) The Top Falling Stock with 
+        → Is UnitedHealth Group Incorporated (UNH) the Best Performing Long Te
+        → Is UnitedHealth Group Incorporated (UNH) the Best Medical Stock to B
+        → Is UnitedHealth Group (UNH) the Best Low Volatility Stock to Buy Now
+        → UnitedHealth Group Incorporated (UNH): Among Defensive Stocks Billio
+        → Is UnitedHealth Group (UNH) the Best Large-Cap Value Stock to Buy as
+      "Health insurer misses earnings expectations significantly." (4 articles)  ▼ negative  (+0 / -4 / =0)
+        → UnitedHealth (UNH) Sinks 20% After Q1 Miss, Lowered 2025 Earnings Fo
+        → UnitedHealth Group Incorporated (UNH) Q1 2025 Earnings Call Transcri
+        → Q1 2025 UnitedHealth Group Inc Earnings Call
+        → UnitedHealth : Earnings Release Q1 2025
+
+    Opposing storylines (positive):
+      "Healthcare giant consistently outperforms the market." (9 articles)  ▲ positive  (+9 / -0 / =0)
+        → Why UnitedHealth Group (UNH) Is Among the Best Blue Chip Stocks to B
+        → Is UnitedHealth Group Incorporated (UNH) the Best Very Cheap Stock t
+        → UnitedHealth Group (UNH): One of the Best Long Term Stocks to Buy Ac
+        → UnitedHealth Group (UNH): One of the Best Dividend Paying Stock Acco
+        → Why UnitedHealth Group Incorporated (UNH) is Among the Best Teleheal
+        → UnitedHealth Group Incorporated (UNH): One of the Best American Divi
+        → UnitedHealth Group (UNH): Among the Best Healthcare Stocks to Buy Ac
+        → UnitedHealth Group (UNH): One of the Best Stocks That Will Always Gr
+        → UnitedHealth Group Incorporated (UNH) Third Best Roth IRA Stock to B
+      "Investor praises dominant healthcare giant's success." (5 articles)  ▲ positive  (+5 / -0 / =0)
+        → Jim Cramer: UnitedHealth (UNH) “Defines What People Want” – Totally 
+        → Jim Cramer Calls UnitedHealth Group Incorporated (UNH) a Universal B
+        → Jim Cramer Calls UnitedHealth Group (UNH) a “Juggernaut” and Says: “
+        → Jim Cramer: UnitedHealth (UNH) Is an “Amazing Company” and a “Jugger
+        → Jim Cramer: UnitedHealth (UNH) Is a Titan – Buy the Dip Before the B
+      "Insurer's stock value seen as long-term investment." (3 articles)  ▲ positive  (+3 / -0 / =0)
+        → Is UnitedHealth Group Incorporated (UNH) the Low Volatility Stock to
+        → Why UnitedHealth Group (UNH) is a Top Value Stock for the Long-Term
+        → UnitedHealth Group Incorporated (UNH): Among Value Stocks in Ken Fis
+      "Healthcare firm recovers from financial struggles." (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → UnitedHealth Group returns to profit in Q1 2025
+        → UnitedHealth Group Inc (UNH) Q1 2025 Earnings Call Highlights: Stron
+      "Healthcare giant's stock price on the rise." (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → UnitedHealth Group Incorporated (UNH): A Bull Case Theory
+        → UnitedHealth Group Incorporated (UNH): Among the Dividend Stocks wit
+      "Healthcare giant reports strong Q1 earnings." (3 articles)  ▲ positive  (+3 / -0 / =0)
+        → How Should You Play UnitedHealth Stock Going Into Q1 Earnings?
+        → Gear Up for UnitedHealth (UNH) Q1 Earnings: Wall Street Estimates fo
+        → UnitedHealth (UNH) Q1 Earnings Report Preview: What To Look For
+      "Healthcare and tech stocks to watch." (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → Netflix, UnitedHealth Group And 3 Stocks To Watch Heading Into Thurs
+        → UnitedHealth Group Incorporated (UNH): Among the Innovative Healthca
+
+    Other topics (80 articles — titles too unique to cluster with any other article; each covers a distinct story)
+
+============================================================
+  FINAL PLAIN-ENGLISH OVERVIEW
+  A complete, readable summary of the entire analysis for a general reader
+============================================================
+
+  Out of 139 news articles analysed for UnitedHealth Group
+  over a 31-day forecast horizon, 51 carried positive
+  sentiment, 88 carried negative sentiment, and 0 were
+  neutral. The model produced a weighted aggregation of
+  these scores and predicted a NEGATIVE label with 53.5%
+  model support. The model chose NEGATIVE over POSITIVE by
+  a score gap of 0.2287: 88 articles pushed toward
+  NEGATIVE while 51 pushed toward POSITIVE. The single
+  most influential article was "UnitedHealth spent $1.7
+  million on executive security last year, 4 times the
+  corporate average. Experts expect the figure to keep
+  climbing" (negative sentiment, contributing 1.3% of
+  total weight). Articles were weighted by recency and
+  prediction-horizon relevance — the average article was
+  9.29 days old, with most classified as short-term
+  horizon. At the word level, the strongest signals in the
+  top gap-driving article included: Selloff, Down,
+  Sentiment, fell, down. The prediction is sensitive:
+  removing as few as 37 of 139 articles would change the
+  verdict. The prediction carries HIGH evidence quality
+  and can be used with confidence.
+
+
+  DISCLAIMER
+------------------------------------------------------------
+  This report presents news-based sentiment analysis only.
+  It is NOT financial advice and does NOT recommend any
+  trading action (buy, sell, or hold). The authors are not
+  responsible for any investment decision made using this output.
+
+════════════════════════════════════════════════════════════
+  PART 2 — DETAILED TECHNICAL ANALYSIS
+  Scores, article breakdowns, and model-internal attributions
+════════════════════════════════════════════════════════════
+
+  WHY NEGATIVE INSTEAD OF POSITIVE?
+  Contrastive explanation — what tipped the balance
+------------------------------------------------------------
+  Score gap : NEGATIVE 0.5351  vs  POSITIVE 0.3064  (gap = 0.2287)
+
+  Article split:
+     88 articles push toward NEGATIVE  (total push: +0.4166)
+     51 articles push toward POSITIVE  (total push: -0.1874)
+
+  Third class: NEUTRAL at 5.8% — absorbing probability mass roughly equally from both sides.
+
+  Top 5 articles driving the gap:
+    #     Direction       Net  Title
+    ----------------------------------------------------------------------
+    1         → NEG    +1.05%  Health Care Down as UnitedHealth Selloff Continu
+    2         → NEG    +1.01%  These Large Cap Tech And Healthcare Stocks Had A
+    3         → NEG    +1.00%  Stocks sink, UnitedHealth downgrade, Capital One
+    4         → NEG    +0.97%  UnitedHealth Stock Crash: 3 Better Dow Jones Div
+    5         → NEG    +0.93%  UnitedHealth Loses $120 Billion in Value on Stoc
+
+  Word-level evidence for top gap drivers:
+  (connecting article-level influence to token-level LIME attribution)
+
+    Health Care Down as UnitedHealth Selloff Continues -- Health
+      Favours NEGATIVE (+1.05% net push)
+      Words reinforcing NEGATIVE: Selloff, Down, Sentiment, fell
+      Words pulling against: April, Care, amid, companies
+
+  Counterfactual (minimum flip set):
+    Removing just 37 of 139 articles would flip the prediction from NEGATIVE to POSITIVE.
+    These articles are:
+      [!] Health Care Down as UnitedHealth Selloff Continues -- Health Care Roun
+      [!] These Large Cap Tech And Healthcare Stocks Had A Poor Run In Easter We
+      [!] Stocks sink, UnitedHealth downgrade, Capital One-Discover deal
+      [!] UnitedHealth Stock Crash: 3 Better Dow Jones Dividend Stocks to Buy No
+      [!] UnitedHealthcare: The bad news continues after last week's disastrous 
+      ... and 32 more
+
+  PREDICTION RELIABILITY
+  How much to trust this prediction
+------------------------------------------------------------
+  Overall : [✓] HIGH  (0 concern(s) found)
+  Rating rule : HIGH evidence quality if 0 concerns, MEDIUM if 1, LOW if ≥2.
+
+    [✓] thin evidence          Sufficient article count.
+    [✓] weight concentration   Weight is well-distributed across articles.
+    [✓] label margin           Clear margin between top two labels (0.229).
+    [✓] source diversity       7 sources (5 editorial + 2 aggregators), top editorial share 42%. (86% via aggregators like Yahoo/Finnhub — these collect from many editorial sources)
+    [✓] timing alignment       Articles are 0-28 days old (ET market-close aligned), down-weighted by the recency function where applicable.
+    [✓] horizon coverage       News lookback (29 days) covers the intended 28-day backward window.
+
+  HISTORICAL CALIBRATION
+  How this model has performed on past predictions
+------------------------------------------------------------
+  Not yet available. Run the backtest evaluation module to
+  populate this section with accuracy, precision, and recall
+  broken down by evidence-quality level (HIGH / MEDIUM / LOW).
+
+  WHICH ARTICLES DROVE THE PREDICTION
+  The articles that had the most impact on the final verdict
+------------------------------------------------------------
+  Article sentiment distribution:
+
+    ▲ positive : ███████████░░░░░░░░░░░░░░░░░░░   51 articles (37%)
+    ▼ negative : ███████████████████░░░░░░░░░░░   88 articles (63%)
+    ■  neutral : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    0 articles (0%)
+
+  Articles pushing toward POSITIVE:
+    [+]  UnitedHealth Group (UNH): One of the Best Long Term Stocks to Buy According 
+    [+]  UnitedHealth Group Incorporated (UNH): Among the Dividend Stocks with Sustai
+    [+]  UnitedHealth Group Incorporated (UNH): One of the Best American Dividend Sto
+  Articles pushing toward NEGATIVE:
+    [-]  Health Care Down as UnitedHealth Selloff Continues -- Health Care Roundup
+    [-]  These Large Cap Tech And Healthcare Stocks Had A Poor Run In Easter Week (Ap
+    [-]  Stocks sink, UnitedHealth downgrade, Capital One-Discover deal
+
+  Top 10 most influential articles:
+  (Weight = recency × horizon factor, 0-1 scale;  Share = % of total pool weight)
+    #    Sent  Weight   Share  Weight chart                      Title
+    ------------------------------------------------------------
+    #1    NEG  1.0000    1.3%  ██████████████████████████████  UnitedHealth spent $1.7 million 
+    #2    POS  1.0000    1.3%  ██████████████████████████████  Rosen Law Firm Encourages United
+    #3    NEG  1.0000    1.3%  ██████████████████████████████  Ademi & Fruchter LLP Investigate
+    #4    NEG  1.0000    1.3%  ██████████████████████████████  Is UnitedHealth Group (UNH) the 
+    #5    POS  1.0000    1.3%  ██████████████████████████████  UnitedHealth Group (UNH): One of
+    #6    NEG  1.0000    1.3%  ██████████████████████████████  Is UnitedHealth Group (UNH) the 
+    #7    NEG  1.0000    1.3%  ██████████████████████████████  Significant Portfolio Changes: U
+    #8    NEG  1.0000    1.3%  ██████████████████████████████  UnitedHealth Stock Crash: 3 Bett
+    #9    NEG  1.0000    1.3%  ██████████████████████████████  Argus Research Downgrades United
+    #10   NEG  1.0000    1.3%  ██████████████████████████████  Down 20%, Still A Buy: Why I'm D
+
+  Weight concentration (HHI): 0.0072  (well-distributed) — 0 = perfectly uniform across all articles, 1 = one article dominates
+
+  HOW ARTICLES WERE WEIGHTED
+  More recent and near-horizon articles receive higher weight
+------------------------------------------------------------
+  De-duplication  : Articles are de-duplicated across all sources
+                    by headline. When the same headline appears on
+                    multiple domains (e.g. Yahoo and Benzinga), only
+                    the oldest copy is kept — the first to break the
+                    news is what the market reacted to. If two copies
+                    share the same timestamp, the one with more content
+                    is preferred.
+
+  Average article age      : 9.29 days old
+  Average recency weight   : 0.772  (1.0 = today, lower = older)
+  Average horizon weight   : 0.4774  (1.0 = ideal timing, lower = off-horizon)
+
+  Article timing breakdown:
+
+    Immediate (0-1 days)  : ██████████████████████████████  100 (72%)
+    Short-term (2-5 days) : ██████████░░░░░░░░░░░░░░░░░░░░   34 (24%)
+    Diffusion (6-10 days) : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    0 (0%)
+    Long-term (11-31 days) : ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░    5 (4%)
+
+  WHICH WORDS DROVE THE PREDICTION
+  Words inside each article that pushed the model toward or away from the verdict
+------------------------------------------------------------
+  IMPORTANT: these tokens explain why the *sentiment model* chose its
+  label — they do NOT indicate why a stock price would move. LIME
+  (Ribeiro et al., 2016) perturbs the input text and measures which
+  words most change the model's output distribution. The results are
+  model-internal attributions, not causal drivers of market returns.
+
+  Company name, ticker, and common stopwords are filtered so only
+  sentiment-bearing words remain. Full token weights are in the
+  ADVANCED / DIAGNOSTICS section at the end of this report.
+
+  [1] UnitedHealth shares tank after earnings miss, forecast cut as medical ca
+      Words pushing TOWARD  NEGATIVE : tank, costs, lowered, miss, forecast
+      Words pushing AGAINST NEGATIVE : higher, soar, shares
+
+  [2] UnitedHealth (UNH) Sinks 20% After Q1 Miss, Lowered 2025 Earnings Foreca
+      Words pushing TOWARD  NEGATIVE : Sinks, Lowered, Care, Miss, Cuts
+      Words pushing AGAINST NEGATIVE : Surge, After, Amid, Rare, Q1
+
+  [3] UnitedHealth Stock Is Having Its Worst Day in 25 Years After Earnings. H
+      Words pushing TOWARD  NEGATIVE : Worst, sank, After, said, slashed
+      Words pushing AGAINST NEGATIVE : according, Jones
+
+  [4] UnitedHealth shares crash after surprise earnings miss, cuts to forecast
+      Words pushing TOWARD  NEGATIVE : crash, lowered, miss, due, quarterly
+      Words pushing AGAINST NEGATIVE : surprise, shares, Sentiment, surprised, higher
+
+  [5] Health Care Down as UnitedHealth Selloff Continues -- Health Care Roundu
+      Words pushing TOWARD  NEGATIVE : Selloff, Down, Sentiment, fell, down
+      Words pushing AGAINST NEGATIVE : April, Care, amid, companies, care
+
+
+  CHARTS
+  Visual summaries generated for this analysis (see paths in Advanced section)
+------------------------------------------------------------
+    [sentiment_scores]  Sentiment score bar chart
+    [article_distribution]  Article sentiment pie chart
+    [article_weights]  Top-10 article weight chart
+    [horizon_breakdown]  Timing horizon breakdown chart
+    [lime_tokens]  Word-level attribution (LIME) chart
+    [reliability]  Evidence quality dashboard
+    [storyline_contribution]  Narrative storyline contribution chart
+    [contrastive_waterfall]  Contrastive waterfall (why A not B?)
+    [article_timeline]  Article timeline (recency vs influence)
+    [cumulative_score]  Cumulative score build-up chart
+
+
+  ADVANCED / DIAGNOSTICS
+  Technical details for developers and reproducibility
+------------------------------------------------------------
+  Narrative model      : llama3.2:3b  (live Ollama)
+  XAI version          : 1.0.0
+  LIME method          : LIME  (top 5 articles)
+
+  Chart file paths:
+    Sentiment score bar chart: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\charts\01_sentiment_scores.png
+    Article sentiment pie chart: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\charts\02_article_distribution.png
+    Top-10 article weight chart: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\charts\03_article_weights.png
+    Timing horizon breakdown chart: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\charts\04_horizon_breakdown.png
+    Word-level attribution (LIME) chart: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\charts\05_lime_tokens.png
+    Evidence quality dashboard: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\charts\06_reliability.png
+    Narrative storyline contribution chart: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\charts\07_storyline_contribution.png
+    Contrastive waterfall (why A not B?): C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\charts\08_contrastive_waterfall.png
+    Article timeline (recency vs influence): C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\charts\09_article_timeline.png
+    Cumulative score build-up chart: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\charts\10_cumulative_score.png
+
+  LIME TOKEN DETAIL
+  Full token influence charts and raw numerical weights
+  --------------------------------------------------
+  (+) = supports predicted label     (-) = opposes predicted label
+
+  [1] UnitedHealth shares tank after earnings miss, forecast cut as medical ca
+      Content: UnitedHealth Group surprised investors with what its CEO said was an unusual and unacceptable quarterly earnings miss, a
+               nd it lowered its outlook for the full year due to higher-than-expected medical...
+      Article weight : 1.0000  |  Relevance to prediction : 0.9868
+      Token influence chart:
+        + tank             ████████████████████  (+0.1624)
+        + costs            ███████░░░░░░░░░░░░░  (+0.0582)
+        + lowered          ███████░░░░░░░░░░░░░  (+0.0576)
+        - higher           ███████░░░░░░░░░░░░░  (-0.0532)
+        + miss             █████░░░░░░░░░░░░░░░  (+0.0408)
+        + forecast         █████░░░░░░░░░░░░░░░  (+0.0379)
+        + due              ████░░░░░░░░░░░░░░░░  (+0.0338)
+        + unacceptable     ███░░░░░░░░░░░░░░░░░  (+0.0264)
+
+      Token                  Dir       Weight
+      ----------------------------------------
+      tank                   (+)    +0.162378
+      costs                  (+)    +0.058165
+      lowered                (+)    +0.057619
+      higher                 (-)    -0.053187
+      miss                   (+)    +0.040817
+      forecast               (+)    +0.037908
+      due                    (+)    +0.033798
+      unacceptable           (+)    +0.026387
+      care                   (+)    +0.026363
+      soar                   (-)    -0.025406
+
+  [2] UnitedHealth (UNH) Sinks 20% After Q1 Miss, Lowered 2025 Earnings Foreca
+      Content: UnitedHealth Posts Rare Earnings Miss, Cuts Profit Guidance Amid Medical Care Surge
+      Article weight : 1.0000  |  Relevance to prediction : 0.9852
+      Token influence chart:
+        + Sinks            ████████████████████  (+0.1271)
+        + Lowered          █████████████░░░░░░░  (+0.0844)
+        + Care             ████░░░░░░░░░░░░░░░░  (+0.0269)
+        - Surge            ████░░░░░░░░░░░░░░░░  (-0.0265)
+        + Miss             ████░░░░░░░░░░░░░░░░  (+0.0247)
+        + Cuts             ████░░░░░░░░░░░░░░░░  (+0.0226)
+        - After            ███░░░░░░░░░░░░░░░░░  (-0.0200)
+        + Earnings         ██░░░░░░░░░░░░░░░░░░  (+0.0145)
+
+      Token                  Dir       Weight
+      ----------------------------------------
+      Sinks                  (+)    +0.127100
+      Lowered                (+)    +0.084385
+      Care                   (+)    +0.026900
+      Surge                  (-)    -0.026515
+      Miss                   (+)    +0.024668
+      Cuts                   (+)    +0.022648
+      After                  (-)    -0.019997
+      Earnings               (+)    +0.014488
+      Amid                   (-)    -0.013338
+      Medical                (+)    +0.013288
+
+  [3] UnitedHealth Stock Is Having Its Worst Day in 25 Years After Earnings. H
+      Content: UnitedHealth Group stock sank Thursday after the giant health insurer posted first-quarter earnings that missed expectat
+               ions and slashed its full-year outlook. UnitedHealth was on pace for its largest same-day percentage decrease since a 28
+      Article weight : 1.0000  |  Relevance to prediction : 0.9791
+      Token influence chart:
+        + Worst            ████████████████████  (+0.0791)
+        + sank             ███████████████░░░░░  (+0.0587)
+        + After            ███████░░░░░░░░░░░░░  (+0.0286)
+        - according        ██████░░░░░░░░░░░░░░  (-0.0239)
+        + said             █████░░░░░░░░░░░░░░░  (+0.0186)
+        + slashed          ████░░░░░░░░░░░░░░░░  (+0.0176)
+        - Jones            ████░░░░░░░░░░░░░░░░  (-0.0164)
+        + decrease         ████░░░░░░░░░░░░░░░░  (+0.0153)
+
+      Token                  Dir       Weight
+      ----------------------------------------
+      Worst                  (+)    +0.079069
+      sank                   (+)    +0.058703
+      After                  (+)    +0.028614
+      according              (-)    -0.023891
+      said                   (+)    +0.018592
+      slashed                (+)    +0.017592
+      Jones                  (-)    -0.016361
+      decrease               (+)    +0.015302
+      quarter                (+)    +0.014108
+      Why                    (+)    +0.014047
+
+  [4] UnitedHealth shares crash after surprise earnings miss, cuts to forecast
+      Content: UnitedHealth Group surprised investors with what its CEO said was an unusual and unacceptable quarterly earnings miss, a
+               nd it lowered its outlook for the full year due to higher-than-expected medical...
+      Article weight : 1.0000  |  Relevance to prediction : 0.9785
+      Token influence chart:
+        + crash            ████████████████████  (+0.1559)
+        + lowered          ████████░░░░░░░░░░░░  (+0.0596)
+        + miss             ██████░░░░░░░░░░░░░░  (+0.0457)
+        - surprise         █████░░░░░░░░░░░░░░░  (-0.0365)
+        + due              ████░░░░░░░░░░░░░░░░  (+0.0325)
+        - shares           ████░░░░░░░░░░░░░░░░  (-0.0311)
+        + quarterly        ███░░░░░░░░░░░░░░░░░  (+0.0225)
+        - Sentiment        ███░░░░░░░░░░░░░░░░░  (-0.0224)
+
+      Token                  Dir       Weight
+      ----------------------------------------
+      crash                  (+)    +0.155925
+      lowered                (+)    +0.059575
+      miss                   (+)    +0.045720
+      surprise               (-)    -0.036545
+      due                    (+)    +0.032537
+      shares                 (-)    -0.031084
+      quarterly              (+)    +0.022529
+      Sentiment              (-)    -0.022370
+      medical                (+)    +0.021689
+      earnings               (+)    +0.020153
+
+  [5] Health Care Down as UnitedHealth Selloff Continues -- Health Care Roundu
+      Content: Health-care companies fell amid ongoing concerns about UnitedHealth Group. UnitedHealth shares fell 6% and are now down 
+               by 29% from levels earlier in April. While controversy about UnitedHealth's...
+      Article weight : 1.0000  |  Relevance to prediction : 0.9764
+      Token influence chart:
+        + Selloff          ████████████████████  (+0.0527)
+        + Down             ██████████████████░░  (+0.0487)
+        + Sentiment        █████████░░░░░░░░░░░  (+0.0229)
+        + fell             ███████░░░░░░░░░░░░░  (+0.0196)
+        - April            ███████░░░░░░░░░░░░░  (-0.0192)
+        + down             ███████░░░░░░░░░░░░░  (+0.0175)
+        - Care             ██████░░░░░░░░░░░░░░  (-0.0157)
+        - amid             ██████░░░░░░░░░░░░░░  (-0.0147)
+
+      Token                  Dir       Weight
+      ----------------------------------------
+      Selloff                (+)    +0.052651
+      Down                   (+)    +0.048663
+      Sentiment              (+)    +0.022874
+      fell                   (+)    +0.019644
+      April                  (-)    -0.019246
+      down                   (+)    +0.017546
+      Care                   (-)    -0.015718
+      amid                   (-)    -0.014727
+      companies              (-)    -0.012464
+      controversy            (+)    +0.009706
+
+------------------------------------------------------------
