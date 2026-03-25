@@ -67,8 +67,8 @@ OLLAMA_SENTIMENT_MODEL = "llama3.1:8b"
 # OLLAMA_SENTIMENT_MODEL = "mistral:7b"
 
 SENTIMENT_MODEL = "zero-shot"
-MODEL_NAME = "microsoft/deberta-large-mnli" # microsoft deberta large mnli
-# MODEL_NAME = "roberta-large-mnli" # facebookAI roberta mnli
+# MODEL_NAME = "microsoft/deberta-large-mnli" # microsoft deberta large mnli
+MODEL_NAME = "roberta-large-mnli" # facebookAI roberta mnli
 
 # ── Xai Configuration ────────────────────────────────────────────────────────
 XAI_ENABLED                    = False
@@ -103,7 +103,7 @@ HEADLINE_ONLY_WEIGHT           = 0.5     # discount for headline-only articles (
 # positive must exceed tau_pos, negative must exceed tau_neg, else neutral.
 DECISION_THRESHOLD_ENABLED     = True
 DECISION_THRESHOLD_POS         = 0.56
-DECISION_THRESHOLD_NEG         = 0.42
+DECISION_THRESHOLD_NEG         = 0.26
 
 # Dynamic abstention margin (entropy-adaptive safety net)
 DYNAMIC_MARGIN_ENABLED         = False

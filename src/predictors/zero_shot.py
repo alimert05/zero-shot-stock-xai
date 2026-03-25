@@ -63,13 +63,13 @@ def _get_deberta_pipeline():
 
 
 _CLASS_TO_LABEL = {
-    "positive": "bullish financial outlook",
-    "negative": "bearish financial outlook",
-    "neutral": "neutral financial outlook",
+    "positive": "bullish",
+    "negative": "bearish",
+    "neutral": "neutral",
 }
 _CANDIDATE_LABELS = list(_CLASS_TO_LABEL.values())
 _LABEL_TO_CLASS = {v.lower().strip(): k for k, v in _CLASS_TO_LABEL.items()}
-_HYPOTHESIS_TEMPLATE = "This text is {} about the financial outlook."
+_HYPOTHESIS_TEMPLATE = "The implication of this statement is {}."
 
 
 

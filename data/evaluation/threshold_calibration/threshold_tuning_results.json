@@ -1,5 +1,5 @@
 {
-  "source_results": "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\test_results\\evaluation_results.json",
+  "source_results": "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\evaluation\\evaluation_results\\evaluation_results_zero_shot.json",
   "grid": {
     "tau_pos_range": [
       0.33,
@@ -13,155 +13,156 @@
     ]
   },
   "baseline": {
-    "accuracy": 0.3802,
-    "macro_precision": 0.2849,
-    "macro_recall": 0.295,
-    "macro_f1": 0.2809,
-    "positive_rate": 0.2135
+    "accuracy": 0.2986,
+    "macro_precision": 0.1541,
+    "macro_recall": 0.3209,
+    "macro_f1": 0.187,
+    "positive_rate": 0.9062
   },
   "best": {
-    "best_tau_pos": 0.61,
-    "best_tau_neg": 0.34,
-    "macro_f1": 0.3471,
-    "accuracy": 0.4062,
-    "macro_precision": 0.4226,
-    "macro_recall": 0.3469,
-    "positive_rate": 0.1042,
+    "best_tau_pos": 0.56,
+    "best_tau_neg": 0.26,
+    "macro_f1": 0.3353,
+    "accuracy": 0.3958,
+    "macro_precision": 0.3597,
+    "macro_recall": 0.3425,
+    "positive_rate": 0.1528,
     "per_class": {
       "negative": {
-        "precision": 0.12,
-        "recall": 0.2368,
-        "f1": 0.1593
+        "precision": 0.1573,
+        "recall": 0.25,
+        "f1": 0.1931
       },
       "neutral": {
-        "precision": 0.5979,
-        "recall": 0.6237,
-        "f1": 0.6105
+        "precision": 0.5355,
+        "recall": 0.5929,
+        "f1": 0.5627
       },
       "positive": {
-        "precision": 0.55,
-        "recall": 0.1803,
-        "f1": 0.2716
+        "precision": 0.3864,
+        "recall": 0.1848,
+        "f1": 0.25
       }
     },
     "confusion_matrix": {
-      "positive": {
-        "negative": 40,
-        "neutral": 10,
-        "positive": 11
+      "negative": {
+        "negative": 14,
+        "neutral": 34,
+        "positive": 8
       },
       "neutral": {
-        "neutral": 58,
-        "negative": 26,
-        "positive": 9
+        "negative": 38,
+        "neutral": 83,
+        "positive": 19
       },
-      "negative": {
-        "negative": 9,
-        "neutral": 29
+      "positive": {
+        "neutral": 38,
+        "negative": 37,
+        "positive": 17
       }
     },
     "candidates_checked": 1558
   },
   "top_n": [
     {
-      "tau_pos": 0.61,
-      "tau_neg": 0.34,
-      "macro_f1": 0.3471,
-      "accuracy": 0.4062,
-      "pos_rate": 0.1042,
-      "neg_recall": 0.2368,
-      "neu_recall": 0.6237,
-      "pos_recall": 0.1803
-    },
-    {
-      "tau_pos": 0.61,
-      "tau_neg": 0.33,
-      "macro_f1": 0.3422,
-      "accuracy": 0.3854,
-      "pos_rate": 0.1042,
-      "neg_recall": 0.2895,
-      "neu_recall": 0.5591,
-      "pos_recall": 0.1803
-    },
-    {
-      "tau_pos": 0.6,
-      "tau_neg": 0.34,
-      "macro_f1": 0.34,
+      "tau_pos": 0.56,
+      "tau_neg": 0.26,
+      "macro_f1": 0.3353,
       "accuracy": 0.3958,
-      "pos_rate": 0.1198,
-      "neg_recall": 0.2368,
-      "neu_recall": 0.6022,
-      "pos_recall": 0.1803
+      "pos_rate": 0.1528,
+      "neg_recall": 0.25,
+      "neu_recall": 0.5929,
+      "pos_recall": 0.1848
+    },
+    {
+      "tau_pos": 0.56,
+      "tau_neg": 0.29,
+      "macro_f1": 0.3343,
+      "accuracy": 0.4271,
+      "pos_rate": 0.1528,
+      "neg_recall": 0.1607,
+      "neu_recall": 0.6929,
+      "pos_recall": 0.1848
     },
     {
       "tau_pos": 0.55,
-      "tau_neg": 0.34,
-      "macro_f1": 0.3361,
-      "accuracy": 0.3646,
-      "pos_rate": 0.2344,
-      "neg_recall": 0.2368,
-      "neu_recall": 0.4731,
-      "pos_recall": 0.2787
+      "tau_neg": 0.26,
+      "macro_f1": 0.3334,
+      "accuracy": 0.3889,
+      "pos_rate": 0.1701,
+      "neg_recall": 0.25,
+      "neu_recall": 0.5714,
+      "pos_recall": 0.1957
     },
     {
-      "tau_pos": 0.6,
-      "tau_neg": 0.33,
-      "macro_f1": 0.3347,
-      "accuracy": 0.375,
-      "pos_rate": 0.1198,
-      "neg_recall": 0.2895,
-      "neu_recall": 0.5376,
-      "pos_recall": 0.1803
+      "tau_pos": 0.55,
+      "tau_neg": 0.29,
+      "macro_f1": 0.333,
+      "accuracy": 0.4201,
+      "pos_rate": 0.1701,
+      "neg_recall": 0.1607,
+      "neu_recall": 0.6714,
+      "pos_recall": 0.1957
     },
     {
-      "tau_pos": 0.62,
-      "tau_neg": 0.34,
-      "macro_f1": 0.3338,
-      "accuracy": 0.401,
-      "pos_rate": 0.0885,
-      "neg_recall": 0.2368,
-      "neu_recall": 0.6344,
-      "pos_recall": 0.1475
+      "tau_pos": 0.56,
+      "tau_neg": 0.25,
+      "macro_f1": 0.331,
+      "accuracy": 0.3785,
+      "pos_rate": 0.1528,
+      "neg_recall": 0.2857,
+      "neu_recall": 0.5429,
+      "pos_recall": 0.1848
+    },
+    {
+      "tau_pos": 0.56,
+      "tau_neg": 0.28,
+      "macro_f1": 0.3309,
+      "accuracy": 0.4132,
+      "pos_rate": 0.1528,
+      "neg_recall": 0.1786,
+      "neu_recall": 0.6571,
+      "pos_recall": 0.1848
+    },
+    {
+      "tau_pos": 0.57,
+      "tau_neg": 0.26,
+      "macro_f1": 0.3295,
+      "accuracy": 0.3958,
+      "pos_rate": 0.1285,
+      "neg_recall": 0.25,
+      "neu_recall": 0.6071,
+      "pos_recall": 0.163
     },
     {
       "tau_pos": 0.59,
-      "tau_neg": 0.34,
-      "macro_f1": 0.333,
-      "accuracy": 0.3854,
-      "pos_rate": 0.1354,
-      "neg_recall": 0.2368,
-      "neu_recall": 0.5806,
-      "pos_recall": 0.1803
+      "tau_neg": 0.26,
+      "macro_f1": 0.3295,
+      "accuracy": 0.4062,
+      "pos_rate": 0.0972,
+      "neg_recall": 0.25,
+      "neu_recall": 0.6429,
+      "pos_recall": 0.1413
     },
     {
-      "tau_pos": 0.62,
-      "tau_neg": 0.33,
-      "macro_f1": 0.3291,
-      "accuracy": 0.3802,
-      "pos_rate": 0.0885,
-      "neg_recall": 0.2895,
-      "neu_recall": 0.5699,
-      "pos_recall": 0.1475
-    },
-    {
-      "tau_pos": 0.64,
-      "tau_neg": 0.34,
-      "macro_f1": 0.3284,
-      "accuracy": 0.401,
-      "pos_rate": 0.0781,
-      "neg_recall": 0.2368,
-      "neu_recall": 0.6452,
-      "pos_recall": 0.1311
+      "tau_pos": 0.54,
+      "tau_neg": 0.29,
+      "macro_f1": 0.3293,
+      "accuracy": 0.4097,
+      "pos_rate": 0.1944,
+      "neg_recall": 0.1607,
+      "neu_recall": 0.6429,
+      "pos_recall": 0.2065
     },
     {
       "tau_pos": 0.55,
-      "tau_neg": 0.33,
-      "macro_f1": 0.3279,
-      "accuracy": 0.3438,
-      "pos_rate": 0.2344,
-      "neg_recall": 0.2895,
-      "neu_recall": 0.4086,
-      "pos_recall": 0.2787
+      "tau_neg": 0.28,
+      "macro_f1": 0.3293,
+      "accuracy": 0.4062,
+      "pos_rate": 0.1701,
+      "neg_recall": 0.1786,
+      "neu_recall": 0.6357,
+      "pos_recall": 0.1957
     }
   ]
 }

@@ -1,0 +1,2480 @@
+{
+  "metadata": {
+    "run_timestamp": "2026-03-25 19:00:26",
+    "model": "microsoft/deberta-large-mnli",
+    "datasets": [
+      "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\financial_phrasebank_datasets\\financial_phrasebank_sentences_50agree.csv",
+      "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\financial_phrasebank_datasets\\financial_phrasebank_sentences_75agree.csv",
+      "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\financial_phrasebank_datasets\\financial_phrasebank_sentences_allagree.csv"
+    ],
+    "dataset_names": [
+      "financial_phrasebank_sentences_50agree.csv",
+      "financial_phrasebank_sentences_75agree.csv",
+      "financial_phrasebank_sentences_allagree.csv"
+    ],
+    "total_configs": 112,
+    "coarse_survivors": 25,
+    "n_folds": 5,
+    "test_ratio": 0.2,
+    "seed": 42,
+    "splits": {
+      "financial_phrasebank_sentences_50agree.csv": {
+        "total": 4846,
+        "dev_samples": 3876,
+        "test_samples": 970
+      },
+      "financial_phrasebank_sentences_75agree.csv": {
+        "total": 3453,
+        "dev_samples": 2761,
+        "test_samples": 692
+      },
+      "financial_phrasebank_sentences_allagree.csv": {
+        "total": 2264,
+        "dev_samples": 1810,
+        "test_samples": 454
+      }
+    }
+  },
+  "coarse_screen": [
+    {
+      "config_id": "t07_lm03",
+      "config_name": "reflects_outlook__optimistic",
+      "template_name": "reflects_outlook",
+      "label_map_name": "optimistic",
+      "macro_f1": 0.6348,
+      "accuracy": 0.6302,
+      "f1_scores": {
+        "positive": 0.5427,
+        "negative": 0.7063,
+        "neutral": 0.6552
+      },
+      "duration_seconds": 9.45
+    },
+    {
+      "config_id": "t13_lm06",
+      "config_name": "implication__bullish",
+      "template_name": "implication",
+      "label_map_name": "bullish",
+      "macro_f1": 0.6249,
+      "accuracy": 0.5966,
+      "f1_scores": {
+        "positive": 0.5345,
+        "negative": 0.749,
+        "neutral": 0.5912
+      },
+      "duration_seconds": 9.38
+    },
+    {
+      "config_id": "t07_lm04",
+      "config_name": "reflects_outlook__good_bad",
+      "template_name": "reflects_outlook",
+      "label_map_name": "good_bad",
+      "macro_f1": 0.6176,
+      "accuracy": 0.6082,
+      "f1_scores": {
+        "positive": 0.5775,
+        "negative": 0.669,
+        "neutral": 0.6061
+      },
+      "duration_seconds": 9.48
+    },
+    {
+      "config_id": "t07_lm06",
+      "config_name": "reflects_outlook__bullish",
+      "template_name": "reflects_outlook",
+      "label_map_name": "bullish",
+      "macro_f1": 0.6176,
+      "accuracy": 0.6031,
+      "f1_scores": {
+        "positive": 0.5354,
+        "negative": 0.7059,
+        "neutral": 0.6114
+      },
+      "duration_seconds": 9.57
+    },
+    {
+      "config_id": "t13_lm03",
+      "config_name": "implication__optimistic",
+      "template_name": "implication",
+      "label_map_name": "optimistic",
+      "macro_f1": 0.6055,
+      "accuracy": 0.5941,
+      "f1_scores": {
+        "positive": 0.543,
+        "negative": 0.6739,
+        "neutral": 0.5995
+      },
+      "duration_seconds": 9.2
+    },
+    {
+      "config_id": "t06_lm02",
+      "config_name": "financial_assessment__outlook",
+      "template_name": "financial_assessment",
+      "label_map_name": "outlook",
+      "macro_f1": 0.6032,
+      "accuracy": 0.6018,
+      "f1_scores": {
+        "positive": 0.6044,
+        "negative": 0.6076,
+        "neutral": 0.5975
+      },
+      "duration_seconds": 9.63
+    },
+    {
+      "config_id": "t08_lm06",
+      "config_name": "market_signal__bullish",
+      "template_name": "market_signal",
+      "label_map_name": "bullish",
+      "macro_f1": 0.5952,
+      "accuracy": 0.5954,
+      "f1_scores": {
+        "positive": 0.5132,
+        "negative": 0.6503,
+        "neutral": 0.6222
+      },
+      "duration_seconds": 9.4
+    },
+    {
+      "config_id": "t06_lm06",
+      "config_name": "financial_assessment__bullish",
+      "template_name": "financial_assessment",
+      "label_map_name": "bullish",
+      "macro_f1": 0.589,
+      "accuracy": 0.5889,
+      "f1_scores": {
+        "positive": 0.6032,
+        "negative": 0.581,
+        "neutral": 0.5828
+      },
+      "duration_seconds": 9.41
+    },
+    {
+      "config_id": "t08_lm03",
+      "config_name": "market_signal__optimistic",
+      "template_name": "market_signal",
+      "label_map_name": "optimistic",
+      "macro_f1": 0.5791,
+      "accuracy": 0.5567,
+      "f1_scores": {
+        "positive": 0.5521,
+        "negative": 0.6714,
+        "neutral": 0.5137
+      },
+      "duration_seconds": 9.32
+    },
+    {
+      "config_id": "t08_lm07",
+      "config_name": "market_signal__growth",
+      "template_name": "market_signal",
+      "label_map_name": "growth",
+      "macro_f1": 0.5726,
+      "accuracy": 0.5464,
+      "f1_scores": {
+        "positive": 0.5345,
+        "negative": 0.6812,
+        "neutral": 0.5022
+      },
+      "duration_seconds": 9.22
+    },
+    {
+      "config_id": "t07_lm01",
+      "config_name": "reflects_outlook__simple",
+      "template_name": "reflects_outlook",
+      "label_map_name": "simple",
+      "macro_f1": 0.5707,
+      "accuracy": 0.549,
+      "f1_scores": {
+        "positive": 0.5514,
+        "negative": 0.6621,
+        "neutral": 0.4985
+      },
+      "duration_seconds": 9.43
+    },
+    {
+      "config_id": "t04_lm01",
+      "config_name": "tone_financial__simple",
+      "template_name": "tone_financial",
+      "label_map_name": "simple",
+      "macro_f1": 0.5696,
+      "accuracy": 0.5593,
+      "f1_scores": {
+        "positive": 0.5926,
+        "negative": 0.6047,
+        "neutral": 0.5117
+      },
+      "duration_seconds": 9.16
+    },
+    {
+      "config_id": "t03_lm06",
+      "config_name": "expresses_sentiment__bullish",
+      "template_name": "expresses_sentiment",
+      "label_map_name": "bullish",
+      "macro_f1": 0.5676,
+      "accuracy": 0.5464,
+      "f1_scores": {
+        "positive": 0.5657,
+        "negative": 0.6551,
+        "neutral": 0.4819
+      },
+      "duration_seconds": 9.04
+    },
+    {
+      "config_id": "t03_lm03",
+      "config_name": "expresses_sentiment__optimistic",
+      "template_name": "expresses_sentiment",
+      "label_map_name": "optimistic",
+      "macro_f1": 0.5648,
+      "accuracy": 0.5644,
+      "f1_scores": {
+        "positive": 0.5785,
+        "negative": 0.5579,
+        "neutral": 0.5581
+      },
+      "duration_seconds": 8.87
+    },
+    {
+      "config_id": "t06_lm01",
+      "config_name": "financial_assessment__simple",
+      "template_name": "financial_assessment",
+      "label_map_name": "simple",
+      "macro_f1": 0.5578,
+      "accuracy": 0.5477,
+      "f1_scores": {
+        "positive": 0.5816,
+        "negative": 0.5949,
+        "neutral": 0.497
+      },
+      "duration_seconds": 9.33
+    },
+    {
+      "config_id": "t12_lm06",
+      "config_name": "about_outlook__bullish",
+      "template_name": "about_outlook",
+      "label_map_name": "bullish",
+      "macro_f1": 0.5572,
+      "accuracy": 0.5606,
+      "f1_scores": {
+        "positive": 0.5503,
+        "negative": 0.5497,
+        "neutral": 0.5714
+      },
+      "duration_seconds": 9.54
+    },
+    {
+      "config_id": "t07_lm05",
+      "config_name": "reflects_outlook__favorable",
+      "template_name": "reflects_outlook",
+      "label_map_name": "favorable",
+      "macro_f1": 0.5568,
+      "accuracy": 0.5296,
+      "f1_scores": {
+        "positive": 0.5561,
+        "negative": 0.6783,
+        "neutral": 0.436
+      },
+      "duration_seconds": 9.43
+    },
+    {
+      "config_id": "t08_lm01",
+      "config_name": "market_signal__simple",
+      "template_name": "market_signal",
+      "label_map_name": "simple",
+      "macro_f1": 0.5522,
+      "accuracy": 0.5296,
+      "f1_scores": {
+        "positive": 0.5514,
+        "negative": 0.6507,
+        "neutral": 0.4544
+      },
+      "duration_seconds": 9.26
+    },
+    {
+      "config_id": "t08_lm02",
+      "config_name": "market_signal__outlook",
+      "template_name": "market_signal",
+      "label_map_name": "outlook",
+      "macro_f1": 0.5468,
+      "accuracy": 0.5219,
+      "f1_scores": {
+        "positive": 0.5622,
+        "negative": 0.669,
+        "neutral": 0.4092
+      },
+      "duration_seconds": 9.63
+    },
+    {
+      "config_id": "t12_lm03",
+      "config_name": "about_outlook__optimistic",
+      "template_name": "about_outlook",
+      "label_map_name": "optimistic",
+      "macro_f1": 0.546,
+      "accuracy": 0.5477,
+      "f1_scores": {
+        "positive": 0.5636,
+        "negative": 0.5269,
+        "neutral": 0.5475
+      },
+      "duration_seconds": 9.32
+    },
+    {
+      "config_id": "t13_lm02",
+      "config_name": "implication__outlook",
+      "template_name": "implication",
+      "label_map_name": "outlook",
+      "macro_f1": 0.5457,
+      "accuracy": 0.5296,
+      "f1_scores": {
+        "positive": 0.5642,
+        "negative": 0.6178,
+        "neutral": 0.4551
+      },
+      "duration_seconds": 9.48
+    },
+    {
+      "config_id": "t04_lm02",
+      "config_name": "tone_financial__outlook",
+      "template_name": "tone_financial",
+      "label_map_name": "outlook",
+      "macro_f1": 0.5447,
+      "accuracy": 0.5438,
+      "f1_scores": {
+        "positive": 0.6311,
+        "negative": 0.4935,
+        "neutral": 0.5096
+      },
+      "duration_seconds": 9.6
+    },
+    {
+      "config_id": "t13_lm07",
+      "config_name": "implication__growth",
+      "template_name": "implication",
+      "label_map_name": "growth",
+      "macro_f1": 0.5409,
+      "accuracy": 0.5309,
+      "f1_scores": {
+        "positive": 0.5344,
+        "negative": 0.5854,
+        "neutral": 0.5029
+      },
+      "duration_seconds": 9.13
+    },
+    {
+      "config_id": "t11_lm02",
+      "config_name": "authors_attitude__outlook",
+      "template_name": "authors_attitude",
+      "label_map_name": "outlook",
+      "macro_f1": 0.5406,
+      "accuracy": 0.5335,
+      "f1_scores": {
+        "positive": 0.599,
+        "negative": 0.5706,
+        "neutral": 0.4522
+      },
+      "duration_seconds": 9.71
+    },
+    {
+      "config_id": "t01_lm01",
+      "config_name": "financial_statement__simple",
+      "template_name": "financial_statement",
+      "label_map_name": "simple",
+      "macro_f1": 0.5284,
+      "accuracy": 0.5258,
+      "f1_scores": {
+        "positive": 0.5855,
+        "negative": 0.5109,
+        "neutral": 0.4889
+      },
+      "duration_seconds": 8.9
+    },
+    {
+      "config_id": "t06_lm03",
+      "config_name": "financial_assessment__optimistic",
+      "template_name": "financial_assessment",
+      "label_map_name": "optimistic",
+      "macro_f1": 0.5283,
+      "accuracy": 0.5232,
+      "f1_scores": {
+        "positive": 0.6011,
+        "negative": 0.5299,
+        "neutral": 0.454
+      },
+      "duration_seconds": 9.31
+    },
+    {
+      "config_id": "t13_lm01",
+      "config_name": "implication__simple",
+      "template_name": "implication",
+      "label_map_name": "simple",
+      "macro_f1": 0.5283,
+      "accuracy": 0.5245,
+      "f1_scores": {
+        "positive": 0.6117,
+        "negative": 0.5229,
+        "neutral": 0.4504
+      },
+      "duration_seconds": 9.21
+    },
+    {
+      "config_id": "t04_lm06",
+      "config_name": "tone_financial__bullish",
+      "template_name": "tone_financial",
+      "label_map_name": "bullish",
+      "macro_f1": 0.526,
+      "accuracy": 0.5206,
+      "f1_scores": {
+        "positive": 0.5806,
+        "negative": 0.5281,
+        "neutral": 0.4694
+      },
+      "duration_seconds": 9.43
+    },
+    {
+      "config_id": "t02_lm06",
+      "config_name": "overall_sentiment__bullish",
+      "template_name": "overall_sentiment",
+      "label_map_name": "bullish",
+      "macro_f1": 0.5256,
+      "accuracy": 0.5206,
+      "f1_scores": {
+        "positive": 0.6057,
+        "negative": 0.5559,
+        "neutral": 0.4153
+      },
+      "duration_seconds": 9.29
+    },
+    {
+      "config_id": "t12_lm01",
+      "config_name": "about_outlook__simple",
+      "template_name": "about_outlook",
+      "label_map_name": "simple",
+      "macro_f1": 0.524,
+      "accuracy": 0.5129,
+      "f1_scores": {
+        "positive": 0.5684,
+        "negative": 0.5706,
+        "neutral": 0.433
+      },
+      "duration_seconds": 9.32
+    },
+    {
+      "config_id": "t12_lm04",
+      "config_name": "about_outlook__good_bad",
+      "template_name": "about_outlook",
+      "label_map_name": "good_bad",
+      "macro_f1": 0.5203,
+      "accuracy": 0.5206,
+      "f1_scores": {
+        "positive": 0.5575,
+        "negative": 0.4885,
+        "neutral": 0.5149
+      },
+      "duration_seconds": 9.39
+    },
+    {
+      "config_id": "t06_lm05",
+      "config_name": "financial_assessment__favorable",
+      "template_name": "financial_assessment",
+      "label_map_name": "favorable",
+      "macro_f1": 0.5173,
+      "accuracy": 0.5052,
+      "f1_scores": {
+        "positive": 0.5505,
+        "negative": 0.5714,
+        "neutral": 0.4299
+      },
+      "duration_seconds": 9.34
+    },
+    {
+      "config_id": "t04_lm03",
+      "config_name": "tone_financial__optimistic",
+      "template_name": "tone_financial",
+      "label_map_name": "optimistic",
+      "macro_f1": 0.5164,
+      "accuracy": 0.5116,
+      "f1_scores": {
+        "positive": 0.6034,
+        "negative": 0.5082,
+        "neutral": 0.4376
+      },
+      "duration_seconds": 9.28
+    },
+    {
+      "config_id": "t07_lm02",
+      "config_name": "reflects_outlook__outlook",
+      "template_name": "reflects_outlook",
+      "label_map_name": "outlook",
+      "macro_f1": 0.5126,
+      "accuracy": 0.4936,
+      "f1_scores": {
+        "positive": 0.5526,
+        "negative": 0.6198,
+        "neutral": 0.3654
+      },
+      "duration_seconds": 9.76
+    },
+    {
+      "config_id": "t03_lm01",
+      "config_name": "expresses_sentiment__simple",
+      "template_name": "expresses_sentiment",
+      "label_map_name": "simple",
+      "macro_f1": 0.5088,
+      "accuracy": 0.4871,
+      "f1_scores": {
+        "positive": 0.5546,
+        "negative": 0.6392,
+        "neutral": 0.3328
+      },
+      "duration_seconds": 8.91
+    },
+    {
+      "config_id": "t08_lm05",
+      "config_name": "market_signal__favorable",
+      "template_name": "market_signal",
+      "label_map_name": "favorable",
+      "macro_f1": 0.5067,
+      "accuracy": 0.4871,
+      "f1_scores": {
+        "positive": 0.5513,
+        "negative": 0.6258,
+        "neutral": 0.343
+      },
+      "duration_seconds": 9.21
+    },
+    {
+      "config_id": "t11_lm06",
+      "config_name": "authors_attitude__bullish",
+      "template_name": "authors_attitude",
+      "label_map_name": "bullish",
+      "macro_f1": 0.5059,
+      "accuracy": 0.4858,
+      "f1_scores": {
+        "positive": 0.5539,
+        "negative": 0.6288,
+        "neutral": 0.335
+      },
+      "duration_seconds": 9.68
+    },
+    {
+      "config_id": "t10_lm01",
+      "config_name": "conveys_message__simple",
+      "template_name": "conveys_message",
+      "label_map_name": "simple",
+      "macro_f1": 0.505,
+      "accuracy": 0.5077,
+      "f1_scores": {
+        "positive": 0.4928,
+        "negative": 0.5053,
+        "neutral": 0.5171
+      },
+      "duration_seconds": 9.28
+    },
+    {
+      "config_id": "t01_lm06",
+      "config_name": "financial_statement__bullish",
+      "template_name": "financial_statement",
+      "label_map_name": "bullish",
+      "macro_f1": 0.5035,
+      "accuracy": 0.509,
+      "f1_scores": {
+        "positive": 0.5358,
+        "negative": 0.4533,
+        "neutral": 0.5215
+      },
+      "duration_seconds": 9.07
+    },
+    {
+      "config_id": "t10_lm03",
+      "config_name": "conveys_message__optimistic",
+      "template_name": "conveys_message",
+      "label_map_name": "optimistic",
+      "macro_f1": 0.4933,
+      "accuracy": 0.5258,
+      "f1_scores": {
+        "positive": 0.3832,
+        "negative": 0.5084,
+        "neutral": 0.5884
+      },
+      "duration_seconds": 9.23
+    },
+    {
+      "config_id": "t04_lm05",
+      "config_name": "tone_financial__favorable",
+      "template_name": "tone_financial",
+      "label_map_name": "favorable",
+      "macro_f1": 0.4925,
+      "accuracy": 0.4807,
+      "f1_scores": {
+        "positive": 0.5617,
+        "negative": 0.568,
+        "neutral": 0.3478
+      },
+      "duration_seconds": 9.37
+    },
+    {
+      "config_id": "t10_lm06",
+      "config_name": "conveys_message__bullish",
+      "template_name": "conveys_message",
+      "label_map_name": "bullish",
+      "macro_f1": 0.4922,
+      "accuracy": 0.4923,
+      "f1_scores": {
+        "positive": 0.4905,
+        "negative": 0.4934,
+        "neutral": 0.4927
+      },
+      "duration_seconds": 9.4
+    },
+    {
+      "config_id": "t01_lm05",
+      "config_name": "financial_statement__favorable",
+      "template_name": "financial_statement",
+      "label_map_name": "favorable",
+      "macro_f1": 0.4909,
+      "accuracy": 0.4858,
+      "f1_scores": {
+        "positive": 0.5676,
+        "negative": 0.4885,
+        "neutral": 0.4164
+      },
+      "duration_seconds": 8.93
+    },
+    {
+      "config_id": "t13_lm04",
+      "config_name": "implication__good_bad",
+      "template_name": "implication",
+      "label_map_name": "good_bad",
+      "macro_f1": 0.4879,
+      "accuracy": 0.4871,
+      "f1_scores": {
+        "positive": 0.5424,
+        "negative": 0.4315,
+        "neutral": 0.4899
+      },
+      "duration_seconds": 9.24
+    },
+    {
+      "config_id": "t03_lm02",
+      "config_name": "expresses_sentiment__outlook",
+      "template_name": "expresses_sentiment",
+      "label_map_name": "outlook",
+      "macro_f1": 0.4863,
+      "accuracy": 0.4807,
+      "f1_scores": {
+        "positive": 0.5832,
+        "negative": 0.5163,
+        "neutral": 0.3594
+      },
+      "duration_seconds": 9.39
+    },
+    {
+      "config_id": "t04_lm07",
+      "config_name": "tone_financial__growth",
+      "template_name": "tone_financial",
+      "label_map_name": "growth",
+      "macro_f1": 0.4796,
+      "accuracy": 0.4536,
+      "f1_scores": {
+        "positive": 0.5134,
+        "negative": 0.6333,
+        "neutral": 0.2921
+      },
+      "duration_seconds": 9.34
+    },
+    {
+      "config_id": "t10_lm05",
+      "config_name": "conveys_message__favorable",
+      "template_name": "conveys_message",
+      "label_map_name": "favorable",
+      "macro_f1": 0.478,
+      "accuracy": 0.4665,
+      "f1_scores": {
+        "positive": 0.5522,
+        "negative": 0.5429,
+        "neutral": 0.3388
+      },
+      "duration_seconds": 9.28
+    },
+    {
+      "config_id": "t13_lm05",
+      "config_name": "implication__favorable",
+      "template_name": "implication",
+      "label_map_name": "favorable",
+      "macro_f1": 0.4756,
+      "accuracy": 0.4678,
+      "f1_scores": {
+        "positive": 0.5617,
+        "negative": 0.5656,
+        "neutral": 0.2995
+      },
+      "duration_seconds": 9.21
+    },
+    {
+      "config_id": "t12_lm05",
+      "config_name": "about_outlook__favorable",
+      "template_name": "about_outlook",
+      "label_map_name": "favorable",
+      "macro_f1": 0.4735,
+      "accuracy": 0.4626,
+      "f1_scores": {
+        "positive": 0.5542,
+        "negative": 0.574,
+        "neutral": 0.2923
+      },
+      "duration_seconds": 9.3
+    },
+    {
+      "config_id": "t10_lm07",
+      "config_name": "conveys_message__growth",
+      "template_name": "conveys_message",
+      "label_map_name": "growth",
+      "macro_f1": 0.4721,
+      "accuracy": 0.451,
+      "f1_scores": {
+        "positive": 0.5229,
+        "negative": 0.6214,
+        "neutral": 0.2721
+      },
+      "duration_seconds": 9.24
+    },
+    {
+      "config_id": "t03_lm05",
+      "config_name": "expresses_sentiment__favorable",
+      "template_name": "expresses_sentiment",
+      "label_map_name": "favorable",
+      "macro_f1": 0.471,
+      "accuracy": 0.4369,
+      "f1_scores": {
+        "positive": 0.5198,
+        "negative": 0.7194,
+        "neutral": 0.1737
+      },
+      "duration_seconds": 8.89
+    },
+    {
+      "config_id": "t02_lm01",
+      "config_name": "overall_sentiment__simple",
+      "template_name": "overall_sentiment",
+      "label_map_name": "simple",
+      "macro_f1": 0.4705,
+      "accuracy": 0.4652,
+      "f1_scores": {
+        "positive": 0.5706,
+        "negative": 0.5808,
+        "neutral": 0.2602
+      },
+      "duration_seconds": 8.85
+    },
+    {
+      "config_id": "t09_lm02",
+      "config_name": "sentiment_of_text__outlook",
+      "template_name": "sentiment_of_text",
+      "label_map_name": "outlook",
+      "macro_f1": 0.4698,
+      "accuracy": 0.4613,
+      "f1_scores": {
+        "positive": 0.5585,
+        "negative": 0.5607,
+        "neutral": 0.2903
+      },
+      "duration_seconds": 9.46
+    },
+    {
+      "config_id": "t11_lm03",
+      "config_name": "authors_attitude__optimistic",
+      "template_name": "authors_attitude",
+      "label_map_name": "optimistic",
+      "macro_f1": 0.4679,
+      "accuracy": 0.4601,
+      "f1_scores": {
+        "positive": 0.5648,
+        "negative": 0.5614,
+        "neutral": 0.2776
+      },
+      "duration_seconds": 9.5
+    },
+    {
+      "config_id": "t10_lm02",
+      "config_name": "conveys_message__outlook",
+      "template_name": "conveys_message",
+      "label_map_name": "outlook",
+      "macro_f1": 0.4652,
+      "accuracy": 0.4678,
+      "f1_scores": {
+        "positive": 0.4754,
+        "negative": 0.4389,
+        "neutral": 0.4812
+      },
+      "duration_seconds": 9.54
+    },
+    {
+      "config_id": "t11_lm01",
+      "config_name": "authors_attitude__simple",
+      "template_name": "authors_attitude",
+      "label_map_name": "simple",
+      "macro_f1": 0.4651,
+      "accuracy": 0.4485,
+      "f1_scores": {
+        "positive": 0.5385,
+        "negative": 0.6159,
+        "neutral": 0.2409
+      },
+      "duration_seconds": 9.29
+    },
+    {
+      "config_id": "t05_lm07",
+      "config_name": "news_for_company__growth",
+      "template_name": "news_for_company",
+      "label_map_name": "growth",
+      "macro_f1": 0.4592,
+      "accuracy": 0.4459,
+      "f1_scores": {
+        "positive": 0.5149,
+        "negative": 0.5656,
+        "neutral": 0.2972
+      },
+      "duration_seconds": 9.02
+    },
+    {
+      "config_id": "t03_lm07",
+      "config_name": "expresses_sentiment__growth",
+      "template_name": "expresses_sentiment",
+      "label_map_name": "growth",
+      "macro_f1": 0.458,
+      "accuracy": 0.4291,
+      "f1_scores": {
+        "positive": 0.5049,
+        "negative": 0.6667,
+        "neutral": 0.2026
+      },
+      "duration_seconds": 8.94
+    },
+    {
+      "config_id": "t09_lm06",
+      "config_name": "sentiment_of_text__bullish",
+      "template_name": "sentiment_of_text",
+      "label_map_name": "bullish",
+      "macro_f1": 0.455,
+      "accuracy": 0.4407,
+      "f1_scores": {
+        "positive": 0.5391,
+        "negative": 0.6254,
+        "neutral": 0.2004
+      },
+      "duration_seconds": 9.27
+    },
+    {
+      "config_id": "t08_lm04",
+      "config_name": "market_signal__good_bad",
+      "template_name": "market_signal",
+      "label_map_name": "good_bad",
+      "macro_f1": 0.4542,
+      "accuracy": 0.4433,
+      "f1_scores": {
+        "positive": 0.5405,
+        "negative": 0.5501,
+        "neutral": 0.2718
+      },
+      "duration_seconds": 9.3
+    },
+    {
+      "config_id": "t04_lm04",
+      "config_name": "tone_financial__good_bad",
+      "template_name": "tone_financial",
+      "label_map_name": "good_bad",
+      "macro_f1": 0.4482,
+      "accuracy": 0.4407,
+      "f1_scores": {
+        "positive": 0.5463,
+        "negative": 0.3801,
+        "neutral": 0.4183
+      },
+      "duration_seconds": 9.37
+    },
+    {
+      "config_id": "t09_lm03",
+      "config_name": "sentiment_of_text__optimistic",
+      "template_name": "sentiment_of_text",
+      "label_map_name": "optimistic",
+      "macro_f1": 0.4474,
+      "accuracy": 0.4433,
+      "f1_scores": {
+        "positive": 0.5623,
+        "negative": 0.5723,
+        "neutral": 0.2075
+      },
+      "duration_seconds": 9.12
+    },
+    {
+      "config_id": "t06_lm04",
+      "config_name": "financial_assessment__good_bad",
+      "template_name": "financial_assessment",
+      "label_map_name": "good_bad",
+      "macro_f1": 0.4465,
+      "accuracy": 0.4407,
+      "f1_scores": {
+        "positive": 0.5553,
+        "negative": 0.4424,
+        "neutral": 0.3416
+      },
+      "duration_seconds": 9.31
+    },
+    {
+      "config_id": "t11_lm07",
+      "config_name": "authors_attitude__growth",
+      "template_name": "authors_attitude",
+      "label_map_name": "growth",
+      "macro_f1": 0.4453,
+      "accuracy": 0.4149,
+      "f1_scores": {
+        "positive": 0.5025,
+        "negative": 0.7099,
+        "neutral": 0.1235
+      },
+      "duration_seconds": 9.55
+    },
+    {
+      "config_id": "t10_lm04",
+      "config_name": "conveys_message__good_bad",
+      "template_name": "conveys_message",
+      "label_map_name": "good_bad",
+      "macro_f1": 0.4436,
+      "accuracy": 0.4626,
+      "f1_scores": {
+        "positive": 0.3968,
+        "negative": 0.4228,
+        "neutral": 0.5111
+      },
+      "duration_seconds": 9.26
+    },
+    {
+      "config_id": "t09_lm05",
+      "config_name": "sentiment_of_text__favorable",
+      "template_name": "sentiment_of_text",
+      "label_map_name": "favorable",
+      "macro_f1": 0.4419,
+      "accuracy": 0.4188,
+      "f1_scores": {
+        "positive": 0.5183,
+        "negative": 0.7132,
+        "neutral": 0.0941
+      },
+      "duration_seconds": 9.17
+    },
+    {
+      "config_id": "t12_lm02",
+      "config_name": "about_outlook__outlook",
+      "template_name": "about_outlook",
+      "label_map_name": "outlook",
+      "macro_f1": 0.4401,
+      "accuracy": 0.433,
+      "f1_scores": {
+        "positive": 0.5856,
+        "negative": 0.4008,
+        "neutral": 0.3339
+      },
+      "duration_seconds": 9.65
+    },
+    {
+      "config_id": "t05_lm03",
+      "config_name": "news_for_company__optimistic",
+      "template_name": "news_for_company",
+      "label_map_name": "optimistic",
+      "macro_f1": 0.4399,
+      "accuracy": 0.4214,
+      "f1_scores": {
+        "positive": 0.518,
+        "negative": 0.6382,
+        "neutral": 0.1635
+      },
+      "duration_seconds": 9.18
+    },
+    {
+      "config_id": "t05_lm06",
+      "config_name": "news_for_company__bullish",
+      "template_name": "news_for_company",
+      "label_map_name": "bullish",
+      "macro_f1": 0.4396,
+      "accuracy": 0.4175,
+      "f1_scores": {
+        "positive": 0.5145,
+        "negative": 0.6783,
+        "neutral": 0.126
+      },
+      "duration_seconds": 9.26
+    },
+    {
+      "config_id": "t09_lm07",
+      "config_name": "sentiment_of_text__growth",
+      "template_name": "sentiment_of_text",
+      "label_map_name": "growth",
+      "macro_f1": 0.4364,
+      "accuracy": 0.4201,
+      "f1_scores": {
+        "positive": 0.5189,
+        "negative": 0.6421,
+        "neutral": 0.1481
+      },
+      "duration_seconds": 9.14
+    },
+    {
+      "config_id": "t01_lm02",
+      "config_name": "financial_statement__outlook",
+      "template_name": "financial_statement",
+      "label_map_name": "outlook",
+      "macro_f1": 0.4348,
+      "accuracy": 0.4278,
+      "f1_scores": {
+        "positive": 0.5726,
+        "negative": 0.3992,
+        "neutral": 0.3328
+      },
+      "duration_seconds": 9.0
+    },
+    {
+      "config_id": "t09_lm01",
+      "config_name": "sentiment_of_text__simple",
+      "template_name": "sentiment_of_text",
+      "label_map_name": "simple",
+      "macro_f1": 0.4339,
+      "accuracy": 0.4214,
+      "f1_scores": {
+        "positive": 0.5286,
+        "negative": 0.6419,
+        "neutral": 0.1312
+      },
+      "duration_seconds": 9.2
+    },
+    {
+      "config_id": "t11_lm05",
+      "config_name": "authors_attitude__favorable",
+      "template_name": "authors_attitude",
+      "label_map_name": "favorable",
+      "macro_f1": 0.4337,
+      "accuracy": 0.4227,
+      "f1_scores": {
+        "positive": 0.5321,
+        "negative": 0.6554,
+        "neutral": 0.1136
+      },
+      "duration_seconds": 9.6
+    },
+    {
+      "config_id": "t01_lm03",
+      "config_name": "financial_statement__optimistic",
+      "template_name": "financial_statement",
+      "label_map_name": "optimistic",
+      "macro_f1": 0.4336,
+      "accuracy": 0.4278,
+      "f1_scores": {
+        "positive": 0.5135,
+        "negative": 0.4297,
+        "neutral": 0.3577
+      },
+      "duration_seconds": 8.34
+    },
+    {
+      "config_id": "t02_lm07",
+      "config_name": "overall_sentiment__growth",
+      "template_name": "overall_sentiment",
+      "label_map_name": "growth",
+      "macro_f1": 0.4297,
+      "accuracy": 0.424,
+      "f1_scores": {
+        "positive": 0.5339,
+        "negative": 0.5619,
+        "neutral": 0.1932
+      },
+      "duration_seconds": 8.98
+    },
+    {
+      "config_id": "t07_lm08",
+      "config_name": "reflects_outlook__confidence",
+      "template_name": "reflects_outlook",
+      "label_map_name": "confidence",
+      "macro_f1": 0.4287,
+      "accuracy": 0.4253,
+      "f1_scores": {
+        "positive": 0.6069,
+        "negative": 0.3891,
+        "neutral": 0.2901
+      },
+      "duration_seconds": 9.44
+    },
+    {
+      "config_id": "t06_lm07",
+      "config_name": "financial_assessment__growth",
+      "template_name": "financial_assessment",
+      "label_map_name": "growth",
+      "macro_f1": 0.4275,
+      "accuracy": 0.4214,
+      "f1_scores": {
+        "positive": 0.5321,
+        "negative": 0.5491,
+        "neutral": 0.2011
+      },
+      "duration_seconds": 9.34
+    },
+    {
+      "config_id": "t14_lm07",
+      "config_name": "investor_implications__growth",
+      "template_name": "investor_implications",
+      "label_map_name": "growth",
+      "macro_f1": 0.4239,
+      "accuracy": 0.4124,
+      "f1_scores": {
+        "positive": 0.4876,
+        "negative": 0.5449,
+        "neutral": 0.2391
+      },
+      "duration_seconds": 9.18
+    },
+    {
+      "config_id": "t07_lm07",
+      "config_name": "reflects_outlook__growth",
+      "template_name": "reflects_outlook",
+      "label_map_name": "growth",
+      "macro_f1": 0.4235,
+      "accuracy": 0.3918,
+      "f1_scores": {
+        "positive": 0.47,
+        "negative": 0.6807,
+        "neutral": 0.1197
+      },
+      "duration_seconds": 9.34
+    },
+    {
+      "config_id": "t02_lm05",
+      "config_name": "overall_sentiment__favorable",
+      "template_name": "overall_sentiment",
+      "label_map_name": "favorable",
+      "macro_f1": 0.4226,
+      "accuracy": 0.4265,
+      "f1_scores": {
+        "positive": 0.5643,
+        "negative": 0.4974,
+        "neutral": 0.2061
+      },
+      "duration_seconds": 8.8
+    },
+    {
+      "config_id": "t02_lm03",
+      "config_name": "overall_sentiment__optimistic",
+      "template_name": "overall_sentiment",
+      "label_map_name": "optimistic",
+      "macro_f1": 0.4166,
+      "accuracy": 0.4227,
+      "f1_scores": {
+        "positive": 0.589,
+        "negative": 0.4481,
+        "neutral": 0.2125
+      },
+      "duration_seconds": 8.89
+    },
+    {
+      "config_id": "t05_lm02",
+      "config_name": "news_for_company__outlook",
+      "template_name": "news_for_company",
+      "label_map_name": "outlook",
+      "macro_f1": 0.4147,
+      "accuracy": 0.4137,
+      "f1_scores": {
+        "positive": 0.5421,
+        "negative": 0.5791,
+        "neutral": 0.1228
+      },
+      "duration_seconds": 9.47
+    },
+    {
+      "config_id": "t14_lm02",
+      "config_name": "investor_implications__outlook",
+      "template_name": "investor_implications",
+      "label_map_name": "outlook",
+      "macro_f1": 0.4141,
+      "accuracy": 0.4149,
+      "f1_scores": {
+        "positive": 0.5435,
+        "negative": 0.5969,
+        "neutral": 0.1018
+      },
+      "duration_seconds": 9.4
+    },
+    {
+      "config_id": "t05_lm01",
+      "config_name": "news_for_company__simple",
+      "template_name": "news_for_company",
+      "label_map_name": "simple",
+      "macro_f1": 0.4079,
+      "accuracy": 0.4021,
+      "f1_scores": {
+        "positive": 0.5189,
+        "negative": 0.6382,
+        "neutral": 0.0665
+      },
+      "duration_seconds": 9.24
+    },
+    {
+      "config_id": "t02_lm02",
+      "config_name": "overall_sentiment__outlook",
+      "template_name": "overall_sentiment",
+      "label_map_name": "outlook",
+      "macro_f1": 0.4075,
+      "accuracy": 0.4034,
+      "f1_scores": {
+        "positive": 0.5753,
+        "negative": 0.4067,
+        "neutral": 0.2406
+      },
+      "duration_seconds": 9.14
+    },
+    {
+      "config_id": "t05_lm04",
+      "config_name": "news_for_company__good_bad",
+      "template_name": "news_for_company",
+      "label_map_name": "good_bad",
+      "macro_f1": 0.4075,
+      "accuracy": 0.3982,
+      "f1_scores": {
+        "positive": 0.5148,
+        "negative": 0.6576,
+        "neutral": 0.05
+      },
+      "duration_seconds": 9.14
+    },
+    {
+      "config_id": "t14_lm03",
+      "config_name": "investor_implications__optimistic",
+      "template_name": "investor_implications",
+      "label_map_name": "optimistic",
+      "macro_f1": 0.4043,
+      "accuracy": 0.4085,
+      "f1_scores": {
+        "positive": 0.5435,
+        "negative": 0.5988,
+        "neutral": 0.0707
+      },
+      "duration_seconds": 9.28
+    },
+    {
+      "config_id": "t02_lm04",
+      "config_name": "overall_sentiment__good_bad",
+      "template_name": "overall_sentiment",
+      "label_map_name": "good_bad",
+      "macro_f1": 0.4029,
+      "accuracy": 0.4137,
+      "f1_scores": {
+        "positive": 0.5869,
+        "negative": 0.4641,
+        "neutral": 0.1578
+      },
+      "duration_seconds": 9.05
+    },
+    {
+      "config_id": "t05_lm05",
+      "config_name": "news_for_company__favorable",
+      "template_name": "news_for_company",
+      "label_map_name": "favorable",
+      "macro_f1": 0.3993,
+      "accuracy": 0.3956,
+      "f1_scores": {
+        "positive": 0.5174,
+        "negative": 0.6424,
+        "neutral": 0.0381
+      },
+      "duration_seconds": 9.2
+    },
+    {
+      "config_id": "t14_lm06",
+      "config_name": "investor_implications__bullish",
+      "template_name": "investor_implications",
+      "label_map_name": "bullish",
+      "macro_f1": 0.3975,
+      "accuracy": 0.3918,
+      "f1_scores": {
+        "positive": 0.5141,
+        "negative": 0.6488,
+        "neutral": 0.0295
+      },
+      "duration_seconds": 9.31
+    },
+    {
+      "config_id": "t14_lm05",
+      "config_name": "investor_implications__favorable",
+      "template_name": "investor_implications",
+      "label_map_name": "favorable",
+      "macro_f1": 0.394,
+      "accuracy": 0.393,
+      "f1_scores": {
+        "positive": 0.5203,
+        "negative": 0.6488,
+        "neutral": 0.0129
+      },
+      "duration_seconds": 9.17
+    },
+    {
+      "config_id": "t09_lm04",
+      "config_name": "sentiment_of_text__good_bad",
+      "template_name": "sentiment_of_text",
+      "label_map_name": "good_bad",
+      "macro_f1": 0.3926,
+      "accuracy": 0.3982,
+      "f1_scores": {
+        "positive": 0.5574,
+        "negative": 0.4586,
+        "neutral": 0.1618
+      },
+      "duration_seconds": 9.08
+    },
+    {
+      "config_id": "t03_lm04",
+      "config_name": "expresses_sentiment__good_bad",
+      "template_name": "expresses_sentiment",
+      "label_map_name": "good_bad",
+      "macro_f1": 0.3908,
+      "accuracy": 0.3866,
+      "f1_scores": {
+        "positive": 0.5211,
+        "negative": 0.4026,
+        "neutral": 0.2487
+      },
+      "duration_seconds": 8.89
+    },
+    {
+      "config_id": "t14_lm01",
+      "config_name": "investor_implications__simple",
+      "template_name": "investor_implications",
+      "label_map_name": "simple",
+      "macro_f1": 0.3841,
+      "accuracy": 0.3905,
+      "f1_scores": {
+        "positive": 0.5278,
+        "negative": 0.6159,
+        "neutral": 0.0086
+      },
+      "duration_seconds": 9.2
+    },
+    {
+      "config_id": "t14_lm04",
+      "config_name": "investor_implications__good_bad",
+      "template_name": "investor_implications",
+      "label_map_name": "good_bad",
+      "macro_f1": 0.3815,
+      "accuracy": 0.393,
+      "f1_scores": {
+        "positive": 0.5406,
+        "negative": 0.5826,
+        "neutral": 0.0214
+      },
+      "duration_seconds": 9.24
+    },
+    {
+      "config_id": "t01_lm07",
+      "config_name": "financial_statement__growth",
+      "template_name": "financial_statement",
+      "label_map_name": "growth",
+      "macro_f1": 0.379,
+      "accuracy": 0.3827,
+      "f1_scores": {
+        "positive": 0.5037,
+        "negative": 0.4946,
+        "neutral": 0.1386
+      },
+      "duration_seconds": 8.94
+    },
+    {
+      "config_id": "t10_lm08",
+      "config_name": "conveys_message__confidence",
+      "template_name": "conveys_message",
+      "label_map_name": "confidence",
+      "macro_f1": 0.3545,
+      "accuracy": 0.491,
+      "f1_scores": {
+        "positive": 0.3865,
+        "negative": 0.0415,
+        "neutral": 0.6355
+      },
+      "duration_seconds": 9.24
+    },
+    {
+      "config_id": "t03_lm08",
+      "config_name": "expresses_sentiment__confidence",
+      "template_name": "expresses_sentiment",
+      "label_map_name": "confidence",
+      "macro_f1": 0.3544,
+      "accuracy": 0.3466,
+      "f1_scores": {
+        "positive": 0.4191,
+        "negative": 0.3119,
+        "neutral": 0.3323
+      },
+      "duration_seconds": 8.95
+    },
+    {
+      "config_id": "t14_lm08",
+      "config_name": "investor_implications__confidence",
+      "template_name": "investor_implications",
+      "label_map_name": "confidence",
+      "macro_f1": 0.3483,
+      "accuracy": 0.4227,
+      "f1_scores": {
+        "positive": 0.4878,
+        "negative": 0.1026,
+        "neutral": 0.4547
+      },
+      "duration_seconds": 9.22
+    },
+    {
+      "config_id": "t01_lm04",
+      "config_name": "financial_statement__good_bad",
+      "template_name": "financial_statement",
+      "label_map_name": "good_bad",
+      "macro_f1": 0.3422,
+      "accuracy": 0.3402,
+      "f1_scores": {
+        "positive": 0.4693,
+        "negative": 0.364,
+        "neutral": 0.1934
+      },
+      "duration_seconds": 8.39
+    },
+    {
+      "config_id": "t02_lm08",
+      "config_name": "overall_sentiment__confidence",
+      "template_name": "overall_sentiment",
+      "label_map_name": "confidence",
+      "macro_f1": 0.3352,
+      "accuracy": 0.3608,
+      "f1_scores": {
+        "positive": 0.5946,
+        "negative": 0.0434,
+        "neutral": 0.3675
+      },
+      "duration_seconds": 8.8
+    },
+    {
+      "config_id": "t01_lm08",
+      "config_name": "financial_statement__confidence",
+      "template_name": "financial_statement",
+      "label_map_name": "confidence",
+      "macro_f1": 0.3176,
+      "accuracy": 0.3492,
+      "f1_scores": {
+        "positive": 0.2036,
+        "negative": 0.2729,
+        "neutral": 0.4763
+      },
+      "duration_seconds": 8.9
+    },
+    {
+      "config_id": "t11_lm04",
+      "config_name": "authors_attitude__good_bad",
+      "template_name": "authors_attitude",
+      "label_map_name": "good_bad",
+      "macro_f1": 0.3108,
+      "accuracy": 0.299,
+      "f1_scores": {
+        "positive": 0.4222,
+        "negative": 0.307,
+        "neutral": 0.2033
+      },
+      "duration_seconds": 9.49
+    },
+    {
+      "config_id": "t05_lm08",
+      "config_name": "news_for_company__confidence",
+      "template_name": "news_for_company",
+      "label_map_name": "confidence",
+      "macro_f1": 0.3062,
+      "accuracy": 0.2951,
+      "f1_scores": {
+        "positive": 0.5568,
+        "negative": 0.0168,
+        "neutral": 0.3451
+      },
+      "duration_seconds": 9.16
+    },
+    {
+      "config_id": "t06_lm08",
+      "config_name": "financial_assessment__confidence",
+      "template_name": "financial_assessment",
+      "label_map_name": "confidence",
+      "macro_f1": 0.3037,
+      "accuracy": 0.3376,
+      "f1_scores": {
+        "positive": 0.1697,
+        "negative": 0.2724,
+        "neutral": 0.4688
+      },
+      "duration_seconds": 9.24
+    },
+    {
+      "config_id": "t12_lm08",
+      "config_name": "about_outlook__confidence",
+      "template_name": "about_outlook",
+      "label_map_name": "confidence",
+      "macro_f1": 0.2722,
+      "accuracy": 0.2668,
+      "f1_scores": {
+        "positive": 0.2886,
+        "negative": 0.2417,
+        "neutral": 0.2862
+      },
+      "duration_seconds": 9.43
+    },
+    {
+      "config_id": "t12_lm07",
+      "config_name": "about_outlook__growth",
+      "template_name": "about_outlook",
+      "label_map_name": "growth",
+      "macro_f1": 0.2214,
+      "accuracy": 0.2152,
+      "f1_scores": {
+        "positive": 0.3084,
+        "negative": 0.1843,
+        "neutral": 0.1714
+      },
+      "duration_seconds": 9.41
+    },
+    {
+      "config_id": "t04_lm08",
+      "config_name": "tone_financial__confidence",
+      "template_name": "tone_financial",
+      "label_map_name": "confidence",
+      "macro_f1": 0.1928,
+      "accuracy": 0.201,
+      "f1_scores": {
+        "positive": 0.1564,
+        "negative": 0.2003,
+        "neutral": 0.2218
+      },
+      "duration_seconds": 9.38
+    },
+    {
+      "config_id": "t09_lm08",
+      "config_name": "sentiment_of_text__confidence",
+      "template_name": "sentiment_of_text",
+      "label_map_name": "confidence",
+      "macro_f1": 0.1644,
+      "accuracy": 0.1817,
+      "f1_scores": {
+        "positive": 0.1176,
+        "negative": 0.2141,
+        "neutral": 0.1615
+      },
+      "duration_seconds": 9.15
+    },
+    {
+      "config_id": "t08_lm08",
+      "config_name": "market_signal__confidence",
+      "template_name": "market_signal",
+      "label_map_name": "confidence",
+      "macro_f1": 0.1414,
+      "accuracy": 0.174,
+      "f1_scores": {
+        "positive": 0.0269,
+        "negative": 0.1987,
+        "neutral": 0.1985
+      },
+      "duration_seconds": 9.27
+    },
+    {
+      "config_id": "t11_lm08",
+      "config_name": "authors_attitude__confidence",
+      "template_name": "authors_attitude",
+      "label_map_name": "confidence",
+      "macro_f1": 0.1309,
+      "accuracy": 0.1585,
+      "f1_scores": {
+        "positive": 0.0783,
+        "negative": 0.2169,
+        "neutral": 0.0976
+      },
+      "duration_seconds": 9.58
+    },
+    {
+      "config_id": "t13_lm08",
+      "config_name": "implication__confidence",
+      "template_name": "implication",
+      "label_map_name": "confidence",
+      "macro_f1": 0.111,
+      "accuracy": 0.1443,
+      "f1_scores": {
+        "positive": 0.0773,
+        "negative": 0.2259,
+        "neutral": 0.0299
+      },
+      "duration_seconds": 9.18
+    }
+  ],
+  "cv_summary": [
+    {
+      "config_id": "t13_lm06",
+      "config_name": "implication__bullish",
+      "template_name": "implication",
+      "label_map_name": "bullish",
+      "overall_mean_f1": 0.6667,
+      "overall_std_f1": 0.0313,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.6413,
+          "std_f1": 0.0126,
+          "mean_acc": 0.6127,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.6627,
+          "std_f1": 0.0313,
+          "mean_acc": 0.6371,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.6962,
+          "std_f1": 0.0167,
+          "mean_acc": 0.6707,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t07_lm06",
+      "config_name": "reflects_outlook__bullish",
+      "template_name": "reflects_outlook",
+      "label_map_name": "bullish",
+      "overall_mean_f1": 0.6655,
+      "overall_std_f1": 0.0342,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.6306,
+          "std_f1": 0.0138,
+          "mean_acc": 0.6151,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.659,
+          "std_f1": 0.0142,
+          "mean_acc": 0.6534,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.7068,
+          "std_f1": 0.0123,
+          "mean_acc": 0.7028,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t07_lm03",
+      "config_name": "reflects_outlook__optimistic",
+      "template_name": "reflects_outlook",
+      "label_map_name": "optimistic",
+      "overall_mean_f1": 0.6625,
+      "overall_std_f1": 0.0347,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.6277,
+          "std_f1": 0.018,
+          "mean_acc": 0.6208,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.6569,
+          "std_f1": 0.0128,
+          "mean_acc": 0.6603,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.7029,
+          "std_f1": 0.0156,
+          "mean_acc": 0.705,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t08_lm06",
+      "config_name": "market_signal__bullish",
+      "template_name": "market_signal",
+      "label_map_name": "bullish",
+      "overall_mean_f1": 0.6521,
+      "overall_std_f1": 0.0284,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.6232,
+          "std_f1": 0.0153,
+          "mean_acc": 0.6197,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.648,
+          "std_f1": 0.0098,
+          "mean_acc": 0.6534,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.6851,
+          "std_f1": 0.012,
+          "mean_acc": 0.69,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t07_lm04",
+      "config_name": "reflects_outlook__good_bad",
+      "template_name": "reflects_outlook",
+      "label_map_name": "good_bad",
+      "overall_mean_f1": 0.6485,
+      "overall_std_f1": 0.03,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.6166,
+          "std_f1": 0.0146,
+          "mean_acc": 0.6055,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.6458,
+          "std_f1": 0.0112,
+          "mean_acc": 0.6429,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.6832,
+          "std_f1": 0.0111,
+          "mean_acc": 0.6801,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t13_lm03",
+      "config_name": "implication__optimistic",
+      "template_name": "implication",
+      "label_map_name": "optimistic",
+      "overall_mean_f1": 0.6387,
+      "overall_std_f1": 0.0286,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.6152,
+          "std_f1": 0.0084,
+          "mean_acc": 0.6011,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.632,
+          "std_f1": 0.0182,
+          "mean_acc": 0.6284,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.669,
+          "std_f1": 0.023,
+          "mean_acc": 0.6663,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t06_lm02",
+      "config_name": "financial_assessment__outlook",
+      "template_name": "financial_assessment",
+      "label_map_name": "outlook",
+      "overall_mean_f1": 0.6384,
+      "overall_std_f1": 0.0341,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.6045,
+          "std_f1": 0.0127,
+          "mean_acc": 0.6009,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.6305,
+          "std_f1": 0.0114,
+          "mean_acc": 0.6346,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.68,
+          "std_f1": 0.016,
+          "mean_acc": 0.6868,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t06_lm06",
+      "config_name": "financial_assessment__bullish",
+      "template_name": "financial_assessment",
+      "label_map_name": "bullish",
+      "overall_mean_f1": 0.6274,
+      "overall_std_f1": 0.0292,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.5966,
+          "std_f1": 0.0115,
+          "mean_acc": 0.5944,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.6236,
+          "std_f1": 0.0063,
+          "mean_acc": 0.6273,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.662,
+          "std_f1": 0.0151,
+          "mean_acc": 0.6657,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t08_lm03",
+      "config_name": "market_signal__optimistic",
+      "template_name": "market_signal",
+      "label_map_name": "optimistic",
+      "overall_mean_f1": 0.6021,
+      "overall_std_f1": 0.0224,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.5867,
+          "std_f1": 0.0101,
+          "mean_acc": 0.565,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.5924,
+          "std_f1": 0.0162,
+          "mean_acc": 0.5722,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.627,
+          "std_f1": 0.0139,
+          "mean_acc": 0.6094,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t13_lm07",
+      "config_name": "implication__growth",
+      "template_name": "implication",
+      "label_map_name": "growth",
+      "overall_mean_f1": 0.6006,
+      "overall_std_f1": 0.0307,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.5714,
+          "std_f1": 0.0177,
+          "mean_acc": 0.5635,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.5943,
+          "std_f1": 0.0152,
+          "mean_acc": 0.594,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.6362,
+          "std_f1": 0.0111,
+          "mean_acc": 0.6354,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t08_lm07",
+      "config_name": "market_signal__growth",
+      "template_name": "market_signal",
+      "label_map_name": "growth",
+      "overall_mean_f1": 0.6002,
+      "overall_std_f1": 0.032,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.5694,
+          "std_f1": 0.0036,
+          "mean_acc": 0.5428,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.5908,
+          "std_f1": 0.0143,
+          "mean_acc": 0.5675,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.6403,
+          "std_f1": 0.0146,
+          "mean_acc": 0.6171,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t12_lm06",
+      "config_name": "about_outlook__bullish",
+      "template_name": "about_outlook",
+      "label_map_name": "bullish",
+      "overall_mean_f1": 0.5985,
+      "overall_std_f1": 0.029,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.5702,
+          "std_f1": 0.0115,
+          "mean_acc": 0.5759,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.5962,
+          "std_f1": 0.0218,
+          "mean_acc": 0.6088,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.6289,
+          "std_f1": 0.0135,
+          "mean_acc": 0.6398,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t04_lm01",
+      "config_name": "tone_financial__simple",
+      "template_name": "tone_financial",
+      "label_map_name": "simple",
+      "overall_mean_f1": 0.596,
+      "overall_std_f1": 0.031,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.5728,
+          "std_f1": 0.0132,
+          "mean_acc": 0.5634,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.5918,
+          "std_f1": 0.0148,
+          "mean_acc": 0.5871,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.6234,
+          "std_f1": 0.0344,
+          "mean_acc": 0.6182,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t03_lm03",
+      "config_name": "expresses_sentiment__optimistic",
+      "template_name": "expresses_sentiment",
+      "label_map_name": "optimistic",
+      "overall_mean_f1": 0.5957,
+      "overall_std_f1": 0.0268,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.5669,
+          "std_f1": 0.0096,
+          "mean_acc": 0.566,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.5931,
+          "std_f1": 0.0132,
+          "mean_acc": 0.5987,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.627,
+          "std_f1": 0.0088,
+          "mean_acc": 0.6304,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t07_lm01",
+      "config_name": "reflects_outlook__simple",
+      "template_name": "reflects_outlook",
+      "label_map_name": "simple",
+      "overall_mean_f1": 0.5944,
+      "overall_std_f1": 0.0221,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.5748,
+          "std_f1": 0.0167,
+          "mean_acc": 0.5547,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.5897,
+          "std_f1": 0.0115,
+          "mean_acc": 0.5726,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.6189,
+          "std_f1": 0.0069,
+          "mean_acc": 0.6039,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t12_lm03",
+      "config_name": "about_outlook__optimistic",
+      "template_name": "about_outlook",
+      "label_map_name": "optimistic",
+      "overall_mean_f1": 0.591,
+      "overall_std_f1": 0.0331,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.5609,
+          "std_f1": 0.0136,
+          "mean_acc": 0.566,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.5847,
+          "std_f1": 0.0225,
+          "mean_acc": 0.5958,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.6274,
+          "std_f1": 0.0181,
+          "mean_acc": 0.637,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t04_lm02",
+      "config_name": "tone_financial__outlook",
+      "template_name": "tone_financial",
+      "label_map_name": "outlook",
+      "overall_mean_f1": 0.5848,
+      "overall_std_f1": 0.0357,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.5494,
+          "std_f1": 0.0119,
+          "mean_acc": 0.5503,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.5778,
+          "std_f1": 0.0132,
+          "mean_acc": 0.5799,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.6271,
+          "std_f1": 0.0203,
+          "mean_acc": 0.6281,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t06_lm01",
+      "config_name": "financial_assessment__simple",
+      "template_name": "financial_assessment",
+      "label_map_name": "simple",
+      "overall_mean_f1": 0.5848,
+      "overall_std_f1": 0.0293,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.5613,
+          "std_f1": 0.0138,
+          "mean_acc": 0.5503,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.576,
+          "std_f1": 0.0134,
+          "mean_acc": 0.5697,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.6172,
+          "std_f1": 0.0229,
+          "mean_acc": 0.6122,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t03_lm06",
+      "config_name": "expresses_sentiment__bullish",
+      "template_name": "expresses_sentiment",
+      "label_map_name": "bullish",
+      "overall_mean_f1": 0.5804,
+      "overall_std_f1": 0.0239,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.5589,
+          "std_f1": 0.0087,
+          "mean_acc": 0.5343,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.5708,
+          "std_f1": 0.004,
+          "mean_acc": 0.5462,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.6116,
+          "std_f1": 0.0099,
+          "mean_acc": 0.5895,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t13_lm02",
+      "config_name": "implication__outlook",
+      "template_name": "implication",
+      "label_map_name": "outlook",
+      "overall_mean_f1": 0.5792,
+      "overall_std_f1": 0.0284,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.5544,
+          "std_f1": 0.0145,
+          "mean_acc": 0.5364,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.5745,
+          "std_f1": 0.0226,
+          "mean_acc": 0.561,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.6086,
+          "std_f1": 0.0139,
+          "mean_acc": 0.5973,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t01_lm01",
+      "config_name": "financial_statement__simple",
+      "template_name": "financial_statement",
+      "label_map_name": "simple",
+      "overall_mean_f1": 0.576,
+      "overall_std_f1": 0.0339,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.5435,
+          "std_f1": 0.0143,
+          "mean_acc": 0.5433,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.5676,
+          "std_f1": 0.0163,
+          "mean_acc": 0.5704,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.6169,
+          "std_f1": 0.0134,
+          "mean_acc": 0.6204,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t08_lm01",
+      "config_name": "market_signal__simple",
+      "template_name": "market_signal",
+      "label_map_name": "simple",
+      "overall_mean_f1": 0.5752,
+      "overall_std_f1": 0.0199,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.563,
+          "std_f1": 0.0094,
+          "mean_acc": 0.5418,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.5647,
+          "std_f1": 0.0114,
+          "mean_acc": 0.5447,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.5979,
+          "std_f1": 0.014,
+          "mean_acc": 0.5779,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t07_lm05",
+      "config_name": "reflects_outlook__favorable",
+      "template_name": "reflects_outlook",
+      "label_map_name": "favorable",
+      "overall_mean_f1": 0.5742,
+      "overall_std_f1": 0.0193,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.5575,
+          "std_f1": 0.0114,
+          "mean_acc": 0.5281,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.5693,
+          "std_f1": 0.01,
+          "mean_acc": 0.5386,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.5959,
+          "std_f1": 0.0106,
+          "mean_acc": 0.5635,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t08_lm02",
+      "config_name": "market_signal__outlook",
+      "template_name": "market_signal",
+      "label_map_name": "outlook",
+      "overall_mean_f1": 0.5581,
+      "overall_std_f1": 0.0224,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.542,
+          "std_f1": 0.0109,
+          "mean_acc": 0.5163,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.5499,
+          "std_f1": 0.0111,
+          "mean_acc": 0.5208,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.5825,
+          "std_f1": 0.0184,
+          "mean_acc": 0.5519,
+          "n_folds": 5
+        }
+      }
+    },
+    {
+      "config_id": "t11_lm02",
+      "config_name": "authors_attitude__outlook",
+      "template_name": "authors_attitude",
+      "label_map_name": "outlook",
+      "overall_mean_f1": 0.5518,
+      "overall_std_f1": 0.0258,
+      "per_dataset": {
+        "financial_phrasebank_sentences_50agree.csv": {
+          "mean_f1": 0.5279,
+          "std_f1": 0.0094,
+          "mean_acc": 0.5201,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_75agree.csv": {
+          "mean_f1": 0.5452,
+          "std_f1": 0.0152,
+          "mean_acc": 0.5378,
+          "n_folds": 5
+        },
+        "financial_phrasebank_sentences_allagree.csv": {
+          "mean_f1": 0.5823,
+          "std_f1": 0.0109,
+          "mean_acc": 0.5762,
+          "n_folds": 5
+        }
+      }
+    }
+  ],
+  "best_config": {
+    "config_id": "t13_lm06",
+    "config_name": "implication__bullish",
+    "template_name": "implication",
+    "label_map_name": "bullish",
+    "hypothesis_template": "The implication of this statement is {}.",
+    "label_map": {
+      "positive": "bullish",
+      "negative": "bearish",
+      "neutral": "neutral"
+    },
+    "cv_mean_f1": 0.6667,
+    "cv_std_f1": 0.0313
+  },
+  "test_results": {
+    "financial_phrasebank_sentences_50agree.csv": {
+      "macro_f1": 0.6375,
+      "accuracy": 0.6052,
+      "f1_scores": {
+        "positive": 0.562,
+        "negative": 0.7647,
+        "neutral": 0.5859
+      },
+      "per_class": {
+        "negative": {
+          "precision": 0.6324,
+          "recall": 0.9669,
+          "f1": 0.7647,
+          "support": 121,
+          "tp": 117,
+          "fp": 68,
+          "fn": 4
+        },
+        "neutral": {
+          "precision": 0.8012,
+          "recall": 0.4618,
+          "f1": 0.5859,
+          "support": 576,
+          "tp": 266,
+          "fp": 66,
+          "fn": 310
+        },
+        "positive": {
+          "precision": 0.4503,
+          "recall": 0.7473,
+          "f1": 0.562,
+          "support": 273,
+          "tp": 204,
+          "fp": 249,
+          "fn": 69
+        }
+      },
+      "total": 970,
+      "correct": 587,
+      "duration_seconds": 11.17
+    },
+    "financial_phrasebank_sentences_75agree.csv": {
+      "macro_f1": 0.6696,
+      "accuracy": 0.6474,
+      "f1_scores": {
+        "positive": 0.5751,
+        "negative": 0.7745,
+        "neutral": 0.6591
+      },
+      "per_class": {
+        "negative": {
+          "precision": 0.6583,
+          "recall": 0.9405,
+          "f1": 0.7745,
+          "support": 84,
+          "tp": 79,
+          "fp": 41,
+          "fn": 5
+        },
+        "neutral": {
+          "precision": 0.8412,
+          "recall": 0.5419,
+          "f1": 0.6591,
+          "support": 430,
+          "tp": 233,
+          "fp": 44,
+          "fn": 197
+        },
+        "positive": {
+          "precision": 0.461,
+          "recall": 0.764,
+          "f1": 0.5751,
+          "support": 178,
+          "tp": 136,
+          "fp": 159,
+          "fn": 42
+        }
+      },
+      "total": 692,
+      "correct": 448,
+      "duration_seconds": 7.84
+    },
+    "financial_phrasebank_sentences_allagree.csv": {
+      "macro_f1": 0.6989,
+      "accuracy": 0.6806,
+      "f1_scores": {
+        "positive": 0.5813,
+        "negative": 0.8163,
+        "neutral": 0.6992
+      },
+      "per_class": {
+        "negative": {
+          "precision": 0.6977,
+          "recall": 0.9836,
+          "f1": 0.8163,
+          "support": 61,
+          "tp": 60,
+          "fp": 26,
+          "fn": 1
+        },
+        "neutral": {
+          "precision": 0.8549,
+          "recall": 0.5914,
+          "f1": 0.6992,
+          "support": 279,
+          "tp": 165,
+          "fp": 28,
+          "fn": 114
+        },
+        "positive": {
+          "precision": 0.48,
+          "recall": 0.7368,
+          "f1": 0.5813,
+          "support": 114,
+          "tp": 84,
+          "fp": 91,
+          "fn": 30
+        }
+      },
+      "total": 454,
+      "correct": 309,
+      "duration_seconds": 5.16
+    }
+  },
+  "significance": {
+    "t_stat": 0.1882,
+    "p_value": 0.853457,
+    "significant_005": false,
+    "mean_diff": 0.0013,
+    "n_pairs": 15,
+    "config_a": "implication__bullish",
+    "config_b": "reflects_outlook__bullish"
+  },
+  "effect_analysis": {
+    "by_template": {
+      "reflects_outlook": 0.629,
+      "implication": 0.6213,
+      "financial_assessment": 0.6169,
+      "market_signal": 0.5975,
+      "about_outlook": 0.5947,
+      "tone_financial": 0.5904,
+      "expresses_sentiment": 0.5881,
+      "financial_statement": 0.576,
+      "authors_attitude": 0.5518
+    },
+    "by_label_map": {
+      "good_bad": 0.6485,
+      "bullish": 0.6318,
+      "optimistic": 0.618,
+      "growth": 0.6004,
+      "simple": 0.5853,
+      "outlook": 0.5824,
+      "favorable": 0.5742
+    }
+  }
+}

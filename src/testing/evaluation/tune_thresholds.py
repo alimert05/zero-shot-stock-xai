@@ -28,7 +28,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from config import EVAL_RESULTS_PATH, THRESHOLD_PATH
 
-DEFAULT_RESULTS = EVAL_RESULTS_PATH / "evaluation_results.json"
+DEFAULT_RESULTS =  EVAL_RESULTS_PATH / f"evaluation_results_zero_shot.json"
 
 
 # ── Metrics ─────────────────────────────────────────────────────────────
