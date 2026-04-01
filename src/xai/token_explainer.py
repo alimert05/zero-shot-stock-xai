@@ -1,3 +1,5 @@
+"""Token-level XAI using LIME perturbation-based attribution."""
+
 from __future__ import annotations
 
 import logging
@@ -32,6 +34,7 @@ def _build_predict_fn(pipeline_callable, company_name: str = ""):
     from predictors.zero_shot import _CANDIDATE_LABELS, _HYPOTHESIS_TEMPLATE, _LABEL_TO_CLASS
 
     def predict_proba(texts: list[str]) -> np.ndarray:
+        """Convert text inputs to class probability arrays for LIME."""
         results = pipeline_callable(
             texts,
             candidate_labels=_CANDIDATE_LABELS,
@@ -68,17 +71,18 @@ def _select_top_articles(
 
     Strategy:
       - Score = final_weight * raw_score_for_predicted_label
-        (not max score — we care about the predicted label's confidence)
       - Take as many label-aligned articles as possible (up to top_n)
-      - Fill remaining slots from opposing articles so we also explain
+      - Fill remaining slots from opposing articles so also explains
         what the model had to overcome, keeping rank order within each group
     """
     def aligned_score(a: dict) -> float:
+        """Score how strongly an article supports the predicted label."""
         final_weight = a.get("final_weight", 0.0) or 0.0
         raw_scores = a.get("raw_scores", {})
         return final_weight * raw_scores.get(predicted_label, 0.0)
 
     def opposing_score(a: dict) -> float:
+        """Score how strongly an article opposes the predicted label."""
         final_weight = a.get("final_weight", 0.0) or 0.0
         raw_scores = a.get("raw_scores", {})
         dominant_score = max(raw_scores.values()) if raw_scores else 0.0
@@ -112,6 +116,7 @@ def explain_tokens(
     num_samples: int = XAI_LIME_NUM_SAMPLES,
     num_features: int = XAI_LIME_NUM_FEATURES,
 ) -> list[dict[str, Any]]:
+    """Run LIME on the top articles and return per-article token attributions."""
     try:
         from predictors.zero_shot import _get_nli_pipeline
         pipeline_callable = _get_nli_pipeline()
@@ -161,7 +166,7 @@ def explain_tokens(
             )
 
             raw_weights = explanation.as_list(label=target_label_idx)
-            # raw_weights: list of (token, weight) — positive = supports predicted label
+            # raw_weights: list of (token, weight) - positive = supports predicted label
 
             token_weights = []
             for token, weight in raw_weights:

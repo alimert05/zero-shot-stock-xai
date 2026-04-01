@@ -73,7 +73,7 @@ def _check_label_margin(normalized_scores: dict[str, float]) -> dict[str, Any]:
 
 
 
-# Known news aggregators — these collect articles from many independent
+# Known news aggregators - these collect articles from many independent
 # editorial sources, so a high share from an aggregator does NOT mean
 # low editorial diversity.
 _AGGREGATOR_DOMAINS = {
@@ -102,7 +102,7 @@ def _check_source_diversity(
     top_domain, top_count = counts.most_common(1)[0] if counts else ("unknown", 0)
     top_share = round(top_count / total, 4)
 
-    # Exclude aggregators from the concentration check — they host articles
+    # Exclude aggregators from the concentration check - they host articles
     # from many independent editorial desks, so "68% from Yahoo" does NOT
     # indicate a single-viewpoint problem.
     non_agg_domains = [d for d in domains if d not in _AGGREGATOR_DOMAINS]
@@ -140,7 +140,7 @@ def _check_source_diversity(
             agg_pct = round(n_aggregator / total * 100)
             agg_note = (
                 f" ({agg_pct}% via aggregators like Yahoo/Finnhub"
-                f" — these collect from many editorial sources)"
+                f" - these collect from many editorial sources)"
             )
         msg = (
             f"{n_unique} sources ({n_unique_editorial} editorial + "
@@ -193,7 +193,7 @@ def _check_timing_alignment(
                 f"down-weighted by the recency function where applicable."
             )
     else:
-        # Fallback: no market_date → still UTC, flag it
+        # Fallback: no market_date -> still UTC, flag it
         flagged = True
         if oldest > prediction_window_days:
             msg = (
@@ -234,7 +234,7 @@ def _check_horizon_coverage(
         }
 
     lookback_span = max(ages) - min(ages) + 1   # +1 for inclusive day counting
-    # The intended lookback comes from the √W scaling algorithm in the fetcher.
+    # The intended lookback comes from the square root W scaling algorithm in the fetcher.
     # Compare actual span against the intended window, not the forecast horizon.
     intended = max_backward_days if max_backward_days else prediction_window_days
     flagged = lookback_span < intended

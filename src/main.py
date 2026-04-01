@@ -34,12 +34,6 @@ def main() -> None:
     elif SENTIMENT_MODEL == "ProsusAI/finbert":
         prediction_result = run_finbert(articles_json_path=str(JSON_PATH), output_path=str(FINBERT_PREDS))
     elif SENTIMENT_MODEL == "zero-shot":
-        if MODEL_NAME == "facebook/bart-large-mnli":
-            path = "BART Large MNLI"
-        if MODEL_NAME == "roberta-large-mnli":
-            path = "RoBERTa Large MNLI"
-        if MODEL_NAME == "microsoft/deberta-large-mnli":
-            path = "DeBERTa Large MNLI"
         prediction_result = run_zero_shot(articles_json_path=str(JSON_PATH), output_path=str(ZEROSHOT_PREDS))
     elif SENTIMENT_MODEL in ("ollama-llama3", "ollama-mistral"):
         prediction_result = run_ollama(articles_json_path=str(JSON_PATH), output_path=str(OLLAMA_PREDS))
@@ -51,7 +45,6 @@ def main() -> None:
             output_path=str(XAI_OUTPUT_PATH),
         )
 
-    # run_backtest()
 
 if __name__ == "__main__":
     main()

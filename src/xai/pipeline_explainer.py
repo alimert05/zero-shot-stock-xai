@@ -1,3 +1,5 @@
+"""Pipeline-level XAI: event type distributions and weight summaries."""
+
 from __future__ import annotations
 
 import logging
@@ -63,7 +65,7 @@ def _explain_impact_horizon_weight(
     event_type = impact_horizon.get("event_type", "unknown")
 
     interpretation = (
-        f"event type: {event_type} → {category} horizon ({horizon_days} days); "
+        f"event type: {event_type} -> {category} horizon ({horizon_days} days); "
         f"expected impact day = {impact_day} (horizon_days - days_ago); "
         f"Gaussian centre μ={mu}, σ={sigma}; "
         f"weight = exp(-({impact_day}-{mu})²/(2×{sigma}²)) = {impact_horizon_weight:.4f}"
@@ -103,6 +105,7 @@ def explain_pipeline(
     merged_articles: list[dict[str, Any]],
     prediction_window_days: int,
 ) -> dict[str, Any]:
+    """Generate event type and horizon distribution summaries for all articles."""
     horizon_distribution = {
         "IMMEDIATE": 0,
         "SHORT_TERM": 0,

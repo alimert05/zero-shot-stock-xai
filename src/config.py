@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-# ── Paths ────────────────────────────────────────────────────────────────────
+# Paths
 PROJECT_ROOT = Path(__file__).parent.parent
 LOG_DIR = PROJECT_ROOT / "logs"
 LOG_PATH = LOG_DIR / "fetch.logs"
@@ -34,7 +34,7 @@ LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 REQUEST_TIMEOUT_LIMIT = 30
 
-# ── Api & Network ────────────────────────────────────────────────────────────
+# Api and Network
 FINNHUB_API_KEY = "d5rvt19r01qq2th0b8sgd5rvt19r01qq2th0b8t0"
 
 NOISE_REDUCTION_MODEL = "microsoft/deberta-large-mnli" 
@@ -44,7 +44,7 @@ IMPACT_HORIZON_DEVICE = 0
 
 SENTIMENT_DEVICE = 0 
 
-# ── Model Selection ───────────────────────────────────────────────────────────
+# Model Selection
 
 # # finbert config
 SENTIMENT_MODEL = "ProsusAI/finbert"
@@ -68,7 +68,7 @@ SENTIMENT_MODEL = "zero-shot"
 # MODEL_NAME = "microsoft/deberta-large-mnli" # microsoft deberta large mnli
 MODEL_NAME = "roberta-large-mnli" # facebookAI roberta mnli
 
-# ── Xai Configuration ────────────────────────────────────────────────────────
+# Xai Configuration
 XAI_ENABLED                    = True
 XAI_EXPLANATIONS_PATH          = PROJECT_ROOT / "data" / "xai_explanations"
 XAI_OUTPUT_PATH                = XAI_EXPLANATIONS_PATH / "xai_result.json"
@@ -88,11 +88,11 @@ XAI_LLAMA_TEMPERATURE          = 0.1
 XAI_LLAMA_MAX_TOKENS           = 200
 XAI_LLAMA_ENABLED              = True
 
-# Evidence quality — source diversity & timing
+# Evidence quality - source diversity & timing
 XAI_SOURCE_CONCENTRATION_THRESHOLD = 0.60   # flag if top domain > 60% of articles
 XAI_MIN_UNIQUE_SOURCES             = 2      # flag if fewer unique domains
 
-# ── Aggregation & Post-Processing ────────────────────────────────────────────
+# Aggregation & Post-Processing
 COVERAGE_COUNT_BOOST           = True    # boost multi-source articles via log2(1 + coverage)
 HEADLINE_ONLY_WEIGHT           = 0.5     # discount for headline-only articles (no body content)
 
@@ -102,6 +102,6 @@ DECISION_THRESHOLD_ENABLED     = True
 DECISION_THRESHOLD_POS         = 0.56
 DECISION_THRESHOLD_NEG         = 0.26
 
-# ── Market Timezone Alignment ────────────────────────────────────────────────
+# Market Timezone Alignment
 MARKET_TIMEZONE    = "America/New_York"      # NYSE / NASDAQ timezone
 MARKET_CLOSE_HOUR  = 16                      # 4:00 PM ET

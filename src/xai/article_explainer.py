@@ -184,7 +184,7 @@ def _compute_contrastive(
 # Minimum flip set (greedy)
 #
 # Find the smallest set of articles whose removal would flip the
-# predicted label.  We use a greedy algorithm: iteratively remove
+# predicted label. Greedy algorithm is used: iteratively remove
 # the article with the highest net_direction toward the winner until
 # the runner-up overtakes.
 #

@@ -1,9 +1,12 @@
+"""Shared utility functions for the XAI module."""
+
 from __future__ import annotations
 
 import re
 
 
 def herfindahl_index(weights: list[float]) -> float:
+    """Compute the HHI concentration index from a list of weights."""
     total = sum(weights)
     if total == 0:
         return 0.0
@@ -12,27 +15,30 @@ def herfindahl_index(weights: list[float]) -> float:
 
 
 def safe_round(value: float | None, digits: int = 4) -> float:
+    """Round a value safely, returning 0.0 for None."""
     if value is None:
         return 0.0
     return round(float(value), digits)
 
 
 def label_index(label: str) -> int:
+    """Map a sentiment label to its integer index."""
     return {"positive": 0, "negative": 1, "neutral": 2}.get(label, 0)
 
 
 def get_dominant_label(raw_scores: dict[str, float]) -> str:
+    """Return the label with the highest score."""
     if not raw_scores:
         return "neutral"
     return max(raw_scores, key=raw_scores.get)
 
 
-# ── LIME noise-token filter ──────────────────────────────────────────────────
+# LIME noise-token filter
 
 # Words that get high LIME attribution due to input-template injection or
 # grammatical structure, not genuine sentiment signal.
 LIME_NOISE_WORDS: frozenset[str] = frozenset({
-    # Prefix tokens injected by _build_input_text → always present in every
+    # Prefix tokens injected by _build_input_text -> always present in every
     # LIME perturbation, so they absorb attribution mechanically.
     "news", "about",
     # English stopwords / function words
@@ -58,10 +64,10 @@ def build_lime_noise_set(
     """Return a lower-cased set of tokens to exclude from LIME top-token lists.
 
     Combines the static stopword list with company-specific tokens so that
-    the *summary* token lists contain only sentiment-bearing words.
+    the summary token lists contain only sentiment-bearing words.
     The full LIME weight vector is still stored unfiltered for transparency.
 
-    If *article_titles* are provided, ticker symbols in parentheses
+    If article_titles are provided, ticker symbols in parentheses
     (e.g. "(AAPL)") are auto-detected and added to the noise set.
     """
     extra: set[str] = set()
