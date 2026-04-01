@@ -137,18 +137,18 @@ def remove_duplicates(articles: list[dict]) -> list[dict]:
     """De-duplicate articles by title across ALL domains.
 
     When the same headline appears on multiple sources (e.g. Yahoo and
-    Benzinga), keep the **oldest** copy — the first to break the news is
-    what the market reacted to.  If two copies have the same timestamp,
+    Benzinga), keep the oldest copy - the first to break the news is
+    what the market reacted to. If two copies have the same timestamp,
     prefer the one with longer content.
 
-    Each surviving article carries ``coverage_count`` (how many copies
+    Each surviving article carries 'coverage_count' (how many copies
     existed) so downstream code can see syndication breadth.
     """
     if not articles:
         logger.warning("No articles to check for duplicates")
         return []
 
-    seen: dict[str, dict] = {}          # title -> best article so far
+    seen: dict[str, dict] = {} # title -> best article so far
 
     for article in articles:
         try:
@@ -172,11 +172,11 @@ def remove_duplicates(articles: list[dict]) -> list[dict]:
                 new_date = article.get("seendate", "")
 
                 if new_date < existing_date:
-                    # New article is older — keep it instead
+                    # New article is older - keep it instead
                     article["coverage_count"] = existing["coverage_count"]
                     seen[key] = article
                 elif new_date == existing_date:
-                    # Same date — prefer longer content; if equal length,
+                    # Same date - prefer longer content; if equal length,
                     # break ties deterministically by domain+URL so the
                     # result is independent of Finnhub iteration order.
                     new_content_len = len((article.get("content") or ""))

@@ -12,10 +12,6 @@ from config import OLLAMA_SENTIMENT_MODEL
 
 logger = logging.getLogger(__name__)
 
-# Prompt (FinGPT Instruction-Input-Answer format)
-# Source: FinGPT framework (Yang et al., 2023)
-# https://huggingface.co/FinGPT/fingpt-sentiment_llama2-13b_lora
-
 OLLAMA_PROMPT_TEMPLATE = (
     "Instruction: What is the sentiment of this news? "
     "Please choose an answer from {{negative/neutral/positive}}\n"

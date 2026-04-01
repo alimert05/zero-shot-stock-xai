@@ -90,7 +90,7 @@ def reduce_content_noise(
     ticker: str | None = None,
     relevance_threshold: float = 0.5,
 ) -> tuple[str | None, dict]:
-
+    """Filter article content to retain only company-relevant sentences."""
     if not content:
         return None, {"error": "no_content"}
 
@@ -142,7 +142,7 @@ def clean_articles_content(
     ticker: str | None = None,
     relevance_threshold: float = 0.5,
 ) -> list[dict]:
-
+    """Apply sentence-level noise reduction to all articles in a batch."""
     if not articles:
         return []
 
@@ -199,7 +199,7 @@ def clean_articles_content(
         "  Articles with content: %d\n"
         "  Articles filtered (DeBERTa only): %d\n"
         "  Articles with no content after: %d\n"
-        "  Sentences: %d → %d",
+        "  Sentences: %d -> %d",
         stats["total_articles"],
         stats["articles_with_content"],
         stats["articles_filtered"],
