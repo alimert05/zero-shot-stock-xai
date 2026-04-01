@@ -15,7 +15,6 @@ ARTICLE_CACHE_PATH = DATA_PATH / "articles" / "articles_with_noise_reduction_deb
 
 # Sub-directories under evaluation/
 EVAL_RESULTS_PATH       = EVAL_PATH / "evaluation_results"
-CORRELATION_PATH        = EVAL_PATH / "correlation_results"
 FPB_PATH                = EVAL_PATH / "FPB"
 DATASET_PATH            = EVAL_PATH / "pipeline_evaluation_dataset"
 THRESHOLD_PATH          = EVAL_PATH / "threshold_calibration"
