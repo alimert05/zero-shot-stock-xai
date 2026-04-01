@@ -1,3 +1,5 @@
+"""FinBERT sentiment prediction using ProsusAI/finbert."""
+
 from __future__ import annotations
 
 import json
@@ -57,6 +59,7 @@ def predict_sentiment(
     company_name: str | None = None,
     ticker: str | None = None,
 ) -> dict[str, Any]:
+    """Score all articles with FinBERT and aggregate into a sentiment prediction."""
     with open(articles_json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
@@ -170,6 +173,7 @@ def run_sentiment_prediction(
     company_name: str | None = None,
     ticker: str | None = None,
 ) -> dict[str, Any]:
+    """Run prediction and save results to a JSON file."""
     result = predict_sentiment(
         articles_json_path=articles_json_path,
         company_name=company_name,

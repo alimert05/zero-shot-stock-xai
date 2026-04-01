@@ -1,3 +1,5 @@
+"""Ollama-based LLM sentiment prediction (Llama 3.1 8B, Mistral 7B)."""
+
 from __future__ import annotations
 
 import json
@@ -10,7 +12,7 @@ from config import OLLAMA_SENTIMENT_MODEL
 
 logger = logging.getLogger(__name__)
 
-# ── Prompt (FinGPT Instruction-Input-Answer format) ───────────────────────────
+# Prompt (FinGPT Instruction-Input-Answer format)
 # Source: FinGPT framework (Yang et al., 2023)
 # https://huggingface.co/FinGPT/fingpt-sentiment_llama2-13b_lora
 
@@ -22,7 +24,7 @@ OLLAMA_PROMPT_TEMPLATE = (
 )
 
 
-# ── Classification ────────────────────────────────────────────────────────────
+# Classification
 
 def _classify_sentiment(text: str) -> dict[str, float]:
     """Classify a single text via Ollama. Returns hard scores {label: 0.90, others: 0.05}."""
@@ -61,13 +63,14 @@ def _classify_sentiment(text: str) -> dict[str, float]:
     return scores
 
 
-# ── Pipeline-level prediction ────────────────────────────────────────────────
+# Pipeline-level prediction
 
 def predict_sentiment(
     articles_json_path: str,
     company_name: str | None = None,
     ticker: str | None = None,
 ) -> dict[str, Any]:
+    """Classify articles via Ollama LLM and aggregate into a sentiment prediction."""
     with open(articles_json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
@@ -182,6 +185,7 @@ def run_sentiment_prediction(
     company_name: str | None = None,
     ticker: str | None = None,
 ) -> dict[str, Any]:
+    """Run prediction and save results to a JSON file."""
     result = predict_sentiment(
         articles_json_path=articles_json_path,
         company_name=company_name,

@@ -3,13 +3,6 @@ Decision threshold abstention for sentiment predictors.
 
 Applies per-class decision thresholds so that low-confidence directional
 predictions default to neutral rather than committing to an unreliable signal.
-
-References
-----------
-- Chow, C. K. (1970). On optimum recognition error and reject tradeoff.
-  IEEE Trans. Inform. Theory, 16(1), 41-46.
-- Geifman, Y., & El-Yaniv, R. (2017). Selective prediction via rejection.
-  NeurIPS.
 """
 
 from __future__ import annotations
@@ -31,12 +24,12 @@ def apply_decision_thresholds(
     """Apply per-class decision thresholds to aggregated scores.
 
     Logic:
-        if positive >= tau_pos  -> positive
+        if positive >= tau_pos -> positive
         elif negative >= tau_neg -> negative
-        else                    -> neutral
+        else -> neutral
 
-    Returns
-    -------
+    Returns:
+    
     (label, method)
         method is "decision_threshold" if thresholds changed the outcome
         from argmax, else None.
@@ -78,7 +71,7 @@ def apply_abstention(
       - final_label: the chosen label (or "neutral" if abstained)
       - abstention_test: diagnostic info
     """
-    # ── Decision thresholds ──
+    # Decision thresholds
     final_label, threshold_method = apply_decision_thresholds(normalized_scores)
 
     if threshold_method:

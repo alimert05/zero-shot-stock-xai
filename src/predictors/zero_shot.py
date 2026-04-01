@@ -1,9 +1,9 @@
 """
-zero_shot.py — DeBERTa-based zero-shot NLI sentiment predictor.
+zero_shot.py - DeBERTa-based zero-shot NLI sentiment predictor.
 
 Uses Natural Language Inference to classify financial news articles as
-positive, negative, or neutral without task-specific fine-tuning.  Articles
-are scored individually and then aggregated via weighted averaging.
+positive, negative, or neutral without task-specific fine-tuning. 
+Articles are scored individually and then aggregated via weighted averaging.
 """
 
 from __future__ import annotations
@@ -26,7 +26,7 @@ from predictors.common import title_matches, build_input_text, print_summary
 
 logger = logging.getLogger(__name__)
 
-# ── Model Configuration ───────────────────────────────────────────────────────
+# Model configuration
 
 _deberta_pipeline = None
 
@@ -39,7 +39,7 @@ MODEL_DISPLAY_NAMES = {
 _display_model = MODEL_DISPLAY_NAMES.get(MODEL_NAME, MODEL_NAME)
 
 
-# ── Model Loading ─────────────────────────────────────────────────────────────
+# Model loading
 
 
 def _get_deberta_pipeline():
@@ -59,7 +59,7 @@ def _get_deberta_pipeline():
     return _deberta_pipeline
 
 
-# ── Article Filtering (Delegated To Predictor.Common) ─────────────────────────
+# Article filtering (delegated to predictors.common)
 
 
 _CLASS_TO_LABEL = {
@@ -93,7 +93,7 @@ def _batch_classify_sentiment(
         batch_size=batch_size,
     )
 
-    # Single text → pipeline returns a dict instead of list
+    # Single text -> pipeline returns a dict instead of list
     if isinstance(results, dict):
         results = [results]
 
@@ -114,6 +114,7 @@ def predict_sentiment(
     company_name: str | None = None,
     ticker: str | None = None,
 ) -> dict[str, Any]:
+    """Score all articles and aggregate into a three-way sentiment prediction."""
     with open(articles_json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
@@ -138,7 +139,7 @@ def predict_sentiment(
     article_sentiments: list[dict] = []
     article_weights: list[float] = []
 
-    # ── Phase 1: Collect texts and metadata (CPU only) ──
+    # Phase 1: Collect texts and metadata (CPU only)
     batch_texts: list[str] = []
     batch_meta: list[dict] = []  # parallel list: article index, weight, source_label
 
@@ -177,25 +178,25 @@ def predict_sentiment(
             "is_headline_only": is_headline_only,
         })
 
-    # ── Phase 2: Batch GPU inference (single call for all articles) ──
+    # Phase 2: Batch GPU inference (single call for all articles)
     if batch_texts:
         all_scores = _batch_classify_sentiment(batch_texts, batch_size=32)
     else:
         all_scores = []
 
-    # ── Phase 3: Accumulate weighted scores ──
+    # Phase 3: Accumulate weighted scores
     for meta, raw in zip(batch_meta, all_scores):
         base_weight = meta["final_weight"]
         effective_weight = base_weight
 
-        # ── Coverage count boost: log2(1 + coverage) ──
+        # Coverage count boost: log2(1 + coverage)
         coverage_boost = 1.0
         if COVERAGE_COUNT_BOOST:
             cc = meta["coverage_count"]
-            coverage_boost = math.log2(1 + cc)          # cc=1→1.0, cc=3→2.0, cc=5→2.58
+            coverage_boost = math.log2(1 + cc)          # cc=1->1.0, cc=3->2.0, cc=5->2.58
             effective_weight *= coverage_boost
 
-        # ── Headline-only discount: less info = less trust ──
+        # Headline-only discount: less info = less trust
         headline_discount = 1.0
         if meta["is_headline_only"]:
             headline_discount = HEADLINE_ONLY_WEIGHT
@@ -281,6 +282,7 @@ def run_sentiment_prediction(
     company_name: str | None = None,
     ticker: str | None = None,
 ) -> dict[str, Any]:
+    """Run prediction and save results to a JSON file."""
     result = predict_sentiment(
         articles_json_path=articles_json_path,
         company_name=company_name,

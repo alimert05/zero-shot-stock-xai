@@ -1,7 +1,10 @@
+"""FinGPT sentiment prediction using Llama-2-13B with LoRA adapter."""
+
 from __future__ import annotations
 
 import json
 import logging
+import torch
 from typing import Any
 
 from predictors.abstention import apply_abstention
@@ -24,7 +27,6 @@ def _get_fingpt_model():
     global _fingpt_model, _fingpt_tokenizer
     if _fingpt_model is None:
         try:
-            import torch
             from transformers import LlamaForCausalLM, LlamaTokenizerFast
             from peft import PeftModel
             from config import (
@@ -70,8 +72,6 @@ def _get_fingpt_model():
 
 
 def _classify_sentiment(text: str) -> dict[str, float]:
-    import torch
-
     model, tokenizer = _get_fingpt_model()
 
     prompt = FINGPT_PROMPT.format(text=text)
@@ -116,6 +116,7 @@ def predict_sentiment(
     company_name: str | None = None,
     ticker: str | None = None,
 ) -> dict[str, Any]:
+    """Score all articles with FinGPT and aggregate into a sentiment prediction."""
     with open(articles_json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
@@ -230,6 +231,7 @@ def run_sentiment_prediction(
     company_name: str | None = None,
     ticker: str | None = None,
 ) -> dict[str, Any]:
+    """Run prediction and save results to a JSON file."""
     result = predict_sentiment(
         articles_json_path=articles_json_path,
         company_name=company_name,

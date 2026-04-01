@@ -1,5 +1,5 @@
 """
-common.py — Shared utilities for all sentiment predictor modules.
+common.py - Shared utilities for all sentiment predictor modules.
 
 Contains article-matching, text-preparation, and summary-printing logic
 used identically across DeBERTa zero-shot, FinBERT, FinGPT, and Ollama
@@ -10,9 +10,7 @@ from __future__ import annotations
 
 import re
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  ARTICLE FILTERING
-# ══════════════════════════════════════════════════════════════════════════════
+# Article filtering
 
 COMPANY_SUFFIXES = frozenset({
     "inc", "inc.", "corp", "corp.", "ltd", "ltd.", "co", "co.",
@@ -29,7 +27,7 @@ def title_matches(title: str, company_name: str, ticker: str | None) -> bool:
     if company_name.lower() in title_lower:
         return True
 
-    # Ticker match — case-sensitive with word boundaries to avoid
+    # Ticker match - case-sensitive with word boundaries to avoid
     # short tickers (V, A, T) matching inside random words
     if ticker and re.search(rf"\b{re.escape(ticker)}\b", title):
         return True
@@ -45,11 +43,7 @@ def title_matches(title: str, company_name: str, ticker: str | None) -> bool:
     return False
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  TEXT PREPARATION
-# ══════════════════════════════════════════════════════════════════════════════
-
-
+# Text preparation
 def build_input_text(
     article: dict,
     include_title: bool,
@@ -80,11 +74,7 @@ def build_input_text(
     return text[:max_chars]
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-#  SUMMARY PRINTING
-# ══════════════════════════════════════════════════════════════════════════════
-
-
+# Summary printing
 def print_summary(result: dict, model_label: str) -> None:
     """Print a human-readable sentiment prediction summary to stdout."""
     print(f"\n{'=' * 50}")
