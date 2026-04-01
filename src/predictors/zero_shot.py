@@ -18,11 +18,9 @@ from transformers import pipeline
 from config import (
     SENTIMENT_DEVICE,
     MODEL_NAME,
-    COVERAGE_COUNT_BOOST,
-    HEADLINE_ONLY_WEIGHT,
 )
 from predictors.abstention import apply_abstention
-from predictors.common import title_matches, build_input_text, print_summary
+from predictors.common import title_matches, build_input_text, print_summary, compute_effective_weight
 
 logger = logging.getLogger(__name__)
 
@@ -187,20 +185,9 @@ def predict_sentiment(
     # Phase 3: Accumulate weighted scores
     for meta, raw in zip(batch_meta, all_scores):
         base_weight = meta["final_weight"]
-        effective_weight = base_weight
-
-        # Coverage count boost: log2(1 + coverage)
-        coverage_boost = 1.0
-        if COVERAGE_COUNT_BOOST:
-            cc = meta["coverage_count"]
-            coverage_boost = math.log2(1 + cc)          # cc=1->1.0, cc=3->2.0, cc=5->2.58
-            effective_weight *= coverage_boost
-
-        # Headline-only discount: less info = less trust
-        headline_discount = 1.0
-        if meta["is_headline_only"]:
-            headline_discount = HEADLINE_ONLY_WEIGHT
-            effective_weight *= headline_discount
+        effective_weight, coverage_boost, headline_discount = compute_effective_weight(
+            base_weight, meta["coverage_count"], meta["is_headline_only"],
+        )
 
         for label in weighted_scores:
             weighted_scores[label] += raw[label] * effective_weight
@@ -254,10 +241,7 @@ def predict_sentiment(
         "articles_analyzed": len(article_sentiments),
         "articles_total": len(articles),
         "total_weight": round(total_weight, 4),
-        "enhanced_weighting": {
-            "coverage_boost": COVERAGE_COUNT_BOOST,
-            "headline_only_weight": HEADLINE_ONLY_WEIGHT,
-        },
+        "enhanced_weighting": True,
         "weighted_scores": {
             k: round(v, 4) for k, v in weighted_scores.items()
         },

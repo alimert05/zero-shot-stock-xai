@@ -8,7 +8,7 @@ import torch
 from typing import Any
 
 from predictors.abstention import apply_abstention
-from predictors.common import title_matches, build_input_text, print_summary
+from predictors.common import title_matches, build_input_text, print_summary, compute_effective_weight
 
 logger = logging.getLogger(__name__)
 
@@ -143,7 +143,10 @@ def predict_sentiment(
 
     for i, article in enumerate(articles):
         title = article.get("title", "")
-        final_weight = float(article.get("final_weight", 1.0))
+        base_weight = float(article.get("final_weight", 1.0))
+        coverage_count = int(article.get("coverage_count", 1))
+        content_raw = article.get("content") or ""
+        is_headline_only = not content_raw.strip()
 
         include_title = title_matches(title, company_name, ticker)
         text = build_input_text(article, include_title=include_title, company_name=company_name)
@@ -154,12 +157,15 @@ def predict_sentiment(
 
         scores = _classify_sentiment(text)
 
-        for label in weighted_scores:
-            weighted_scores[label] += scores[label] * final_weight
-        total_weight += final_weight
-        article_weights.append(final_weight)
+        effective_weight, coverage_boost, headline_discount = compute_effective_weight(
+            base_weight, coverage_count, is_headline_only,
+        )
 
-        content_raw = article.get("content") or ""
+        for label in weighted_scores:
+            weighted_scores[label] += scores[label] * effective_weight
+        total_weight += effective_weight
+        article_weights.append(effective_weight)
+
         if include_title:
             source_label = "headline+content"
         elif content_raw.strip():
@@ -169,11 +175,11 @@ def predict_sentiment(
 
         article_sentiments.append({
             "title": title,
-            "final_weight": final_weight,
+            "final_weight": round(effective_weight, 4),
             "input_source": source_label,
             "raw_scores": scores,
             "weighted_scores": {
-                k: round(v * final_weight, 4) for k, v in scores.items()
+                k: round(v * effective_weight, 4) for k, v in scores.items()
             },
         })
 
@@ -181,7 +187,7 @@ def predict_sentiment(
             "[%d/%d] (%s) %s -> pos=%.4f neg=%.4f neu=%.4f (w=%.3f)",
             i + 1, len(articles), source_label, title[:50],
             scores["positive"], scores["negative"], scores["neutral"],
-            final_weight,
+            effective_weight,
         )
 
     if total_weight > 0:

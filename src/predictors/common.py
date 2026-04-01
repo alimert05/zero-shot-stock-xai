@@ -8,7 +8,10 @@ predictors.
 
 from __future__ import annotations
 
+import math
 import re
+
+from config import COVERAGE_COUNT_BOOST, HEADLINE_ONLY_WEIGHT
 
 # Article filtering
 
@@ -72,6 +75,32 @@ def build_input_text(
 
     text = f"{prefix} {company_name}: {body}"
     return text[:max_chars]
+
+
+# Weight adjustments
+
+def compute_effective_weight(
+    base_weight: float,
+    coverage_count: int,
+    is_headline_only: bool,
+) -> tuple[float, float, float]:
+    """Apply coverage boost and headline-only discount to a base article weight.
+
+    Returns (effective_weight, coverage_boost, headline_discount).
+    """
+    effective_weight = base_weight
+
+    coverage_boost = 1.0
+    if COVERAGE_COUNT_BOOST:
+        coverage_boost = math.log2(1 + coverage_count)
+        effective_weight *= coverage_boost
+
+    headline_discount = 1.0
+    if is_headline_only:
+        headline_discount = HEADLINE_ONLY_WEIGHT
+        effective_weight *= headline_discount
+
+    return effective_weight, coverage_boost, headline_discount
 
 
 # Summary printing
