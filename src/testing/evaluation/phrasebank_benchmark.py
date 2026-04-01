@@ -1,20 +1,15 @@
-"""Benchmark DeBERTa zero-shot NLI on Financial PhraseBank CSV files.
+"""Benchmark zero-shot NLI models on Financial PhraseBank CSV files.
 
-Usage (benchmark mode - default labels):
-    python -m testing.evaluation.phrasebank_benchmark
-    python -m testing.evaluation.phrasebank_benchmark --max-samples 200
+Supports DeBERTa, RoBERTa, FinBERT, FinGPT, and Ollama-based models.
 
-Usage (benchmark mode - with tuned config):
-    python -m testing.evaluation.phrasebank_benchmark --config about_outlook__outlook
-    python -m testing.evaluation.phrasebank_benchmark --config about_outlook__outlook --max-samples 200
+Usage (benchmark mode):
+    python -m testing.evaluation.phrasebank_benchmark --model <model_name>
+    python -m testing.evaluation.phrasebank_benchmark --model <model_name> --config <config_name>
+    python -m testing.evaluation.phrasebank_benchmark --model <model_name> --max-samples 200
 
-Usage (label tuning mode — K-fold CV with 112 template x label configs):
-    python -m testing.evaluation.phrasebank_benchmark --mode tune
-    python -m testing.evaluation.phrasebank_benchmark --mode tune --stage full
-    python -m testing.evaluation.phrasebank_benchmark --mode tune --stage coarse
-    python -m testing.evaluation.phrasebank_benchmark --mode tune --n-folds 5 --test-ratio 0.20
-    python -m testing.evaluation.phrasebank_benchmark --mode tune --resume
-    python -m testing.evaluation.phrasebank_benchmark --mode tune --max-samples 50  # smoke test
+Usage (label tuning mode - K-fold CV with 112 template x label configs):
+    python -m testing.evaluation.phrasebank_benchmark --mode tune --model <model_name>
+    python -m testing.evaluation.phrasebank_benchmark --mode tune --model <model_name> --resume
 """
 
 from __future__ import annotations
@@ -56,8 +51,8 @@ COARSE_DATASET_IDX = 0
 
 
 # ---------------------------------------------------------------------------
-# Hypothesis templates × label maps — combinatorial search space.
-# Cross-product yields 14 × 8 = 112 configurations.
+# Hypothesis templates x label maps — combinatorial search space.
+# Cross-product yields 14 x 8 = 112 configurations.
 # ---------------------------------------------------------------------------
 
 HYPOTHESIS_TEMPLATES: dict[str, str] = {
@@ -137,7 +132,7 @@ def generate_configs() -> list[dict[str, Any]]:
     return configs
 
 
-# ── Helpers ──────────────────────────────────────────────────────────────────
+# Helpers
 
 def normalize_label(value: str | int | None) -> str:
     """Normalize labels to the canonical set: positive, negative, neutral."""
@@ -170,6 +165,7 @@ class DatasetSplit:
 
 
 def load_phrasebank_csv(path: str, max_samples: int | None = None) -> DatasetSplit:
+    """Load a Financial PhraseBank CSV file and return texts with labels."""
     texts: list[str] = []
     labels: list[str] = []
 
@@ -201,7 +197,7 @@ def load_phrasebank_csv(path: str, max_samples: int | None = None) -> DatasetSpl
     )
 
 
-# ── Splitting ────────────────────────────────────────────────────────────────
+# Splitting
 
 def stratified_split(
     texts: list[str],
@@ -280,7 +276,7 @@ def stratified_kfold(
     return result
 
 
-# ── Dataset metadata visualisation ──────────────────────────────────────────
+# Dataset metadata visualisation
 
 BAR_WIDTH = 30
 
@@ -381,9 +377,10 @@ def print_holdout_metadata(
     print("=" * 70 + "\n")
 
 
-# ── Metrics ──────────────────────────────────────────────────────────────────
+# Metrics
 
 def compute_metrics(y_true: list[str], y_pred: list[str]) -> dict[str, Any]:
+    """Compute accuracy, macro precision/recall/F1, and per-class metrics."""
     if len(y_true) != len(y_pred):
         raise ValueError(f"Mismatched lengths: y_true={len(y_true)} y_pred={len(y_pred)}")
 
@@ -459,9 +456,6 @@ def compute_metrics(y_true: list[str], y_pred: list[str]) -> dict[str, Any]:
         "correct": correct,
     }
 
-
-# ── DeBERTa Predictor ───────────────────────────────────────────────────────
-
 def _chunks(items: list[str], size: int) -> list[list[str]]:
     return [items[i:i + size] for i in range(0, len(items), size)]
 
@@ -489,6 +483,7 @@ class DeBERTaPredictor:
         logger.info("DeBERTa model ready")
 
     def predict(self, texts: list[str]) -> list[str]:
+        """Classify texts using DeBERTa zero-shot NLI."""
         predictions: list[str] = []
         for batch in _chunks(texts, self.batch_size):
             outputs = self.pipe(
@@ -507,7 +502,7 @@ class DeBERTaPredictor:
                 nli_labels = item.get("labels", [])
                 nli_scores = item.get("scores", [])
 
-                # Map NLI labels → canonical scores
+                # Map NLI labels -> canonical scores
                 scores = {}
                 for lbl, sc in zip(nli_labels, nli_scores):
                     canonical = self.reverse_map.get(lbl.lower().strip(), None)
@@ -577,6 +572,7 @@ class RoBERTaPredictor:
         logger.info("RoBERTa model ready")
 
     def predict(self, texts: list[str]) -> list[str]:
+        """Classify texts using RoBERTa zero-shot NLI."""
         predictions: list[str] = []
         for batch in _chunks(texts, self.batch_size):
             outputs = self.pipe(
@@ -638,6 +634,7 @@ class OllamaPredictor:
         logger.info("OllamaPredictor ready (model=%s)", model_name)
 
     def predict(self, texts: list[str]) -> list[str]:
+        """Classify texts using Ollama LLM."""
         from predictors.ollama_predictor import OLLAMA_PROMPT_TEMPLATE
 
         predictions: list[str] = []
@@ -680,6 +677,7 @@ class FinBERTPredictor:
         logger.info("FinBERT model ready")
 
     def predict(self, texts: list[str]) -> list[str]:
+        """Classify texts using FinBERT."""
         predictions: list[str] = []
         for text in texts:
             results = self.pipe(text, top_k=None, truncation=True, max_length=512)
@@ -699,6 +697,7 @@ class FinGPTPredictor:
         logger.info("FinGPT model ready for FPB benchmark")
 
     def predict(self, texts: list[str]) -> list[str]:
+        """Classify texts using FinGPT."""
         import torch
 
         predictions: list[str] = []
@@ -737,7 +736,7 @@ class FinGPTPredictor:
         return predictions
 
 
-# ── Benchmark mode ───────────────────────────────────────────────────────────
+# Benchmark mode
 
 def _resolve_config(config_name: str | None) -> dict[str, Any] | None:
     """Look up a config by its composite name (e.g. 'about_outlook__outlook')."""
@@ -787,6 +786,7 @@ def _model_display_name(model: str) -> str:
 
 
 def run_benchmark(args: argparse.Namespace) -> dict[str, Any]:
+    """Run FPB benchmark on all datasets and return results dict."""
     datasets = [load_phrasebank_csv(path, max_samples=args.max_samples) for path in args.datasets]
 
     print_dataset_metadata(datasets, title="BENCHMARK DATASETS")
@@ -864,6 +864,7 @@ def run_benchmark(args: argparse.Namespace) -> dict[str, Any]:
 
 
 def print_report(report: dict[str, Any]) -> None:
+    """Print a formatted FPB benchmark report to stdout."""
     metadata = report.get("metadata", {})
     model_name = metadata.get("model", "unknown")
     print("\n" + "=" * 90)
@@ -922,7 +923,7 @@ def print_report(report: dict[str, Any]) -> None:
     print("=" * 90 + "\n")
 
 
-# ── Checkpointing ────────────────────────────────────────────────────────────
+# Checkpointing
 
 def save_checkpoint(data: dict[str, Any], path: Path = CHECKPOINT_PATH) -> None:
     """Atomically save checkpoint for crash recovery."""
@@ -934,13 +935,14 @@ def save_checkpoint(data: dict[str, Any], path: Path = CHECKPOINT_PATH) -> None:
 
 
 def load_checkpoint(path: Path = CHECKPOINT_PATH) -> dict[str, Any] | None:
+    """Load a tuning checkpoint from disk if it exists."""
     if path.exists():
         with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
     return None
 
 
-# ── Stage 1: Coarse Screen ──────────────────────────────────────────────────
+# Stage 1: Coarse Screen
 
 def run_coarse_screen(
     predictor: DeBERTaPredictor,
@@ -1000,7 +1002,7 @@ def run_coarse_screen(
     return results, surviving_configs
 
 
-# ── Stage 2: Full Cross-Validation ──────────────────────────────────────────
+# Stage 2: Full Cross-Validation
 
 def run_cross_validation(
     predictor: DeBERTaPredictor,
@@ -1143,7 +1145,7 @@ def _aggregate_cv_results(
     return summaries
 
 
-# ── Stage 3: Final Test Evaluation ──────────────────────────────────────────
+# Stage 3: Final Test Evaluation
 
 def run_final_test(
     predictor: DeBERTaPredictor,
@@ -1178,7 +1180,7 @@ def run_final_test(
     return test_results
 
 
-# ── Statistical significance ────────────────────────────────────────────────
+# Statistical significance
 
 def paired_t_test(
     scores_a: list[float],
@@ -1226,7 +1228,7 @@ def paired_t_test(
     }
 
 
-# ── Effect analysis ─────────────────────────────────────────────────────────
+# Effect analysis
 
 def _compute_effect_analysis(fold_results: list[dict[str, Any]]) -> dict[str, Any]:
     """Compute average F1 per template and per label_map across all folds."""
@@ -1257,7 +1259,7 @@ def _compute_effect_analysis(fold_results: list[dict[str, Any]]) -> dict[str, An
     }
 
 
-# ── Label tuning orchestrator ───────────────────────────────────────────────
+# Label tuning orchestrator
 
 def run_label_tuning(args: argparse.Namespace) -> dict[str, Any]:
     """Three-stage label tuning: coarse screen -> K-fold CV -> final test."""
@@ -1265,7 +1267,7 @@ def run_label_tuning(args: argparse.Namespace) -> dict[str, Any]:
     logger.info("Generated %d configs (%d templates x %d label maps)",
                 len(configs), len(HYPOTHESIS_TEMPLATES), len(LABEL_MAPS))
 
-    # ── Load all datasets, split into dev/test (80/20 holdout) ──
+    # Load all datasets, split into dev/test (80/20 holdout)
     dataset_splits: list[dict[str, Any]] = []
     for path in args.tune_datasets:
         ds = load_phrasebank_csv(path, max_samples=args.max_samples)
@@ -1290,7 +1292,7 @@ def run_label_tuning(args: argparse.Namespace) -> dict[str, Any]:
 
     predictor = _create_predictor(args)
 
-    # ── Stage 1: Coarse screen on 50agree dev set ──
+    # Stage 1: Coarse screen on 50agree dev set
     coarse_ds = dataset_splits[min(COARSE_DATASET_IDX, len(dataset_splits) - 1)]
     coarse_results, surviving_configs = run_coarse_screen(
         predictor, configs,
@@ -1307,7 +1309,7 @@ def run_label_tuning(args: argparse.Namespace) -> dict[str, Any]:
             "coarse_screen": coarse_results,
         }
 
-    # ── Stage 2: Full K-fold CV on surviving configs ──
+    # Stage 2: Full K-fold CV on surviving configs
     resume_data = load_checkpoint() if args.resume else None
     cv_data = run_cross_validation(
         predictor, surviving_configs, dataset_splits,
@@ -1318,7 +1320,7 @@ def run_label_tuning(args: argparse.Namespace) -> dict[str, Any]:
     cv_summary = cv_data["summary"]
     print_cv_report(cv_summary, dataset_splits)
 
-    # ── Stage 3: Final test with best config ──
+    # Stage 3: Final test with best config
     best_config_id = cv_summary[0]["config_id"]
     best_config = next(c for c in configs if c["config_id"] == best_config_id)
 
@@ -1398,7 +1400,7 @@ def _build_metadata(
     }
 
 
-# ── Reporting ────────────────────────────────────────────────────────────────
+# Reporting
 
 def print_coarse_report(
     coarse_results: list[dict[str, Any]],
@@ -1556,14 +1558,15 @@ def print_significance(significance: dict[str, Any]) -> None:
     print("-" * 80 + "\n")
 
 
-# ── CLI ──────────────────────────────────────────────────────────────────────
+# CLI
 
 def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments for benchmark and tune modes."""
     parser = argparse.ArgumentParser(
         description="Benchmark DeBERTa zero-shot NLI on Financial PhraseBank datasets.",
     )
 
-    # ── Mode ──
+    # Mode
     parser.add_argument(
         "--mode",
         choices=["benchmark", "tune"],
@@ -1574,7 +1577,7 @@ def parse_args() -> argparse.Namespace:
         ),
     )
 
-    # ── Shared options ──
+    # Shared options
     parser.add_argument(
         "--max-samples",
         type=int,
@@ -1600,7 +1603,7 @@ def parse_args() -> argparse.Namespace:
         help="Output JSON file path.",
     )
 
-    # ── Model selection ──
+    # Model selection
     parser.add_argument(
         "--model",
         choices=["deberta", "roberta", "ollama-llama3", "ollama-mistral", "finbert", "fingpt"],
@@ -1608,7 +1611,7 @@ def parse_args() -> argparse.Namespace:
         help="Which model to benchmark (default: deberta).",
     )
 
-    # ── Benchmark-mode options ──
+    # Benchmark-mode options
     parser.add_argument(
         "--datasets",
         nargs="+",
@@ -1626,7 +1629,7 @@ def parse_args() -> argparse.Namespace:
         ),
     )
 
-    # ── Tune-mode options ──
+    # Tune-mode options
     parser.add_argument(
         "--tune-datasets",
         nargs="+",
@@ -1673,6 +1676,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> None:
+    """Entry point for benchmark and label-tuning modes."""
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s - %(levelname)s - %(message)s",

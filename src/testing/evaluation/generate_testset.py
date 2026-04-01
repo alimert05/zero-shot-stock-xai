@@ -75,10 +75,13 @@ COMPANIES = [
 
 PREDICTION_WINDOWS = [1, 3, 5, 7, 14, 31]
 
-MARKET_PERIODS = [
+# Four date groups sampled across the available 9-month window to ensure
+# temporal diversity. Each group provides 5 start dates, giving 4 cases
+# per company-window pair (20 companies x 6 windows x 4 dates = 480 cases).
+DATE_GROUPS = [
     {
         "label": "bull_run",
-        "description": "Q1 2025 market period (Apr–May)",
+        "description": "Apr-May 2025",
         "base_dates": [
             "03-04-2025",
             "10-04-2025",
@@ -89,7 +92,7 @@ MARKET_PERIODS = [
     },
     {
         "label": "volatile",
-        "description": "Aug 2025 sell-off / volatility",
+        "description": "Aug 2025",
         "base_dates": [
             "01-08-2025",
             "05-08-2025",
@@ -100,7 +103,7 @@ MARKET_PERIODS = [
     },
     {
         "label": "earnings_season",
-        "description": "Q3 2025 earnings season (Oct-Nov)",
+        "description": "Oct-Nov 2025",
         "base_dates": [
             "14-10-2025",
             "21-10-2025",
@@ -111,7 +114,7 @@ MARKET_PERIODS = [
     },
     {
         "label": "recent_stable",
-        "description": "Late 2025 / early 2026 period",
+        "description": "Dec 2025 - Jan 2026",
         "base_dates": [
             "02-12-2025",
             "09-12-2025",
@@ -292,7 +295,7 @@ def generate_test_cases() -> list[dict]:
         name = company["name"]
 
         for window in PREDICTION_WINDOWS:
-            for period in MARKET_PERIODS:
+            for period in DATE_GROUPS:
                 company_idx = COMPANIES.index(company)
                 date_idx = company_idx % len(period["base_dates"])
                 base_date_str = period["base_dates"][date_idx]
