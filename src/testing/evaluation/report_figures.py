@@ -24,9 +24,7 @@ from config import EVAL_RESULTS_PATH
 FIGURES_DIR = Path(__file__).parent.parent.parent.parent / "figures"
 
 
-# ---------------------------------------------------------------------------
 # Data loading
-# ---------------------------------------------------------------------------
 
 def load_model_results() -> dict:
     """Load overall metrics for all five models."""
@@ -46,9 +44,7 @@ def load_primary_results() -> dict:
         return json.load(f)
 
 
-# ---------------------------------------------------------------------------
 # Figure 1: Model Comparison (Grouped Bar)
-# ---------------------------------------------------------------------------
 
 def fig_model_comparison(output_dir: Path) -> None:
     """Grouped bar chart comparing all five models."""
@@ -98,9 +94,7 @@ def fig_model_comparison(output_dir: Path) -> None:
     print(f"  Saved: model_comparison.png/.pdf")
 
 
-# ---------------------------------------------------------------------------
 # Figure 2: Score Distribution Overlap (Box Plots)
-# ---------------------------------------------------------------------------
 
 def fig_score_distributions(output_dir: Path) -> None:
     """Two-panel box plots showing positive and negative score overlap across actual classes."""
@@ -166,9 +160,7 @@ def fig_score_distributions(output_dir: Path) -> None:
     print(f"  Saved: score_distributions.png/.pdf")
 
 
-# ---------------------------------------------------------------------------
 # Figure 3: Flip-Set Distribution Histogram
-# ---------------------------------------------------------------------------
 
 def fig_flipset_distribution(output_dir: Path) -> None:
     """Histogram of flip-set sizes across holdout cases."""
@@ -204,9 +196,7 @@ def fig_flipset_distribution(output_dir: Path) -> None:
     print(f"  Saved: flipset_distribution.png/.pdf")
 
 
-# ---------------------------------------------------------------------------
 # Figure 4: Per-Horizon Line Chart
-# ---------------------------------------------------------------------------
 
 def fig_per_horizon(output_dir: Path) -> None:
     """Line chart of RoBERTa performance across prediction windows (Section 6.5.1)."""
@@ -245,9 +235,7 @@ def fig_per_horizon(output_dir: Path) -> None:
     print("  Saved: per_horizon.png/.pdf")
 
 
-# ---------------------------------------------------------------------------
 # Figure 5: Confusion Matrix Heatmap
-# ---------------------------------------------------------------------------
 
 def fig_confusion_matrix(output_dir: Path) -> None:
     """RoBERTa confusion matrix heatmap (Section 6.5.3)."""
@@ -280,9 +268,7 @@ def fig_confusion_matrix(output_dir: Path) -> None:
     print("  Saved: confusion_matrix.png/.pdf")
 
 
-# ---------------------------------------------------------------------------
 # Figure 6: Gaussian Horizon Weighting Curves
-# ---------------------------------------------------------------------------
 
 def fig_gaussian_horizon(output_dir: Path) -> None:
     """Gaussian horizon weight curves for different prediction windows (Section 4.5.3)."""
@@ -318,9 +304,7 @@ def fig_gaussian_horizon(output_dir: Path) -> None:
     print("  Saved: gaussian_horizon.png/.pdf")
 
 
-# ---------------------------------------------------------------------------
 # Figure 7: Recency Decay Curves
-# ---------------------------------------------------------------------------
 
 def fig_recency_decay(output_dir: Path) -> None:
     """Recency decay curves for different lambda values (Section 4.5.1)."""
@@ -331,6 +315,7 @@ def fig_recency_decay(output_dir: Path) -> None:
     anchor_lambdas = [0.89, 0.92, 0.95, 0.97]
 
     def interpolate_lambda(W):
+        """Linearly interpolate decay factor for a given prediction window."""
         if W <= anchor_windows[0]:
             return anchor_lambdas[0]
         if W >= anchor_windows[-1]:
@@ -365,9 +350,7 @@ def fig_recency_decay(output_dir: Path) -> None:
     print("  Saved: recency_decay.png/.pdf")
 
 
-# ---------------------------------------------------------------------------
 # Figure 8: Score Distribution by True Class (Simple Bar Chart)
-# ---------------------------------------------------------------------------
 
 def fig_score_by_class(output_dir: Path) -> None:
     """Grouped bar chart showing mean positive and negative scores by actual class."""
@@ -418,9 +401,7 @@ def fig_score_by_class(output_dir: Path) -> None:
     print("  Saved: score_by_class.png/.pdf")
 
 
-# ---------------------------------------------------------------------------
 # Figure 9: Evidence Quality vs Accuracy
-# ---------------------------------------------------------------------------
 
 def fig_quality_accuracy(output_dir: Path) -> None:
     """Bar chart showing prediction accuracy by evidence quality rating."""
@@ -453,11 +434,10 @@ def fig_quality_accuracy(output_dir: Path) -> None:
     print("  Saved: quality_accuracy.png/.pdf")
 
 
-# ---------------------------------------------------------------------------
 # Main
-# ---------------------------------------------------------------------------
 
 def main() -> None:
+    """Generate all report figures and save to the figures directory."""
     parser = argparse.ArgumentParser(description="Generate report figures")
     parser.add_argument("--output", type=str, default=str(FIGURES_DIR),
                         help="Output directory for figures")
