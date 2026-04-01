@@ -20,7 +20,7 @@ from config import XAI_LLAMA_MODEL, XAI_LLAMA_ENABLED
 
 logger = logging.getLogger(__name__)
 
-# ── Configuration ────────────────────────────────────────────────
+# Configuration
 MAX_CLUSTERS = 7            # cap for readability
 MIN_CLUSTER_SIZE = 2        # singletons go to "Other topics"
 DISTANCE_THRESHOLD = 0.85   # cosine distance cut (0 = identical, ~1 = unrelated)
@@ -34,7 +34,7 @@ def _cluster_titles(
 ) -> list[int]:
     """Agglomerative clustering on TF-IDF vectors of article titles.
 
-    Uses cosine distance with average linkage — a natural metric for
+    Uses cosine distance with average linkage - a natural metric for
     short-text similarity (Manning et al., 2008).  An adaptive loop
     relaxes the distance threshold when too few articles cluster (< 25 %).
 
@@ -58,7 +58,7 @@ def _cluster_titles(
     tfidf_matrix = vectorizer.fit_transform(titles)
     dense = tfidf_matrix.toarray()
 
-    # ── Adaptive threshold loop ──────────────────────────────────
+    # Adaptive threshold loop
     threshold = DISTANCE_THRESHOLD
     best_labels: np.ndarray | None = None
 
@@ -92,13 +92,13 @@ def _cluster_titles(
 
         if clustered_ratio >= MIN_CLUSTERED_RATIO:
             logger.debug(
-                "Clustering attempt %d (threshold=%.2f): %.1f%% clustered — accepted.",
+                "Clustering attempt %d (threshold=%.2f): %.1f%% clustered - accepted.",
                 attempt + 1, threshold, clustered_ratio * 100,
             )
             break
 
         logger.debug(
-            "Clustering attempt %d (threshold=%.2f): %.1f%% clustered — relaxing.",
+            "Clustering attempt %d (threshold=%.2f): %.1f%% clustered - relaxing.",
             attempt + 1, threshold, clustered_ratio * 100,
         )
         threshold += THRESHOLD_RELAX_STEP
@@ -131,7 +131,7 @@ def _extract_cluster_keywords(
         tfidf = vec.fit_transform(cluster_titles)
         feature_names = vec.get_feature_names_out()
 
-        # Mean TF-IDF across cluster articles → top keywords
+        # Mean TF-IDF across cluster articles -> top keywords
         mean_scores = np.asarray(tfidf.mean(axis=0)).flatten()
         top_indices = mean_scores.argsort()[::-1][:3]
         keywords[cid] = [feature_names[i] for i in top_indices]
@@ -177,7 +177,7 @@ def _ollama_label_clusters(
             label = response["message"]["content"].strip().strip('"').strip("'")
             # Truncate if LLM ignores the length constraint
             if len(label.split()) > 12:
-                label = " ".join(label.split()[:8]) + "…"
+                label = " ".join(label.split()[:8]) + "..."
             labels[cid] = label
             logger.debug("Cluster %d label: %s", cid, label)
         except Exception as exc:
@@ -258,7 +258,7 @@ def _build_group_storylines(
         top_titles = [a.get("title", "") for a in cluster_articles_sorted]
 
         storylines.append({
-            "label": "",                        # placeholder — filled after Ollama
+            "label": "",                        # placeholder - filled after Ollama
             "keyword_label": keyword_label,
             "articles_count": n,
             "weighted_score": round(weighted_score, 4),
@@ -274,7 +274,7 @@ def _build_group_storylines(
             "_cluster_key": f"{sent_group}_{cid}",
         })
 
-    # Sort by contribution score — actual impact on prediction, not just timing
+    # Sort by contribution score - actual impact on prediction, not just timing
     storylines.sort(key=lambda s: s["contribution_score"], reverse=True)
     return storylines, group_other, cluster_title_map
 
@@ -289,7 +289,7 @@ def cluster_narratives(
         logger.info("Too few articles (%d) for narrative clustering.", len(merged_articles))
         return {"storylines": [], "other_count": len(merged_articles), "method": "skipped"}
 
-    # ── Step 1: split articles by article-level dominant sentiment ──
+    # Step 1: split articles by article-level dominant sentiment
     by_sentiment: dict[str, list[dict[str, Any]]] = {
         "positive": [], "negative": [], "neutral": [],
     }
@@ -305,7 +305,7 @@ def cluster_narratives(
         len(by_sentiment["neutral"]),
     )
 
-    # ── Step 2: cluster within each sentiment group ────────────────
+    # Step 2: cluster within each sentiment group
     all_storylines: list[dict[str, Any]] = []
     total_other = 0
     all_cluster_titles: dict[str, list[str]] = {}
@@ -316,7 +316,7 @@ def cluster_narratives(
         total_other += other
         all_cluster_titles.update(ct)
 
-    # ── Step 3: one Ollama labelling pass for all clusters ─────────
+    # Step 3: one Ollama labelling pass for all clusters
     ollama_labels = _ollama_label_clusters(all_cluster_titles)
 
     for sl in all_storylines:
@@ -324,7 +324,7 @@ def cluster_narratives(
         ollama_label = ollama_labels.get(key, "")
         sl["label"] = ollama_label if ollama_label else sl["keyword_label"].title()
 
-    # ── Step 4: final sort by contribution score ────────────────────
+    # Step 4: final sort by contribution score
     all_storylines.sort(key=lambda s: s["contribution_score"], reverse=True)
 
     logger.info(

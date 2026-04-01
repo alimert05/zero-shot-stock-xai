@@ -5,7 +5,7 @@ Coordinates all explanation layers (token-level LIME, article-level
 counterfactuals, pipeline-level aggregation, narrative clustering) and
 generates a human-readable summary report with supporting charts.
 """
-# ── Imports & Constants ───────────────────────────────────────────────────────
+# Imports and Constants
 
 from __future__ import annotations
 
@@ -33,7 +33,7 @@ from .utils               import build_lime_noise_set, is_lime_noise_token
 logger = logging.getLogger(__name__)
 
 
-# ── Data Loading & Merging ────────────────────────────────────────────────────
+# Data Loading and Merging
 
 def _load_articles(articles_json_path: str) -> dict[str, Any]:
     with open(articles_json_path, "r", encoding="utf-8") as f:
@@ -76,7 +76,7 @@ def _merge_article_data(
     return merged
 
 
-# ── File I/O ──────────────────────────────────────────────────────────────────
+# File I/O
 
 def _save_result(result: dict[str, Any], output_path: str) -> None:
     path = Path(output_path)
@@ -86,7 +86,7 @@ def _save_result(result: dict[str, Any], output_path: str) -> None:
     logger.info("XAI result saved to %s", output_path)
 
 
-# ── Ascii Visualisation Helpers ───────────────────────────────────────────────
+# ASCII Visualisation Helpers
 
 def _ascii_bar(value: float, max_value: float, width: int = 30,
                fill: str = "\u2588", empty: str = "\u2591") -> str:
@@ -102,7 +102,7 @@ def _wrap(text: str, width: int = 56, indent: str = "  ") -> list[str]:
     return [f"{indent}{line}" for line in textwrap.wrap(text, width=width)]
 
 
-# ── Summary Text Builder ──────────────────────────────────────────────────────
+# Summary Text Builder
 
 def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None) -> str:  # noqa: C901
     W = "=" * 60
@@ -118,15 +118,14 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     narrative   = result["narrative"]
     storylines  = result.get("storylines", {})
 
-    # ================================================================
-    # Precompute shared variables so sections can appear in any order
-    # ================================================================
 
-    # -- Scores ---
+    # Precompute shared variables so sections can appear in any order
+
+    # Scores
     ns            = pred["normalized_scores"] or {}
     neutral_score = ns.get("neutral", 0.0)
 
-    # -- Threshold-triggered neutral detection ---
+    # Threshold-triggered neutral detection
     abst_test = pred.get("abstention_test") or {}
     abst_method = abst_test.get("method", "none")
     threshold_neutral = (
@@ -137,11 +136,11 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     neg_pct = ns.get("negative", 0.0) * 100
     neu_pct = ns.get("neutral", 0.0) * 100
 
-    # -- Contrastive / flip-set ---
+    # Contrastive / flip-set
     contrastive = layer2.get("contrastive", {})
     flip_info   = layer2.get("minimum_flip_set", {})
 
-    # -- Ranked articles + sentiment distribution ---
+    # Ranked articles + sentiment distribution
     ranked_arts = layer2.get("ranked_articles", [])
     sent_counts: dict[str, int] = {}
     for a in ranked_arts:
@@ -149,7 +148,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         sent_counts[s] = sent_counts.get(s, 0) + 1
     total_arts = sum(sent_counts.values()) or 1
 
-    # -- LIME articles + noise set ---
+    # LIME articles + noise set 
     lime_articles  = layer1.get("articles", [])
     all_art_titles = [a.get("title", "") for a in ranked_arts]
     noise_set = build_lime_noise_set(
@@ -157,7 +156,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         article_titles=all_art_titles,
     )
 
-    # -- Evidence-quality flags ---
+    # Evidence-quality flags 
     overall_rel = reliability["overall_reliability"]
     flags       = reliability["flags"]
     rel_icon    = {"HIGH": "\u2713", "MEDIUM": "!", "LOW": "\u2717"}.get(overall_rel, "?")
@@ -205,7 +204,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             f"\u221aW scaling), signal may be incomplete"
         )
 
-    # -- Chart label map (used in Charts + Advanced sections) ---
+    # Chart label map (used in Charts + Advanced sections)
     chart_label_map = {
         "sentiment_scores":        "Sentiment score bar chart",
         "article_distribution":    "Article sentiment pie chart",
@@ -221,9 +220,9 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
 
     lines: list[str] = []
 
-    # ================================================================
+
     #  HEADER
-    # ================================================================
+
     ticker_str = f"  ({meta['ticker']})" if meta['ticker'] else ""
     lines += [
         W,
@@ -237,10 +236,9 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         W,
     ]
 
-    # ================================================================
-    #  PART 1 -- SUMMARY & KEY FINDINGS
+    #  PART 1 - SUMMARY and KEY FINDINGS
     #  Plain-English explanation of the result and its context
-    # ================================================================
+
     lines += [
         "",
         P,
@@ -250,7 +248,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "",
     ]
 
-    # -- Plain-English summary (top) --------------------------------
+    # Plain-English summary (top)
     lines += [
         "  SUMMARY",
         "  What the model decided and why \u2014 in plain English",
@@ -260,7 +258,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "",
     ]
 
-    # -- Prediction result + score chart ----------------------------
+    # Prediction result + score chart 
     lines += [
         "  PREDICTION RESULT",
         "  Sentiment scores across all analysed articles",
@@ -282,7 +280,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         marker = "  \u25c4 PREDICTED" if label == pred["final_label"] else ""
         lines.append(f"    {label:>8} : {score * 100:5.1f}%  {bar}{marker}")
     if threshold_neutral:
-        verdict_label = "NEUTRAL — Mixed Sentiment"
+        verdict_label = "NEUTRAL - Mixed Sentiment"
         tau_pos_val = abst_test.get("decision_thresholds", {}).get("tau_pos", 0.0)
         tau_neg_val = abst_test.get("decision_thresholds", {}).get("tau_neg", 0.0)
         lines += [
@@ -291,19 +289,20 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             f"  Model support : {pred['final_confidence'] * 100:.1f}%"
             "  (share of model weight, not a probability)",
             "",
-            "  ┌─ Why Neutral? ─────────────────────────────────────┐",
-            f"  │ Articles show divided sentiment:                   │",
-            f"  │   Positive: {pos_pct:5.1f}%   Negative: {neg_pct:5.1f}%              │",
-            f"  │                                                    │",
-            f"  │ Neither direction reaches the consensus threshold  │",
-            f"  │ required for a directional prediction:             │",
-            f"  │   Positive needs ≥ {tau_pos_val * 100:.0f}%  (got {pos_pct:.1f}%)              │",
-            f"  │   Negative needs ≥ {tau_neg_val * 100:.0f}%  (got {neg_pct:.1f}%)              │",
-            f"  │                                                    │",
-            f"  │ When positive and negative signals are closely     │",
-            f"  │ balanced, a directional call would be unreliable.  │",
-            f"  │ The system classifies this as mixed/inconclusive.  │",
-            "  └────────────────────────────────────────────────────┘",
+            "  +- Why Neutral? -------------------------------------+",
+            f"  | Articles show divided sentiment:                   |",
+            f"  | Positive: {pos_pct:5.1f}%                          |",
+            f"  | Negative: {neg_pct:5.1f}%                          |",
+            f"  |                                                    |",
+            f"  | Neither direction reaches the consensus threshold  |",
+            f"  | required for a directional prediction:             |",
+            f"  |   Positive needs >= {tau_pos_val * 100:.0f}%  (got {pos_pct:.1f}%)              |",
+            f"  |   Negative needs >= {tau_neg_val * 100:.0f}%  (got {neg_pct:.1f}%)              |",
+            f"  |                                                    |",
+            f"  | When positive and negative signals are closely     |",
+            f"  | balanced, a directional call would be unreliable.  |",
+            f"  | The system classifies this as mixed/inconclusive.  |",
+            "  +----------------------------------------------------+",
         ]
     else:
         lines += [
@@ -320,7 +319,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             )
     lines.append("")
 
-    # -- Recommendation ---------------------------------------------
+    # Recommendation 
     if overall_rel == "HIGH":
         action = "This prediction has HIGH evidence quality and can be used with reasonable confidence."
     elif overall_rel == "MEDIUM":
@@ -342,7 +341,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "",
     ]
 
-    # -- Narrative themes -------------------------------------------
+    # Narrative themes 
     event_dist = layer3.get("event_type_distribution", {})
     event_sent = layer3.get("event_type_sentiment", {})
     event_short_labels = {
@@ -380,7 +379,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             )
         lines.append("")
 
-    # Storylines -- auto-discovered from article titles via TF-IDF clustering
+    # Storylines - auto-discovered from article titles via TF-IDF clustering
     # Grouped by sentiment: predicted label first, then opposing, then neutral
     sl_list = storylines.get("storylines", [])
     sl_other = storylines.get("other_count", 0)
@@ -398,7 +397,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             group.sort(key=lambda s: s.get("contribution_score", 0), reverse=True)
 
         # Display order: predicted label first, then opposing, then neutral
-        # All groups uncapped -- full transparency
+        # All groups uncapped - full transparency
         if predicted_label == "positive":
             order = ["positive", "negative", "neutral"]
         elif predicted_label == "negative":
@@ -451,7 +450,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             )
         lines.append("")
 
-    # -- Final plain-English overview -------------------------------
+    # Final plain-English overview 
     n_pos = sent_counts.get("positive", 0)
     n_neg = sent_counts.get("negative", 0)
     n_neu = sent_counts.get("neutral", 0)
@@ -494,7 +493,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         f" with most classified as short-term horizon."
     )
 
-    # Contrastive sentence -- why winner instead of runner-up
+    # Contrastive sentence - why winner instead of runner-up
     contrastive_sentence = ""
     if contrastive:
         c_winner_ov = contrastive["winner"].upper()
@@ -581,7 +580,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     lines += _wrap(final_paragraph, width=56)
     lines += ["", ""]
 
-    # -- Disclaimer -------------------------------------------------
+    # Disclaimer
     lines += [
         "  DISCLAIMER",
         w,
@@ -592,10 +591,10 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "",
     ]
 
-    # ================================================================
-    #  PART 2 -- DETAILED TECHNICAL ANALYSIS
+    
+    #  PART 2 - DETAILED TECHNICAL ANALYSIS
     #  Scores, article breakdowns, and model-internal attributions
-    # ================================================================
+
     lines += [
         P,
         "  PART 2 \u2014 DETAILED TECHNICAL ANALYSIS",
@@ -604,9 +603,9 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "",
     ]
 
-    # -- Contrastive explanation ------------------------------------
+    # Contrastive explanation 
     # "Why label A INSTEAD OF label B?" -- the core XAI question.
-    # Ref: Miller (2019) Art. Intell. 267, 1-38.
+
     if contrastive:
         c_winner   = contrastive["winner"].upper()
         c_runner   = contrastive["runner_up"].upper()
@@ -673,7 +672,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
                 )
             lines.append("")
 
-        # -- LIME <-> contrastive bridge ---
+        # LIME <-> contrastive bridge
         # For each top gap driver that also has LIME data, show
         # which words pushed it toward the winner or runner-up.
         # This answers "WHY did this article favour one side?"
@@ -745,7 +744,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
                 "",
             ]
 
-    # -- Evidence quality ------------------------------------------------
+    # Evidence quality
     lines += [
         "  PREDICTION RELIABILITY",
         "  How much to trust this prediction",
@@ -774,7 +773,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "",
     ]
 
-    # -- Calibration context ----------------------------------------
+    # Calibration context
     calibration = result.get("calibration")
     if calibration:
         lines += [
@@ -807,7 +806,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             "",
         ]
 
-    # -- Layer 2 -- Article influence --------------------------------
+    # Layer 2 - Article influence
     lines += [
         "  WHICH ARTICLES DROVE THE PREDICTION",
         "  The articles that had the most impact on the final verdict",
@@ -916,7 +915,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
                 )
             lines.append("")
 
-    # -- Layer 3 -- Pipeline weighting -------------------------------
+    # Layer 3 - Pipeline weighting
     lines += [
         "  HOW ARTICLES WERE WEIGHTED",
         "  More recent and near-horizon articles receive higher weight",
@@ -954,7 +953,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         lines.append(f"    {label} : {bar}  {count:>3} ({pct:.0f}%)")
     lines.append("")
 
-    # -- Layer 1 -- Token attribution (LIME) -- summary only ---------
+    # Layer 1 - Token attribution (LIME) - summary only 
     lines += [
         "  WHICH WORDS DROVE THE PREDICTION",
         "  Words inside each article that pushed the model toward or away from the verdict",
@@ -1022,7 +1021,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
                 ]
     lines.append("")
 
-    # -- Charts section (names only, paths in Advanced) --------------
+    # Charts section (names only, paths in Advanced)
     if chart_paths:
         lines += [
             "  CHARTS",
@@ -1034,8 +1033,8 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             lines.append(f"    [{key}]  {label}")
         lines.append("")
 
-    # -- Advanced / Diagnostics --------------------------------------
-    # Technical details for developers and researchers -- moved
+    # Advanced / Diagnostics
+    # Technical details for developers and researchers - moved
     # here so the main report stays end-user friendly.
     lines += [
         "",
@@ -1125,7 +1124,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     return "\n".join(lines)
 
 
-# ── File I/O (Summary) ────────────────────────────────────────────────────────
+# File I/O (Summary)
 
 def _save_summary(
     result: dict[str, Any],
@@ -1140,7 +1139,7 @@ def _save_summary(
     logger.info("XAI summary saved to %s", summary_path)
 
 
-# ── Main Orchestrator ─────────────────────────────────────────────────────────
+# Main Orchestrator
 
 def run_xai(
     prediction_result: dict[str, Any],
@@ -1149,6 +1148,7 @@ def run_xai(
     summary_path: str | None = None,
     charts_dir: str | None = None,
 ) -> dict[str, Any]:
+    """Run all XAI layers and produce the full explainability report."""
     if articles_json_path is None:
         articles_json_path = str(JSON_PATH)
     if output_path is None:
@@ -1189,7 +1189,7 @@ def run_xai(
     else:
         news_lookback = "N/A"
 
-    # Layer 2 + 3 first -- fast, pure math
+    # Layer 2 + 3 first
     article_explanation  = explain_articles(merged_articles, prediction_result)
     pipeline_explanation = explain_pipeline(merged_articles, prediction_window_days)
 
@@ -1202,7 +1202,7 @@ def run_xai(
         max_backward_days=max_backward_days,
     )
 
-    # Layer 1 -- slow (LIME forward passes)
+    # Layer 1 
     logger.info("Running LIME token attribution (top %d articles)...", XAI_LIME_TOP_N)
     token_explanation = explain_tokens(
         merged_articles,
@@ -1215,7 +1215,7 @@ def run_xai(
     logger.info("Running narrative storyline clustering...")
     storyline_data = cluster_narratives(merged_articles)
 
-    # Narrative -- Ollama
+    # Narrative - Ollama
     narrative = generate_narrative(
         prediction_result=prediction_result,
         article_explanation=article_explanation,
