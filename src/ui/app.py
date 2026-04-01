@@ -1341,41 +1341,6 @@ def _chart_lime_tokens(result: dict) -> go.Figure:
     return fig
 
 
-def _chart_reliability(result: dict) -> go.Figure:
-    reliability = result.get("reliability", {})
-    flags = reliability.get("flags", {})
-    overall = reliability.get("overall_reliability", "UNKNOWN")
-
-    names = []
-    colors = []
-    status_labels = []
-    hover_msgs = []
-    for key, data in flags.items():
-        flagged = data.get("flagged", False)
-        names.append(key.replace("_", " ").title())
-        colors.append(_LABEL_COLOURS["negative"] if flagged else _LABEL_COLOURS["positive"])
-        status_labels.append("FLAGGED" if flagged else "PASS")
-        hover_msgs.append(data.get("message", ""))
-
-    if not names:
-        return go.Figure().update_layout(title="No evidence quality data available")
-
-    fig = go.Figure()
-    fig.add_trace(go.Bar(
-        y=names[::-1], x=[1] * len(names), orientation="h",
-        marker_color=colors[::-1],
-        text=status_labels[::-1], textposition="inside",
-        textfont=dict(color="white", size=13),
-        hovertext=hover_msgs[::-1], hoverinfo="text",
-    ))
-    fig.update_layout(
-        title=f"Evidence Quality Dashboard  - Overall: {overall}",
-        xaxis=dict(visible=False),
-        template="plotly_white", height=max(280, len(names) * 45),
-        margin=dict(l=160),
-    )
-    return fig
-
 
 def _chart_storyline_contribution(result: dict) -> go.Figure:
     storylines_data = result.get("storylines", {})
@@ -1563,7 +1528,6 @@ _CHART_OPTIONS = {
     "Top 10 Article Weights": _chart_article_weights,
     "Horizon Breakdown": _chart_horizon_breakdown,
     "LIME Token Attribution": _chart_lime_tokens,
-    "Evidence Quality Dashboard": _chart_reliability,
     "Storyline Contribution": _chart_storyline_contribution,
     "Contrastive Waterfall": _chart_contrastive_waterfall,
     "Article Timeline": _chart_article_timeline,
