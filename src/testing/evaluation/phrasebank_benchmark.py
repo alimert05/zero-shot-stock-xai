@@ -35,8 +35,8 @@ from typing import Any
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from config import (
-    FPB_PATH, FPB_DATASETS_PATH, SENTIMENT_DEVICE, MODEL_NAME,
-    DECISION_THRESHOLD_ENABLED, DECISION_THRESHOLD_POS, DECISION_THRESHOLD_NEG,
+    FPB_PATH, FPB_DATASETS_PATH, SENTIMENT_DEVICE,
+    DECISION_THRESHOLD_ENABLED,
 )
 
 logger = logging.getLogger(__name__)

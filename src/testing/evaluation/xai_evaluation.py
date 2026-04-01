@@ -33,8 +33,6 @@ from config import (
     DECISION_THRESHOLD_POS,
     DECISION_THRESHOLD_NEG,
     DECISION_THRESHOLD_ENABLED,
-    SENTIMENT_DEVICE,
-    MODEL_NAME,
 )
 
 logging.basicConfig(

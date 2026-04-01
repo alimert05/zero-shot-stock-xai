@@ -25,7 +25,6 @@ from collections import defaultdict
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from config import (
-    EVAL_PATH,
     EVAL_RESULTS_PATH,
     DATASET_PATH,
     TEMP_PATH,

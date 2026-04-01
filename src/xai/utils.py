@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import re
-from typing import Any
 
 
 def herfindahl_index(weights: list[float]) -> float:

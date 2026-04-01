@@ -11,10 +11,6 @@ import math
 
 from .event_classifier import (
     EVENT_FAMILY_LABELS,
-    HORIZON_TO_DAYS,
-    HORIZON_LABEL_TO_CATEGORY,
-    FALLBACK_EVENT_FAMILY,
-    EVENT_FAMILY_TO_PRIOR_HORIZON,
     _get_classifier,
     _build_classification_text,
     _map_classifier_result,

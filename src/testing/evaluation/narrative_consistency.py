@@ -12,7 +12,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import sys
 from difflib import SequenceMatcher
 from pathlib import Path
