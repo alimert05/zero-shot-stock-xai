@@ -319,94 +319,13 @@ def plot_lime_tokens(
     return _savefig(fig, out_dir / filename)
 
 
-# ── 6. Evidence quality dashboard ────────────────────────────────────────────
-
-def plot_reliability(
-    reliability: dict[str, Any],
-    out_dir: Path,
-    filename: str = "06_reliability.png",
-) -> Path:
-    """
-    Colour-coded table / dashboard showing each evidence-quality flag status
-    and the overall evidence-quality level.
-    """
-    import matplotlib
-    matplotlib.use("Agg")
-    import matplotlib.pyplot as plt
-    import matplotlib.patches as mpatches
-
-    flags = reliability.get("flags", {})
-    overall = reliability.get("overall_reliability", "UNKNOWN")
-
-    flag_labels = {
-        "thin_evidence":        "Evidence Volume",
-        "weight_concentration": "Evidence Diversity",
-        "label_margin":         "Label Margin",
-    }
-
-    rows = []
-    for key, data in flags.items():
-        rows.append({
-            "label":   flag_labels.get(key, key.replace("_", " ").title()),
-            "flagged": data.get("flagged", False),
-            "message": data.get("message", ""),
-        })
-
-    n = len(rows) + 1  # +1 for overall row
-    fig, ax = plt.subplots(figsize=(8, 0.7 * n + 1.2), facecolor=_COL["bg"])
-    ax.set_facecolor(_COL["bg"])
-    ax.set_xlim(0, 10)
-    ax.set_ylim(0, n)
-    ax.axis("off")
-
-    overall_color = {"HIGH": _COL["ok"], "MEDIUM": _COL["warn"], "LOW": _COL["negative"]}.get(overall, _COL["neutral"])
-
-    # Overall row at top
-    y = n - 0.85
-    rect = mpatches.FancyBboxPatch(
-        (0.1, y - 0.3), 9.8, 0.7,
-        boxstyle="round,pad=0.05", facecolor=overall_color, alpha=0.25, linewidth=1.2,
-        edgecolor=overall_color,
-    )
-    ax.add_patch(rect)
-    ax.text(0.4, y + 0.05, "OVERALL RELIABILITY", fontsize=10,
-            fontname=_FONT, va="center", fontweight="bold")
-    ax.text(9.8, y + 0.05, overall,
-            fontsize=11, fontname=_FONT, va="center", ha="right",
-            fontweight="bold", color=overall_color)
-
-    for i, row in enumerate(rows):
-        y = n - 1.85 - i
-        color = _COL["negative"] if row["flagged"] else _COL["ok"]
-        icon  = "⚠  " if row["flagged"] else "✓  "
-
-        rect = mpatches.FancyBboxPatch(
-            (0.1, y - 0.28), 9.8, 0.65,
-            boxstyle="round,pad=0.05", facecolor=color, alpha=0.10,
-            linewidth=0.8, edgecolor=color,
-        )
-        ax.add_patch(rect)
-
-        ax.text(0.35, y + 0.05, icon + row["label"],
-                fontsize=9.5, fontname=_FONT, va="center",
-                color="#2c3e50", fontweight="bold" if row["flagged"] else "normal")
-        ax.text(9.75, y + 0.05, row["message"],
-                fontsize=8.5, fontname=_FONT, va="center", ha="right",
-                color="#555")
-
-    ax.set_title("Evidence Quality Dashboard", fontsize=12,
-                 fontname=_FONT, pad=10)
-    fig.tight_layout()
-    return _savefig(fig, out_dir / filename)
-
-
 # ── 7. Storyline contribution chart ──────────────────────────────────────────
 
 def plot_storyline_contribution(
     storyline_data: dict[str, Any],
     predicted_label: str,
     out_dir: Path,
-    filename: str = "07_storyline_contribution.png",
+    filename: str = "06_storyline_contribution.png",
 ) -> Path:
     """
     Grouped horizontal bar chart showing narrative clusters by sentiment
@@ -505,7 +424,7 @@ def plot_storyline_contribution(
 def plot_contrastive_waterfall(
     contrastive: dict[str, Any],
     out_dir: Path,
-    filename: str = "08_contrastive_waterfall.png",
+    filename: str = "07_contrastive_waterfall.png",
 ) -> Path:
     """
     Waterfall chart showing how each top article contributes to the gap
@@ -596,7 +515,7 @@ def plot_contrastive_waterfall(
 def plot_article_timeline(
     ranked_articles: list[dict[str, Any]],
     out_dir: Path,
-    filename: str = "09_article_timeline.png",
+    filename: str = "08_article_timeline.png",
 ) -> Path:
     """
     Scatter plot of articles over time (days_ago), sized by final_weight,
@@ -665,7 +584,7 @@ def plot_cumulative_score(
     ranked_articles: list[dict[str, Any]],
     predicted_label: str,
     out_dir: Path,
-    filename: str = "10_cumulative_score.png",
+    filename: str = "09_cumulative_score.png",
 ) -> Path:
     """
     Area chart showing how the weighted sentiment score accumulates as each
@@ -792,7 +711,6 @@ def generate_all_charts(result: dict[str, Any], charts_dir: Path) -> dict[str, P
         paths["horizon_breakdown"]    = plot_horizon_breakdown(layer3, charts_dir)
         if lime_articles:
             paths["lime_tokens"]      = plot_lime_tokens(lime_articles, predicted_label, charts_dir)
-        paths["reliability"]          = plot_reliability(reliability, charts_dir)
 
         # ── New charts (7-10) ─────────────────────────────────
         if storylines.get("storylines"):

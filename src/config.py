@@ -71,7 +71,7 @@ SENTIMENT_MODEL = "zero-shot"
 MODEL_NAME = "roberta-large-mnli" # facebookAI roberta mnli
 
 # ── Xai Configuration ────────────────────────────────────────────────────────
-XAI_ENABLED                    = False
+XAI_ENABLED                    = True
 XAI_EXPLANATIONS_PATH          = PROJECT_ROOT / "data" / "xai_explanations"
 XAI_OUTPUT_PATH                = XAI_EXPLANATIONS_PATH / "xai_result.json"
 XAI_SUMMARY_PATH               = XAI_EXPLANATIONS_PATH / "xai_summary.txt"

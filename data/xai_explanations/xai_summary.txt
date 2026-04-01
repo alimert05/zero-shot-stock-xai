@@ -1,11 +1,11 @@
 ============================================================
   SENTIMENT ANALYSIS EXPLANATION REPORT
 ============================================================
-  Company           : Apple  (AAPL)
+  Company           : apple  (AAPL)
   Forecast horizon  : 31 days
-  News lookback     : 2026-03-01 to 2026-03-28 (ET market-close aligned)
+  News lookback     : 2026-03-04 to 2026-03-31 (ET market-close aligned)
   Articles analysed : 262
-  Generated at      : 2026-03-29 10:37:51
+  Generated at      : 2026-04-01 12:51:37
 ============================================================
 
 ════════════════════════════════════════════════════════════
@@ -17,9 +17,9 @@
   What the model decided and why — in plain English
 ------------------------------------------------------------
 
-  The model predicted a NEGATIVE label with a 29.1% score share based on 262 articles over 31 days.
-The top article is "Warren Buffett Added a Big Chunk of This Tech Stock. Should You Add It Too?" with a positive sentiment.
-The label margin is moderate (0.132), but evidence quality is HIGH due to a narrow decision margin and source concentration.
+  The model predicted a NEGATIVE label with a 28.0% score share based on 262 articles over 31 days.
+The top article is "Warren Buffett Added a Big Chunk of This Tech Stock. Should You Add It Too?" with a POSITIVE sentiment, accounting for 0.9% of the total weight.
+The label margin is moderate (0.160), but evidence quality is HIGH due to warnings related to earnings and billion.
 
   PREDICTION RESULT
   Sentiment scores across all analysed articles
@@ -32,12 +32,12 @@ The label margin is moderate (0.132), but evidence quality is HIGH due to a narr
 
   Score chart  (each █ ≈ 2.5%):
 
-    positive :  42.4%  █████████████████░░░░░░░░░░░░░░░░░░░░░░░
-    negative :  29.1%  ████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░  ◄ PREDICTED
+    positive :  44.0%  ██████████████████░░░░░░░░░░░░░░░░░░░░░░
+    negative :  28.0%  ███████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  ◄ PREDICTED
      neutral :  15.8%  ██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
   Verdict     : NEGATIVE
-  Model support : 29.1%  (share of model weight, not a probability)
+  Model support : 28.0%  (share of model weight, not a probability)
 
   RECOMMENDATION
   What you should do with this result
@@ -47,36 +47,37 @@ The label margin is moderate (0.132), but evidence quality is HIGH due to a narr
   NARRATIVE THEMES
   What the news is about and the dominant tone per theme
 ------------------------------------------------------------
-    General commentary :  67 articles (26%)  ▲ positive  (+39 / -23 / =5)
-    Regulatory / legal :  66 articles (25%)  ▼ negative  (+27 / -39 / =0)
-    Earnings / results :  47 articles (18%)  ▲ positive  (+29 / -15 / =3)
-    Leadership change  :  27 articles (10%)  ▼ negative  (+7 / -17 / =3)
-    Product / business :  25 articles (10%)  ▲ positive  (+20 / -4 / =1)
-    Analyst action     :  15 articles (6%)  ▲ positive  (+13 / -1 / =1)
+    Regulatory / legal :  68 articles (26%)  ▼ negative  (+30 / -38 / =0)
+    General commentary :  66 articles (25%)  ▲ positive  (+39 / -22 / =5)
+    Earnings / results :  47 articles (18%)  ▲ positive  (+31 / -14 / =2)
+    Leadership change  :  28 articles (11%)  ▼ negative  (+10 / -15 / =3)
+    Product / business :  25 articles (10%)  ▲ positive  (+21 / -3 / =1)
+    Analyst action     :  14 articles (5%)  ▲ positive  (+13 / -0 / =1)
     Capital / payout   :  10 articles (4%)  ▲ positive  (+9 / -1 / =0)
-    Strategy / M&A     :   4 articles (2%)  ▲ positive  (+4 / -0 / =0)
+    Strategy / M&A     :   3 articles (1%)  ▲ positive  (+3 / -0 / =0)
     Distress / credit  :   1 articles (0%)  ▼ negative  (+0 / -1 / =0)
 
   Storylines (auto-discovered from article titles):
 
     Storylines supporting the NEGATIVE prediction:
-      "Apple stock underperforms market expectations recently." (5 articles)  ▼ negative  (+0 / -5 / =0)
+      "Apple stock underperforms market expectations lately." (5 articles)  ▼ negative  (+0 / -5 / =0)
         → Here’s Why Apple (AAPL) is on the Detractors List of Parnassus Core 
         → Here's Why Apple (AAPL) Fell More Than Broader Market
         → Apple (AAPL) Stock Slides as Market Rises: Facts to Know Before You 
         → Here’s Why Apple (AAPL) is on the Detectors List of Brown Advisory L
         → Here’s How Apple (AAPL) Impacted Harbor Capital Appreciation Fund
-      "AI challenges and risks for major tech player." (5 articles)  ▼ negative  (+0 / -5 / =0)
-        → Apple faces risk from memory cost spike in 2026: MoffettNathanson's 
-        → Apple Faces High Stakes in 2026 as AI-Powered Siri Launch Slips
-        → Can Apple close the AI gap in 2026? Morgan Stanley weighs in
-        → Apple's AI challenges in 2026
-        → Why Apple Might Attract More of an AI Multiple in 2026
-      "Apple faces leadership transition and scrutiny." (4 articles)  ▼ negative  (+0 / -4 / =0)
+      "Leadership shake-up amid AI strategy uncertainty" (4 articles)  ▼ negative  (+0 / -4 / =0)
+        → Executive Exodus Hits Apple As Fears Grow Over Possible Chip Chief D
+        → Apple won’t be the same in 2026. Meet the company’s next generation 
+        → Apple's executive exodus sends a signal about its AI strategy
+        → Apple's 2025 App List, AI Stumble, Executive Exodus And More: This W
+      "Tim Cook faces leadership challenges and scrutiny." (6 articles)  ▼ negative  (+0 / -6 / =0)
         → Pressure builds on Apple and CEO Tim Cook with holiday executive sha
         → Apple CEO Tim Cook Discloses $3 Million Nike Buy With Dow Giant At 7
         → Whoever Replaces Tim Cook at Apple Will Have 'Big Shoes to Fill'
         → Apple's Tim Cook Urges Lawmakers to Rethink App Store Accountability
+        → Apple's Tim Cook reportedly on Capitol Hill, Oracle earnings watch
+        → Apple Chip Chief Considers Exit, Tim Cook's AI Reset And More: This 
       "Warren Buffett sells large portion of shares." (4 articles)  ▼ negative  (+0 / -4 / =0)
         → Prediction: Berkshire Hathaway Will Stop Selling Apple Stock in 2026
         → The 76-Year-Old Reason Why Buffett Has Been Selling Apple
@@ -104,19 +105,27 @@ The label margin is moderate (0.132), but evidence quality is HIGH due to a narr
         → Why Apple's Tim Cook Drove Nike Stock Higher Today
         → Nike Stock Price Gets a Lift After Apple’s Tim Cook Doubles His Stak
         → Nike (NKE) Jumps 4.6% as Tim Cook Hikes Stake
-        → Apple CEO Tim Cook Just Bought $3 Million of Nike Stock. Should You 
         → From Tesla To Nike: Why Tim Cook's Buy Is Drawing Market Parallels
+        → Apple CEO Tim Cook Just Bought $3 Million of Nike Stock. Should You 
         → Top Midday Stories: Apple's Cook Buys $3 Million in Nike Stock; Open
         → Tim Cook Just Purchased $3 Million Worth of Nike Shares Along With A
         → Nike shares jump after Apple CEO Cook doubles stake to $6 million
-      "Apple stock surges due to growth strategies" (7 articles)  ▲ positive  (+7 / -0 / =0)
+      "Apple stock surges due to growth prospects" (7 articles)  ▲ positive  (+7 / -0 / =0)
         → Is MP Stock a Buy, Hold or Sell After Its 98.9% Six-Month Rally?
         → Apple Stock Ticks Up After a Surprise From China—and a Legal Win
-        → The $50 Trick That Lets You Own Enough Apple Stock to Really Grow Yo
         → Apple Stock Rises Ahead of 2026. What's Driving the Growth
+        → The $50 Trick That Lets You Own Enough Apple Stock to Really Grow Yo
         → Apple Stock Can Rise on Services Segment, Says Analyst. Plus, Uber, 
         → Services Rides on Apple TV and Arcade: What's Ahead for Apple Stock?
         → After a 42% Six-Month Rally, What's Next for Apple Stock in 2026?
+      "Tech giants poised for growth in 2026." (7 articles)  ▲ positive  (+7 / -0 / =0)
+        → Apple Is Likely to Return to Double-Digit Revenue Growth in Fiscal 2
+        → 1 Reason I'm Watching Apple Heading Into 2026
+        → Apple Seen Moving From AI Laggard To Leader In 2026
+        → Here's Why Apple Is My Second Biggest Holding Going Into 2026
+        → Why 2026 May Be Apple’s Year
+        → These Techs Had The Biggest Stock Buybacks In Q3. What To Expect In 
+        → Will Google Pass Nvidia in 2026 as the World’s Biggest Company?
       "iPhone 17 supply meets growing demand." (6 articles)  ▲ positive  (+6 / -0 / =0)
         → Apple Gains Higher Wedbush Price Target on Strengthening AI Strategy
         → JPMorgan Confident in Apple (AAPL) as iPhone 17 Demand-Supply Reache
@@ -124,12 +133,11 @@ The label margin is moderate (0.132), but evidence quality is HIGH due to a narr
         → Apple (AAPL) Target Raised as Jefferies Sees Stronger iPhone Demand
         → Apple (AAPL) Price Target Raised as Loop Capital Sees Stronger iPhon
         → Lead times across the iPhone  17 series are moderating: analyst
-      "Apple poised for leadership in emerging tech." (5 articles)  ▲ positive  (+5 / -0 / =0)
-        → 1 Reason I'm Watching Apple Heading Into 2026
-        → Apple Seen Moving From AI Laggard To Leader In 2026
-        → Here's Why Apple Is My Second Biggest Holding Going Into 2026
-        → Why 2026 May Be Apple’s Year
-        → These Techs Had The Biggest Stock Buybacks In Q3. What To Expect In 
+      "Tech giant poised for trillion-dollar valuation." (4 articles)  ▲ positive  (+4 / -0 / =0)
+        → Meet the Supercharged Growth Stock That Could Join Apple, Nvidia, Mi
+        → 1 Unstoppable Stock That Could Join Nvidia, Alphabet, Apple, and Mic
+        → 1 Unstoppable Stock to Buy Before It Joins Nvidia, Apple, Microsoft,
+        → Apple's $4 Trillion Comeback: Why It's Now Beating Nvidia, Microsoft
       "Investors flock to trendy tech stock" (5 articles)  ▲ positive  (+5 / -0 / =0)
         → Apple Doesn't Need A Stronger AI Portfolio
         → Here is What to Know Beyond Why Apple Inc. (AAPL) is a Trending Stoc
@@ -142,34 +150,29 @@ The label margin is moderate (0.132), but evidence quality is HIGH due to a narr
         → Apple Plans More Ads in App Store
         → Medical Care Technologies (OTC PINK:MDCE) Advances First AI-Powered 
         → Apple unveils the winners of the 2025 App Store Awards
-      "Investor advises sticking with winning stocks." (4 articles)  ▲ positive  (+4 / -0 / =0)
-        → Jim Cramer Says “Own Apple, Don’t Trade It”
-        → Jim Cramer on Apple: “Bulls Like Me Were Considered Dreamers or Even
-        → Jim Cramer Says “I Own Apple, and I Say Own it, Don’t Trade It”
-        → 'Own it, don't trade it,' says Jim Cramer on Nvidia
 
     Neutral storylines:
-      "Investor sentiment remains cautious despite product innovation." (2 articles)  ■ neutral  (+0 / -0 / =2)
+      "Investor sentiment remains cautious on tech giant." (2 articles)  ■ neutral  (+0 / -0 / =2)
         → UBS Reiterates Neutral on Apple (AAPL) as App Store Growth Slows
         → UBS Reiterates Neutral on Apple (AAPL) as Interest in Apple Intellig
       "Executive stays on despite rumors of departure." (2 articles)  ■ neutral  (+0 / -0 / =2)
         → Apple Chip Chief Tells Staff He’s Not Leaving ‘Anytime Soon’
         → Apple's chip chief reportedly 'not leaving': A closer look
 
-    Other topics (187 articles — titles too unique to cluster with any other article; each covers a distinct story)
+    Other topics (184 articles — titles too unique to cluster with any other article; each covers a distinct story)
 
 ============================================================
   FINAL PLAIN-ENGLISH OVERVIEW
   A complete, readable summary of the entire analysis for a general reader
 ============================================================
 
-  Out of 262 news articles analysed for Apple over a
-  31-day forecast horizon, 148 carried positive sentiment,
-  101 carried negative sentiment, and 13 were neutral. The
+  Out of 262 news articles analysed for apple over a
+  31-day forecast horizon, 156 carried positive sentiment,
+  94 carried negative sentiment, and 12 were neutral. The
   model produced a weighted aggregation of these scores
-  and predicted a NEGATIVE label with 29.1% model support.
+  and predicted a NEGATIVE label with 28.0% model support.
   The model chose NEGATIVE over POSITIVE by a score gap of
-  -0.1323: 109 articles pushed toward NEGATIVE while 153
+  -0.1602: 98 articles pushed toward NEGATIVE while 164
   pushed toward POSITIVE. The single most influential
   article was "Warren Buffett Added a Big Chunk of This
   Tech Stock. Should You Add It Too?" (positive sentiment,
@@ -178,10 +181,11 @@ The label margin is moderate (0.132), but evidence quality is HIGH due to a narr
   the average article was 15.38 days old, with most
   classified as short-term horizon. At the word level, the
   strongest signals in the most influential article
-  included: Warning, sank, eyed, start. No subset of
-  articles can flip the verdict — the prediction is robust
-  across the article pool. The prediction carries HIGH
-  evidence quality and can be used with confidence.
+  included: Warning, sank, cable, earnings, billion. No
+  subset of articles can flip the verdict — the prediction
+  is robust across the article pool. The prediction
+  carries HIGH evidence quality and can be used with
+  confidence.
 
 
   DISCLAIMER
@@ -199,11 +203,11 @@ The label margin is moderate (0.132), but evidence quality is HIGH due to a narr
   WHY NEGATIVE INSTEAD OF POSITIVE?
   Contrastive explanation — what tipped the balance
 ------------------------------------------------------------
-  Score gap : NEGATIVE 0.2914  vs  POSITIVE 0.4237  (gap = -0.1323)
+  Score gap : NEGATIVE 0.2800  vs  POSITIVE 0.4402  (gap = -0.1602)
 
   Article split:
-    109 articles push toward NEGATIVE  (total push: +0.2091)
-    153 articles push toward POSITIVE  (total push: -0.3421)
+     98 articles push toward NEGATIVE  (total push: +0.2027)
+    164 articles push toward POSITIVE  (total push: -0.3630)
 
   Third class: NEUTRAL at 15.8% — absorbing probability mass roughly equally from both sides.
 
@@ -212,8 +216,8 @@ The label margin is moderate (0.132), but evidence quality is HIGH due to a narr
     ----------------------------------------------------------------------
     1         → POS    -0.71%  Apple CEO Tim Cook Just Gave Nike Investors 3 Mi
     2         → NEG    +0.70%  Big Promises, Bigger Fails: Meta's Cringe Demo, 
-    3         → POS    -0.68%  Globalstar (GSAT) Gains Strategic Value From App
-    4         → POS    -0.67%  1 Unstoppable Stock That Could Join Nvidia, Alph
+    3         → POS    -0.68%  1 Unstoppable Stock That Could Join Nvidia, Alph
+    4         → POS    -0.68%  Globalstar (GSAT) Gains Strategic Value From App
     5         → NEG    +0.66%  The S&P 500 Is Too Exposed To Big Tech, Time To 
 
   Counterfactual (minimum flip set):
@@ -222,12 +226,12 @@ The label margin is moderate (0.132), but evidence quality is HIGH due to a narr
   PREDICTION RELIABILITY
   How much to trust this prediction
 ------------------------------------------------------------
-  Overall : [✓] HIGH  (1 concern(s) found)
+  Overall : [✓] HIGH  (0 concern(s) found)
   Rating rule : HIGH evidence quality if 0 concerns, MEDIUM if 1, LOW if ≥2.
 
     [✓] thin evidence          Sufficient article count.
     [✓] weight concentration   Weight is well-distributed across articles.
-    [⚠] label margin           Narrow margin between positive (0.424) and negative (0.291): margin=0.132.
+    [✓] label margin           Clear margin between top two labels (0.160).
     [✓] source diversity       6 sources (5 editorial + 1 aggregators), top editorial share 33%. (81% via aggregators like Yahoo/Finnhub — these collect from many editorial sources)
     [✓] timing alignment       Articles are 1-28 days old (ET market-close aligned), down-weighted by the recency function where applicable.
     [✓] horizon coverage       News lookback (28 days) covers the intended 28-day backward window.
@@ -244,9 +248,9 @@ The label margin is moderate (0.132), but evidence quality is HIGH due to a narr
 ------------------------------------------------------------
   Article sentiment distribution:
 
-    ▲ positive : █████████████████░░░░░░░░░░░░░  148 articles (56%)
-    ▼ negative : ████████████░░░░░░░░░░░░░░░░░░  101 articles (39%)
-    ■  neutral : █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   13 articles (5%)
+    ▲ positive : ██████████████████░░░░░░░░░░░░  156 articles (60%)
+    ▼ negative : ███████████░░░░░░░░░░░░░░░░░░░   94 articles (36%)
+    ■  neutral : █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   12 articles (5%)
 
   Articles pushing toward POSITIVE:
     [+]  Apple CEO Tim Cook Just Gave Nike Investors 3 Million Reasons to Cheer
@@ -265,12 +269,12 @@ The label margin is moderate (0.132), but evidence quality is HIGH due to a narr
     #2    NEG  1.0000    0.9%  ██████████████████████████████  Apple's AI challenges in 2026
     #3    NEG  1.0000    0.9%  ██████████████████████████████  Big Promises, Bigger Fails: Meta
     #4    NEG  1.0000    0.9%  ██████████████████████████████  Apple Faces High Stakes in 2026 
-    #5    POS  1.0000    0.9%  ██████████████████████████████  TSMC Shares Rise on AI Demand an
-    #6    NEG  1.0000    0.9%  ██████████████████████████████  The 76-Year-Old Reason Why Buffe
-    #7    NEG  1.0000    0.9%  ██████████████████████████████  Apple needs to deliver an AI-cha
-    #8    NEG  1.0000    0.9%  ██████████████████████████████  The Real Reasons Warren Buffett 
-    #9    POS  1.0000    0.9%  ██████████████████████████████  Tuttle Capital Management Launch
-    #10   NEG  1.0000    0.9%  ██████████████████████████████  The S&P 500 Is Too Exposed To Bi
+    #5    POS  1.0000    0.9%  ██████████████████████████████  Market Movers: Nike Exploding Hi
+    #6    POS  1.0000    0.9%  ██████████████████████████████  TSMC Shares Rise on AI Demand an
+    #7    NEG  1.0000    0.9%  ██████████████████████████████  The 76-Year-Old Reason Why Buffe
+    #8    NEG  1.0000    0.9%  ██████████████████████████████  Apple needs to deliver an AI-cha
+    #9    NEG  1.0000    0.9%  ██████████████████████████████  Apple is an Analyst Favorite, Bu
+    #10   NEG  1.0000    0.9%  ██████████████████████████████  The Real Reasons Warren Buffett 
 
   Weight concentration (HHI): 0.0038  (well-distributed) — 0 = perfectly uniform across all articles, 1 = one article dominates
 
@@ -287,13 +291,13 @@ The label margin is moderate (0.132), but evidence quality is HIGH due to a narr
 
   Average article age      : 15.38 days old
   Average recency weight   : 0.6464  (1.0 = today, lower = older)
-  Average horizon weight   : 0.3355  (1.0 = ideal timing, lower = off-horizon)
+  Average horizon weight   : 0.3361  (1.0 = ideal timing, lower = off-horizon)
 
   Article timing breakdown:
 
-    Immediate (0-1 days)  : ██████████████████████████████  129 (49%)
-    Short-term (2-5 days) : ██████████████████████████████  128 (49%)
-    Diffusion (6-10 days) : █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    4 (2%)
+    Immediate (0-1 days)  : █████████████████████████████░  127 (48%)
+    Short-term (2-5 days) : ██████████████████████████████  131 (50%)
+    Diffusion (6-10 days) : █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    3 (1%)
     Long-term (11-31 days) : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1 (0%)
 
   WHICH WORDS DROVE THE PREDICTION
@@ -310,24 +314,24 @@ The label margin is moderate (0.132), but evidence quality is HIGH due to a narr
   ADVANCED / DIAGNOSTICS section at the end of this report.
 
   [1] Meta Opens a New Frontier in AI Race. Why It’s a Warning for Apple.
-      Words pushing TOWARD  NEGATIVE : Warning, sank, eyed, start
-      Words pushing AGAINST NEGATIVE : Sentiment, Frontier, billion, Why, Hovnanian
+      Words pushing TOWARD  NEGATIVE : Warning, sank, cable, earnings, billion
+      Words pushing AGAINST NEGATIVE : Comcast, Sentiment, Frontier, spinoff, Hovnanian
 
   [2] Soaring Memory Prices Will Cannibalize Apple's Profit
-      Words pushing TOWARD  NEGATIVE : Cannibalize, margin, impact, Prices, rising
-      Words pushing AGAINST NEGATIVE : Profit, Sentiment, Learn, profits, AI
+      Words pushing TOWARD  NEGATIVE : Cannibalize, compression, Prices, margin, Memory
+      Words pushing AGAINST NEGATIVE : Profit, Learn, valuation, how
 
-  [3] Apple: Don't Expect Much Growth Here
-      Words pushing TOWARD  NEGATIVE : risky, lack, reconsider, Don, Here
-      Words pushing AGAINST NEGATIVE : investment, today, Appleâ, Sentiment, make
+  [3] Pressure builds on Apple and CEO Tim Cook with holiday executive shake-u
+      Words pushing TOWARD  NEGATIVE : Pressure, turnover, shake, builds, CEO
+      Words pushing AGAINST NEGATIVE : seen, extraordinary, up, Cook
 
-  [4] Pressure builds on Apple and CEO Tim Cook with holiday executive shake-u
-      Words pushing TOWARD  NEGATIVE : Pressure, shake, turnover, CEO, Tim
-      Words pushing AGAINST NEGATIVE : extraordinary, ranks, builds, up, Cook
+  [4] Apple: Don't Expect Much Growth Here
+      Words pushing TOWARD  NEGATIVE : risky, reconsider, lack, Expect, Don
+      Words pushing AGAINST NEGATIVE : today, Click, want, make, Sentiment
 
   [5] Israel's tech sector says more staff seek relocation abroad-report
-      Words pushing TOWARD  NEGATIVE : harm, multinationals, abroad, Industries, relocate
-      Words pushing AGAINST NEGATIVE : against, Sentiment, report, Sunday, two
+      Words pushing TOWARD  NEGATIVE : harm, Israel, Requests, local, hundreds
+      Words pushing AGAINST NEGATIVE : Advanced, rose, showed, include, engine
 
 
   CHARTS
@@ -338,7 +342,6 @@ The label margin is moderate (0.132), but evidence quality is HIGH due to a narr
     [article_weights]  Top-10 article weight chart
     [horizon_breakdown]  Timing horizon breakdown chart
     [lime_tokens]  Word-level attribution (LIME) chart
-    [reliability]  Evidence quality dashboard
     [storyline_contribution]  Narrative storyline contribution chart
     [contrastive_waterfall]  Contrastive waterfall (why A not B?)
     [article_timeline]  Article timeline (recency vs influence)
@@ -358,7 +361,6 @@ The label margin is moderate (0.132), but evidence quality is HIGH due to a narr
     Top-10 article weight chart: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\03_article_weights.png
     Timing horizon breakdown chart: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\04_horizon_breakdown.png
     Word-level attribution (LIME) chart: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\05_lime_tokens.png
-    Evidence quality dashboard: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\06_reliability.png
     Narrative storyline contribution chart: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\07_storyline_contribution.png
     Contrastive waterfall (why A not B?): C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\08_contrastive_waterfall.png
     Article timeline (recency vs influence): C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\09_article_timeline.png
@@ -372,134 +374,135 @@ The label margin is moderate (0.132), but evidence quality is HIGH due to a narr
   [1] Meta Opens a New Frontier in AI Race. Why It’s a Warning for Apple.
       Content: Hassett eyed as Trump’s next Fed chair, Comcast’s cable spinoff could be valued at $10 billion, Hovnanian earnings sank 
                the sector, more news to start your day.
-      Article weight : 1.0000  |  Relevance to prediction : 0.9891
+      Article weight : 1.0000  |  Relevance to prediction : 0.9929
       Token influence chart:
-        + Warning          ████████████████████  (+0.5709)
-        + sank             █████░░░░░░░░░░░░░░░  (+0.1385)
-        - Sentiment        ███░░░░░░░░░░░░░░░░░  (-0.0931)
-        - Frontier         ███░░░░░░░░░░░░░░░░░  (-0.0882)
-        + eyed             ██░░░░░░░░░░░░░░░░░░  (+0.0568)
-        + start            ██░░░░░░░░░░░░░░░░░░  (+0.0567)
-        - billion          ██░░░░░░░░░░░░░░░░░░  (-0.0528)
-        - Why              █░░░░░░░░░░░░░░░░░░░  (-0.0409)
+        + Warning          ████████████████████  (+0.6075)
+        + sank             █████░░░░░░░░░░░░░░░  (+0.1500)
+        - Comcast          ███░░░░░░░░░░░░░░░░░  (-0.0769)
+        - Sentiment        ██░░░░░░░░░░░░░░░░░░  (-0.0716)
+        - Frontier         ██░░░░░░░░░░░░░░░░░░  (-0.0689)
+        - spinoff          ██░░░░░░░░░░░░░░░░░░  (-0.0593)
+        + cable            ██░░░░░░░░░░░░░░░░░░  (+0.0556)
+        - Hovnanian        ██░░░░░░░░░░░░░░░░░░  (-0.0488)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Warning                (+)    +0.570923
-      sank                   (+)    +0.138465
-      Sentiment              (-)    -0.093056
-      Frontier               (-)    -0.088167
-      eyed                   (+)    +0.056824
-      start                  (+)    +0.056717
-      billion                (-)    -0.052826
-      Why                    (-)    -0.040865
-      Hovnanian              (-)    -0.030155
+      Warning                (+)    +0.607524
+      sank                   (+)    +0.150014
+      Comcast                (-)    -0.076903
+      Sentiment              (-)    -0.071585
+      Frontier               (-)    -0.068948
+      spinoff                (-)    -0.059346
+      cable                  (+)    +0.055576
+      Hovnanian              (-)    -0.048792
+      earnings               (+)    +0.048021
+      billion                (+)    +0.037428
 
   [2] Soaring Memory Prices Will Cannibalize Apple's Profit
       Content: Apple risks margin compression from rising DRAM/NAND prices due to AI demand. Learn how this could impact AAPL stock's p
                remium valuation and future profits.
-      Article weight : 1.0000  |  Relevance to prediction : 0.9864
+      Article weight : 1.0000  |  Relevance to prediction : 0.9874
       Token influence chart:
-        + Cannibalize      ████████████████████  (+0.3818)
-        + margin           ████░░░░░░░░░░░░░░░░  (+0.0727)
-        + impact           ████░░░░░░░░░░░░░░░░  (+0.0685)
-        + Prices           ███░░░░░░░░░░░░░░░░░  (+0.0572)
-        + rising           ███░░░░░░░░░░░░░░░░░  (+0.0567)
-        + Memory           ███░░░░░░░░░░░░░░░░░  (+0.0528)
-        - Profit           ██░░░░░░░░░░░░░░░░░░  (-0.0397)
-        + risks            ██░░░░░░░░░░░░░░░░░░  (+0.0391)
+        + Cannibalize      ████████████████████  (+0.3870)
+        + compression      █████░░░░░░░░░░░░░░░  (+0.0991)
+        + Prices           ████░░░░░░░░░░░░░░░░  (+0.0820)
+        + margin           ████░░░░░░░░░░░░░░░░  (+0.0794)
+        + Memory           ███░░░░░░░░░░░░░░░░░  (+0.0520)
+        - Profit           ███░░░░░░░░░░░░░░░░░  (-0.0500)
+        + risks            ██░░░░░░░░░░░░░░░░░░  (+0.0397)
+        + rising           ██░░░░░░░░░░░░░░░░░░  (+0.0358)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Cannibalize            (+)    +0.381799
-      margin                 (+)    +0.072734
-      impact                 (+)    +0.068509
-      Prices                 (+)    +0.057153
-      rising                 (+)    +0.056695
-      Memory                 (+)    +0.052834
-      Profit                 (-)    -0.039695
-      risks                  (+)    +0.039053
-      future                 (+)    +0.038590
-      Sentiment              (-)    -0.034422
+      Cannibalize            (+)    +0.386995
+      compression            (+)    +0.099137
+      Prices                 (+)    +0.081971
+      margin                 (+)    +0.079380
+      Memory                 (+)    +0.052039
+      Profit                 (-)    -0.049972
+      risks                  (+)    +0.039673
+      rising                 (+)    +0.035789
+      Learn                  (-)    -0.035570
+      impact                 (+)    +0.028973
 
-  [3] Apple: Don't Expect Much Growth Here
+  [3] Pressure builds on Apple and CEO Tim Cook with holiday executive shake-u
+      Content: Apple has seen extraordinary turnover in its top ranks over just the past week.
+      Article weight : 1.0000  |  Relevance to prediction : 0.9872
+      Token influence chart:
+        + Pressure         ████████████████████  (+0.5274)
+        + turnover         ████░░░░░░░░░░░░░░░░  (+0.1054)
+        + shake            ███░░░░░░░░░░░░░░░░░  (+0.0912)
+        + builds           ██░░░░░░░░░░░░░░░░░░  (+0.0592)
+        - seen             ██░░░░░░░░░░░░░░░░░░  (-0.0428)
+        - extraordinary    █░░░░░░░░░░░░░░░░░░░  (-0.0359)
+        + CEO              █░░░░░░░░░░░░░░░░░░░  (+0.0330)
+        + week             █░░░░░░░░░░░░░░░░░░░  (+0.0282)
+
+      Token                  Dir       Weight
+      ----------------------------------------
+      Pressure               (+)    +0.527400
+      turnover               (+)    +0.105369
+      shake                  (+)    +0.091185
+      builds                 (+)    +0.059243
+      seen                   (-)    -0.042785
+      extraordinary          (-)    -0.035936
+      CEO                    (+)    +0.033019
+      week                   (+)    +0.028209
+      ranks                  (+)    +0.027008
+      up                     (-)    -0.019091
+
+  [4] Apple: Don't Expect Much Growth Here
       Content: Discover why Appleâs high valuation and lack of growth make it a risky investment. Learn why you may want to reconside
                r buying Apple stock today. Click to read.
-      Article weight : 1.0000  |  Relevance to prediction : 0.9856
+      Article weight : 1.0000  |  Relevance to prediction : 0.9864
       Token influence chart:
-        + risky            ████████████████████  (+0.2667)
-        + lack             █████████░░░░░░░░░░░  (+0.1250)
-        + reconsider       █████████░░░░░░░░░░░  (+0.1138)
-        + Don              ████████░░░░░░░░░░░░  (+0.1108)
-        + Here             ██████░░░░░░░░░░░░░░  (+0.0765)
-        - investment       █████░░░░░░░░░░░░░░░  (-0.0627)
-        + valuation        ████░░░░░░░░░░░░░░░░  (+0.0583)
-        + Discover         ████░░░░░░░░░░░░░░░░  (+0.0551)
+        + risky            ████████████████████  (+0.2760)
+        + reconsider       ███████████░░░░░░░░░  (+0.1564)
+        + lack             ██████████░░░░░░░░░░  (+0.1409)
+        + Expect           ████████░░░░░░░░░░░░  (+0.1122)
+        + Don              ████████░░░░░░░░░░░░  (+0.1040)
+        + Growth           ██████░░░░░░░░░░░░░░  (+0.0848)
+        + valuation        ██████░░░░░░░░░░░░░░  (+0.0840)
+        - today            ███░░░░░░░░░░░░░░░░░  (-0.0425)
 
       Token                  Dir       Weight
       ----------------------------------------
-      risky                  (+)    +0.266723
-      lack                   (+)    +0.125020
-      reconsider             (+)    +0.113826
-      Don                    (+)    +0.110783
-      Here                   (+)    +0.076512
-      investment             (-)    -0.062730
-      valuation              (+)    +0.058323
-      Discover               (+)    +0.055121
-      growth                 (+)    +0.041156
-      today                  (-)    -0.035949
-
-  [4] Pressure builds on Apple and CEO Tim Cook with holiday executive shake-u
-      Content: Apple has seen extraordinary turnover in its top ranks over just the past week.
-      Article weight : 1.0000  |  Relevance to prediction : 0.9847
-      Token influence chart:
-        + Pressure         ████████████████████  (+0.5089)
-        + shake            ██████░░░░░░░░░░░░░░  (+0.1434)
-        - extraordinary    ███░░░░░░░░░░░░░░░░░  (-0.0852)
-        + turnover         ███░░░░░░░░░░░░░░░░░  (+0.0766)
-        + CEO              ██░░░░░░░░░░░░░░░░░░  (+0.0445)
-        - ranks            █░░░░░░░░░░░░░░░░░░░  (-0.0312)
-        + Tim              █░░░░░░░░░░░░░░░░░░░  (+0.0246)
-        + Sentiment        █░░░░░░░░░░░░░░░░░░░  (+0.0186)
-
-      Token                  Dir       Weight
-      ----------------------------------------
-      Pressure               (+)    +0.508921
-      shake                  (+)    +0.143390
-      extraordinary          (-)    -0.085152
-      turnover               (+)    +0.076643
-      CEO                    (+)    +0.044502
-      ranks                  (-)    -0.031223
-      Tim                    (+)    +0.024578
-      Sentiment              (+)    +0.018623
-      builds                 (-)    -0.016644
-      week                   (+)    +0.016116
+      risky                  (+)    +0.275955
+      reconsider             (+)    +0.156443
+      lack                   (+)    +0.140884
+      Expect                 (+)    +0.112245
+      Don                    (+)    +0.103963
+      Growth                 (+)    +0.084805
+      valuation              (+)    +0.083961
+      today                  (-)    -0.042481
+      Click                  (-)    -0.037537
+      want                   (-)    -0.035740
 
   [5] Israel's tech sector says more staff seek relocation abroad-report
       Content: Requests to relocate abroad by Israelis working at multinational companies operating in Israel rose in the past year in 
                reaction to Israel's ​two-year war against Palestinian militant group Hamas, a report showed on Sunday. The Israel Advan
-      Article weight : 1.0000  |  Relevance to prediction : 0.9830
+      Article weight : 1.0000  |  Relevance to prediction : 0.9839
       Token influence chart:
-        + harm             ████████████████████  (+0.2600)
-        + multinationals   █████░░░░░░░░░░░░░░░  (+0.0632)
-        + abroad           ████░░░░░░░░░░░░░░░░  (+0.0563)
-        + Industries       ████░░░░░░░░░░░░░░░░  (+0.0525)
-        + relocate         ████░░░░░░░░░░░░░░░░  (+0.0474)
-        + war              ███░░░░░░░░░░░░░░░░░  (+0.0452)
-        + working          ███░░░░░░░░░░░░░░░░░  (+0.0429)
-        - against          ███░░░░░░░░░░░░░░░░░  (-0.0427)
+        + harm             ████████████████████  (+0.3161)
+        + Israel           █████░░░░░░░░░░░░░░░  (+0.0765)
+        + Requests         █████░░░░░░░░░░░░░░░  (+0.0739)
+        + local            █████░░░░░░░░░░░░░░░  (+0.0730)
+        + hundreds         ████░░░░░░░░░░░░░░░░  (+0.0683)
+        + group            ████░░░░░░░░░░░░░░░░  (+0.0572)
+        - Advanced         ████░░░░░░░░░░░░░░░░  (-0.0556)
+        + reaction         ███░░░░░░░░░░░░░░░░░  (+0.0468)
 
       Token                  Dir       Weight
       ----------------------------------------
-      harm                   (+)    +0.259953
-      multinationals         (+)    +0.063171
-      abroad                 (+)    +0.056314
-      Industries             (+)    +0.052481
-      relocate               (+)    +0.047354
-      war                    (+)    +0.045246
-      working                (+)    +0.042877
-      against                (-)    -0.042689
-      trend                  (+)    +0.041431
-      Sentiment              (-)    -0.040551
+      harm                   (+)    +0.316070
+      Israel                 (+)    +0.076474
+      Requests               (+)    +0.073945
+      local                  (+)    +0.073009
+      hundreds               (+)    +0.068324
+      group                  (+)    +0.057196
+      Advanced               (-)    -0.055649
+      reaction               (+)    +0.046814
+      relocate               (+)    +0.043921
+      leadership             (+)    +0.041137
 
 ------------------------------------------------------------
