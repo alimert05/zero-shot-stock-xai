@@ -49,7 +49,6 @@ SENTIMENT_DEVICE = 0
 
 # # finbert config
 SENTIMENT_MODEL = "ProsusAI/finbert"
-SENTIMENT_MAX_LENGTH = 512  
 
 #fingpt config
 # SENTIMENT_MODEL = "fingpt"
