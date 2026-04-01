@@ -20,9 +20,8 @@ _NYSE_CALENDAR = xcals.get_calendar("XNYS")
 logger = logging.getLogger(__name__)
 
 
-def resolve_ticker(
-    company_name: str, max_retries: int = 5, timeout: int = 5
-) -> str | None:
+def resolve_ticker(company_name: str, max_retries: int = 5, timeout: int = 5) -> str | None:
+    """Resolve a company name to a stock ticker symbol via Yahoo Finance search."""
     url = "https://query2.finance.yahoo.com/v1/finance/search"
 
     params = {"q": company_name, "quotesCount": 5, "newsCount": 0}
@@ -51,7 +50,7 @@ def resolve_ticker(
             if resp.status_code == 429:
                 wait = 2**attempt
                 logger.warning(
-                    "Rate limited while resolving ticker… waiting %ss (attempt %s/%s)",
+                    "Rate limited while resolving ticker... waiting %ss (attempt %s/%s)",
                     wait,
                     attempt + 1,
                     max_retries,
@@ -69,6 +68,7 @@ def resolve_ticker(
 
 
 def validate_date(date_str: str) -> None:
+    """Raise ValueError if date_str is not in DD-MM-YYYY format."""
     try:
         datetime.strptime(date_str, "%d-%m-%Y")
     except ValueError:
@@ -97,13 +97,12 @@ def validate_date(date_str: str) -> None:
 def assign_market_date(utc_dt: datetime) -> datetime:
     """
     Convert a UTC datetime to US Eastern time and assign it to the next
-    NYSE trading session using the ``exchange_calendars`` holiday calendar.
+    NYSE trading session using the 'exchange_calendars' holiday calendar.
 
     Rules:
-    - Before MARKET_CLOSE_HOUR ET  → same calendar day (if it is a session)
-    - At or after MARKET_CLOSE_HOUR ET → next trading day
-    - Weekends and NYSE holidays (Christmas, Presidents' Day, …) → next
-      trading day
+    - Before MARKET_CLOSE_HOUR ET -> same calendar day (if it is a session)
+    - At or after MARKET_CLOSE_HOUR ET -> next trading day
+    - Weekends and NYSE holidays -> next trading day
 
     Returns a timezone-naive datetime at midnight of the market_date.
     """
@@ -155,6 +154,7 @@ def add_recency_weights(
     backward_end_date: datetime,
     prediction_window_days: int
 ) -> None:
+    """Assign an exponential recency weight to each article based on its age."""
     for article in articles:
         try:
             # Prefer market_date (ET market-close aligned) over raw UTC seendate

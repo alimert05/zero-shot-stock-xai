@@ -1,3 +1,9 @@
+"""News retrieval pipeline using the Finnhub API.
+
+Handles ticker resolution, chunked date-range fetching, market-date
+alignment, deduplication, filtering, noise reduction, and weighting.
+"""
+
 from __future__ import annotations
 
 import json
@@ -40,6 +46,7 @@ class Fetcher:
     """Fetches, filters, and scores financial news articles for a given company."""
 
     def run_fetcher(self) -> bool:
+        """Prompt user for inputs, fetch and process articles, save to disk."""
         self.get_input()
         self.search()
         return self.display_results()
@@ -52,8 +59,8 @@ class Fetcher:
     ) -> bool:
         """Programmatic entry point -- sets inputs directly, then runs search + save.
 
-        Parameters
-        ----------
+        Parameters:
+
         company_name : str
             e.g. "Apple Inc." or "AAPL"
         start_date / end_date : str
@@ -182,8 +189,6 @@ class Fetcher:
         """
         Split [window_start, window_end] into weekly chunks and make
         separate Finnhub API calls for each, then merge all results.
-        This ensures temporal coverage even when Finnhub returns only
-        the most recent articles for a wide date range.
         """
         all_articles: list[dict] = []
         chunk_start = window_start
@@ -340,7 +345,7 @@ class Fetcher:
             company_name=company_name,
             ticker=ticker)
 
-        # ── raw_fetch_only: stop here (no recency, no impact horizon, no weighting) ──
+        # raw_fetch_only: stop here (no recency, no impact horizon, no weighting)
         if raw_fetch_only:
             # Clean content whitespace before caching
             for article in filtered_after_rules:
