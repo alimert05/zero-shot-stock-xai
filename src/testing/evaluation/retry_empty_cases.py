@@ -93,6 +93,7 @@ def _retry_case(case: dict, cache_dir: Path) -> int:
 
 
 def main():
+    """Re-fetch articles for test cases that returned zero results."""
     parser = argparse.ArgumentParser(description="Retry empty cases")
     parser.add_argument(
         "--cache-dir",
