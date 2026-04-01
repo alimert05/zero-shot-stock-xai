@@ -26,17 +26,6 @@ FIGURES_DIR = Path(__file__).parent.parent.parent.parent / "figures"
 
 # Data loading
 
-def load_model_results() -> dict:
-    """Load overall metrics for all five models."""
-    models = ["zero_shot", "finbert", "fingpt", "llama", "mistral"]
-    results = {}
-    for m in models:
-        path = EVAL_RESULTS_PATH / f"evaluation_results_{m}.json"
-        with open(path, "r", encoding="utf-8") as f:
-            results[m] = json.load(f)
-    return results
-
-
 def load_primary_results() -> dict:
     """Load primary model (RoBERTa zero-shot) evaluation results."""
     path = EVAL_RESULTS_PATH / "evaluation_results_zero_shot.json"
@@ -44,162 +33,10 @@ def load_primary_results() -> dict:
         return json.load(f)
 
 
-# Figure 1: Model Comparison (Grouped Bar)
-
-def fig_model_comparison(output_dir: Path) -> None:
-    """Grouped bar chart comparing all five models."""
-    data = load_model_results()
-
-    model_labels = [
-        "RoBERTa\nZero-Shot", "FinBERT", "FinGPT",
-        "Llama 3.1\n8B", "Mistral\n7B",
-    ]
-    models = ["zero_shot", "finbert", "fingpt", "llama", "mistral"]
-
-    accuracy, macro_f1, neg_f1, neu_f1, pos_f1 = [], [], [], [], []
-    for m in models:
-        om = data[m]["overall_metrics"]
-        accuracy.append(om["accuracy"])
-        macro_f1.append(om["macro_f1"])
-        neg_f1.append(om["per_class"]["negative"]["f1"])
-        neu_f1.append(om["per_class"]["neutral"]["f1"])
-        pos_f1.append(om["per_class"]["positive"]["f1"])
-
-    fig, ax = plt.subplots(figsize=(10, 5.5))
-    x = np.arange(len(models))
-    width = 0.15
-
-    ax.bar(x - 2 * width, accuracy, width, label="Accuracy", color="#4A90D9", edgecolor="white")
-    ax.bar(x - width, macro_f1, width, label="Macro F1", color="#5BA85B", edgecolor="white")
-    ax.bar(x, neg_f1, width, label="Neg F1", color="#D94A4A", edgecolor="white")
-    ax.bar(x + width, neu_f1, width, label="Neu F1", color="#B0B0B0", edgecolor="white")
-    ax.bar(x + 2 * width, pos_f1, width, label="Pos F1", color="#D9A84A", edgecolor="white")
-
-    ax.axhline(y=0.484, color="#333333", linestyle="--", linewidth=1, alpha=0.7)
-    ax.text(2.5, 0.49, "Majority baseline (48.4%)", fontsize=8, color="#333333", ha="left")
-
-    ax.set_ylabel("Score", fontsize=11)
-    ax.set_xticks(x)
-    ax.set_xticklabels(model_labels, fontsize=9)
-    ax.set_ylim(0, 0.6)
-    ax.legend(loc="upper right", fontsize=8, framealpha=0.9)
-    ax.spines["top"].set_visible(False)
-    ax.spines["right"].set_visible(False)
-    ax.grid(axis="y", alpha=0.3)
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "model_comparison.png", dpi=200, bbox_inches="tight", facecolor="white")
-    plt.savefig(output_dir / "model_comparison.pdf", bbox_inches="tight", facecolor="white")
-    plt.close()
-    print(f"  Saved: model_comparison.png/.pdf")
-
-
-# Figure 2: Score Distribution Overlap (Box Plots)
-
-def fig_score_distributions(output_dir: Path) -> None:
-    """Two-panel box plots showing positive and negative score overlap across actual classes."""
-    data = load_primary_results()
-
-    groups = {
-        "negative": {"pos": [], "neg": []},
-        "neutral": {"pos": [], "neg": []},
-        "positive": {"pos": [], "neg": []},
-    }
-    for c in data["case_results"]:
-        actual = c["actual_label"]
-        groups[actual]["pos"].append(c["normalized_scores"]["positive"])
-        groups[actual]["neg"].append(c["normalized_scores"]["negative"])
-
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5.5))
-    colors = ["#D94A4A", "#B0B0B0", "#4A90D9"]
-    class_labels = [
-        f"Actually\nNegative\n(n={len(groups['negative']['pos'])})",
-        f"Actually\nNeutral\n(n={len(groups['neutral']['pos'])})",
-        f"Actually\nPositive\n(n={len(groups['positive']['pos'])})",
-    ]
-    rng = np.random.default_rng(42)
-
-    def _draw_box(ax, data_list, title, ylabel):
-        bp = ax.boxplot(
-            data_list, tick_labels=class_labels, patch_artist=True, widths=0.5,
-            medianprops=dict(color="black", linewidth=2),
-            whiskerprops=dict(color="#555555"),
-            capprops=dict(color="#555555"),
-        )
-        for patch, color in zip(bp["boxes"], colors):
-            patch.set_facecolor(color)
-            patch.set_alpha(0.6)
-        for i, vals in enumerate(data_list):
-            jitter = rng.normal(0, 0.04, len(vals))
-            ax.scatter(
-                np.full(len(vals), i + 1) + jitter, vals,
-                alpha=0.3, s=15, color=colors[i], zorder=3,
-            )
-        means = [np.mean(v) for v in data_list]
-        ax.scatter([1, 2, 3], means, marker="D", color="black", s=40, zorder=5,
-                   label=f"Means: {means[0]:.3f}, {means[1]:.3f}, {means[2]:.3f}")
-        ax.set_ylabel(ylabel, fontsize=11)
-        ax.set_title(title, fontsize=11, fontweight="bold")
-        ax.legend(fontsize=7.5, loc="upper right")
-        ax.spines["top"].set_visible(False)
-        ax.spines["right"].set_visible(False)
-        ax.grid(axis="y", alpha=0.3)
-
-    pos_data = [groups["negative"]["pos"], groups["neutral"]["pos"], groups["positive"]["pos"]]
-    neg_data = [groups["negative"]["neg"], groups["neutral"]["neg"], groups["positive"]["neg"]]
-
-    _draw_box(ax1, pos_data, "Positive Sentiment Score", "Score")
-    _draw_box(ax2, neg_data, "Negative Sentiment Score", "Score")
-
-    fig.suptitle("RoBERTa Score Distributions by Actual Ground-Truth Class",
-                 fontsize=13, fontweight="bold", y=1.02)
-    plt.tight_layout()
-    plt.savefig(output_dir / "score_distributions.png", dpi=200, bbox_inches="tight", facecolor="white")
-    plt.savefig(output_dir / "score_distributions.pdf", bbox_inches="tight", facecolor="white")
-    plt.close()
-    print(f"  Saved: score_distributions.png/.pdf")
-
-
-# Figure 3: Flip-Set Distribution Histogram
-
-def fig_flipset_distribution(output_dir: Path) -> None:
-    """Histogram of flip-set sizes across holdout cases."""
-    fig, ax = plt.subplots(figsize=(9, 5))
-
-    bins_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", ">10"]
-    counts = [16, 12, 15, 7, 13, 4, 7, 11, 3, 5, 99]
-
-    x = np.arange(len(bins_labels))
-    colors = ["#D94A4A"] + ["#4A90D9"] * 9 + ["#5BA85B"]
-
-    bars = ax.bar(x, counts, color=colors, edgecolor="white", width=0.7)
-
-    for bar, count in zip(bars, counts):
-        ax.text(
-            bar.get_x() + bar.get_width() / 2, bar.get_height() + 1.5,
-            str(count), ha="center", va="bottom", fontsize=9, fontweight="bold",
-        )
-
-
-    ax.set_xlabel("Minimum Articles to Remove (Flip-Set Size)", fontsize=11)
-    ax.set_ylabel("Number of Cases", fontsize=11)
-    ax.set_xticks(x)
-    ax.set_xticklabels(bins_labels, fontsize=9)
-    ax.spines["top"].set_visible(False)
-    ax.spines["right"].set_visible(False)
-    ax.grid(axis="y", alpha=0.3)
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "flipset_distribution.png", dpi=200, bbox_inches="tight", facecolor="white")
-    plt.savefig(output_dir / "flipset_distribution.pdf", bbox_inches="tight", facecolor="white")
-    plt.close()
-    print(f"  Saved: flipset_distribution.png/.pdf")
-
-
-# Figure 4: Per-Horizon Line Chart
+# Per-Horizon Line Chart
 
 def fig_per_horizon(output_dir: Path) -> None:
-    """Line chart of RoBERTa performance across prediction windows (Section 6.5.1)."""
+    """Line chart of RoBERTa performance across prediction windows."""
     data = load_primary_results()
     windows = [1, 3, 5, 7, 14, 31]
     window_labels = ["1", "3", "5", "7", "14", "31"]
@@ -230,15 +67,14 @@ def fig_per_horizon(output_dir: Path) -> None:
 
     plt.tight_layout()
     plt.savefig(output_dir / "per_horizon.png", dpi=200, bbox_inches="tight", facecolor="white")
-    plt.savefig(output_dir / "per_horizon.pdf", bbox_inches="tight", facecolor="white")
     plt.close()
-    print("  Saved: per_horizon.png/.pdf")
+    print("  Saved: per_horizon.png")
 
 
-# Figure 5: Confusion Matrix Heatmap
+# Confusion Matrix Heatmap
 
 def fig_confusion_matrix(output_dir: Path) -> None:
-    """RoBERTa confusion matrix heatmap (Section 6.5.3)."""
+    """RoBERTa confusion matrix heatmap."""
     data = load_primary_results()
     cm = data["overall_metrics"]["confusion_matrix"]
     labels = ["negative", "neutral", "positive"]
@@ -263,15 +99,14 @@ def fig_confusion_matrix(output_dir: Path) -> None:
 
     plt.tight_layout()
     plt.savefig(output_dir / "confusion_matrix.png", dpi=200, bbox_inches="tight", facecolor="white")
-    plt.savefig(output_dir / "confusion_matrix.pdf", bbox_inches="tight", facecolor="white")
     plt.close()
-    print("  Saved: confusion_matrix.png/.pdf")
+    print("  Saved: confusion_matrix.png")
 
 
-# Figure 6: Gaussian Horizon Weighting Curves
+# Gaussian Horizon Weighting Curves
 
 def fig_gaussian_horizon(output_dir: Path) -> None:
-    """Gaussian horizon weight curves for different prediction windows (Section 4.5.3)."""
+    """Gaussian horizon weight curves for different prediction windows."""
     fig, ax = plt.subplots(figsize=(9, 5))
 
     windows = [1, 3, 5, 7, 14, 31]
@@ -299,18 +134,16 @@ def fig_gaussian_horizon(output_dir: Path) -> None:
 
     plt.tight_layout()
     plt.savefig(output_dir / "gaussian_horizon.png", dpi=200, bbox_inches="tight", facecolor="white")
-    plt.savefig(output_dir / "gaussian_horizon.pdf", bbox_inches="tight", facecolor="white")
     plt.close()
-    print("  Saved: gaussian_horizon.png/.pdf")
+    print("  Saved: gaussian_horizon.png")
 
 
-# Figure 7: Recency Decay Curves
+# Recency Decay Curves
 
 def fig_recency_decay(output_dir: Path) -> None:
-    """Recency decay curves for different lambda values (Section 4.5.1)."""
+    """Recency decay curves for different lambda values."""
     fig, ax = plt.subplots(figsize=(9, 5))
 
-    # Anchor points from Table 8
     anchor_windows = [1, 5, 10, 21]
     anchor_lambdas = [0.89, 0.92, 0.95, 0.97]
 
@@ -345,63 +178,11 @@ def fig_recency_decay(output_dir: Path) -> None:
 
     plt.tight_layout()
     plt.savefig(output_dir / "recency_decay.png", dpi=200, bbox_inches="tight", facecolor="white")
-    plt.savefig(output_dir / "recency_decay.pdf", bbox_inches="tight", facecolor="white")
     plt.close()
-    print("  Saved: recency_decay.png/.pdf")
+    print("  Saved: recency_decay.png")
 
 
-# Figure 8: Score Distribution by True Class (Simple Bar Chart)
-
-def fig_score_by_class(output_dir: Path) -> None:
-    """Grouped bar chart showing mean positive and negative scores by actual class."""
-    data = load_primary_results()
-
-    groups = {"negative": {"pos": [], "neg": []}, "neutral": {"pos": [], "neg": []}, "positive": {"pos": [], "neg": []}}
-    for c in data["case_results"]:
-        actual = c["actual_label"]
-        groups[actual]["pos"].append(c["normalized_scores"]["positive"])
-        groups[actual]["neg"].append(c["normalized_scores"]["negative"])
-
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    classes = [
-        f"Actually\nNegative\n(n={len(groups['negative']['pos'])})",
-        f"Actually\nNeutral\n(n={len(groups['neutral']['pos'])})",
-        f"Actually\nPositive\n(n={len(groups['positive']['pos'])})",
-    ]
-    x = np.arange(len(classes))
-    width = 0.3
-
-    pos_means = [np.mean(groups["negative"]["pos"]), np.mean(groups["neutral"]["pos"]), np.mean(groups["positive"]["pos"])]
-    neg_means = [np.mean(groups["negative"]["neg"]), np.mean(groups["neutral"]["neg"]), np.mean(groups["positive"]["neg"])]
-
-    bars1 = ax.bar(x - width / 2, pos_means, width, label="Avg Positive Score", color="#4A90D9", edgecolor="white")
-    bars2 = ax.bar(x + width / 2, neg_means, width, label="Avg Negative Score", color="#D94A4A", edgecolor="white")
-
-    for bar in bars1:
-        ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.008,
-                f"{bar.get_height():.3f}", ha="center", va="bottom", fontsize=9, fontweight="bold", color="#4A90D9")
-    for bar in bars2:
-        ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.008,
-                f"{bar.get_height():.3f}", ha="center", va="bottom", fontsize=9, fontweight="bold", color="#D94A4A")
-
-    ax.set_ylabel("Mean Sentiment Score", fontsize=11)
-    ax.set_xticks(x)
-    ax.set_xticklabels(classes, fontsize=10)
-    ax.set_ylim(0, 0.55)
-    ax.legend(fontsize=10, loc="upper right")
-    ax.spines["top"].set_visible(False)
-    ax.spines["right"].set_visible(False)
-    ax.grid(axis="y", alpha=0.3)
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "score_by_class.png", dpi=200, bbox_inches="tight", facecolor="white")
-    plt.savefig(output_dir / "score_by_class.pdf", bbox_inches="tight", facecolor="white")
-    plt.close()
-    print("  Saved: score_by_class.png/.pdf")
-
-
-# Figure 9: Evidence Quality vs Accuracy
+# Evidence Quality vs Accuracy
 
 def fig_quality_accuracy(output_dir: Path) -> None:
     """Bar chart showing prediction accuracy by evidence quality rating."""
@@ -429,9 +210,8 @@ def fig_quality_accuracy(output_dir: Path) -> None:
 
     plt.tight_layout()
     plt.savefig(output_dir / "quality_accuracy.png", dpi=200, bbox_inches="tight", facecolor="white")
-    plt.savefig(output_dir / "quality_accuracy.pdf", bbox_inches="tight", facecolor="white")
     plt.close()
-    print("  Saved: quality_accuracy.png/.pdf")
+    print("  Saved: quality_accuracy.png")
 
 
 # Main
@@ -449,14 +229,10 @@ def main() -> None:
     print(f"Generating figures in: {output_dir}")
     print()
 
-    fig_model_comparison(output_dir)
     fig_per_horizon(output_dir)
     fig_confusion_matrix(output_dir)
-    fig_score_distributions(output_dir)
-    fig_flipset_distribution(output_dir)
     fig_gaussian_horizon(output_dir)
     fig_recency_decay(output_dir)
-    fig_score_by_class(output_dir)
     fig_quality_accuracy(output_dir)
 
     print()
