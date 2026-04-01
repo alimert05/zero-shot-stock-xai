@@ -1,3 +1,5 @@
+"""Article-level XAI: contribution ranking, counterfactual, contrastive, and flip-set analysis."""
+
 from __future__ import annotations
 
 import logging
@@ -56,22 +58,20 @@ def _run_counterfactual(
     }
 
 
-# ── Contrastive score-gap attribution ──────────────────────────────
+# Contrastive score-gap attribution
 #
 # For each article compute a "net direction" score that measures how
 # much it pushes the *winning* label ahead of the *runner-up*.
 #
 #   net_direction = (weighted_winner − weighted_runner_up) / total_weight
 #
-# Positive net_direction → article favours the winner.
-# Negative net_direction → article favours the runner-up.
+# Positive net_direction -> article favours the winner.
+# Negative net_direction -> article favours the runner-up.
 # Summing across all articles gives the aggregate margin.
 #
 # This answers the contrastive question "why label A *instead of*
 # label B?" by attributing the score gap to individual articles.
-#
-# Ref: Miller (2019) "Explanation in Artificial Intelligence:
-#      Insights from the Social Sciences", Art. Intell. 267, 1-38.
+
 
 def _compute_contrastive(
     merged_articles: list[dict[str, Any]],
@@ -120,7 +120,7 @@ def _compute_contrastive(
             "favours": winner if net_direction >= 0 else runner_up,
         })
 
-    # Sort by absolute net direction descending → biggest gap drivers first
+    # Sort by absolute net direction descending -> biggest gap drivers first
     article_contributions.sort(key=lambda a: abs(a["net_direction"]), reverse=True)
 
     # Split into articles favouring winner vs runner-up
@@ -181,7 +181,7 @@ def _compute_contrastive(
     }
 
 
-# ── Minimum flip set (greedy) ──────────────────────────────────────
+# Minimum flip set (greedy)
 #
 # Find the smallest set of articles whose removal would flip the
 # predicted label.  We use a greedy algorithm: iteratively remove
@@ -189,9 +189,6 @@ def _compute_contrastive(
 # the runner-up overtakes.
 #
 # This is the counterfactual "what would need to change?" answer.
-#
-# Ref: Wachter et al. (2017) "Counterfactual Explanations Without
-#      Opening the Black Box", Harvard JL & Tech. 31(2).
 
 def _compute_minimum_flip_set(
     merged_articles: list[dict[str, Any]],
@@ -242,7 +239,7 @@ def _compute_minimum_flip_set(
         new_label, _ = apply_decision_thresholds(new_norm)
         if new_label != current_label:
             logger.info(
-                "Minimum flip set: %d articles → label changes from %s to %s",
+                "Minimum flip set: %d articles -> label changes from %s to %s",
                 len(flip_set), current_label, new_label,
             )
             return {
@@ -266,6 +263,7 @@ def explain_articles(
     merged_articles: list[dict[str, Any]],
     prediction_result: dict[str, Any],
 ) -> dict[str, Any]:
+    """Run all article-level analyses: ranking, counterfactual, contrastive, and flip-set."""
     total_weight = prediction_result.get("total_weight", 0.0)
     total_weighted = prediction_result.get("weighted_scores", {})
     current_label = prediction_result.get("final_label", "neutral")

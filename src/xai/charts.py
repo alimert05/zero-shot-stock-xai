@@ -1,8 +1,8 @@
 """
-charts.py — Matplotlib PNG chart generators for the XAI report.
+charts.py - Matplotlib PNG chart generators for the XAI report.
 
 Each function accepts the relevant slice of the XAI result dict and a
-``out_dir`` (Path).  All functions return the Path of the saved PNG so
+'out_dir' (Path).  All functions return the Path of the saved PNG so
 the caller can embed the filename in the text summary.
 """
 from __future__ import annotations
@@ -13,7 +13,7 @@ from typing import Any
 
 logger = logging.getLogger(__name__)
 
-# Colour palette — consistent across all charts
+# Colour palette - consistent across all charts
 _COL = {
     "positive": "#2ecc71",   # green
     "negative": "#e74c3c",   # red
@@ -32,7 +32,7 @@ _FONT = "DejaVu Sans"
 def _savefig(fig, path: Path) -> Path:
     """Save figure to path and close it."""
     import matplotlib
-    matplotlib.use("Agg")   # non-interactive backend — safe on all OSes
+    matplotlib.use("Agg")   # non-interactive backend - safe on all OSes
     path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(path, dpi=150, bbox_inches="tight", facecolor=fig.get_facecolor())
     fig.clf()
@@ -42,7 +42,7 @@ def _savefig(fig, path: Path) -> Path:
     return path
 
 
-# ── 1. Sentiment score bar chart ─────────────────────────────────────────────
+# 1. Sentiment score bar chart
 
 def plot_sentiment_scores(
     pred: dict[str, Any],
@@ -92,7 +92,7 @@ def plot_sentiment_scores(
     ax.set_xlim(0, 1.35)
     ax.set_xlabel("Score", fontsize=10, fontname=_FONT)
     ax.set_title(
-        f"Sentiment Scores  —  Verdict: {final.upper()}  "
+        f"Sentiment Scores  -  Verdict: {final.upper()}  "
         f"({pred.get('final_confidence', 0) * 100:.1f}%)",
         fontsize=11, fontname=_FONT, pad=10,
     )
@@ -104,7 +104,7 @@ def plot_sentiment_scores(
     return _savefig(fig, out_dir / filename)
 
 
-# ── 2. Article sentiment distribution pie ────────────────────────────────────
+# 2. Article sentiment distribution pie
 
 def plot_article_distribution(
     layer2: dict[str, Any],
@@ -150,7 +150,7 @@ def plot_article_distribution(
     return _savefig(fig, out_dir / filename)
 
 
-# ── 3. Top-10 article weight bar chart ───────────────────────────────────────
+# 3. Top-10 article weight bar chart
 
 def plot_article_weights(
     layer2: dict[str, Any],
@@ -166,7 +166,7 @@ def plot_article_weights(
     if not ranked:
         return out_dir / filename
 
-    titles  = [f"#{a['rank']} {a['title'][:45]}…" if len(a['title']) > 45
+    titles  = [f"#{a['rank']} {a['title'][:45]}..." if len(a['title']) > 45
                else f"#{a['rank']} {a['title']}" for a in ranked]
     weights = [a["final_weight"] for a in ranked]
     colors  = [_COL.get(a["dominant_sentiment"], _COL["neutral"]) for a in ranked]
@@ -204,7 +204,7 @@ def plot_article_weights(
     return _savefig(fig, out_dir / filename)
 
 
-# ── 4. Horizon timing breakdown bar chart ────────────────────────────────────
+# 4. Horizon timing breakdown bar chart
 
 def plot_horizon_breakdown(
     layer3: dict[str, Any],
@@ -252,7 +252,7 @@ def plot_horizon_breakdown(
     return _savefig(fig, out_dir / filename)
 
 
-# ── 5. LIME token attribution chart (per article) ────────────────────────────
+# 5. LIME token attribution chart (per article)
 
 def plot_lime_tokens(
     lime_articles: list[dict[str, Any]],
@@ -302,7 +302,7 @@ def plot_lime_tokens(
         ax.set_axisbelow(True)
         ax.spines[["top", "right"]].set_visible(False)
 
-        short_title = art["title"][:60] + ("…" if len(art["title"]) > 60 else "")
+        short_title = art["title"][:60] + ("..." if len(art["title"]) > 60 else "")
         ax.set_title(
             f"[{art['rank']}] {short_title}\n"
             f"weight={art['final_weight']:.4f}  influence={art['influence_score']:.4f}",
@@ -312,14 +312,14 @@ def plot_lime_tokens(
         ax.tick_params(axis="y", labelsize=8)
 
     fig.suptitle(
-        f"Word-Level Attribution (LIME) — {predicted_label.upper()} label",
+        f"Word-Level Attribution (LIME) - {predicted_label.upper()} label",
         fontsize=12, fontname=_FONT, y=1.01,
     )
     fig.tight_layout()
     return _savefig(fig, out_dir / filename)
 
 
-# ── 7. Storyline contribution chart ──────────────────────────────────────────
+# 6. Storyline contribution chart
 
 def plot_storyline_contribution(
     storyline_data: dict[str, Any],
@@ -400,7 +400,7 @@ def plot_storyline_contribution(
     ax.set_yticklabels(labels[::-1], fontsize=8, fontname=_FONT)
     ax.set_xlabel("Contribution Score", fontsize=10, fontname=_FONT)
     ax.set_title(
-        f"Narrative Storylines by Sentiment — {predicted_label.upper()} prediction",
+        f"Narrative Storylines by Sentiment - {predicted_label.upper()} prediction",
         fontsize=11, fontname=_FONT, pad=10,
     )
     ax.xaxis.grid(True, color=_COL["grid"], linewidth=0.7, linestyle="--")
@@ -419,7 +419,7 @@ def plot_storyline_contribution(
     return _savefig(fig, out_dir / filename)
 
 
-# ── 8. Contrastive waterfall chart ──────────────────────────────────────────
+# 7. Contrastive waterfall chart
 
 def plot_contrastive_waterfall(
     contrastive: dict[str, Any],
@@ -445,7 +445,7 @@ def plot_contrastive_waterfall(
     # Take top 15 by absolute contribution
     top = sorted(all_contribs, key=lambda a: abs(a["net_direction"]), reverse=True)[:15]
 
-    labels   = [a["title"][:40] + ("…" if len(a["title"]) > 40 else "") for a in top]
+    labels   = [a["title"][:40] + ("..." if len(a["title"]) > 40 else "") for a in top]
     values   = [a["net_direction"] for a in top]
     colors   = [_COL["positive"] if v >= 0 else _COL["negative"] for v in values]
 
@@ -498,7 +498,7 @@ def plot_contrastive_waterfall(
         fontsize=9, fontname=_FONT,
     )
     ax.set_title(
-        f"Contrastive Waterfall — Why {winner.upper()} instead of {runner_up.upper()}?  "
+        f"Contrastive Waterfall - Why {winner.upper()} instead of {runner_up.upper()}?  "
         f"(gap = {score_gap:.4f})",
         fontsize=11, fontname=_FONT, pad=10,
     )
@@ -510,7 +510,7 @@ def plot_contrastive_waterfall(
     return _savefig(fig, out_dir / filename)
 
 
-# ── 9. Article timeline scatter ─────────────────────────────────────────────
+# 8. Article timeline scatter
 
 def plot_article_timeline(
     ranked_articles: list[dict[str, Any]],
@@ -557,7 +557,7 @@ def plot_article_timeline(
 
     ax.set_xlabel("Days Ago (0 = today)", fontsize=10, fontname=_FONT)
     ax.set_ylabel("Article Weight", fontsize=10, fontname=_FONT)
-    ax.set_title("Article Timeline — Recency vs Influence",
+    ax.set_title("Article Timeline - Recency vs Influence",
                  fontsize=11, fontname=_FONT, pad=10)
 
     ax.invert_xaxis()  # most recent on the right
@@ -578,7 +578,7 @@ def plot_article_timeline(
     return _savefig(fig, out_dir / filename)
 
 
-# ── 10. Cumulative score build-up chart ─────────────────────────────────────
+# 9. Cumulative score build-up chart
 
 def plot_cumulative_score(
     ranked_articles: list[dict[str, Any]],
@@ -630,7 +630,7 @@ def plot_cumulative_score(
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 7), facecolor=_COL["bg"],
                                     gridspec_kw={"height_ratios": [1, 1]})
 
-    # --- Top panel: cumulative raw weighted scores ---
+    # Top panel: cumulative raw weighted scores
     ax1.set_facecolor(_COL["bg"])
     ax1.fill_between(x_labels, cum_pos, alpha=0.3, color=_COL["positive"])
     ax1.fill_between(x_labels, cum_neg, alpha=0.3, color=_COL["negative"])
@@ -641,7 +641,7 @@ def plot_cumulative_score(
 
     ax1.set_ylabel("Cumulative Weighted Score", fontsize=10, fontname=_FONT)
     ax1.set_title(
-        f"Prediction Build-Up — How Evidence Accumulates ({predicted_label.upper()})",
+        f"Prediction Build-Up - How Evidence Accumulates ({predicted_label.upper()})",
         fontsize=11, fontname=_FONT, pad=10,
     )
     ax1.legend(fontsize=8, loc="upper left", prop={"family": _FONT, "size": 8})
@@ -650,7 +650,7 @@ def plot_cumulative_score(
     ax1.set_axisbelow(True)
     ax1.spines[["top", "right"]].set_visible(False)
 
-    # --- Bottom panel: normalised running proportions (stacked area) ---
+    # Bottom panel: normalised running proportions (stacked area)
     ax2.set_facecolor(_COL["bg"])
     ax2.stackplot(
         x_labels, norm_pos, norm_neg, norm_neu,
@@ -675,24 +675,23 @@ def plot_cumulative_score(
     return _savefig(fig, out_dir / filename)
 
 
-# ── Master function ───────────────────────────────────────────────────────────
+# Master function
 
 def generate_all_charts(result: dict[str, Any], charts_dir: Path) -> dict[str, Path]:
     """
-    Generate all 10 charts and return a dict mapping chart name → Path.
+    Generate all 10 charts and return a dict mapping chart name -> Path.
     If matplotlib is not installed, logs a warning and returns empty dict.
     """
     try:
         import matplotlib  # noqa: F401  (probe import)
     except ImportError:
         logger.warning(
-            "matplotlib not installed — PNG charts skipped. "
+            "matplotlib not installed - PNG charts skipped. "
             "Install with: pip install matplotlib"
         )
         return {}
 
     pred        = result["prediction_summary"]
-    reliability = result["reliability"]
     layer1      = result["layer_1_token"]
     layer2      = result["layer_2_article"]
     layer3      = result["layer_3_pipeline"]
@@ -712,7 +711,7 @@ def generate_all_charts(result: dict[str, Any], charts_dir: Path) -> dict[str, P
         if lime_articles:
             paths["lime_tokens"]      = plot_lime_tokens(lime_articles, predicted_label, charts_dir)
 
-        # ── New charts (7-10) ─────────────────────────────────
+        # New charts (7-10)
         if storylines.get("storylines"):
             paths["storyline_contribution"] = plot_storyline_contribution(
                 storylines, predicted_label, charts_dir,
