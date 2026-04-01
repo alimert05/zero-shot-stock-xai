@@ -501,7 +501,7 @@ def run_fetch(
     _prewarm_models()
     logger.info("Fetch mode: full pipeline (noise reduction + recency + impact horizon)")
 
-    # Sequential only — fetch uses GPU models (impact horizon, noise reduction)
+    # Sequential only  - fetch uses GPU models (impact horizon, noise reduction)
     # that are not thread-safe
     progress = ProgressTracker(total)
     all_results: list[dict] = []
@@ -534,7 +534,7 @@ def run_fetch(
     print("=" * 60)
 
     if zero_article_count > 0:
-        print(f"\n  ⚠ WARNING: {zero_article_count} cases had 0 articles fetched:")
+        print(f"\n  WARNING: WARNING: {zero_article_count} cases had 0 articles fetched:")
         for r in sorted(all_results, key=lambda x: x["id"]):
             if r["cached"] and r["article_count"] == 0:
                 print(f"    - {r['id']} ({r.get('ticker', '?')})")
@@ -772,20 +772,20 @@ def print_report(evaluation: dict) -> None:
     print("=" * 70)
 
     print(f"\n  OVERALL METRICS")
-    print(f"  {'─' * 40}")
+    print(f"  {'-' * 40}")
     print(f"  Accuracy        : {overall['accuracy']:.4f}  ({overall.get('correct', 0)}/{overall['total']})")
     print(f"  Macro Precision : {overall['macro_precision']:.4f}")
     print(f"  Macro Recall    : {overall['macro_recall']:.4f}")
     print(f"  Macro F1        : {overall['macro_f1']:.4f}")
 
     print(f"\n  PER-CLASS METRICS")
-    print(f"  {'─' * 50}")
+    print(f"  {'-' * 50}")
     print(f"  {'Class':>10} {'Precision':>10} {'Recall':>10} {'F1':>10} {'Support':>10}")
     for label, m in overall.get("per_class", {}).items():
         print(f"  {label:>10} {m['precision']:>10.4f} {m['recall']:>10.4f} {m['f1']:>10.4f} {m['support']:>10}")
 
     print(f"\n  CONFUSION MATRIX")
-    print(f"  {'─' * 50}")
+    print(f"  {'-' * 50}")
     cm = overall.get("confusion_matrix", {})
     labels = sorted(cm.keys())
     header = f"  {'Actual\\Pred':>12}" + "".join(f" {l:>10}" for l in labels)
@@ -795,25 +795,25 @@ def print_report(evaluation: dict) -> None:
         print(row)
 
     print(f"\n  PER-WINDOW METRICS")
-    print(f"  {'─' * 60}")
+    print(f"  {'-' * 60}")
     print(f"  {'Window':>10} {'Accuracy':>10} {'Precision':>10} {'Recall':>10} {'F1':>10} {'N':>5}")
     for window, m in evaluation.get("per_window_metrics", {}).items():
         print(f"  {window:>10} {m['accuracy']:>10.4f} {m['macro_precision']:>10.4f} {m['macro_recall']:>10.4f} {m['macro_f1']:>10.4f} {m['total']:>5}")
 
     print(f"\n  PER-COMPANY METRICS")
-    print(f"  {'─' * 60}")
+    print(f"  {'-' * 60}")
     print(f"  {'Company':>10} {'Accuracy':>10} {'Precision':>10} {'Recall':>10} {'F1':>10} {'N':>5}")
     for company, m in evaluation.get("per_company_metrics", {}).items():
         print(f"  {company:>10} {m['accuracy']:>10.4f} {m['macro_precision']:>10.4f} {m['macro_recall']:>10.4f} {m['macro_f1']:>10.4f} {m['total']:>5}")
 
     print(f"\n  PER-SECTOR METRICS")
-    print(f"  {'─' * 60}")
+    print(f"  {'-' * 60}")
     print(f"  {'Sector':>12} {'Accuracy':>10} {'Precision':>10} {'Recall':>10} {'F1':>10} {'N':>5}")
     for sector, m in evaluation.get("per_sector_metrics", {}).items():
         print(f"  {sector:>12} {m['accuracy']:>10.4f} {m['macro_precision']:>10.4f} {m['macro_recall']:>10.4f} {m['macro_f1']:>10.4f} {m['total']:>5}")
 
     print(f"\n  PER-PERIOD METRICS")
-    print(f"  {'─' * 60}")
+    print(f"  {'-' * 60}")
     print(f"  {'Period':>16} {'Accuracy':>10} {'Precision':>10} {'Recall':>10} {'F1':>10} {'N':>5}")
     for period, m in evaluation.get("per_period_metrics", {}).items():
         print(f"  {period:>16} {m['accuracy']:>10.4f} {m['macro_precision']:>10.4f} {m['macro_recall']:>10.4f} {m['macro_f1']:>10.4f} {m['total']:>5}")
@@ -824,7 +824,7 @@ def print_report(evaluation: dict) -> None:
 
     if issues or errors:
         print(f"\n  FLAGGED CASES")
-        print(f"  {'─' * 60}")
+        print(f"  {'-' * 60}")
 
     if issues:
         # Group issues by type

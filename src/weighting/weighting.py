@@ -51,6 +51,7 @@ def calculate_impact_horizon_weight(
     confidence: float = 1.0,
     min_weight: float = 0.05,
 ) -> float:
+    """Compute a Gaussian horizon weight based on timing alignment with the prediction window."""
     if primary_horizon_days is None:
         if impact_horizon_days is None:
             raise ValueError(

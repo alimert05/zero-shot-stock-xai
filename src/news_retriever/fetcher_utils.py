@@ -14,7 +14,7 @@ from requests.exceptions import HTTPError
 
 from config import MARKET_TIMEZONE, MARKET_CLOSE_HOUR
 
-# NYSE trading calendar — loaded once, reused across calls
+# NYSE trading calendar - loaded once, reused across calls
 _NYSE_CALENDAR = xcals.get_calendar("XNYS")
 
 logger = logging.getLogger(__name__)

@@ -211,7 +211,7 @@ class Fetcher:
                 all_articles.extend(chunk_articles)
             except Exception as exc:
                 logger.warning(
-                    "Chunk %s to %s failed: %s — continuing with remaining chunks",
+                    "Chunk %s to %s failed: %s  - continuing with remaining chunks",
                     chunk_start.strftime("%Y-%m-%d"),
                     chunk_end.strftime("%Y-%m-%d"),
                     exc,

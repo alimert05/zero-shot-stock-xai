@@ -110,7 +110,7 @@ _end_dt = _parse_date(end_date)
 _backtest_skipped = _end_dt.date() > datetime.now().date()
 
 if _backtest_skipped:
-    print(f"⚠ Backtest skipped: end_date {end_date} is in the future. Price data not yet available.")
+    print(f"WARNING: Backtest skipped: end_date {end_date} is in the future. Price data not yet available.")
     actual_label, meta, warn = "unknown", {}, None
 else:
     actual_label, meta, warn = get_real_label_yfinance(ticker, start_date, end_date)
@@ -142,7 +142,7 @@ def run_backtest():
     """Run a quick backtest comparing pipeline predictions to actual returns."""
     if _backtest_skipped:
         print("-" * 35)
-        print("⚠ Backtest not available — prediction window ends in the future.")
+        print("WARNING: Backtest not available  - prediction window ends in the future.")
         print(f"  End date: {end_date}  |  Today: {datetime.now().date()}")
         print("  Re-run after the prediction window closes to compare with actual price.")
         print("-" * 35)

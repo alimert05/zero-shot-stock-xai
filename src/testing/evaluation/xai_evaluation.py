@@ -1,5 +1,5 @@
 """
-XAI Evaluation — Quality flags, HHI, and flip-set analysis across the holdout set.
+XAI Evaluation  - Quality flags, HHI, and flip-set analysis across the holdout set.
 
 Computes:
   1. Evidence quality flag distributions (thin evidence, weight concentration,
@@ -367,7 +367,7 @@ def print_quality_report(results):
     ac = results["article_counts"]
 
     print("\n" + "=" * 70)
-    print("  XAI EVALUATION — EVIDENCE QUALITY DIAGNOSTICS")
+    print("  XAI EVALUATION  - EVIDENCE QUALITY DIAGNOSTICS")
     print("=" * 70)
 
     print(f"\n  Cases analysed: {total}")
@@ -411,7 +411,7 @@ def print_flipset_report(results):
     total = results["cases_processed"]
 
     print("\n" + "=" * 70)
-    print("  XAI EVALUATION — FLIP-SET SENSITIVITY ANALYSIS")
+    print("  XAI EVALUATION  - FLIP-SET SENSITIVITY ANALYSIS")
     print("=" * 70)
 
     print(f"\n  Cases analysed: {total}")

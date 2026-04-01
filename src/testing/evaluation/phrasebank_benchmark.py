@@ -51,7 +51,7 @@ COARSE_DATASET_IDX = 0
 
 
 # ---------------------------------------------------------------------------
-# Hypothesis templates x label maps — combinatorial search space.
+# Hypothesis templates x label maps  - combinatorial search space.
 # Cross-product yields 14 x 8 = 112 configurations.
 # ---------------------------------------------------------------------------
 
@@ -868,7 +868,7 @@ def print_report(report: dict[str, Any]) -> None:
     metadata = report.get("metadata", {})
     model_name = metadata.get("model", "unknown")
     print("\n" + "=" * 90)
-    print(f"  FPB BENCHMARK RESULTS — {model_name}")
+    print(f"  FPB BENCHMARK RESULTS  - {model_name}")
     print("=" * 90)
     config_name = metadata.get("config_name", "default")
     template = metadata.get("hypothesis_template", "N/A")

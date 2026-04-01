@@ -156,7 +156,7 @@ def remove_duplicates(articles: list[dict]) -> list[dict]:
             if not title:
                 continue
 
-            # Key on title only — catches cross-domain syndication
+            # Key on title only  - catches cross-domain syndication
             key = title
 
             if key not in seen:

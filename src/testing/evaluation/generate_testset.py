@@ -200,7 +200,7 @@ def compute_point_in_time_ewma_threshold(
 
     except Exception as exc:
         logger.warning(
-            "Could not compute point-in-time EWMA threshold for %s @ %s (%s) — "
+            "Could not compute point-in-time EWMA threshold for %s @ %s (%s)  - "
             "using fallback %.4f",
             ticker,
             asof_date.strftime("%Y-%m-%d"),

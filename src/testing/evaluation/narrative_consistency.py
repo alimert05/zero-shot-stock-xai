@@ -190,7 +190,7 @@ def run_experiment(n_cases: int = 5, n_runs: int = 3):
 
     # Print overall summary
     print(f"\n{'='*70}")
-    print(f"  NARRATIVE CONSISTENCY — OVERALL SUMMARY")
+    print(f"  NARRATIVE CONSISTENCY  - OVERALL SUMMARY")
     print(f"{'='*70}")
     print(f"  Cases tested: {len(results)}")
     print(f"  Runs per case: {n_runs}")

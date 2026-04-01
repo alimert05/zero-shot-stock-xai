@@ -147,7 +147,7 @@ def clean_articles_content(
         return []
 
     logger.info(
-        "Cleaning article content for %s (ticker: %s) — DeBERTa-only pipeline",
+        "Cleaning article content for %s (ticker: %s)  - DeBERTa-only pipeline",
         company_name,
         ticker or "None",
     )

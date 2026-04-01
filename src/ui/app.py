@@ -1619,7 +1619,7 @@ def main() -> None:
         st.caption(f"Pipeline: `{SENTIMENT_MODEL}`")
         st.divider()
         st.caption(
-            "⚠️ The Finnhub API provides up to 1 year of historical news. "
+            "WARNING:️ The Finnhub API provides up to 1 year of historical news. "
             "Start dates should be within the last 11 months, as the backward "
             "lookback window extends further back and may exceed the API's "
             "1-year limit if dates are too far in the past."
