@@ -75,9 +75,9 @@ XAI_OUTPUT_PATH                = XAI_EXPLANATIONS_PATH / "xai_result.json"
 XAI_SUMMARY_PATH               = XAI_EXPLANATIONS_PATH / "xai_summary.txt"
 XAI_EXPLANATIONS_PATH.mkdir(parents=True, exist_ok=True)
 
-XAI_LIME_TOP_N                 = 5
-XAI_LIME_NUM_SAMPLES           = 300
-XAI_LIME_NUM_FEATURES          = 20
+XAI_LIME_TOP_N                 = 5     # number of articles to explain (higher = slower)
+XAI_LIME_NUM_SAMPLES           = 300   # perturbations per article
+XAI_LIME_NUM_FEATURES          = 20    # max tokens to report per article
 
 XAI_THIN_EVIDENCE_THRESHOLD    = 5
 XAI_CONCENTRATION_THRESHOLD    = 0.4
