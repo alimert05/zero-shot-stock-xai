@@ -1,7 +1,7 @@
 """Split the 480-case test set into tune and holdout subsets.
 
 Uses ticker-level isolation: all 24 cases for a given company go entirely
-into one subset.  This prevents data leakage — tuned pipeline parameters
+into one subset.  This prevents data leakage - tuned pipeline parameters
 are validated on companies the tuning process never saw.
 
 The optimal ticker assignment is found by exhaustive search over all valid
@@ -61,7 +61,7 @@ HOLDOUT_TICKERS = frozenset({
 })
 
 
-# ── Exhaustive search ───────────────────────────────────────────────────
+# Exhaustive search
 
 def find_optimal_split(
     test_set_path: str,
@@ -72,22 +72,22 @@ def find_optimal_split(
     Performs an exhaustive search over all valid sector-constrained
     combinations of tickers.
 
-    Constraints
-    -----------
+    Constraints:
+
     - Every sector must have >= 1 ticker in both tune and holdout.
-    - Holdout contains exactly *holdout_size* tickers.
+    - Holdout contains exactly holdout_size tickers.
 
     Objective
-    ---------
-    Minimise::
+    
+    Minimise:
 
         SAD = sum_{label} |holdout_proportion(label) - overall_proportion(label)|
 
     Since tune = overall - holdout, minimising holdout deviation
     simultaneously minimises tune deviation.
 
-    Returns
-    -------
+    Returns:
+
     (best_holdout_tickers, search_info)
         search_info contains the objective value, proportions, and
         number of candidates evaluated.
@@ -120,7 +120,7 @@ def find_optimal_split(
     sector_tickers = [sectors[s] for s in sector_names]
     sector_sizes = [len(ts) for ts in sector_tickers]
 
-    # ── Enumerate valid holdout-count allocations per sector ──
+    # Enumerate valid holdout-count allocations per sector
     # Each sector contributes k in [1, size-1] tickers to holdout,
     # such that sum(k_i) == holdout_size.
     def _enum_allocations(idx: int, remaining: int):
@@ -205,7 +205,7 @@ def find_optimal_split(
     return best_holdout, search_info
 
 
-# ── Build / split helpers ───────────────────────────────────────────────
+# Build / split helpers
 
 def _build_metadata(
     cases: list[dict],
@@ -270,20 +270,20 @@ def split_test_set(
 ) -> tuple[dict, dict]:
     """Split the test set into tune and holdout subsets.
 
-    Parameters
-    ----------
+    Parameters:
+
     test_set_path : str
         Path to the full test_set.json.
     holdout_tickers : frozenset[str] | None
-        Tickers to assign to holdout.  If *None*, uses the module-level
-        ``HOLDOUT_TICKERS`` constant.
+        Tickers to assign to holdout.  If None, uses the module-level
+        'HOLDOUT_TICKERS' constant.
     search_info : dict | None
-        Output from ``find_optimal_split()`` to embed in metadata.
+        Output from 'find_optimal_split()' to embed in metadata.
 
-    Returns
-    -------
-    (tune_data, holdout_data) -- each is a full JSON-serialisable dict
-    with ``metadata`` and ``test_cases`` keys.
+    Returns:
+
+    (tune_data, holdout_data) - each is a full JSON-serialisable dict
+    with 'metadata' and 'test_cases' keys.
     """
     if holdout_tickers is None:
         holdout_tickers = HOLDOUT_TICKERS
@@ -393,9 +393,10 @@ def _print_split_report(
     print("=" * 65 + "\n")
 
 
-# ── CLI entry point ─────────────────────────────────────────────────────
+# CLI entry point
 
 def main():
+    """Split the test set into tune and holdout subsets with ticker-level isolation."""
     parser = argparse.ArgumentParser(
         description="Split test set into tune and holdout subsets"
     )
@@ -411,12 +412,12 @@ def main():
 
     test_set_path = Path(args.test_set)
 
-    # ── Step 1: Run exhaustive search ──
+    # Step 1: Run exhaustive search
     print("\n  Running exhaustive split search ...")
     optimal_holdout, search_info = find_optimal_split(str(test_set_path))
     _print_search_report(search_info)
 
-    # ── Step 2: Verify the hardcoded constant matches ──
+    # Step 2: Verify the hardcoded constant matches
     if optimal_holdout == HOLDOUT_TICKERS:
         print("  [OK] HOLDOUT_TICKERS matches exhaustive search result.\n")
     else:
@@ -428,7 +429,7 @@ def main():
     if args.find_split:
         return
 
-    # ── Step 3: Generate split files ──
+    # Step 3: Generate split files
     output_dir = test_set_path.parent
     tune_path = output_dir / "tune_set.json"
     holdout_path = output_dir / "holdout_set.json"
