@@ -24,7 +24,7 @@ from config import (
     FINNHUB_API_KEY,
     MARKET_TIMEZONE,
 )
-from .fetcher_utils import resolve_ticker, validate_date, add_recency_weights, assign_market_date
+from .fetcher_utils import resolve_ticker, resolve_company_name, validate_date, add_recency_weights, assign_market_date
 from preprocessing.filters import (
     filter_company_related,
     remove_duplicates,
@@ -272,14 +272,24 @@ class Fetcher:
             ticker = resolve_ticker(company_name)
             self.ticker = ticker
 
-        if ticker:
-            logger.info("Resolved ticker for '%s' -> %s", company_name, ticker)
-        else:
+        if not ticker:
             logger.warning("No ticker resolved for '%s', cannot query Finnhub without a symbol", company_name)
             raise RuntimeError(
                 f"Could not resolve a stock ticker for '{company_name}'. "
                 "Finnhub requires a valid ticker symbol. Please try again with the ticker directly."
             )
+
+        # If the user entered a ticker-like string (short, no spaces),
+        # resolve the full company name so downstream components (filtering,
+        # noise reduction, sentiment input text) use the proper name.
+        looks_like_ticker = len(company_name) <= 5 and " " not in company_name and company_name.isalpha()
+        if looks_like_ticker:
+            resolved_name = resolve_company_name(ticker)
+            if resolved_name:
+                company_name = resolved_name
+                self.query = company_name
+
+        logger.info("Company: %s, Ticker: %s", company_name, ticker)
 
         try:
             all_articles = self._fetch_chunked(

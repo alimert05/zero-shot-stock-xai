@@ -2721,3 +2721,1085 @@
 2026-04-01 21:50:53,167 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\09_cumulative_score.png
 2026-04-01 21:50:53,167 - INFO - Generated 9 chart(s) in C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts
 2026-04-01 21:50:53,169 - INFO - XAI summary saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\xai_summary.txt
+2026-04-01 22:04:08,646 - INFO - Prediction window: 31 days
+2026-04-01 22:04:08,646 - INFO - Computed max_backward_days: 28 (from √W scaling, W=31)
+2026-04-01 22:04:08,646 - INFO - Backward search window: 04-12-2025 to 31-12-2025 (max 28 days)
+2026-04-01 22:04:08,994 - INFO - Resolved ticker for 'APPL' -> AAPL
+2026-04-01 22:04:08,994 - INFO - Finnhub request: symbol=AAPL from=2025-12-04 to=2025-12-10
+2026-04-01 22:04:09,802 - INFO - Finnhub returned 230 raw articles
+2026-04-01 22:04:09,805 - INFO - Chunk 2025-12-04 to 2025-12-10: fetched 230 articles
+2026-04-01 22:04:09,805 - INFO - Finnhub request: symbol=AAPL from=2025-12-11 to=2025-12-17
+2026-04-01 22:04:10,479 - INFO - Finnhub returned 177 raw articles
+2026-04-01 22:04:10,482 - INFO - Chunk 2025-12-11 to 2025-12-17: fetched 177 articles
+2026-04-01 22:04:10,482 - INFO - Finnhub request: symbol=AAPL from=2025-12-18 to=2025-12-24
+2026-04-01 22:04:11,153 - INFO - Finnhub returned 173 raw articles
+2026-04-01 22:04:11,156 - INFO - Chunk 2025-12-18 to 2025-12-24: fetched 173 articles
+2026-04-01 22:04:11,156 - INFO - Finnhub request: symbol=AAPL from=2025-12-25 to=2025-12-31
+2026-04-01 22:04:11,777 - INFO - Finnhub returned 128 raw articles
+2026-04-01 22:04:11,779 - INFO - Chunk 2025-12-25 to 2025-12-31: fetched 128 articles
+2026-04-01 22:04:11,779 - INFO - Chunked fetch complete: 708 total articles from 28-day window in 7-day chunks
+2026-04-01 22:04:11,780 - INFO - Removed duplicates (cross-domain, title-based): 708 -> 702
+2026-04-01 22:04:11,780 - INFO - filter_headline_content_duplicates: in=702 kept=700 | cleared_content=10 dropped_question=2
+2026-04-01 22:04:11,780 - INFO - After dedup + headline filter: Raw=708, Filtered=700
+2026-04-01 22:04:11,780 - INFO - Using all 700 articles after dedup (no article cap)
+2026-04-01 22:04:11,780 - INFO - Temporal coverage: articles span 20251204 to 20251231 (intended window: 20251204 to 20251231)
+2026-04-01 22:04:11,792 - INFO - filter_company_related: in=700 kept=266 | dropped(question_no_content)=0 dropped(no_match_no_content)=10 dropped(no_match_in_content)=424
+2026-04-01 22:04:11,792 - INFO - Cleaning article content for APPL (ticker: AAPL)  - DeBERTa-only pipeline
+2026-04-01 22:04:11,804 - INFO - Loading DeBERTa classifier for noise reduction...
+2026-04-01 22:04:14,058 - INFO - DeBERTa classifier loaded successfully
+2026-04-01 22:04:24,993 - INFO - Content cleaning complete:
+  Total articles: 266
+  Articles with content: 264
+  Articles filtered (DeBERTa only): 17
+  Articles with no content after: 2
+  Sentences: 500 -> 481
+2026-04-01 22:04:24,993 - INFO -   Noise reduction: 3.8%
+2026-04-01 22:04:24,994 - INFO - Adding impact horizon data to 266 articles (prediction window: 31 days)
+2026-04-01 22:04:24,994 - INFO - Loading zero-shot classifier...
+2026-04-01 22:04:26,803 - INFO - Zero-shot classifier loaded successfully
+2026-04-01 22:05:04,765 - INFO - Impact horizon classification complete (266 articles, batch_size=32)
+2026-04-01 22:05:04,766 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-04-01 22:05:04,767 - INFO - Final article count: 266 (from 28-day backward window)
+2026-04-01 22:05:04,775 - INFO - Saved 266 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-04-01 22:05:04,791 - INFO - Saved 266 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-04-01 22:05:04,801 - INFO - Running RoBERTa Large MNLI sentiment on 266 articles (company=APPL, ticker=AAPL)
+2026-04-01 22:05:04,802 - INFO - Loading RoBERTa Large MNLI zero-shot classifier...
+2026-04-01 22:05:05,853 - INFO - RoBERTa Large MNLI model loaded successfully
+2026-04-01 22:05:14,314 - INFO - [1/266] (headline+content) Apple's AI challenges in 2026 -> pos=0.0260 neg=0.4004 neu=0.1698 (w=0.900->0.900, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,314 - INFO - [2/266] (content-only) Warren Buffett Added a Big Chunk of This Tech Stoc -> pos=0.0409 neg=0.0149 neu=0.0441 (w=0.899->0.899, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,314 - INFO - [3/266] (headline+content) Big Promises, Bigger Fails: Meta's Cringe Demo, Ap -> pos=0.0059 neg=0.9230 neu=0.0501 (w=0.888->0.888, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,314 - INFO - [4/266] (headline+content) Apple Faces High Stakes in 2026 as AI-Powered Siri -> pos=0.0177 neg=0.7484 neu=0.0410 (w=0.888->0.888, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,314 - INFO - [5/266] (content-only) Market Movers: Nike Exploding Higher on Insider Bu -> pos=0.0029 neg=0.0918 neu=0.0090 (w=0.884->0.884, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,314 - INFO - [6/266] (content-only) TSMC Shares Rise on AI Demand and Next-Gen Chip La -> pos=0.8852 neg=0.0655 neu=0.1219 (w=0.882->0.882, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,314 - INFO - [7/266] (headline+content) The 76-Year-Old Reason Why Buffett Has Been Sellin -> pos=0.0202 neg=0.7370 neu=0.0957 (w=0.877->0.877, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,314 - INFO - [8/266] (headline+content) Apple needs to deliver an AI-charged Siri so good  -> pos=0.0575 neg=0.2958 neu=0.1036 (w=0.877->0.877, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,314 - INFO - [9/266] (headline+content) Apple is an Analyst Favorite, But AAPL Stock Has B -> pos=0.2820 neg=0.8656 neu=0.4232 (w=0.876->0.876, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,314 - INFO - [10/266] (headline+content) The Real Reasons Warren Buffett Is Selling Apple S -> pos=0.0328 neg=0.1215 neu=0.0546 (w=0.876->0.876, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,314 - INFO - [11/266] (headline+content) Medical Care Technologies Inc. Updates Corporate W -> pos=0.3990 neg=0.1115 neu=0.2091 (w=0.875->0.875, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,314 - INFO - [12/266] (content-only) Tuttle Capital Management Launches the Tuttle Capi -> pos=0.6406 neg=0.2284 neu=0.1704 (w=0.856->0.856, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [13/266] (content-only) The S&P 500 Is Too Exposed To Big Tech, Time To Bu -> pos=0.0254 neg=0.9450 neu=0.1018 (w=0.851->0.851, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [14/266] (headline+content) Apple CEO Tim Cook Just Gave Nike Investors 3 Mill -> pos=0.9953 neg=0.0050 neu=0.2773 (w=0.850->0.850, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [15/266] (headline+content) 1 Unstoppable Stock That Could Join Nvidia, Alphab -> pos=0.9855 neg=0.0070 neu=0.1837 (w=0.826->0.826, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [16/266] (headline+content) Medical Care Technologies (OTC PINK:MDCE) Achieves -> pos=0.5223 neg=0.0493 neu=0.1692 (w=0.824->0.824, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [17/266] (headline+content) Apple: Foldable Phone Sparks A Revival, Not AI Ove -> pos=0.7131 neg=0.0068 neu=0.1681 (w=0.823->0.823, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [18/266] (headline+content) Wedbush Names Apple a Top AI Pick for the 2026 Mar -> pos=0.9144 neg=0.0133 neu=0.1549 (w=0.800->0.800, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [19/266] (headline+content) Apple misses on AI in 2025 -> pos=0.0044 neg=0.9419 neu=0.0912 (w=0.799->0.799, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [20/266] (headline+content) Apple's iPhone Market Share Rises in China, Still  -> pos=0.0574 neg=0.0486 neu=0.0866 (w=0.799->0.799, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [21/266] (content-only) Nike (NKE) Jumps 4.6% as Tim Cook Hikes Stake -> pos=0.7106 neg=0.0080 neu=0.1789 (w=0.772->0.772, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [22/266] (headline+content) Apple Stock Ticks Up After a Surprise From China—a -> pos=0.9631 neg=0.0056 neu=0.0943 (w=0.771->0.771, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [23/266] (headline+content) Globalstar (GSAT) Gains Strategic Value From Apple -> pos=0.8696 neg=0.0110 neu=0.2710 (w=0.769->0.769, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [24/266] (headline+content) Apple Stock Rises Ahead of 2026. What's Driving th -> pos=0.8824 neg=0.0067 neu=0.0926 (w=0.765->0.765, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [25/266] (headline+content) Revises Down 2026 Global Notebook Shipments to a 5 -> pos=0.0137 neg=0.7894 neu=0.1232 (w=0.765->0.765, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [26/266] (headline+content) Apple Inc. (AAPL) Is a Trending Stock: Facts to Kn -> pos=0.1115 neg=0.0367 neu=0.1825 (w=0.765->0.765, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [27/266] (headline+content) Will Apple’s (AAPL) Global iOS Openings and AI Pus -> pos=0.1369 neg=0.0499 neu=0.0465 (w=0.764->0.764, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [28/266] (headline+content) Why Apple Might Attract More of an AI Multiple in  -> pos=0.1012 neg=0.3349 neu=0.1061 (w=0.763->0.763, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [29/266] (headline+content) The Zacks Analyst Blog Highlights Apple, Cisco Sys -> pos=0.7207 neg=0.0096 neu=0.2348 (w=0.762->0.762, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [30/266] (headline+content) Apple CEO Tim Cook Just Bought $3 Million of Nike  -> pos=0.8188 neg=0.0066 neu=0.1123 (w=0.762->0.762, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [31/266] (headline+content) Apple: Don't Expect Much Growth Here -> pos=0.0039 neg=0.9852 neu=0.0367 (w=0.761->0.761, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [32/266] (headline+content) Apple Is Likely to Return to Double-Digit Revenue  -> pos=0.9978 neg=0.0036 neu=0.1621 (w=0.760->0.760, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [33/266] (headline+content) Tim Cook's Nike Buy, AI Smart Glasses, Court Victo -> pos=0.5592 neg=0.8820 neu=0.1742 (w=0.759->0.759, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [34/266] (headline+content) Apple to appeal EUR 98M Italian Competition Author -> pos=0.0941 neg=0.2289 neu=0.1144 (w=0.756->0.756, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [35/266] (headline+content) Italian Competition Authority fines Apple EUR 98M  -> pos=0.0475 neg=0.5860 neu=0.1506 (w=0.745->0.745, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [36/266] (headline+content) Apple: Quality Vs. Price -> pos=0.7629 neg=0.0062 neu=0.1344 (w=0.742->0.742, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [37/266] (headline+content) Top Research Reports for Apple, Cisco & IBM -> pos=0.5139 neg=0.0546 neu=0.0738 (w=0.730->0.730, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,315 - INFO - [38/266] (headline+content) JPMorgan Confident in Apple (AAPL) as iPhone 17 De -> pos=0.9697 neg=0.0146 neu=0.5522 (w=0.730->0.730, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [39/266] (content-only) Israel's tech sector says more staff seek relocati -> pos=0.0041 neg=0.9830 neu=0.0383 (w=0.729->0.729, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [40/266] (headline+content) Apple Stock In Focus -- Wells Fargo Keeps 'Overwei -> pos=0.9621 neg=0.0064 neu=0.3073 (w=0.729->0.729, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [41/266] (content-only) Dow Jones Futures Waver With Market At Highs; Tesl -> pos=0.9587 neg=0.0115 neu=0.3070 (w=0.728->0.728, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [42/266] (headline+content) Wells Fargo Reaffirms Overweight on Apple as China -> pos=0.9586 neg=0.0090 neu=0.2879 (w=0.728->0.728, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [43/266] (headline+content) Mag 7 divide could widen in 2026 as Amazon, Meta,  -> pos=0.0143 neg=0.8390 neu=0.0620 (w=0.728->0.728, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [44/266] (headline+content) Jim Cramer Repeats His “Own It, Don’t Trade It” Ma -> pos=0.3355 neg=0.6752 neu=0.4675 (w=0.728->0.728, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [45/266] (headline+content) Top Midday Stories: Apple's Cook Buys $3 Million i -> pos=0.6288 neg=0.0240 neu=0.1527 (w=0.721->0.721, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [46/266] (content-only) These Stocks Are Moving the Most Today: Intel, Nik -> pos=0.1327 neg=0.0576 neu=0.1269 (w=0.705->0.705, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [47/266] (headline+content) Apple Agrees to Open iOS App Stores in Brazil Afte -> pos=0.1739 neg=0.1319 neu=0.0858 (w=0.696->0.696, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [48/266] (headline+content) Jim Cramer Says “I Own Apple, and I Say Own it, Do -> pos=0.8106 neg=0.5280 neu=0.2799 (w=0.695->0.695, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [49/266] (headline+content) Apple's 3 Big New Year Woes -> pos=0.0044 neg=0.8628 neu=0.0442 (w=0.693->0.693, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [50/266] (headline+content) Former Met chief demands Apple and Google disable  -> pos=0.1392 neg=0.4695 neu=0.0889 (w=0.683->0.683, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [51/266] (headline+content) Here’s How Apple (AAPL) Impacted Harbor Capital Ap -> pos=0.1435 neg=0.1877 neu=0.0458 (w=0.670->0.670, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [52/266] (content-only) Foreign Phone Shipments Jump 128% in China -> pos=0.8082 neg=0.0232 neu=0.1814 (w=0.669->0.669, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [53/266] (headline+content) Update: Apple Faces $115.7 Million Italian Regulat -> pos=0.0254 neg=0.2723 neu=0.0527 (w=0.669->0.669, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [54/266] (content-only) Nike Climb Boosts Dow, S&P 500 -> pos=0.9469 neg=0.0057 neu=0.2026 (w=0.668->0.668, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [55/266] (content-only) Italy fines Ryanair $300 mn for abuse of dominant  -> pos=0.0342 neg=0.3979 neu=0.0757 (w=0.667->0.667, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [56/266] (content-only) Company News for Dec 26, 2025 -> pos=0.2350 neg=0.1834 neu=0.1877 (w=0.667->0.667, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [57/266] (headline+content) China's vice commerce minister met Apple COO on Fr -> pos=0.3281 neg=0.3305 neu=0.1983 (w=0.666->0.666, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [58/266] (headline+content) Is Apple Inc. (NASDAQ:AAPL) Expensive For A Reason -> pos=0.0563 neg=0.0776 neu=0.0401 (w=0.665->0.665, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [59/266] (headline+content) OpenAI vs. Apple? Sam Altman is setting his sights -> pos=0.5997 neg=0.0654 neu=0.0981 (w=0.665->0.665, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [60/266] (headline+content) Prediction: Berkshire Hathaway Will Stop Selling A -> pos=0.0759 neg=0.8663 neu=0.0982 (w=0.665->0.665, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [61/266] (headline+content) If You'd Invested $1,000 in Apple 10 Years Ago, He -> pos=0.5206 neg=0.3635 neu=0.0522 (w=0.664->0.664, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [62/266] (headline+content) Dan Ives Is Betting That Apple and Google Will Par -> pos=0.5683 neg=0.1171 neu=0.0703 (w=0.661->0.661, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [63/266] (headline+content) Jim Cramer Says “Own Apple, Don’t Trade It” -> pos=0.9957 neg=0.0108 neu=0.2737 (w=0.661->0.661, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [64/266] (headline+content) 5 Stocks That Pay Out Dividends Like Apple -> pos=0.7932 neg=0.0157 neu=0.1187 (w=0.655->0.655, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,316 - INFO - [65/266] (headline+content) Apple: Efficiency-Monetization Loop - Services Mar -> pos=0.9917 neg=0.0089 neu=0.2691 (w=0.655->0.655, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [66/266] (headline+content) Apple Fined $115 Million in Italy Over App Trackin -> pos=0.0098 neg=0.7297 neu=0.0284 (w=0.639->0.639, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [67/266] (headline+content) Apple Hit With €98M Antitrust Fine In Italy Over A -> pos=0.0109 neg=0.6760 neu=0.0715 (w=0.633->0.633, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [68/266] (headline+content) Billionaires Are Buying an AI Stock That Could Be  -> pos=0.9143 neg=0.0368 neu=0.0968 (w=0.625->0.625, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [69/266] (headline+content) Nike shares jump after Apple CEO Cook doubles stak -> pos=0.6810 neg=0.0681 neu=0.0764 (w=0.605->0.605, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [70/266] (headline+content) Nike Stock Price Gets a Lift After Apple’s Tim Coo -> pos=0.9042 neg=0.0061 neu=0.1671 (w=0.604->0.302, cov=1.00, hdl=0.50)
+2026-04-01 22:05:14,317 - INFO - [71/266] (headline+content) Apple CEO Tim Cook Discloses $3 Million Nike Buy W -> pos=0.0297 neg=0.8039 neu=0.0888 (w=0.604->0.604, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [72/266] (headline+content) Apple spent 2025 setting itself up for the future  -> pos=0.6323 neg=0.0841 neu=0.2115 (w=0.600->0.600, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [73/266] (headline+content) Apple Targets 2026 Launch For AI Smart Glasses, Ca -> pos=0.5042 neg=0.3493 neu=0.1174 (w=0.591->0.591, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [74/266] (headline+content) ‘I don’t know how much my wife earns’: I’m 63 with -> pos=0.2179 neg=0.5769 neu=0.2063 (w=0.587->0.587, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [75/266] (headline+content) Steve Jobs sold his Volkswagen to raise $1,300 for -> pos=0.9098 neg=0.0455 neu=0.2652 (w=0.587->0.587, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [76/266] (headline+content) Apple becomes a debt collector with its new develo -> pos=0.0777 neg=0.6316 neu=0.0595 (w=0.584->0.584, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [77/266] (headline+content) Here’s Why Apple (AAPL) is on the Detractors List  -> pos=0.0066 neg=0.9802 neu=0.0518 (w=0.573->0.573, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [78/266] (headline+content) Best Stock to Buy Right Now: Apple vs. Alphabet -> pos=0.9873 neg=0.0066 neu=0.1441 (w=0.573->0.573, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [79/266] (headline+content) Dow Jones Tech Giant Apple, AppLovin, Palantir, Te -> pos=0.9735 neg=0.0040 neu=0.2320 (w=0.573->0.573, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [80/266] (headline+content) Dow Jones Futures: Nvidia Tests Key Level; AppLovi -> pos=0.8690 neg=0.0514 neu=0.1221 (w=0.572->0.572, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [81/266] (headline+content) Apple iPhone 17 Wait Times Fall as Supply Meets De -> pos=0.8700 neg=0.0284 neu=0.3207 (w=0.571->0.571, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [82/266] (content-only) Mobile phone IDs may help fight fraud -> pos=0.3764 neg=0.0985 neu=0.1186 (w=0.558->0.558, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [83/266] (headline+content) Why Apple's Tim Cook Drove Nike Stock Higher Today -> pos=0.9606 neg=0.0099 neu=0.2275 (w=0.558->0.558, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [84/266] (headline+content) Apple Doesn't Need A Stronger AI Portfolio -> pos=0.6017 neg=0.0111 neu=0.1383 (w=0.557->0.557, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [85/266] (content-only) Tim Cook Just Purchased $3 Million Worth of Nike S -> pos=0.4980 neg=0.1462 neu=0.1419 (w=0.557->0.557, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [86/266] (headline+content) Apple opens up its App Store to competition in Jap -> pos=0.0207 neg=0.6664 neu=0.0858 (w=0.555->0.555, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [87/266] (content-only) From Tesla To Nike: Why Tim Cook's Buy Is Drawing  -> pos=0.7229 neg=0.0356 neu=0.4007 (w=0.555->0.879, cov=1.58, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [88/266] (headline+content) Apple Opens iPhones to Alternative App Stores in J -> pos=0.5342 neg=0.5596 neu=0.1495 (w=0.555->0.555, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [89/266] (headline+content) Apple Loosens iOS Grip in Japan -> pos=0.2519 neg=0.1055 neu=0.1473 (w=0.554->0.554, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [90/266] (content-only) Why Is Nike Stock Soaring Wednesday? -> pos=0.0142 neg=0.1221 neu=0.1352 (w=0.553->0.553, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,317 - INFO - [91/266] (headline+content) Why Warren Buffett Just Sold 15% of His Apple Stak -> pos=0.2293 neg=0.2448 neu=0.1041 (w=0.543->0.543, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [92/266] (headline+content) Apple announces changes to iOS in Japan -> pos=0.1953 neg=0.1555 neu=0.0631 (w=0.541->0.541, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [93/266] (headline+content) If You Think Apple Trading For 36x Earnings Is Nut -> pos=0.0302 neg=0.9771 neu=0.2149 (w=0.534->0.534, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [94/266] (headline+content) Apple punted on AI this year. Next year will be cr -> pos=0.0182 neg=0.7382 neu=0.0668 (w=0.534->0.534, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [95/266] (content-only) These Techs Had The Biggest Stock Buybacks In Q3.  -> pos=0.3435 neg=0.0649 neu=0.1149 (w=0.534->0.534, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [96/266] (headline+content) Apple's First Foldable iPhone Leak Reveals Major D -> pos=0.0693 neg=0.2716 neu=0.0699 (w=0.533->0.533, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [97/266] (content-only) Janus Henderson Concentrated Growth Managed Accoun -> pos=0.0031 neg=0.8915 neu=0.0369 (w=0.533->0.533, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [98/266] (headline+content) Apple in talks with Indian chip makers for assembl -> pos=0.2788 neg=0.3582 neu=0.1380 (w=0.531->0.531, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [99/266] (headline+content) Cramer's Mad Dash: Apple -> pos=0.3361 neg=0.4653 neu=0.1987 (w=0.531->0.531, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [100/266] (headline+content) Morgan Stanley Lifts Apple Inc. (AAPL) Price Targe -> pos=0.9543 neg=0.0526 neu=0.3985 (w=0.531->0.531, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [101/266] (content-only) Lead times across the iPhone  17 series are modera -> pos=0.5682 neg=0.2751 neu=0.1866 (w=0.527->0.527, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [102/266] (content-only) Will Google Pass Nvidia in 2026 as the World’s Big -> pos=0.9029 neg=0.0814 neu=0.1268 (w=0.527->0.527, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [103/266] (headline+content) Apple (AAPL) Stock Slides as Market Rises: Facts t -> pos=0.0065 neg=0.8575 neu=0.1977 (w=0.526->0.526, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [104/266] (content-only) Buffett’s $24 Billion Selling Spree: The 6 Stocks  -> pos=0.1640 neg=0.6543 neu=0.2014 (w=0.526->0.526, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [105/266] (content-only) Jamf Named a Leader in Three IDC MarketScape Repor -> pos=0.3775 neg=0.1328 neu=0.1100 (w=0.525->0.525, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [106/266] (content-only) APLY: Gets The Job Done But Underperforms Peers -> pos=0.2414 neg=0.1120 neu=0.1143 (w=0.523->0.523, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [107/266] (headline+content) Meta Opens a New Frontier in AI Race. Why It’s a W -> pos=0.0052 neg=0.9767 neu=0.0707 (w=0.522->0.522, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [108/266] (headline+content) Apple Just Released a New AI Model. Should You Buy -> pos=0.8174 neg=0.0156 neu=0.0508 (w=0.517->0.517, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [109/266] (headline+content) Medical Care Technologies (OTC PINK:MDCE) Advances -> pos=0.4362 neg=0.1282 neu=0.2133 (w=0.505->0.505, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [110/266] (content-only) Exclusive-Nasdaq seeks to extend trading hours, as -> pos=0.7171 neg=0.0516 neu=0.2506 (w=0.504->0.504, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [111/266] (content-only) Visa, Mastercard make a global push for mobile wal -> pos=0.4013 neg=0.7180 neu=0.0918 (w=0.503->0.503, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [112/266] (content-only) Nasdaq to file for near 24-Hour stock trading to m -> pos=0.4742 neg=0.0447 neu=0.2213 (w=0.502->0.502, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [113/266] (content-only) How Caterpillar Crushed the Magnificent 7 in 2025  -> pos=0.0112 neg=0.9386 neu=0.1306 (w=0.495->0.495, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [114/266] (headline+content) Analysts Are Hot on the Foldable iPhone. Should Yo -> pos=0.8364 neg=0.0255 neu=0.0936 (w=0.495->0.495, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [115/266] (headline+content) Wearable AI Industry Sizing and Opportunity Outloo -> pos=0.7335 neg=0.0086 neu=0.1453 (w=0.493->0.493, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [116/266] (headline+content) Developers Press EU to Act on Apple Fees After U.S -> pos=0.0167 neg=0.5944 neu=0.0671 (w=0.492->0.492, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [117/266] (headline+content) Analysts Have a Moderate Buy Rating on Apple Inc.  -> pos=0.9623 neg=0.0140 neu=0.3420 (w=0.490->0.490, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,318 - INFO - [118/266] (headline+content) Morgan Stanley Boosts Apple (AAPL) Target, Sees Up -> pos=0.8534 neg=0.0211 neu=0.4380 (w=0.489->0.489, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [119/266] (headline+content) Where is Apple Inc. (AAPL) Headed According to Wal -> pos=0.7081 neg=0.1372 neu=0.4686 (w=0.488->0.488, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [120/266] (headline+content) Apple (AAPL) Target Raised as Jefferies Sees Stron -> pos=0.8423 neg=0.0459 neu=0.3198 (w=0.488->0.488, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [121/266] (headline+content) Jim Cramer Says “Apple Might Be Hurt By Higher Mem -> pos=0.0435 neg=0.7808 neu=0.2539 (w=0.486->0.486, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [122/266] (headline+content) The $50 Trick That Lets You Own Enough Apple Stock -> pos=0.8695 neg=0.0104 neu=0.1336 (w=0.482->0.482, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [123/266] (headline+content) Warren Buffett Says Buy This Vanguard Index Fund - -> pos=0.9949 neg=0.0131 neu=0.4031 (w=0.481->0.481, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [124/266] (content-only) America’s 3 Most Important Companies Are About to  -> pos=0.4637 neg=0.3183 neu=0.1424 (w=0.469->0.469, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [125/266] (content-only) Walmart and 2 More American Icons Are About to Get -> pos=0.4637 neg=0.3183 neu=0.1424 (w=0.468->0.468, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [126/266] (content-only) Euronet Worldwide (EEFT) Stock Is Up, What You Nee -> pos=0.9624 neg=0.0062 neu=0.0690 (w=0.463->0.463, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [127/266] (content-only) LongPoint Announces No Year End ETF Distributions -> pos=0.1690 neg=0.5118 neu=0.2263 (w=0.428->0.428, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [128/266] (headline+content) Apple Plans More Ads in App Store -> pos=0.4625 neg=0.2018 neu=0.1176 (w=0.428->0.428, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [129/266] (content-only) Did Leidos’ (LDOS) New AI Veteran CTO Just Recode  -> pos=0.3882 neg=0.1491 neu=0.1186 (w=0.414->0.414, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [130/266] (headline+content) Apple cofounder Ronald Wayne sold his 10% stake fo -> pos=0.6475 neg=0.0466 neu=0.1928 (w=0.410->0.410, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [131/266] (headline+content) Warren Buffett Is Dumping Apple and Bank of Americ -> pos=0.9455 neg=0.0119 neu=0.1186 (w=0.408->0.408, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [132/266] (headline+content) Investors Heavily Search Apple Inc. (AAPL): Here i -> pos=0.3696 neg=0.0910 neu=0.2496 (w=0.406->0.406, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [133/266] (content-only) Jim Cramer Says “We Need More Winners, But It’s Ju -> pos=0.2956 neg=0.2107 neu=0.1261 (w=0.404->0.404, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [134/266] (headline+content) Apple faces risk from memory cost spike in 2026: M -> pos=0.0029 neg=0.8922 neu=0.0278 (w=0.403->0.403, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [135/266] (headline+content) 'Apple Explores Chip Assembly Talks With Indian Ma -> pos=0.2853 neg=0.1451 neu=0.1325 (w=0.400->0.400, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [136/266] (headline+content) Apple Plans Major iPhone Expansion as Global Sales -> pos=0.8631 neg=0.0153 neu=0.0649 (w=0.398->0.398, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [137/266] (headline+content) Apple Loses Epic Games Appeal, Wins Ability to Cha -> pos=0.0198 neg=0.5430 neu=0.0727 (w=0.395->0.395, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [138/266] (headline+content) Apple Wins Partial Relief in Epic Appeals Ruling -> pos=0.4213 neg=0.0188 neu=0.1363 (w=0.394->0.394, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,319 - INFO - [139/266] (headline+content) Appeals court backs contempt finding against Apple -> pos=0.0845 neg=0.7409 neu=0.2143 (w=0.394->0.394, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,320 - INFO - [140/266] (content-only) OpenAI’s hardware push could reshape the AI trade -> pos=0.5099 neg=0.1758 neu=0.2652 (w=0.391->0.391, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,320 - INFO - [141/266] (content-only) Netflix reaches $72B Warner Bros. deal, PCE inflat -> pos=0.1798 neg=0.1476 neu=0.1361 (w=0.387->0.387, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,320 - INFO - [142/266] (headline+content) Apple's 2025 App List, AI Stumble, Executive Exodu -> pos=0.0814 neg=0.3640 neu=0.1149 (w=0.381->0.381, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,320 - INFO - [143/266] (content-only) Trump admin to hire 1,000 specialists for 'Tech Fo -> pos=0.3996 neg=0.2093 neu=0.1695 (w=0.380->0.380, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,320 - INFO - [144/266] (headline+content) Apple's Tim Cook Urges Lawmakers to Rethink App St -> pos=0.1059 neg=0.3692 neu=0.1214 (w=0.380->0.380, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,320 - INFO - [145/266] (headline+content) Why 2026 May Be Apple’s Year -> pos=0.6970 neg=0.0319 neu=0.1213 (w=0.377->0.377, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,320 - INFO - [146/266] (headline+content) Netflix to acquire Warner Bros., more executive de -> pos=0.0900 neg=0.3034 neu=0.1727 (w=0.375->0.375, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,320 - INFO - [147/266] (headline+content) Apple Seen Moving From AI Laggard To Leader In 202 -> pos=0.9424 neg=0.0119 neu=0.1249 (w=0.375->0.375, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,320 - INFO - [148/266] (content-only) Smartphone Shipments Seen Falling in 2026 on Highe -> pos=0.0036 neg=0.9508 neu=0.0380 (w=0.374->0.374, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,320 - INFO - [149/266] (headline+content) Evercore ISI Raises PT on Apple (AAPL) Stock -> pos=0.9022 neg=0.0325 neu=0.4670 (w=0.374->0.374, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,320 - INFO - [150/266] (headline+content) Amazon, Apple, Google, etc.: Why the Mag 7 needs t -> pos=0.0150 neg=0.7471 neu=0.1262 (w=0.374->0.374, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,320 - INFO - [151/266] (headline+content) Top Midday Stories: Pfizer Falls Following 2026 Ou -> pos=0.0043 neg=0.9413 neu=0.0886 (w=0.374->0.374, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [152/266] (content-only) Janus Henderson Research Fund Q3 2025 Portfolio Re -> pos=0.0314 neg=0.5970 neu=0.0845 (w=0.365->0.365, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [153/266] (content-only) Sales of foreign-branded phones in China up 13.0%  -> pos=0.5261 neg=0.0756 neu=0.2147 (w=0.364->0.364, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [154/266] (content-only) Meta acquires AI-wearables startup Limitless -> pos=0.7082 neg=0.1100 neu=0.1687 (w=0.359->0.359, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [155/266] (content-only) Forget Monthly Dividends, These 5 ETFs Pay Investo -> pos=0.9876 neg=0.0033 neu=0.2431 (w=0.356->0.356, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [156/266] (headline+content) Why Sam Altman Sees Apple and Not Google as its To -> pos=0.1132 neg=0.2715 neu=0.1264 (w=0.352->0.352, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [157/266] (headline+content) Apple To Rally Around 15%? Here Are 10 Top Analyst -> pos=0.8086 neg=0.0367 neu=0.1463 (w=0.352->0.176, cov=1.00, hdl=0.50)
+2026-04-01 22:05:14,321 - INFO - [158/266] (headline+content) Apple leads Morgan Stanley top IT hardware picks f -> pos=0.7728 neg=0.0222 neu=0.1442 (w=0.351->0.351, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [159/266] (headline+content) Stock Market Today: Dow Edges Up As Tesla Jumps Ne -> pos=0.0314 neg=0.7910 neu=0.1067 (w=0.349->0.349, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [160/266] (headline+content) Services Rides on Apple TV and Arcade: What's Ahea -> pos=0.6003 neg=0.0596 neu=0.0683 (w=0.349->0.349, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [161/266] (headline+content) Apple Is Richer Than All but 4 Countries -> pos=0.4826 neg=0.1377 neu=0.0903 (w=0.348->0.348, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [162/266] (headline+content) Can Apple close the AI gap in 2026? Morgan Stanley -> pos=0.0193 neg=0.4207 neu=0.1008 (w=0.346->0.346, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [163/266] (content-only) Cloud AI Update - Nova Era Labs Transforms AI Educ -> pos=0.7786 neg=0.0292 neu=0.1549 (w=0.343->0.343, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [164/266] (headline+content) Apple’s Cook Presses Congress Over Child Online Sa -> pos=0.0486 neg=0.4270 neu=0.0715 (w=0.343->0.343, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [165/266] (headline+content) How Recent Developments Are Rewriting the Apple In -> pos=0.4876 neg=0.0082 neu=0.1475 (w=0.343->0.343, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [166/266] (headline+content) Here's Why Apple (AAPL) Fell More Than Broader Mar -> pos=0.0056 neg=0.9522 neu=0.1073 (w=0.328->0.328, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [167/266] (content-only) Rising chip costs to push global smartphone shipme -> pos=0.0055 neg=0.9679 neu=0.0991 (w=0.327->0.327, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [168/266] (headline+content) Pixalate’s Q3 2025 Report Uncovers 1,248 APAC-Regi -> pos=0.0257 neg=0.8037 neu=0.0843 (w=0.324->0.324, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [169/266] (headline+content) Oura vs Big Tech: The ring taking on Apple, Google -> pos=0.2783 neg=0.2639 neu=0.1453 (w=0.323->0.323, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [170/266] (headline+content) Prediction: These 3 Stocks Could Be Worth More Tha -> pos=0.7736 neg=0.0406 neu=0.2268 (w=0.321->0.321, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [171/266] (headline+content) Here's Why Apple Is My Second Biggest Holding Goin -> pos=0.8779 neg=0.0281 neu=0.3019 (w=0.321->0.321, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [172/266] (headline+content) Apple chip leader Johny Srouji squashes exit rumor -> pos=0.3829 neg=0.0496 neu=0.2909 (w=0.321->0.321, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [173/266] (headline+content) Apple Chip Chief Tells Staff He’s Not Leaving ‘Any -> pos=0.5572 neg=0.2045 neu=0.3068 (w=0.319->0.319, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [174/266] (content-only) Google Must Limit Default Contracts to One Year, J -> pos=0.1594 neg=0.1437 neu=0.1309 (w=0.319->0.319, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [175/266] (headline+content) Apple expands manufacturing training program with  -> pos=0.4044 neg=0.0290 neu=0.1182 (w=0.318->0.318, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,321 - INFO - [176/266] (content-only) Maker of ICE-Tracking App Says Trump Officials Vio -> pos=0.0201 neg=0.4875 neu=0.0660 (w=0.315->0.315, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [177/266] (headline+content) The Zacks Analyst Blog Apple, Alphabet, Amazon and -> pos=0.0091 neg=0.3509 neu=0.0571 (w=0.303->0.303, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [178/266] (headline+content) 1 Reason I'm Watching Apple Heading Into 2026 -> pos=0.9605 neg=0.0324 neu=0.2197 (w=0.303->0.303, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [179/266] (headline+content) Is Apple Still Attractive After AI Push and Strong -> pos=0.0724 neg=0.0472 neu=0.0894 (w=0.303->0.303, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [180/266] (content-only) After Outperforming Every "Magnificent Seven" Stoc -> pos=0.8431 neg=0.0544 neu=0.1320 (w=0.302->0.302, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [181/266] (headline+content) ICEBlock developer sues U.S. government after DOJ  -> pos=0.0521 neg=0.3440 neu=0.0714 (w=0.300->0.300, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [182/266] (headline+content) Dell Technologies vs. Apple: Which PC Stock Has an -> pos=0.8183 neg=0.0165 neu=0.0398 (w=0.298->0.298, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [183/266] (headline+content) Did Apple’s Executive Overhaul Around AI, Regulati -> pos=0.1601 neg=0.1949 neu=0.0373 (w=0.289->0.289, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [184/266] (headline+content) How Investors May Respond To Walt Disney (DIS) Add -> pos=0.1908 neg=0.0723 neu=0.0161 (w=0.288->0.288, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [185/266] (content-only) PAR Technology Unveils Smart Passes: The Next Era  -> pos=0.5858 neg=0.1610 neu=0.1613 (w=0.286->0.286, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [186/266] (content-only) Is MP Stock a Buy, Hold or Sell After Its 98.9% Si -> pos=0.9906 neg=0.0045 neu=0.0728 (w=0.285->0.285, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [187/266] (content-only) The Potential Losers In The AI Arms Race -> pos=0.3858 neg=0.0534 neu=0.0538 (w=0.279->0.279, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [188/266] (headline+content) Apple Expands Fitness+ To 28 New Markets -> pos=0.4988 neg=0.0440 neu=0.1399 (w=0.273->0.273, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [189/266] (headline+content) Apple's Foldable iPhone Expected to Land Well with -> pos=0.9741 neg=0.0066 neu=0.1567 (w=0.271->0.271, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [190/266] (headline+content) Jeff Williams, who retired from Apple after 27 yea -> pos=0.5871 neg=0.1020 neu=0.3526 (w=0.269->0.269, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [191/266] (headline+content) Disney Nominates Former Apple Executive Jeff Willi -> pos=0.4288 neg=0.0606 neu=0.1969 (w=0.268->0.268, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [192/266] (content-only) Kettle Closes a Landmark Year of Momentum, Innovat -> pos=0.9840 neg=0.0056 neu=0.1680 (w=0.266->0.266, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [193/266] (content-only) India weighs greater phone-location surveillance;  -> pos=0.0879 neg=0.5556 neu=0.1480 (w=0.263->0.263, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [194/266] (headline+content) Apple Warns Users in 84 Countries of New Cyber Thr -> pos=0.0197 neg=0.4425 neu=0.0582 (w=0.260->0.260, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [195/266] (headline+content) 'India Weighs Greater Phone-Location Surveillance; -> pos=0.0074 neg=0.6387 neu=0.0371 (w=0.260->0.260, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [196/266] (headline+content) Apple: Late To The AI Party, Wait And See But Neve -> pos=0.5562 neg=0.0121 neu=0.4823 (w=0.258->0.258, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [197/266] (headline+content) Soaring Memory Prices Will Cannibalize Apple's Pro -> pos=0.0038 neg=0.9815 neu=0.0210 (w=0.257->0.257, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [198/266] (headline+content) Whoever Replaces Tim Cook at Apple Will Have 'Big  -> pos=0.0425 neg=0.5409 neu=0.0857 (w=0.251->0.251, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [199/266] (headline+content) Evercore Says Apple Exec Exits Not A Crisis -> pos=0.4564 neg=0.1065 neu=0.7692 (w=0.249->0.249, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [200/266] (headline+content) Apple unveils the winners of the 2025 App Store Aw -> pos=0.6038 neg=0.5043 neu=0.1836 (w=0.249->0.249, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [201/266] (content-only) 2M Raised in 100 Days: Seoul Beauty Club Rides K-B -> pos=0.7564 neg=0.0361 neu=0.1981 (w=0.249->0.249, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [202/266] (headline+content) Why Netflix And Apple Dominated Google's Top Enter -> pos=0.5631 neg=0.0642 neu=0.0998 (w=0.247->0.247, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [203/266] (headline+content) Google's Top Business Searches Of 2025: Apple, Net -> pos=0.3615 neg=0.1603 neu=0.0830 (w=0.247->0.247, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,322 - INFO - [204/266] (content-only) Democrats Press Firms About Trump Ballroom Donatio -> pos=0.0325 neg=0.5289 neu=0.0338 (w=0.245->0.245, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [205/266] (headline+content) Apple Loses Longtime Design Leader Alan Dye to Met -> pos=0.0135 neg=0.6852 neu=0.0869 (w=0.243->0.243, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [206/266] (content-only) Smart Homes Propel Towards $1.03 Trillion by 2035 -> pos=0.7008 neg=0.1003 neu=0.1090 (w=0.243->0.243, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [207/266] (headline+content) TSMC: The Foundry Behind Nvidia, AMD and Apple Is  -> pos=0.9719 neg=0.0043 neu=0.1386 (w=0.239->0.239, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [208/266] (headline+content) Apple: Playing Switzerland In AI Battle, But Risks -> pos=0.0045 neg=0.5836 neu=0.0891 (w=0.238->0.238, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [209/266] (headline+content) After a 42% Six-Month Rally, What's Next for Apple -> pos=0.2904 neg=0.0383 neu=0.1232 (w=0.237->0.237, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [210/266] (headline+content) What the heck is going on at Apple? -> pos=0.0525 neg=0.0776 neu=0.1196 (w=0.232->0.232, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [211/266] (headline+content) Executive Exodus Hits Apple As Fears Grow Over Pos -> pos=0.0043 neg=0.9475 neu=0.0605 (w=0.232->0.232, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [212/266] (headline+content) Pressure builds on Apple and CEO Tim Cook with hol -> pos=0.0023 neg=0.9860 neu=0.0349 (w=0.231->0.231, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [213/266] (headline+content) Apple's chip boss squashes exit rumors, says he's  -> pos=0.1897 neg=0.1425 neu=0.2464 (w=0.231->0.231, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [214/266] (headline+content) Apple's chip chief reportedly 'not leaving': A clo -> pos=0.1228 neg=0.0557 neu=0.1332 (w=0.229->0.229, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [215/266] (headline+content) Apple’s Chips Chief Says He Isn’t Leaving -> pos=0.4484 neg=0.0572 neu=0.2943 (w=0.229->0.229, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [216/266] (headline+content) Apple's executive exodus sends a signal about its  -> pos=0.0270 neg=0.8589 neu=0.0474 (w=0.228->0.228, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [217/266] (headline+content) Apple AI Strategy Finally Taking Shape Amid Key Hi -> pos=0.3499 neg=0.1839 neu=0.0597 (w=0.228->0.228, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [218/266] (headline+content) Apple won’t be the same in 2026. Meet the company’ -> pos=0.0188 neg=0.8778 neu=0.1160 (w=0.226->0.226, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [219/266] (headline+content) Apple executive turnover: Evercore's Amit Daryanan -> pos=0.0648 neg=0.3048 neu=0.1915 (w=0.226->0.226, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [220/266] (headline+content) Apple Just Dropped a Global Fitness Bombshell--And -> pos=0.9322 neg=0.0167 neu=0.1927 (w=0.226->0.226, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [221/266] (headline+content) Apple Chip Chief Considers Exit, Tim Cook's AI Res -> pos=0.0607 neg=0.1967 neu=0.0962 (w=0.223->0.223, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [222/266] (headline+content) Apple's $4 Trillion Comeback: Why It's Now Beating -> pos=0.9451 neg=0.0077 neu=0.1602 (w=0.221->0.221, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [223/266] (headline+content) Apple takes China's smartphone battle house to hou -> pos=0.7719 neg=0.0563 neu=0.2257 (w=0.220->0.220, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [224/266] (headline+content) UBS Reiterates Neutral on Apple (AAPL) as Interest -> pos=0.1332 neg=0.1254 neu=0.9830 (w=0.220->0.220, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [225/266] (headline+content) UBS Reiterates Neutral on Apple (AAPL) as App Stor -> pos=0.0550 neg=0.3106 neu=0.9889 (w=0.219->0.219, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [226/266] (headline+content) Jim Cramer on Apple: “Bulls Like Me Were Considere -> pos=0.9131 neg=0.4202 neu=0.1793 (w=0.217->0.217, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [227/266] (headline+content) Jim Cramer examines 'stalled' stocks Apple, Meta a -> pos=0.0114 neg=0.7672 neu=0.1400 (w=0.214->0.214, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [228/266] (headline+content) China's Phone Makers Smell Opportunity As Apple St -> pos=0.7616 neg=0.0142 neu=0.1479 (w=0.209->0.209, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [229/266] (headline+content) 1 Unstoppable Stock to Buy Before It Joins Nvidia, -> pos=0.9731 neg=0.0110 neu=0.1176 (w=0.208->0.208, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [230/266] (headline+content) Why Apple's Momentum Isn't Accidental -> pos=0.9531 neg=0.0056 neu=0.0612 (w=0.207->0.207, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,323 - INFO - [231/266] (headline+content) Consumer Tech Juggernaut Apple's Dynamic Ascendanc -> pos=0.8984 neg=0.0054 neu=0.1051 (w=0.206->0.103, cov=1.00, hdl=0.50)
+2026-04-01 22:05:14,324 - INFO - [232/266] (headline+content) Apple (AAPL) Earns $320 Target as Services Strengt -> pos=0.8849 neg=0.0158 neu=0.3635 (w=0.205->0.205, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,324 - INFO - [233/266] (headline+content) Evercore Analysts Are Pounding the Table on Apple  -> pos=0.1286 neg=0.5537 neu=0.0981 (w=0.202->0.202, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,324 - INFO - [234/266] (headline+content) Apple's Tim Cook reportedly on Capitol Hill, Oracl -> pos=0.2063 neg=0.3850 neu=0.1976 (w=0.201->0.201, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,324 - INFO - [235/266] (headline+content) Apple’s Slow AI Pace Becomes a Strength as Market  -> pos=0.0169 neg=0.5397 neu=0.1484 (w=0.184->0.184, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,324 - INFO - [236/266] (headline+content) OpenAI’s New AI Gadget Might Be an iPhone Disrupto -> pos=0.0268 neg=0.7209 neu=0.2315 (w=0.183->0.183, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,324 - INFO - [237/266] (headline+content) Apple Stock Gets Three Price-Target Hikes. Here's  -> pos=0.8942 neg=0.0078 neu=0.0738 (w=0.183->0.183, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,324 - INFO - [238/266] (headline+content) Jim Cramer rejects Wall Street doubts about Nvidia -> pos=0.8712 neg=0.0112 neu=0.5323 (w=0.183->0.183, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,324 - INFO - [239/266] (headline+content) Apple (AAPL) Lands $330 Target as CLSA Turns More  -> pos=0.9922 neg=0.0051 neu=0.3676 (w=0.182->0.182, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,324 - INFO - [240/266] (headline+content) Meet the Supercharged Growth Stock That Could Join -> pos=0.9908 neg=0.0039 neu=0.1096 (w=0.180->0.180, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,324 - INFO - [241/266] (content-only) 'Own it, don't trade it,' says Jim Cramer on Nvidi -> pos=0.2964 neg=0.2597 neu=0.1563 (w=0.179->0.179, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,324 - INFO - [242/266] (headline+content) Apple May Actually Be Winning the AI Race -> pos=0.7784 neg=0.0430 neu=0.1305 (w=0.177->0.089, cov=1.00, hdl=0.50)
+2026-04-01 22:05:14,324 - INFO - [243/266] (headline+content) What Apple's executive departures mean for the iPh -> pos=0.1102 neg=0.3123 neu=0.0726 (w=0.177->0.177, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,324 - INFO - [244/266] (headline+content) Apple Made a Comeback with the iPhone 17, But Will -> pos=0.0382 neg=0.0632 neu=0.0600 (w=0.176->0.176, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,324 - INFO - [245/266] (headline+content) Apple Reaches All-Time High This Week -- Proves It -> pos=0.9208 neg=0.0090 neu=0.1743 (w=0.176->0.176, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,324 - INFO - [246/266] (headline+content) Apple’s executive shake-up continues with departur -> pos=0.0135 neg=0.5630 neu=0.0693 (w=0.176->0.176, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,324 - INFO - [247/266] (headline+content) Top Apple Executives to Leave, Adding to Recent De -> pos=0.0101 neg=0.6590 neu=0.0854 (w=0.175->0.175, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,324 - INFO - [248/266] (headline+content) Apple announces executive transitions -> pos=0.1915 neg=0.0771 neu=0.1730 (w=0.175->0.175, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,324 - INFO - [249/266] (headline+content) ChatGPT Thinks Apple Stock Price Will Close At Thi -> pos=0.5201 neg=0.0585 neu=0.3171 (w=0.175->0.175, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,325 - INFO - [250/266] (headline+content) Apple Departures Point to Challenges for iPhone’s  -> pos=0.0044 neg=0.8925 neu=0.0472 (w=0.174->0.174, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,325 - INFO - [251/266] (headline+content) Nvidia Topples Apple As Best-Managed U.S. Company; -> pos=0.8063 neg=0.0194 neu=0.1237 (w=0.172->0.172, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,325 - INFO - [252/266] (headline+content) Apple exec. staying, Nvidia & SoftBank eye Skild A -> pos=0.3156 neg=0.3664 neu=0.2364 (w=0.172->0.172, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,325 - INFO - [253/266] (headline+content) Apple Stock Can Rise on Services Segment, Says Ana -> pos=0.8041 neg=0.0108 neu=0.1934 (w=0.172->0.172, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,325 - INFO - [254/266] (headline+content) Apple Inc. (AAPL): A Bull Case Theory -> pos=0.9975 neg=0.0054 neu=0.1182 (w=0.172->0.172, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,325 - INFO - [255/266] (headline+content) Here is What to Know Beyond Why Apple Inc. (AAPL)  -> pos=0.5745 neg=0.0215 neu=0.1862 (w=0.171->0.171, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,325 - INFO - [256/266] (headline+content) Apple to Enter AI Revolution in 2026, Wedbush Says -> pos=0.5153 neg=0.2647 neu=0.1336 (w=0.171->0.171, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,325 - INFO - [257/266] (headline+content) Apple Gains Higher Wedbush Price Target on Strengt -> pos=0.9929 neg=0.0070 neu=0.1717 (w=0.171->0.171, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,325 - INFO - [258/266] (headline+content) Apple target raised: Evercore ISI says Intelligenc -> pos=0.9809 neg=0.0064 neu=0.2908 (w=0.169->0.169, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,325 - INFO - [259/266] (headline+content) Here’s Why Apple (AAPL) is on the Detectors List o -> pos=0.1117 neg=0.2553 neu=0.0889 (w=0.169->0.169, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,325 - INFO - [260/266] (headline+content) Apple: Inventory Does Not Lie -> pos=0.0239 neg=0.7317 neu=0.2554 (w=0.167->0.167, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,325 - INFO - [261/266] (headline+content) Could Intel’s Apple Chip Ambitions and Malaysia Be -> pos=0.3386 neg=0.0311 neu=0.0180 (w=0.166->0.166, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,325 - INFO - [262/266] (headline+content) Netflix, Apple, Five Below: Top analyst calls toda -> pos=0.0781 neg=0.0541 neu=0.1334 (w=0.165->0.165, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,325 - INFO - [263/266] (content-only) Still love Netflix long-term despite near-term pre -> pos=0.3528 neg=0.2287 neu=0.1438 (w=0.150->0.150, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,325 - INFO - [264/266] (headline+content) BTIG thinks Apple stock is poised to drop, PepsiCo -> pos=0.0409 neg=0.9090 neu=0.2206 (w=0.146->0.146, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,325 - INFO - [265/266] (headline+content) Intel Stock Surged 10% on Apple Chip Manufacturing -> pos=0.9639 neg=0.0164 neu=0.1220 (w=0.146->0.146, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,325 - INFO - [266/266] (headline+content) Apple (AAPL) Price Target Raised as Loop Capital S -> pos=0.7012 neg=0.0850 neu=0.3190 (w=0.146->0.146, cov=1.00, hdl=1.00)
+2026-04-01 22:05:14,325 - INFO - Decision threshold: pos=0.4298 (tau=0.56), neg=0.2851 (tau=0.26) -> negative
+2026-04-01 22:05:14,325 - INFO - Sentiment prediction complete: label=negative confidence=0.2851 (266 articles analyzed)
+2026-04-01 22:05:14,330 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\predictions\zeroshot_result.json
+2026-04-01 22:05:14,331 - INFO - Starting XAI for company='APPL' ticker='AAPL'
+2026-04-01 22:05:14,333 - INFO - Merged 266 articles for XAI.
+2026-04-01 22:05:14,336 - INFO - Contrastive: negative over positive by -0.1447  (106 articles favour winner, 160 favour runner-up)
+2026-04-01 22:05:14,336 - INFO - Article explanation complete: 266 articles, 0 label-flipping, HHI=0.0038, flip_set_size=None
+2026-04-01 22:05:14,338 - INFO - Pipeline explanation complete: 266 articles, horizon dist={'IMMEDIATE': 129, 'SHORT_TERM': 132, 'DIFFUSION': 4, 'LONG_TERM': 1}
+2026-04-01 22:05:14,338 - INFO - Evidence quality: HIGH (1 flags)
+2026-04-01 22:05:14,338 - INFO - Running LIME token attribution (top 5 articles)...
+2026-04-01 22:05:14,341 - INFO - LIME explainer initialised.
+2026-04-01 22:05:14,341 - INFO - LIME [1/5]: Pressure builds on Apple and CEO Tim Cook with holiday execu (influence=0.9860, samples=300)
+2026-04-01 22:05:18,084 - INFO - LIME [2/5]: Apple: Don't Expect Much Growth Here (influence=0.9852, samples=300)
+2026-04-01 22:05:22,670 - INFO - LIME [3/5]: Israel's tech sector says more staff seek relocation abroad- (influence=0.9830, samples=300)
+2026-04-01 22:05:31,239 - INFO - LIME [4/5]: Soaring Memory Prices Will Cannibalize Apple's Profit (influence=0.9815, samples=300)
+2026-04-01 22:05:35,779 - INFO - LIME [5/5]: Here’s Why Apple (AAPL) is on the Detractors List of Parnass (influence=0.9802, samples=300)
+2026-04-01 22:05:42,015 - INFO - Token explanation complete: 5 articles explained.
+2026-04-01 22:05:42,016 - INFO - Running narrative storyline clustering...
+2026-04-01 22:05:42,016 - INFO - Sentiment split: 155 positive, 99 negative, 12 neutral.
+2026-04-01 22:05:43,943 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:05:44,120 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:05:44,288 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:05:44,486 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:05:44,683 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:05:44,867 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:05:45,043 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:05:45,216 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:05:45,367 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:05:45,553 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:05:45,757 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:05:45,939 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:05:46,119 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:05:46,298 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:05:46,457 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:05:46,661 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:05:46,661 - INFO - Narrative clustering (by sentiment): 16 storylines + 188 other from 266 articles.
+2026-04-01 22:05:46,661 - INFO - Calling Ollama (llama3.2:3b) for narrative summary...
+2026-04-01 22:05:47,746 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:05:47,747 - INFO - Narrative generated successfully.
+2026-04-01 22:05:47,765 - INFO - XAI result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\xai_result.json
+2026-04-01 22:05:47,765 - INFO - Generating PNG charts into C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts ...
+2026-04-01 22:05:47,997 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\01_sentiment_scores.png
+2026-04-01 22:05:48,027 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\02_article_distribution.png
+2026-04-01 22:05:48,119 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\03_article_weights.png
+2026-04-01 22:05:48,174 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\04_horizon_breakdown.png
+2026-04-01 22:05:48,480 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\05_lime_tokens.png
+2026-04-01 22:05:48,625 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\06_storyline_contribution.png
+2026-04-01 22:05:48,756 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\07_contrastive_waterfall.png
+2026-04-01 22:05:48,827 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\08_article_timeline.png
+2026-04-01 22:05:49,112 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\09_cumulative_score.png
+2026-04-01 22:05:49,112 - INFO - Generated 9 chart(s) in C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts
+2026-04-01 22:05:49,114 - INFO - XAI summary saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\xai_summary.txt
+2026-04-01 22:11:50,212 - INFO - Prediction window: 31 days
+2026-04-01 22:11:50,212 - INFO - Computed max_backward_days: 28 (from √W scaling, W=31)
+2026-04-01 22:11:50,212 - INFO - Backward search window: 04-12-2025 to 31-12-2025 (max 28 days)
+2026-04-01 22:11:50,550 - INFO - Company: APPL, Ticker: AAPL
+2026-04-01 22:11:50,551 - INFO - Finnhub request: symbol=AAPL from=2025-12-04 to=2025-12-10
+2026-04-01 22:11:51,420 - INFO - Finnhub returned 230 raw articles
+2026-04-01 22:11:51,424 - INFO - Chunk 2025-12-04 to 2025-12-10: fetched 230 articles
+2026-04-01 22:11:51,424 - INFO - Finnhub request: symbol=AAPL from=2025-12-11 to=2025-12-17
+2026-04-01 22:11:52,105 - INFO - Finnhub returned 177 raw articles
+2026-04-01 22:11:52,109 - INFO - Chunk 2025-12-11 to 2025-12-17: fetched 177 articles
+2026-04-01 22:11:52,109 - INFO - Finnhub request: symbol=AAPL from=2025-12-18 to=2025-12-24
+2026-04-01 22:11:52,801 - INFO - Finnhub returned 173 raw articles
+2026-04-01 22:11:52,804 - INFO - Chunk 2025-12-18 to 2025-12-24: fetched 173 articles
+2026-04-01 22:11:52,804 - INFO - Finnhub request: symbol=AAPL from=2025-12-25 to=2025-12-31
+2026-04-01 22:11:53,419 - INFO - Finnhub returned 128 raw articles
+2026-04-01 22:11:53,421 - INFO - Chunk 2025-12-25 to 2025-12-31: fetched 128 articles
+2026-04-01 22:11:53,421 - INFO - Chunked fetch complete: 708 total articles from 28-day window in 7-day chunks
+2026-04-01 22:11:53,422 - INFO - Removed duplicates (cross-domain, title-based): 708 -> 702
+2026-04-01 22:11:53,422 - INFO - filter_headline_content_duplicates: in=702 kept=700 | cleared_content=10 dropped_question=2
+2026-04-01 22:11:53,422 - INFO - After dedup + headline filter: Raw=708, Filtered=700
+2026-04-01 22:11:53,422 - INFO - Using all 700 articles after dedup (no article cap)
+2026-04-01 22:11:53,422 - INFO - Temporal coverage: articles span 20251204 to 20251231 (intended window: 20251204 to 20251231)
+2026-04-01 22:11:53,434 - INFO - filter_company_related: in=700 kept=266 | dropped(question_no_content)=0 dropped(no_match_no_content)=10 dropped(no_match_in_content)=424
+2026-04-01 22:11:53,434 - INFO - Cleaning article content for APPL (ticker: AAPL)  - DeBERTa-only pipeline
+2026-04-01 22:11:53,444 - INFO - Loading DeBERTa classifier for noise reduction...
+2026-04-01 22:11:55,693 - INFO - DeBERTa classifier loaded successfully
+2026-04-01 22:12:06,919 - INFO - Content cleaning complete:
+  Total articles: 266
+  Articles with content: 264
+  Articles filtered (DeBERTa only): 17
+  Articles with no content after: 2
+  Sentences: 500 -> 481
+2026-04-01 22:12:06,920 - INFO -   Noise reduction: 3.8%
+2026-04-01 22:12:06,920 - INFO - Adding impact horizon data to 266 articles (prediction window: 31 days)
+2026-04-01 22:12:06,920 - INFO - Loading zero-shot classifier...
+2026-04-01 22:12:08,641 - INFO - Zero-shot classifier loaded successfully
+2026-04-01 22:12:47,044 - INFO - Impact horizon classification complete (266 articles, batch_size=32)
+2026-04-01 22:12:47,046 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-04-01 22:12:47,046 - INFO - Final article count: 266 (from 28-day backward window)
+2026-04-01 22:12:47,053 - INFO - Saved 266 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-04-01 22:12:47,076 - INFO - Saved 266 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-04-01 22:12:47,085 - INFO - Running RoBERTa Large MNLI sentiment on 266 articles (company=APPL, ticker=AAPL)
+2026-04-01 22:12:47,085 - INFO - Loading RoBERTa Large MNLI zero-shot classifier...
+2026-04-01 22:12:48,084 - INFO - RoBERTa Large MNLI model loaded successfully
+2026-04-01 22:12:56,810 - INFO - [1/266] (headline+content) Apple's AI challenges in 2026 -> pos=0.0260 neg=0.4004 neu=0.1698 (w=0.900->0.900, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,811 - INFO - [2/266] (content-only) Warren Buffett Added a Big Chunk of This Tech Stoc -> pos=0.0409 neg=0.0149 neu=0.0441 (w=0.899->0.899, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,811 - INFO - [3/266] (headline+content) Big Promises, Bigger Fails: Meta's Cringe Demo, Ap -> pos=0.0059 neg=0.9230 neu=0.0501 (w=0.888->0.888, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,811 - INFO - [4/266] (headline+content) Apple Faces High Stakes in 2026 as AI-Powered Siri -> pos=0.0177 neg=0.7484 neu=0.0410 (w=0.888->0.888, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,811 - INFO - [5/266] (content-only) Market Movers: Nike Exploding Higher on Insider Bu -> pos=0.0029 neg=0.0918 neu=0.0090 (w=0.884->0.884, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,811 - INFO - [6/266] (content-only) TSMC Shares Rise on AI Demand and Next-Gen Chip La -> pos=0.8852 neg=0.0655 neu=0.1219 (w=0.882->0.882, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,811 - INFO - [7/266] (headline+content) The 76-Year-Old Reason Why Buffett Has Been Sellin -> pos=0.0202 neg=0.7370 neu=0.0957 (w=0.877->0.877, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,811 - INFO - [8/266] (headline+content) Apple needs to deliver an AI-charged Siri so good  -> pos=0.0575 neg=0.2958 neu=0.1036 (w=0.877->0.877, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,811 - INFO - [9/266] (headline+content) Apple is an Analyst Favorite, But AAPL Stock Has B -> pos=0.2820 neg=0.8656 neu=0.4232 (w=0.876->0.876, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,811 - INFO - [10/266] (headline+content) The Real Reasons Warren Buffett Is Selling Apple S -> pos=0.0328 neg=0.1215 neu=0.0546 (w=0.876->0.876, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,811 - INFO - [11/266] (headline+content) Medical Care Technologies Inc. Updates Corporate W -> pos=0.3990 neg=0.1115 neu=0.2091 (w=0.875->0.875, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,811 - INFO - [12/266] (content-only) Tuttle Capital Management Launches the Tuttle Capi -> pos=0.6406 neg=0.2284 neu=0.1704 (w=0.856->0.856, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,812 - INFO - [13/266] (content-only) The S&P 500 Is Too Exposed To Big Tech, Time To Bu -> pos=0.0254 neg=0.9450 neu=0.1018 (w=0.851->0.851, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,812 - INFO - [14/266] (headline+content) Apple CEO Tim Cook Just Gave Nike Investors 3 Mill -> pos=0.9953 neg=0.0050 neu=0.2773 (w=0.850->0.850, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,812 - INFO - [15/266] (headline+content) 1 Unstoppable Stock That Could Join Nvidia, Alphab -> pos=0.9855 neg=0.0070 neu=0.1837 (w=0.826->0.826, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,812 - INFO - [16/266] (headline+content) Medical Care Technologies (OTC PINK:MDCE) Achieves -> pos=0.5223 neg=0.0493 neu=0.1692 (w=0.824->0.824, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,812 - INFO - [17/266] (headline+content) Apple: Foldable Phone Sparks A Revival, Not AI Ove -> pos=0.7131 neg=0.0068 neu=0.1681 (w=0.823->0.823, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,812 - INFO - [18/266] (headline+content) Wedbush Names Apple a Top AI Pick for the 2026 Mar -> pos=0.9144 neg=0.0133 neu=0.1549 (w=0.800->0.800, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,812 - INFO - [19/266] (headline+content) Apple misses on AI in 2025 -> pos=0.0044 neg=0.9419 neu=0.0912 (w=0.799->0.799, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,812 - INFO - [20/266] (headline+content) Apple's iPhone Market Share Rises in China, Still  -> pos=0.0574 neg=0.0486 neu=0.0866 (w=0.799->0.799, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,812 - INFO - [21/266] (content-only) Nike (NKE) Jumps 4.6% as Tim Cook Hikes Stake -> pos=0.7106 neg=0.0080 neu=0.1789 (w=0.772->0.772, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,812 - INFO - [22/266] (headline+content) Apple Stock Ticks Up After a Surprise From China—a -> pos=0.9631 neg=0.0056 neu=0.0943 (w=0.771->0.771, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,812 - INFO - [23/266] (headline+content) Globalstar (GSAT) Gains Strategic Value From Apple -> pos=0.8696 neg=0.0110 neu=0.2710 (w=0.769->0.769, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,812 - INFO - [24/266] (headline+content) Apple Stock Rises Ahead of 2026. What's Driving th -> pos=0.8824 neg=0.0067 neu=0.0926 (w=0.765->0.765, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,812 - INFO - [25/266] (headline+content) Revises Down 2026 Global Notebook Shipments to a 5 -> pos=0.0137 neg=0.7894 neu=0.1232 (w=0.765->0.765, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,812 - INFO - [26/266] (headline+content) Apple Inc. (AAPL) Is a Trending Stock: Facts to Kn -> pos=0.1115 neg=0.0367 neu=0.1825 (w=0.765->0.765, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,812 - INFO - [27/266] (headline+content) Will Apple’s (AAPL) Global iOS Openings and AI Pus -> pos=0.1369 neg=0.0499 neu=0.0465 (w=0.764->0.764, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,812 - INFO - [28/266] (headline+content) Why Apple Might Attract More of an AI Multiple in  -> pos=0.1012 neg=0.3349 neu=0.1061 (w=0.763->0.763, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,813 - INFO - [29/266] (headline+content) The Zacks Analyst Blog Highlights Apple, Cisco Sys -> pos=0.7207 neg=0.0096 neu=0.2348 (w=0.762->0.762, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,813 - INFO - [30/266] (headline+content) Apple CEO Tim Cook Just Bought $3 Million of Nike  -> pos=0.8188 neg=0.0066 neu=0.1123 (w=0.762->0.762, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,813 - INFO - [31/266] (headline+content) Apple: Don't Expect Much Growth Here -> pos=0.0039 neg=0.9852 neu=0.0367 (w=0.761->0.761, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,813 - INFO - [32/266] (headline+content) Apple Is Likely to Return to Double-Digit Revenue  -> pos=0.9978 neg=0.0036 neu=0.1621 (w=0.760->0.760, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,813 - INFO - [33/266] (headline+content) Tim Cook's Nike Buy, AI Smart Glasses, Court Victo -> pos=0.5592 neg=0.8820 neu=0.1742 (w=0.759->0.759, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,813 - INFO - [34/266] (headline+content) Apple to appeal EUR 98M Italian Competition Author -> pos=0.0941 neg=0.2289 neu=0.1144 (w=0.756->0.756, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,813 - INFO - [35/266] (headline+content) Italian Competition Authority fines Apple EUR 98M  -> pos=0.0475 neg=0.5860 neu=0.1506 (w=0.745->0.745, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,813 - INFO - [36/266] (headline+content) Apple: Quality Vs. Price -> pos=0.7629 neg=0.0062 neu=0.1344 (w=0.742->0.742, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,814 - INFO - [37/266] (headline+content) Top Research Reports for Apple, Cisco & IBM -> pos=0.5139 neg=0.0546 neu=0.0738 (w=0.730->0.730, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,814 - INFO - [38/266] (headline+content) JPMorgan Confident in Apple (AAPL) as iPhone 17 De -> pos=0.9697 neg=0.0146 neu=0.5522 (w=0.730->0.730, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,814 - INFO - [39/266] (content-only) Israel's tech sector says more staff seek relocati -> pos=0.0041 neg=0.9830 neu=0.0383 (w=0.729->0.729, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,814 - INFO - [40/266] (headline+content) Apple Stock In Focus -- Wells Fargo Keeps 'Overwei -> pos=0.9621 neg=0.0064 neu=0.3073 (w=0.729->0.729, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,814 - INFO - [41/266] (content-only) Dow Jones Futures Waver With Market At Highs; Tesl -> pos=0.9587 neg=0.0115 neu=0.3070 (w=0.728->0.728, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,814 - INFO - [42/266] (headline+content) Wells Fargo Reaffirms Overweight on Apple as China -> pos=0.9586 neg=0.0090 neu=0.2879 (w=0.728->0.728, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,814 - INFO - [43/266] (headline+content) Mag 7 divide could widen in 2026 as Amazon, Meta,  -> pos=0.0143 neg=0.8390 neu=0.0620 (w=0.728->0.728, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,814 - INFO - [44/266] (headline+content) Jim Cramer Repeats His “Own It, Don’t Trade It” Ma -> pos=0.3355 neg=0.6752 neu=0.4675 (w=0.728->0.728, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,814 - INFO - [45/266] (headline+content) Top Midday Stories: Apple's Cook Buys $3 Million i -> pos=0.6288 neg=0.0240 neu=0.1527 (w=0.721->0.721, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,815 - INFO - [46/266] (content-only) These Stocks Are Moving the Most Today: Intel, Nik -> pos=0.1327 neg=0.0576 neu=0.1269 (w=0.705->0.705, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,815 - INFO - [47/266] (headline+content) Apple Agrees to Open iOS App Stores in Brazil Afte -> pos=0.1739 neg=0.1319 neu=0.0858 (w=0.696->0.696, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,815 - INFO - [48/266] (headline+content) Jim Cramer Says “I Own Apple, and I Say Own it, Do -> pos=0.8106 neg=0.5280 neu=0.2799 (w=0.695->0.695, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,815 - INFO - [49/266] (headline+content) Apple's 3 Big New Year Woes -> pos=0.0044 neg=0.8628 neu=0.0442 (w=0.693->0.693, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,815 - INFO - [50/266] (headline+content) Former Met chief demands Apple and Google disable  -> pos=0.1392 neg=0.4695 neu=0.0889 (w=0.683->0.683, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,815 - INFO - [51/266] (headline+content) Here’s How Apple (AAPL) Impacted Harbor Capital Ap -> pos=0.1435 neg=0.1877 neu=0.0458 (w=0.670->0.670, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,815 - INFO - [52/266] (content-only) Foreign Phone Shipments Jump 128% in China -> pos=0.8082 neg=0.0232 neu=0.1814 (w=0.669->0.669, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,815 - INFO - [53/266] (headline+content) Update: Apple Faces $115.7 Million Italian Regulat -> pos=0.0254 neg=0.2723 neu=0.0527 (w=0.669->0.669, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,815 - INFO - [54/266] (content-only) Nike Climb Boosts Dow, S&P 500 -> pos=0.9469 neg=0.0057 neu=0.2026 (w=0.668->0.668, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,815 - INFO - [55/266] (content-only) Italy fines Ryanair $300 mn for abuse of dominant  -> pos=0.0342 neg=0.3979 neu=0.0757 (w=0.667->0.667, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,815 - INFO - [56/266] (content-only) Company News for Dec 26, 2025 -> pos=0.2350 neg=0.1834 neu=0.1877 (w=0.667->0.667, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,815 - INFO - [57/266] (headline+content) China's vice commerce minister met Apple COO on Fr -> pos=0.3281 neg=0.3305 neu=0.1983 (w=0.666->0.666, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,816 - INFO - [58/266] (headline+content) Is Apple Inc. (NASDAQ:AAPL) Expensive For A Reason -> pos=0.0563 neg=0.0776 neu=0.0401 (w=0.665->0.665, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,816 - INFO - [59/266] (headline+content) OpenAI vs. Apple? Sam Altman is setting his sights -> pos=0.5997 neg=0.0654 neu=0.0981 (w=0.665->0.665, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,816 - INFO - [60/266] (headline+content) Prediction: Berkshire Hathaway Will Stop Selling A -> pos=0.0759 neg=0.8663 neu=0.0982 (w=0.665->0.665, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,816 - INFO - [61/266] (headline+content) If You'd Invested $1,000 in Apple 10 Years Ago, He -> pos=0.5206 neg=0.3635 neu=0.0522 (w=0.664->0.664, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,816 - INFO - [62/266] (headline+content) Dan Ives Is Betting That Apple and Google Will Par -> pos=0.5683 neg=0.1171 neu=0.0703 (w=0.661->0.661, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,816 - INFO - [63/266] (headline+content) Jim Cramer Says “Own Apple, Don’t Trade It” -> pos=0.9957 neg=0.0108 neu=0.2737 (w=0.661->0.661, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,816 - INFO - [64/266] (headline+content) 5 Stocks That Pay Out Dividends Like Apple -> pos=0.7932 neg=0.0157 neu=0.1187 (w=0.655->0.655, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,816 - INFO - [65/266] (headline+content) Apple: Efficiency-Monetization Loop - Services Mar -> pos=0.9917 neg=0.0089 neu=0.2691 (w=0.655->0.655, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,816 - INFO - [66/266] (headline+content) Apple Fined $115 Million in Italy Over App Trackin -> pos=0.0098 neg=0.7297 neu=0.0284 (w=0.639->0.639, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,816 - INFO - [67/266] (headline+content) Apple Hit With €98M Antitrust Fine In Italy Over A -> pos=0.0109 neg=0.6760 neu=0.0715 (w=0.633->0.633, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,816 - INFO - [68/266] (headline+content) Billionaires Are Buying an AI Stock That Could Be  -> pos=0.9143 neg=0.0368 neu=0.0968 (w=0.625->0.625, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,816 - INFO - [69/266] (headline+content) Nike shares jump after Apple CEO Cook doubles stak -> pos=0.6810 neg=0.0681 neu=0.0764 (w=0.605->0.605, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,817 - INFO - [70/266] (headline+content) Nike Stock Price Gets a Lift After Apple’s Tim Coo -> pos=0.9042 neg=0.0061 neu=0.1671 (w=0.604->0.302, cov=1.00, hdl=0.50)
+2026-04-01 22:12:56,817 - INFO - [71/266] (headline+content) Apple CEO Tim Cook Discloses $3 Million Nike Buy W -> pos=0.0297 neg=0.8039 neu=0.0888 (w=0.604->0.604, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,817 - INFO - [72/266] (headline+content) Apple spent 2025 setting itself up for the future  -> pos=0.6323 neg=0.0841 neu=0.2115 (w=0.600->0.600, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,817 - INFO - [73/266] (headline+content) Apple Targets 2026 Launch For AI Smart Glasses, Ca -> pos=0.5042 neg=0.3493 neu=0.1174 (w=0.591->0.591, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,817 - INFO - [74/266] (headline+content) ‘I don’t know how much my wife earns’: I’m 63 with -> pos=0.2179 neg=0.5769 neu=0.2063 (w=0.587->0.587, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,817 - INFO - [75/266] (headline+content) Steve Jobs sold his Volkswagen to raise $1,300 for -> pos=0.9098 neg=0.0455 neu=0.2652 (w=0.587->0.587, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,817 - INFO - [76/266] (headline+content) Apple becomes a debt collector with its new develo -> pos=0.0777 neg=0.6316 neu=0.0595 (w=0.584->0.584, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,817 - INFO - [77/266] (headline+content) Here’s Why Apple (AAPL) is on the Detractors List  -> pos=0.0066 neg=0.9802 neu=0.0518 (w=0.573->0.573, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,817 - INFO - [78/266] (headline+content) Best Stock to Buy Right Now: Apple vs. Alphabet -> pos=0.9873 neg=0.0066 neu=0.1441 (w=0.573->0.573, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,817 - INFO - [79/266] (headline+content) Dow Jones Tech Giant Apple, AppLovin, Palantir, Te -> pos=0.9735 neg=0.0040 neu=0.2320 (w=0.573->0.573, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,817 - INFO - [80/266] (headline+content) Dow Jones Futures: Nvidia Tests Key Level; AppLovi -> pos=0.8690 neg=0.0514 neu=0.1221 (w=0.572->0.572, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,818 - INFO - [81/266] (headline+content) Apple iPhone 17 Wait Times Fall as Supply Meets De -> pos=0.8700 neg=0.0284 neu=0.3207 (w=0.571->0.571, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,818 - INFO - [82/266] (content-only) Mobile phone IDs may help fight fraud -> pos=0.3764 neg=0.0985 neu=0.1186 (w=0.558->0.558, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,818 - INFO - [83/266] (headline+content) Why Apple's Tim Cook Drove Nike Stock Higher Today -> pos=0.9606 neg=0.0099 neu=0.2275 (w=0.558->0.558, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,818 - INFO - [84/266] (headline+content) Apple Doesn't Need A Stronger AI Portfolio -> pos=0.6017 neg=0.0111 neu=0.1383 (w=0.557->0.557, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,818 - INFO - [85/266] (content-only) Tim Cook Just Purchased $3 Million Worth of Nike S -> pos=0.4980 neg=0.1462 neu=0.1419 (w=0.557->0.557, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,818 - INFO - [86/266] (headline+content) Apple opens up its App Store to competition in Jap -> pos=0.0207 neg=0.6664 neu=0.0858 (w=0.555->0.555, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,818 - INFO - [87/266] (content-only) From Tesla To Nike: Why Tim Cook's Buy Is Drawing  -> pos=0.7229 neg=0.0356 neu=0.4007 (w=0.555->0.879, cov=1.58, hdl=1.00)
+2026-04-01 22:12:56,818 - INFO - [88/266] (headline+content) Apple Opens iPhones to Alternative App Stores in J -> pos=0.5342 neg=0.5596 neu=0.1495 (w=0.555->0.555, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,818 - INFO - [89/266] (headline+content) Apple Loosens iOS Grip in Japan -> pos=0.2519 neg=0.1055 neu=0.1473 (w=0.554->0.554, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,818 - INFO - [90/266] (content-only) Why Is Nike Stock Soaring Wednesday? -> pos=0.0142 neg=0.1221 neu=0.1352 (w=0.553->0.553, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,818 - INFO - [91/266] (headline+content) Why Warren Buffett Just Sold 15% of His Apple Stak -> pos=0.2293 neg=0.2448 neu=0.1041 (w=0.543->0.543, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,818 - INFO - [92/266] (headline+content) Apple announces changes to iOS in Japan -> pos=0.1953 neg=0.1555 neu=0.0631 (w=0.541->0.541, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,818 - INFO - [93/266] (headline+content) If You Think Apple Trading For 36x Earnings Is Nut -> pos=0.0302 neg=0.9771 neu=0.2149 (w=0.534->0.534, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,818 - INFO - [94/266] (headline+content) Apple punted on AI this year. Next year will be cr -> pos=0.0182 neg=0.7382 neu=0.0668 (w=0.534->0.534, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,818 - INFO - [95/266] (content-only) These Techs Had The Biggest Stock Buybacks In Q3.  -> pos=0.3435 neg=0.0649 neu=0.1149 (w=0.534->0.534, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,819 - INFO - [96/266] (headline+content) Apple's First Foldable iPhone Leak Reveals Major D -> pos=0.0693 neg=0.2716 neu=0.0699 (w=0.533->0.533, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,819 - INFO - [97/266] (content-only) Janus Henderson Concentrated Growth Managed Accoun -> pos=0.0031 neg=0.8915 neu=0.0369 (w=0.533->0.533, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,819 - INFO - [98/266] (headline+content) Apple in talks with Indian chip makers for assembl -> pos=0.2788 neg=0.3582 neu=0.1380 (w=0.531->0.531, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,819 - INFO - [99/266] (headline+content) Cramer's Mad Dash: Apple -> pos=0.3361 neg=0.4653 neu=0.1987 (w=0.531->0.531, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,819 - INFO - [100/266] (headline+content) Morgan Stanley Lifts Apple Inc. (AAPL) Price Targe -> pos=0.9543 neg=0.0526 neu=0.3985 (w=0.531->0.531, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,819 - INFO - [101/266] (content-only) Lead times across the iPhone  17 series are modera -> pos=0.5682 neg=0.2751 neu=0.1866 (w=0.527->0.527, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,819 - INFO - [102/266] (content-only) Will Google Pass Nvidia in 2026 as the World’s Big -> pos=0.9029 neg=0.0814 neu=0.1268 (w=0.527->0.527, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,819 - INFO - [103/266] (headline+content) Apple (AAPL) Stock Slides as Market Rises: Facts t -> pos=0.0065 neg=0.8575 neu=0.1977 (w=0.526->0.526, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,820 - INFO - [104/266] (content-only) Buffett’s $24 Billion Selling Spree: The 6 Stocks  -> pos=0.1640 neg=0.6543 neu=0.2014 (w=0.526->0.526, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,820 - INFO - [105/266] (content-only) Jamf Named a Leader in Three IDC MarketScape Repor -> pos=0.3775 neg=0.1328 neu=0.1100 (w=0.525->0.525, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,820 - INFO - [106/266] (content-only) APLY: Gets The Job Done But Underperforms Peers -> pos=0.2414 neg=0.1120 neu=0.1143 (w=0.523->0.523, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,820 - INFO - [107/266] (headline+content) Meta Opens a New Frontier in AI Race. Why It’s a W -> pos=0.0052 neg=0.9767 neu=0.0707 (w=0.522->0.522, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,820 - INFO - [108/266] (headline+content) Apple Just Released a New AI Model. Should You Buy -> pos=0.8174 neg=0.0156 neu=0.0508 (w=0.517->0.517, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,820 - INFO - [109/266] (headline+content) Medical Care Technologies (OTC PINK:MDCE) Advances -> pos=0.4362 neg=0.1282 neu=0.2133 (w=0.505->0.505, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,820 - INFO - [110/266] (content-only) Exclusive-Nasdaq seeks to extend trading hours, as -> pos=0.7171 neg=0.0516 neu=0.2506 (w=0.504->0.504, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,820 - INFO - [111/266] (content-only) Visa, Mastercard make a global push for mobile wal -> pos=0.4013 neg=0.7180 neu=0.0918 (w=0.503->0.503, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,820 - INFO - [112/266] (content-only) Nasdaq to file for near 24-Hour stock trading to m -> pos=0.4742 neg=0.0447 neu=0.2213 (w=0.502->0.502, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,821 - INFO - [113/266] (content-only) How Caterpillar Crushed the Magnificent 7 in 2025  -> pos=0.0112 neg=0.9386 neu=0.1306 (w=0.495->0.495, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,821 - INFO - [114/266] (headline+content) Analysts Are Hot on the Foldable iPhone. Should Yo -> pos=0.8364 neg=0.0255 neu=0.0936 (w=0.495->0.495, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,821 - INFO - [115/266] (headline+content) Wearable AI Industry Sizing and Opportunity Outloo -> pos=0.7335 neg=0.0086 neu=0.1453 (w=0.493->0.493, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,821 - INFO - [116/266] (headline+content) Developers Press EU to Act on Apple Fees After U.S -> pos=0.0167 neg=0.5944 neu=0.0671 (w=0.492->0.492, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,821 - INFO - [117/266] (headline+content) Analysts Have a Moderate Buy Rating on Apple Inc.  -> pos=0.9623 neg=0.0140 neu=0.3420 (w=0.490->0.490, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,821 - INFO - [118/266] (headline+content) Morgan Stanley Boosts Apple (AAPL) Target, Sees Up -> pos=0.8534 neg=0.0211 neu=0.4380 (w=0.489->0.489, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,821 - INFO - [119/266] (headline+content) Where is Apple Inc. (AAPL) Headed According to Wal -> pos=0.7081 neg=0.1372 neu=0.4686 (w=0.488->0.488, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,821 - INFO - [120/266] (headline+content) Apple (AAPL) Target Raised as Jefferies Sees Stron -> pos=0.8423 neg=0.0459 neu=0.3198 (w=0.488->0.488, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,821 - INFO - [121/266] (headline+content) Jim Cramer Says “Apple Might Be Hurt By Higher Mem -> pos=0.0435 neg=0.7808 neu=0.2539 (w=0.486->0.486, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,821 - INFO - [122/266] (headline+content) The $50 Trick That Lets You Own Enough Apple Stock -> pos=0.8695 neg=0.0104 neu=0.1336 (w=0.482->0.482, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,821 - INFO - [123/266] (headline+content) Warren Buffett Says Buy This Vanguard Index Fund - -> pos=0.9949 neg=0.0131 neu=0.4031 (w=0.481->0.481, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,822 - INFO - [124/266] (content-only) America’s 3 Most Important Companies Are About to  -> pos=0.4637 neg=0.3183 neu=0.1424 (w=0.469->0.469, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,822 - INFO - [125/266] (content-only) Walmart and 2 More American Icons Are About to Get -> pos=0.4637 neg=0.3183 neu=0.1424 (w=0.468->0.468, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,822 - INFO - [126/266] (content-only) Euronet Worldwide (EEFT) Stock Is Up, What You Nee -> pos=0.9624 neg=0.0062 neu=0.0690 (w=0.463->0.463, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,822 - INFO - [127/266] (content-only) LongPoint Announces No Year End ETF Distributions -> pos=0.1690 neg=0.5118 neu=0.2263 (w=0.428->0.428, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,822 - INFO - [128/266] (headline+content) Apple Plans More Ads in App Store -> pos=0.4625 neg=0.2018 neu=0.1176 (w=0.428->0.428, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,822 - INFO - [129/266] (content-only) Did Leidos’ (LDOS) New AI Veteran CTO Just Recode  -> pos=0.3882 neg=0.1491 neu=0.1186 (w=0.414->0.414, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,822 - INFO - [130/266] (headline+content) Apple cofounder Ronald Wayne sold his 10% stake fo -> pos=0.6475 neg=0.0466 neu=0.1928 (w=0.410->0.410, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,822 - INFO - [131/266] (headline+content) Warren Buffett Is Dumping Apple and Bank of Americ -> pos=0.9455 neg=0.0119 neu=0.1186 (w=0.408->0.408, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,822 - INFO - [132/266] (headline+content) Investors Heavily Search Apple Inc. (AAPL): Here i -> pos=0.3696 neg=0.0910 neu=0.2496 (w=0.406->0.406, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,822 - INFO - [133/266] (content-only) Jim Cramer Says “We Need More Winners, But It’s Ju -> pos=0.2956 neg=0.2107 neu=0.1261 (w=0.404->0.404, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,822 - INFO - [134/266] (headline+content) Apple faces risk from memory cost spike in 2026: M -> pos=0.0029 neg=0.8922 neu=0.0278 (w=0.403->0.403, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,822 - INFO - [135/266] (headline+content) 'Apple Explores Chip Assembly Talks With Indian Ma -> pos=0.2853 neg=0.1451 neu=0.1325 (w=0.400->0.400, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,822 - INFO - [136/266] (headline+content) Apple Plans Major iPhone Expansion as Global Sales -> pos=0.8631 neg=0.0153 neu=0.0649 (w=0.398->0.398, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,822 - INFO - [137/266] (headline+content) Apple Loses Epic Games Appeal, Wins Ability to Cha -> pos=0.0198 neg=0.5430 neu=0.0727 (w=0.395->0.395, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,822 - INFO - [138/266] (headline+content) Apple Wins Partial Relief in Epic Appeals Ruling -> pos=0.4213 neg=0.0188 neu=0.1363 (w=0.394->0.394, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,823 - INFO - [139/266] (headline+content) Appeals court backs contempt finding against Apple -> pos=0.0845 neg=0.7409 neu=0.2143 (w=0.394->0.394, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,823 - INFO - [140/266] (content-only) OpenAI’s hardware push could reshape the AI trade -> pos=0.5099 neg=0.1758 neu=0.2652 (w=0.391->0.391, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,823 - INFO - [141/266] (content-only) Netflix reaches $72B Warner Bros. deal, PCE inflat -> pos=0.1798 neg=0.1476 neu=0.1361 (w=0.387->0.387, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,823 - INFO - [142/266] (headline+content) Apple's 2025 App List, AI Stumble, Executive Exodu -> pos=0.0814 neg=0.3640 neu=0.1149 (w=0.381->0.381, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,823 - INFO - [143/266] (content-only) Trump admin to hire 1,000 specialists for 'Tech Fo -> pos=0.3996 neg=0.2093 neu=0.1695 (w=0.380->0.380, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,823 - INFO - [144/266] (headline+content) Apple's Tim Cook Urges Lawmakers to Rethink App St -> pos=0.1059 neg=0.3692 neu=0.1214 (w=0.380->0.380, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,823 - INFO - [145/266] (headline+content) Why 2026 May Be Apple’s Year -> pos=0.6970 neg=0.0319 neu=0.1213 (w=0.377->0.377, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,824 - INFO - [146/266] (headline+content) Netflix to acquire Warner Bros., more executive de -> pos=0.0900 neg=0.3034 neu=0.1727 (w=0.375->0.375, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,824 - INFO - [147/266] (headline+content) Apple Seen Moving From AI Laggard To Leader In 202 -> pos=0.9424 neg=0.0119 neu=0.1249 (w=0.375->0.375, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,824 - INFO - [148/266] (content-only) Smartphone Shipments Seen Falling in 2026 on Highe -> pos=0.0036 neg=0.9508 neu=0.0380 (w=0.374->0.374, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,824 - INFO - [149/266] (headline+content) Evercore ISI Raises PT on Apple (AAPL) Stock -> pos=0.9022 neg=0.0325 neu=0.4670 (w=0.374->0.374, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,824 - INFO - [150/266] (headline+content) Amazon, Apple, Google, etc.: Why the Mag 7 needs t -> pos=0.0150 neg=0.7471 neu=0.1262 (w=0.374->0.374, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,824 - INFO - [151/266] (headline+content) Top Midday Stories: Pfizer Falls Following 2026 Ou -> pos=0.0043 neg=0.9413 neu=0.0886 (w=0.374->0.374, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,824 - INFO - [152/266] (content-only) Janus Henderson Research Fund Q3 2025 Portfolio Re -> pos=0.0314 neg=0.5970 neu=0.0845 (w=0.365->0.365, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,824 - INFO - [153/266] (content-only) Sales of foreign-branded phones in China up 13.0%  -> pos=0.5261 neg=0.0756 neu=0.2147 (w=0.364->0.364, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,824 - INFO - [154/266] (content-only) Meta acquires AI-wearables startup Limitless -> pos=0.7082 neg=0.1100 neu=0.1687 (w=0.359->0.359, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,824 - INFO - [155/266] (content-only) Forget Monthly Dividends, These 5 ETFs Pay Investo -> pos=0.9876 neg=0.0033 neu=0.2431 (w=0.356->0.356, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,824 - INFO - [156/266] (headline+content) Why Sam Altman Sees Apple and Not Google as its To -> pos=0.1132 neg=0.2715 neu=0.1264 (w=0.352->0.352, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,824 - INFO - [157/266] (headline+content) Apple To Rally Around 15%? Here Are 10 Top Analyst -> pos=0.8086 neg=0.0367 neu=0.1463 (w=0.352->0.176, cov=1.00, hdl=0.50)
+2026-04-01 22:12:56,824 - INFO - [158/266] (headline+content) Apple leads Morgan Stanley top IT hardware picks f -> pos=0.7728 neg=0.0222 neu=0.1442 (w=0.351->0.351, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,824 - INFO - [159/266] (headline+content) Stock Market Today: Dow Edges Up As Tesla Jumps Ne -> pos=0.0314 neg=0.7910 neu=0.1067 (w=0.349->0.349, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,825 - INFO - [160/266] (headline+content) Services Rides on Apple TV and Arcade: What's Ahea -> pos=0.6003 neg=0.0596 neu=0.0683 (w=0.349->0.349, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,825 - INFO - [161/266] (headline+content) Apple Is Richer Than All but 4 Countries -> pos=0.4826 neg=0.1377 neu=0.0903 (w=0.348->0.348, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,825 - INFO - [162/266] (headline+content) Can Apple close the AI gap in 2026? Morgan Stanley -> pos=0.0193 neg=0.4207 neu=0.1008 (w=0.346->0.346, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,825 - INFO - [163/266] (content-only) Cloud AI Update - Nova Era Labs Transforms AI Educ -> pos=0.7786 neg=0.0292 neu=0.1549 (w=0.343->0.343, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,825 - INFO - [164/266] (headline+content) Apple’s Cook Presses Congress Over Child Online Sa -> pos=0.0486 neg=0.4270 neu=0.0715 (w=0.343->0.343, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,825 - INFO - [165/266] (headline+content) How Recent Developments Are Rewriting the Apple In -> pos=0.4876 neg=0.0082 neu=0.1475 (w=0.343->0.343, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,825 - INFO - [166/266] (headline+content) Here's Why Apple (AAPL) Fell More Than Broader Mar -> pos=0.0056 neg=0.9522 neu=0.1073 (w=0.328->0.328, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,825 - INFO - [167/266] (content-only) Rising chip costs to push global smartphone shipme -> pos=0.0055 neg=0.9679 neu=0.0991 (w=0.327->0.327, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,825 - INFO - [168/266] (headline+content) Pixalate’s Q3 2025 Report Uncovers 1,248 APAC-Regi -> pos=0.0257 neg=0.8037 neu=0.0843 (w=0.324->0.324, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,825 - INFO - [169/266] (headline+content) Oura vs Big Tech: The ring taking on Apple, Google -> pos=0.2783 neg=0.2639 neu=0.1453 (w=0.323->0.323, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,825 - INFO - [170/266] (headline+content) Prediction: These 3 Stocks Could Be Worth More Tha -> pos=0.7736 neg=0.0406 neu=0.2268 (w=0.321->0.321, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,825 - INFO - [171/266] (headline+content) Here's Why Apple Is My Second Biggest Holding Goin -> pos=0.8779 neg=0.0281 neu=0.3019 (w=0.321->0.321, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,826 - INFO - [172/266] (headline+content) Apple chip leader Johny Srouji squashes exit rumor -> pos=0.3829 neg=0.0496 neu=0.2909 (w=0.321->0.321, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,826 - INFO - [173/266] (headline+content) Apple Chip Chief Tells Staff He’s Not Leaving ‘Any -> pos=0.5572 neg=0.2045 neu=0.3068 (w=0.319->0.319, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,826 - INFO - [174/266] (content-only) Google Must Limit Default Contracts to One Year, J -> pos=0.1594 neg=0.1437 neu=0.1309 (w=0.319->0.319, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,826 - INFO - [175/266] (headline+content) Apple expands manufacturing training program with  -> pos=0.4044 neg=0.0290 neu=0.1182 (w=0.318->0.318, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,826 - INFO - [176/266] (content-only) Maker of ICE-Tracking App Says Trump Officials Vio -> pos=0.0201 neg=0.4875 neu=0.0660 (w=0.315->0.315, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,826 - INFO - [177/266] (headline+content) The Zacks Analyst Blog Apple, Alphabet, Amazon and -> pos=0.0091 neg=0.3509 neu=0.0571 (w=0.303->0.303, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,826 - INFO - [178/266] (headline+content) 1 Reason I'm Watching Apple Heading Into 2026 -> pos=0.9605 neg=0.0324 neu=0.2197 (w=0.303->0.303, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,826 - INFO - [179/266] (headline+content) Is Apple Still Attractive After AI Push and Strong -> pos=0.0724 neg=0.0472 neu=0.0894 (w=0.303->0.303, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,826 - INFO - [180/266] (content-only) After Outperforming Every "Magnificent Seven" Stoc -> pos=0.8431 neg=0.0544 neu=0.1320 (w=0.302->0.302, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,827 - INFO - [181/266] (headline+content) ICEBlock developer sues U.S. government after DOJ  -> pos=0.0521 neg=0.3440 neu=0.0714 (w=0.300->0.300, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,827 - INFO - [182/266] (headline+content) Dell Technologies vs. Apple: Which PC Stock Has an -> pos=0.8183 neg=0.0165 neu=0.0398 (w=0.298->0.298, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,827 - INFO - [183/266] (headline+content) Did Apple’s Executive Overhaul Around AI, Regulati -> pos=0.1601 neg=0.1949 neu=0.0373 (w=0.289->0.289, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,827 - INFO - [184/266] (headline+content) How Investors May Respond To Walt Disney (DIS) Add -> pos=0.1908 neg=0.0723 neu=0.0161 (w=0.288->0.288, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,827 - INFO - [185/266] (content-only) PAR Technology Unveils Smart Passes: The Next Era  -> pos=0.5858 neg=0.1610 neu=0.1613 (w=0.286->0.286, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,827 - INFO - [186/266] (content-only) Is MP Stock a Buy, Hold or Sell After Its 98.9% Si -> pos=0.9906 neg=0.0045 neu=0.0728 (w=0.285->0.285, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,827 - INFO - [187/266] (content-only) The Potential Losers In The AI Arms Race -> pos=0.3858 neg=0.0534 neu=0.0538 (w=0.279->0.279, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,827 - INFO - [188/266] (headline+content) Apple Expands Fitness+ To 28 New Markets -> pos=0.4988 neg=0.0440 neu=0.1399 (w=0.273->0.273, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,827 - INFO - [189/266] (headline+content) Apple's Foldable iPhone Expected to Land Well with -> pos=0.9741 neg=0.0066 neu=0.1567 (w=0.271->0.271, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,827 - INFO - [190/266] (headline+content) Jeff Williams, who retired from Apple after 27 yea -> pos=0.5871 neg=0.1020 neu=0.3526 (w=0.269->0.269, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,827 - INFO - [191/266] (headline+content) Disney Nominates Former Apple Executive Jeff Willi -> pos=0.4288 neg=0.0606 neu=0.1969 (w=0.268->0.268, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,828 - INFO - [192/266] (content-only) Kettle Closes a Landmark Year of Momentum, Innovat -> pos=0.9840 neg=0.0056 neu=0.1680 (w=0.266->0.266, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,828 - INFO - [193/266] (content-only) India weighs greater phone-location surveillance;  -> pos=0.0879 neg=0.5556 neu=0.1480 (w=0.263->0.263, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,828 - INFO - [194/266] (headline+content) Apple Warns Users in 84 Countries of New Cyber Thr -> pos=0.0197 neg=0.4425 neu=0.0582 (w=0.260->0.260, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,828 - INFO - [195/266] (headline+content) 'India Weighs Greater Phone-Location Surveillance; -> pos=0.0074 neg=0.6387 neu=0.0371 (w=0.260->0.260, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,828 - INFO - [196/266] (headline+content) Apple: Late To The AI Party, Wait And See But Neve -> pos=0.5562 neg=0.0121 neu=0.4823 (w=0.258->0.258, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,828 - INFO - [197/266] (headline+content) Soaring Memory Prices Will Cannibalize Apple's Pro -> pos=0.0038 neg=0.9815 neu=0.0210 (w=0.257->0.257, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,828 - INFO - [198/266] (headline+content) Whoever Replaces Tim Cook at Apple Will Have 'Big  -> pos=0.0425 neg=0.5409 neu=0.0857 (w=0.251->0.251, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,828 - INFO - [199/266] (headline+content) Evercore Says Apple Exec Exits Not A Crisis -> pos=0.4564 neg=0.1065 neu=0.7692 (w=0.249->0.249, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,828 - INFO - [200/266] (headline+content) Apple unveils the winners of the 2025 App Store Aw -> pos=0.6038 neg=0.5043 neu=0.1836 (w=0.249->0.249, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,828 - INFO - [201/266] (content-only) 2M Raised in 100 Days: Seoul Beauty Club Rides K-B -> pos=0.7564 neg=0.0361 neu=0.1981 (w=0.249->0.249, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,828 - INFO - [202/266] (headline+content) Why Netflix And Apple Dominated Google's Top Enter -> pos=0.5631 neg=0.0642 neu=0.0998 (w=0.247->0.247, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,828 - INFO - [203/266] (headline+content) Google's Top Business Searches Of 2025: Apple, Net -> pos=0.3615 neg=0.1603 neu=0.0830 (w=0.247->0.247, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,829 - INFO - [204/266] (content-only) Democrats Press Firms About Trump Ballroom Donatio -> pos=0.0325 neg=0.5289 neu=0.0338 (w=0.245->0.245, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,829 - INFO - [205/266] (headline+content) Apple Loses Longtime Design Leader Alan Dye to Met -> pos=0.0135 neg=0.6852 neu=0.0869 (w=0.243->0.243, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,829 - INFO - [206/266] (content-only) Smart Homes Propel Towards $1.03 Trillion by 2035 -> pos=0.7008 neg=0.1003 neu=0.1090 (w=0.243->0.243, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,829 - INFO - [207/266] (headline+content) TSMC: The Foundry Behind Nvidia, AMD and Apple Is  -> pos=0.9719 neg=0.0043 neu=0.1386 (w=0.239->0.239, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,829 - INFO - [208/266] (headline+content) Apple: Playing Switzerland In AI Battle, But Risks -> pos=0.0045 neg=0.5836 neu=0.0891 (w=0.238->0.238, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,829 - INFO - [209/266] (headline+content) After a 42% Six-Month Rally, What's Next for Apple -> pos=0.2904 neg=0.0383 neu=0.1232 (w=0.237->0.237, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,829 - INFO - [210/266] (headline+content) What the heck is going on at Apple? -> pos=0.0525 neg=0.0776 neu=0.1196 (w=0.232->0.232, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,829 - INFO - [211/266] (headline+content) Executive Exodus Hits Apple As Fears Grow Over Pos -> pos=0.0043 neg=0.9475 neu=0.0605 (w=0.232->0.232, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,829 - INFO - [212/266] (headline+content) Pressure builds on Apple and CEO Tim Cook with hol -> pos=0.0023 neg=0.9860 neu=0.0349 (w=0.231->0.231, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,829 - INFO - [213/266] (headline+content) Apple's chip boss squashes exit rumors, says he's  -> pos=0.1897 neg=0.1425 neu=0.2464 (w=0.231->0.231, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,829 - INFO - [214/266] (headline+content) Apple's chip chief reportedly 'not leaving': A clo -> pos=0.1228 neg=0.0557 neu=0.1332 (w=0.229->0.229, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,830 - INFO - [215/266] (headline+content) Apple’s Chips Chief Says He Isn’t Leaving -> pos=0.4484 neg=0.0572 neu=0.2943 (w=0.229->0.229, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,830 - INFO - [216/266] (headline+content) Apple's executive exodus sends a signal about its  -> pos=0.0270 neg=0.8589 neu=0.0474 (w=0.228->0.228, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,830 - INFO - [217/266] (headline+content) Apple AI Strategy Finally Taking Shape Amid Key Hi -> pos=0.3499 neg=0.1839 neu=0.0597 (w=0.228->0.228, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,830 - INFO - [218/266] (headline+content) Apple won’t be the same in 2026. Meet the company’ -> pos=0.0188 neg=0.8778 neu=0.1160 (w=0.226->0.226, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,830 - INFO - [219/266] (headline+content) Apple executive turnover: Evercore's Amit Daryanan -> pos=0.0648 neg=0.3048 neu=0.1915 (w=0.226->0.226, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,830 - INFO - [220/266] (headline+content) Apple Just Dropped a Global Fitness Bombshell--And -> pos=0.9322 neg=0.0167 neu=0.1927 (w=0.226->0.226, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,830 - INFO - [221/266] (headline+content) Apple Chip Chief Considers Exit, Tim Cook's AI Res -> pos=0.0607 neg=0.1967 neu=0.0962 (w=0.223->0.223, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,830 - INFO - [222/266] (headline+content) Apple's $4 Trillion Comeback: Why It's Now Beating -> pos=0.9451 neg=0.0077 neu=0.1602 (w=0.221->0.221, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,830 - INFO - [223/266] (headline+content) Apple takes China's smartphone battle house to hou -> pos=0.7719 neg=0.0563 neu=0.2257 (w=0.220->0.220, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,830 - INFO - [224/266] (headline+content) UBS Reiterates Neutral on Apple (AAPL) as Interest -> pos=0.1332 neg=0.1254 neu=0.9830 (w=0.220->0.220, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,831 - INFO - [225/266] (headline+content) UBS Reiterates Neutral on Apple (AAPL) as App Stor -> pos=0.0550 neg=0.3106 neu=0.9889 (w=0.219->0.219, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,831 - INFO - [226/266] (headline+content) Jim Cramer on Apple: “Bulls Like Me Were Considere -> pos=0.9131 neg=0.4202 neu=0.1793 (w=0.217->0.217, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,831 - INFO - [227/266] (headline+content) Jim Cramer examines 'stalled' stocks Apple, Meta a -> pos=0.0114 neg=0.7672 neu=0.1400 (w=0.214->0.214, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,831 - INFO - [228/266] (headline+content) China's Phone Makers Smell Opportunity As Apple St -> pos=0.7616 neg=0.0142 neu=0.1479 (w=0.209->0.209, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,831 - INFO - [229/266] (headline+content) 1 Unstoppable Stock to Buy Before It Joins Nvidia, -> pos=0.9731 neg=0.0110 neu=0.1176 (w=0.208->0.208, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,831 - INFO - [230/266] (headline+content) Why Apple's Momentum Isn't Accidental -> pos=0.9531 neg=0.0056 neu=0.0612 (w=0.207->0.207, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,831 - INFO - [231/266] (headline+content) Consumer Tech Juggernaut Apple's Dynamic Ascendanc -> pos=0.8984 neg=0.0054 neu=0.1051 (w=0.206->0.103, cov=1.00, hdl=0.50)
+2026-04-01 22:12:56,832 - INFO - [232/266] (headline+content) Apple (AAPL) Earns $320 Target as Services Strengt -> pos=0.8849 neg=0.0158 neu=0.3635 (w=0.205->0.205, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,832 - INFO - [233/266] (headline+content) Evercore Analysts Are Pounding the Table on Apple  -> pos=0.1286 neg=0.5537 neu=0.0981 (w=0.202->0.202, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,832 - INFO - [234/266] (headline+content) Apple's Tim Cook reportedly on Capitol Hill, Oracl -> pos=0.2063 neg=0.3850 neu=0.1976 (w=0.201->0.201, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,832 - INFO - [235/266] (headline+content) Apple’s Slow AI Pace Becomes a Strength as Market  -> pos=0.0169 neg=0.5397 neu=0.1484 (w=0.184->0.184, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,832 - INFO - [236/266] (headline+content) OpenAI’s New AI Gadget Might Be an iPhone Disrupto -> pos=0.0268 neg=0.7209 neu=0.2315 (w=0.183->0.183, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,832 - INFO - [237/266] (headline+content) Apple Stock Gets Three Price-Target Hikes. Here's  -> pos=0.8942 neg=0.0078 neu=0.0738 (w=0.183->0.183, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,832 - INFO - [238/266] (headline+content) Jim Cramer rejects Wall Street doubts about Nvidia -> pos=0.8712 neg=0.0112 neu=0.5323 (w=0.183->0.183, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,833 - INFO - [239/266] (headline+content) Apple (AAPL) Lands $330 Target as CLSA Turns More  -> pos=0.9922 neg=0.0051 neu=0.3676 (w=0.182->0.182, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,833 - INFO - [240/266] (headline+content) Meet the Supercharged Growth Stock That Could Join -> pos=0.9908 neg=0.0039 neu=0.1096 (w=0.180->0.180, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,833 - INFO - [241/266] (content-only) 'Own it, don't trade it,' says Jim Cramer on Nvidi -> pos=0.2964 neg=0.2597 neu=0.1563 (w=0.179->0.179, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,833 - INFO - [242/266] (headline+content) Apple May Actually Be Winning the AI Race -> pos=0.7784 neg=0.0430 neu=0.1305 (w=0.177->0.089, cov=1.00, hdl=0.50)
+2026-04-01 22:12:56,833 - INFO - [243/266] (headline+content) What Apple's executive departures mean for the iPh -> pos=0.1102 neg=0.3123 neu=0.0726 (w=0.177->0.177, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,833 - INFO - [244/266] (headline+content) Apple Made a Comeback with the iPhone 17, But Will -> pos=0.0382 neg=0.0632 neu=0.0600 (w=0.176->0.176, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,833 - INFO - [245/266] (headline+content) Apple Reaches All-Time High This Week -- Proves It -> pos=0.9208 neg=0.0090 neu=0.1743 (w=0.176->0.176, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,833 - INFO - [246/266] (headline+content) Apple’s executive shake-up continues with departur -> pos=0.0135 neg=0.5630 neu=0.0693 (w=0.176->0.176, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,833 - INFO - [247/266] (headline+content) Top Apple Executives to Leave, Adding to Recent De -> pos=0.0101 neg=0.6590 neu=0.0854 (w=0.175->0.175, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,833 - INFO - [248/266] (headline+content) Apple announces executive transitions -> pos=0.1915 neg=0.0771 neu=0.1730 (w=0.175->0.175, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,833 - INFO - [249/266] (headline+content) ChatGPT Thinks Apple Stock Price Will Close At Thi -> pos=0.5201 neg=0.0585 neu=0.3171 (w=0.175->0.175, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,833 - INFO - [250/266] (headline+content) Apple Departures Point to Challenges for iPhone’s  -> pos=0.0044 neg=0.8925 neu=0.0472 (w=0.174->0.174, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,833 - INFO - [251/266] (headline+content) Nvidia Topples Apple As Best-Managed U.S. Company; -> pos=0.8063 neg=0.0194 neu=0.1237 (w=0.172->0.172, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,833 - INFO - [252/266] (headline+content) Apple exec. staying, Nvidia & SoftBank eye Skild A -> pos=0.3156 neg=0.3664 neu=0.2364 (w=0.172->0.172, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,834 - INFO - [253/266] (headline+content) Apple Stock Can Rise on Services Segment, Says Ana -> pos=0.8041 neg=0.0108 neu=0.1934 (w=0.172->0.172, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,834 - INFO - [254/266] (headline+content) Apple Inc. (AAPL): A Bull Case Theory -> pos=0.9975 neg=0.0054 neu=0.1182 (w=0.172->0.172, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,834 - INFO - [255/266] (headline+content) Here is What to Know Beyond Why Apple Inc. (AAPL)  -> pos=0.5745 neg=0.0215 neu=0.1862 (w=0.171->0.171, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,834 - INFO - [256/266] (headline+content) Apple to Enter AI Revolution in 2026, Wedbush Says -> pos=0.5153 neg=0.2647 neu=0.1336 (w=0.171->0.171, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,834 - INFO - [257/266] (headline+content) Apple Gains Higher Wedbush Price Target on Strengt -> pos=0.9929 neg=0.0070 neu=0.1717 (w=0.171->0.171, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,834 - INFO - [258/266] (headline+content) Apple target raised: Evercore ISI says Intelligenc -> pos=0.9809 neg=0.0064 neu=0.2908 (w=0.169->0.169, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,834 - INFO - [259/266] (headline+content) Here’s Why Apple (AAPL) is on the Detectors List o -> pos=0.1117 neg=0.2553 neu=0.0889 (w=0.169->0.169, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,834 - INFO - [260/266] (headline+content) Apple: Inventory Does Not Lie -> pos=0.0239 neg=0.7317 neu=0.2554 (w=0.167->0.167, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,834 - INFO - [261/266] (headline+content) Could Intel’s Apple Chip Ambitions and Malaysia Be -> pos=0.3386 neg=0.0311 neu=0.0180 (w=0.166->0.166, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,834 - INFO - [262/266] (headline+content) Netflix, Apple, Five Below: Top analyst calls toda -> pos=0.0781 neg=0.0541 neu=0.1334 (w=0.165->0.165, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,834 - INFO - [263/266] (content-only) Still love Netflix long-term despite near-term pre -> pos=0.3528 neg=0.2287 neu=0.1438 (w=0.150->0.150, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,834 - INFO - [264/266] (headline+content) BTIG thinks Apple stock is poised to drop, PepsiCo -> pos=0.0409 neg=0.9090 neu=0.2206 (w=0.146->0.146, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,834 - INFO - [265/266] (headline+content) Intel Stock Surged 10% on Apple Chip Manufacturing -> pos=0.9639 neg=0.0164 neu=0.1220 (w=0.146->0.146, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,834 - INFO - [266/266] (headline+content) Apple (AAPL) Price Target Raised as Loop Capital S -> pos=0.7012 neg=0.0850 neu=0.3190 (w=0.146->0.146, cov=1.00, hdl=1.00)
+2026-04-01 22:12:56,834 - INFO - Decision threshold: pos=0.4298 (tau=0.56), neg=0.2851 (tau=0.26) -> negative
+2026-04-01 22:12:56,835 - INFO - Sentiment prediction complete: label=negative confidence=0.2851 (266 articles analyzed)
+2026-04-01 22:12:56,839 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\predictions\zeroshot_result.json
+2026-04-01 22:12:56,840 - INFO - Starting XAI for company='APPL' ticker='AAPL'
+2026-04-01 22:12:56,843 - INFO - Merged 266 articles for XAI.
+2026-04-01 22:12:56,846 - INFO - Contrastive: negative over positive by -0.1447  (106 articles favour winner, 160 favour runner-up)
+2026-04-01 22:12:56,847 - INFO - Article explanation complete: 266 articles, 0 label-flipping, HHI=0.0038, flip_set_size=None
+2026-04-01 22:12:56,848 - INFO - Pipeline explanation complete: 266 articles, horizon dist={'IMMEDIATE': 129, 'SHORT_TERM': 132, 'DIFFUSION': 4, 'LONG_TERM': 1}
+2026-04-01 22:12:56,849 - INFO - Evidence quality: HIGH (1 flags)
+2026-04-01 22:12:56,849 - INFO - Running LIME token attribution (top 5 articles)...
+2026-04-01 22:12:56,851 - INFO - LIME explainer initialised.
+2026-04-01 22:12:56,852 - INFO - LIME [1/5]: Pressure builds on Apple and CEO Tim Cook with holiday execu (influence=0.9860, samples=300)
+2026-04-01 22:13:00,681 - INFO - LIME [2/5]: Apple: Don't Expect Much Growth Here (influence=0.9852, samples=300)
+2026-04-01 22:13:05,368 - INFO - LIME [3/5]: Israel's tech sector says more staff seek relocation abroad- (influence=0.9830, samples=300)
+2026-04-01 22:13:14,064 - INFO - LIME [4/5]: Soaring Memory Prices Will Cannibalize Apple's Profit (influence=0.9815, samples=300)
+2026-04-01 22:13:18,581 - INFO - LIME [5/5]: Here’s Why Apple (AAPL) is on the Detractors List of Parnass (influence=0.9802, samples=300)
+2026-04-01 22:13:24,893 - INFO - Token explanation complete: 5 articles explained.
+2026-04-01 22:13:24,893 - INFO - Running narrative storyline clustering...
+2026-04-01 22:13:24,893 - INFO - Sentiment split: 155 positive, 99 negative, 12 neutral.
+2026-04-01 22:13:26,846 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:13:27,025 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:13:27,211 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:13:27,418 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:13:27,618 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:13:27,801 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:13:27,978 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:13:28,165 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:13:28,327 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:13:28,515 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:13:28,723 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:13:28,904 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:13:29,065 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:13:29,248 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:13:29,407 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:13:29,610 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:13:29,610 - INFO - Narrative clustering (by sentiment): 16 storylines + 188 other from 266 articles.
+2026-04-01 22:13:29,610 - INFO - Calling Ollama (llama3.2:3b) for narrative summary...
+2026-04-01 22:13:30,702 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:13:30,703 - INFO - Narrative generated successfully.
+2026-04-01 22:13:30,721 - INFO - XAI result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\xai_result.json
+2026-04-01 22:13:30,721 - INFO - Generating PNG charts into C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts ...
+2026-04-01 22:13:30,960 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\01_sentiment_scores.png
+2026-04-01 22:13:30,990 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\02_article_distribution.png
+2026-04-01 22:13:31,086 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\03_article_weights.png
+2026-04-01 22:13:31,149 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\04_horizon_breakdown.png
+2026-04-01 22:13:31,599 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\05_lime_tokens.png
+2026-04-01 22:13:31,736 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\06_storyline_contribution.png
+2026-04-01 22:13:31,867 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\07_contrastive_waterfall.png
+2026-04-01 22:13:31,941 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\08_article_timeline.png
+2026-04-01 22:13:32,243 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\09_cumulative_score.png
+2026-04-01 22:13:32,243 - INFO - Generated 9 chart(s) in C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts
+2026-04-01 22:13:32,248 - INFO - XAI summary saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\xai_summary.txt
+2026-04-01 22:15:50,697 - INFO - Prediction window: 31 days
+2026-04-01 22:15:50,697 - INFO - Computed max_backward_days: 28 (from √W scaling, W=31)
+2026-04-01 22:15:50,697 - INFO - Backward search window: 04-12-2025 to 31-12-2025 (max 28 days)
+2026-04-01 22:15:51,629 - INFO - Resolved company name for 'AAPL' -> Apple Inc.
+2026-04-01 22:15:51,629 - INFO - Company: Apple Inc., Ticker: AAPL
+2026-04-01 22:15:51,629 - INFO - Finnhub request: symbol=AAPL from=2025-12-04 to=2025-12-10
+2026-04-01 22:15:52,350 - INFO - Finnhub returned 230 raw articles
+2026-04-01 22:15:52,354 - INFO - Chunk 2025-12-04 to 2025-12-10: fetched 230 articles
+2026-04-01 22:15:52,354 - INFO - Finnhub request: symbol=AAPL from=2025-12-11 to=2025-12-17
+2026-04-01 22:15:53,031 - INFO - Finnhub returned 177 raw articles
+2026-04-01 22:15:53,034 - INFO - Chunk 2025-12-11 to 2025-12-17: fetched 177 articles
+2026-04-01 22:15:53,034 - INFO - Finnhub request: symbol=AAPL from=2025-12-18 to=2025-12-24
+2026-04-01 22:15:53,724 - INFO - Finnhub returned 173 raw articles
+2026-04-01 22:15:53,727 - INFO - Chunk 2025-12-18 to 2025-12-24: fetched 173 articles
+2026-04-01 22:15:53,727 - INFO - Finnhub request: symbol=AAPL from=2025-12-25 to=2025-12-31
+2026-04-01 22:15:54,343 - INFO - Finnhub returned 128 raw articles
+2026-04-01 22:15:54,346 - INFO - Chunk 2025-12-25 to 2025-12-31: fetched 128 articles
+2026-04-01 22:15:54,346 - INFO - Chunked fetch complete: 708 total articles from 28-day window in 7-day chunks
+2026-04-01 22:15:54,346 - INFO - Removed duplicates (cross-domain, title-based): 708 -> 702
+2026-04-01 22:15:54,347 - INFO - filter_headline_content_duplicates: in=702 kept=700 | cleared_content=10 dropped_question=2
+2026-04-01 22:15:54,347 - INFO - After dedup + headline filter: Raw=708, Filtered=700
+2026-04-01 22:15:54,347 - INFO - Using all 700 articles after dedup (no article cap)
+2026-04-01 22:15:54,347 - INFO - Temporal coverage: articles span 20251204 to 20251231 (intended window: 20251204 to 20251231)
+2026-04-01 22:15:54,360 - INFO - filter_company_related: in=700 kept=83 | dropped(question_no_content)=0 dropped(no_match_no_content)=12 dropped(no_match_in_content)=605
+2026-04-01 22:15:54,366 - INFO - Cleaning article content for Apple Inc. (ticker: AAPL)  - DeBERTa-only pipeline
+2026-04-01 22:15:54,376 - INFO - Loading DeBERTa classifier for noise reduction...
+2026-04-01 22:15:56,749 - INFO - DeBERTa classifier loaded successfully
+2026-04-01 22:16:01,638 - INFO - Content cleaning complete:
+  Total articles: 83
+  Articles with content: 83
+  Articles filtered (DeBERTa only): 18
+  Articles with no content after: 0
+  Sentences: 240 -> 208
+2026-04-01 22:16:01,638 - INFO -   Noise reduction: 13.3%
+2026-04-01 22:16:01,639 - INFO - Adding impact horizon data to 83 articles (prediction window: 31 days)
+2026-04-01 22:16:01,639 - INFO - Loading zero-shot classifier...
+2026-04-01 22:16:03,449 - INFO - Zero-shot classifier loaded successfully
+2026-04-01 22:16:16,588 - INFO - Impact horizon classification complete (83 articles, batch_size=32)
+2026-04-01 22:16:16,589 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-04-01 22:16:16,589 - INFO - Final article count: 83 (from 28-day backward window)
+2026-04-01 22:16:16,592 - INFO - Saved 83 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-04-01 22:16:16,597 - INFO - Saved 83 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-04-01 22:16:16,605 - INFO - Running RoBERTa Large MNLI sentiment on 83 articles (company=Apple Inc., ticker=AAPL)
+2026-04-01 22:16:16,605 - INFO - Loading RoBERTa Large MNLI zero-shot classifier...
+2026-04-01 22:16:17,755 - INFO - RoBERTa Large MNLI model loaded successfully
+2026-04-01 22:16:20,372 - INFO - [1/83] (content-only) Warren Buffett Added a Big Chunk of This Tech Stoc -> pos=0.7540 neg=0.0300 neu=0.1375 (w=0.901->0.901, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,372 - INFO - [2/83] (headline+content) The 76-Year-Old Reason Why Buffett Has Been Sellin -> pos=0.0198 neg=0.7535 neu=0.1012 (w=0.877->0.877, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,372 - INFO - [3/83] (content-only) The S&P 500 Is Too Exposed To Big Tech, Time To Bu -> pos=0.0258 neg=0.9265 neu=0.0900 (w=0.851->0.851, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,372 - INFO - [4/83] (headline+content) Will Apple’s (AAPL) Global iOS Openings and AI Pus -> pos=0.1182 neg=0.0486 neu=0.0434 (w=0.764->0.764, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,372 - INFO - [5/83] (headline+content) Apple Inc. (AAPL) Is a Trending Stock: Facts to Kn -> pos=0.4271 neg=0.0463 neu=0.1455 (w=0.764->0.764, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,372 - INFO - [6/83] (headline+content) Apple is an Analyst Favorite, But AAPL Stock Has B -> pos=0.3260 neg=0.8579 neu=0.3836 (w=0.763->0.763, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,372 - INFO - [7/83] (headline+content) Why Apple Might Attract More of an AI Multiple in  -> pos=0.0928 neg=0.3035 neu=0.1149 (w=0.763->0.763, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,372 - INFO - [8/83] (headline+content) Tim Cook's Nike Buy, AI Smart Glasses, Court Victo -> pos=0.6333 neg=0.4895 neu=0.3532 (w=0.759->0.759, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,373 - INFO - [9/83] (headline+content) Apple to appeal EUR 98M Italian Competition Author -> pos=0.1046 neg=0.2322 neu=0.1090 (w=0.756->0.756, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,373 - INFO - [10/83] (headline+content) Italian Competition Authority fines Apple EUR 98M  -> pos=0.0667 neg=0.5202 neu=0.1207 (w=0.745->0.745, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,373 - INFO - [11/83] (headline+content) Apple: Quality Vs. Price -> pos=0.7677 neg=0.0072 neu=0.1572 (w=0.742->0.742, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,373 - INFO - [12/83] (headline+content) JPMorgan Confident in Apple (AAPL) as iPhone 17 De -> pos=0.9653 neg=0.0167 neu=0.5339 (w=0.730->0.730, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,373 - INFO - [13/83] (headline+content) Jim Cramer Repeats His “Own It, Don’t Trade It” Ma -> pos=0.3786 neg=0.6601 neu=0.4757 (w=0.728->0.728, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,373 - INFO - [14/83] (headline+content) Jim Cramer Says “I Own Apple, and I Say Own it, Do -> pos=0.7517 neg=0.4842 neu=0.3558 (w=0.694->0.694, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,373 - INFO - [15/83] (headline+content) Apple's 3 Big New Year Woes -> pos=0.0048 neg=0.7030 neu=0.0587 (w=0.693->0.693, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,373 - INFO - [16/83] (headline+content) Update: Apple Faces $115.7 Million Italian Regulat -> pos=0.0238 neg=0.2907 neu=0.0541 (w=0.669->0.669, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,373 - INFO - [17/83] (headline+content) Here’s How Apple (AAPL) Impacted Harbor Capital Ap -> pos=0.1013 neg=0.1618 neu=0.0355 (w=0.669->0.669, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,373 - INFO - [18/83] (content-only) Company News for Dec 26, 2025 -> pos=0.1742 neg=0.2264 neu=0.1544 (w=0.667->0.667, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,373 - INFO - [19/83] (headline+content) China's vice commerce minister met Apple COO on Fr -> pos=0.2973 neg=0.3710 neu=0.1993 (w=0.666->0.666, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,373 - INFO - [20/83] (headline+content) Is Apple Inc. (NASDAQ:AAPL) Expensive For A Reason -> pos=0.0625 neg=0.0820 neu=0.0428 (w=0.665->0.665, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,373 - INFO - [21/83] (headline+content) Dan Ives Is Betting That Apple and Google Will Par -> pos=0.7246 neg=0.1182 neu=0.0716 (w=0.661->0.661, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,373 - INFO - [22/83] (headline+content) Jim Cramer Says “Own Apple, Don’t Trade It” -> pos=0.9955 neg=0.0110 neu=0.2744 (w=0.661->0.661, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,373 - INFO - [23/83] (headline+content) Apple: Efficiency-Monetization Loop - Services Mar -> pos=0.9914 neg=0.0087 neu=0.2747 (w=0.655->0.655, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,373 - INFO - [24/83] (content-only) OpenAI’s hardware push could reshape the AI trade -> pos=0.1557 neg=0.0980 neu=0.1353 (w=0.582->0.582, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,373 - INFO - [25/83] (headline+content) Here’s Why Apple (AAPL) is on the Detractors List  -> pos=0.0065 neg=0.9820 neu=0.0536 (w=0.573->0.573, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,373 - INFO - [26/83] (content-only) Will Google Pass Nvidia in 2026 as the World’s Big -> pos=0.2672 neg=0.3604 neu=0.0975 (w=0.573->0.573, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,374 - INFO - [27/83] (headline+content) Apple Doesn't Need A Stronger AI Portfolio -> pos=0.6245 neg=0.0119 neu=0.1667 (w=0.557->0.557, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,374 - INFO - [28/83] (content-only) Tim Cook Just Purchased $3 Million Worth of Nike S -> pos=0.4368 neg=0.1875 neu=0.1314 (w=0.557->0.557, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,374 - INFO - [29/83] (headline+content) If You Think Apple Trading For 36x Earnings Is Nut -> pos=0.0297 neg=0.9768 neu=0.1996 (w=0.534->0.534, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,374 - INFO - [30/83] (headline+content) Morgan Stanley Lifts Apple Inc. (AAPL) Price Targe -> pos=0.9516 neg=0.0539 neu=0.4083 (w=0.531->0.531, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,374 - INFO - [31/83] (content-only) APLY: Gets The Job Done But Underperforms Peers -> pos=0.1852 neg=0.0696 neu=0.1151 (w=0.527->0.527, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,374 - INFO - [32/83] (headline+content) Apple (AAPL) Stock Slides as Market Rises: Facts t -> pos=0.0066 neg=0.8489 neu=0.2113 (w=0.526->0.526, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,374 - INFO - [33/83] (content-only) Buffett’s $24 Billion Selling Spree: The 6 Stocks  -> pos=0.0789 neg=0.6688 neu=0.1294 (w=0.526->0.526, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,374 - INFO - [34/83] (headline+content) Apple Just Released a New AI Model. Should You Buy -> pos=0.8181 neg=0.0131 neu=0.0544 (w=0.517->0.517, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,374 - INFO - [35/83] (content-only) Nasdaq to file for near 24-Hour stock trading to m -> pos=0.4613 neg=0.0464 neu=0.2319 (w=0.502->0.502, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,374 - INFO - [36/83] (content-only) How Caterpillar Crushed the Magnificent 7 in 2025  -> pos=0.0105 neg=0.9306 neu=0.1158 (w=0.495->0.495, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,374 - INFO - [37/83] (headline+content) Analysts Are Hot on the Foldable iPhone. Should Yo -> pos=0.8272 neg=0.0250 neu=0.0918 (w=0.495->0.495, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,374 - INFO - [38/83] (headline+content) Analysts Have a Moderate Buy Rating on Apple Inc.  -> pos=0.9613 neg=0.0138 neu=0.3435 (w=0.490->0.490, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,374 - INFO - [39/83] (headline+content) Morgan Stanley Boosts Apple (AAPL) Target, Sees Up -> pos=0.8417 neg=0.0239 neu=0.4427 (w=0.489->0.489, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,374 - INFO - [40/83] (headline+content) Where is Apple Inc. (AAPL) Headed According to Wal -> pos=0.7384 neg=0.1505 neu=0.4856 (w=0.488->0.488, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,374 - INFO - [41/83] (headline+content) Apple (AAPL) Target Raised as Jefferies Sees Stron -> pos=0.8386 neg=0.0513 neu=0.3181 (w=0.488->0.488, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [42/83] (headline+content) Jim Cramer Says “Apple Might Be Hurt By Higher Mem -> pos=0.0422 neg=0.7831 neu=0.2607 (w=0.486->0.486, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [43/83] (content-only) LongPoint Announces No Year End ETF Distributions -> pos=0.4047 neg=0.3684 neu=0.1374 (w=0.427->0.427, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [44/83] (headline+content) Investors Heavily Search Apple Inc. (AAPL): Here i -> pos=0.3513 neg=0.0825 neu=0.2443 (w=0.406->0.406, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [45/83] (headline+content) Apple Loses Epic Games Appeal, Wins Ability to Cha -> pos=0.0173 neg=0.5355 neu=0.0621 (w=0.395->0.395, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [46/83] (content-only) Netflix reaches $72B Warner Bros. deal, PCE inflat -> pos=0.1761 neg=0.0802 neu=0.0888 (w=0.378->0.378, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [47/83] (headline+content) Why 2026 May Be Apple’s Year -> pos=0.6771 neg=0.0291 neu=0.1222 (w=0.377->0.377, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [48/83] (headline+content) Evercore ISI Raises PT on Apple (AAPL) Stock -> pos=0.8784 neg=0.0390 neu=0.4628 (w=0.374->0.374, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [49/83] (content-only) Janus Henderson Research Fund Q3 2025 Portfolio Re -> pos=0.0277 neg=0.6808 neu=0.0922 (w=0.365->0.365, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [50/83] (content-only) Forget Monthly Dividends, These 5 ETFs Pay Investo -> pos=0.9776 neg=0.0028 neu=0.1779 (w=0.360->0.360, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [51/83] (headline+content) Services Rides on Apple TV and Arcade: What's Ahea -> pos=0.5178 neg=0.0746 neu=0.0626 (w=0.349->0.349, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [52/83] (headline+content) Here's Why Apple (AAPL) Fell More Than Broader Mar -> pos=0.0054 neg=0.9573 neu=0.1121 (w=0.328->0.328, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [53/83] (headline+content) Oura vs Big Tech: The ring taking on Apple, Google -> pos=0.2152 neg=0.1382 neu=0.1168 (w=0.323->0.323, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [54/83] (content-only) Google Must Limit Default Contracts to One Year, J -> pos=0.0282 neg=0.2923 neu=0.0695 (w=0.308->0.308, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [55/83] (headline+content) The Zacks Analyst Blog Apple, Alphabet, Amazon and -> pos=0.0124 neg=0.2624 neu=0.0731 (w=0.303->0.303, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [56/83] (headline+content) Did Apple’s Executive Overhaul Around AI, Regulati -> pos=0.1445 neg=0.1802 neu=0.0377 (w=0.289->0.289, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [57/83] (headline+content) Soaring Memory Prices Will Cannibalize Apple's Pro -> pos=0.0036 neg=0.9849 neu=0.0198 (w=0.257->0.257, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [58/83] (headline+content) Apple: Playing Switzerland In AI Battle, But Risks -> pos=0.0047 neg=0.5895 neu=0.0963 (w=0.238->0.238, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [59/83] (headline+content) After a 42% Six-Month Rally, What's Next for Apple -> pos=0.2998 neg=0.0354 neu=0.1204 (w=0.237->0.237, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [60/83] (headline+content) Apple's Tim Cook reportedly on Capitol Hill, Oracl -> pos=0.1878 neg=0.2715 neu=0.2698 (w=0.236->0.236, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [61/83] (headline+content) Apple's chip chief reportedly 'not leaving': A clo -> pos=0.1240 neg=0.0540 neu=0.1364 (w=0.229->0.229, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [62/83] (headline+content) Apple AI Strategy Finally Taking Shape Amid Key Hi -> pos=0.2914 neg=0.1484 neu=0.0682 (w=0.228->0.228, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [63/83] (headline+content) UBS Reiterates Neutral on Apple (AAPL) as Interest -> pos=0.1405 neg=0.1268 neu=0.9815 (w=0.220->0.220, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [64/83] (headline+content) UBS Reiterates Neutral on Apple (AAPL) as App Stor -> pos=0.0598 neg=0.2928 neu=0.9883 (w=0.219->0.219, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,375 - INFO - [65/83] (headline+content) Jim Cramer on Apple: “Bulls Like Me Were Considere -> pos=0.9194 neg=0.5041 neu=0.1924 (w=0.217->0.217, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - [66/83] (headline+content) Apple exec. staying, Nvidia & SoftBank eye Skild A -> pos=0.3426 neg=0.2964 neu=0.1994 (w=0.208->0.208, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - [67/83] (headline+content) Why Apple's Momentum Isn't Accidental -> pos=0.9582 neg=0.0057 neu=0.0751 (w=0.207->0.207, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - [68/83] (headline+content) Apple (AAPL) Earns $320 Target as Services Strengt -> pos=0.8825 neg=0.0171 neu=0.3607 (w=0.205->0.205, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - [69/83] (headline+content) Evercore Analysts Are Pounding the Table on Apple  -> pos=0.1127 neg=0.6848 neu=0.0917 (w=0.202->0.202, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - [70/83] (headline+content) OpenAI’s New AI Gadget Might Be an iPhone Disrupto -> pos=0.0301 neg=0.7561 neu=0.2164 (w=0.183->0.183, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - [71/83] (headline+content) Apple (AAPL) Lands $330 Target as CLSA Turns More  -> pos=0.9920 neg=0.0054 neu=0.3711 (w=0.182->0.182, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - [72/83] (headline+content) What Apple's executive departures mean for the iPh -> pos=0.1114 neg=0.3056 neu=0.0723 (w=0.177->0.177, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - [73/83] (headline+content) Netflix to acquire Warner Bros., more executive de -> pos=0.1290 neg=0.2371 neu=0.1348 (w=0.176->0.176, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - [74/83] (headline+content) Apple Made a Comeback with the iPhone 17, But Will -> pos=0.0314 neg=0.0538 neu=0.0640 (w=0.176->0.176, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - [75/83] (headline+content) Apple Inc. (AAPL): A Bull Case Theory -> pos=0.9975 neg=0.0054 neu=0.1050 (w=0.172->0.172, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - [76/83] (headline+content) Here is What to Know Beyond Why Apple Inc. (AAPL)  -> pos=0.5602 neg=0.0283 neu=0.2029 (w=0.171->0.171, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - [77/83] (headline+content) Apple to Enter AI Revolution in 2026, Wedbush Says -> pos=0.5178 neg=0.2829 neu=0.1383 (w=0.171->0.171, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - [78/83] (headline+content) Here’s Why Apple (AAPL) is on the Detectors List o -> pos=0.1012 neg=0.3454 neu=0.0963 (w=0.169->0.169, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - [79/83] (headline+content) Apple: Inventory Does Not Lie -> pos=0.0273 neg=0.7542 neu=0.2418 (w=0.167->0.167, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - [80/83] (headline+content) Netflix, Apple, Five Below: Top analyst calls toda -> pos=0.0864 neg=0.0447 neu=0.1258 (w=0.165->0.165, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - [81/83] (headline+content) BTIG thinks Apple stock is poised to drop, PepsiCo -> pos=0.0275 neg=0.9380 neu=0.2027 (w=0.146->0.146, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - [82/83] (headline+content) Intel Stock Surged 10% on Apple Chip Manufacturing -> pos=0.9652 neg=0.0165 neu=0.1301 (w=0.146->0.146, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - [83/83] (headline+content) Apple (AAPL) Price Target Raised as Loop Capital S -> pos=0.6826 neg=0.0954 neu=0.3129 (w=0.146->0.146, cov=1.00, hdl=1.00)
+2026-04-01 22:16:20,376 - INFO - Decision threshold: pos=0.3796 (tau=0.56), neg=0.3171 (tau=0.26) -> negative
+2026-04-01 22:16:20,376 - INFO - Sentiment prediction complete: label=negative confidence=0.3171 (83 articles analyzed)
+2026-04-01 22:16:20,379 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\predictions\zeroshot_result.json
+2026-04-01 22:16:20,379 - INFO - Starting XAI for company='Apple Inc.' ticker='AAPL'
+2026-04-01 22:16:20,380 - INFO - Merged 83 articles for XAI.
+2026-04-01 22:16:20,381 - INFO - Contrastive: negative over positive by -0.0625  (38 articles favour winner, 45 favour runner-up)
+2026-04-01 22:16:20,381 - INFO - Article explanation complete: 83 articles, 0 label-flipping, HHI=0.0120, flip_set_size=None
+2026-04-01 22:16:20,382 - INFO - Pipeline explanation complete: 83 articles, horizon dist={'IMMEDIATE': 54, 'SHORT_TERM': 27, 'DIFFUSION': 2, 'LONG_TERM': 0}
+2026-04-01 22:16:20,382 - INFO - Evidence quality: MEDIUM (2 flags)
+2026-04-01 22:16:20,382 - INFO - Running LIME token attribution (top 5 articles)...
+2026-04-01 22:16:20,385 - INFO - LIME explainer initialised.
+2026-04-01 22:16:20,385 - INFO - LIME [1/5]: Soaring Memory Prices Will Cannibalize Apple's Profit (influence=0.9849, samples=300)
+2026-04-01 22:16:24,888 - INFO - LIME [2/5]: Here’s Why Apple (AAPL) is on the Detractors List of Parnass (influence=0.9820, samples=300)
+2026-04-01 22:16:31,167 - INFO - LIME [3/5]: If You Think Apple Trading For 36x Earnings Is Nuts, You Can (influence=0.9768, samples=300)
+2026-04-01 22:16:40,680 - INFO - LIME [4/5]: Here's Why Apple (AAPL) Fell More Than Broader Market (influence=0.9573, samples=300)
+2026-04-01 22:16:45,136 - INFO - LIME [5/5]: BTIG thinks Apple stock is poised to drop, PepsiCo nears set (influence=0.9380, samples=300)
+2026-04-01 22:16:54,636 - INFO - Token explanation complete: 5 articles explained.
+2026-04-01 22:16:54,636 - INFO - Running narrative storyline clustering...
+2026-04-01 22:16:54,636 - INFO - Sentiment split: 42 positive, 36 negative, 5 neutral.
+2026-04-01 22:16:55,199 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:16:55,358 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:16:55,530 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:16:55,686 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:16:55,873 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:16:56,098 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:16:56,253 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:16:56,422 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:16:56,594 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:16:56,789 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:16:56,970 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:16:57,142 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:16:57,306 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:16:57,487 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:16:57,687 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:16:57,687 - INFO - Narrative clustering (by sentiment): 15 storylines + 42 other from 83 articles.
+2026-04-01 22:16:57,688 - INFO - Calling Ollama (llama3.2:3b) for narrative summary...
+2026-04-01 22:16:58,974 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:16:58,974 - INFO - Narrative generated successfully.
+2026-04-01 22:16:58,981 - INFO - XAI result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\xai_result.json
+2026-04-01 22:16:58,981 - INFO - Generating PNG charts into C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts ...
+2026-04-01 22:16:59,215 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\01_sentiment_scores.png
+2026-04-01 22:16:59,244 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\02_article_distribution.png
+2026-04-01 22:16:59,336 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\03_article_weights.png
+2026-04-01 22:16:59,389 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\04_horizon_breakdown.png
+2026-04-01 22:16:59,722 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\05_lime_tokens.png
+2026-04-01 22:16:59,865 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\06_storyline_contribution.png
+2026-04-01 22:17:00,014 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\07_contrastive_waterfall.png
+2026-04-01 22:17:00,080 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\08_article_timeline.png
+2026-04-01 22:17:00,323 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\09_cumulative_score.png
+2026-04-01 22:17:00,323 - INFO - Generated 9 chart(s) in C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts
+2026-04-01 22:17:00,325 - INFO - XAI summary saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\xai_summary.txt
+2026-04-01 22:18:49,027 - INFO - Prediction window: 31 days
+2026-04-01 22:18:49,027 - INFO - Computed max_backward_days: 28 (from √W scaling, W=31)
+2026-04-01 22:18:49,027 - INFO - Backward search window: 04-12-2025 to 31-12-2025 (max 28 days)
+2026-04-01 22:18:49,921 - INFO - Resolved company name for 'AAPL' -> Apple Inc.
+2026-04-01 22:18:49,921 - INFO - Company: Apple Inc., Ticker: AAPL
+2026-04-01 22:18:49,922 - INFO - Finnhub request: symbol=AAPL from=2025-12-04 to=2025-12-10
+2026-04-01 22:18:50,631 - INFO - Finnhub returned 230 raw articles
+2026-04-01 22:18:50,635 - INFO - Chunk 2025-12-04 to 2025-12-10: fetched 230 articles
+2026-04-01 22:18:50,635 - INFO - Finnhub request: symbol=AAPL from=2025-12-11 to=2025-12-17
+2026-04-01 22:18:51,385 - INFO - Finnhub returned 177 raw articles
+2026-04-01 22:18:51,388 - INFO - Chunk 2025-12-11 to 2025-12-17: fetched 177 articles
+2026-04-01 22:18:51,388 - INFO - Finnhub request: symbol=AAPL from=2025-12-18 to=2025-12-24
+2026-04-01 22:18:52,077 - INFO - Finnhub returned 173 raw articles
+2026-04-01 22:18:52,080 - INFO - Chunk 2025-12-18 to 2025-12-24: fetched 173 articles
+2026-04-01 22:18:52,080 - INFO - Finnhub request: symbol=AAPL from=2025-12-25 to=2025-12-31
+2026-04-01 22:18:52,701 - INFO - Finnhub returned 128 raw articles
+2026-04-01 22:18:52,703 - INFO - Chunk 2025-12-25 to 2025-12-31: fetched 128 articles
+2026-04-01 22:18:52,703 - INFO - Chunked fetch complete: 708 total articles from 28-day window in 7-day chunks
+2026-04-01 22:18:52,704 - INFO - Removed duplicates (cross-domain, title-based): 708 -> 702
+2026-04-01 22:18:52,704 - INFO - filter_headline_content_duplicates: in=702 kept=700 | cleared_content=10 dropped_question=2
+2026-04-01 22:18:52,704 - INFO - After dedup + headline filter: Raw=708, Filtered=700
+2026-04-01 22:18:52,705 - INFO - Using all 700 articles after dedup (no article cap)
+2026-04-01 22:18:52,705 - INFO - Temporal coverage: articles span 20251204 to 20251231 (intended window: 20251204 to 20251231)
+2026-04-01 22:18:52,718 - INFO - filter_company_related: in=700 kept=83 | dropped(question_no_content)=0 dropped(no_match_no_content)=12 dropped(no_match_in_content)=605
+2026-04-01 22:18:52,718 - INFO - Cleaning article content for Apple Inc. (ticker: AAPL)  - DeBERTa-only pipeline
+2026-04-01 22:18:52,728 - INFO - Loading DeBERTa classifier for noise reduction...
+2026-04-01 22:18:54,938 - INFO - DeBERTa classifier loaded successfully
+2026-04-01 22:18:59,940 - INFO - Content cleaning complete:
+  Total articles: 83
+  Articles with content: 83
+  Articles filtered (DeBERTa only): 18
+  Articles with no content after: 0
+  Sentences: 240 -> 208
+2026-04-01 22:18:59,940 - INFO -   Noise reduction: 13.3%
+2026-04-01 22:18:59,941 - INFO - Adding impact horizon data to 83 articles (prediction window: 31 days)
+2026-04-01 22:18:59,941 - INFO - Loading zero-shot classifier...
+2026-04-01 22:19:01,748 - INFO - Zero-shot classifier loaded successfully
+2026-04-01 22:19:14,910 - INFO - Impact horizon classification complete (83 articles, batch_size=32)
+2026-04-01 22:19:14,910 - INFO - Articles sorted by final_weight (recency + impact horizon)
+2026-04-01 22:19:14,911 - INFO - Final article count: 83 (from 28-day backward window)
+2026-04-01 22:19:14,914 - INFO - Saved 83 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-04-01 22:19:14,919 - INFO - Saved 83 articles to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\articles.json
+2026-04-01 22:19:14,927 - INFO - Running RoBERTa Large MNLI sentiment on 83 articles (company=Apple Inc., ticker=AAPL)
+2026-04-01 22:19:14,927 - INFO - Loading RoBERTa Large MNLI zero-shot classifier...
+2026-04-01 22:19:16,024 - INFO - RoBERTa Large MNLI model loaded successfully
+2026-04-01 22:19:18,653 - INFO - [1/83] (content-only) Warren Buffett Added a Big Chunk of This Tech Stoc -> pos=0.7540 neg=0.0300 neu=0.1375 (w=0.901->0.901, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,653 - INFO - [2/83] (headline+content) The 76-Year-Old Reason Why Buffett Has Been Sellin -> pos=0.0198 neg=0.7535 neu=0.1012 (w=0.877->0.877, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,653 - INFO - [3/83] (content-only) The S&P 500 Is Too Exposed To Big Tech, Time To Bu -> pos=0.0258 neg=0.9265 neu=0.0900 (w=0.851->0.851, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,653 - INFO - [4/83] (headline+content) Will Apple’s (AAPL) Global iOS Openings and AI Pus -> pos=0.1182 neg=0.0486 neu=0.0434 (w=0.764->0.764, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,653 - INFO - [5/83] (headline+content) Apple Inc. (AAPL) Is a Trending Stock: Facts to Kn -> pos=0.4271 neg=0.0463 neu=0.1455 (w=0.764->0.764, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,653 - INFO - [6/83] (headline+content) Apple is an Analyst Favorite, But AAPL Stock Has B -> pos=0.3260 neg=0.8579 neu=0.3836 (w=0.763->0.763, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [7/83] (headline+content) Why Apple Might Attract More of an AI Multiple in  -> pos=0.0928 neg=0.3035 neu=0.1149 (w=0.763->0.763, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [8/83] (headline+content) Tim Cook's Nike Buy, AI Smart Glasses, Court Victo -> pos=0.6333 neg=0.4895 neu=0.3532 (w=0.759->0.759, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [9/83] (headline+content) Apple to appeal EUR 98M Italian Competition Author -> pos=0.1046 neg=0.2322 neu=0.1090 (w=0.756->0.756, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [10/83] (headline+content) Italian Competition Authority fines Apple EUR 98M  -> pos=0.0667 neg=0.5202 neu=0.1207 (w=0.745->0.745, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [11/83] (headline+content) Apple: Quality Vs. Price -> pos=0.7677 neg=0.0072 neu=0.1572 (w=0.742->0.742, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [12/83] (headline+content) JPMorgan Confident in Apple (AAPL) as iPhone 17 De -> pos=0.9653 neg=0.0167 neu=0.5339 (w=0.730->0.730, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [13/83] (headline+content) Jim Cramer Repeats His “Own It, Don’t Trade It” Ma -> pos=0.3786 neg=0.6601 neu=0.4757 (w=0.728->0.728, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [14/83] (headline+content) Jim Cramer Says “I Own Apple, and I Say Own it, Do -> pos=0.7517 neg=0.4842 neu=0.3558 (w=0.694->0.694, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [15/83] (headline+content) Apple's 3 Big New Year Woes -> pos=0.0048 neg=0.7030 neu=0.0587 (w=0.693->0.693, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [16/83] (headline+content) Update: Apple Faces $115.7 Million Italian Regulat -> pos=0.0238 neg=0.2907 neu=0.0541 (w=0.669->0.669, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [17/83] (headline+content) Here’s How Apple (AAPL) Impacted Harbor Capital Ap -> pos=0.1013 neg=0.1618 neu=0.0355 (w=0.669->0.669, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [18/83] (content-only) Company News for Dec 26, 2025 -> pos=0.1742 neg=0.2264 neu=0.1544 (w=0.667->0.667, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [19/83] (headline+content) China's vice commerce minister met Apple COO on Fr -> pos=0.2973 neg=0.3710 neu=0.1993 (w=0.666->0.666, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [20/83] (headline+content) Is Apple Inc. (NASDAQ:AAPL) Expensive For A Reason -> pos=0.0625 neg=0.0820 neu=0.0428 (w=0.665->0.665, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [21/83] (headline+content) Dan Ives Is Betting That Apple and Google Will Par -> pos=0.7246 neg=0.1182 neu=0.0716 (w=0.661->0.661, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [22/83] (headline+content) Jim Cramer Says “Own Apple, Don’t Trade It” -> pos=0.9955 neg=0.0110 neu=0.2744 (w=0.661->0.661, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [23/83] (headline+content) Apple: Efficiency-Monetization Loop - Services Mar -> pos=0.9914 neg=0.0087 neu=0.2747 (w=0.655->0.655, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [24/83] (content-only) OpenAI’s hardware push could reshape the AI trade -> pos=0.1557 neg=0.0980 neu=0.1353 (w=0.582->0.582, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,654 - INFO - [25/83] (headline+content) Here’s Why Apple (AAPL) is on the Detractors List  -> pos=0.0065 neg=0.9820 neu=0.0536 (w=0.573->0.573, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,655 - INFO - [26/83] (content-only) Will Google Pass Nvidia in 2026 as the World’s Big -> pos=0.2672 neg=0.3604 neu=0.0975 (w=0.573->0.573, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,655 - INFO - [27/83] (headline+content) Apple Doesn't Need A Stronger AI Portfolio -> pos=0.6245 neg=0.0119 neu=0.1667 (w=0.557->0.557, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,655 - INFO - [28/83] (content-only) Tim Cook Just Purchased $3 Million Worth of Nike S -> pos=0.4368 neg=0.1875 neu=0.1314 (w=0.557->0.557, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,655 - INFO - [29/83] (headline+content) If You Think Apple Trading For 36x Earnings Is Nut -> pos=0.0297 neg=0.9768 neu=0.1996 (w=0.534->0.534, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,655 - INFO - [30/83] (headline+content) Morgan Stanley Lifts Apple Inc. (AAPL) Price Targe -> pos=0.9516 neg=0.0539 neu=0.4083 (w=0.531->0.531, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,655 - INFO - [31/83] (content-only) APLY: Gets The Job Done But Underperforms Peers -> pos=0.1852 neg=0.0696 neu=0.1151 (w=0.527->0.527, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,655 - INFO - [32/83] (headline+content) Apple (AAPL) Stock Slides as Market Rises: Facts t -> pos=0.0066 neg=0.8489 neu=0.2113 (w=0.526->0.526, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,655 - INFO - [33/83] (content-only) Buffett’s $24 Billion Selling Spree: The 6 Stocks  -> pos=0.0789 neg=0.6688 neu=0.1294 (w=0.526->0.526, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,655 - INFO - [34/83] (headline+content) Apple Just Released a New AI Model. Should You Buy -> pos=0.8181 neg=0.0131 neu=0.0544 (w=0.517->0.517, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,655 - INFO - [35/83] (content-only) Nasdaq to file for near 24-Hour stock trading to m -> pos=0.4613 neg=0.0464 neu=0.2319 (w=0.502->0.502, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,655 - INFO - [36/83] (content-only) How Caterpillar Crushed the Magnificent 7 in 2025  -> pos=0.0105 neg=0.9306 neu=0.1158 (w=0.495->0.495, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [37/83] (headline+content) Analysts Are Hot on the Foldable iPhone. Should Yo -> pos=0.8272 neg=0.0250 neu=0.0918 (w=0.495->0.495, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [38/83] (headline+content) Analysts Have a Moderate Buy Rating on Apple Inc.  -> pos=0.9613 neg=0.0138 neu=0.3435 (w=0.490->0.490, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [39/83] (headline+content) Morgan Stanley Boosts Apple (AAPL) Target, Sees Up -> pos=0.8417 neg=0.0239 neu=0.4427 (w=0.489->0.489, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [40/83] (headline+content) Where is Apple Inc. (AAPL) Headed According to Wal -> pos=0.7384 neg=0.1505 neu=0.4856 (w=0.488->0.488, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [41/83] (headline+content) Apple (AAPL) Target Raised as Jefferies Sees Stron -> pos=0.8386 neg=0.0513 neu=0.3181 (w=0.488->0.488, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [42/83] (headline+content) Jim Cramer Says “Apple Might Be Hurt By Higher Mem -> pos=0.0422 neg=0.7831 neu=0.2607 (w=0.486->0.486, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [43/83] (content-only) LongPoint Announces No Year End ETF Distributions -> pos=0.4047 neg=0.3684 neu=0.1374 (w=0.427->0.427, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [44/83] (headline+content) Investors Heavily Search Apple Inc. (AAPL): Here i -> pos=0.3513 neg=0.0825 neu=0.2443 (w=0.406->0.406, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [45/83] (headline+content) Apple Loses Epic Games Appeal, Wins Ability to Cha -> pos=0.0173 neg=0.5355 neu=0.0621 (w=0.395->0.395, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [46/83] (content-only) Netflix reaches $72B Warner Bros. deal, PCE inflat -> pos=0.1761 neg=0.0802 neu=0.0888 (w=0.378->0.378, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [47/83] (headline+content) Why 2026 May Be Apple’s Year -> pos=0.6771 neg=0.0291 neu=0.1222 (w=0.377->0.377, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [48/83] (headline+content) Evercore ISI Raises PT on Apple (AAPL) Stock -> pos=0.8784 neg=0.0390 neu=0.4628 (w=0.374->0.374, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [49/83] (content-only) Janus Henderson Research Fund Q3 2025 Portfolio Re -> pos=0.0277 neg=0.6808 neu=0.0922 (w=0.365->0.365, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [50/83] (content-only) Forget Monthly Dividends, These 5 ETFs Pay Investo -> pos=0.9776 neg=0.0028 neu=0.1779 (w=0.360->0.360, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [51/83] (headline+content) Services Rides on Apple TV and Arcade: What's Ahea -> pos=0.5178 neg=0.0746 neu=0.0626 (w=0.349->0.349, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [52/83] (headline+content) Here's Why Apple (AAPL) Fell More Than Broader Mar -> pos=0.0054 neg=0.9573 neu=0.1121 (w=0.328->0.328, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [53/83] (headline+content) Oura vs Big Tech: The ring taking on Apple, Google -> pos=0.2152 neg=0.1382 neu=0.1168 (w=0.323->0.323, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [54/83] (content-only) Google Must Limit Default Contracts to One Year, J -> pos=0.0282 neg=0.2923 neu=0.0695 (w=0.308->0.308, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [55/83] (headline+content) The Zacks Analyst Blog Apple, Alphabet, Amazon and -> pos=0.0124 neg=0.2624 neu=0.0731 (w=0.303->0.303, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [56/83] (headline+content) Did Apple’s Executive Overhaul Around AI, Regulati -> pos=0.1445 neg=0.1802 neu=0.0377 (w=0.289->0.289, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [57/83] (headline+content) Soaring Memory Prices Will Cannibalize Apple's Pro -> pos=0.0036 neg=0.9849 neu=0.0198 (w=0.257->0.257, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [58/83] (headline+content) Apple: Playing Switzerland In AI Battle, But Risks -> pos=0.0047 neg=0.5895 neu=0.0963 (w=0.238->0.238, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [59/83] (headline+content) After a 42% Six-Month Rally, What's Next for Apple -> pos=0.2998 neg=0.0354 neu=0.1204 (w=0.237->0.237, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [60/83] (headline+content) Apple's Tim Cook reportedly on Capitol Hill, Oracl -> pos=0.1878 neg=0.2715 neu=0.2698 (w=0.236->0.236, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,656 - INFO - [61/83] (headline+content) Apple's chip chief reportedly 'not leaving': A clo -> pos=0.1240 neg=0.0540 neu=0.1364 (w=0.229->0.229, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [62/83] (headline+content) Apple AI Strategy Finally Taking Shape Amid Key Hi -> pos=0.2914 neg=0.1484 neu=0.0682 (w=0.228->0.228, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [63/83] (headline+content) UBS Reiterates Neutral on Apple (AAPL) as Interest -> pos=0.1405 neg=0.1268 neu=0.9815 (w=0.220->0.220, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [64/83] (headline+content) UBS Reiterates Neutral on Apple (AAPL) as App Stor -> pos=0.0598 neg=0.2928 neu=0.9883 (w=0.219->0.219, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [65/83] (headline+content) Jim Cramer on Apple: “Bulls Like Me Were Considere -> pos=0.9194 neg=0.5041 neu=0.1924 (w=0.217->0.217, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [66/83] (headline+content) Apple exec. staying, Nvidia & SoftBank eye Skild A -> pos=0.3426 neg=0.2964 neu=0.1994 (w=0.208->0.208, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [67/83] (headline+content) Why Apple's Momentum Isn't Accidental -> pos=0.9582 neg=0.0057 neu=0.0751 (w=0.207->0.207, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [68/83] (headline+content) Apple (AAPL) Earns $320 Target as Services Strengt -> pos=0.8825 neg=0.0171 neu=0.3607 (w=0.205->0.205, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [69/83] (headline+content) Evercore Analysts Are Pounding the Table on Apple  -> pos=0.1127 neg=0.6848 neu=0.0917 (w=0.202->0.202, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [70/83] (headline+content) OpenAI’s New AI Gadget Might Be an iPhone Disrupto -> pos=0.0301 neg=0.7561 neu=0.2164 (w=0.183->0.183, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [71/83] (headline+content) Apple (AAPL) Lands $330 Target as CLSA Turns More  -> pos=0.9920 neg=0.0054 neu=0.3711 (w=0.182->0.182, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [72/83] (headline+content) What Apple's executive departures mean for the iPh -> pos=0.1114 neg=0.3056 neu=0.0723 (w=0.177->0.177, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [73/83] (headline+content) Netflix to acquire Warner Bros., more executive de -> pos=0.1290 neg=0.2371 neu=0.1348 (w=0.176->0.176, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [74/83] (headline+content) Apple Made a Comeback with the iPhone 17, But Will -> pos=0.0314 neg=0.0538 neu=0.0640 (w=0.176->0.176, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [75/83] (headline+content) Apple Inc. (AAPL): A Bull Case Theory -> pos=0.9975 neg=0.0054 neu=0.1050 (w=0.172->0.172, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [76/83] (headline+content) Here is What to Know Beyond Why Apple Inc. (AAPL)  -> pos=0.5602 neg=0.0283 neu=0.2029 (w=0.171->0.171, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [77/83] (headline+content) Apple to Enter AI Revolution in 2026, Wedbush Says -> pos=0.5178 neg=0.2829 neu=0.1383 (w=0.171->0.171, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [78/83] (headline+content) Here’s Why Apple (AAPL) is on the Detectors List o -> pos=0.1012 neg=0.3454 neu=0.0963 (w=0.169->0.169, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [79/83] (headline+content) Apple: Inventory Does Not Lie -> pos=0.0273 neg=0.7542 neu=0.2418 (w=0.167->0.167, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [80/83] (headline+content) Netflix, Apple, Five Below: Top analyst calls toda -> pos=0.0864 neg=0.0447 neu=0.1258 (w=0.165->0.165, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [81/83] (headline+content) BTIG thinks Apple stock is poised to drop, PepsiCo -> pos=0.0275 neg=0.9380 neu=0.2027 (w=0.146->0.146, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,657 - INFO - [82/83] (headline+content) Intel Stock Surged 10% on Apple Chip Manufacturing -> pos=0.9652 neg=0.0165 neu=0.1301 (w=0.146->0.146, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,658 - INFO - [83/83] (headline+content) Apple (AAPL) Price Target Raised as Loop Capital S -> pos=0.6826 neg=0.0954 neu=0.3129 (w=0.146->0.146, cov=1.00, hdl=1.00)
+2026-04-01 22:19:18,658 - INFO - Decision threshold: pos=0.3796 (tau=0.56), neg=0.3171 (tau=0.26) -> negative
+2026-04-01 22:19:18,658 - INFO - Sentiment prediction complete: label=negative confidence=0.3171 (83 articles analyzed)
+2026-04-01 22:19:18,659 - INFO - Sentiment result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\temp\predictions\zeroshot_result.json
+2026-04-01 22:19:18,660 - INFO - Starting XAI for company='Apple Inc.' ticker='AAPL'
+2026-04-01 22:19:18,661 - INFO - Merged 83 articles for XAI.
+2026-04-01 22:19:18,662 - INFO - Contrastive: negative over positive by -0.0625  (38 articles favour winner, 45 favour runner-up)
+2026-04-01 22:19:18,662 - INFO - Article explanation complete: 83 articles, 0 label-flipping, HHI=0.0120, flip_set_size=None
+2026-04-01 22:19:18,662 - INFO - Pipeline explanation complete: 83 articles, horizon dist={'IMMEDIATE': 54, 'SHORT_TERM': 27, 'DIFFUSION': 2, 'LONG_TERM': 0}
+2026-04-01 22:19:18,663 - INFO - Evidence quality: MEDIUM (2 flags)
+2026-04-01 22:19:18,663 - INFO - Running LIME token attribution (top 5 articles)...
+2026-04-01 22:19:18,666 - INFO - LIME explainer initialised.
+2026-04-01 22:19:18,666 - INFO - LIME [1/5]: Soaring Memory Prices Will Cannibalize Apple's Profit (influence=0.9849, samples=300)
+2026-04-01 22:19:23,170 - INFO - LIME [2/5]: Here’s Why Apple (AAPL) is on the Detractors List of Parnass (influence=0.9820, samples=300)
+2026-04-01 22:19:29,376 - INFO - LIME [3/5]: If You Think Apple Trading For 36x Earnings Is Nuts, You Can (influence=0.9768, samples=300)
+2026-04-01 22:19:39,069 - INFO - LIME [4/5]: Here's Why Apple (AAPL) Fell More Than Broader Market (influence=0.9573, samples=300)
+2026-04-01 22:19:43,690 - INFO - LIME [5/5]: BTIG thinks Apple stock is poised to drop, PepsiCo nears set (influence=0.9380, samples=300)
+2026-04-01 22:19:53,223 - INFO - Token explanation complete: 5 articles explained.
+2026-04-01 22:19:53,223 - INFO - Running narrative storyline clustering...
+2026-04-01 22:19:53,223 - INFO - Sentiment split: 42 positive, 36 negative, 5 neutral.
+2026-04-01 22:19:53,778 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:19:53,956 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:19:54,133 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:19:54,280 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:19:54,456 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:19:54,639 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:19:54,818 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:19:55,001 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:19:55,166 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:19:55,335 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:19:55,513 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:19:55,684 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:19:55,864 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:19:56,048 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:19:56,237 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:19:56,237 - INFO - Narrative clustering (by sentiment): 15 storylines + 42 other from 83 articles.
+2026-04-01 22:19:56,237 - INFO - Calling Ollama (llama3.2:3b) for narrative summary...
+2026-04-01 22:19:57,517 - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-01 22:19:57,518 - INFO - Narrative generated successfully.
+2026-04-01 22:19:57,524 - INFO - XAI result saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\xai_result.json
+2026-04-01 22:19:57,525 - INFO - Generating PNG charts into C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts ...
+2026-04-01 22:19:57,752 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\01_sentiment_scores.png
+2026-04-01 22:19:57,783 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\02_article_distribution.png
+2026-04-01 22:19:57,871 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\03_article_weights.png
+2026-04-01 22:19:57,922 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\04_horizon_breakdown.png
+2026-04-01 22:19:58,228 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\05_lime_tokens.png
+2026-04-01 22:19:58,384 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\06_storyline_contribution.png
+2026-04-01 22:19:58,520 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\07_contrastive_waterfall.png
+2026-04-01 22:19:58,601 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\08_article_timeline.png
+2026-04-01 22:19:58,904 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\09_cumulative_score.png
+2026-04-01 22:19:58,904 - INFO - Generated 9 chart(s) in C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts
+2026-04-01 22:19:58,906 - INFO - XAI summary saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\xai_summary.txt

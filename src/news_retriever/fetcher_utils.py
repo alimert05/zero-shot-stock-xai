@@ -20,6 +20,20 @@ _NYSE_CALENDAR = xcals.get_calendar("XNYS")
 logger = logging.getLogger(__name__)
 
 
+def resolve_company_name(ticker: str) -> str | None:
+    """Resolve a ticker symbol to its full company name via yfinance."""
+    try:
+        import yfinance as yf
+        info = yf.Ticker(ticker).info
+        name = info.get("longName") or info.get("shortName")
+        if name:
+            logger.info("Resolved company name for '%s' -> %s", ticker, name)
+            return name
+    except Exception as exc:
+        logger.warning("Could not resolve company name for '%s': %s", ticker, exc)
+    return None
+
+
 def resolve_ticker(company_name: str, max_retries: int = 5, timeout: int = 5) -> str | None:
     """Resolve a company name to a stock ticker symbol via Yahoo Finance search."""
     url = "https://query2.finance.yahoo.com/v1/finance/search"
