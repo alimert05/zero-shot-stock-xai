@@ -1,15 +1,14 @@
 """
-app.py — Streamlit web interface for the stock sentiment analysis pipeline.
+app.py - Streamlit web interface for the stock sentiment analysis pipeline.
 
 Provides an interactive dashboard for running sentiment predictions,
 viewing XAI explanations, and exploring article-level breakdowns.
 
 Run with:
-    cd src
-    streamlit run ui/app.py
+    streamlit run src/ui/app.py
 """
 
-# ── Imports & Page Config ─────────────────────────────────────────────────────
+# Imports and Page Config
 from __future__ import annotations
 
 import sys
@@ -54,7 +53,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# ── Constants & Colour Maps ───────────────────────────────────────────────────
+# Constants and Colour Maps
 # Sentiment / evidence-quality / horizon colours are imported from ui_constants.
 # Local aliases keep existing references short.
 _LABEL_COLOURS = LABEL_COLOURS
@@ -64,44 +63,45 @@ _HORIZON_COLOURS = HORIZON_COLOURS
 _EVENT_TYPE_INFO = {
     "earnings report, guidance, or financial results": {
         "description": "Quarterly or annual earnings releases, revenue or margin updates, profit warnings, and forward guidance disclosures.",
-        "why": "Earnings are priced almost instantly on Day 0 (Ball & Brown, 1968), but post-earnings announcement drift (PEAD) extends 60+ days for small caps (Bernard & Thomas, 1989, 1990).",
+        "why": "Earnings are priced almost instantly on Day 0, but post-earnings announcement drift (PEAD) can extend 60+ days for smaller stocks.",
     },
     "analyst upgrade, downgrade, or price target revision": {
         "description": "Broker upgrades, downgrades, initiations, price target revisions, and other analyst research signals.",
-        "why": "Kim et al. (1997) show prices incorporate analyst signals within 5-15 minutes. Lloyd Davies & Canes (1978) find significance limited to 2 days.",
+        "why": "Prices incorporate analyst signals within minutes, with significance typically limited to 2 days.",
     },
     "product launch, partnership, contract, or business development": {
         "description": "Product launches, technology milestones, customer wins, commercial partnerships, major contracts, and operational developments.",
-        "why": "Warren & Sorescu (2017) use a 5-day standard window. Markets need a few sessions to judge whether the announcement translates into real commercial impact.",
+        "why": "Markets need a few sessions to judge whether the announcement translates into real commercial impact, typically within a 5-day window.",
     },
     "share buyback, dividend, stock offering, or debt issuance": {
         "description": "Share repurchases, dividend announcements, equity or debt issuance, refinancing, and other capital structure or payout decisions.",
-        "why": "Vermaelen (1981) documents positive Day 0-2 reaction to buybacks. Post-announcement drift from signaling and capital structure adjustment extends over weeks.",
+        "why": "Buybacks typically produce a positive Day 0-2 reaction. Post-announcement drift from signalling and capital structure adjustment extends over weeks.",
     },
     "lawsuit, investigation, regulatory action, or compliance issue": {
         "description": "Investigations, lawsuits, enforcement actions, regulatory probes, settlements, penalties, and major court or agency rulings.",
-        "why": "Holthausen & Leftwich (1986) find CAR of -7.5% at [-1,0]. Investigation-to-filing gap has a median of 9 days (SCA literature), with ongoing uncertainty as scope clarifies.",
+        "why": "Initial reaction is sharp and negative. Investigation-to-filing gaps have a median of around 9 days, with ongoing uncertainty as scope clarifies.",
     },
     "merger, acquisition, takeover, or corporate restructuring": {
         "description": "Mergers, acquisitions, takeovers, divestitures, spin-offs, strategic reorganisations, and major portfolio reconfiguration announcements.",
-        "why": "Target premiums are priced at [-1,+1], but deal uncertainty, regulatory approval, and integration risk are reassessed over weeks to months (Rosen, 2006).",
+        "why": "Target premiums are priced immediately, but deal uncertainty, regulatory approval, and integration risk are reassessed over weeks to months.",
     },
     "CEO change, executive departure, or board appointment": {
         "description": "CEO or CFO changes, board appointments, founder departures, activist developments, governance actions, and leadership transitions.",
-        "why": "CARs are significant in 3-5 day windows (Clayton, Hartzell & Rosenberg). Succession planning reduces uncertainty speed; outside successions increase volatility longer.",
+        "why": "Significant price reactions occur within 3-5 day windows. Succession planning reduces uncertainty speed; outside successions increase volatility longer.",
     },
     "market commentary, sector outlook, or opinion piece": {
         "description": "Macro or sector commentary, opinion pieces, thematic narratives, sentiment-driven coverage, and non-specific discussion mentioning the company.",
-        "why": "Commentary-driven effects are short-lived with exponential decay (Barberis et al., 2015). Heston & Sinha (2016) show these fade as firm-specific information arrives.",
+        "why": "Commentary-driven effects are short-lived with exponential decay, fading as firm-specific information arrives.",
     },
     "financial distress, credit downgrade, or going concern warning": {
         "description": "Credit rating downgrades, going concern audit opinions, financial distress signals, and survival risk indicators.",
-        "why": "Modelling choice: these represent ongoing conditions without clean event dates. Informational relevance persists over longer windows as uncertainty resolves (Altman, 1968; Campbell et al., 2008).",
+        "why": "These represent ongoing conditions without clean event dates. Informational relevance persists over longer windows as uncertainty resolves.",
     },
 }
 
 
-# ── Summary & Explanation Builders ────────────────────────────────────────────
+
+# Summary and Explanation Builders
 def _badge(text: str, colour: str, size: str = "0.85rem") -> str:
     return (
         f'<span style="background:{colour};color:#fff;padding:3px 10px;'
@@ -118,7 +118,7 @@ def _label_badge(
 ) -> str:
     colour = _LABEL_COLOURS.get(label, "#3498db")
     if threshold_neutral:
-        display_label = "NEUTRAL — No Clear Direction"
+        display_label = "NEUTRAL  - No Clear Direction"
     else:
         display_label = f"{label.upper()}&nbsp;&nbsp;{confidence:.1%}"
     return (
@@ -158,7 +158,7 @@ def _load_article_content() -> dict[str, str]:
 def _build_comprehensive_summary(result: dict) -> str:
     """Build a large plain-English summary covering everything from the XAI result.
 
-    Uses <b> tags instead of markdown ** because the summary is rendered
+    Uses <b> tags instead of markdown because the summary is rendered
     inside a raw HTML <div>.
     """
     import re
@@ -279,7 +279,7 @@ def _build_comprehensive_summary(result: dict) -> str:
         if hhi > 0.4:
             parts.append(
                 f"Evidence is <b>concentrated</b> (Herfindahl index: {hhi:.4f}) "
-                f"— a small number of articles dominate the prediction."
+                f" - a small number of articles dominate the prediction."
             )
         else:
             parts.append(
@@ -363,7 +363,7 @@ def _build_comprehensive_summary(result: dict) -> str:
     return "<br><br>".join(parts)
 
 
-# ── Pipeline Execution ────────────────────────────────────────────────────────
+# Pipeline Execution
 def _run_full_pipeline(
     company_name: str,
     start_date_str: str,
@@ -448,7 +448,7 @@ def _run_full_pipeline(
         pos_pct = scores_msg.get("positive", 0)
         neg_pct = scores_msg.get("negative", 0)
         progress.write(
-            f"Prediction: **NEUTRAL — No Clear Direction** "
+            f"Prediction: **NEUTRAL  - No Clear Direction** "
             f"(positive {pos_pct:.1%} · negative {neg_pct:.1%})"
         )
     else:
@@ -471,7 +471,7 @@ def _run_full_pipeline(
     return xai_result
 
 
-# ── Overview Page ─────────────────────────────────────────────────────────────
+# Overview Page
 def _render_overview(result: dict) -> None:
     pred = result.get("prediction_summary", {})
     narrative = result.get("narrative", {})
@@ -550,7 +550,7 @@ def _render_overview(result: dict) -> None:
             pos_pct = scores.get("positive", 0) * 100
             neg_pct = scores.get("negative", 0) * 100
             st.info(
-                f"**Why Neutral?** Articles show divided sentiment — "
+                f"**Why Neutral?** Articles show divided sentiment  - "
                 f"**{pos_pct:.1f}%** lean positive while **{neg_pct:.1f}%** lean negative. "
                 f"Neither direction reaches the consensus threshold "
                 f"(positive needs ≥{tau_pos * 100:.0f}%, negative needs ≥{tau_neg * 100:.0f}%). "
@@ -633,7 +633,7 @@ def _render_overview(result: dict) -> None:
         st.write(f"**Model:** `{MODEL_NAME}`")
 
 
-# ── Detailed Analysis Pages ───────────────────────────────────────────────────
+# Detailed Analysis Pages
 def _render_reliability(result: dict) -> None:
     reliability = result.get("reliability", {})
 
@@ -762,7 +762,7 @@ def _render_event_types(result: dict) -> None:
     st.markdown("### Event Type Distribution")
     st.write(
         "Each article is classified into an event type using zero-shot NLI. "
-        "The event type determines the article's **impact horizon** — "
+        "The event type determines the article's **impact horizon**  - "
         "how many days the market typically takes to fully price in that type of news. "
         "Articles whose horizon aligns with the prediction window receive higher weight."
     )
@@ -786,7 +786,7 @@ def _render_event_types(result: dict) -> None:
 
     st.divider()
 
-    # -- Horizon category distribution (moved from Weighting tab) --
+    # Horizon category distribution (moved from Weighting tab)
     horizon_dist = layer3.get("horizon_distribution", {})
     if horizon_dist:
         st.markdown("### Horizon Category Distribution")
@@ -801,7 +801,7 @@ def _render_event_types(result: dict) -> None:
                 st.metric("Articles", count, label_visibility="collapsed")
         st.divider()
 
-    # -- Primary vs secondary horizon distribution --
+    # Primary vs secondary horizon distribution
     articles = layer3.get("articles", [])
     if articles:
         primary_counts: dict[str, int] = {}
@@ -849,7 +849,7 @@ def _render_event_types(result: dict) -> None:
     for evt_name, info in _EVENT_TYPE_INFO.items():
         st.markdown(f"**{evt_name.title()}**")
         st.write(info["description"])
-        st.caption(f"Impact horizon: {horizon_text_for_event(evt_name)} — {info['why']}")
+        st.caption(f"Impact horizon: {horizon_text_for_event(evt_name)}  - {info['why']}")
         st.write("")
 
 
@@ -1191,7 +1191,7 @@ def _render_lime(result: dict) -> None:
                 )
 
 
-# ── Charts & Visualisations ───────────────────────────────────────────────────
+# Charts and Visualisations
 def _chart_sentiment_scores(result: dict) -> go.Figure:
     pred = result.get("prediction_summary", {})
     ns = pred.get("normalized_scores", {})
@@ -1216,7 +1216,7 @@ def _chart_sentiment_scores(result: dict) -> go.Figure:
         textposition="outside",
     ))
     fig.update_layout(
-        title=f"Sentiment Scores — Verdict: {final.upper()} ({conf:.1%})",
+        title=f"Sentiment Scores  - Verdict: {final.upper()} ({conf:.1%})",
         xaxis_title="Score", xaxis=dict(range=[0, 1.15]),
         template="plotly_white", height=300, margin=dict(l=80),
     )
@@ -1335,7 +1335,7 @@ def _chart_lime_tokens(result: dict) -> go.Figure:
         ), row=idx + 1, col=1)
 
     fig.update_layout(
-        title=f"Word-Level Attribution (LIME) — {predicted_label.upper()} label",
+        title=f"Word-Level Attribution (LIME)  - {predicted_label.upper()} label",
         template="plotly_white", height=max(400, n * 300),
     )
     return fig
@@ -1369,7 +1369,7 @@ def _chart_reliability(result: dict) -> go.Figure:
         hovertext=hover_msgs[::-1], hoverinfo="text",
     ))
     fig.update_layout(
-        title=f"Evidence Quality Dashboard — Overall: {overall}",
+        title=f"Evidence Quality Dashboard  - Overall: {overall}",
         xaxis=dict(visible=False),
         template="plotly_white", height=max(280, len(names) * 45),
         margin=dict(l=160),
@@ -1405,7 +1405,7 @@ def _chart_storyline_contribution(result: dict) -> go.Figure:
         text=[f"{s:.3f}" for s in scores[::-1]], textposition="outside",
     ))
     fig.update_layout(
-        title=f"Narrative Storylines — {predicted_label.upper()} prediction",
+        title=f"Narrative Storylines  - {predicted_label.upper()} prediction",
         xaxis_title="Contribution Score",
         template="plotly_white", height=max(350, len(labels) * 40),
         margin=dict(l=250),
@@ -1438,7 +1438,7 @@ def _chart_contrastive_waterfall(result: dict) -> go.Figure:
     ))
     fig.update_layout(
         title=(
-            f"Contrastive Waterfall — {winner.upper()} vs {runner_up.upper()} "
+            f"Contrastive Waterfall  - {winner.upper()} vs {runner_up.upper()} "
             f"(gap = {score_gap:.4f})"
         ),
         xaxis_title=f"Net contribution (+ favours {winner.upper()})",
@@ -1477,7 +1477,7 @@ def _chart_article_timeline(result: dict) -> go.Figure:
         color_discrete_map=color_map,
     )
     fig.update_layout(
-        title="Article Timeline — Recency vs Influence",
+        title="Article Timeline  - Recency vs Influence",
         xaxis_title="Days Ago (0 = today)", yaxis_title="Article Weight",
         xaxis=dict(autorange="reversed"),
         template="plotly_white", height=450,
@@ -1548,7 +1548,7 @@ def _chart_cumulative_score(result: dict) -> go.Figure:
     ), row=2, col=1)
 
     fig.update_layout(
-        title=f"Prediction Build-Up — {predicted_label.upper()}",
+        title=f"Prediction Build-Up  - {predicted_label.upper()}",
         template="plotly_white", height=700,
     )
     fig.update_xaxes(title_text="Articles Added (sorted by weight)", row=2, col=1)
@@ -1581,8 +1581,9 @@ def _render_charts(result: dict) -> None:
     st.plotly_chart(fig, use_container_width=True)
 
 
-# ── Sidebar & Main Layout ─────────────────────────────────────────────────────
+# Sidebar and Main Layout
 def main() -> None:
+    """Render the Streamlit dashboard: sidebar inputs, pipeline execution, and result tabs."""
     st.title("Stock Sentiment Analyser")
     st.caption("Zero-shot NLI sentiment prediction with explainable AI")
     st.warning(

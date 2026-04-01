@@ -1,5 +1,5 @@
 """
-ui_constants.py — Shared colour palettes, label maps, and display constants.
+ui_constants.py - Shared colour palettes, label maps, and display constants.
 
 Used by both the Streamlit front-end (app.py) and the Matplotlib chart
 generators (xai/charts.py) so that visual styling is defined once.
@@ -11,21 +11,21 @@ from weighting.event_classifier import (
     HORIZON_LABEL_TO_CATEGORY,
 )
 
-# ── Sentiment label colours ──────────────────────────────────────────────────
+# Sentiment label colours
 LABEL_COLOURS: dict[str, str] = {
     "positive": "#2ecc71",
     "negative": "#e74c3c",
     "neutral":  "#95a5a6",
 }
 
-# ── Evidence-quality rating colours ──────────────────────────────────────────
+# Evidence-quality rating colours
 EVIDENCE_QUALITY_COLOURS: dict[str, str] = {
     "HIGH":   "#2ecc71",
     "MEDIUM": "#f39c12",
     "LOW":    "#e74c3c",
 }
 
-# ── Horizon category colours ────────────────────────────────────────────────
+# Horizon category colours
 HORIZON_COLOURS: dict[str, str] = {
     "IMMEDIATE":  "#e74c3c",
     "SHORT_TERM": "#f39c12",
@@ -33,7 +33,7 @@ HORIZON_COLOURS: dict[str, str] = {
     "LONG_TERM":  "#2ecc71",
 }
 
-# ── Horizon display labels ──────────────────────────────────────────────────
+# Horizon display labels
 HORIZON_DISPLAY_LABELS: dict[str, str] = {
     "IMMEDIATE":  "Immediate (0-1 days)",
     "SHORT_TERM": "Short-term (2-5 days)",
