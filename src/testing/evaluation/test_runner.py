@@ -183,8 +183,8 @@ def _prewarm_models():
     logger.info("Pre-loading GPU models...")
 
     if SENTIMENT_MODEL == "zero-shot":
-        from predictors.zero_shot import _get_deberta_pipeline
-        _get_deberta_pipeline()
+        from predictors.zero_shot import _get_nli_pipeline
+        _get_nli_pipeline()
     elif SENTIMENT_MODEL == "ProsusAI/finbert":
         from predictors.finbert import _get_sentiment_pipeline
         _get_sentiment_pipeline()
@@ -550,8 +550,8 @@ def _prewarm_cached_mode():
     """
     logger.info("Pre-loading sentiment model (cached articles are fully processed)...")
     if SENTIMENT_MODEL == "zero-shot":
-        from predictors.zero_shot import _get_deberta_pipeline
-        _get_deberta_pipeline()
+        from predictors.zero_shot import _get_nli_pipeline
+        _get_nli_pipeline()
     elif SENTIMENT_MODEL == "ProsusAI/finbert":
         from predictors.finbert import _get_sentiment_pipeline
         _get_sentiment_pipeline()

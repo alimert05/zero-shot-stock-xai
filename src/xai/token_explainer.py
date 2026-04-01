@@ -113,8 +113,8 @@ def explain_tokens(
     num_features: int = XAI_LIME_NUM_FEATURES,
 ) -> list[dict[str, Any]]:
     try:
-        from predictors.zero_shot import _get_deberta_pipeline
-        pipeline_callable = _get_deberta_pipeline()
+        from predictors.zero_shot import _get_nli_pipeline
+        pipeline_callable = _get_nli_pipeline()
     except Exception as exc:
         logger.error("Could not load zero-shot pipeline for LIME: %s", exc)
         return []

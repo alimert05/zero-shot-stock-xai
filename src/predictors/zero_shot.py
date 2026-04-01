@@ -26,7 +26,7 @@ logger = logging.getLogger(__name__)
 
 # Model configuration
 
-_deberta_pipeline = None
+_nli_pipeline = None
 
 MODEL_DISPLAY_NAMES = {
     "facebook/bart-large-mnli": "BART Large MNLI",
@@ -40,12 +40,12 @@ _display_model = MODEL_DISPLAY_NAMES.get(MODEL_NAME, MODEL_NAME)
 # Model loading
 
 
-def _get_deberta_pipeline():
-    global _deberta_pipeline
-    if _deberta_pipeline is None:
+def _get_nli_pipeline():
+    global _nli_pipeline
+    if _nli_pipeline is None:
         try:
             logger.info("Loading %s zero-shot classifier...", _display_model)
-            _deberta_pipeline = pipeline(
+            _nli_pipeline = pipeline(
                 "zero-shot-classification",
                 model=MODEL_NAME,
                 device=SENTIMENT_DEVICE,
@@ -54,7 +54,7 @@ def _get_deberta_pipeline():
         except Exception as exc:
             logger.error("Failed to load %s model: %s", _display_model, exc)
             raise
-    return _deberta_pipeline
+    return _nli_pipeline
 
 
 # Article filtering (delegated to predictors.common)
@@ -81,7 +81,7 @@ def _batch_classify_sentiment(
     N × 3 NLI pairs and processes them in chunks of *batch_size*, dramatically
     reducing GPU kernel-launch overhead and Python-loop latency.
     """
-    pipe = _get_deberta_pipeline()
+    pipe = _get_nli_pipeline()
 
     results = pipe(
         texts,
