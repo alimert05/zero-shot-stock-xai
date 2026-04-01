@@ -30,24 +30,23 @@ def _get_classifier():
 
 
 EVENT_FAMILY_LABELS = [
-    # 1 - Ball & Brown (1968): Day-0 spike; Bernard & Thomas (1989): PEAD 60+ days
+    # 1 - Immediate spike, followed by drift lasting weeks
     "earnings report, guidance, or financial results",
-    # 2 - Kim et al. (1997): priced in 5-15 min; Lloyd Davies & Canes (1978): 2-day
+    # 2 - Priced within minutes, significance limited to ~2 days
     "analyst upgrade, downgrade, or price target revision",
-    # 3 - Warren & Sorescu (2017): 5-day window standard
+    # 3 - Markets need a few sessions to assess commercial impact
     "product launch, partnership, contract, or business development",
-    # 4 - Vermaelen (1981): Day 0-2 reaction; post-announcement drift weeks
+    # 4 - Short-term reaction, with post-announcement drift over weeks
     "share buyback, dividend, stock offering, or debt issuance",
-    # 5 - Holthausen & Leftwich (1986): CAR -7.5% at [-1,0]; investigation-filing ~9d
+    # 5 - Sharp initial reaction, ongoing uncertainty as scope clarifies
     "lawsuit, investigation, regulatory action, or compliance issue",
-    # 6 - Target premium [-1,+1]; deal uncertainty, regulatory approval weeks-months
+    # 6 - Premium priced immediately, deal risk reassessed over weeks to months
     "merger, acquisition, takeover, or corporate restructuring",
-    # 7 - CARs significant in 3-5 day windows (Clayton, Hartzell & Rosenberg)
+    # 7 - Significant in 3-5 day windows, varies with succession type
     "CEO change, executive departure, or board appointment",
-    # 8 - Heston & Sinha (2016): commentary fades fast; Barberis et al. (2015): exp decay
+    # 8 - Short-lived effects with exponential decay
     "market commentary, sector outlook, or opinion piece",
-    # 9 - Modelling choice: ongoing conditions w/o clean event date; Altman (1968),
-    #     Campbell et al. (2008) — informational relevance persists over longer windows
+    # 9 - Ongoing conditions without clean event dates, longer persistence
     "financial distress, credit downgrade, or going concern warning",
 ]
 

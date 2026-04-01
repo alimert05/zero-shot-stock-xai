@@ -51,15 +51,6 @@ def calculate_impact_horizon_weight(
     confidence: float = 1.0,
     min_weight: float = 0.05,
 ) -> float:
-    """
-    Backward compatible:
-      - old usage can still pass impact_horizon_days
-
-    New usage:
-      - pass primary_horizon_days
-      - optionally pass secondary_horizon_days
-      - confidence controls how strongly we trust the primary prior
-    """
     if primary_horizon_days is None:
         if impact_horizon_days is None:
             raise ValueError(
@@ -96,6 +87,7 @@ def calculate_combined_weight(
     recency_weight: float,
     impact_horizon_weight: float,
 ) -> float:
+    """Combine recency and horizon weights via geometric mean."""
     recency_weight = max(float(recency_weight), 0.0)
     impact_horizon_weight = max(float(impact_horizon_weight), 0.0)
     return math.sqrt(recency_weight * impact_horizon_weight)
@@ -173,7 +165,7 @@ def add_impact_horizon_data(
         prediction_window_days,
     )
 
-    # ── Phase 1: Partition articles (CPU only) ──
+    # Phase 1: Partition articles (CPU only)
     gpu_indices: list[int] = []
     gpu_texts: list[str] = []
 
@@ -196,10 +188,10 @@ def add_impact_horizon_data(
             gpu_texts.append(text)
 
     if not gpu_texts:
-        logger.info("No articles with titles — skipping impact horizon classification")
+        logger.info("No articles with titles - skipping impact horizon classification")
         return
 
-    # ── Phase 2: Batch GPU inference ──
+    # Phase 2: Batch GPU inference
     classifier = _get_classifier()
     try:
         batch_results = classifier(
@@ -210,17 +202,17 @@ def add_impact_horizon_data(
             batch_size=batch_size,
         )
     except Exception as exc:
-        logger.error("Batch impact horizon classification failed: %s — using fallback", exc)
+        logger.error("Batch impact horizon classification failed: %s - using fallback", exc)
         fallback = _fallback_horizon_result()
         for idx in gpu_indices:
             _apply_horizon_to_article(articles[idx], fallback, prediction_window_days)
         return
 
-    # Single result → wrap in list
+    # Single result -> wrap in list
     if isinstance(batch_results, dict):
         batch_results = [batch_results]
 
-    # ── Phase 3: Post-process each result ──
+    # Phase 3: Post-process each result
     for idx, raw_result in zip(gpu_indices, batch_results):
         try:
             horizon_result = _map_classifier_result(raw_result)
