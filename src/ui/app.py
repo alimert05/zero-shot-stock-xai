@@ -189,7 +189,7 @@ def _build_comprehensive_summary(result: dict) -> str:
     abst_method = abst_test.get("method", "none")
     threshold_neutral = (
         label == "neutral"
-        and abst_method in ("decision_threshold", "dynamic_margin")
+        and abst_method == "decision_threshold"
     )
 
     parts = []
@@ -442,7 +442,7 @@ def _run_full_pipeline(
     abst = prediction_result.get("abstention_test") or {}
     is_threshold_neutral = (
         label == "NEUTRAL"
-        and abst.get("method", "none") in ("decision_threshold", "dynamic_margin")
+        and abst.get("method", "none") == "decision_threshold"
     )
     if is_threshold_neutral:
         scores_msg = prediction_result.get("normalized_scores", {})
@@ -489,7 +489,7 @@ def _render_overview(result: dict) -> None:
     abst_method = abst_test.get("method", "none")
     threshold_neutral = (
         label == "neutral"
-        and abst_method in ("decision_threshold", "dynamic_margin")
+        and abst_method == "decision_threshold"
     )
     threshold_gap = abst_test.get("threshold_gap")
 

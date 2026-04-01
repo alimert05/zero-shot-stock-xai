@@ -97,14 +97,10 @@ COVERAGE_COUNT_BOOST           = True    # boost multi-source articles via log2(
 HEADLINE_ONLY_WEIGHT           = 0.5     # discount for headline-only articles (no body content)
 
 # Decision thresholds (tuned on tune set via grid search, macro F1)
-# Applied before dynamic abstention margin.
 # positive must exceed tau_pos, negative must exceed tau_neg, else neutral.
 DECISION_THRESHOLD_ENABLED     = True
 DECISION_THRESHOLD_POS         = 0.56
 DECISION_THRESHOLD_NEG         = 0.26
-
-# Dynamic abstention margin (entropy-adaptive safety net)
-DYNAMIC_MARGIN_ENABLED         = False
 
 # ── Market Timezone Alignment ────────────────────────────────────────────────
 MARKET_TIMEZONE    = "America/New_York"      # NYSE / NASDAQ timezone

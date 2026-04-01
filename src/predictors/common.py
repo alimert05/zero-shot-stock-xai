@@ -107,17 +107,8 @@ def print_summary(result: dict, model_label: str) -> None:
     abst = result.get("abstention_test", {})
     method = abst.get("method", "none")
     margin = abst.get("margin", 0.0)
-    threshold = abst.get("threshold", 0.0)
-    entropy = abst.get("entropy", 0.0)
-    effective_n = abst.get("effective_n", 0.0)
 
     if method != "none":
         print(f"  ABSTAINED   : Yes ({method})")
-        print(f"  MARGIN      : {margin:.4f}")
-        print(f"  THRESHOLD   : {threshold:.4f}")
-    else:
-        print(f"  MARGIN      : {margin:.4f} (threshold={threshold:.4f})")
-
-    print(f"  ENTROPY     : {entropy:.4f}")
-    print(f"  EFFECTIVE N : {effective_n:.4f}")
+    print(f"  MARGIN      : {margin:.4f}")
     print(f"{'=' * 50}\n")

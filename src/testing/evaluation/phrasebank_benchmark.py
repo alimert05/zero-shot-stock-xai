@@ -37,7 +37,6 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from config import (
     FPB_PATH, FPB_DATASETS_PATH, SENTIMENT_DEVICE, MODEL_NAME,
     DECISION_THRESHOLD_ENABLED, DECISION_THRESHOLD_POS, DECISION_THRESHOLD_NEG,
-    DYNAMIC_MARGIN_ENABLED,
 )
 
 logger = logging.getLogger(__name__)
@@ -825,7 +824,6 @@ def run_benchmark(args: argparse.Namespace) -> dict[str, Any]:
             "max_samples": args.max_samples,
             "device": args.device,
             "decision_threshold_enabled": DECISION_THRESHOLD_ENABLED if model in ("deberta", "roberta") else False,
-            "dynamic_margin_enabled": DYNAMIC_MARGIN_ENABLED if model in ("deberta", "roberta") else False,
         },
         "results": {},
         "failures": [],
@@ -875,11 +873,10 @@ def print_report(report: dict[str, Any]) -> None:
     template = metadata.get("hypothesis_template", "N/A")
     labels = metadata.get("candidate_labels", [])
     dt_enabled = metadata.get("decision_threshold_enabled", False)
-    dm_enabled = metadata.get("dynamic_margin_enabled", False)
     print(f"  Config: {config_name}")
     print(f"  Template: {template}")
     print(f"  Labels: {labels}")
-    print(f"  Decision Thresholds: {'ON' if dt_enabled else 'OFF'}  |  Dynamic Margin: {'ON' if dm_enabled else 'OFF'}")
+    print(f"  Decision Thresholds: {'ON' if dt_enabled else 'OFF'}")
     print("-" * 90)
 
     print(

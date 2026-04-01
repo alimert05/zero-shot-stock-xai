@@ -131,7 +131,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     abst_method = abst_test.get("method", "none")
     threshold_neutral = (
         pred.get("final_label") == "neutral"
-        and abst_method in ("decision_threshold", "dynamic_margin")
+        and abst_method == "decision_threshold"
     )
     pos_pct = ns.get("positive", 0.0) * 100
     neg_pct = ns.get("negative", 0.0) * 100
