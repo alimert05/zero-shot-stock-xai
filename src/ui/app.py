@@ -520,7 +520,7 @@ def _render_overview(result: dict) -> None:
             nearest = threshold_gap["nearest_label"]
     else:
         m1, m2, m3, m4 = st.columns(4)
-        m1.metric("Confidence", f"{confidence:.2%}")
+        m1.metric("Score", f"{confidence:.2%}")
         m2.metric("Articles Analysed", n_articles)
         m3.metric("Prediction Window", f"{window} days")
         m4.metric("Total Weight", f"{total_weight:.2f}" if isinstance(total_weight, (int, float)) else "?")
@@ -558,6 +558,44 @@ def _render_overview(result: dict) -> None:
                 f"When signals are closely balanced, a directional call would be unreliable, "
                 f"so the system classifies this as **mixed/inconclusive**.",
                 icon="ℹ️",
+            )
+        elif not threshold_neutral and label in ("positive", "negative"):
+            # Explain when predicted label is not the highest raw score
+            argmax_label = max(scores, key=scores.get)
+            if argmax_label != label:
+                tau_pos = abst_test.get("decision_thresholds", {}).get("tau_pos", 0)
+                tau_neg = abst_test.get("decision_thresholds", {}).get("tau_neg", 0)
+                pred_score = scores.get(label, 0) * 100
+                higher_label = argmax_label
+                higher_score = scores.get(argmax_label, 0) * 100
+                if label == "negative":
+                    threshold_used = tau_neg * 100
+                    higher_threshold = tau_pos * 100
+                else:
+                    threshold_used = tau_pos * 100
+                    higher_threshold = tau_neg * 100
+                st.info(
+                    f"**Why {label.capitalize()} despite {higher_label.capitalize()} scoring higher?** "
+                    f"Although {higher_label} has a higher raw score ({higher_score:.1f}%), "
+                    f"it does not exceed its decision threshold (≥{higher_threshold:.0f}%). "
+                    f"The {label} score ({pred_score:.1f}%) exceeds its lower threshold "
+                    f"(≥{threshold_used:.0f}%), making it the only class with sufficient confidence "
+                    f"for a directional prediction.",
+                    icon="ℹ️",
+                )
+
+        tau_pos = abst_test.get("decision_thresholds", {}).get("tau_pos", 0)
+        tau_neg = abst_test.get("decision_thresholds", {}).get("tau_neg", 0)
+        with st.expander("ℹ️ How are predictions decided?"):
+            st.markdown(
+                f"The system uses **asymmetric decision thresholds** to determine the final prediction. "
+                f"Rather than simply picking the highest-scoring label, each directional class must exceed "
+                f"a minimum confidence threshold:\n\n"
+                f"- **Positive** prediction requires a score ≥ **{tau_pos:.0%}**\n"
+                f"- **Negative** prediction requires a score ≥ **{tau_neg:.0%}**\n"
+                f"- If neither threshold is met, the prediction defaults to **Neutral**\n\n"
+                f"These thresholds are calibrated on a held-out tune set to balance precision and recall. "
+                f"The asymmetry reflects the different score distributions produced by the model for each class."
             )
 
     st.divider()
@@ -1579,6 +1617,13 @@ def main() -> None:
         st.divider()
         st.caption(f"Model: `{MODEL_NAME}`")
         st.caption(f"Pipeline: `{SENTIMENT_MODEL}`")
+        st.divider()
+        st.caption(
+            "⚠️ The Finnhub API provides up to 1 year of historical news. "
+            "Start dates should be within the last 11 months, as the backward "
+            "lookback window extends further back and may exceed the API's "
+            "1-year limit if dates are too far in the past."
+        )
 
     if run_btn:
         if not company_name.strip():

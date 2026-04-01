@@ -29,12 +29,41 @@ from config import (
 
 
 SELECTED_CASE_IDS = [
-    "MSFT_W1_bull_run_025",    # W=1,  Microsoft (Tech)
-    "GOOGL_W3_bull_run_053",   # W=3,  Alphabet (Tech)
-    "NVDA_W5_bull_run_105",    # W=5,  Nvidia (Tech)
-    "TSLA_W7_bull_run_157",    # W=7,  Tesla (Tech)
-    "BAC_W14_bull_run_209",    # W=14, Bank of America (Finance)
-    "UNH_W31_bull_run_333",    # W=31, UnitedHealth (Healthcare)
+    # Tech (MSFT) — all 6 windows
+    "MSFT_W1_bull_run_025",
+    "MSFT_W3_bull_run_029",
+    "MSFT_W5_bull_run_033",
+    "MSFT_W7_bull_run_037",
+    "MSFT_W14_bull_run_041",
+    "MSFT_W31_bull_run_045",
+    # Finance (BAC) — all 6 windows
+    "BAC_W1_bull_run_193",
+    "BAC_W3_bull_run_197",
+    "BAC_W5_bull_run_201",
+    "BAC_W7_bull_run_205",
+    "BAC_W14_bull_run_209",
+    "BAC_W31_bull_run_213",
+    # Consumer (KO) — all 6 windows
+    "KO_W1_bull_run_409",
+    "KO_W3_bull_run_413",
+    "KO_W5_bull_run_417",
+    "KO_W7_bull_run_421",
+    "KO_W14_bull_run_425",
+    "KO_W31_bull_run_429",
+    # Energy (XOM) — all 6 windows
+    "XOM_W1_bull_run_337",
+    "XOM_W3_bull_run_341",
+    "XOM_W5_bull_run_345",
+    "XOM_W7_bull_run_349",
+    "XOM_W14_bull_run_353",
+    "XOM_W31_bull_run_357",
+    # Healthcare (UNH) — all 6 windows
+    "UNH_W1_bull_run_313",
+    "UNH_W3_bull_run_317",
+    "UNH_W5_bull_run_321",
+    "UNH_W7_bull_run_325",
+    "UNH_W14_bull_run_329",
+    "UNH_W31_bull_run_333",
 ]
 
 

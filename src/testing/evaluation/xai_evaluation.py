@@ -45,7 +45,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 HOLDOUT_PATH = DATASET_PATH / "holdout_set.json"
-EVAL_DEBERTA_PATH = EVAL_RESULTS_PATH / "evaluation_results_deberta.json"
+EVAL_DEBERTA_PATH = EVAL_RESULTS_PATH / "evaluation_results_zero_shot.json"
 COVERAGE_COUNT_BOOST = True
 HEADLINE_ONLY_WEIGHT = 0.5
 
@@ -163,6 +163,21 @@ def compute_quality_flags(holdout_cases, articles_base):
             max_domain_share = max(domain_counts.values()) / n_articles
             if max_domain_share > 0.6:
                 flag_counts["source_diversity"] += 1
+                n_flags += 1
+
+        # 5. Timing alignment
+        has_market_date = any(a.get("market_date") for a in articles)
+        if not has_market_date:
+            flag_counts["timing_alignment"] += 1
+            n_flags += 1
+
+        # 6. Horizon coverage
+        ages = [a.get("days_ago", 0) for a in articles]
+        if ages:
+            lookback_span = max(ages) - min(ages) + 1
+            max_backward = article_data.get("max_backward_days", case.get("expected_backward_days", 0))
+            if max_backward and lookback_span < max_backward:
+                flag_counts["horizon_coverage"] += 1
                 n_flags += 1
 
         # Quality rating
@@ -362,7 +377,7 @@ def print_quality_report(results):
 
     print(f"\n  {'Flag':<30} {'Triggered':>10} {'Rate':>10}")
     print(f"  {'-'*50}")
-    for flag_name in ["thin_evidence", "weight_concentration", "label_margin", "source_diversity"]:
+    for flag_name in ["thin_evidence", "weight_concentration", "label_margin", "source_diversity", "timing_alignment", "horizon_coverage"]:
         count = flags.get(flag_name, 0)
         pct = count / total * 100
         print(f"  {flag_name:<30} {count:>10} {pct:>9.1f}%")

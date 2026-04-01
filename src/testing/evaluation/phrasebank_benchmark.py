@@ -482,7 +482,7 @@ class DeBERTaPredictor:
         logger.info("Loading DeBERTa (zero-shot) model...")
         self.pipe = pipeline(
             "zero-shot-classification",
-            model=MODEL_NAME,
+            model="microsoft/deberta-large-mnli",
             device=device,
         )
         if getattr(self.pipe.tokenizer, "model_max_length", 0) > 10000:
@@ -522,6 +522,77 @@ class DeBERTaPredictor:
                 abstention_result = apply_abstention(scores, article_weights=[1.0])
 
                 predictions.append(abstention_result["final_label"])
+        return predictions
+
+    def predict_with_config(
+        self,
+        texts: list[str],
+        config: dict[str, Any],
+    ) -> list[str]:
+        """Predict using a specific label configuration (for tuning)."""
+        label_map = config["label_map"]
+        candidate_labels = list(label_map.values())
+        reverse_map = {v.lower().strip(): k for k, v in label_map.items()}
+        hypothesis_template = config["hypothesis_template"]
+
+        predictions: list[str] = []
+        for batch in _chunks(texts, self.batch_size):
+            outputs = self.pipe(
+                batch,
+                candidate_labels=candidate_labels,
+                hypothesis_template=hypothesis_template,
+                multi_label=False,
+                batch_size=self.batch_size,
+                truncation=True,
+                max_length=512,
+            )
+            if isinstance(outputs, dict):
+                outputs = [outputs]
+
+            for item in outputs:
+                top_nli_label = item.get("labels", ["neutral"])[0]
+                canonical = reverse_map.get(
+                    top_nli_label.lower().strip(), "neutral"
+                )
+                predictions.append(canonical)
+        return predictions
+
+
+class RoBERTaPredictor:
+    """Zero-shot NLI predictor using RoBERTa-Large-MNLI."""
+
+    def __init__(self, device: int, batch_size: int):
+        from transformers import pipeline
+
+        self.batch_size = batch_size
+        self.max_length = 512
+
+        logger.info("Loading RoBERTa (zero-shot) model...")
+        self.pipe = pipeline(
+            "zero-shot-classification",
+            model="roberta-large-mnli",
+            device=device,
+        )
+        if getattr(self.pipe.tokenizer, "model_max_length", 0) > 10000:
+            self.pipe.tokenizer.model_max_length = self.max_length
+        logger.info("RoBERTa model ready")
+
+    def predict(self, texts: list[str]) -> list[str]:
+        predictions: list[str] = []
+        for batch in _chunks(texts, self.batch_size):
+            outputs = self.pipe(
+                batch,
+                candidate_labels=["positive", "negative", "neutral"],
+                multi_label=False,
+                batch_size=self.batch_size,
+                truncation=True,
+                max_length=512,
+            )
+            if isinstance(outputs, dict):
+                outputs = [outputs]
+            for item in outputs:
+                top_label = item.get("labels", ["neutral"])[0]
+                predictions.append(top_label)
         return predictions
 
     def predict_with_config(
@@ -690,6 +761,8 @@ def _create_predictor(args: argparse.Namespace):
 
     if model == "deberta":
         return DeBERTaPredictor(device=args.device, batch_size=args.batch_size)
+    elif model == "roberta":
+        return RoBERTaPredictor(device=args.device, batch_size=args.batch_size)
     elif model == "ollama-llama3":
         return OllamaPredictor(model_name="llama3.1:8b")
     elif model == "ollama-mistral":
@@ -705,6 +778,7 @@ def _create_predictor(args: argparse.Namespace):
 def _model_display_name(model: str) -> str:
     names = {
         "deberta": "microsoft/deberta-large-mnli",
+        "roberta": "roberta-large-mnli",
         "ollama-llama3": "llama3.1:8b (Ollama)",
         "ollama-mistral": "mistral:7b (Ollama)",
         "finbert": "ProsusAI/finbert",
@@ -720,9 +794,9 @@ def run_benchmark(args: argparse.Namespace) -> dict[str, Any]:
 
     model = getattr(args, "model", "deberta")
 
-    # Resolve optional tuning config for benchmark mode (DeBERTa only)
+    # Resolve optional tuning config for benchmark mode
     config = None
-    if model == "deberta":
+    if model in ("deberta", "roberta"):
         config = _resolve_config(getattr(args, "config", None))
         if config:
             logger.info(
@@ -750,8 +824,8 @@ def run_benchmark(args: argparse.Namespace) -> dict[str, Any]:
             "datasets": [d.path for d in datasets],
             "max_samples": args.max_samples,
             "device": args.device,
-            "decision_threshold_enabled": DECISION_THRESHOLD_ENABLED if model == "deberta" else False,
-            "dynamic_margin_enabled": DYNAMIC_MARGIN_ENABLED if model == "deberta" else False,
+            "decision_threshold_enabled": DECISION_THRESHOLD_ENABLED if model in ("deberta", "roberta") else False,
+            "dynamic_margin_enabled": DYNAMIC_MARGIN_ENABLED if model in ("deberta", "roberta") else False,
         },
         "results": {},
         "failures": [],
@@ -761,7 +835,7 @@ def run_benchmark(args: argparse.Namespace) -> dict[str, Any]:
         logger.info("Evaluating %s on dataset=%s samples=%d", model_name, dataset.name, len(dataset.texts))
         started = time.time()
         try:
-            if config and model == "deberta":
+            if config and model in ("deberta", "roberta"):
                 y_pred = predictor.predict_with_config(dataset.texts, config)
             else:
                 y_pred = predictor.predict(dataset.texts)
@@ -1217,7 +1291,7 @@ def run_label_tuning(args: argparse.Namespace) -> dict[str, Any]:
             args.test_ratio, args.n_folds, args.seed,
         )
 
-    predictor = DeBERTaPredictor(device=args.device, batch_size=args.batch_size)
+    predictor = _create_predictor(args)
 
     # ── Stage 1: Coarse screen on 50agree dev set ──
     coarse_ds = dataset_splits[min(COARSE_DATASET_IDX, len(dataset_splits) - 1)]
@@ -1532,7 +1606,7 @@ def parse_args() -> argparse.Namespace:
     # ── Model selection ──
     parser.add_argument(
         "--model",
-        choices=["deberta", "ollama-llama3", "ollama-mistral", "finbert", "fingpt"],
+        choices=["deberta", "roberta", "ollama-llama3", "ollama-mistral", "finbert", "fingpt"],
         default="deberta",
         help="Which model to benchmark (default: deberta).",
     )
@@ -1613,7 +1687,8 @@ def main() -> None:
     if args.mode == "tune":
         report = run_label_tuning(args)
 
-        output_path = FPB_PATH / "phrasebank_label_tuning_roberta.json"
+        model_tag = getattr(args, "model", "deberta")
+        output_path = FPB_PATH / f"phrasebank_label_tuning_{model_tag}.json"
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(report, f, indent=2, ensure_ascii=False)

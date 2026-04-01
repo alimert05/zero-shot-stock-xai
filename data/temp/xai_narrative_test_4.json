@@ -2,7 +2,7 @@
   "meta": {
     "query": "Coca-Cola",
     "ticker": "KO",
-    "xai_timestamp": "2026-03-27 01:14:07",
+    "xai_timestamp": "2026-03-27 01:16:08",
     "articles_analyzed": 86,
     "prediction_window_days": 31,
     "news_lookback": "2026-02-27 to 2026-03-27 (ET market-close aligned)",
@@ -99,103 +99,103 @@
         "lime_label_explained": "neutral",
         "token_weights": [
           {
-            "token": "Remains",
-            "weight": 0.140622,
-            "direction": "supports"
+            "token": "Sentiment",
+            "weight": -0.154047,
+            "direction": "opposes"
           },
           {
-            "token": "Sentiment",
-            "weight": -0.139881,
-            "direction": "opposes"
+            "token": "Remains",
+            "weight": 0.150283,
+            "direction": "supports"
           },
           {
             "token": "Behind",
-            "weight": 0.097233,
+            "weight": 0.117076,
             "direction": "supports"
-          },
-          {
-            "token": "Facts",
-            "weight": -0.059898,
-            "direction": "opposes"
           },
           {
             "token": "Market",
-            "weight": 0.05921,
-            "direction": "supports"
-          },
-          {
-            "token": "moving",
-            "weight": 0.043449,
+            "weight": 0.07522,
             "direction": "supports"
           },
           {
             "token": "for",
-            "weight": 0.041762,
-            "direction": "supports"
-          },
-          {
-            "token": "KO",
-            "weight": 0.038394,
-            "direction": "supports"
-          },
-          {
-            "token": "session",
-            "weight": 0.028746,
-            "direction": "supports"
-          },
-          {
-            "token": "the",
-            "weight": 0.026996,
-            "direction": "supports"
-          },
-          {
-            "token": "Note",
-            "weight": -0.026898,
-            "direction": "opposes"
-          },
-          {
-            "token": "0",
-            "weight": 0.026155,
+            "weight": 0.049487,
             "direction": "supports"
           },
           {
             "token": "Ascends",
-            "weight": -0.023959,
+            "weight": -0.049112,
             "direction": "opposes"
           },
           {
-            "token": "recent",
-            "weight": 0.022971,
-            "direction": "supports"
-          },
-          {
-            "token": "to",
-            "weight": -0.022245,
-            "direction": "opposes"
-          },
-          {
-            "token": "most",
-            "weight": 0.019601,
-            "direction": "supports"
-          },
-          {
-            "token": "closed",
-            "weight": 0.017443,
+            "token": "0",
+            "weight": 0.045234,
             "direction": "supports"
           },
           {
             "token": "35",
-            "weight": -0.017268,
+            "weight": -0.026101,
             "direction": "opposes"
           },
           {
+            "token": "moving",
+            "weight": 0.023614,
+            "direction": "supports"
+          },
+          {
+            "token": "Cola",
+            "weight": -0.021134,
+            "direction": "opposes"
+          },
+          {
+            "token": "session",
+            "weight": 0.020778,
+            "direction": "supports"
+          },
+          {
+            "token": "Coca",
+            "weight": -0.019827,
+            "direction": "opposes"
+          },
+          {
+            "token": "from",
+            "weight": 0.018052,
+            "direction": "supports"
+          },
+          {
+            "token": "trading",
+            "weight": 0.016828,
+            "direction": "supports"
+          },
+          {
+            "token": "at",
+            "weight": 0.015553,
+            "direction": "supports"
+          },
+          {
             "token": "day",
-            "weight": -0.014957,
+            "weight": 0.013462,
+            "direction": "supports"
+          },
+          {
+            "token": "most",
+            "weight": -0.010893,
+            "direction": "opposes"
+          },
+          {
+            "token": "recent",
+            "weight": 0.009916,
+            "direction": "supports"
+          },
+          {
+            "token": "the",
+            "weight": -0.00949,
             "direction": "opposes"
           },
           {
             "token": "71",
-            "weight": -0.013316,
+            "weight": -0.009467,
             "direction": "opposes"
           }
         ],
@@ -208,10 +208,9 @@
         ],
         "top_tokens_opposing": [
           "Sentiment",
-          "Facts",
-          "Note",
           "Ascends",
-          "day"
+          "Cola",
+          "Coca"
         ]
       },
       {
@@ -224,119 +223,119 @@
         "lime_label_explained": "neutral",
         "token_weights": [
           {
-            "token": "turmoil",
-            "weight": -0.079141,
-            "direction": "opposes"
-          },
-          {
             "token": "During",
-            "weight": 0.068947,
+            "weight": 0.071272,
             "direction": "supports"
           },
           {
-            "token": "Help",
-            "weight": 0.04968,
-            "direction": "supports"
+            "token": "turmoil",
+            "weight": -0.068479,
+            "direction": "opposes"
           },
           {
             "token": "Sentiment",
-            "weight": -0.047607,
+            "weight": -0.064236,
             "direction": "opposes"
           },
           {
-            "token": "Safe",
-            "weight": 0.042521,
+            "token": "Help",
+            "weight": 0.045686,
             "direction": "supports"
           },
           {
-            "token": "Keep",
-            "weight": 0.036087,
+            "token": "NYSE",
+            "weight": 0.033382,
+            "direction": "supports"
+          },
+          {
+            "token": "Safe",
+            "weight": 0.032087,
+            "direction": "supports"
+          },
+          {
+            "token": "Money",
+            "weight": -0.03091,
+            "direction": "opposes"
+          },
+          {
+            "token": "Can",
+            "weight": 0.030715,
+            "direction": "supports"
+          },
+          {
+            "token": "or",
+            "weight": -0.028823,
+            "direction": "opposes"
+          },
+          {
+            "token": "chip",
+            "weight": -0.026649,
+            "direction": "opposes"
+          },
+          {
+            "token": "Cola",
+            "weight": 0.02272,
+            "direction": "supports"
+          },
+          {
+            "token": "start",
+            "weight": 0.020342,
+            "direction": "supports"
+          },
+          {
+            "token": "and",
+            "weight": 0.020015,
             "direction": "supports"
           },
           {
             "token": "Coca",
-            "weight": 0.035417,
+            "weight": 0.019777,
             "direction": "supports"
           },
           {
-            "token": "a",
-            "weight": 0.027528,
+            "token": "week",
+            "weight": 0.018038,
             "direction": "supports"
           },
           {
-            "token": "may",
-            "weight": 0.027173,
+            "token": "Your",
+            "weight": 0.016087,
             "direction": "supports"
           },
           {
-            "token": "declined",
-            "weight": -0.022974,
+            "token": "stock",
+            "weight": -0.014539,
             "direction": "opposes"
           },
           {
-            "token": "and",
-            "weight": 0.021793,
+            "token": "of",
+            "weight": 0.013058,
             "direction": "supports"
           },
           {
-            "token": "Crash",
-            "weight": -0.019262,
-            "direction": "opposes"
-          },
-          {
-            "token": "savings",
-            "weight": -0.019035,
-            "direction": "opposes"
-          },
-          {
-            "token": "entering",
-            "weight": 0.018899,
+            "token": "blue",
+            "weight": 0.012558,
             "direction": "supports"
           },
           {
-            "token": "the",
-            "weight": 0.018501,
-            "direction": "supports"
-          },
-          {
-            "token": "is",
-            "weight": -0.017184,
-            "direction": "opposes"
-          },
-          {
-            "token": "safe",
-            "weight": -0.016772,
-            "direction": "opposes"
-          },
-          {
-            "token": "How",
-            "weight": -0.015911,
-            "direction": "opposes"
-          },
-          {
-            "token": "be",
-            "weight": -0.010703,
-            "direction": "opposes"
-          },
-          {
-            "token": "since",
-            "weight": -0.006398,
+            "token": "can",
+            "weight": -0.012278,
             "direction": "opposes"
           }
         ],
         "top_tokens_supporting": [
           "During",
           "Help",
+          "NYSE",
           "Safe",
-          "Keep",
-          "Coca"
+          "Can"
         ],
         "top_tokens_opposing": [
           "turmoil",
           "Sentiment",
-          "declined",
-          "Crash",
-          "savings"
+          "Money",
+          "chip",
+          "stock"
         ]
       },
       {
@@ -350,118 +349,117 @@
         "token_weights": [
           {
             "token": "Buy",
-            "weight": -0.12216,
+            "weight": -0.104614,
             "direction": "opposes"
           },
           {
             "token": "Sentiment",
-            "weight": -0.108424,
+            "weight": -0.104372,
             "direction": "opposes"
           },
           {
             "token": "Tomorrow",
-            "weight": -0.078852,
+            "weight": -0.083506,
             "direction": "opposes"
-          },
-          {
-            "token": "beverage",
-            "weight": -0.04599,
-            "direction": "opposes"
-          },
-          {
-            "token": "volatile",
-            "weight": 0.043402,
-            "direction": "supports"
           },
           {
             "token": "safe",
-            "weight": 0.042094,
+            "weight": 0.055218,
             "direction": "supports"
-          },
-          {
-            "token": "No",
-            "weight": 0.037348,
-            "direction": "supports"
-          },
-          {
-            "token": "giant",
-            "weight": -0.036131,
-            "direction": "opposes"
-          },
-          {
-            "token": "Reasons",
-            "weight": -0.027516,
-            "direction": "opposes"
-          },
-          {
-            "token": "haven",
-            "weight": -0.022345,
-            "direction": "opposes"
-          },
-          {
-            "token": "a",
-            "weight": -0.022155,
-            "direction": "opposes"
-          },
-          {
-            "token": "Coca",
-            "weight": 0.021733,
-            "direction": "supports"
-          },
-          {
-            "token": "for",
-            "weight": -0.019134,
-            "direction": "opposes"
-          },
-          {
-            "token": "market",
-            "weight": -0.016961,
-            "direction": "opposes"
           },
           {
             "token": "Like",
-            "weight": -0.015835,
+            "weight": -0.035229,
             "direction": "opposes"
           },
           {
             "token": "s",
-            "weight": -0.015621,
+            "weight": -0.03499,
             "direction": "opposes"
           },
           {
-            "token": "There",
-            "weight": -0.012281,
+            "token": "Reasons",
+            "weight": -0.027499,
             "direction": "opposes"
           },
           {
-            "token": "Cola",
-            "weight": 0.011548,
-            "direction": "supports"
+            "token": "a",
+            "weight": -0.026953,
+            "direction": "opposes"
           },
           {
-            "token": "to",
-            "weight": -0.007516,
+            "token": "giant",
+            "weight": -0.018284,
             "direction": "opposes"
           },
           {
             "token": "Stock",
-            "weight": 0.00727,
+            "weight": -0.017704,
+            "direction": "opposes"
+          },
+          {
+            "token": "volatile",
+            "weight": 0.01668,
+            "direction": "supports"
+          },
+          {
+            "token": "this",
+            "weight": -0.016547,
+            "direction": "opposes"
+          },
+          {
+            "token": "Cola",
+            "weight": -0.015225,
+            "direction": "opposes"
+          },
+          {
+            "token": "is",
+            "weight": 0.014934,
+            "direction": "supports"
+          },
+          {
+            "token": "to",
+            "weight": -0.014004,
+            "direction": "opposes"
+          },
+          {
+            "token": "beverage",
+            "weight": 0.009673,
+            "direction": "supports"
+          },
+          {
+            "token": "market",
+            "weight": 0.009175,
+            "direction": "supports"
+          },
+          {
+            "token": "good",
+            "weight": -0.008296,
+            "direction": "opposes"
+          },
+          {
+            "token": "5",
+            "weight": 0.007739,
+            "direction": "supports"
+          },
+          {
+            "token": "for",
+            "weight": 0.003608,
             "direction": "supports"
           }
         ],
         "top_tokens_supporting": [
-          "volatile",
           "safe",
-          "Coca",
-          "Cola",
-          "Stock"
+          "volatile",
+          "beverage",
+          "market"
         ],
         "top_tokens_opposing": [
           "Buy",
           "Sentiment",
           "Tomorrow",
-          "beverage",
-          "giant"
+          "Like",
+          "Reasons"
         ]
       },
       {
@@ -474,119 +472,118 @@
         "lime_label_explained": "neutral",
         "token_weights": [
           {
-            "token": "Concerns",
-            "weight": -0.052303,
-            "direction": "opposes"
-          },
-          {
-            "token": "Quarter",
-            "weight": -0.047103,
-            "direction": "opposes"
-          },
-          {
             "token": "Sell",
-            "weight": -0.042936,
+            "weight": -0.064029,
             "direction": "opposes"
           },
           {
             "token": "misleading",
-            "weight": -0.040647,
+            "weight": -0.054601,
             "direction": "opposes"
           },
           {
-            "token": "optimistic",
-            "weight": 0.034554,
-            "direction": "supports"
-          },
-          {
-            "token": "sales",
-            "weight": -0.028067,
-            "direction": "opposes"
-          },
-          {
-            "token": "growth",
-            "weight": 0.025969,
-            "direction": "supports"
-          },
-          {
-            "token": "its",
-            "weight": -0.024402,
-            "direction": "opposes"
-          },
-          {
-            "token": "Belies",
-            "weight": -0.020993,
-            "direction": "opposes"
-          },
-          {
-            "token": "Results",
-            "weight": -0.018892,
-            "direction": "opposes"
-          },
-          {
-            "token": "recent",
-            "weight": -0.017121,
-            "direction": "opposes"
-          },
-          {
-            "token": "Valuation",
-            "weight": 0.016178,
-            "direction": "supports"
-          },
-          {
-            "token": "a",
-            "weight": -0.015353,
+            "token": "Concerns",
+            "weight": -0.051855,
             "direction": "opposes"
           },
           {
             "token": "overly",
-            "weight": -0.013387,
+            "weight": -0.047268,
+            "direction": "opposes"
+          },
+          {
+            "token": "optimistic",
+            "weight": 0.045753,
+            "direction": "supports"
+          },
+          {
+            "token": "Quarter",
+            "weight": -0.02988,
+            "direction": "opposes"
+          },
+          {
+            "token": "a",
+            "weight": -0.020897,
+            "direction": "opposes"
+          },
+          {
+            "token": "KO",
+            "weight": 0.018221,
+            "direction": "supports"
+          },
+          {
+            "token": "and",
+            "weight": -0.017518,
+            "direction": "opposes"
+          },
+          {
+            "token": "increase",
+            "weight": -0.016307,
+            "direction": "opposes"
+          },
+          {
+            "token": "Results",
+            "weight": -0.01552,
+            "direction": "opposes"
+          },
+          {
+            "token": "its",
+            "weight": -0.015059,
             "direction": "opposes"
           },
           {
             "token": "was",
-            "weight": 0.011519,
+            "weight": 0.012877,
             "direction": "supports"
           },
           {
-            "token": "The",
-            "weight": -0.010784,
+            "token": "recent",
+            "weight": 0.011915,
+            "direction": "supports"
+          },
+          {
+            "token": "why",
+            "weight": -0.0107,
             "direction": "opposes"
+          },
+          {
+            "token": "valuation",
+            "weight": 0.009833,
+            "direction": "supports"
+          },
+          {
+            "token": "looks",
+            "weight": 0.00913,
+            "direction": "supports"
           },
           {
             "token": "Read",
-            "weight": 0.010172,
-            "direction": "supports"
-          },
-          {
-            "token": "is",
-            "weight": 0.009703,
-            "direction": "supports"
-          },
-          {
-            "token": "increase",
-            "weight": -0.007023,
+            "weight": -0.007879,
             "direction": "opposes"
           },
           {
-            "token": "stock",
-            "weight": 0.005704,
-            "direction": "supports"
+            "token": "sales",
+            "weight": -0.00686,
+            "direction": "opposes"
+          },
+          {
+            "token": "Valuation",
+            "weight": -0.006624,
+            "direction": "opposes"
           }
         ],
         "top_tokens_supporting": [
           "optimistic",
-          "growth",
-          "Valuation",
-          "Read",
-          "stock"
+          "recent",
+          "valuation",
+          "looks"
         ],
         "top_tokens_opposing": [
-          "Concerns",
-          "Quarter",
           "Sell",
           "misleading",
-          "sales"
+          "Concerns",
+          "overly",
+          "Quarter"
         ]
       },
       {
@@ -600,114 +597,115 @@
         "token_weights": [
           {
             "token": "Sentiment",
-            "weight": -0.080521,
+            "weight": -0.06358,
             "direction": "opposes"
           },
           {
             "token": "Buy",
-            "weight": -0.067799,
-            "direction": "opposes"
-          },
-          {
-            "token": "up",
-            "weight": -0.047625,
+            "weight": -0.063215,
             "direction": "opposes"
           },
           {
             "token": "Like",
-            "weight": -0.03345,
+            "weight": -0.047519,
             "direction": "opposes"
           },
           {
             "token": "Tomorrow",
-            "weight": -0.033265,
+            "weight": -0.042851,
             "direction": "opposes"
-          },
-          {
-            "token": "beats",
-            "weight": -0.033069,
-            "direction": "opposes"
-          },
-          {
-            "token": "KO",
-            "weight": 0.032335,
-            "direction": "supports"
           },
           {
             "token": "Reasons",
-            "weight": -0.032086,
+            "weight": -0.029442,
             "direction": "opposes"
           },
           {
             "token": "not",
-            "weight": 0.026767,
+            "weight": 0.028887,
             "direction": "supports"
           },
           {
-            "token": "every",
-            "weight": -0.026573,
-            "direction": "opposes"
-          },
-          {
-            "token": "There",
-            "weight": -0.02536,
+            "token": "the",
+            "weight": -0.028873,
             "direction": "opposes"
           },
           {
             "token": "great",
-            "weight": -0.023347,
+            "weight": -0.024673,
             "direction": "opposes"
           },
           {
-            "token": "NYSE",
-            "weight": -0.022023,
+            "token": "beats",
+            "weight": -0.023419,
             "direction": "opposes"
           },
           {
-            "token": "s",
-            "weight": -0.020892,
+            "token": "day",
+            "weight": -0.021782,
             "direction": "opposes"
           },
           {
-            "token": "It",
-            "weight": -0.019636,
+            "token": "for",
+            "weight": -0.02165,
             "direction": "opposes"
           },
           {
-            "token": "time",
-            "weight": -0.017816,
+            "token": "every",
+            "weight": -0.020204,
             "direction": "opposes"
           },
           {
-            "token": "Coca",
-            "weight": 0.01774,
+            "token": "down",
+            "weight": 0.019343,
             "direction": "supports"
           },
           {
-            "token": "stock",
-            "weight": -0.017647,
+            "token": "up",
+            "weight": -0.014551,
             "direction": "opposes"
           },
           {
-            "token": "or",
-            "weight": 0.015505,
+            "token": "understand",
+            "weight": 0.013698,
             "direction": "supports"
           },
           {
-            "token": "500",
-            "weight": 0.01503,
-            "direction": "supports"
+            "token": "while",
+            "weight": -0.01283,
+            "direction": "opposes"
+          },
+          {
+            "token": "why",
+            "weight": -0.011551,
+            "direction": "opposes"
+          },
+          {
+            "token": "to",
+            "weight": -0.009835,
+            "direction": "opposes"
+          },
+          {
+            "token": "Stock",
+            "weight": -0.008711,
+            "direction": "opposes"
+          },
+          {
+            "token": "4",
+            "weight": -0.008293,
+            "direction": "opposes"
           }
         ],
         "top_tokens_supporting": [
-          "Coca"
+          "down",
+          "understand"
         ],
         "top_tokens_opposing": [
           "Sentiment",
           "Buy",
-          "up",
           "Like",
-          "Tomorrow"
+          "Tomorrow",
+          "Reasons"
         ]
       }
     ]
@@ -8118,7 +8116,7 @@
         ]
       },
       {
-        "label": "Billionaire endorsements boost dividend stock popularity.",
+        "label": "Billionaire investors favor this beverage giant.",
         "keyword_label": "cola, coca, coca cola",
         "articles_count": 10,
         "weighted_score": 10.0,
@@ -8164,7 +8162,7 @@
         ]
       },
       {
-        "label": "EU targets major beverage industry players.",
+        "label": "EU targets bottlers and facilities for investigation.",
         "keyword_label": "coca, eu, eu antitrust",
         "articles_count": 4,
         "weighted_score": 4.0,
@@ -8238,7 +8236,7 @@
         ]
       },
       {
-        "label": "Beverage giant struggles in economic downturn.",
+        "label": "Beverage giant faces declining sales and profits",
         "keyword_label": "coca cola, cola, stock",
         "articles_count": 2,
         "weighted_score": 2.0,
@@ -8256,7 +8254,7 @@
         ]
       },
       {
-        "label": "Investor returns boost company's stock performance.",
+        "label": "Investor returns outpace corporate governance concerns.",
         "keyword_label": "cola, cola nyse, ko",
         "articles_count": 3,
         "weighted_score": 3.0,
@@ -8312,7 +8310,7 @@
         ]
       },
       {
-        "label": "Beverage giant's stock faces market volatility issues.",
+        "label": "Beverage giant faces market volatility challenges.",
         "keyword_label": "stock, ko stock, cola ko",
         "articles_count": 2,
         "weighted_score": 2.0,
@@ -8330,7 +8328,7 @@
         ]
       },
       {
-        "label": "Institutional investors favor the beverage giant.",
+        "label": "Institutional investors favor the company's strong performance.",
         "keyword_label": "ko, nyse ko, nyse",
         "articles_count": 2,
         "weighted_score": 2.0,
@@ -8348,7 +8346,7 @@
         ]
       },
       {
-        "label": "Coca-Cola recalls cans due to potential contamination.",
+        "label": "Plastic contamination found in soda cans nationwide.",
         "keyword_label": "possible, possible plastic, coca",
         "articles_count": 2,
         "weighted_score": 2.0,

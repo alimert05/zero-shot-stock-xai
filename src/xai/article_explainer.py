@@ -83,9 +83,16 @@ def _compute_contrastive(
     current_label = prediction_result.get("final_label", "neutral")
 
     sorted_labels = sorted(normalized, key=normalized.get, reverse=True)
-    winner = sorted_labels[0]
-    runner_up = sorted_labels[1]
-    third_place = sorted_labels[2] if len(sorted_labels) > 2 else None
+    # Use the final label (after thresholds) as the winner, not the raw argmax
+    if current_label in normalized and current_label != sorted_labels[0]:
+        winner = current_label
+        remaining = [l for l in sorted_labels if l != current_label]
+        runner_up = remaining[0] if remaining else sorted_labels[1]
+        third_place = remaining[1] if len(remaining) > 1 else None
+    else:
+        winner = sorted_labels[0]
+        runner_up = sorted_labels[1]
+        third_place = sorted_labels[2] if len(sorted_labels) > 2 else None
 
     winner_score = normalized.get(winner, 0.0)
     runner_up_score = normalized.get(runner_up, 0.0)

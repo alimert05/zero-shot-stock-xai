@@ -1,11 +1,11 @@
 ============================================================
   SENTIMENT ANALYSIS EXPLANATION REPORT
 ============================================================
-  Company           : UnitedHealth Group  (UNH)
+  Company           : Coca-Cola  (KO)
   Forecast horizon  : 31 days
-  News lookback     : 2026-02-23 to 2026-03-23 (ET market-close aligned)
-  Articles analysed : 139
-  Generated at      : 2026-03-23 10:22:02
+  News lookback     : 2026-02-27 to 2026-03-27 (ET market-close aligned)
+  Articles analysed : 86
+  Generated at      : 2026-03-27 01:15:07
 ============================================================
 
 ════════════════════════════════════════════════════════════
@@ -17,9 +17,9 @@
   What the model decided and why — in plain English
 ------------------------------------------------------------
 
-  The model predicted a NEGATIVE label with a 53.5% score share based on 139 articles over 31 days.
-The top article is "UnitedHealth spent $1.7 million on executive security last year, 4 times the corporate average. Experts expect the figure to keep climbing" with a NEGATIVE sentiment.
-The label margin is moderate (0.229), but evidence quality is HIGH due to a HIGH evidence quality with no concerns.
+  The model predicted a NEUTRAL label with a 46.5% score share based on 86 articles over 31 days.
+The top article is "Coca-Cola (KO) Stock Moves -0.25%: What You Should Know" with a NEGATIVE sentiment, accounting for 2.5% of the total weight.
+The label margin is clear (0.261), but evidence quality is HIGH due to no concerns regarding source concentration and no narrow decision margin.
 
   PREDICTION RESULT
   Sentiment scores across all analysed articles
@@ -32,12 +32,26 @@ The label margin is moderate (0.229), but evidence quality is HIGH due to a HIGH
 
   Score chart  (each █ ≈ 2.5%):
 
-    positive :  30.6%  ████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-    negative :  53.5%  █████████████████████░░░░░░░░░░░░░░░░░░░  ◄ PREDICTED
-     neutral :   5.8%  ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+    positive :  46.5%  ███████████████████░░░░░░░░░░░░░░░░░░░░░
+    negative :  20.4%  ████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+     neutral :  17.6%  ███████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  ◄ PREDICTED
 
-  Verdict     : NEGATIVE
-  Model support : 53.5%  (share of model weight, not a probability)
+  Verdict     : NEUTRAL — Mixed Sentiment
+  Model support : 46.5%  (share of model weight, not a probability)
+
+  ┌─ Why Neutral? ─────────────────────────────────────┐
+  │ Articles show divided sentiment:                   │
+  │   Positive:  46.5%   Negative:  20.4%              │
+  │                                                    │
+  │ Neither direction reaches the consensus threshold  │
+  │ required for a directional prediction:             │
+  │   Positive needs ≥ 56%  (got 46.5%)              │
+  │   Negative needs ≥ 26%  (got 20.4%)              │
+  │                                                    │
+  │ When positive and negative signals are closely     │
+  │ balanced, a directional call would be unreliable.  │
+  │ The system classifies this as mixed/inconclusive.  │
+  └────────────────────────────────────────────────────┘
 
   RECOMMENDATION
   What you should do with this result
@@ -47,122 +61,109 @@ The label margin is moderate (0.229), but evidence quality is HIGH due to a HIGH
   NARRATIVE THEMES
   What the news is about and the dominant tone per theme
 ------------------------------------------------------------
-    Earnings / results :  68 articles (49%)  ▼ negative  (+17 / -51 / =0)
-    General commentary :  29 articles (21%)  ▲ positive  (+22 / -7 / =0)
-    Regulatory / legal :  27 articles (19%)  ▼ negative  (+4 / -23 / =0)
-    Distress / credit  :   5 articles (4%)  ▼ negative  (+0 / -5 / =0)
-    Capital / payout   :   5 articles (4%)  ▲ positive  (+5 / -0 / =0)
-    Analyst action     :   3 articles (2%)  ▲ positive  (+2 / -1 / =0)
-    Strategy / M&A     :   1 articles (1%)  ▼ negative  (+0 / -1 / =0)
-    Product / business :   1 articles (1%)  ▲ positive  (+1 / -0 / =0)
+    General commentary :  29 articles (34%)  ▲ positive  (+21 / -7 / =1)
+    Regulatory / legal :  22 articles (26%)  ▼ negative  (+10 / -11 / =1)
+    Earnings / results :  18 articles (21%)  ▲ positive  (+13 / -5 / =0)
+    Capital / payout   :  12 articles (14%)  ▲ positive  (+11 / -1 / =0)
+    Product / business :   3 articles (3%)  ▲ positive  (+3 / -0 / =0)
+    Distress / credit  :   1 articles (1%)  ▼ negative  (+0 / -1 / =0)
+    Leadership change  :   1 articles (1%)  ▲ positive  (+1 / -0 / =0)
 
   Storylines (auto-discovered from article titles):
 
-    Storylines supporting the NEGATIVE prediction:
-      "Investor confidence in healthcare giant wavers." (7 articles)  ▼ negative  (+0 / -7 / =0)
-        → HSBC Downgrades UnitedHealth Group (UNH)
-        → Argus Research Downgrades UnitedHealth Group (UNH)
-        → UnitedHealth Group (UNH) Dips More Than Broader Market: What You Sho
-        → UnitedHealth Group (UNH) Stock Moves -0.07%: What You Should Know
-        → Jim Cramer on UnitedHealth Group Inc. (UNH): A Juggernaut That Rarel
-        → Jim Cramer on UnitedHealth (UNH): Totally Domestic. Totally Independ
-        → UnitedHealth Group (UNH) – Jim Cramer Calls for Patience: ‘Wait Befo
-      "Medical costs and earnings take a hit." (4 articles)  ▼ negative  (+0 / -4 / =0)
-        → UnitedHealth shares tank after earnings miss, forecast cut as medica
-        → UnitedHealth shares crash after surprise earnings miss, cuts to fore
-        → UnitedHealth shares tank on steep forecast cut as medical care costs
-        → UnitedHealth Shares Tumble After Outlook Cut, Higher Medicare Activi
-      "Stocks rise despite health insurer's sharp decline" (5 articles)  ▼ negative  (+0 / -5 / =0)
-        → UnitedHealth Stock Is Having Its Worst Day in 25 Years After Earning
-        → UnitedHealth Loses $120 Billion in Value on Stock's Worst Day Since 
-        → UnitedHealth's worst day in decades keeps Wall Street in check even 
-        → Most US stocks rise, but UnitedHealth's worst day in decades keeps W
-        → UnitedHealth's worst day in decades keeps Wall Street in check as mo
-      "Executive faces death penalty for murder charge." (4 articles)  ▼ negative  (+0 / -4 / =0)
-        → Mangione faces federal charges, death penalty in UnitedHealth execut
-        → Mangione lawyers ask judge to prevent US prosecutors from seeking de
-        → U.S. prosecutors to seek death penalty for Luigi Mangione, Bondi say
-        → US prosecutors to seek death penalty for Luigi Mangione, Bondi says
-      "Medicare Advantage faces financial and regulatory challenges." (3 articles)  ▼ negative  (+0 / -3 / =0)
-        → UnitedHealth Q1 earnings signal trouble for Medicare Advantage playe
-        → UnitedHealth Is Struggling. How Trump’s Medicare Advantage Plan Will
-        → End Of An Era? Special Master Recommends Dismissing Long-Running Med
-      "Billionaires bet on defensive healthcare stock." (6 articles)  ▼ negative  (+0 / -6 / =0)
-        → Is UnitedHealth Group Incorporated (UNH) The Top Falling Stock with 
-        → Is UnitedHealth Group Incorporated (UNH) the Best Performing Long Te
-        → Is UnitedHealth Group Incorporated (UNH) the Best Medical Stock to B
-        → Is UnitedHealth Group (UNH) the Best Low Volatility Stock to Buy Now
-        → UnitedHealth Group Incorporated (UNH): Among Defensive Stocks Billio
-        → Is UnitedHealth Group (UNH) the Best Large-Cap Value Stock to Buy as
-      "Health insurer misses earnings forecast expectations." (4 articles)  ▼ negative  (+0 / -4 / =0)
-        → UnitedHealth (UNH) Sinks 20% After Q1 Miss, Lowered 2025 Earnings Fo
-        → UnitedHealth Group Incorporated (UNH) Q1 2025 Earnings Call Transcri
-        → Q1 2025 UnitedHealth Group Inc Earnings Call
-        → UnitedHealth : Earnings Release Q1 2025
-
     Opposing storylines (positive):
-      "Healthcare giant consistently ranks as top performer." (9 articles)  ▲ positive  (+9 / -0 / =0)
-        → Why UnitedHealth Group (UNH) Is Among the Best Blue Chip Stocks to B
-        → Is UnitedHealth Group Incorporated (UNH) the Best Very Cheap Stock t
-        → UnitedHealth Group (UNH): One of the Best Long Term Stocks to Buy Ac
-        → UnitedHealth Group (UNH): One of the Best Dividend Paying Stock Acco
-        → Why UnitedHealth Group Incorporated (UNH) is Among the Best Teleheal
-        → UnitedHealth Group Incorporated (UNH): One of the Best American Divi
-        → UnitedHealth Group (UNH): Among the Best Healthcare Stocks to Buy Ac
-        → UnitedHealth Group (UNH): One of the Best Stocks That Will Always Gr
-        → UnitedHealth Group Incorporated (UNH) Third Best Roth IRA Stock to B
-      "Investor praises dominant healthcare giant's success." (5 articles)  ▲ positive  (+5 / -0 / =0)
-        → Jim Cramer: UnitedHealth (UNH) “Defines What People Want” – Totally 
-        → Jim Cramer Calls UnitedHealth Group Incorporated (UNH) a Universal B
-        → Jim Cramer Calls UnitedHealth Group (UNH) a “Juggernaut” and Says: “
-        → Jim Cramer: UnitedHealth (UNH) Is an “Amazing Company” and a “Jugger
-        → Jim Cramer: UnitedHealth (UNH) Is a Titan – Buy the Dip Before the B
-      "Insurer's stock value seen as long-term investment." (3 articles)  ▲ positive  (+3 / -0 / =0)
-        → Is UnitedHealth Group Incorporated (UNH) the Low Volatility Stock to
-        → Why UnitedHealth Group (UNH) is a Top Value Stock for the Long-Term
-        → UnitedHealth Group Incorporated (UNH): Among Value Stocks in Ken Fis
-      "Healthcare firm bounces back from losses." (2 articles)  ▲ positive  (+2 / -0 / =0)
-        → UnitedHealth Group returns to profit in Q1 2025
-        → UnitedHealth Group Inc (UNH) Q1 2025 Earnings Call Highlights: Stron
-      "Healthcare giant's stock price on the rise." (2 articles)  ▲ positive  (+2 / -0 / =0)
-        → UnitedHealth Group Incorporated (UNH): A Bull Case Theory
-        → UnitedHealth Group Incorporated (UNH): Among the Dividend Stocks wit
-      "Health insurer reports strong Q1 earnings growth." (3 articles)  ▲ positive  (+3 / -0 / =0)
-        → How Should You Play UnitedHealth Stock Going Into Q1 Earnings?
-        → Gear Up for UnitedHealth (UNH) Q1 Earnings: Wall Street Estimates fo
-        → UnitedHealth (UNH) Q1 Earnings Report Preview: What To Look For
-      "Healthcare and tech stocks to watch." (2 articles)  ▲ positive  (+2 / -0 / =0)
-        → Netflix, UnitedHealth Group And 3 Stocks To Watch Heading Into Thurs
-        → UnitedHealth Group Incorporated (UNH): Among the Innovative Healthca
+      "Investor optimism drives stock price surge." (7 articles)  ▲ positive  (+7 / -0 / =0)
+        → 5 Reasons to Buy Coca-Cola Stock Like There's No Tomorrow
+        → 3 Reasons to Buy Coca-Cola Stock Like There's No Tomorrow
+        → Where Will Coca-Cola Stock Be in One Year?
+        → Could a $5,000 Investment in Coca-Cola Stock Make You a Millionaire?
+        → Still Time to Buy Coca-Cola Stock as a Defensive Hedge?
+        → Coca-Cola Stock Soars to a 52-Week High: Buy More or Stay Put?
+        → What's Going On With Coca-Cola Stock Today?
+      "Billionaires praise its stable dividend yield." (10 articles)  ▲ positive  (+10 / -0 / =0)
+        → Why The Coca-Cola Company (KO) Is Among the Best Coffee Stocks to Bu
+        → The Best High-Yield Dividend Stocks to Buy for 2025 and Beyond
+        → The Coca-Cola Company (KO): One of the Best Dividend Monarchs to Inv
+        → Is Coca-Cola Company (KO) the Best FMCG Stock to Buy According to Bi
+        → Is Coca-Cola Company (KO) the Best Roth IRA Stock to Buy According t
+        → Is Coca-Cola Company (KO) the Best Stock to Buy According to Billion
+        → The Coca-Cola Company (KO): Among Defensive Stocks Billionaire Ken F
+        → The Coca-Cola Company (KO): Among Defensive Dividend Stocks to Buy D
+        → Is Coca-Cola Company (KO) The Best Defensive Stock Amid Market Volat
+        → Is Coca-Cola Company (KO) the Best Consumer Staples Stock to Buy Acc
+      "Coca-Cola stock is a consistent winner." (4 articles)  ▲ positive  (+4 / -0 / =0)
+        → Jim Cramer Calls Coca-Cola (KO) Amazing – A Beverage Champion!
+        → Jim Cramer Says Don’t Short Coca-Cola (KO): ‘It Was a Winner When th
+        → The Coca-Cola Company (KO): “A Low-Risk Juggernaut” – Jim Cramer
+        → “Perfect Coca-Cola!” – Jim Cramer’s On Coca-Cola Company (KO)
+      "Dividend stocks offer stable long-term returns." (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → 2 Surefire Dividend Stocks That Could Pay You for Life
+        → How Dividend Stocks like Coca-Cola Can Help You Rest Easy Amid Stock
+      "Investor returns outpace executive pay reform efforts." (3 articles)  ▲ positive  (+3 / -0 / =0)
+        → Those who invested in Coca-Cola (NYSE:KO) five years ago are up 74%
+        → Shareholders Urged Coca-Cola (NYSE:KO) To Align Executive Pay With D
+        → Beverages, Alcohol, and Tobacco Stocks Q4 In Review: Coca-Cola (NYSE
+      "Warren Buffett's beverage stock picks perform well." (3 articles)  ▲ positive  (+3 / -0 / =0)
+        → Is Coca-Cola the Best Warren Buffett Stock to Buy Right Now?
+        → Best Stock to Buy Right Now: Coca-Cola vs. PepsiCo
+        → Best Stock to Buy Right Now: Constellation Brands vs. Coca Cola
+      "Institutional investors back dividend-paying stable giant." (2 articles)  ▲ positive  (+2 / -0 / =0)
+        → The Coca-Cola Company's (NYSE:KO) high institutional ownership speak
+        → Is The Coca-Cola Company's (NYSE:KO) ROE Of 40% Impressive?
 
-    Other topics (80 articles — titles too unique to cluster with any other article; each covers a distinct story)
+    Opposing storylines (negative):
+      "EU targets bottlers and facilities for investigation." (4 articles)  ▼ negative  (+0 / -4 / =0)
+        → Coca-Cola business in Europe target of EU antitrust raid, Bloomberg 
+        → Coca-Cola Targeted in EU Antitrust Probe, Bloomberg Says, Citing Sou
+        → Market Chatter: Coca-Cola Facilities in Europe Targeted in EU Antitr
+        → Procter & Gamble was the target of EU antitrust probe alongside Coca
+      "Beverage giant faces valuation and growth concerns." (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → The Coca-Cola Company: First Quarter Results Belies Valuation Concer
+        → Coca-Cola Company: Too Mature For Big Upside
+      "Food stamps face sugary drink restrictions nationwide" (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Soda stocks drop as food stamp band push gains momentum
+        → Soda, candy may lose Arkansas food stamp coverage as soon as next ye
+      "Beverage giant struggles in economic downturn." (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Coca-Cola: This Stock Won't Save You From Recession
+        → Coca-Cola Co. stock rises Wednesday, still underperforms market
+      "Plastic waste from beverage giant expected to rise." (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Coca-Cola’s plastic will surpass 9 billion pounds by end of decade: 
+        → Coca-Cola’s plastic usage to reportedly exceed 9.1 billion pounds by
+      "Beverage giant's stock experiences market volatility." (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → Coca-Cola (KO) Stock Falls Amid Market Uptick: What Investors Need t
+        → Coca-Cola (KO) Stock Moves -0.25%: What You Should Know
+      "Plastic contamination found in beverage cans" (2 articles)  ▼ negative  (+0 / -2 / =0)
+        → FDA warns of possible plastic in recalled Coca-Cola cans
+        → Coca-Cola Recalls 10,000 Cans Over Possible Plastic Contamination
+
+    Other topics (39 articles — titles too unique to cluster with any other article; each covers a distinct story)
 
 ============================================================
   FINAL PLAIN-ENGLISH OVERVIEW
   A complete, readable summary of the entire analysis for a general reader
 ============================================================
 
-  Out of 139 news articles analysed for UnitedHealth Group
-  over a 31-day forecast horizon, 51 carried positive
-  sentiment, 88 carried negative sentiment, and 0 were
-  neutral. The model produced a weighted aggregation of
-  these scores and predicted a NEGATIVE label with 53.5%
-  model support. The model chose NEGATIVE over POSITIVE by
-  a score gap of 0.2287: 88 articles pushed toward
-  NEGATIVE while 51 pushed toward POSITIVE. The single
-  most influential article was "UnitedHealth spent $1.7
-  million on executive security last year, 4 times the
-  corporate average. Experts expect the figure to keep
-  climbing" (negative sentiment, contributing 1.3% of
-  total weight). Articles were weighted by recency and
+  Out of 86 news articles analysed for Coca-Cola over a
+  31-day forecast horizon, articles showed divided
+  sentiment: 46.5% of aggregated weight leaned positive
+  while 20.4% leaned negative. Because neither direction
+  reached the 56% consensus threshold required for a
+  directional prediction, the overall outlook is
+  classified as NEUTRAL (mixed/inconclusive). The model
+  chose POSITIVE over NEGATIVE by a score gap of 0.2614:
+  60 articles pushed toward POSITIVE while 26 pushed
+  toward NEGATIVE. The single most influential article was
+  "Coca-Cola (KO) Stock Moves -0.25%: What You Should
+  Know" (negative sentiment, contributing 2.5% of total
+  weight). Articles were weighted by recency and
   prediction-horizon relevance — the average article was
-  9.29 days old, with most classified as short-term
+  14.0 days old, with most classified as short-term
   horizon. At the word level, the strongest signals in the
-  top gap-driving article included: Down, Selloff,
-  Sentiment, controversy, concerns. The prediction is
-  sensitive: removing as few as 37 of 139 articles would
-  change the verdict. The prediction carries HIGH evidence
-  quality and can be used with confidence.
+  top gap-driving article included: safe, volatile,
+  beverage. The prediction is sensitive: removing as few
+  as 9 of 86 articles would change the verdict. The
+  prediction carries HIGH evidence quality and can be used
+  with confidence.
 
 
   DISCLAIMER
@@ -177,43 +178,43 @@ The label margin is moderate (0.229), but evidence quality is HIGH due to a HIGH
   Scores, article breakdowns, and model-internal attributions
 ════════════════════════════════════════════════════════════
 
-  WHY NEGATIVE INSTEAD OF POSITIVE?
+  WHY POSITIVE INSTEAD OF NEGATIVE?
   Contrastive explanation — what tipped the balance
 ------------------------------------------------------------
-  Score gap : NEGATIVE 0.5351  vs  POSITIVE 0.3064  (gap = 0.2287)
+  Score gap : POSITIVE 0.4654  vs  NEGATIVE 0.2040  (gap = 0.2614)
 
   Article split:
-     88 articles push toward NEGATIVE  (total push: +0.4166)
-     51 articles push toward POSITIVE  (total push: -0.1874)
+     60 articles push toward POSITIVE  (total push: +0.4092)
+     26 articles push toward NEGATIVE  (total push: -0.1481)
 
-  Third class: NEUTRAL at 5.8% — absorbing probability mass roughly equally from both sides.
+  Third class: NEUTRAL at 17.6% — absorbing probability mass roughly equally from both sides.
 
   Top 5 articles driving the gap:
     #     Direction       Net  Title
     ----------------------------------------------------------------------
-    1         → NEG    +1.05%  Health Care Down as UnitedHealth Selloff Continu
-    2         → NEG    +1.01%  These Large Cap Tech And Healthcare Stocks Had A
-    3         → NEG    +1.00%  Stocks sink, UnitedHealth downgrade, Capital One
-    4         → NEG    +0.97%  UnitedHealth Stock Crash: 3 Better Dow Jones Div
-    5         → NEG    +0.93%  UnitedHealth Loses $120 Billion in Value on Stoc
+    1         → POS    +2.00%  The Coca-Cola Company's (NYSE:KO) high instituti
+    2         → POS    +1.80%  Could Coca-Cola Be a Millionaire-Maker Stock?
+    3         → POS    +1.72%  The Best High-Yield Dividend Stocks to Buy for 2
+    4         → POS    +1.69%  The Coca-Cola Company (KO): One of the Best Divi
+    5         → POS    +1.63%  5 Reasons to Buy Coca-Cola Stock Like There's No
 
   Word-level evidence for top gap drivers:
   (connecting article-level influence to token-level LIME attribution)
 
-    Health Care Down as UnitedHealth Selloff Continues -- Health
-      Favours NEGATIVE (+1.05% net push)
-      Words reinforcing NEGATIVE: Down, Selloff, Sentiment, controversy
-      Words pulling against: companies, Roundup
+    5 Reasons to Buy Coca-Cola Stock Like There's No Tomorrow
+      Favours POSITIVE (+1.63% net push)
+      Words reinforcing NEUTRAL: safe, volatile, beverage
+      Words pulling against: Buy, Sentiment, Tomorrow, Reasons
 
   Counterfactual (minimum flip set):
-    Removing just 37 of 139 articles would flip the prediction from NEGATIVE to POSITIVE.
+    Removing just 9 of 86 articles would flip the prediction from POSITIVE to NEGATIVE.
     These articles are:
-      [!] Health Care Down as UnitedHealth Selloff Continues -- Health Care Roun
-      [!] These Large Cap Tech And Healthcare Stocks Had A Poor Run In Easter We
-      [!] Stocks sink, UnitedHealth downgrade, Capital One-Discover deal
-      [!] UnitedHealth Stock Crash: 3 Better Dow Jones Dividend Stocks to Buy No
-      [!] UnitedHealthcare: The bad news continues after last week's disastrous 
-      ... and 32 more
+      [!] The Coca-Cola Company's (NYSE:KO) high institutional ownership speaks 
+      [!] Could Coca-Cola Be a Millionaire-Maker Stock?
+      [!] The Best High-Yield Dividend Stocks to Buy for 2025 and Beyond
+      [!] The Coca-Cola Company (KO): One of the Best Dividend Monarchs to Inves
+      [!] 5 Reasons to Buy Coca-Cola Stock Like There's No Tomorrow
+      ... and 4 more
 
   PREDICTION RELIABILITY
   How much to trust this prediction
@@ -223,8 +224,8 @@ The label margin is moderate (0.229), but evidence quality is HIGH due to a HIGH
 
     [✓] thin evidence          Sufficient article count.
     [✓] weight concentration   Weight is well-distributed across articles.
-    [✓] label margin           Clear margin between top two labels (0.229).
-    [✓] source diversity       7 sources (5 editorial + 2 aggregators), top editorial share 42%. (86% via aggregators like Yahoo/Finnhub — these collect from many editorial sources)
+    [✓] label margin           Clear margin between top two labels (0.261).
+    [✓] source diversity       5 sources (3 editorial + 2 aggregators), top editorial share 45%. (87% via aggregators like Yahoo/Finnhub — these collect from many editorial sources)
     [✓] timing alignment       Articles are 0-28 days old (ET market-close aligned), down-weighted by the recency function where applicable.
     [✓] horizon coverage       News lookback (29 days) covers the intended 28-day backward window.
 
@@ -240,35 +241,40 @@ The label margin is moderate (0.229), but evidence quality is HIGH due to a HIGH
 ------------------------------------------------------------
   Article sentiment distribution:
 
-    ▲ positive : ███████████░░░░░░░░░░░░░░░░░░░   51 articles (37%)
-    ▼ negative : ███████████████████░░░░░░░░░░░   88 articles (63%)
-    ■  neutral : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    0 articles (0%)
+    ▲ positive : █████████████████████░░░░░░░░░   59 articles (69%)
+    ▼ negative : █████████░░░░░░░░░░░░░░░░░░░░░   25 articles (29%)
+    ■  neutral : █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    2 articles (2%)
+
+  Note: Although most articles lean positive or negative,
+  the sentiment is closely divided. The system requires a clear
+  directional majority to issue a positive or negative prediction.
+  Because the split is too close, the verdict is NEUTRAL (mixed).
 
   Articles pushing toward POSITIVE:
-    [+]  UnitedHealth Group (UNH): One of the Best Long Term Stocks to Buy According 
-    [+]  UnitedHealth Group Incorporated (UNH): Among the Dividend Stocks with Sustai
-    [+]  UnitedHealth Group Incorporated (UNH): One of the Best American Dividend Sto
+    [+]  The Coca-Cola Company's (NYSE:KO) high institutional ownership speaks for it
+    [+]  Could Coca-Cola Be a Millionaire-Maker Stock?
+    [+]  The Best High-Yield Dividend Stocks to Buy for 2025 and Beyond
   Articles pushing toward NEGATIVE:
-    [-]  Health Care Down as UnitedHealth Selloff Continues -- Health Care Roundup
-    [-]  These Large Cap Tech And Healthcare Stocks Had A Poor Run In Easter Week (Ap
-    [-]  Stocks sink, UnitedHealth downgrade, Capital One-Discover deal
+    [-]  Soda, candy may lose Arkansas food stamp coverage as soon as next year, WSJ 
+    [-]  Procter & Gamble was the target of EU antitrust probe alongside Coca-Cola bo
+    [-]  Are Consumer Staples Stocks Lagging  Coca-Cola Europacific Partners (CCEP) T
 
   Top 10 most influential articles:
   (Weight = recency × horizon factor, 0-1 scale;  Share = % of total pool weight)
     #    Sent  Weight   Share  Weight chart                      Title
     ------------------------------------------------------------
-    #1    NEG  1.0000    1.3%  ██████████████████████████████  UnitedHealth spent $1.7 million 
-    #2    POS  1.0000    1.3%  ██████████████████████████████  Rosen Law Firm Encourages United
-    #3    NEG  1.0000    1.3%  ██████████████████████████████  Ademi & Fruchter LLP Investigate
-    #4    NEG  1.0000    1.3%  ██████████████████████████████  Is UnitedHealth Group (UNH) the 
-    #5    POS  1.0000    1.3%  ██████████████████████████████  UnitedHealth Group (UNH): One of
-    #6    NEG  1.0000    1.3%  ██████████████████████████████  Is UnitedHealth Group (UNH) the 
-    #7    NEG  1.0000    1.3%  ██████████████████████████████  Significant Portfolio Changes: U
-    #8    NEG  1.0000    1.3%  ██████████████████████████████  UnitedHealth Stock Crash: 3 Bett
-    #9    NEG  1.0000    1.3%  ██████████████████████████████  Argus Research Downgrades United
-    #10   NEG  1.0000    1.3%  ██████████████████████████████  Down 20%, Still A Buy: Why I'm D
+    #1    NEG  1.0000    2.5%  ██████████████████████████████  Coca-Cola (KO) Stock Moves -0.25
+    #2    POS  1.0000    2.5%  ██████████████████████████████  Research Highlights Italians' St
+    #3    NEU  1.0000    2.5%  ██████████████████████████████  Can Coca-Cola Stock Help Keep Yo
+    #4    POS  1.0000    2.5%  ██████████████████████████████  The Coca-Cola Company (KO): One 
+    #5    NEG  1.0000    2.5%  ██████████████████████████████  Soda, candy may lose Arkansas fo
+    #6    POS  1.0000    2.5%  ██████████████████████████████  How Dividend Stocks like Coca-Co
+    #7    POS  1.0000    2.5%  ██████████████████████████████  The Best High-Yield Dividend Sto
+    #8    POS  1.0000    2.5%  ██████████████████████████████  The Coca-Cola Company's (NYSE:KO
+    #9    POS  1.0000    2.5%  ██████████████████████████████  Coca-Cola Vs PepsiCo: Which Cons
+    #10   POS  1.0000    2.5%  ██████████████████████████████  Coca-Cola Europacific Partners (
 
-  Weight concentration (HHI): 0.0072  (well-distributed) — 0 = perfectly uniform across all articles, 1 = one article dominates
+  Weight concentration (HHI): 0.0116  (well-distributed) — 0 = perfectly uniform across all articles, 1 = one article dominates
 
   HOW ARTICLES WERE WEIGHTED
   More recent and near-horizon articles receive higher weight
@@ -281,16 +287,16 @@ The label margin is moderate (0.229), but evidence quality is HIGH due to a HIGH
                     share the same timestamp, the one with more content
                     is preferred.
 
-  Average article age      : 9.29 days old
-  Average recency weight   : 0.772  (1.0 = today, lower = older)
-  Average horizon weight   : 0.4774  (1.0 = ideal timing, lower = off-horizon)
+  Average article age      : 14.0 days old
+  Average recency weight   : 0.6708  (1.0 = today, lower = older)
+  Average horizon weight   : 0.3701  (1.0 = ideal timing, lower = off-horizon)
 
   Article timing breakdown:
 
-    Immediate (0-1 days)  : ██████████████████████████████  100 (72%)
-    Short-term (2-5 days) : ██████████░░░░░░░░░░░░░░░░░░░░   34 (24%)
+    Immediate (0-1 days)  : ██████████████████████████████   47 (55%)
+    Short-term (2-5 days) : ████████████████████████░░░░░░   38 (44%)
     Diffusion (6-10 days) : ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    0 (0%)
-    Long-term (11-31 days) : ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░    5 (4%)
+    Long-term (11-31 days) : █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1 (1%)
 
   WHICH WORDS DROVE THE PREDICTION
   Words inside each article that pushed the model toward or away from the verdict
@@ -305,25 +311,25 @@ The label margin is moderate (0.229), but evidence quality is HIGH due to a HIGH
   sentiment-bearing words remain. Full token weights are in the
   ADVANCED / DIAGNOSTICS section at the end of this report.
 
-  [1] UnitedHealth shares tank after earnings miss, forecast cut as medical ca
-      Words pushing TOWARD  NEGATIVE : tank, lowered, costs, outlook, miss
-      Words pushing AGAINST NEGATIVE : unusual, after, soar, higher
+  [1] Coca-Cola (KO) Ascends But Remains Behind Market: Some Facts to Note
+      Words pushing TOWARD  NEUTRAL : Remains, Behind, Market, Cola, closed
+      Words pushing AGAINST NEUTRAL : Sentiment, Facts, Ascends, trading, Coca
 
-  [2] UnitedHealth (UNH) Sinks 20% After Q1 Miss, Lowered 2025 Earnings Foreca
-      Words pushing TOWARD  NEGATIVE : Sinks, Lowered, Cuts, Medical, Miss
-      Words pushing AGAINST NEGATIVE : Surge, Amid, After, Profit, Posts
+  [2] Can Coca-Cola Stock Help Keep Your Money Safe During a Market Crash?
+      Words pushing TOWARD  NEUTRAL : Help, During, Safe, Cola, Coca
+      Words pushing AGAINST NEUTRAL : turmoil, Sentiment, Crash, safe, savings
 
-  [3] UnitedHealth Stock Is Having Its Worst Day in 25 Years After Earnings. H
-      Words pushing TOWARD  NEGATIVE : Worst, sank, slashed, expects, Years
-      Words pushing AGAINST NEGATIVE : Sentiment, December, adjusted, giant, Jones
+  [3] 5 Reasons to Buy Coca-Cola Stock Like There's No Tomorrow
+      Words pushing TOWARD  NEUTRAL : safe, volatile, beverage
+      Words pushing AGAINST NEUTRAL : Buy, Sentiment, Tomorrow, Reasons, Like
 
-  [4] UnitedHealth shares crash after surprise earnings miss, cuts to forecast
-      Words pushing TOWARD  NEGATIVE : crash, lowered, miss, cuts, investors
-      Words pushing AGAINST NEGATIVE : Sentiment, higher, shares, earnings
+  [4] The Coca-Cola Company: First Quarter Results Belies Valuation Concerns
+      Words pushing TOWARD  NEUTRAL : optimistic, volume, First, Sentiment, valuation
+      Words pushing AGAINST NEUTRAL : Concerns, Belies, misleading, Sell, Read
 
-  [5] Health Care Down as UnitedHealth Selloff Continues -- Health Care Roundu
-      Words pushing TOWARD  NEGATIVE : Down, Selloff, Sentiment, controversy, concerns
-      Words pushing AGAINST NEGATIVE : companies, Roundup
+  [5] 3 Reasons to Buy Coca-Cola Stock Like There's No Tomorrow
+      Words pushing TOWARD  NEUTRAL : market, Coca
+      Words pushing AGAINST NEUTRAL : Buy, Sentiment, Tomorrow, beats, every
 
 
   CHARTS
@@ -365,138 +371,137 @@ The label margin is moderate (0.229), but evidence quality is HIGH due to a HIGH
   --------------------------------------------------
   (+) = supports predicted label     (-) = opposes predicted label
 
-  [1] UnitedHealth shares tank after earnings miss, forecast cut as medical ca
-      Content: UnitedHealth Group surprised investors with what its CEO said was an unusual and unacceptable quarterly earnings miss, a
-               nd it lowered its outlook for the full year due to higher-than-expected medical...
-      Article weight : 1.0000  |  Relevance to prediction : 0.9868
+  [1] Coca-Cola (KO) Ascends But Remains Behind Market: Some Facts to Note
+      Content: Coca-Cola (KO) closed the most recent trading day at $71.87, moving +0.35% from the previous trading session.
+      Article weight : 1.0000  |  Relevance to prediction : 0.2208
       Token influence chart:
-        + tank             ████████████████████  (+0.1172)
-        + lowered          ████████████░░░░░░░░  (+0.0715)
-        + costs            █████████░░░░░░░░░░░  (+0.0528)
-        + outlook          ██████░░░░░░░░░░░░░░  (+0.0351)
-        - unusual          ██████░░░░░░░░░░░░░░  (-0.0345)
-        - after            ██████░░░░░░░░░░░░░░  (-0.0344)
-        + miss             ██████░░░░░░░░░░░░░░  (+0.0329)
-        - soar             █████░░░░░░░░░░░░░░░  (-0.0314)
+        + Remains          ████████████████████  (+0.1481)
+        - Sentiment        ████████████████░░░░  (-0.1200)
+        + Behind           ██████████████░░░░░░  (+0.1045)
+        + Market           ██████████░░░░░░░░░░  (+0.0746)
+        - Facts            ███████░░░░░░░░░░░░░  (-0.0508)
+        - Ascends          ██████░░░░░░░░░░░░░░  (-0.0443)
+        + Cola             ████░░░░░░░░░░░░░░░░  (+0.0284)
+        + closed           ████░░░░░░░░░░░░░░░░  (+0.0261)
 
       Token                  Dir       Weight
       ----------------------------------------
-      tank                   (+)    +0.117182
-      lowered                (+)    +0.071508
-      costs                  (+)    +0.052801
-      outlook                (+)    +0.035096
-      unusual                (-)    -0.034468
-      after                  (-)    -0.034440
-      miss                   (+)    +0.032930
-      soar                   (-)    -0.031448
-      expected               (+)    +0.027605
-      unacceptable           (+)    +0.027349
+      Remains                (+)    +0.148135
+      Sentiment              (-)    -0.120033
+      Behind                 (+)    +0.104488
+      Market                 (+)    +0.074639
+      Facts                  (-)    -0.050780
+      Ascends                (-)    -0.044254
+      Cola                   (+)    +0.028357
+      closed                 (+)    +0.026095
+      trading                (-)    -0.024445
+      Coca                   (-)    -0.023460
 
-  [2] UnitedHealth (UNH) Sinks 20% After Q1 Miss, Lowered 2025 Earnings Foreca
-      Content: UnitedHealth Posts Rare Earnings Miss, Cuts Profit Guidance Amid Medical Care Surge
-      Article weight : 1.0000  |  Relevance to prediction : 0.9852
+  [2] Can Coca-Cola Stock Help Keep Your Money Safe During a Market Crash?
+      Content: The stock market is in turmoil right now, and entering this week, the S&P 500 has declined by around 9% since the start 
+               of the year. How can you keep your savings safe and still be invested in the stock market -- or is that even possible no
+      Article weight : 1.0000  |  Relevance to prediction : 0.1298
       Token influence chart:
-        + Sinks            ████████████████████  (+0.1430)
-        + Lowered          █████████░░░░░░░░░░░  (+0.0651)
-        - Surge            ███████░░░░░░░░░░░░░  (-0.0525)
-        + Cuts             ███████░░░░░░░░░░░░░  (+0.0508)
-        + Medical          ███████░░░░░░░░░░░░░  (+0.0497)
-        + Miss             ███████░░░░░░░░░░░░░  (+0.0484)
-        + Care             ████░░░░░░░░░░░░░░░░  (+0.0311)
-        - Amid             ████░░░░░░░░░░░░░░░░  (-0.0272)
+        + Help             ████████████████████  (+0.0685)
+        - turmoil          ███████████████████░  (-0.0662)
+        + During           ███████████████████░  (+0.0657)
+        + Safe             █████████████░░░░░░░  (+0.0457)
+        - Sentiment        ███████████░░░░░░░░░  (-0.0363)
+        + Cola             █████████░░░░░░░░░░░  (+0.0314)
+        + Coca             ███████░░░░░░░░░░░░░  (+0.0247)
+        - Crash            ███████░░░░░░░░░░░░░  (-0.0243)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Sinks                  (+)    +0.142983
-      Lowered                (+)    +0.065108
-      Surge                  (-)    -0.052499
-      Cuts                   (+)    +0.050781
-      Medical                (+)    +0.049704
-      Miss                   (+)    +0.048395
-      Care                   (+)    +0.031144
-      Amid                   (-)    -0.027170
-      After                  (-)    -0.026400
-      Guidance               (+)    +0.013840
+      Help                   (+)    +0.068477
+      turmoil                (-)    -0.066181
+      During                 (+)    +0.065698
+      Safe                   (+)    +0.045727
+      Sentiment              (-)    -0.036314
+      Cola                   (+)    +0.031400
+      Coca                   (+)    +0.024683
+      Crash                  (-)    -0.024331
+      safe                   (-)    -0.020048
+      invested               (+)    +0.018100
 
-  [3] UnitedHealth Stock Is Having Its Worst Day in 25 Years After Earnings. H
-      Content: UnitedHealth Group stock sank Thursday after the giant health insurer posted first-quarter earnings that missed expectat
-               ions and slashed its full-year outlook. UnitedHealth was on pace for its largest same-day percentage decrease since a 28
-      Article weight : 1.0000  |  Relevance to prediction : 0.9791
+  [3] 5 Reasons to Buy Coca-Cola Stock Like There's No Tomorrow
+      Content: The beverage giant is a good safe haven stock for this volatile market.
+      Article weight : 1.0000  |  Relevance to prediction : 0.9925
       Token influence chart:
-        + Worst            ████████████████████  (+0.0734)
-        + sank             ████████████████░░░░  (+0.0593)
-        + slashed          ████████░░░░░░░░░░░░  (+0.0282)
-        + expects          ██████░░░░░░░░░░░░░░  (+0.0234)
-        + Years            █████░░░░░░░░░░░░░░░  (+0.0190)
-        + insurer          ████░░░░░░░░░░░░░░░░  (+0.0147)
-        - Sentiment        ████░░░░░░░░░░░░░░░░  (-0.0141)
-        - December         ████░░░░░░░░░░░░░░░░  (-0.0137)
+        - Buy              ████████████████████  (-0.1044)
+        - Sentiment        █████████████████░░░  (-0.0911)
+        - Tomorrow         █████████████████░░░  (-0.0888)
+        + safe             ██████████░░░░░░░░░░  (+0.0503)
+        - Reasons          ████████░░░░░░░░░░░░  (-0.0398)
+        - Like             ██████░░░░░░░░░░░░░░  (-0.0293)
+        + volatile         ████░░░░░░░░░░░░░░░░  (+0.0222)
+        - market           ████░░░░░░░░░░░░░░░░  (-0.0211)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Worst                  (+)    +0.073414
-      sank                   (+)    +0.059335
-      slashed                (+)    +0.028162
-      expects                (+)    +0.023395
-      Years                  (+)    +0.018982
-      insurer                (+)    +0.014747
-      Sentiment              (-)    -0.014131
-      December               (-)    -0.013656
-      adjusted               (-)    -0.012615
-      giant                  (-)    -0.011536
+      Buy                    (-)    -0.104441
+      Sentiment              (-)    -0.091148
+      Tomorrow               (-)    -0.088827
+      safe                   (+)    +0.050313
+      Reasons                (-)    -0.039792
+      Like                   (-)    -0.029269
+      volatile               (+)    +0.022234
+      market                 (-)    -0.021089
+      Stock                  (-)    -0.006156
+      stock                  (-)    -0.004602
 
-  [4] UnitedHealth shares crash after surprise earnings miss, cuts to forecast
-      Content: UnitedHealth Group surprised investors with what its CEO said was an unusual and unacceptable quarterly earnings miss, a
-               nd it lowered its outlook for the full year due to higher-than-expected medical...
-      Article weight : 1.0000  |  Relevance to prediction : 0.9785
+  [4] The Coca-Cola Company: First Quarter Results Belies Valuation Concerns
+      Content: Coca-Cola's recent modest sales volume increase was misleading, and its growth valuation looks overly optimistic. Read w
+               hy KO stock is a Sell.
+      Article weight : 1.0000  |  Relevance to prediction : 0.9896
       Token influence chart:
-        + crash            ████████████████████  (+0.1694)
-        + lowered          ██████████░░░░░░░░░░  (+0.0888)
-        + miss             ██████░░░░░░░░░░░░░░  (+0.0470)
-        + cuts             █████░░░░░░░░░░░░░░░  (+0.0460)
-        + investors        █████░░░░░░░░░░░░░░░  (+0.0432)
-        - Sentiment        ████░░░░░░░░░░░░░░░░  (-0.0341)
-        + year             ████░░░░░░░░░░░░░░░░  (+0.0319)
-        - higher           ████░░░░░░░░░░░░░░░░  (-0.0313)
+        - Concerns         ████████████████████  (-0.0703)
+        - Belies           █████████████░░░░░░░  (-0.0454)
+        - misleading       ████████████░░░░░░░░  (-0.0418)
+        + optimistic       ██████████░░░░░░░░░░  (+0.0339)
+        - Sell             █████████░░░░░░░░░░░  (-0.0307)
+        - Read             ████████░░░░░░░░░░░░  (-0.0291)
+        - Cola             ██████░░░░░░░░░░░░░░  (-0.0209)
+        - Results          ██████░░░░░░░░░░░░░░  (-0.0203)
 
       Token                  Dir       Weight
       ----------------------------------------
-      crash                  (+)    +0.169368
-      lowered                (+)    +0.088841
-      miss                   (+)    +0.046968
-      cuts                   (+)    +0.046014
-      investors              (+)    +0.043244
-      Sentiment              (-)    -0.034096
-      year                   (+)    +0.031855
-      higher                 (-)    -0.031298
-      medical                (+)    +0.026847
-      expected               (+)    +0.017264
+      Concerns               (-)    -0.070340
+      Belies                 (-)    -0.045360
+      misleading             (-)    -0.041835
+      optimistic             (+)    +0.033893
+      Sell                   (-)    -0.030735
+      Read                   (-)    -0.029124
+      Cola                   (-)    -0.020890
+      Results                (-)    -0.020257
+      overly                 (-)    -0.018678
+      volume                 (+)    +0.016793
 
-  [5] Health Care Down as UnitedHealth Selloff Continues -- Health Care Roundu
-      Content: Health-care companies fell amid ongoing concerns about UnitedHealth Group. UnitedHealth shares fell 6% and are now down 
-               by 29% from levels earlier in April. While controversy about UnitedHealth's...
-      Article weight : 1.0000  |  Relevance to prediction : 0.9764
+  [5] 3 Reasons to Buy Coca-Cola Stock Like There's No Tomorrow
+      Content: It's not every day, or every year, that Coca-Cola (NYSE: KO) stock beats the market. Coca-Cola stock is up 12% this year
+               , while the S&P 500 is down 4%. It's as good a time as ever to understand why Coca-Cola is such a great stock to own.
+      Article weight : 1.0000  |  Relevance to prediction : 0.9893
       Token influence chart:
-        + Down             ████████████████████  (+0.0544)
-        + Selloff          ████████████████░░░░  (+0.0435)
-        - companies        ██████████░░░░░░░░░░  (-0.0277)
-        + Sentiment        ███████░░░░░░░░░░░░░  (+0.0183)
-        + controversy      ██████░░░░░░░░░░░░░░  (+0.0154)
-        + concerns         █████░░░░░░░░░░░░░░░  (+0.0140)
-        + Continues        ████░░░░░░░░░░░░░░░░  (+0.0095)
-        + fell             ███░░░░░░░░░░░░░░░░░  (+0.0095)
+        - Buy              ████████████████████  (-0.0543)
+        - Sentiment        ██████████████████░░  (-0.0488)
+        - Tomorrow         █████████████████░░░  (-0.0460)
+        - beats            ███████████████░░░░░  (-0.0408)
+        - every            █████████████░░░░░░░  (-0.0361)
+        - up               ███████████░░░░░░░░░  (-0.0301)
+        - Reasons          ███████████░░░░░░░░░  (-0.0295)
+        - Cola             ██████████░░░░░░░░░░  (-0.0281)
 
       Token                  Dir       Weight
       ----------------------------------------
-      Down                   (+)    +0.054404
-      Selloff                (+)    +0.043531
-      companies              (-)    -0.027747
-      Sentiment              (+)    +0.018281
-      controversy            (+)    +0.015354
-      concerns               (+)    +0.014036
-      Continues              (+)    +0.009548
-      fell                   (+)    +0.009492
-      earlier                (+)    +0.009368
-      down                   (+)    +0.009087
+      Buy                    (-)    -0.054339
+      Sentiment              (-)    -0.048773
+      Tomorrow               (-)    -0.045969
+      beats                  (-)    -0.040831
+      every                  (-)    -0.036125
+      up                     (-)    -0.030061
+      Reasons                (-)    -0.029501
+      Cola                   (-)    -0.028144
+      market                 (+)    +0.027447
+      time                   (-)    -0.022765
 
 ------------------------------------------------------------
