@@ -3803,3 +3803,30 @@
 2026-04-01 22:19:58,904 - INFO - Chart saved: C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts\09_cumulative_score.png
 2026-04-01 22:19:58,904 - INFO - Generated 9 chart(s) in C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\charts
 2026-04-01 22:19:58,906 - INFO - XAI summary saved to C:\Users\alime\DissertationProject\zero-shot-stock-xai\data\xai_explanations\xai_summary.txt
+2026-04-01 22:25:17,905 - INFO - Prediction window: 31 days
+2026-04-01 22:25:17,905 - INFO - Computed max_backward_days: 28 (from √W scaling, W=31)
+2026-04-01 22:25:17,905 - INFO - Backward search window: 04-12-2025 to 31-12-2025 (max 28 days)
+2026-04-01 22:25:18,803 - INFO - Resolved company name for 'AAPL' -> Apple
+2026-04-01 22:25:18,804 - INFO - Company: Apple, Ticker: AAPL
+2026-04-01 22:25:18,804 - INFO - Finnhub request: symbol=AAPL from=2025-12-04 to=2025-12-10
+2026-04-01 22:25:19,509 - INFO - Finnhub returned 230 raw articles
+2026-04-01 22:25:19,513 - INFO - Chunk 2025-12-04 to 2025-12-10: fetched 230 articles
+2026-04-01 22:25:19,513 - INFO - Finnhub request: symbol=AAPL from=2025-12-11 to=2025-12-17
+2026-04-01 22:25:20,197 - INFO - Finnhub returned 177 raw articles
+2026-04-01 22:25:20,200 - INFO - Chunk 2025-12-11 to 2025-12-17: fetched 177 articles
+2026-04-01 22:25:20,200 - INFO - Finnhub request: symbol=AAPL from=2025-12-18 to=2025-12-24
+2026-04-01 22:25:20,886 - INFO - Finnhub returned 173 raw articles
+2026-04-01 22:25:20,893 - INFO - Chunk 2025-12-18 to 2025-12-24: fetched 173 articles
+2026-04-01 22:25:20,893 - INFO - Finnhub request: symbol=AAPL from=2025-12-25 to=2025-12-31
+2026-04-01 22:25:21,549 - INFO - Finnhub returned 128 raw articles
+2026-04-01 22:25:21,552 - INFO - Chunk 2025-12-25 to 2025-12-31: fetched 128 articles
+2026-04-01 22:25:21,552 - INFO - Chunked fetch complete: 708 total articles from 28-day window in 7-day chunks
+2026-04-01 22:25:21,553 - INFO - Removed duplicates (cross-domain, title-based): 708 -> 702
+2026-04-01 22:25:21,553 - INFO - filter_headline_content_duplicates: in=702 kept=700 | cleared_content=10 dropped_question=2
+2026-04-01 22:25:21,553 - INFO - After dedup + headline filter: Raw=708, Filtered=700
+2026-04-01 22:25:21,553 - INFO - Using all 700 articles after dedup (no article cap)
+2026-04-01 22:25:21,553 - INFO - Temporal coverage: articles span 20251204 to 20251231 (intended window: 20251204 to 20251231)
+2026-04-01 22:25:21,565 - INFO - filter_company_related: in=700 kept=262 | dropped(question_no_content)=0 dropped(no_match_no_content)=10 dropped(no_match_in_content)=428
+2026-04-01 22:25:21,565 - INFO - Cleaning article content for Apple (ticker: AAPL)  - DeBERTa-only pipeline
+2026-04-01 22:25:21,576 - INFO - Loading DeBERTa classifier for noise reduction...
+2026-04-01 22:25:23,775 - INFO - DeBERTa classifier loaded successfully

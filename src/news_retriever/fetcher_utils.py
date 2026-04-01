@@ -20,15 +20,27 @@ _NYSE_CALENDAR = xcals.get_calendar("XNYS")
 logger = logging.getLogger(__name__)
 
 
+_COMPANY_SUFFIXES = {
+    "inc", "inc.", "corp", "corp.", "corporation", "ltd", "ltd.", "co", "co.",
+    "plc", "llc", "group", "holdings", "sa", "ag", "se", "nv",
+    "the", "company",
+}
+
+
 def resolve_company_name(ticker: str) -> str | None:
-    """Resolve a ticker symbol to its full company name via yfinance."""
+    """Resolve a ticker symbol to its company name via yfinance, stripped of common suffixes."""
     try:
         import yfinance as yf
         info = yf.Ticker(ticker).info
         name = info.get("longName") or info.get("shortName")
         if name:
-            logger.info("Resolved company name for '%s' -> %s", ticker, name)
-            return name
+            # Strip trailing suffixes like "Inc.", "Corp.", "Ltd."
+            words = name.split()
+            while words and words[-1].lower().rstrip(",") in _COMPANY_SUFFIXES:
+                words.pop()
+            clean_name = " ".join(words).strip().rstrip(",")
+            logger.info("Resolved company name for '%s' -> %s", ticker, clean_name)
+            return clean_name if clean_name else name
     except Exception as exc:
         logger.warning("Could not resolve company name for '%s': %s", ticker, exc)
     return None
