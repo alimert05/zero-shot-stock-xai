@@ -1,12 +1,17 @@
 """
-test_runner.py — Evaluation harness for the sentiment prediction pipeline.
+Evaluation harness for the sentiment prediction pipeline.
 
 Runs the full pipeline (fetch + predict) or cached evaluation against a
 labelled test set and computes per-class precision, recall, F1, and macro
-averages.  Supports multiple sentiment models via config dispatch.
+averages. Supports multiple sentiment models via config dispatch.
+
+Usage:
+    python -m testing.evaluation.test_runner
+    python -m testing.evaluation.test_runner --mode evaluate --test-set <path>
+    python -m testing.evaluation.test_runner --mode fetch --workers 10
 """
 
-# ── Imports & Paths ───────────────────────────────────────────────────────────
+# Imports & Paths
 
 from __future__ import annotations
 
@@ -51,7 +56,7 @@ RESULTS_PATH = EVAL_RESULTS_PATH / f"evaluation_results_{_MODEL_TAG}.json"
 LABELS = ["positive", "negative", "neutral"]
 
 
-# ── Rate Limiter ──────────────────────────────────────────────────────────────
+# Rate Limiter
 
 class RateLimiter:
     """Token-bucket rate limiter for Finnhub API (free tier: 60 calls/min)."""
@@ -78,7 +83,7 @@ _rate_limiter = RateLimiter(calls_per_minute=55)
 _inference_lock = threading.Lock()
 
 
-# ── Progress Tracking ─────────────────────────────────────────────────────────
+# Progress Tracking
 
 class ProgressTracker:
     """Thread-safe progress reporting for parallel test execution."""
@@ -92,6 +97,7 @@ class ProgressTracker:
         self._total = total
 
     def record(self, correct: bool, error: bool, issue: bool = False):
+        """Record a completed case and print progress."""
         with self._lock:
             self._completed += 1
             if correct:
@@ -109,7 +115,7 @@ class ProgressTracker:
             )
 
 
-# ── Metrics Computation ───────────────────────────────────────────────────────
+# Metrics Computation
 
 def compute_metrics(y_true: list[str], y_pred: list[str]) -> dict:
     """Compute classification metrics without sklearn dependency."""
@@ -176,7 +182,7 @@ def compute_metrics(y_true: list[str], y_pred: list[str]) -> dict:
     }
 
 
-# ── Model Pre-Warming ─────────────────────────────────────────────────────────
+# Model Pre-Warming
 
 def _prewarm_models():
     """Pre-load all GPU models before spawning threads to avoid race conditions."""
@@ -209,7 +215,7 @@ def _prewarm_models():
     logger.info("All models loaded.")
 
 
-# ── Single Case Evaluation ────────────────────────────────────────────────────
+# Single Case Evaluation
 
 def run_single_case(
     case: dict,
@@ -242,7 +248,7 @@ def run_single_case(
 
     try:
         if use_cache:
-            # ── Load fully-processed articles from cache (sentiment only) ──
+            # Load fully-processed articles from cache (sentiment only)
             cache_file = ARTICLE_CACHE_PATH / f"{case_id}.json"
             if not cache_file.exists():
                 raise FileNotFoundError(
@@ -259,7 +265,7 @@ def run_single_case(
             with open(case_articles_path, "w", encoding="utf-8") as f:
                 json.dump(cached_data, f, indent=2, ensure_ascii=False)
         else:
-            # ── Fetch articles from API ──
+            # Fetch articles from API
             fetcher = Fetcher(
                 temp_dir=str(case_temp_dir),
                 rate_limiter=_rate_limiter.acquire,
@@ -286,7 +292,7 @@ def run_single_case(
                 progress.record(correct=result["correct"], error=False, issue=True)
             return result
 
-        # Step 2: Run sentiment prediction (serialized — GPU model not thread-safe)
+        # Step 2: Run sentiment prediction (serialized - GPU model not thread-safe)
         with _inference_lock:
             if SENTIMENT_MODEL == "zero-shot":
                 pred_result = predict_zero_shot(
@@ -346,7 +352,7 @@ def run_single_case(
     return result
 
 
-# ── Cleanup Helpers ───────────────────────────────────────────────────────────
+# Cleanup Helpers
 
 def _clean_orphan_temp_dirs():
     """Remove leftover temp dirs from previous crashed test runner runs.
@@ -362,7 +368,7 @@ def _clean_orphan_temp_dirs():
             shutil.rmtree(child, ignore_errors=True)
 
 
-# ── Article Fetching ──────────────────────────────────────────────────────────
+# Article Fetching
 
 def fetch_single_case(
     case: dict,
@@ -436,7 +442,7 @@ def fetch_single_case(
                 result["issue"] = "no_articles_fetched"
                 logger.warning("Case %s (%s): 0 articles fetched", case_id, ticker)
         else:
-            # Fetcher found no articles — cache an empty-articles marker
+            # Fetcher found no articles - cache an empty-articles marker
             empty_payload = {
                 "query": company_name,
                 "ticker": ticker,
@@ -506,7 +512,7 @@ def run_fetch(
 
     print()  # Newline after progress bar
 
-    # ── Fetch Summary ──
+    # Fetch Summary
     cached_count = sum(1 for r in all_results if r["cached"])
     skipped_count = sum(1 for r in all_results if r.get("skipped"))
     zero_article_count = sum(
@@ -540,7 +546,7 @@ def run_fetch(
                 print(f"    - {r['id']}: {r['error']}")
 
 
-# ── Cached Evaluation ─────────────────────────────────────────────────────────
+# Cached Evaluation
 
 def _prewarm_cached_mode():
     """Pre-load sentiment model only for cached evaluation.
@@ -663,7 +669,7 @@ def run_evaluation(
     case_order = {case["id"]: i for i, case in enumerate(test_cases)}
     all_results.sort(key=lambda r: case_order.get(r["id"], 0))
 
-    # ── Compute metrics ──
+    # Compute metrics
     y_true = [r["actual_label"] for r in all_results]
     y_pred = [r["predicted_label"] for r in all_results]
     overall_metrics = compute_metrics(y_true, y_pred)
@@ -746,7 +752,7 @@ def run_evaluation(
     return evaluation
 
 
-# ── Report Generation ─────────────────────────────────────────────────────────
+# Report Generation
 
 def print_report(evaluation: dict) -> None:
     """Print a human-readable evaluation report."""
@@ -812,7 +818,7 @@ def print_report(evaluation: dict) -> None:
     for period, m in evaluation.get("per_period_metrics", {}).items():
         print(f"  {period:>16} {m['accuracy']:>10.4f} {m['macro_precision']:>10.4f} {m['macro_recall']:>10.4f} {m['macro_f1']:>10.4f} {m['total']:>5}")
 
-    # ── Flagged Cases ──
+    # Flagged Cases
     issues = evaluation.get("issues", [])
     errors = evaluation.get("errors", [])
 
@@ -852,9 +858,10 @@ def print_report(evaluation: dict) -> None:
     print("\n" + "=" * 70)
 
 
-# ── Main Entry Point ──────────────────────────────────────────────────────────
+# Main Entry Point
 
 def main():
+    """Entry point for the evaluation harness (fetch, evaluate, or full mode)."""
     parser = argparse.ArgumentParser(description="Run evaluation pipeline against test set")
     parser.add_argument("--mode", type=str, choices=["full", "fetch", "evaluate"],
                         default="full",
@@ -873,7 +880,7 @@ def main():
                         help="Delete existing article cache before fetching (for rebuilding cache)")
     args = parser.parse_args()
 
-    # ── fetch-only mode: populate article cache and exit ──
+    # fetch-only mode: populate article cache and exit
     if args.mode == "fetch":
         if args.force_refetch and ARTICLE_CACHE_PATH.exists():
             logger.info("--force-refetch: clearing existing cache at %s", ARTICLE_CACHE_PATH)
@@ -881,7 +888,7 @@ def main():
         run_fetch(args.test_set, args.max_cases, workers=args.workers)
         return
 
-    # ── evaluate (cached) or full (live fetch + evaluate) ──
+    # evaluate (cached) or full (live fetch + evaluate)
     use_cache = (args.mode == "evaluate")
     evaluation = run_evaluation(
         args.test_set, args.max_cases, workers=args.workers, use_cache=use_cache,

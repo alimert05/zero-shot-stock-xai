@@ -4,11 +4,11 @@ Reads per-case normalised scores from a saved evaluation_results.json
 and finds the (tau_pos, tau_neg) thresholds that maximise macro F1.
 
 Decision logic:
-    if normalized_scores["positive"] >= tau_pos  -> positive
+    if normalized_scores["positive"] >= tau_pos -> positive
     elif normalized_scores["negative"] >= tau_neg -> negative
-    else                                          -> neutral
+    else -> neutral
 
-This operates purely on saved scores -- no GPU inference needed.
+This operates purely on saved scores - no GPU inference needed.
 
 Usage:
     python -m testing.evaluation.tune_thresholds
@@ -31,7 +31,7 @@ from config import EVAL_RESULTS_PATH, THRESHOLD_PATH
 DEFAULT_RESULTS =  EVAL_RESULTS_PATH / f"evaluation_results_zero_shot.json"
 
 
-# ── Metrics ─────────────────────────────────────────────────────────────
+# Metrics
 
 def _compute_metrics(
     actual: list[str],
@@ -94,7 +94,7 @@ def _apply_thresholds(
         return "neutral"
 
 
-# ── Grid search ─────────────────────────────────────────────────────────
+# Grid search
 
 def grid_search(
     case_results: list[dict],
@@ -103,15 +103,15 @@ def grid_search(
 ) -> dict:
     """Exhaustive grid search over (tau_pos, tau_neg).
 
-    Parameters
-    ----------
+    Parameters:
+
     case_results : list[dict]
         Each dict must have 'normalized_scores' and 'actual_label'.
     tau_pos_range : (start, stop, step)
     tau_neg_range : (start, stop, step)
 
-    Returns
-    -------
+    Returns:
+    
     dict with best thresholds, metrics, and search metadata.
     """
     actual_labels = [c["actual_label"] for c in case_results]
@@ -173,7 +173,7 @@ def grid_search(
     }
 
 
-# ── Reporting ───────────────────────────────────────────────────────────
+# Reporting
 
 def _print_report(result: dict, baseline_metrics: dict | None = None) -> None:
     """Print the grid search results."""
@@ -231,7 +231,7 @@ def _print_report(result: dict, baseline_metrics: dict | None = None) -> None:
     print("=" * 65)
 
 
-# ── Top-N results ──────────────────────────────────────────────────────
+# Top-N results
 
 def grid_search_top_n(
     case_results: list[dict],
@@ -296,7 +296,7 @@ def _print_top_n(top_results: list[dict]) -> None:
     print()
 
 
-# ── CLI entry point ─────────────────────────────────────────────────────
+# CLI entry point
 
 def main():
     """CLI entry point: run grid search, print results, and save JSON."""

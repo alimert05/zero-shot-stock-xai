@@ -48,7 +48,7 @@ COVERAGE_COUNT_BOOST = True
 HEADLINE_ONLY_WEIGHT = 0.5
 
 
-# ── Helpers ──────────────────────────────────────────────────────────────────
+# Helpers
 
 def _compute_effective_weights(articles: list[dict]) -> list[float]:
     """Compute effective weights matching the predictor's logic."""
@@ -94,7 +94,7 @@ def _apply_thresholds(scores: dict[str, float]) -> str:
         return "neutral"
 
 
-# ── Quality Flags ────────────────────────────────────────────────────────────
+# Quality Flags
 
 def compute_quality_flags(holdout_cases, articles_base):
     """Compute quality flag distributions and HHI stats across holdout set."""
@@ -203,7 +203,7 @@ def compute_quality_flags(holdout_cases, articles_base):
     }
 
 
-# ── Flip-Set Analysis ────────────────────────────────────────────────────────
+# Flip-Set Analysis
 
 def compute_flipsets(holdout_cases, articles_base):
     """
@@ -295,6 +295,7 @@ def compute_flipsets(holdout_cases, articles_base):
 
         # Rank articles by how much they support the current prediction
         def article_influence(ad):
+            """Score how much an article supports the current prediction."""
             if winning_label == "neutral":
                 # For neutral, the prediction flips if removing articles
                 # pushes a directional score above its threshold
@@ -355,7 +356,7 @@ def compute_flipsets(holdout_cases, articles_base):
     }
 
 
-# ── Reporting ────────────────────────────────────────────────────────────────
+# Reporting
 
 def print_quality_report(results):
     """Print quality flag and HHI results."""
@@ -439,9 +440,10 @@ def print_flipset_report(results):
     print("=" * 70)
 
 
-# ── Main ─────────────────────────────────────────────────────────────────────
+# Main
 
 def main():
+    """Run quality flag diagnostics and flip-set analysis across the holdout set."""
     parser = argparse.ArgumentParser(description="XAI evaluation across holdout set")
     parser.add_argument("--skip-flipset", action="store_true",
                         help="Skip flip-set analysis (no GPU needed)")

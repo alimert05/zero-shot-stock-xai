@@ -1,3 +1,5 @@
+"""Quick backtesting sanity checks for the prediction pipeline."""
+
 from datetime import datetime, timedelta
 import json
 import yfinance as yf
@@ -32,6 +34,7 @@ def _next_open_day_close(ticker: str, day: datetime, max_lookahead_days: int = 1
 
 
 def get_real_label_yfinance(ticker: str, start_date: str, end_date: str, neutral_threshold: float = 0.003, max_lookahead_days: int = 10,) -> tuple[str, dict, str | None]:
+    """Fetch ground-truth label from yfinance based on actual price movement."""
     s0 = _parse_date(start_date)
     e0 = _parse_date(end_date)
 
@@ -80,11 +83,13 @@ def get_real_label_yfinance(ticker: str, start_date: str, end_date: str, neutral
 
 
 def store_predictions_jsonl(filepath: str, record: dict) -> None:
+    """Append a prediction record to a JSONL file."""
     with open(filepath, "a", encoding="utf-8") as f:
         f.write(json.dumps(record, ensure_ascii=False) + "\n")
 
 
 def evaluate_one(predicted_label: str, actual_label: str) -> dict:
+    """Compare a single prediction against the ground-truth label."""
     return {
         "predicted": predicted_label,
         "actual": actual_label,
@@ -134,22 +139,23 @@ pred_record = {
 store_predictions_jsonl(PRED_JSON_PATH, pred_record)
 
 def run_backtest():
+    """Run a quick backtest comparing pipeline predictions to actual returns."""
     if _backtest_skipped:
-        print("─" * 35)
+        print("-" * 35)
         print("⚠ Backtest not available — prediction window ends in the future.")
         print(f"  End date: {end_date}  |  Today: {datetime.now().date()}")
         print("  Re-run after the prediction window closes to compare with actual price.")
-        print("─" * 35)
+        print("-" * 35)
         return
 
     report = evaluate_one(predicted_label, actual_label)
-    print("─" * 35)
+    print("-" * 35)
     print("Actual:", actual_label.capitalize())
-    print("─" * 35)
+    print("-" * 35)
     print("Pred:", predicted_label.capitalize())
-    print("─" * 35)
+    print("-" * 35)
     print("Correct:", report["correct"])
-    print("─" * 35)
+    print("-" * 35)
     print(f"Change: {round(float(meta['pct_change']), 5) * 100}%", warn if warn is not None else "")
-    print("─" * 35)
+    print("-" * 35)
 
