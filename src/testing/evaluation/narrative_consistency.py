@@ -5,7 +5,7 @@ and compares the LLM-generated summaries for consistency.
 
 Usage:
     python -m testing.evaluation.narrative_consistency
-    python -m testing.evaluation.narrative_consistency --cases 6 --runs 3
+    python -m testing.evaluation.narrative_consistency --cases 30 --runs 5
 """
 
 from __future__ import annotations
@@ -28,35 +28,35 @@ from config import (
 
 
 SELECTED_CASE_IDS = [
-    # Tech (MSFT) — all 6 windows
+    # Tech (MSFT) - all 6 windows
     "MSFT_W1_bull_run_025",
     "MSFT_W3_bull_run_029",
     "MSFT_W5_bull_run_033",
     "MSFT_W7_bull_run_037",
     "MSFT_W14_bull_run_041",
     "MSFT_W31_bull_run_045",
-    # Finance (BAC) — all 6 windows
+    # Finance (BAC) - all 6 windows
     "BAC_W1_bull_run_193",
     "BAC_W3_bull_run_197",
     "BAC_W5_bull_run_201",
     "BAC_W7_bull_run_205",
     "BAC_W14_bull_run_209",
     "BAC_W31_bull_run_213",
-    # Consumer (KO) — all 6 windows
+    # Consumer (KO) - all 6 windows
     "KO_W1_bull_run_409",
     "KO_W3_bull_run_413",
     "KO_W5_bull_run_417",
     "KO_W7_bull_run_421",
     "KO_W14_bull_run_425",
     "KO_W31_bull_run_429",
-    # Energy (XOM) — all 6 windows
+    # Energy (XOM) - all 6 windows
     "XOM_W1_bull_run_337",
     "XOM_W3_bull_run_341",
     "XOM_W5_bull_run_345",
     "XOM_W7_bull_run_349",
     "XOM_W14_bull_run_353",
     "XOM_W31_bull_run_357",
-    # Healthcare (UNH) — all 6 windows
+    # Healthcare (UNH) - all 6 windows
     "UNH_W1_bull_run_313",
     "UNH_W3_bull_run_317",
     "UNH_W5_bull_run_321",
@@ -221,6 +221,7 @@ def run_experiment(n_cases: int = 5, n_runs: int = 3):
 
 
 def main():
+    """Run the narrative consistency experiment and print results."""
     parser = argparse.ArgumentParser(description="Narrative consistency experiment")
     parser.add_argument("--cases", type=int, default=5, help="Number of holdout cases to test")
     parser.add_argument("--runs", type=int, default=3, help="Number of runs per case")

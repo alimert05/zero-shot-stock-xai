@@ -3,14 +3,14 @@
 Creates ~480 test cases covering:
     - 20 companies across 5 sectors (Tech, Finance, Healthcare, Energy, Consumer)
     - 6 prediction windows (1, 3, 5, 7, 14, 31 days)
-    - 4 market periods per company×window
+    - 4 market periods per company x window
 
 Ground truth labels (positive/negative/neutral) are fetched from yfinance
 and stored in the JSON so evaluations are deterministic and fast.
 
 Neutral threshold is computed per test case as:
 
-    threshold = k × EWMA_sigma(as of start_date) × sqrt(window_days)
+    threshold = k x EWMA_sigma(as of start_date) x sqrt(window_days)
 
 This is a point-in-time, volatility-scaled neutral band:
     - point-in-time: only data available before the case start date is used
@@ -43,7 +43,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# ── Configuration ──
+# Configuration
 
 COMPANIES = [
     # Tech (7)
@@ -132,7 +132,7 @@ MAX_LOOKAHEAD_DAYS = 10
 OUTPUT_PATH = DATASET_PATH / "test_set.json"
 
 
-# ── Volatility Thresholding ──
+# Volatility thresholding
 
 def compute_point_in_time_ewma_threshold(
     ticker: str,
@@ -207,7 +207,7 @@ def compute_point_in_time_ewma_threshold(
         return FALLBACK_NEUTRAL_THRESHOLD
 
 
-# ── Ground Truth Fetching ──
+# Ground truth fetching
 
 def _parse_date(d: str) -> datetime:
     return datetime.strptime(d, "%d-%m-%Y")
@@ -273,7 +273,7 @@ def get_ground_truth(
     }
 
 
-# ── Test Case Generation ──
+# Test case generation
 
 def _compute_backward_days(prediction_window: int) -> int:
     """Mirror the backward lookup formula from fetcher.py."""
@@ -313,7 +313,7 @@ def generate_test_cases() -> list[dict]:
                 test_id = f"{ticker}_W{window}_{period['label']}_{case_id:03d}"
 
                 logger.info(
-                    "Generating case %s: %s %s→%s (W=%d, threshold=%.4f)",
+                    "Generating case %s: %s %s->%s (W=%d, threshold=%.4f)",
                     test_id, ticker, start_date, end_date, window, neutral_threshold,
                 )
 
