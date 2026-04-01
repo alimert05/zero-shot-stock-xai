@@ -2,12 +2,6 @@
 
 Groups articles into storylines by TF-IDF similarity on titles,
 then optionally labels each cluster with a one-phrase Ollama summary.
-
-Academic context:
-  - TF-IDF weighting: Salton & Buckley (1988)
-  - Agglomerative clustering: Ward (1963)
-  - Cosine similarity for text: Manning et al. (2008)
-  - Narrative explanations in XAI: Biran & Cotton (2017)
 """
 from __future__ import annotations
 
@@ -34,9 +28,8 @@ def _cluster_titles(
 ) -> list[int]:
     """Agglomerative clustering on TF-IDF vectors of article titles.
 
-    Uses cosine distance with average linkage - a natural metric for
-    short-text similarity (Manning et al., 2008).  An adaptive loop
-    relaxes the distance threshold when too few articles cluster (< 25 %).
+    Uses cosine distance with average linkage - a natural metric for short-text similarity. 
+    An adaptive loop relaxes the distance threshold when too few articles cluster (< 25 %).
 
     Returns a list of cluster labels (0-indexed). Singletons are
     relabelled to -1 so they can be grouped into "Other topics".

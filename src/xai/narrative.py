@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 _SYSTEM_MESSAGE = (
     "You are a financial analyst assistant. "
     "Your task is ONLY to narrate pre-computed data provided to you. "
-    "STRICT RULES — violating any rule makes your response invalid:\n"
+    "STRICT RULES - violating any rule makes your response invalid:\n"
     "1. Use ONLY facts explicitly stated in the DATA SUMMARY block. Do not infer, invent, or extrapolate.\n"
     "2. When describing confidence margin, copy the EXACT qualifier given (e.g. 'narrow margin', 'clear margin'). Do NOT substitute your own words like 'significant' or 'strong'.\n"
     "3. When describing article sentiment distribution, use ONLY the counts provided. Do NOT say 'majority' or 'most' unless the data says so.\n"
@@ -125,7 +125,7 @@ def _build_prompt(
     else:
         warning_fact = f"Evidence quality is {overall_reliability} with no concerns."
 
-    prompt = f"""DATA (read-only — narrate these facts, do not add any others):
+    prompt = f"""DATA (read-only - narrate these facts, do not add any others):
 Company: {company_name}{f' ({ticker})' if ticker else ''}
 Prediction label: {final_label} with a {conf_pct}% score share, based on {articles_analyzed} articles over {W} days.
 Score breakdown: Positive {pos_pct}%, Negative {neg_pct}%, Neutral {neu_pct}%.
@@ -138,7 +138,7 @@ Average article age: {avg_days:.1f} days.
 Write exactly 3 sentences starting with "The model predicted":
 - Sentence 1: state the predicted label in ALL-CAPS exactly as given (e.g. "a NEUTRAL label"), score share (not "confidence"), and article count. The label must appear in UPPER CASE.
 - Sentence 2: name the top article and its sentiment.
-- Sentence 3: write exactly "The label margin is {margin_qualifier} ({margin:.3f}), but evidence quality is {overall_reliability} due to " followed by ALL specific reason(s) from the warning above — do not omit any.
+- Sentence 3: write exactly "The label margin is {margin_qualifier} ({margin:.3f}), but evidence quality is {overall_reliability} due to " followed by ALL specific reason(s) from the warning above - do not omit any.
 
 GRAMMAR RULE: "due to" must be followed by noun phrases (e.g. "due to a narrow decision margin; source concentration"), NOT by clauses (e.g. NOT "due to the label was decided")."""
 
@@ -170,7 +170,7 @@ def _build_fallback_summary(
     margin = (sorted_scores[0] - sorted_scores[1]) if len(sorted_scores) >= 2 else 0.0
     margin_q = _margin_qualifier(margin)
 
-    # Collect specific evidence-quality concerns (not the margin — it's stated separately)
+    # Collect specific evidence-quality concerns (not the margin - it's stated separately)
     flags = reliability.get("flags", {})
     concern_parts: list[str] = []
     if flags.get("source_diversity", {}).get("flagged"):
@@ -228,7 +228,7 @@ def _validate_narrative(summary: str, prompt: str) -> tuple[bool, list[str]]:
         if word in summary_lower and word not in prompt.lower():
             violations.append(f"hallucinated magnitude qualifier: '{word}'")
 
-    # 2. Distribution claims — only allowed if the exact phrase appears in prompt
+    # 2. Distribution claims - only allowed if the exact phrase appears in prompt
     distribution_claims = ["majority", "most articles", "most of the articles", "out of 58", "out of 57", "out of 56"]
     for phrase in distribution_claims:
         if phrase in summary_lower and phrase not in prompt.lower():
