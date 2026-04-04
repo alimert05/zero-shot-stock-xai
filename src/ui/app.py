@@ -103,6 +103,7 @@ _EVENT_TYPE_INFO = {
 
 # Summary and Explanation Builders
 def _badge(text: str, colour: str, size: str = "0.85rem") -> str:
+    """Return an HTML span styled as a coloured badge."""
     return (
         f'<span style="background:{colour};color:#fff;padding:3px 10px;'
         f'border-radius:4px;font-size:{size};font-weight:600;'
@@ -116,6 +117,7 @@ def _label_badge(
     threshold_neutral: bool = False,
     threshold_gap: dict | None = None,
 ) -> str:
+    """Return an HTML badge showing the prediction label and confidence."""
     colour = _LABEL_COLOURS.get(label, "#3498db")
     if threshold_neutral:
         display_label = "NEUTRAL  - No Clear Direction"
@@ -129,6 +131,7 @@ def _label_badge(
 
 
 def _confidence_badge(level: str) -> str:
+    """Return an HTML badge indicating the evidence quality level."""
     colour = _CONFIDENCE_COLOURS.get(level, "#3498db")
     return (
         f'<span style="background:{colour};color:#fff;padding:4px 14px;'
@@ -137,6 +140,7 @@ def _confidence_badge(level: str) -> str:
 
 
 def _hex_to_rgba(hex_color: str, alpha: float = 0.3) -> str:
+    """Convert a hex colour string to an rgba() CSS value."""
     h = hex_color.lstrip("#")
     r, g, b = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
     return f"rgba({r},{g},{b},{alpha})"
@@ -473,6 +477,7 @@ def _run_full_pipeline(
 
 # Overview Page
 def _render_overview(result: dict) -> None:
+    """Render the overview page with prediction result, metrics, and summary."""
     pred = result.get("prediction_summary", {})
     narrative = result.get("narrative", {})
     meta = result.get("meta", {})
@@ -635,6 +640,7 @@ def _render_overview(result: dict) -> None:
 
 # Detailed Analysis Pages
 def _render_reliability(result: dict) -> None:
+    """Render the evidence quality page with reliability flags and details."""
     reliability = result.get("reliability", {})
 
     rel_level = reliability.get("overall_reliability", "?")
@@ -694,6 +700,7 @@ def _render_reliability(result: dict) -> None:
 
 
 def _render_storylines(result: dict) -> None:
+    """Render the narrative storylines page grouped by sentiment."""
     storylines_data = result.get("storylines", {})
 
     storylines = storylines_data.get("storylines", [])
@@ -751,6 +758,7 @@ def _render_storylines(result: dict) -> None:
 
 
 def _render_event_types(result: dict) -> None:
+    """Render the event type distribution and per-event sentiment breakdown."""
     layer3 = result.get("layer_3_pipeline", {})
     event_dist = layer3.get("event_type_distribution", {})
     event_sent = layer3.get("event_type_sentiment", {})
@@ -902,6 +910,7 @@ def _build_merged_table(result: dict) -> pd.DataFrame:
 
 
 def _render_article_rankings(result: dict) -> None:
+    """Render the article analysis table with rankings, weights, and details."""
     layer2 = result.get("layer_2_article", {})
     ranked = layer2.get("ranked_articles", [])
 
@@ -1013,6 +1022,7 @@ def _render_article_rankings(result: dict) -> None:
 
 
 def _render_robustness(result: dict) -> None:
+    """Render the prediction robustness page with flip-set and sensitivity analysis."""
     layer2 = result.get("layer_2_article", {})
     flip_set = layer2.get("minimum_flip_set", {})
     flip_articles = layer2.get("label_flipping_articles", [])
@@ -1066,6 +1076,7 @@ def _render_robustness(result: dict) -> None:
 
 
 def _render_weighting(result: dict) -> None:
+    """Render the pipeline weighting page with formula and weight breakdowns."""
     layer3 = result.get("layer_3_pipeline", {})
 
     if not layer3:
@@ -1107,6 +1118,7 @@ def _render_weighting(result: dict) -> None:
 
 
 def _render_lime(result: dict) -> None:
+    """Render the LIME token attribution page with per-article word highlights."""
     lime_data = result.get("layer_1_token", {})
     articles = lime_data.get("articles", [])
     lime_method = lime_data.get("method", "LIME")
@@ -1193,6 +1205,7 @@ def _render_lime(result: dict) -> None:
 
 # Charts and Visualisations
 def _chart_sentiment_scores(result: dict) -> go.Figure:
+    """Build a horizontal bar chart of normalised sentiment scores."""
     pred = result.get("prediction_summary", {})
     ns = pred.get("normalized_scores", {})
     final = pred.get("final_label", "").lower()
@@ -1224,6 +1237,7 @@ def _chart_sentiment_scores(result: dict) -> go.Figure:
 
 
 def _chart_article_distribution(result: dict) -> go.Figure:
+    """Build a pie chart of article counts by dominant sentiment."""
     layer2 = result.get("layer_2_article", {})
     ranked = layer2.get("ranked_articles", [])
     counts: dict[str, int] = {}
@@ -1249,6 +1263,7 @@ def _chart_article_distribution(result: dict) -> go.Figure:
 
 
 def _chart_article_weights(result: dict) -> go.Figure:
+    """Build a horizontal bar chart of the top 10 articles by final weight."""
     layer2 = result.get("layer_2_article", {})
     ranked = layer2.get("ranked_articles", [])[:10]
 
@@ -1281,6 +1296,7 @@ def _chart_article_weights(result: dict) -> go.Figure:
 
 
 def _chart_horizon_breakdown(result: dict) -> go.Figure:
+    """Build a bar chart showing article counts per impact horizon category."""
     layer3 = result.get("layer_3_pipeline", {})
     horizon_dist = layer3.get("horizon_distribution", {})
     cats = list(horizon_dist.keys())
@@ -1305,6 +1321,7 @@ def _chart_horizon_breakdown(result: dict) -> go.Figure:
 
 
 def _chart_lime_tokens(result: dict) -> go.Figure:
+    """Build subplots of LIME token weights for each analysed article."""
     lime_data = result.get("layer_1_token", {})
     articles = lime_data.get("articles", [])
     pred = result.get("prediction_summary", {})
@@ -1343,6 +1360,7 @@ def _chart_lime_tokens(result: dict) -> go.Figure:
 
 
 def _chart_storyline_contribution(result: dict) -> go.Figure:
+    """Build a horizontal bar chart of storyline contribution scores."""
     storylines_data = result.get("storylines", {})
     pred = result.get("prediction_summary", {})
     predicted_label = pred.get("final_label", "positive")
@@ -1379,6 +1397,7 @@ def _chart_storyline_contribution(result: dict) -> go.Figure:
 
 
 def _chart_contrastive_waterfall(result: dict) -> go.Figure:
+    """Build a waterfall chart comparing article contributions between the top two labels."""
     layer2 = result.get("layer_2_article", {})
     contrastive = layer2.get("contrastive", {})
     winner = contrastive.get("winner", "?")
@@ -1414,6 +1433,7 @@ def _chart_contrastive_waterfall(result: dict) -> go.Figure:
 
 
 def _chart_article_timeline(result: dict) -> go.Figure:
+    """Build a scatter plot of articles by recency and weight, coloured by sentiment."""
     layer2 = result.get("layer_2_article", {})
     ranked = layer2.get("ranked_articles", [])
 
@@ -1451,6 +1471,7 @@ def _chart_article_timeline(result: dict) -> go.Figure:
 
 
 def _chart_cumulative_score(result: dict) -> go.Figure:
+    """Build a dual-panel chart of cumulative scores and normalised sentiment proportions."""
     layer2 = result.get("layer_2_article", {})
     pred = result.get("prediction_summary", {})
     ranked = layer2.get("ranked_articles", [])
@@ -1536,6 +1557,7 @@ _CHART_OPTIONS = {
 
 
 def _render_charts(result: dict) -> None:
+    """Render the interactive charts page with a selectable chart picker."""
     st.markdown("### Interactive Charts")
 
     selected = st.selectbox("Select a chart to view", list(_CHART_OPTIONS.keys()))
