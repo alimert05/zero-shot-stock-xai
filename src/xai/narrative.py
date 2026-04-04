@@ -101,7 +101,16 @@ def _build_prompt(
 
     # Pre-build the margin fact as a complete sentence fragment so LLaMA
     # reads it as data, not an instruction to copy a phrase.
-    margin_fact = f"The label margin is {margin_qualifier} ({margin:.3f}), meaning a {margin_qualifier} gap between the top two sentiment scores."
+    if threshold_override:
+        margin_fact = (
+            f"Decision thresholds overrode the raw scores: {argmax_label} scored highest "
+            f"({normalized.get(argmax_label, 0) * 100:.1f}%) but did not reach its threshold "
+            f"({tau_pos * 100:.0f}% for positive, {tau_neg * 100:.0f}% for negative). "
+            f"The {final_label.lower()} score ({conf_pct}%) exceeded its lower threshold, "
+            f"reflecting calibrated bias correction."
+        )
+    else:
+        margin_fact = f"The label margin is {margin_qualifier} ({margin:.3f}), meaning a {margin_qualifier} gap between the top two sentiment scores."
 
     # Build a warning fact from ACTUAL flagged concerns (not the margin itself)
     active_warnings: list[str] = []
@@ -145,10 +154,9 @@ Average article age: {avg_days:.1f} days.
 {lime_line}
 {warning_fact}
 
-Write exactly 3 sentences starting with "The model predicted":
-- Sentence 1: state the predicted label in ALL-CAPS exactly as given (e.g. "a NEUTRAL label"), score share (not "confidence"), and article count. The label must appear in UPPER CASE.
-- Sentence 2: name the top article and its sentiment.
-- Sentence 3: write exactly "The label margin is {margin_qualifier} ({margin:.3f}), but evidence quality is {overall_reliability} due to " followed by ALL specific reason(s) from the warning above - do not omit any.
+Write exactly 2 sentences starting with "The model predicted":
+- Sentence 1: state the predicted label in ALL-CAPS exactly as given (e.g. "a NEUTRAL label"), score share (not "confidence"), and article count.{' Mention that decision thresholds selected this label over the higher-scoring ' + argmax_label + ' due to bias correction.' if threshold_override else ''} The label must appear in UPPER CASE.
+- Sentence 2: {'state that evidence quality is ' + overall_reliability + (' due to ' + '; '.join(active_warnings) if active_warnings else ' with no concerns') + '.' if threshold_override else 'write exactly "The label margin is ' + margin_qualifier + ' (' + f'{margin:.3f}' + '), but evidence quality is ' + overall_reliability + ' due to " followed by ALL specific reason(s) from the warning above - do not omit any.'}
 
 GRAMMAR RULE: "due to" must be followed by noun phrases (e.g. "due to a narrow decision margin; source concentration"), NOT by clauses (e.g. NOT "due to the label was decided")."""
 
@@ -180,6 +188,16 @@ def _build_fallback_summary(
     margin = (sorted_scores[0] - sorted_scores[1]) if len(sorted_scores) >= 2 else 0.0
     margin_q = _margin_qualifier(margin)
 
+    # Detect threshold-override: final label differs from raw argmax
+    argmax_label = max(normalized, key=normalized.get) if normalized else "neutral"
+    abst_test = prediction_result.get("abstention_test", {})
+    threshold_override = (
+        abst_test.get("method") == "decision_threshold"
+        and final_label != argmax_label
+    )
+    tau_pos = abst_test.get("decision_thresholds", {}).get("tau_pos", 0)
+    tau_neg = abst_test.get("decision_thresholds", {}).get("tau_neg", 0)
+
     # Collect specific evidence-quality concerns (not the margin - it's stated separately)
     flags = reliability.get("flags", {})
     concern_parts: list[str] = []
@@ -204,23 +222,39 @@ def _build_fallback_summary(
             f"the intended backward window ({hc.get('intended_lookback_days', '?')} days)"
         )
 
-    if concern_parts and overall != "HIGH":
-        reliability_sentence = (
-            f"The label margin is {margin_q} ({margin:.3f}), "
-            f"but evidence quality is {overall} due to {'; '.join(concern_parts)}."
+    if threshold_override:
+        threshold_sentence = (
+            f"Although {argmax_label} scored highest "
+            f"({normalized.get(argmax_label, 0) * 100:.1f}%), it did not reach its "
+            f"confidence threshold ({tau_pos * 100:.0f}% for positive, "
+            f"{tau_neg * 100:.0f}% for negative). The {final_label} score "
+            f"({conf_pct}%) exceeded its lower threshold, reflecting calibrated "
+            f"bias correction."
         )
+        if concern_parts and overall != "HIGH":
+            reliability_sentence = (
+                f"Evidence quality is {overall} due to {'; '.join(concern_parts)}."
+            )
+        else:
+            reliability_sentence = f"Evidence quality is {overall}."
     else:
-        reliability_sentence = (
-            f"The label margin is {margin_q} ({margin:.3f}) "
-            f"and prediction evidence quality is {overall}."
-        )
+        threshold_sentence = ""
+        if concern_parts and overall != "HIGH":
+            reliability_sentence = (
+                f"The label margin is {margin_q} ({margin:.3f}), "
+                f"but evidence quality is {overall} due to {'; '.join(concern_parts)}."
+            )
+        else:
+            reliability_sentence = (
+                f"The label margin is {margin_q} ({margin:.3f}) "
+                f"and prediction evidence quality is {overall}."
+            )
 
     return (
         f"The model predicted a {final_label.upper()} label for {company_name} "
         f"with a {conf_pct}% score share based on {articles_analyzed} articles. "
-        f"The most influential article was \"{top_title}\" (weight {top_weight:.3f}), "
-        f"whose removal {change_str} the overall label. "
-        f"{reliability_sentence}"
+        + (f"{threshold_sentence} " if threshold_sentence else "")
+        + f"{reliability_sentence}"
     )
 
 

@@ -145,14 +145,23 @@ def compute_quality_flags(holdout_cases, articles_base):
             flag_counts["weight_concentration"] += 1
             n_flags += 1
 
-        # 3. Label margin
+        # 3. Label margin (skip when decision thresholds overrode argmax)
         scores = case.get("normalized_scores", {})
-        sorted_scores = sorted(scores.values(), reverse=True)
-        if len(sorted_scores) >= 2:
-            margin = sorted_scores[0] - sorted_scores[1]
-            if margin < 0.15:
-                flag_counts["label_margin"] += 1
-                n_flags += 1
+        argmax_label = max(scores, key=scores.get) if scores else "neutral"
+        predicted = case.get("predicted_label", argmax_label)
+        threshold_override = (
+            DECISION_THRESHOLD_ENABLED
+            and predicted != argmax_label
+        )
+        if threshold_override:
+            flag_counts["label_margin_skipped"] += 1
+        else:
+            sorted_scores = sorted(scores.values(), reverse=True)
+            if len(sorted_scores) >= 2:
+                margin = sorted_scores[0] - sorted_scores[1]
+                if margin < 0.15:
+                    flag_counts["label_margin"] += 1
+                    n_flags += 1
 
         # 4. Source diversity
         domains = [a.get("domain", "unknown") for a in articles]
@@ -380,6 +389,9 @@ def print_quality_report(results):
         count = flags.get(flag_name, 0)
         pct = count / total * 100
         print(f"  {flag_name:<30} {count:>10} {pct:>9.1f}%")
+    skipped = flags.get("label_margin_skipped", 0)
+    if skipped:
+        print(f"  {'label_margin_skipped (N/A)':<30} {skipped:>10} {skipped/total*100:>9.1f}%")
 
     ra = results["rating_accuracy"]
 

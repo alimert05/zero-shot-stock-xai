@@ -160,130 +160,120 @@ def _load_article_content() -> dict[str, str]:
 
 
 def _build_comprehensive_summary(result: dict) -> str:
-    """Build a large plain-English summary covering everything from the XAI result.
+    """Build a plain-English summary from the XAI result using shared helpers.
 
     Uses <b> tags instead of markdown because the summary is rendered
     inside a raw HTML <div>.
     """
-    import re
-
-    pred = result.get("prediction_summary", {})
-    meta = result.get("meta", {})
-    narrative = result.get("narrative", {})
-    reliability = result.get("reliability", {})
-    layer2 = result.get("layer_2_article", {})
-    layer3 = result.get("layer_3_pipeline", {})
-    contrastive = layer2.get("contrastive", {})
-    storylines_data = result.get("storylines", {})
-    flip_set = layer2.get("minimum_flip_set", {})
-    flip_articles = layer2.get("label_flipping_articles", [])
-
-    company = meta.get("query", "the company")
-    ticker = meta.get("ticker", "")
-    label = pred.get("final_label", "unknown")
-    confidence = pred.get("final_confidence", 0)
-    n_articles = meta.get("articles_analyzed", "?")
-    window = meta.get("prediction_window_days", "?")
-    lookback = meta.get("news_lookback", "?")
-    scores = pred.get("normalized_scores", {})
-
-    # Detect threshold-triggered neutral
-    abst_test = pred.get("abstention_test") or {}
-    abst_method = abst_test.get("method", "none")
-    threshold_neutral = (
-        label == "neutral"
-        and abst_method == "decision_threshold"
+    from xai.summary_helpers import (
+        get_prediction_info, get_contrastive_info, get_top_articles,
+        get_sentiment_counts, get_reliability_info, get_robustness_info,
+        get_storylines_info,
     )
 
-    parts = []
+    pred = get_prediction_info(result)
+    cont = get_contrastive_info(result)
+    top_arts = get_top_articles(result, n=3)
+    sent = get_sentiment_counts(result)
+    rel = get_reliability_info(result)
+    rob = get_robustness_info(result)
+    stories = get_storylines_info(result, n=4)
 
-    if threshold_neutral:
+    layer3 = result.get("layer_3_pipeline", {})
+    layer2 = result.get("layer_2_article", {})
+    scores = pred["scores"]
+
+    parts: list[str] = []
+
+    # Opening prediction statement
+    ticker_str = f' ({pred["ticker"]})' if pred["ticker"] else ""
+    if pred["threshold_neutral"]:
         pos_pct = scores.get("positive", 0) * 100
         neg_pct = scores.get("negative", 0) * 100
-        tau_pos = abst_test.get("decision_thresholds", {}).get("tau_pos", 0)
-        tau_neg = abst_test.get("decision_thresholds", {}).get("tau_neg", 0)
         parts.append(
-            f"The model analysed <b>{n_articles} news articles</b> about <b>{company}</b>"
-            f"{f' ({ticker})' if ticker else ''} "
-            f"over a <b>{window}-day prediction window</b> "
-            f"(news lookback: {lookback}). "
+            f'The model analysed <b>{pred["n_articles"]} news articles</b> '
+            f'about <b>{pred["company"]}</b>{ticker_str} '
+            f'over a <b>{pred["window"]}-day prediction window</b> '
+            f'(news lookback: {pred["lookback"]}). '
             f"Articles showed <b>divided sentiment</b>: <b>{pos_pct:.1f}%</b> of aggregated "
             f"weight leaned positive while <b>{neg_pct:.1f}%</b> leaned negative. "
             f"Because neither direction reached its consensus threshold "
-            f"(positive needs ≥{tau_pos * 100:.0f}%, negative needs ≥{tau_neg * 100:.0f}%), "
+            f'(positive needs >={pred["tau_pos"] * 100:.0f}%, '
+            f'negative needs >={pred["tau_neg"] * 100:.0f}%), '
             f"the overall outlook is classified as <b>NEUTRAL (mixed/inconclusive)</b>."
         )
     else:
         parts.append(
-            f"The model analysed <b>{n_articles} news articles</b> about <b>{company}</b>"
-            f"{f' ({ticker})' if ticker else ''} "
-            f"over a <b>{window}-day prediction window</b> "
-            f"(news lookback: {lookback}) "
-            f"and predicted a <b>{label.upper()}</b> label with <b>{confidence:.1%}</b> score."
+            f'The model analysed <b>{pred["n_articles"]} news articles</b> '
+            f'about <b>{pred["company"]}</b>{ticker_str} '
+            f'over a <b>{pred["window"]}-day prediction window</b> '
+            f'(news lookback: {pred["lookback"]}) '
+            f'and predicted a <b>{pred["label"].upper()}</b> label '
+            f'with <b>{pred["confidence"]:.1%}</b> score.'
         )
 
+    # Weighted sentiment distribution
     if scores:
-        score_parts = []
-        for lbl in ["positive", "negative", "neutral"]:
-            val = scores.get(lbl, 0)
-            score_parts.append(f"<b>{lbl} {val:.1%}</b>")
+        score_parts = [
+            f'<b>{lbl} {scores.get(lbl, 0):.1%}</b>'
+            for lbl in ["positive", "negative", "neutral"]
+        ]
         parts.append(
-            f"The weighted sentiment distribution across all articles is: {', '.join(score_parts)}."
+            f"The weighted sentiment distribution across all articles is: "
+            f"{', '.join(score_parts)}."
         )
 
-    ranked = layer2.get("ranked_articles", [])
-    if ranked:
-        sent_counts: dict[str, int] = {}
-        for a in ranked:
-            s = a.get("dominant_sentiment", "unknown")
-            sent_counts[s] = sent_counts.get(s, 0) + 1
-        count_parts = [f"<b>{v}</b> {k}" for k, v in sorted(sent_counts.items(), key=lambda x: x[1], reverse=True)]
+    # Article sentiment breakdown
+    if sent["total"] > 0:
+        count_parts = [
+            f"<b>{v}</b> {k}"
+            for k, v in sorted(sent["counts"].items(), key=lambda x: x[1], reverse=True)
+        ]
         parts.append(
-            f"Out of {len(ranked)} articles, the sentiment breakdown is: {', '.join(count_parts)}."
+            f'Out of {sent["total"]} articles, the sentiment breakdown is: '
+            f"{', '.join(count_parts)}."
         )
 
-    narrative_text = narrative.get("summary") or narrative.get("fallback_summary") or ""
-    if narrative_text:
-        narrative_text = re.sub(
-            r",\s*but\s+(\w)",
-            lambda m: ". " + m.group(1).upper(),
-            narrative_text,
-        )
-        if narrative_text[0:1].islower():
-            narrative_text = narrative_text[0].upper() + narrative_text[1:]
-        parts.append(narrative_text)
+    # Contrastive explanation
+    if cont["has_data"]:
+        if cont["is_threshold_override"]:
+            parts.append(
+                f'Decision thresholds selected <b>{cont["winner"].upper()}</b> over '
+                f'<b>{cont["runner_up"].upper()}</b>: {cont["runner_up"]} scored higher '
+                f"but did not reach its confidence threshold "
+                f'({cont["tau_pos"] * 100:.0f}% for positive, '
+                f'{cont["tau_neg"] * 100:.0f}% for negative), '
+                f'while {cont["winner"]} exceeded its lower threshold. '
+                f"This reflects calibrated positive-bias correction."
+            )
+        else:
+            n_w = cont["n_favouring_winner"]
+            parts.append(
+                f'The prediction chose <b>{cont["winner"].upper()}</b> over '
+                f'<b>{cont["runner_up"].upper()}</b> '
+                f'by a score gap of <b>{cont["score_gap"]:.4f}</b>. '
+                f'By net weighted contribution, {n_w} '
+                f'article{"s" if n_w != 1 else ""} pushed toward {cont["winner"]} '
+                f'while {cont["n_favouring_runner_up"]} pushed toward {cont["runner_up"]}.'
+            )
 
-    winner = contrastive.get("winner", "")
-    runner = contrastive.get("runner_up", "")
-    gap = contrastive.get("score_gap", 0)
-    n_fav_w = contrastive.get("n_favouring_winner", 0)
-    n_fav_r = contrastive.get("n_favouring_runner_up", 0)
-    if winner and runner:
-        parts.append(
-            f"The prediction chose <b>{winner.upper()}</b> over <b>{runner.upper()}</b> "
-            f"by a score gap of <b>{gap:.4f}</b>. "
-            f"{n_fav_w} article{'s' if n_fav_w != 1 else ''} favoured {winner} "
-            f"while {n_fav_r} favoured {runner}."
-        )
-
-    if ranked:
-        top3 = ranked[:3]
-        driver_parts = []
-        for a in top3:
-            t = a.get("title", "?")
-            s = a.get("dominant_sentiment", "?")
-            w = a.get("weight_share", 0)
-            driver_parts.append(f'"{t}" ({s}, <b>{w:.1%}</b> weight)')
+    # Top influential articles
+    if top_arts:
+        driver_parts = [
+            f'"{a["title"]}" ({a["sentiment"]}, <b>{a["weight_share"]:.1%}</b> weight)'
+            for a in top_arts
+        ]
         parts.append(
             f"The most influential articles were: {'; '.join(driver_parts)}."
         )
 
+    # Weight concentration (HHI)
     hhi = layer2.get("weight_concentration", 0)
     if hhi:
         if hhi > 0.4:
             parts.append(
                 f"Evidence is <b>concentrated</b> (Herfindahl index: {hhi:.4f}) "
-                f" - a small number of articles dominate the prediction."
+                f"- a small number of articles dominate the prediction."
             )
         else:
             parts.append(
@@ -291,14 +281,19 @@ def _build_comprehensive_summary(result: dict) -> str:
                 f"(Herfindahl index: {hhi:.4f})."
             )
 
+    # Event types
     event_dist = layer3.get("event_type_distribution", {})
     if event_dist:
         top_events = sorted(event_dist.items(), key=lambda x: x[1], reverse=True)[:3]
-        evt_parts = [f"<b>{evt.split(',')[0].strip()}</b> ({cnt})" for evt, cnt in top_events]
+        evt_parts = [
+            f"<b>{evt.split(',')[0].strip()}</b> ({cnt})"
+            for evt, cnt in top_events
+        ]
         parts.append(
             f"The dominant event types driving the news are: {', '.join(evt_parts)}."
         )
 
+    # Horizon distribution
     horizon_dist = layer3.get("horizon_distribution", {})
     if horizon_dist:
         horizon_parts = [
@@ -310,58 +305,57 @@ def _build_comprehensive_summary(result: dict) -> str:
             f"reflecting how the market is expected to absorb this news over time."
         )
 
+    # Recency
     avg_days = layer3.get("avg_days_ago")
     avg_recency = layer3.get("avg_recency_weight")
     if avg_days is not None and avg_recency is not None:
+        recency_desc = (
+            "recent news is weighted heavily" if avg_recency > 0.7
+            else "the news mix includes older articles with reduced weight"
+        )
         parts.append(
             f"On average, articles are <b>{avg_days:.1f} days old</b> "
             f"with an average recency weight of <b>{avg_recency:.4f}</b>, "
-            f"meaning {'recent news is weighted heavily' if avg_recency > 0.7 else 'the news mix includes older articles with reduced weight'}."
+            f"meaning {recency_desc}."
         )
 
-    storylines = storylines_data.get("storylines", [])
-    if storylines:
-        theme_parts = []
-        for sl in storylines[:4]:
-            name = sl.get("label") or sl.get("keyword_label", "?")
-            sg = sl.get("sentiment_group", "?")
-            nc = sl.get("articles_count", 0)
-            theme_parts.append(f"<b>{name}</b> ({sg}, <b>{nc} articles</b>)")
+    # Storylines
+    if stories:
+        theme_parts = [
+            f'<b>{s["label"]}</b> ({s["sentiment_group"]}, '
+            f'<b>{s["articles_count"]} articles</b>)'
+            for s in stories
+        ]
         parts.append(
             f"The main narrative themes identified are: {'; '.join(theme_parts)}."
         )
 
-    rel_level = reliability.get("overall_reliability", "?")
-    flags_triggered = reliability.get("flags_triggered", 0)
-    flagged_names = [
-        name for name, info in reliability.get("flags", {}).items()
-        if info.get("flagged")
-    ]
+    # Evidence quality
     rel_text = (
-        f"Evidence quality level is <b>{rel_level}</b> "
-        f"({flags_triggered} of 6 checks flagged)."
+        f'Evidence quality level is <b>{rel["overall"]}</b> '
+        f'({rel["flags_triggered"]} of 6 checks flagged).'
     )
-    if flagged_names:
-        rel_text += f" Concerns: {', '.join(flagged_names)}."
+    if rel["flagged_names"]:
+        rel_text += f' Concerns: {", ".join(rel["flagged_names"])}.'
     parts.append(rel_text)
 
-    if flip_articles:
+    # Robustness
+    if rob["has_single_flippers"]:
+        n_flip = rob["single_flip_count"]
         parts.append(
             f"The prediction is <b>sensitive</b>: removing any single one of "
-            f"<b>{len(flip_articles)} article{'s' if len(flip_articles) != 1 else ''}</b> "
+            f'<b>{n_flip} article{"s" if n_flip != 1 else ""}</b> '
             f"would flip the label."
         )
-    elif flip_set and flip_set.get("flip_possible"):
-        n_flip = flip_set.get("flip_set_size", "?")
-        new_lbl = flip_set.get("new_label", "?")
+    elif rob["flip_possible"]:
         parts.append(
-            f"Removing as few as <b>{n_flip} articles</b> would flip the prediction to "
-            f"<b>{new_lbl.upper()}</b>."
+            f'Removing as few as <b>{rob["flip_set_size"]} articles</b> would '
+            f'flip the prediction to <b>{rob["new_label"].upper()}</b>.'
         )
     else:
         parts.append(
-            "The prediction is <b>robust</b>: no feasible combination of article removals "
-            "would change the label."
+            "The prediction is <b>robust</b>: no feasible combination of "
+            "article removals would change the label."
         )
 
     return "<br><br>".join(parts)
@@ -678,7 +672,14 @@ def _render_reliability(result: dict) -> None:
         display_name = name.replace("_", " ")
         description = _FLAG_DESCRIPTIONS.get(display_name, "")
 
-        if flagged:
+        # Label margin is not applicable when thresholds overrode raw scores
+        is_skipped = name == "label_margin" and "skipped" in msg.lower()
+
+        if is_skipped:
+            st.markdown(
+                f"**:blue[{display_name}]** &nbsp; :blue[N/A]",
+            )
+        elif flagged:
             st.markdown(
                 f"**:orange[{display_name}]** &nbsp; :orange[FLAGGED]",
             )

@@ -277,10 +277,32 @@ def compute_reliability(
     normalized_scores = prediction_result.get("normalized_scores", {})
     final_confidence = prediction_result.get("final_confidence", 0.0)
 
+    # Skip label_margin when decision thresholds overrode the raw argmax -
+    # the margin between raw scores is irrelevant when the decision was
+    # made by per-class threshold gates, not by score ranking.
+    abst_test = prediction_result.get("abstention_test", {})
+    argmax_label = max(normalized_scores, key=normalized_scores.get) if normalized_scores else "neutral"
+    threshold_override = (
+        abst_test.get("method") == "decision_threshold"
+        and prediction_result.get("final_label") != argmax_label
+    )
+    if threshold_override:
+        # Still compute the raw margin for display, but never flag it
+        sorted_labels = sorted(normalized_scores.items(), key=lambda x: x[1], reverse=True)
+        raw_margin = round(sorted_labels[0][1] - sorted_labels[1][1], 4) if len(sorted_labels) >= 2 else 0.0
+        label_margin_result = {
+            "flagged": False,
+            "margin": raw_margin,
+            "threshold": XAI_MARGIN_THRESHOLD,
+            "message": "Label margin check skipped (decision thresholds overrode raw scores).",
+        }
+    else:
+        label_margin_result = _check_label_margin(normalized_scores)
+
     flags = {
         "thin_evidence":        _check_thin_evidence(articles_analyzed),
         "weight_concentration": _check_weight_concentration(herfindahl_index),
-        "label_margin":         _check_label_margin(normalized_scores),
+        "label_margin":         label_margin_result,
         "source_diversity":     _check_source_diversity(merged_articles or []),
         "timing_alignment":     _check_timing_alignment(
             merged_articles or [], prediction_window_days

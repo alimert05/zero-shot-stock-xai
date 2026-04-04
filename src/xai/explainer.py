@@ -113,6 +113,11 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     w = "-" * 60
     P = "\u2550" * 60          # part divider (double line)
 
+    from xai.summary_helpers import (
+        get_prediction_info, get_contrastive_info, get_reliability_info,
+        get_robustness_info, get_sentiment_counts,
+    )
+
     meta        = result["meta"]
     pred        = result["prediction_summary"]
     reliability = result["reliability"]
@@ -122,6 +127,12 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     narrative   = result["narrative"]
     storylines  = result.get("storylines", {})
 
+    # Shared helpers - single source of truth for threshold/contrastive/reliability
+    pred_info = get_prediction_info(result)
+    cont_info = get_contrastive_info(result)
+    rel_info  = get_reliability_info(result)
+    rob_info  = get_robustness_info(result)
+    sent_info = get_sentiment_counts(result)
 
     # Precompute shared variables so sections can appear in any order
 
@@ -129,13 +140,9 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     ns            = pred["normalized_scores"] or {}
     neutral_score = ns.get("neutral", 0.0)
 
-    # Threshold-triggered neutral detection
-    abst_test = pred.get("abstention_test") or {}
-    abst_method = abst_test.get("method", "none")
-    threshold_neutral = (
-        pred.get("final_label") == "neutral"
-        and abst_method == "decision_threshold"
-    )
+    # Threshold-triggered neutral detection (from shared helper)
+    abst_test = pred_info["abst_test"]
+    threshold_neutral = pred_info["threshold_neutral"]
     pos_pct = ns.get("positive", 0.0) * 100
     neg_pct = ns.get("negative", 0.0) * 100
     neu_pct = ns.get("neutral", 0.0) * 100
@@ -144,15 +151,12 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     contrastive = layer2.get("contrastive", {})
     flip_info   = layer2.get("minimum_flip_set", {})
 
-    # Ranked articles + sentiment distribution
+    # Ranked articles + sentiment distribution (from shared helper)
     ranked_arts = layer2.get("ranked_articles", [])
-    sent_counts: dict[str, int] = {}
-    for a in ranked_arts:
-        s = a.get("dominant_sentiment", "unknown")
-        sent_counts[s] = sent_counts.get(s, 0) + 1
-    total_arts = sum(sent_counts.values()) or 1
+    sent_counts = sent_info["counts"]
+    total_arts = sent_info["total"] or 1
 
-    # LIME articles + noise set 
+    # LIME articles + noise set
     lime_articles  = layer1.get("articles", [])
     all_art_titles = [a.get("title", "") for a in ranked_arts]
     noise_set = build_lime_noise_set(
@@ -160,9 +164,9 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         article_titles=all_art_titles,
     )
 
-    # Evidence-quality flags 
-    overall_rel = reliability["overall_reliability"]
-    flags       = reliability["flags"]
+    # Evidence-quality flags (from shared helper)
+    overall_rel = rel_info["overall"]
+    flags       = rel_info["flags"]
     rel_icon    = {"HIGH": "\u2713", "MEDIUM": "!", "LOW": "\u2717"}.get(overall_rel, "?")
 
     margin_flag  = flags.get("label_margin", {}).get("flagged", False)
@@ -172,6 +176,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     timing_flag  = flags.get("timing_alignment", {}).get("flagged", False)
     horizon_flag = flags.get("horizon_coverage", {}).get("flagged", False)
 
+    # Terminal-specific verbose caution parts (more detail than UI)
     caution_parts: list[str] = []
     if margin_flag:
         caution_parts.append(
@@ -252,17 +257,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "",
     ]
 
-    # Plain-English summary (top)
-    lines += [
-        "  SUMMARY",
-        "  What the model decided and why - in plain English",
-        w,
-        "",
-        f"  {narrative['summary']}",
-        "",
-    ]
-
-    # Prediction result + score chart 
+    # Prediction result + score chart
     lines += [
         "  PREDICTION RESULT",
         "  Sentiment scores across all analysed articles",
@@ -497,19 +492,27 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         f" with most classified as short-term horizon."
     )
 
-    # Contrastive sentence - why winner instead of runner-up
+    # Contrastive sentence - why winner instead of runner-up (from shared helper)
     contrastive_sentence = ""
-    if contrastive:
-        c_winner_ov = contrastive["winner"].upper()
-        c_runner_ov = contrastive["runner_up"].upper()
-        c_gap_ov    = contrastive["score_gap"]
-        c_n_w_ov    = contrastive["n_favouring_winner"]
-        c_n_r_ov    = contrastive["n_favouring_runner_up"]
-        contrastive_sentence = (
-            f" The model chose {c_winner_ov} over {c_runner_ov} by a score gap of"
-            f" {c_gap_ov:.4f}: {c_n_w_ov} articles"
-            f" pushed toward {c_winner_ov} while {c_n_r_ov} pushed toward {c_runner_ov}."
-        )
+    if cont_info["has_data"]:
+        c_winner_ov = cont_info["winner"].upper()
+        c_runner_ov = cont_info["runner_up"].upper()
+        if cont_info["is_threshold_override"]:
+            contrastive_sentence = (
+                f" Decision thresholds selected {c_winner_ov} over {c_runner_ov}:"
+                f" {c_runner_ov.lower()} scored higher but did not reach its threshold"
+                f" ({cont_info['tau_pos'] * 100:.0f}% for positive,"
+                f" {cont_info['tau_neg'] * 100:.0f}% for negative),"
+                f" while {c_winner_ov.lower()} exceeded its lower threshold."
+            )
+        else:
+            contrastive_sentence = (
+                f" The model chose {c_winner_ov} over {c_runner_ov} by a score gap of"
+                f" {cont_info['score_gap']:.4f}:"
+                f" {cont_info['n_favouring_winner']} articles"
+                f" pushed toward {c_winner_ov} while"
+                f" {cont_info['n_favouring_runner_up']} pushed toward {c_runner_ov}."
+            )
 
     # Flip set sentence
     flip_sentence = ""
@@ -611,30 +614,55 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     # "Why label A INSTEAD OF label B?" -- the core XAI question.
 
     if contrastive:
-        c_winner   = contrastive["winner"].upper()
-        c_runner   = contrastive["runner_up"].upper()
-        c_gap      = contrastive["score_gap"]
-        c_n_w      = contrastive["n_favouring_winner"]
-        c_n_r      = contrastive["n_favouring_runner_up"]
-        c_push_w   = contrastive["total_push_toward_winner"]
-        c_push_r   = contrastive["total_push_toward_runner_up"]
-        top_drivers = contrastive.get("top_gap_drivers", [])
+        c_winner   = cont_info["winner"].upper()
+        c_runner   = cont_info["runner_up"].upper()
+        c_gap      = cont_info["score_gap"]
+        c_n_w      = cont_info["n_favouring_winner"]
+        c_n_r      = cont_info["n_favouring_runner_up"]
+        c_push_w   = cont_info["total_push_toward_winner"]
+        c_push_r   = cont_info["total_push_toward_runner_up"]
+        top_drivers = cont_info["top_gap_drivers"]
 
-        lines += [
-            f"  WHY {c_winner} INSTEAD OF {c_runner}?",
-            "  Contrastive explanation - what tipped the balance",
-            w,
-            f"  Score gap : {c_winner} {contrastive['winner_score']:.4f}"
-            f"  vs  {c_runner} {contrastive['runner_up_score']:.4f}"
-            f"  (gap = {c_gap:.4f})",
-            "",
-            f"  Article split:",
-            f"    {c_n_w:>3} articles push toward {c_winner}"
-            f"  (total push: +{c_push_w:.4f})",
-            f"    {c_n_r:>3} articles push toward {c_runner}"
-            f"  (total push: {c_push_r:.4f})",
-            "",
-        ]
+        if cont_info["is_threshold_override"]:
+            lines += [
+                f"  WHY {c_winner} INSTEAD OF {c_runner}?",
+                "  Contrastive explanation - decision threshold override",
+                w,
+                f"  Raw scores : {c_runner} {cont_info['runner_up_score']:.4f}"
+                f"  vs  {c_winner} {cont_info['winner_score']:.4f}"
+                f"  ({c_runner.lower()} scored higher)",
+                "",
+                f"  Threshold override:",
+                f"    {c_runner} scored {cont_info['runner_up_score']:.4f}"
+                f" but needs >= {cont_info['tau_pos'] * 100:.0f}% (positive)"
+                f" / {cont_info['tau_neg'] * 100:.0f}% (negative)",
+                f"    {c_winner} scored {cont_info['winner_score']:.4f}"
+                f" and exceeded its lower threshold",
+                f"    This reflects calibrated correction for the model's positive bias",
+                "",
+                f"  Article split:",
+                f"    {c_n_w:>3} articles push toward {c_winner}"
+                f"  (total push: +{c_push_w:.4f})",
+                f"    {c_n_r:>3} articles push toward {c_runner}"
+                f"  (total push: {c_push_r:.4f})",
+                "",
+            ]
+        else:
+            lines += [
+                f"  WHY {c_winner} INSTEAD OF {c_runner}?",
+                "  Contrastive explanation - what tipped the balance",
+                w,
+                f"  Score gap : {c_winner} {cont_info['winner_score']:.4f}"
+                f"  vs  {c_runner} {cont_info['runner_up_score']:.4f}"
+                f"  (gap = {c_gap:.4f})",
+                "",
+                f"  Article split:",
+                f"    {c_n_w:>3} articles push toward {c_winner}"
+                f"  (total push: +{c_push_w:.4f})",
+                f"    {c_n_r:>3} articles push toward {c_runner}"
+                f"  (total push: {c_push_r:.4f})",
+                "",
+            ]
 
         # Third-place class role
         c_third = contrastive.get("third_place")
@@ -770,9 +798,19 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         )
     lines.append("")
     for flag_name, flag_data in flags.items():
-        icon  = "\u26a0" if flag_data["flagged"] else "\u2713"
+        is_skipped = flag_name == "label_margin" and "skipped" in flag_data.get("message", "").lower()
+        if is_skipped:
+            icon = "-"
+            status = "N/A"
+        elif flag_data["flagged"]:
+            icon = "\u26a0"
+            status = ""
+        else:
+            icon = "\u2713"
+            status = ""
         label = flag_name.replace("_", " ")
-        lines.append(f"    [{icon}] {label:<22} {flag_data['message']}")
+        status_suffix = f"  {status}" if status else ""
+        lines.append(f"    [{icon}] {label:<22} {flag_data['message']}{status_suffix}")
     lines += [
         "",
     ]
