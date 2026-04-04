@@ -156,6 +156,7 @@ def assign_market_date(utc_dt: datetime) -> datetime:
 
 
 def _compute_ewma_lambda(prediction_window_days: int) -> float:
+    """Interpolate the EWMA decay parameter from horizon anchor points."""
     anchors = [(1, 0.89), (5, 0.92), (10, 0.95), (21, 0.97)]
     W = prediction_window_days
 

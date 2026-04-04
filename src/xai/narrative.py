@@ -65,6 +65,16 @@ def _build_prompt(
     margin = (sorted_scores[0] - sorted_scores[1]) if len(sorted_scores) >= 2 else sorted_scores[0]
     margin_qualifier = _margin_qualifier(margin)
 
+    # Detect threshold-override: final label differs from raw argmax
+    argmax_label = max(normalized, key=normalized.get) if normalized else "neutral"
+    abst_test = prediction_result.get("abstention_test", {})
+    threshold_override = (
+        abst_test.get("method") == "decision_threshold"
+        and final_label.lower() != argmax_label
+    )
+    tau_pos = abst_test.get("decision_thresholds", {}).get("tau_pos", 0)
+    tau_neg = abst_test.get("decision_thresholds", {}).get("tau_neg", 0)
+
     # Top article
     ranked = article_explanation.get("ranked_articles", [])
     top_article = ranked[0] if ranked else {}

@@ -50,10 +50,8 @@ LABELS = ["positive", "negative", "neutral"]
 COARSE_DATASET_IDX = 0
 
 
-# ---------------------------------------------------------------------------
-# Hypothesis templates x label maps  - combinatorial search space.
+# Hypothesis templates x label maps - combinatorial search space.
 # Cross-product yields 14 x 8 = 112 configurations.
-# ---------------------------------------------------------------------------
 
 HYPOTHESIS_TEMPLATES: dict[str, str] = {
     "financial_statement": "This financial statement is {}.",
@@ -282,6 +280,7 @@ BAR_WIDTH = 30
 
 
 def _bar(ratio: float, width: int = BAR_WIDTH) -> str:
+    """Render a text-based progress bar from a 0-1 ratio."""
     filled = round(ratio * width)
     return "#" * filled + "." * (width - filled)
 
@@ -457,11 +456,13 @@ def compute_metrics(y_true: list[str], y_pred: list[str]) -> dict[str, Any]:
     }
 
 def _chunks(items: list[str], size: int) -> list[list[str]]:
+    """Split a list into fixed-size sublists for batched processing."""
     return [items[i:i + size] for i in range(0, len(items), size)]
 
 
 class DeBERTaPredictor:
     def __init__(self, device: int, batch_size: int):
+        """Initialise DeBERTa predictor with the zero-shot NLI pipeline."""
         from transformers import pipeline
         from predictors.zero_shot import _CLASS_TO_LABEL, _HYPOTHESIS_TEMPLATE, _LABEL_TO_CLASS
 
@@ -556,6 +557,7 @@ class RoBERTaPredictor:
     """Zero-shot NLI predictor using RoBERTa-Large-MNLI."""
 
     def __init__(self, device: int, batch_size: int):
+        """Initialise RoBERTa predictor with the zero-shot NLI pipeline."""
         from transformers import pipeline
 
         self.batch_size = batch_size
@@ -628,6 +630,7 @@ class OllamaPredictor:
     """Predict sentiment using a local LLM via Ollama (Llama 3.1 8B / Mistral 7B)."""
 
     def __init__(self, model_name: str):
+        """Initialise Ollama predictor with the specified model name."""
         import ollama as _ollama
         self.ollama = _ollama
         self.model_name = model_name
@@ -671,6 +674,7 @@ class FinBERTPredictor:
     """Predict sentiment using FinBERT (ProsusAI/finbert)."""
 
     def __init__(self, device: int):
+        """Initialise FinBERT predictor with the sentiment-analysis pipeline."""
         from transformers import pipeline
         logger.info("Loading FinBERT model...")
         self.pipe = pipeline("sentiment-analysis", model="ProsusAI/finbert", device=device)
@@ -690,6 +694,7 @@ class FinGPTPredictor:
     """Predict sentiment using FinGPT (Llama-2-13B + LoRA)."""
 
     def __init__(self, device: int):
+        """Initialise FinGPT predictor with the LoRA-adapted model."""
         from predictors.fingpt import _get_fingpt_model, FINGPT_PROMPT
         self.model, self.tokenizer = _get_fingpt_model()
         self.prompt_template = FINGPT_PROMPT
@@ -774,6 +779,7 @@ def _create_predictor(args: argparse.Namespace):
 
 
 def _model_display_name(model: str) -> str:
+    """Map a short model key to its full display name."""
     names = {
         "deberta": "microsoft/deberta-large-mnli",
         "roberta": "roberta-large-mnli",
@@ -1379,6 +1385,7 @@ def _build_metadata(
     configs: list[dict[str, Any]],
     surviving_configs: list[dict[str, Any]],
 ) -> dict[str, Any]:
+    """Build the metadata dict saved alongside benchmark results."""
     return {
         "run_timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "model": "microsoft/deberta-large-mnli",

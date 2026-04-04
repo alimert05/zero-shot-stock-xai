@@ -14,6 +14,7 @@ _EWMA_ANCHORS = [(1, 0.89), (5, 0.92), (10, 0.95), (21, 0.97)]
 
 
 def _compute_ewma_lambda(prediction_window_days: int) -> float:
+    """Interpolate the EWMA decay parameter from anchor points for a given window size."""
     W = prediction_window_days
     if W <= _EWMA_ANCHORS[0][0]:
         return _EWMA_ANCHORS[0][1]
@@ -33,6 +34,7 @@ def _explain_recency_weight(
     days_ago: int,
     prediction_window_days: int,
 ) -> dict[str, Any]:
+    """Explain how the EWMA recency weight was derived for an article's age."""
     lam = _compute_ewma_lambda(prediction_window_days)
     interpretation = (
         f"Article is {days_ago} day(s) old; "
@@ -53,6 +55,7 @@ def _explain_impact_horizon_weight(
     days_ago: int,
     prediction_window_days: int,
 ) -> dict[str, Any]:
+    """Explain the Gaussian impact-horizon weight for an article's event type and age."""
     W = prediction_window_days
     horizon_days = impact_horizon.get("horizon_days", 7)
     category = impact_horizon.get("category", "UNKNOWN")
@@ -88,6 +91,7 @@ def _explain_weight_combination(
     impact_horizon_weight: float,
     final_weight: float,
 ) -> dict[str, Any]:
+    """Explain the geometric-mean combination of recency and impact-horizon weights."""
     interpretation = (
         f"geometric mean: sqrt({recency_weight:.4f} × {impact_horizon_weight:.4f}) "
         f"= {final_weight:.4f}"

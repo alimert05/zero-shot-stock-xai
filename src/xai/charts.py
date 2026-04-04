@@ -83,7 +83,7 @@ def plot_sentiment_scores(
     for bar, lbl in zip(bars, ["positive", "negative", "neutral"]):
         if lbl == final:
             ax.annotate(
-                "◄ PREDICTED",
+                "< PREDICTED",
                 xy=(bar.get_width(), bar.get_y() + bar.get_height() / 2),
                 xytext=(bar.get_width() + 0.12, bar.get_y() + bar.get_height() / 2),
                 fontsize=8, color="#2c3e50", va="center", fontname=_FONT,

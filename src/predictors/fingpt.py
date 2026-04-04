@@ -24,6 +24,7 @@ FINGPT_PROMPT = (
 
 
 def _get_fingpt_model():
+    """Lazy-load and cache the FinGPT model and tokenizer."""
     global _fingpt_model, _fingpt_tokenizer
     if _fingpt_model is None:
         try:
@@ -72,6 +73,7 @@ def _get_fingpt_model():
 
 
 def _classify_sentiment(text: str) -> dict[str, float]:
+    """Classify a single text using FinGPT and return per-class scores."""
     model, tokenizer = _get_fingpt_model()
 
     prompt = FINGPT_PROMPT.format(text=text)

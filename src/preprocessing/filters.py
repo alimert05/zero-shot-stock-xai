@@ -9,13 +9,16 @@ from typing import Iterable
 logger = logging.getLogger(__name__)
 
 def _ticker_regex(ticker: str) -> re.Pattern:
+    """Build a compiled regex that matches common ticker formats."""
     t = re.escape(ticker.upper())
     return re.compile(rf"(?i)(\${t}\b|\({t}\)|\b{t}\b|\b{t}[-\.][A-Z]{{1,6}}\b)")
 
 def _normalize_spaces(s: str) -> str:
+    """Collapse consecutive whitespace into a single space."""
     return re.sub(r"\s+", " ", s or "").strip()
 
 def _contains_name_or_ticker(text: str, company_name: str, ticker_re: re.Pattern | None) -> bool:
+    """Return True if text mentions the company name or ticker symbol."""
     if not text:
         return False
 
@@ -37,6 +40,7 @@ _QUESTION_WORDS_RE = re.compile(
 
 
 def _is_question_headline(title: str) -> bool:
+    """Return True if the title is phrased as a question."""
     if not title:
         return False
     t = title.strip()

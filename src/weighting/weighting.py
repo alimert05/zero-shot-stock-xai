@@ -21,6 +21,7 @@ logger = logging.getLogger(__name__)
 
 
 def _clamp(value: float, low: float, high: float) -> float:
+    """Constrain value to the range [low, high]."""
     return max(low, min(high, value))
 
 

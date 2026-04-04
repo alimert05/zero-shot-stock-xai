@@ -39,7 +39,7 @@ from config import DATASET_PATH
 TEST_SET_PATH = DATASET_PATH / "test_set.json"
 HOLDOUT_SIZE = 8
 
-# -- Optimal ticker assignment (verified by exhaustive search) -----------
+# Optimal ticker assignment (verified by exhaustive search)
 # Found by find_optimal_split(): minimises label-proportion SAD
 # across 36,288 sector-constrained candidates.  SAD = 0.004167.
 #
@@ -124,6 +124,7 @@ def find_optimal_split(
     # Each sector contributes k in [1, size-1] tickers to holdout,
     # such that sum(k_i) == holdout_size.
     def _enum_allocations(idx: int, remaining: int):
+        """Yield all valid holdout-count allocations across sectors."""
         if idx == len(sector_sizes):
             if remaining == 0:
                 yield ()

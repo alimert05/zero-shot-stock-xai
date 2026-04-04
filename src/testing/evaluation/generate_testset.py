@@ -213,6 +213,7 @@ def compute_point_in_time_ewma_threshold(
 # Ground truth fetching
 
 def _parse_date(d: str) -> datetime:
+    """Parse a DD-MM-YYYY date string into a datetime object."""
     return datetime.strptime(d, "%d-%m-%Y")
 
 

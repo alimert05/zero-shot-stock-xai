@@ -10,6 +10,7 @@ _classifier = None
 
 
 def _get_classifier():
+    """Lazy-load and cache the zero-shot classifier for event classification."""
     global _classifier
     if _classifier is None:
         try:
@@ -135,6 +136,7 @@ def _build_classification_text(
     content: str | None = None,
     max_content_chars: int = 700,
 ) -> str:
+    """Combine title and truncated content into a single classification input."""
     title = (title or "").strip()
     content = (content or "").strip()
 

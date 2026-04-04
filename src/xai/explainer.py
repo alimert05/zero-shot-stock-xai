@@ -36,6 +36,7 @@ logger = logging.getLogger(__name__)
 # Data Loading and Merging
 
 def _load_articles(articles_json_path: str) -> dict[str, Any]:
+    """Load the articles JSON file from disk and return its contents as a dict."""
     with open(articles_json_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -44,6 +45,7 @@ def _merge_article_data(
     prediction_result: dict[str, Any],
     articles_data: dict[str, Any],
 ) -> list[dict[str, Any]]:
+    """Merge prediction article details with full article records by title."""
     # Build lookup: title -> full article record from articles.json
     article_lookup: dict[str, dict] = {}
     for art in articles_data.get("articles", []):
@@ -79,6 +81,7 @@ def _merge_article_data(
 # File I/O
 
 def _save_result(result: dict[str, Any], output_path: str) -> None:
+    """Write the full XAI result dict to a JSON file."""
     path = Path(output_path)
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
@@ -105,6 +108,7 @@ def _wrap(text: str, width: int = 56, indent: str = "  ") -> list[str]:
 # Summary Text Builder
 
 def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None) -> str:  # noqa: C901
+    """Build the human-readable plain-text XAI summary report."""
     W = "=" * 60
     w = "-" * 60
     P = "\u2550" * 60          # part divider (double line)
@@ -171,7 +175,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     caution_parts: list[str] = []
     if margin_flag:
         caution_parts.append(
-            "the positive and negative scores are very close \u2014 "
+            "the positive and negative scores are very close - "
             "a small shift in news could change the verdict"
         )
     if thin_flag:
@@ -188,7 +192,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             "Note: aggregators (Yahoo, Finnhub) are excluded from this check "
             "because they collect from many independent editorial desks. "
             "Mitigation: articles are de-duplicated across all domains by title "
-            "(keeping the oldest copy \u2014 the first to break the news); "
+            "(keeping the oldest copy - the first to break the news); "
             "weighting is content-based (not source-based)"
         )
     if timing_flag:
@@ -242,7 +246,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     lines += [
         "",
         P,
-        "  PART 1 \u2014 SUMMARY & KEY FINDINGS",
+        "  PART 1 - SUMMARY & KEY FINDINGS",
         "  Plain-English explanation of what the model decided and why",
         P,
         "",
@@ -251,7 +255,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     # Plain-English summary (top)
     lines += [
         "  SUMMARY",
-        "  What the model decided and why \u2014 in plain English",
+        "  What the model decided and why - in plain English",
         w,
         "",
         f"  {narrative['summary']}",
@@ -277,7 +281,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     for label in ["positive", "negative", "neutral"]:
         score  = ns.get(label, 0.0)
         bar    = _ascii_bar(score, 1.0, width=40)
-        marker = "  \u25c4 PREDICTED" if label == pred["final_label"] else ""
+        marker = "  < PREDICTED" if label == pred["final_label"] else ""
         lines.append(f"    {label:>8} : {score * 100:5.1f}%  {bar}{marker}")
     if threshold_neutral:
         verdict_label = "NEUTRAL - Mixed Sentiment"
@@ -324,7 +328,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         action = "This prediction has HIGH evidence quality and can be used with reasonable confidence."
     elif overall_rel == "MEDIUM":
         action = (
-            "This prediction has MEDIUM evidence quality \u2014 treat it as indicative, not definitive. "
+            "This prediction has MEDIUM evidence quality - treat it as indicative, not definitive. "
             + ("Specifically: " + "; ".join(caution_parts) + "." if caution_parts else "")
         )
     else:
@@ -371,7 +375,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             s_neg = s.get("negative", 0)
             s_neu = s.get("neutral", 0)
             dominant_s = max(s, key=s.get) if s else "neutral"
-            tone_icon = {"positive": "\u25b2", "negative": "\u25bc", "neutral": "\u25a0"}.get(dominant_s, "?")
+            tone_icon = {"positive": "+", "negative": "-", "neutral": "="}.get(dominant_s, "?")
             lines.append(
                 f"    {elabel}: {ecount:>3} articles ({pct:.0f}%)  "
                 f"{tone_icon} {dominant_s}  "
@@ -434,7 +438,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
                 s_pos = sent.get("positive", 0)
                 s_neg = sent.get("negative", 0)
                 s_neu = sent.get("neutral", 0)
-                tone_icon = {"positive": "\u25b2", "negative": "\u25bc", "neutral": "\u25a0"}.get(dom, "?")
+                tone_icon = {"positive": "+", "negative": "-", "neutral": "="}.get(dom, "?")
                 lines.append(
                     f"      \"{sl['label']}\" ({n} articles)  "
                     f"{tone_icon} {dom}  (+{s_pos} / -{s_neg} / ={s_neu})"
@@ -445,7 +449,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
 
         if sl_other > 0:
             lines.append(
-                f"    Other topics ({sl_other} articles \u2014 titles too unique to cluster "
+                f"    Other topics ({sl_other} articles - titles too unique to cluster "
                 f"with any other article; each covers a distinct story)"
             )
         lines.append("")
@@ -488,7 +492,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             )
 
     weight_sentence = (
-        f"Articles were weighted by recency and prediction-horizon relevance \u2014"
+        f"Articles were weighted by recency and prediction-horizon relevance -"
         f" the average article was {layer3['avg_days_ago']} days old,"
         f" with most classified as short-term horizon."
     )
@@ -518,7 +522,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         )
     elif flip_info:
         flip_sentence = (
-            " No subset of articles can flip the verdict \u2014 the"
+            " No subset of articles can flip the verdict - the"
             " prediction is robust across the article pool."
         )
 
@@ -597,7 +601,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
 
     lines += [
         P,
-        "  PART 2 \u2014 DETAILED TECHNICAL ANALYSIS",
+        "  PART 2 - DETAILED TECHNICAL ANALYSIS",
         "  Scores, article breakdowns, and model-internal attributions",
         P,
         "",
@@ -618,7 +622,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
 
         lines += [
             f"  WHY {c_winner} INSTEAD OF {c_runner}?",
-            "  Contrastive explanation \u2014 what tipped the balance",
+            "  Contrastive explanation - what tipped the balance",
             w,
             f"  Score gap : {c_winner} {contrastive['winner_score']:.4f}"
             f"  vs  {c_runner} {contrastive['runner_up_score']:.4f}"
@@ -653,7 +657,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
                 effect_text = "with minimal impact on the gap"
             lines += [
                 f"  Third class: {third_upper} at {c_third_score * 100:.1f}%"
-                f" \u2014 {effect_text}.",
+                f" - {effect_text}.",
                 "",
             ]
 
@@ -739,7 +743,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         else:
             lines += [
                 "  Counterfactual (minimum flip set):",
-                f"    No subset of articles can flip the prediction \u2014 {c_winner}"
+                f"    No subset of articles can flip the prediction - {c_winner}"
                 " is robust across the article pool.",
                 "",
             ]
@@ -815,7 +819,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
 
     # Article sentiment distribution chart
     lines += ["  Article sentiment distribution:", ""]
-    for s_label, s_icon in [("positive", "\u25b2"), ("negative", "\u25bc"), ("neutral", "\u25a0")]:
+    for s_label, s_icon in [("positive", "+"), ("negative", "-"), ("neutral", "=")]:
         cnt = sent_counts.get(s_label, 0)
         bar = _ascii_bar(cnt, total_arts, width=30)
         pct = cnt / total_arts * 100
@@ -877,7 +881,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     lines += [
         "",
         f"  Weight concentration (HHI): {hhi:.4f}  "
-        f"({'well-distributed' if hhi <= XAI_CONCENTRATION_THRESHOLD else 'concentrated'}) \u2014 "
+        f"({'well-distributed' if hhi <= XAI_CONCENTRATION_THRESHOLD else 'concentrated'}) - "
         f"0 = perfectly uniform across all articles, 1 = one article dominates",
         "",
     ]
@@ -899,7 +903,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             ]
             if neu_s > pos_s and neu_s > neg_s:
                 lines.append(
-                    "    The neutral hypothesis captured the highest probability \u2014 "
+                    "    The neutral hypothesis captured the highest probability - "
                     "the article's language is informational or factual rather than "
                     "directionally bullish or bearish."
                 )
@@ -923,7 +927,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "  De-duplication  : Articles are de-duplicated across all sources",
         "                    by headline. When the same headline appears on",
         "                    multiple domains (e.g. Yahoo and Benzinga), only",
-        "                    the oldest copy is kept \u2014 the first to break the",
+        "                    the oldest copy is kept - the first to break the",
         "                    news is what the market reacted to. If two copies",
         "                    share the same timestamp, the one with more content",
         "                    is preferred.",
@@ -959,8 +963,8 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "  Words inside each article that pushed the model toward or away from the verdict",
         w,
         "  IMPORTANT: these tokens explain why the *sentiment model* chose its",
-        "  label \u2014 they do NOT indicate why a stock price would move. LIME",
-        "  (Ribeiro et al., 2016) perturbs the input text and measures which",
+        "  label - they do NOT indicate why a stock price would move. LIME",
+        "  perturbs the input text and measures which",
         "  words most change the model's output distribution. The results are",
         "  model-internal attributions, not causal drivers of market returns.",
         "",
@@ -987,7 +991,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             if artefacts:
                 lines.append(
                     f"      Note: {', '.join(artefacts)} "
-                    f"{'are' if len(artefacts) > 1 else 'is a'} common filler word(s) \u2014 "
+                    f"{'are' if len(artefacts) > 1 else 'is a'} common filler word(s) - "
                     "likely a text-format artefact, not meaningful signal."
                 )
             lines.append("")
@@ -1081,7 +1085,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
                 if len(art_content) > 120:
                     lines.append(f"               {art_content[120:240]}")
             else:
-                lines.append("      Content: (none \u2014 headline only)")
+                lines.append("      Content: (none - headline only)")
             lines.append(
                 f"      Article weight : {art['final_weight']:.4f}  |  "
                 f"Relevance to prediction : {art['influence_score']:.4f}"
@@ -1131,6 +1135,7 @@ def _save_summary(
     summary_path: str,
     chart_paths: dict | None = None,
 ) -> None:
+    """Render the summary text and write it to the given file path."""
     path = Path(summary_path)
     path.parent.mkdir(parents=True, exist_ok=True)
     text = _build_summary_text(result, chart_paths=chart_paths)

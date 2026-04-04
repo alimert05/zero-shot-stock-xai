@@ -21,6 +21,7 @@ logger = logging.getLogger(__name__)
 
 
 def _check_thin_evidence(articles_analyzed: int) -> dict[str, Any]:
+    """Flag when the number of analyzed articles falls below the minimum threshold."""
     threshold = XAI_THIN_EVIDENCE_THRESHOLD
     flagged = articles_analyzed < threshold
     return {
@@ -36,6 +37,7 @@ def _check_thin_evidence(articles_analyzed: int) -> dict[str, Any]:
 
 
 def _check_weight_concentration(herfindahl: float) -> dict[str, Any]:
+    """Flag when article weight concentration exceeds the Herfindahl threshold."""
     threshold = XAI_CONCENTRATION_THRESHOLD
     flagged = herfindahl > threshold
     return {
@@ -51,6 +53,7 @@ def _check_weight_concentration(herfindahl: float) -> dict[str, Any]:
 
 
 def _check_label_margin(normalized_scores: dict[str, float]) -> dict[str, Any]:
+    """Flag when the margin between the top two sentiment labels is too narrow."""
     threshold = XAI_MARGIN_THRESHOLD
     sorted_labels = sorted(normalized_scores.items(), key=lambda x: x[1], reverse=True)
     top_label, top_score = sorted_labels[0]
@@ -86,6 +89,7 @@ _AGGREGATOR_DOMAINS = {
 def _check_source_diversity(
     merged_articles: list[dict[str, Any]],
 ) -> dict[str, Any]:
+    """Flag when editorial source diversity is too low, excluding known aggregators."""
     from collections import Counter
 
     domains: list[str] = []

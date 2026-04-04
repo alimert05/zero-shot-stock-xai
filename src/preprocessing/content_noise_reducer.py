@@ -12,6 +12,7 @@ _deberta_classifier = None
 
 
 def _get_deberta_classifier():
+    """Lazy-load and cache the DeBERTa classifier for noise reduction."""
     global _deberta_classifier
     if _deberta_classifier is None:
         try:
@@ -32,6 +33,7 @@ def _get_deberta_classifier():
     return _deberta_classifier
 
 def _split_into_sentences(text: str) -> list[str]:
+    """Split text into sentences using NLTK sentence tokeniser."""
     if not text:
         return []
     sentences = nltk.sent_tokenize(text)
@@ -40,9 +42,9 @@ def _split_into_sentences(text: str) -> list[str]:
 def _score_sentence_relevance(
     sentences: list[str],
     company_name: str,
-    ticker: str | None, 
+    ticker: str | None,
 ) -> list[tuple[str, float]]:
-
+    """Score each sentence for relevance to the target company."""
     if not sentences:
         return []
 
@@ -82,6 +84,7 @@ def _filter_relevant_sentences(
     scored_sentences: list[tuple[str, float]],
     threshold: float = 0.5,
 ) -> list[str]:
+    """Keep only sentences whose relevance score meets the threshold."""
     return [sent for sent, score in scored_sentences if score >= threshold]
 
 def reduce_content_noise(

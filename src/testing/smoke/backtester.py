@@ -7,10 +7,12 @@ from config import PRED_JSON_PATH, JSON_PATH, SENTIMENT_MODEL, FINBERT_PREDS, FI
 
 
 def _parse_date(d: str) -> datetime:
+    """Parse a DD-MM-YYYY date string into a datetime object."""
     return datetime.strptime(d, "%d-%m-%Y")
 
 
 def _next_open_day_close(ticker: str, day: datetime, max_lookahead_days: int = 10) -> tuple[datetime, float]:
+    """Fetch the closing price on the next trading day at or after the given date."""
     df = yf.download(
         ticker,
         start=day.strftime("%Y-%m-%d"),

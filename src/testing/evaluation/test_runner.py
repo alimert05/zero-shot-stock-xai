@@ -62,6 +62,7 @@ class RateLimiter:
     """Token-bucket rate limiter for Finnhub API (free tier: 60 calls/min)."""
 
     def __init__(self, calls_per_minute: int = 55):
+        """Initialise rate limiter with the given calls-per-minute cap."""
         self._lock = threading.Lock()
         self._timestamps: list[float] = []
         self._limit = calls_per_minute
@@ -89,6 +90,7 @@ class ProgressTracker:
     """Thread-safe progress reporting for parallel test execution."""
 
     def __init__(self, total: int):
+        """Initialise tracker with the total number of test cases."""
         self._lock = threading.Lock()
         self._completed = 0
         self._correct = 0

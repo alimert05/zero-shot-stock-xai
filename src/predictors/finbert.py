@@ -16,6 +16,7 @@ _sentiment_pipeline = None
 
 
 def _get_sentiment_pipeline():
+    """Lazy-load and cache the FinBERT sentiment-analysis pipeline."""
     global _sentiment_pipeline
     if _sentiment_pipeline is None:
         try:
@@ -42,6 +43,7 @@ FINBERT_LABEL_MAP = {
 
 
 def _classify_sentiment(text: str) -> dict[str, float]:
+    """Classify a single text using FinBERT and return per-class scores."""
     pipe = _get_sentiment_pipeline()
 
     results = pipe(text, top_k=None, truncation=True, max_length=512)

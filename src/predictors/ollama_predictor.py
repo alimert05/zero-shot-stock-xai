@@ -23,7 +23,7 @@ OLLAMA_PROMPT_TEMPLATE = (
 # Classification
 
 def _classify_sentiment(text: str) -> dict[str, float]:
-    """Classify a single text via Ollama. Returns hard scores {label: 0.90, others: 0.05}."""
+    """Classify a single text via Ollama."""
     import ollama
 
     prompt = OLLAMA_PROMPT_TEMPLATE.format(text=text)

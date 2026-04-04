@@ -17,6 +17,7 @@ _lime_explainer = None
 
 
 def _get_lime_explainer():
+    """Return the singleton LimeTextExplainer instance, creating it on first call."""
     global _lime_explainer
     if _lime_explainer is None:
         from lime.lime_text import LimeTextExplainer
@@ -30,6 +31,7 @@ def _get_lime_explainer():
 
 
 def _build_predict_fn(pipeline_callable, company_name: str = ""):
+    """Wrap the zero-shot pipeline into a predict_proba function for LIME."""
     # Import the EXACT labels and template used by the predictor
     from predictors.zero_shot import _CANDIDATE_LABELS, _HYPOTHESIS_TEMPLATE, _LABEL_TO_CLASS
 

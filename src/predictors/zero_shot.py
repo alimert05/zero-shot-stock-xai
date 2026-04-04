@@ -40,6 +40,7 @@ _display_model = MODEL_DISPLAY_NAMES.get(MODEL_NAME, MODEL_NAME)
 
 
 def _get_nli_pipeline():
+    """Lazy-load and cache the zero-shot NLI classification pipeline."""
     global _nli_pipeline
     if _nli_pipeline is None:
         try:

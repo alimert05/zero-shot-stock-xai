@@ -15,6 +15,7 @@ def _compute_contribution_share(
     article: dict[str, Any],
     total_weight: float,
 ) -> dict[str, float]:
+    """Return each sentiment label's share of the total weighted score for one article."""
     weighted_scores = article.get("weighted_scores", {})
     if total_weight == 0:
         return {"positive": 0.0, "negative": 0.0, "neutral": 0.0}
@@ -30,6 +31,7 @@ def _run_counterfactual(
     total_weight: float,
     current_label: str,
 ) -> dict[str, Any]:
+    """Simulate removing one article and check whether the predicted label would change."""
     article_weight = article.get("final_weight", 0.0)
     article_weighted_scores = article.get("weighted_scores", {})
 
