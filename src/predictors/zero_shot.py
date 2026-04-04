@@ -196,7 +196,7 @@ def predict_sentiment(
         detail = {
             "title": meta["title"],
             "base_weight": base_weight,
-            "effective_weight": round(effective_weight, 4),
+            "final_weight": round(effective_weight, 4),
             "coverage_boost": round(coverage_boost, 4),
             "headline_discount": round(headline_discount, 4),
             "input_source": meta["source_label"],

@@ -125,7 +125,10 @@ def predict_sentiment(
 
         article_sentiments.append({
             "title": title,
+            "base_weight": base_weight,
             "final_weight": round(effective_weight, 4),
+            "coverage_boost": round(coverage_boost, 4),
+            "headline_discount": round(headline_discount, 4),
             "input_source": source_label,
             "raw_scores": scores,
             "weighted_scores": {
