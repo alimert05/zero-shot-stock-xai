@@ -1,23 +1,38 @@
 {
-  "query": "apple",
-  "company_name": "apple",
-  "ticker": null,
-  "articles_analyzed": 263,
-  "articles_total": 263,
-  "total_weight": 119.2,
+  "query": "Apple",
+  "company_name": "Apple",
+  "ticker": "AAPL",
+  "articles_analyzed": 262,
+  "articles_total": 262,
+  "total_weight": 117.8584,
   "weighted_scores": {
-    "positive": 41.8177,
-    "negative": 30.1822,
-    "neutral": 47.2001
+    "positive": 41.887,
+    "negative": 29.9727,
+    "neutral": 45.9987
   },
   "normalized_scores": {
-    "positive": 0.3508,
-    "negative": 0.2532,
-    "neutral": 0.396
+    "positive": 0.3554,
+    "negative": 0.2543,
+    "neutral": 0.3903
   },
   "final_label": "neutral",
-  "final_confidence": 0.396,
+  "final_confidence": 0.3903,
   "article_details": [
+    {
+      "title": "Warren Buffett Added a Big Chunk of This Tech Stock. Should You Add It Too?",
+      "final_weight": 0.9012,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.04618089273571968,
+        "negative": 0.018708592280745506,
+        "neutral": 0.9351105093955994
+      },
+      "weighted_scores": {
+        "positive": 0.0416,
+        "negative": 0.0169,
+        "neutral": 0.8427
+      }
+    },
     {
       "title": "Apple's AI challenges in 2026",
       "final_weight": 0.9005,
@@ -31,21 +46,6 @@
         "positive": 0.076,
         "negative": 0.104,
         "neutral": 0.7204
-      }
-    },
-    {
-      "title": "Warren Buffett Added a Big Chunk of This Tech Stock. Should You Add It Too?",
-      "final_weight": 0.8991,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.07125493884086609,
-        "negative": 0.014281176030635834,
-        "neutral": 0.9144639372825623
-      },
-      "weighted_scores": {
-        "positive": 0.0641,
-        "negative": 0.0128,
-        "neutral": 0.8222
       }
     },
     {
@@ -76,21 +76,6 @@
         "positive": 0.2449,
         "negative": 0.5968,
         "neutral": 0.0462
-      }
-    },
-    {
-      "title": "Market Movers: Nike Exploding Higher on Insider Buying",
-      "final_weight": 0.8843,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.09699168056249619,
-        "negative": 0.7598037719726562,
-        "neutral": 0.14320459961891174
-      },
-      "weighted_scores": {
-        "positive": 0.0858,
-        "negative": 0.6719,
-        "neutral": 0.1266
       }
     },
     {
@@ -214,6 +199,21 @@
       }
     },
     {
+      "title": "Globalstar (GSAT) Gains Strategic Value From Apple Direct-to-Device Partnership",
+      "final_weight": 0.8251,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9488954544067383,
+        "negative": 0.013013468123972416,
+        "neutral": 0.038091037422418594
+      },
+      "weighted_scores": {
+        "positive": 0.7829,
+        "negative": 0.0107,
+        "neutral": 0.0314
+      }
+    },
+    {
       "title": "Medical Care Technologies (OTC PINK:MDCE) Achieves Global Distribution Approval from Apple's iOS App Store",
       "final_weight": 0.8236,
       "input_source": "headline+content",
@@ -289,18 +289,18 @@
       }
     },
     {
-      "title": "Nike (NKE) Jumps 4.6% as Tim Cook Hikes Stake",
-      "final_weight": 0.7725,
+      "title": "Market Movers: Nike Exploding Higher on Insider Buying",
+      "final_weight": 0.7974,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.9084008932113647,
-        "negative": 0.03467344865202904,
-        "neutral": 0.05692568048834801
+        "positive": 0.04618850722908974,
+        "negative": 0.062183819711208344,
+        "neutral": 0.8916276693344116
       },
       "weighted_scores": {
-        "positive": 0.7017,
-        "negative": 0.0268,
-        "neutral": 0.044
+        "positive": 0.0368,
+        "negative": 0.0496,
+        "neutral": 0.711
       }
     },
     {
@@ -316,21 +316,6 @@
         "positive": 0.7336,
         "negative": 0.0204,
         "neutral": 0.0167
-      }
-    },
-    {
-      "title": "Globalstar (GSAT) Gains Strategic Value From Apple Direct-to-Device Partnership",
-      "final_weight": 0.7692,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.8838797211647034,
-        "negative": 0.008333668112754822,
-        "neutral": 0.10778658837080002
-      },
-      "weighted_scores": {
-        "positive": 0.6799,
-        "negative": 0.0064,
-        "neutral": 0.0829
       }
     },
     {
@@ -364,21 +349,6 @@
       }
     },
     {
-      "title": "Apple Inc. (AAPL) Is a Trending Stock: Facts to Know Before Betting on It",
-      "final_weight": 0.7649,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.060168489813804626,
-        "negative": 0.03364725783467293,
-        "neutral": 0.906184196472168
-      },
-      "weighted_scores": {
-        "positive": 0.046,
-        "negative": 0.0257,
-        "neutral": 0.6931
-      }
-    },
-    {
       "title": "Will Apple’s (AAPL) Global iOS Openings and AI Push Reshape Its Services-First Narrative?",
       "final_weight": 0.7644,
       "input_source": "headline+content",
@@ -394,18 +364,18 @@
       }
     },
     {
-      "title": "Tim Cook's Nike Buy, AI Smart Glasses, Court Victory And More: This Week In Appleverse",
-      "final_weight": 0.7634,
+      "title": "Apple Inc. (AAPL) Is a Trending Stock: Facts to Know Before Betting on It",
+      "final_weight": 0.764,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.06152305006980896,
-        "negative": 0.10202039778232574,
-        "neutral": 0.8364565968513489
+        "positive": 0.4485349953174591,
+        "negative": 0.026667021214962006,
+        "neutral": 0.5247980356216431
       },
       "weighted_scores": {
-        "positive": 0.047,
-        "negative": 0.0779,
-        "neutral": 0.6386
+        "positive": 0.3427,
+        "negative": 0.0204,
+        "neutral": 0.4009
       }
     },
     {
@@ -499,6 +469,21 @@
       }
     },
     {
+      "title": "Tim Cook's Nike Buy, AI Smart Glasses, Court Victory And More: This Week In Appleverse",
+      "final_weight": 0.7587,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.048284076154232025,
+        "negative": 0.16217143833637238,
+        "neutral": 0.7895445227622986
+      },
+      "weighted_scores": {
+        "positive": 0.0366,
+        "negative": 0.123,
+        "neutral": 0.599
+      }
+    },
+    {
       "title": "Apple to appeal EUR 98M Italian Competition Authority fine, AP reports",
       "final_weight": 0.7563,
       "input_source": "headline+content",
@@ -515,17 +500,17 @@
     },
     {
       "title": "Italian Competition Authority fines Apple EUR 98M over app tracking",
-      "final_weight": 0.7452,
+      "final_weight": 0.7426,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.018368691205978394,
-        "negative": 0.8989096879959106,
-        "neutral": 0.08272162079811096
+        "positive": 0.013816908933222294,
+        "negative": 0.9257922172546387,
+        "neutral": 0.0603908933699131
       },
       "weighted_scores": {
-        "positive": 0.0137,
-        "negative": 0.6699,
-        "neutral": 0.0616
+        "positive": 0.0103,
+        "negative": 0.6875,
+        "neutral": 0.0448
       }
     },
     {
@@ -571,6 +556,21 @@
         "positive": 0.4426,
         "negative": 0.2397,
         "neutral": 0.0474
+      }
+    },
+    {
+      "title": "Israel's tech sector says more staff seek relocation abroad-report",
+      "final_weight": 0.729,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.023161528632044792,
+        "negative": 0.9462699294090271,
+        "neutral": 0.030568599700927734
+      },
+      "weighted_scores": {
+        "positive": 0.0169,
+        "negative": 0.6898,
+        "neutral": 0.0223
       }
     },
     {
@@ -634,33 +634,33 @@
       }
     },
     {
-      "title": "Israel's tech sector says more staff seek relocation abroad-report",
+      "title": "Nike (NKE) Jumps 4.6% as Tim Cook Hikes Stake",
       "final_weight": 0.7282,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.023161528632044792,
-        "negative": 0.9462699294090271,
-        "neutral": 0.030568599700927734
+        "positive": 0.9278625845909119,
+        "negative": 0.029351316392421722,
+        "neutral": 0.042786143720149994
       },
       "weighted_scores": {
-        "positive": 0.0169,
-        "negative": 0.6891,
-        "neutral": 0.0223
+        "positive": 0.6757,
+        "negative": 0.0214,
+        "neutral": 0.0312
       }
     },
     {
       "title": "Jim Cramer Repeats His “Own It, Don’t Trade It” Mantra on Apple",
-      "final_weight": 0.7253,
+      "final_weight": 0.7281,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.06518179923295975,
-        "negative": 0.04083345830440521,
-        "neutral": 0.8939846754074097
+        "positive": 0.034557588398456573,
+        "negative": 0.03193271905183792,
+        "neutral": 0.9335097074508667
       },
       "weighted_scores": {
-        "positive": 0.0473,
-        "negative": 0.0296,
-        "neutral": 0.6484
+        "positive": 0.0252,
+        "negative": 0.0233,
+        "neutral": 0.6797
       }
     },
     {
@@ -710,17 +710,17 @@
     },
     {
       "title": "Jim Cramer Says “I Own Apple, and I Say Own it, Don’t Trade It”",
-      "final_weight": 0.6942,
+      "final_weight": 0.6938,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.07085881382226944,
-        "negative": 0.014064903371036053,
-        "neutral": 0.9150763154029846
+        "positive": 0.035458944737911224,
+        "negative": 0.024009056389331818,
+        "neutral": 0.9405320286750793
       },
       "weighted_scores": {
-        "positive": 0.0492,
-        "negative": 0.0098,
-        "neutral": 0.6352
+        "positive": 0.0246,
+        "negative": 0.0167,
+        "neutral": 0.6525
       }
     },
     {
@@ -739,21 +739,6 @@
       }
     },
     {
-      "title": "Will 2026 Be The Year Apple Finally Joins The AI Race?",
-      "final_weight": 0.6882,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.053128357976675034,
-        "negative": 0.019042491912841797,
-        "neutral": 0.9278291463851929
-      },
-      "weighted_scores": {
-        "positive": 0.0366,
-        "negative": 0.0131,
-        "neutral": 0.6385
-      }
-    },
-    {
       "title": "Former Met chief demands Apple and Google disable stolen phones",
       "final_weight": 0.6834,
       "input_source": "headline+content",
@@ -766,21 +751,6 @@
         "positive": 0.013,
         "negative": 0.6045,
         "neutral": 0.0659
-      }
-    },
-    {
-      "title": "Here’s How Apple (AAPL) Impacted Harbor Capital Appreciation Fund",
-      "final_weight": 0.67,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.05458115041255951,
-        "negative": 0.019086582586169243,
-        "neutral": 0.9263322949409485
-      },
-      "weighted_scores": {
-        "positive": 0.0366,
-        "negative": 0.0128,
-        "neutral": 0.6206
       }
     },
     {
@@ -814,18 +784,33 @@
       }
     },
     {
-      "title": "Nike Climb Boosts Dow, S&P 500",
-      "final_weight": 0.6683,
-      "input_source": "content-only",
+      "title": "Here’s How Apple (AAPL) Impacted Harbor Capital Appreciation Fund",
+      "final_weight": 0.6686,
+      "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.9475941061973572,
-        "negative": 0.027765028178691864,
-        "neutral": 0.024640878662467003
+        "positive": 0.04848738759756088,
+        "negative": 0.016359025612473488,
+        "neutral": 0.9351535439491272
       },
       "weighted_scores": {
-        "positive": 0.6333,
-        "negative": 0.0186,
-        "neutral": 0.0165
+        "positive": 0.0324,
+        "negative": 0.0109,
+        "neutral": 0.6252
+      }
+    },
+    {
+      "title": "Nike Climb Boosts Dow, S&P 500",
+      "final_weight": 0.6672,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.9489375352859497,
+        "negative": 0.030212104320526123,
+        "neutral": 0.02085029147565365
+      },
+      "weighted_scores": {
+        "positive": 0.6331,
+        "negative": 0.0202,
+        "neutral": 0.0139
       }
     },
     {
@@ -934,21 +919,6 @@
       }
     },
     {
-      "title": "Nike shares jump after Apple CEO Cook doubles stake to $6 million",
-      "final_weight": 0.663,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.012998566962778568,
-        "negative": 0.9680128693580627,
-        "neutral": 0.018988579511642456
-      },
-      "weighted_scores": {
-        "positive": 0.0086,
-        "negative": 0.6418,
-        "neutral": 0.0126
-      }
-    },
-    {
       "title": "Dan Ives Is Betting That Apple and Google Will Partner in 2026. Should You Buy AAPL Stock First?",
       "final_weight": 0.6614,
       "input_source": "headline+content",
@@ -1010,7 +980,7 @@
     },
     {
       "title": "Apple Fined $115 Million in Italy Over App Tracking Policy",
-      "final_weight": 0.6402,
+      "final_weight": 0.6386,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.011647890321910381,
@@ -1018,9 +988,9 @@
         "neutral": 0.05140003561973572
       },
       "weighted_scores": {
-        "positive": 0.0075,
-        "negative": 0.5998,
-        "neutral": 0.0329
+        "positive": 0.0074,
+        "negative": 0.5983,
+        "neutral": 0.0328
       }
     },
     {
@@ -1051,6 +1021,36 @@
         "positive": 0.1321,
         "negative": 0.0056,
         "neutral": 0.4873
+      }
+    },
+    {
+      "title": "Nike shares jump after Apple CEO Cook doubles stake to $6 million",
+      "final_weight": 0.606,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.015727194026112556,
+        "negative": 0.9663894176483154,
+        "neutral": 0.017883416265249252
+      },
+      "weighted_scores": {
+        "positive": 0.0095,
+        "negative": 0.5856,
+        "neutral": 0.0108
+      }
+    },
+    {
+      "title": "Nike Stock Price Gets a Lift After Apple’s Tim Cook Doubles His Stake",
+      "final_weight": 0.3019,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.934333860874176,
+        "negative": 0.03973850980401039,
+        "neutral": 0.025927679613232613
+      },
+      "weighted_scores": {
+        "positive": 0.2821,
+        "negative": 0.012,
+        "neutral": 0.0078
       }
     },
     {
@@ -1145,17 +1145,32 @@
     },
     {
       "title": "OpenAI’s hardware push could reshape the AI trade",
-      "final_weight": 0.5781,
+      "final_weight": 0.5817,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.13258716464042664,
-        "negative": 0.01291828416287899,
-        "neutral": 0.854494571685791
+        "positive": 0.0593915693461895,
+        "negative": 0.018372604623436928,
+        "neutral": 0.9222357869148254
       },
       "weighted_scores": {
-        "positive": 0.0766,
-        "negative": 0.0075,
-        "neutral": 0.494
+        "positive": 0.0345,
+        "negative": 0.0107,
+        "neutral": 0.5365
+      }
+    },
+    {
+      "title": "Here’s Why Apple (AAPL) is on the Detractors List of Parnassus Core Equity Fund",
+      "final_weight": 0.5733,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9286143779754639,
+        "negative": 0.019164128229022026,
+        "neutral": 0.05222145467996597
+      },
+      "weighted_scores": {
+        "positive": 0.5324,
+        "negative": 0.011,
+        "neutral": 0.0299
       }
     },
     {
@@ -1174,21 +1189,6 @@
       }
     },
     {
-      "title": "Here’s Why Apple (AAPL) is on the Detractors List of Parnassus Core Equity Fund",
-      "final_weight": 0.5732,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.883834719657898,
-        "negative": 0.018537165597081184,
-        "neutral": 0.09762805700302124
-      },
-      "weighted_scores": {
-        "positive": 0.5066,
-        "negative": 0.0106,
-        "neutral": 0.056
-      }
-    },
-    {
       "title": "Dow Jones Tech Giant Apple, AppLovin, Palantir, Tesla In Buy Zones",
       "final_weight": 0.573,
       "input_source": "headline+content",
@@ -1201,6 +1201,21 @@
         "positive": 0.0861,
         "negative": 0.0154,
         "neutral": 0.4715
+      }
+    },
+    {
+      "title": "Will Google Pass Nvidia in 2026 as the World’s Biggest Company?",
+      "final_weight": 0.5726,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.7570340633392334,
+        "negative": 0.15668676793575287,
+        "neutral": 0.08627917617559433
+      },
+      "weighted_scores": {
+        "positive": 0.4335,
+        "negative": 0.0897,
+        "neutral": 0.0494
       }
     },
     {
@@ -1246,21 +1261,6 @@
         "positive": 0.1189,
         "negative": 0.0082,
         "neutral": 0.4313
-      }
-    },
-    {
-      "title": "Nike Stock Price Gets a Lift After Apple’s Tim Cook Doubles His Stake",
-      "final_weight": 0.5582,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9405795931816101,
-        "negative": 0.02219225838780403,
-        "neutral": 0.03722811117768288
-      },
-      "weighted_scores": {
-        "positive": 0.525,
-        "negative": 0.0124,
-        "neutral": 0.0208
       }
     },
     {
@@ -1325,7 +1325,7 @@
     },
     {
       "title": "From Tesla To Nike: Why Tim Cook's Buy Is Drawing Market Parallels",
-      "final_weight": 0.5547,
+      "final_weight": 0.8792,
       "input_source": "content-only",
       "raw_scores": {
         "positive": 0.012544548138976097,
@@ -1333,9 +1333,9 @@
         "neutral": 0.018375271931290627
       },
       "weighted_scores": {
-        "positive": 0.007,
-        "negative": 0.5375,
-        "neutral": 0.0102
+        "positive": 0.011,
+        "negative": 0.852,
+        "neutral": 0.0162
       }
     },
     {
@@ -1564,21 +1564,6 @@
       }
     },
     {
-      "title": "Will Google Pass Nvidia in 2026 as the World’s Biggest Company?",
-      "final_weight": 0.5269,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.4183279871940613,
-        "negative": 0.016520336270332336,
-        "neutral": 0.5651516914367676
-      },
-      "weighted_scores": {
-        "positive": 0.2204,
-        "negative": 0.0087,
-        "neutral": 0.2978
-      }
-    },
-    {
       "title": "Apple (AAPL) Stock Slides as Market Rises: Facts to Know Before You Trade",
       "final_weight": 0.526,
       "input_source": "headline+content",
@@ -1595,17 +1580,17 @@
     },
     {
       "title": "Buffett’s $24 Billion Selling Spree: The 6 Stocks Berkshire Hathaway Dumped",
-      "final_weight": 0.5259,
+      "final_weight": 0.5258,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.0607110969722271,
-        "negative": 0.0328686349093914,
-        "neutral": 0.9064202904701233
+        "positive": 0.08367632329463959,
+        "negative": 0.06292444467544556,
+        "neutral": 0.8533992171287537
       },
       "weighted_scores": {
-        "positive": 0.0319,
-        "negative": 0.0173,
-        "neutral": 0.4767
+        "positive": 0.044,
+        "negative": 0.0331,
+        "neutral": 0.4487
       }
     },
     {
@@ -1654,8 +1639,23 @@
       }
     },
     {
-      "title": "Exclusive-Nasdaq seeks to extend trading hours, as Wall Street gears up for 24/7 move",
+      "title": "Jim Cramer Says “We Need More Winners, But It’s Just Alphabet”",
       "final_weight": 0.505,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.1387702375650406,
+        "negative": 0.030580967664718628,
+        "neutral": 0.8306488394737244
+      },
+      "weighted_scores": {
+        "positive": 0.0701,
+        "negative": 0.0154,
+        "neutral": 0.4195
+      }
+    },
+    {
+      "title": "Exclusive-Nasdaq seeks to extend trading hours, as Wall Street gears up for 24/7 move",
+      "final_weight": 0.5045,
       "input_source": "content-only",
       "raw_scores": {
         "positive": 0.2840433418750763,
@@ -1663,24 +1663,24 @@
         "neutral": 0.694896399974823
       },
       "weighted_scores": {
-        "positive": 0.1434,
+        "positive": 0.1433,
         "negative": 0.0106,
-        "neutral": 0.3509
+        "neutral": 0.3506
       }
     },
     {
       "title": "Medical Care Technologies (OTC PINK:MDCE) Advances First AI-Powered Mobile Application Toward Launch on Google Play and Apple App Store",
-      "final_weight": 0.5046,
+      "final_weight": 0.5031,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.42037704586982727,
-        "negative": 0.00860223826020956,
-        "neutral": 0.571020781993866
+        "positive": 0.7951349020004272,
+        "negative": 0.007776639424264431,
+        "neutral": 0.19708846509456635
       },
       "weighted_scores": {
-        "positive": 0.2121,
-        "negative": 0.0043,
-        "neutral": 0.2881
+        "positive": 0.4,
+        "negative": 0.0039,
+        "neutral": 0.0992
       }
     },
     {
@@ -1879,6 +1879,21 @@
       }
     },
     {
+      "title": "Euronet Worldwide (EEFT) Stock Is Up, What You Need To Know",
+      "final_weight": 0.4748,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.8158681392669678,
+        "negative": 0.007419314235448837,
+        "neutral": 0.1767124980688095
+      },
+      "weighted_scores": {
+        "positive": 0.3874,
+        "negative": 0.0035,
+        "neutral": 0.0839
+      }
+    },
+    {
       "title": "America’s 3 Most Important Companies Are About to Get New Leadership. Trust the Process.",
       "final_weight": 0.4685,
       "input_source": "content-only",
@@ -1909,36 +1924,6 @@
       }
     },
     {
-      "title": "Euronet Worldwide (EEFT) Stock Is Up, What You Need To Know",
-      "final_weight": 0.4629,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.9537856578826904,
-        "negative": 0.01996837556362152,
-        "neutral": 0.026245946064591408
-      },
-      "weighted_scores": {
-        "positive": 0.4415,
-        "negative": 0.0092,
-        "neutral": 0.0121
-      }
-    },
-    {
-      "title": "LongPoint Announces No Year End ETF Distributions",
-      "final_weight": 0.4279,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.023208530619740486,
-        "negative": 0.026553986594080925,
-        "neutral": 0.9502374529838562
-      },
-      "weighted_scores": {
-        "positive": 0.0099,
-        "negative": 0.0114,
-        "neutral": 0.4066
-      }
-    },
-    {
       "title": "Apple Plans More Ads in App Store",
       "final_weight": 0.4279,
       "input_source": "headline+content",
@@ -1951,6 +1936,21 @@
         "positive": 0.254,
         "negative": 0.0685,
         "neutral": 0.1054
+      }
+    },
+    {
+      "title": "LongPoint Announces No Year End ETF Distributions",
+      "final_weight": 0.4271,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.04791649058461189,
+        "negative": 0.013616607524454594,
+        "neutral": 0.9384668469429016
+      },
+      "weighted_scores": {
+        "positive": 0.0205,
+        "negative": 0.0058,
+        "neutral": 0.4008
       }
     },
     {
@@ -1996,21 +1996,6 @@
         "positive": 0.0199,
         "negative": 0.0408,
         "neutral": 0.3474
-      }
-    },
-    {
-      "title": "Jim Cramer Says “We Need More Winners, But It’s Just Alphabet”",
-      "final_weight": 0.4067,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.05756940692663193,
-        "negative": 0.027538985013961792,
-        "neutral": 0.9148916006088257
-      },
-      "weighted_scores": {
-        "positive": 0.0234,
-        "negative": 0.0112,
-        "neutral": 0.3721
       }
     },
     {
@@ -2105,7 +2090,7 @@
     },
     {
       "title": "Appeals court backs contempt finding against Apple, but reopens a door for iPhone app fees",
-      "final_weight": 0.3898,
+      "final_weight": 0.3935,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.044805366545915604,
@@ -2113,9 +2098,24 @@
         "neutral": 0.08018908649682999
       },
       "weighted_scores": {
-        "positive": 0.0175,
-        "negative": 0.3411,
-        "neutral": 0.0313
+        "positive": 0.0176,
+        "negative": 0.3443,
+        "neutral": 0.0316
+      }
+    },
+    {
+      "title": "Netflix reaches $72B Warner Bros. deal, PCE inflation data",
+      "final_weight": 0.3872,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.09709558635950089,
+        "negative": 0.012553747743368149,
+        "neutral": 0.8903506398200989
+      },
+      "weighted_scores": {
+        "positive": 0.0376,
+        "negative": 0.0049,
+        "neutral": 0.3447
       }
     },
     {
@@ -2164,21 +2164,6 @@
       }
     },
     {
-      "title": "Netflix reaches $72B Warner Bros. deal, PCE inflation data",
-      "final_weight": 0.3778,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.03856645151972771,
-        "negative": 0.025444140657782555,
-        "neutral": 0.9359894394874573
-      },
-      "weighted_scores": {
-        "positive": 0.0146,
-        "negative": 0.0096,
-        "neutral": 0.3536
-      }
-    },
-    {
       "title": "Why 2026 May Be Apple’s Year",
       "final_weight": 0.3771,
       "input_source": "headline+content",
@@ -2191,21 +2176,6 @@
         "positive": 0.0244,
         "negative": 0.0713,
         "neutral": 0.2815
-      }
-    },
-    {
-      "title": "Netflix to acquire Warner Bros., more executive departures at Apple",
-      "final_weight": 0.3761,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.020526915788650513,
-        "negative": 0.33609089255332947,
-        "neutral": 0.6433822512626648
-      },
-      "weighted_scores": {
-        "positive": 0.0077,
-        "negative": 0.1264,
-        "neutral": 0.242
       }
     },
     {
@@ -2254,21 +2224,6 @@
       }
     },
     {
-      "title": "Amazon, Apple, Google, etc.: Why the Mag 7 needs to 'recalibrate'",
-      "final_weight": 0.374,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.046473000198602676,
-        "negative": 0.017117682844400406,
-        "neutral": 0.9364093542098999
-      },
-      "weighted_scores": {
-        "positive": 0.0174,
-        "negative": 0.0064,
-        "neutral": 0.3502
-      }
-    },
-    {
       "title": "Top Midday Stories: Pfizer Falls Following 2026 Outlook; Netflix-iHeartMedia Exclusive Deal; Apple's Possible iPhone Lineup Expansion",
       "final_weight": 0.374,
       "input_source": "headline+content",
@@ -2281,6 +2236,21 @@
         "positive": 0.0034,
         "negative": 0.3639,
         "neutral": 0.0067
+      }
+    },
+    {
+      "title": "Amazon, Apple, Google, etc.: Why the Mag 7 needs to 'recalibrate'",
+      "final_weight": 0.3739,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.07446834444999695,
+        "negative": 0.012983329594135284,
+        "neutral": 0.9125483632087708
+      },
+      "weighted_scores": {
+        "positive": 0.0278,
+        "negative": 0.0049,
+        "neutral": 0.3412
       }
     },
     {
@@ -2314,53 +2284,38 @@
       }
     },
     {
-      "title": "Meta acquires AI-wearables startup Limitless",
-      "final_weight": 0.3606,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.6865166425704956,
-        "negative": 0.04131055250763893,
-        "neutral": 0.27217283844947815
-      },
-      "weighted_scores": {
-        "positive": 0.2476,
-        "negative": 0.0149,
-        "neutral": 0.0981
-      }
-    },
-    {
       "title": "Forget Monthly Dividends, These 5 ETFs Pay Investors Every Week",
-      "final_weight": 0.3558,
+      "final_weight": 0.3598,
       "input_source": "content-only",
       "raw_scores": {
-        "positive": 0.12134718894958496,
-        "negative": 0.01588684320449829,
-        "neutral": 0.8627659678459167
+        "positive": 0.14796006679534912,
+        "negative": 0.014413174241781235,
+        "neutral": 0.8376266956329346
       },
       "weighted_scores": {
-        "positive": 0.0432,
-        "negative": 0.0057,
-        "neutral": 0.307
+        "positive": 0.0532,
+        "negative": 0.0052,
+        "neutral": 0.3014
       }
     },
     {
       "title": "Why Sam Altman Sees Apple and Not Google as its Top AI Rival",
-      "final_weight": 0.352,
+      "final_weight": 0.3534,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.11813469976186752,
-        "negative": 0.20161806046962738,
-        "neutral": 0.6802471876144409
+        "positive": 0.09864506125450134,
+        "negative": 0.4211691617965698,
+        "neutral": 0.48018574714660645
       },
       "weighted_scores": {
-        "positive": 0.0416,
-        "negative": 0.071,
-        "neutral": 0.2394
+        "positive": 0.0349,
+        "negative": 0.1488,
+        "neutral": 0.1697
       }
     },
     {
       "title": "Apple To Rally Around 15%? Here Are 10 Top Analyst Forecasts For Wednesday",
-      "final_weight": 0.3518,
+      "final_weight": 0.1759,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.05433380976319313,
@@ -2368,9 +2323,9 @@
         "neutral": 0.9126076102256775
       },
       "weighted_scores": {
-        "positive": 0.0191,
-        "negative": 0.0116,
-        "neutral": 0.3211
+        "positive": 0.0096,
+        "negative": 0.0058,
+        "neutral": 0.1605
       }
     },
     {
@@ -2389,21 +2344,6 @@
       }
     },
     {
-      "title": "Stock Market Today: Dow Edges Up As Tesla Jumps Near Buy Point, Apple Lags (Live Coverage)",
-      "final_weight": 0.3494,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.9259822964668274,
-        "negative": 0.04206793010234833,
-        "neutral": 0.03194981440901756
-      },
-      "weighted_scores": {
-        "positive": 0.3235,
-        "negative": 0.0147,
-        "neutral": 0.0112
-      }
-    },
-    {
       "title": "Services Rides on Apple TV and Arcade: What's Ahead for Apple Stock?",
       "final_weight": 0.3488,
       "input_source": "headline+content",
@@ -2416,6 +2356,21 @@
         "positive": 0.3284,
         "negative": 0.0047,
         "neutral": 0.0157
+      }
+    },
+    {
+      "title": "Stock Market Today: Dow Edges Up As Tesla Jumps Near Buy Point, Apple Lags (Live Coverage)",
+      "final_weight": 0.3484,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.8091894388198853,
+        "negative": 0.1603545993566513,
+        "neutral": 0.03045598976314068
+      },
+      "weighted_scores": {
+        "positive": 0.2819,
+        "negative": 0.0559,
+        "neutral": 0.0106
       }
     },
     {
@@ -2449,6 +2404,36 @@
       }
     },
     {
+      "title": "Meta acquires AI-wearables startup Limitless",
+      "final_weight": 0.3452,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.7764679789543152,
+        "negative": 0.09814385324716568,
+        "neutral": 0.12538814544677734
+      },
+      "weighted_scores": {
+        "positive": 0.268,
+        "negative": 0.0339,
+        "neutral": 0.0433
+      }
+    },
+    {
+      "title": "Apple’s Cook Presses Congress Over Child Online Safety Bill",
+      "final_weight": 0.3431,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.012518969364464283,
+        "negative": 0.9371578097343445,
+        "neutral": 0.05032317340373993
+      },
+      "weighted_scores": {
+        "positive": 0.0043,
+        "negative": 0.3215,
+        "neutral": 0.0173
+      }
+    },
+    {
       "title": "How Recent Developments Are Rewriting the Apple Investment Story",
       "final_weight": 0.3428,
       "input_source": "headline+content",
@@ -2461,21 +2446,6 @@
         "positive": 0.2358,
         "negative": 0.0271,
         "neutral": 0.08
-      }
-    },
-    {
-      "title": "Apple’s Cook Presses Congress Over Child Online Safety Bill",
-      "final_weight": 0.3407,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.012518969364464283,
-        "negative": 0.9371578097343445,
-        "neutral": 0.05032317340373993
-      },
-      "weighted_scores": {
-        "positive": 0.0043,
-        "negative": 0.3193,
-        "neutral": 0.0171
       }
     },
     {
@@ -2494,33 +2464,18 @@
       }
     },
     {
-      "title": "Pixalate’s Q3 2025 Report Uncovers 1,248 APAC-Registered Mobile Apps Across Apple App & Google Play Stores Violating COPPA, Impacting 117 Million Child-App Users in USA",
-      "final_weight": 0.3235,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.014283152297139168,
-        "negative": 0.9262892603874207,
-        "neutral": 0.059427596628665924
-      },
-      "weighted_scores": {
-        "positive": 0.0046,
-        "negative": 0.2997,
-        "neutral": 0.0192
-      }
-    },
-    {
       "title": "Oura vs Big Tech: The ring taking on Apple, Google & OpenAI",
-      "final_weight": 0.3228,
+      "final_weight": 0.322,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.048880014568567276,
-        "negative": 0.015312785282731056,
-        "neutral": 0.9358072280883789
+        "positive": 0.10309409350156784,
+        "negative": 0.010516848415136337,
+        "neutral": 0.8863890767097473
       },
       "weighted_scores": {
-        "positive": 0.0158,
-        "negative": 0.0049,
-        "neutral": 0.3021
+        "positive": 0.0332,
+        "negative": 0.0034,
+        "neutral": 0.2854
       }
     },
     {
@@ -2569,21 +2524,6 @@
       }
     },
     {
-      "title": "Google Must Limit Default Contracts to One Year, Judge Rules",
-      "final_weight": 0.3181,
-      "input_source": "content-only",
-      "raw_scores": {
-        "positive": 0.12088268250226974,
-        "negative": 0.3515870273113251,
-        "neutral": 0.5275302529335022
-      },
-      "weighted_scores": {
-        "positive": 0.0385,
-        "negative": 0.1118,
-        "neutral": 0.1678
-      }
-    },
-    {
       "title": "Apple expands manufacturing training program with online courses",
       "final_weight": 0.3178,
       "input_source": "headline+content",
@@ -2611,6 +2551,21 @@
         "positive": 0.0036,
         "negative": 0.3003,
         "neutral": 0.0109
+      }
+    },
+    {
+      "title": "Google Must Limit Default Contracts to One Year, Judge Rules",
+      "final_weight": 0.3085,
+      "input_source": "content-only",
+      "raw_scores": {
+        "positive": 0.07473494857549667,
+        "negative": 0.5333204865455627,
+        "neutral": 0.39194455742836
+      },
+      "weighted_scores": {
+        "positive": 0.0231,
+        "negative": 0.1645,
+        "neutral": 0.1209
       }
     },
     {
@@ -2719,21 +2674,6 @@
       }
     },
     {
-      "title": "How Investors May Respond To Walt Disney (DIS) Adding Ex-Apple COO Jeff Williams To Its Board",
-      "final_weight": 0.2878,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.3862525522708893,
-        "negative": 0.011238773353397846,
-        "neutral": 0.6025086641311646
-      },
-      "weighted_scores": {
-        "positive": 0.1112,
-        "negative": 0.0032,
-        "neutral": 0.1734
-      }
-    },
-    {
       "title": "PAR Technology Unveils Smart Passes: The Next Era of Loyalty Engagement",
       "final_weight": 0.2858,
       "input_source": "content-only",
@@ -2746,6 +2686,21 @@
         "positive": 0.1561,
         "negative": 0.0029,
         "neutral": 0.1269
+      }
+    },
+    {
+      "title": "How Investors May Respond To Walt Disney (DIS) Adding Ex-Apple COO Jeff Williams To Its Board",
+      "final_weight": 0.2855,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.14821898937225342,
+        "negative": 0.015550671145319939,
+        "neutral": 0.8362303376197815
+      },
+      "weighted_scores": {
+        "positive": 0.0423,
+        "negative": 0.0044,
+        "neutral": 0.2387
       }
     },
     {
@@ -2866,21 +2821,6 @@
         "positive": 0.0058,
         "negative": 0.1733,
         "neutral": 0.0835
-      }
-    },
-    {
-      "title": "Apple May Actually Be Winning the AI Race",
-      "final_weight": 0.2621,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.928358256816864,
-        "negative": 0.013726813718676567,
-        "neutral": 0.05791487917304039
-      },
-      "weighted_scores": {
-        "positive": 0.2433,
-        "negative": 0.0036,
-        "neutral": 0.0152
       }
     },
     {
@@ -3094,21 +3034,6 @@
       }
     },
     {
-      "title": "Apple's Tim Cook reportedly on Capitol Hill, Oracle earnings watch",
-      "final_weight": 0.2375,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.03436889126896858,
-        "negative": 0.02206304296851158,
-        "neutral": 0.9435680508613586
-      },
-      "weighted_scores": {
-        "positive": 0.0082,
-        "negative": 0.0052,
-        "neutral": 0.2241
-      }
-    },
-    {
       "title": "After a 42% Six-Month Rally, What's Next for Apple Stock in 2026?",
       "final_weight": 0.2366,
       "input_source": "headline+content",
@@ -3121,6 +3046,21 @@
         "positive": 0.221,
         "negative": 0.0102,
         "neutral": 0.0054
+      }
+    },
+    {
+      "title": "Apple's Tim Cook reportedly on Capitol Hill, Oracle earnings watch",
+      "final_weight": 0.2363,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.03546850010752678,
+        "negative": 0.023862401023507118,
+        "neutral": 0.9406691193580627
+      },
+      "weighted_scores": {
+        "positive": 0.0084,
+        "negative": 0.0056,
+        "neutral": 0.2223
       }
     },
     {
@@ -3394,6 +3334,21 @@
       }
     },
     {
+      "title": "Pixalate’s Q3 2025 Report Uncovers 1,248 APAC-Registered Mobile Apps Across Apple App & Google Play Stores Violating COPPA, Impacting 117 Million Child-App Users in USA",
+      "final_weight": 0.21,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.012640702538192272,
+        "negative": 0.9619038701057434,
+        "neutral": 0.02545536309480667
+      },
+      "weighted_scores": {
+        "positive": 0.0027,
+        "negative": 0.202,
+        "neutral": 0.0053
+      }
+    },
+    {
       "title": "China's Phone Makers Smell Opportunity As Apple Stumbles On AI",
       "final_weight": 0.2086,
       "input_source": "headline+content",
@@ -3424,6 +3379,21 @@
       }
     },
     {
+      "title": "Apple exec. staying, Nvidia & SoftBank eye Skild AI: Reports",
+      "final_weight": 0.208,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.093626968562603,
+        "negative": 0.010342749767005444,
+        "neutral": 0.8960303068161011
+      },
+      "weighted_scores": {
+        "positive": 0.0195,
+        "negative": 0.0022,
+        "neutral": 0.1864
+      }
+    },
+    {
       "title": "Why Apple's Momentum Isn't Accidental",
       "final_weight": 0.2069,
       "input_source": "headline+content",
@@ -3440,7 +3410,7 @@
     },
     {
       "title": "Consumer Tech Juggernaut Apple's Dynamic Ascendancy Fosters Unique Opportunities For Direxion's AAPU, AAPD ETFs",
-      "final_weight": 0.2063,
+      "final_weight": 0.1032,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.8733941316604614,
@@ -3448,9 +3418,9 @@
         "neutral": 0.11958788335323334
       },
       "weighted_scores": {
-        "positive": 0.1802,
-        "negative": 0.0014,
-        "neutral": 0.0247
+        "positive": 0.0901,
+        "negative": 0.0007,
+        "neutral": 0.0123
       }
     },
     {
@@ -3485,7 +3455,7 @@
     },
     {
       "title": "Apple’s Slow AI Pace Becomes a Strength as Market Grows Weary of Spending",
-      "final_weight": 0.1841,
+      "final_weight": 0.1845,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.023164816200733185,
@@ -3494,7 +3464,7 @@
       },
       "weighted_scores": {
         "positive": 0.0043,
-        "negative": 0.176,
+        "negative": 0.1764,
         "neutral": 0.0038
       }
     },
@@ -3589,6 +3559,21 @@
       }
     },
     {
+      "title": "Apple May Actually Be Winning the AI Race",
+      "final_weight": 0.0887,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.9326009750366211,
+        "negative": 0.013771872036159039,
+        "neutral": 0.053627125918865204
+      },
+      "weighted_scores": {
+        "positive": 0.0827,
+        "negative": 0.0012,
+        "neutral": 0.0048
+      }
+    },
+    {
       "title": "What Apple's executive departures mean for the iPhone maker",
       "final_weight": 0.1773,
       "input_source": "headline+content",
@@ -3601,6 +3586,21 @@
         "positive": 0.0032,
         "negative": 0.0389,
         "neutral": 0.1351
+      }
+    },
+    {
+      "title": "Netflix to acquire Warner Bros., more executive departures at Apple",
+      "final_weight": 0.1765,
+      "input_source": "headline+content",
+      "raw_scores": {
+        "positive": 0.019179828464984894,
+        "negative": 0.384243369102478,
+        "neutral": 0.5965767502784729
+      },
+      "weighted_scores": {
+        "positive": 0.0034,
+        "negative": 0.0678,
+        "neutral": 0.1053
       }
     },
     {
@@ -3710,7 +3710,7 @@
     },
     {
       "title": "Apple Chip Chief Tells Staff He’s Not Leaving ‘Anytime Soon’",
-      "final_weight": 0.1726,
+      "final_weight": 0.1725,
       "input_source": "headline+content",
       "raw_scores": {
         "positive": 0.02742849849164486,
@@ -3720,7 +3720,7 @@
       "weighted_scores": {
         "positive": 0.0047,
         "negative": 0.0447,
-        "neutral": 0.1232
+        "neutral": 0.1231
       }
     },
     {
@@ -3736,21 +3736,6 @@
         "positive": 0.1572,
         "negative": 0.0096,
         "neutral": 0.0055
-      }
-    },
-    {
-      "title": "Apple exec. staying, Nvidia & SoftBank eye Skild AI: Reports",
-      "final_weight": 0.1722,
-      "input_source": "headline+content",
-      "raw_scores": {
-        "positive": 0.04629664123058319,
-        "negative": 0.01736338622868061,
-        "neutral": 0.9363399744033813
-      },
-      "weighted_scores": {
-        "positive": 0.008,
-        "negative": 0.003,
-        "neutral": 0.1612
       }
     },
     {
@@ -3845,17 +3830,17 @@
     },
     {
       "title": "Here’s Why Apple (AAPL) is on the Detectors List of Brown Advisory Large-Cap Growth Strategy",
-      "final_weight": 0.1688,
+      "final_weight": 0.1687,
       "input_source": "headline+content",
       "raw_scores": {
-        "positive": 0.36958256363868713,
-        "negative": 0.5444924235343933,
-        "neutral": 0.08592504262924194
+        "positive": 0.4435111880302429,
+        "negative": 0.49350008368492126,
+        "neutral": 0.06298871338367462
       },
       "weighted_scores": {
-        "positive": 0.0624,
-        "negative": 0.0919,
-        "neutral": 0.0145
+        "positive": 0.0748,
+        "negative": 0.0833,
+        "neutral": 0.0106
       }
     },
     {
@@ -3965,11 +3950,13 @@
     }
   ],
   "abstention_test": {
-    "method": "dynamic_margin",
-    "margin": 0.0452,
-    "threshold": 0.0523,
-    "n_articles": 263,
-    "effective_n": 214.347,
-    "entropy": 0.985
+    "method": "none",
+    "decision_thresholds": {
+      "tau_pos": 0.56,
+      "tau_neg": 0.26
+    },
+    "threshold_gap": null,
+    "margin": 0.0349,
+    "n_articles": 262
   }
 }

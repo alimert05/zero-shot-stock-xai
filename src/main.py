@@ -13,7 +13,7 @@ from predictors.finbert import run_sentiment_prediction as run_finbert
 from predictors.fingpt import run_sentiment_prediction as run_fingpt
 from predictors.zero_shot import run_sentiment_prediction as run_zero_shot
 from predictors.ollama_predictor import run_sentiment_prediction as run_ollama
-from config import JSON_PATH, SENTIMENT_MODEL, FINBERT_PREDS, FINGPT_PREDS, ZEROSHOT_PREDS, OLLAMA_PREDS, MODEL_NAME, XAI_ENABLED, XAI_OUTPUT_PATH
+from config import JSON_PATH, SENTIMENT_MODEL, FINBERT_PREDS, FINGPT_PREDS, ZEROSHOT_PREDS, OLLAMA_PREDS, XAI_ENABLED, XAI_OUTPUT_PATH
 from xai import run_xai
 
 logger = logging.getLogger(__name__)
