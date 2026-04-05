@@ -96,8 +96,12 @@ def _apply_thresholds(scores: dict[str, float]) -> str:
 
 # Quality Flags
 
-def compute_quality_flags(holdout_cases, articles_base):
-    """Compute quality flag distributions and HHI stats across holdout set."""
+def compute_quality_flags(holdout_cases, articles_base, flipset_sizes=None):
+    """Compute quality flag distributions and HHI stats across holdout set.
+
+    If flipset_sizes is provided (dict mapping case_id -> flip_set_size),
+    the flip_sensitivity flag is included. Otherwise it is skipped.
+    """
     hhi_values = []
     flag_counts = defaultdict(int)
     quality_ratings = Counter()
@@ -163,6 +167,13 @@ def compute_quality_flags(holdout_cases, articles_base):
                     flag_counts["label_margin"] += 1
                     n_flags += 1
 
+        # 4. Flip-set sensitivity
+        if flipset_sizes and case_id in flipset_sizes:
+            fs_size = flipset_sizes[case_id]
+            if fs_size <= 5:
+                flag_counts["flip_sensitivity"] += 1
+                n_flags += 1
+
         # 4. Source diversity
         domains = [a.get("domain", "unknown") for a in articles]
         domain_counts = Counter(domains)
@@ -172,13 +183,7 @@ def compute_quality_flags(holdout_cases, articles_base):
                 flag_counts["source_diversity"] += 1
                 n_flags += 1
 
-        # 5. Timing alignment
-        has_market_date = any(a.get("market_date") for a in articles)
-        if not has_market_date:
-            flag_counts["timing_alignment"] += 1
-            n_flags += 1
-
-        # 6. Horizon coverage
+        # 5. Horizon coverage
         ages = [a.get("days_ago", 0) for a in articles]
         if ages:
             lookback_span = max(ages) - min(ages) + 1
@@ -187,7 +192,7 @@ def compute_quality_flags(holdout_cases, articles_base):
                 flag_counts["horizon_coverage"] += 1
                 n_flags += 1
 
-        # Quality rating
+        # Quality rating: HIGH (0-1 flags), MEDIUM (2 flags), LOW (3+ flags)
         if n_flags <= 1:
             rating = "HIGH"
         elif n_flags == 2:
@@ -385,7 +390,7 @@ def print_quality_report(results):
 
     print(f"\n  {'Flag':<30} {'Triggered':>10} {'Rate':>10}")
     print(f"  {'-'*50}")
-    for flag_name in ["thin_evidence", "weight_concentration", "label_margin", "source_diversity", "timing_alignment", "horizon_coverage"]:
+    for flag_name in ["thin_evidence", "weight_concentration", "label_margin", "flip_sensitivity", "source_diversity", "horizon_coverage"]:
         count = flags.get(flag_name, 0)
         pct = count / total * 100
         print(f"  {flag_name:<30} {count:>10} {pct:>9.1f}%")
@@ -455,10 +460,17 @@ def print_flipset_report(results):
 # Main
 
 def main():
-    """Run quality flag diagnostics and flip-set analysis across the holdout set."""
+    """Run quality flag diagnostics and flip-set analysis across the holdout set.
+
+    Flip-set is always computed first because the flip_sensitivity flag
+    depends on flip-set sizes. Use --skip-flipset only if you want to
+    run quality flags without the flip_sensitivity check (not recommended).
+    """
     parser = argparse.ArgumentParser(description="XAI evaluation across holdout set")
     parser.add_argument("--skip-flipset", action="store_true",
-                        help="Skip flip-set analysis (no GPU needed)")
+                        help="Skip flip-set analysis (flip_sensitivity flag will be omitted)")
+    parser.add_argument("--use-cached-flipset", action="store_true",
+                        help="Reuse flip-set sizes from previous xai_evaluation_results.json")
     args = parser.parse_args()
 
     # Load holdout cases
@@ -474,18 +486,40 @@ def main():
 
     articles_base = str(ARTICLE_CACHE_PATH)
 
-    # 1. Quality flags (no GPU needed)
-    logger.info("Computing quality flags and HHI...")
-    quality_results = compute_quality_flags(holdout_cases, articles_base)
-    print_quality_report(quality_results)
-
-    # 2. Flip-set analysis (needs GPU)
-    if not args.skip_flipset:
+    # 1. Flip-set analysis - run first so sizes are available for flags
+    flipset_sizes = None
+    flipset_results = None
+    if args.use_cached_flipset:
+        # Load from previous run
+        cached_path = EVAL_RESULTS_PATH / "xai_evaluation_results.json"
+        if cached_path.exists():
+            with open(cached_path) as f:
+                cached = json.load(f)
+            if "flipset" in cached:
+                cached_sizes = cached["flipset"]["sizes"]
+                flipset_sizes = {}
+                for case, fs_size in zip(holdout_cases, cached_sizes):
+                    flipset_sizes[case["id"]] = fs_size
+                logger.info("Loaded cached flip-set sizes for %d cases", len(flipset_sizes))
+            else:
+                logger.warning("No flipset data in cached results, skipping flip_sensitivity")
+        else:
+            logger.warning("No cached results found at %s", cached_path)
+    elif not args.skip_flipset:
         logger.info("Computing flip-set analysis (requires GPU inference)...")
         flipset_results = compute_flipsets(holdout_cases, articles_base)
         print_flipset_report(flipset_results)
+        flipset_sizes = {}
+        for case, fs_size in zip(holdout_cases, flipset_results["flipset_sizes"]):
+            flipset_sizes[case["id"]] = fs_size
     else:
         logger.info("Skipping flip-set analysis (--skip-flipset)")
+        logger.warning("flip_sensitivity flag will not be computed")
+
+    # 2. Quality flags (uses flip-set sizes if available)
+    logger.info("Computing quality flags and HHI...")
+    quality_results = compute_quality_flags(holdout_cases, articles_base, flipset_sizes)
+    print_quality_report(quality_results)
 
     # Save results
     output = {
@@ -498,7 +532,7 @@ def main():
             "article_count_mean": sum(quality_results["article_counts"]) / len(quality_results["article_counts"]),
         },
     }
-    if not args.skip_flipset:
+    if flipset_results:
         output["flipset"] = {
             "sizes": flipset_results["flipset_sizes"],
             "single_flip_count": flipset_results["single_flip_count"],

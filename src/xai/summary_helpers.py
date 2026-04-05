@@ -138,26 +138,22 @@ def get_reliability_info(result: dict[str, Any]) -> dict[str, Any]:
     for name, info in flags.items():
         if not info.get("flagged"):
             continue
-        if name == "source_diversity":
-            caution_parts.append(
-                f"source concentration ({info.get('top_domain', '?')} "
-                f"has {info.get('top_domain_share', 0) * 100:.0f}% of articles)"
-            )
-        elif name == "timing_alignment":
-            caution_parts.append("lack of market-close time alignment")
-        elif name == "thin_evidence":
+        if name == "thin_evidence":
             caution_parts.append("thin evidence (few articles)")
         elif name == "weight_concentration":
             caution_parts.append("weight concentrated in one article")
         elif name == "label_margin":
-            margin = info.get("margin", 0)
-            if margin < 0.10:
-                qualifier = "narrow"
-            elif margin < 0.25:
-                qualifier = "moderate"
-            else:
-                qualifier = "clear"
-            caution_parts.append(f"a {qualifier} decision margin")
+            caution_parts.append(f"narrow decision margin ({info.get('margin', 0):.3f})")
+        elif name == "flip_sensitivity":
+            caution_parts.append(
+                f"prediction is sensitive (removing {info.get('flip_set_size', '?')} "
+                f"of {info.get('articles_total', '?')} articles would change the label)"
+            )
+        elif name == "source_diversity":
+            caution_parts.append(
+                f"source concentration ({info.get('top_domain', '?')} "
+                f"has {info.get('top_domain_share', 0) * 100:.0f}% of articles)"
+            )
         elif name == "horizon_coverage":
             caution_parts.append(
                 f"news lookback ({info.get('lookback_days', '?')} days) "

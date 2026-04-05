@@ -169,20 +169,15 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     flags       = rel_info["flags"]
     rel_icon    = {"HIGH": "\u2713", "MEDIUM": "!", "LOW": "\u2717"}.get(overall_rel, "?")
 
-    margin_flag  = flags.get("label_margin", {}).get("flagged", False)
     thin_flag    = flags.get("thin_evidence", {}).get("flagged", False)
     conc_flag    = flags.get("weight_concentration", {}).get("flagged", False)
+    margin_flag  = flags.get("label_margin", {}).get("flagged", False)
+    flip_flag    = flags.get("flip_sensitivity", {}).get("flagged", False)
     source_flag  = flags.get("source_diversity", {}).get("flagged", False)
-    timing_flag  = flags.get("timing_alignment", {}).get("flagged", False)
     horizon_flag = flags.get("horizon_coverage", {}).get("flagged", False)
 
     # Terminal-specific verbose caution parts (more detail than UI)
     caution_parts: list[str] = []
-    if margin_flag:
-        caution_parts.append(
-            "the positive and negative scores are very close - "
-            "a small shift in news could change the verdict"
-        )
     if thin_flag:
         caution_parts.append("the prediction is based on very few articles")
     if conc_flag:
@@ -190,27 +185,28 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             "weight is concentrated in one article, "
             "making the result sensitive to that single source"
         )
+    if margin_flag:
+        caution_parts.append(
+            "the positive and negative scores are very close - "
+            "a small shift in news could change the verdict"
+        )
+    if flip_flag:
+        fs = flags.get("flip_sensitivity", {})
+        caution_parts.append(
+            f"prediction is sensitive: removing {fs.get('flip_set_size', '?')} of "
+            f"{fs.get('articles_total', '?')} articles would change the label"
+        )
     if source_flag:
         caution_parts.append(
             "most articles come from the same editorial source, "
-            "reducing editorial independence. "
-            "Note: aggregators (Yahoo, Finnhub) are excluded from this check "
-            "because they collect from many independent editorial desks. "
-            "Mitigation: articles are de-duplicated across all domains by title "
-            "(keeping the oldest copy - the first to break the news); "
-            "weighting is content-based (not source-based)"
-        )
-    if timing_flag:
-        caution_parts.append(
-            "market-close time alignment is not applied (UTC timestamps used), "
-            "which can introduce timing noise or leakage risk"
+            "reducing editorial independence"
         )
     if horizon_flag:
         hc = flags.get("horizon_coverage", {})
         caution_parts.append(
             f"news lookback ({hc.get('lookback_days', '?')} days) is shorter than "
             f"the intended backward window ({hc.get('intended_lookback_days', '?')} days, "
-            f"\u221aW scaling), signal may be incomplete"
+            f"sqrt(W) scaling), signal may be incomplete"
         )
 
     # Chart label map (used in Charts + Advanced sections)
@@ -782,35 +778,19 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "  How much to trust this prediction",
         w,
         f"  Overall : [{rel_icon}] {overall_rel}  ({reliability['flags_triggered']} concern(s) found)",
-        "  Rating rule : HIGH evidence quality if 0 concerns, MEDIUM if 1, LOW if \u22652.",
+        "  Rating rule : HIGH if 0 flags, MEDIUM if 1, LOW if 2+.",
     ]
-    # Clarify when LOW is driven by data quality, not model uncertainty
-    margin_is_clear = not flags.get("label_margin", {}).get("flagged", False)
-    if overall_rel == "LOW" and margin_is_clear:
-        lines.append(
-            "  Note : Evidence quality is LOW due to data-quality risks (source concentration,"
-        )
-        lines.append(
-            "         timing alignment, short lookback), not because the model is"
-        )
-        lines.append(
-            "         uncertain about the label."
-        )
     lines.append("")
     for flag_name, flag_data in flags.items():
         is_skipped = flag_name == "label_margin" and "skipped" in flag_data.get("message", "").lower()
         if is_skipped:
             icon = "-"
-            status = "N/A"
         elif flag_data["flagged"]:
             icon = "\u26a0"
-            status = ""
         else:
             icon = "\u2713"
-            status = ""
         label = flag_name.replace("_", " ")
-        status_suffix = f"  {status}" if status else ""
-        lines.append(f"    [{icon}] {label:<22} {flag_data['message']}{status_suffix}")
+        lines.append(f"    [{icon}] {label:<22} {flag_data['message']}")
     lines += [
         "",
     ]
@@ -1238,11 +1218,13 @@ def run_xai(
 
     # Evidence quality (needs HHI from article_explanation + merged_articles)
     hhi = article_explanation.get("weight_concentration", 0.0)
+    flip_set_data = article_explanation.get("minimum_flip_set")
     reliability = compute_reliability(
         prediction_result, hhi,
         merged_articles=merged_articles,
         prediction_window_days=prediction_window_days,
         max_backward_days=max_backward_days,
+        flip_set_data=flip_set_data,
     )
 
     # Layer 1 

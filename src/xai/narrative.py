@@ -112,23 +112,26 @@ def _build_prompt(
     else:
         margin_fact = f"The label margin is {margin_qualifier} ({margin:.3f}), meaning a {margin_qualifier} gap between the top two sentiment scores."
 
-    # Build a warning fact from ACTUAL flagged concerns (not the margin itself)
+    # Build a warning fact from ACTUAL flagged concerns
     active_warnings: list[str] = []
     for flag_name, flag_data in flags.items():
         if flag_data.get("flagged"):
-            if flag_name == "source_diversity":
-                active_warnings.append(
-                    f"source concentration ({flag_data.get('top_domain', 'unknown')} "
-                    f"has {flag_data.get('top_domain_share', 0) * 100:.0f}% of articles)"
-                )
-            elif flag_name == "timing_alignment":
-                active_warnings.append("market-close time alignment is not applied")
-            elif flag_name == "thin_evidence":
+            if flag_name == "thin_evidence":
                 active_warnings.append("evidence is thin (few articles)")
             elif flag_name == "weight_concentration":
                 active_warnings.append("weight is concentrated in one article")
             elif flag_name == "label_margin":
-                active_warnings.append(f"a {margin_qualifier} decision margin")
+                active_warnings.append(f"a narrow decision margin ({flag_data.get('margin', 0):.3f})")
+            elif flag_name == "flip_sensitivity":
+                active_warnings.append(
+                    f"prediction is sensitive (removing {flag_data.get('flip_set_size', '?')} "
+                    f"articles would change the label)"
+                )
+            elif flag_name == "source_diversity":
+                active_warnings.append(
+                    f"source concentration ({flag_data.get('top_domain', 'unknown')} "
+                    f"has {flag_data.get('top_domain_share', 0) * 100:.0f}% of articles)"
+                )
             elif flag_name == "horizon_coverage":
                 active_warnings.append(
                     f"news lookback ({flag_data.get('lookback_days', '?')} days) "
@@ -198,23 +201,27 @@ def _build_fallback_summary(
     tau_pos = abst_test.get("decision_thresholds", {}).get("tau_pos", 0)
     tau_neg = abst_test.get("decision_thresholds", {}).get("tau_neg", 0)
 
-    # Collect specific evidence-quality concerns (not the margin - it's stated separately)
+    # Collect specific evidence-quality concerns
     flags = reliability.get("flags", {})
     concern_parts: list[str] = []
+    if flags.get("thin_evidence", {}).get("flagged"):
+        concern_parts.append("thin evidence (few articles)")
+    if flags.get("weight_concentration", {}).get("flagged"):
+        concern_parts.append("weight concentrated in one article")
+    if flags.get("label_margin", {}).get("flagged"):
+        concern_parts.append(f"narrow decision margin ({flags['label_margin'].get('margin', 0):.3f})")
+    if flags.get("flip_sensitivity", {}).get("flagged"):
+        fs = flags["flip_sensitivity"]
+        concern_parts.append(
+            f"prediction is sensitive (removing {fs.get('flip_set_size', '?')} "
+            f"articles would change the label)"
+        )
     if flags.get("source_diversity", {}).get("flagged"):
         sd = flags["source_diversity"]
         concern_parts.append(
             f"source concentration ({sd.get('top_domain', '?')} has "
             f"{sd.get('top_domain_share', 0) * 100:.0f}% of articles)"
         )
-    if flags.get("timing_alignment", {}).get("flagged"):
-        concern_parts.append("lack of market-close time alignment")
-    if flags.get("thin_evidence", {}).get("flagged"):
-        concern_parts.append("thin evidence (few articles)")
-    if flags.get("weight_concentration", {}).get("flagged"):
-        concern_parts.append("weight concentrated in one article")
-    if flags.get("label_margin", {}).get("flagged"):
-        concern_parts.append(f"a {margin_q} decision margin")
     if flags.get("horizon_coverage", {}).get("flagged"):
         hc = flags["horizon_coverage"]
         concern_parts.append(

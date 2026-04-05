@@ -1,8 +1,8 @@
 """Evidence-quality flags for sentiment predictions.
 
-Checks evidence volume, weight concentration, label margin, confidence,
-source diversity, timing alignment, and horizon coverage to produce an
-overall HIGH / MEDIUM / LOW evidence-quality rating.
+Checks evidence volume, weight concentration, flip-set sensitivity, and
+horizon coverage to produce an overall HIGH / MEDIUM / LOW evidence-quality
+rating.
 """
 from __future__ import annotations
 
@@ -13,8 +13,7 @@ from config import (
     XAI_THIN_EVIDENCE_THRESHOLD,
     XAI_CONCENTRATION_THRESHOLD,
     XAI_MARGIN_THRESHOLD,
-    XAI_SOURCE_CONCENTRATION_THRESHOLD,
-    XAI_MIN_UNIQUE_SOURCES,
+    XAI_FLIP_SENSITIVITY_THRESHOLD,
 )
 
 logger = logging.getLogger(__name__)
@@ -52,30 +51,6 @@ def _check_weight_concentration(herfindahl: float) -> dict[str, Any]:
     }
 
 
-def _check_label_margin(normalized_scores: dict[str, float]) -> dict[str, Any]:
-    """Flag when the margin between the top two sentiment labels is too narrow."""
-    threshold = XAI_MARGIN_THRESHOLD
-    sorted_labels = sorted(normalized_scores.items(), key=lambda x: x[1], reverse=True)
-    top_label, top_score = sorted_labels[0]
-    second_label, second_score = sorted_labels[1]
-    margin = round(top_score - second_score, 4)
-    flagged = margin < threshold
-    return {
-        "flagged": flagged,
-        "top_label": top_label,
-        "second_label": second_label,
-        "margin": margin,
-        "threshold": threshold,
-        "message": (
-            f"Narrow margin between {top_label} ({top_score:.3f}) and "
-            f"{second_label} ({second_score:.3f}): margin={margin:.3f}."
-            if flagged
-            else f"Clear margin between top two labels ({margin:.3f})."
-        ),
-    }
-
-
-
 # Known news aggregators - these collect articles from many independent
 # editorial sources, so a high share from an aggregator does NOT mean
 # low editorial diversity.
@@ -101,14 +76,11 @@ def _check_source_diversity(
     n_unique = len(unique)
     total = len(domains) or 1
 
-    # Top-domain share
     counts = Counter(domains)
     top_domain, top_count = counts.most_common(1)[0] if counts else ("unknown", 0)
     top_share = round(top_count / total, 4)
 
-    # Exclude aggregators from the concentration check - they host articles
-    # from many independent editorial desks, so "68% from Yahoo" does NOT
-    # indicate a single-viewpoint problem.
+    # Exclude aggregators from the concentration check
     non_agg_domains = [d for d in domains if d not in _AGGREGATOR_DOMAINS]
     n_non_agg = len(non_agg_domains) or 1
     non_agg_counts = Counter(non_agg_domains)
@@ -120,13 +92,9 @@ def _check_source_diversity(
 
     n_unique_editorial = len(set(non_agg_domains)) if non_agg_domains else 0
 
-    # Flag only on editorial (non-aggregator) concentration
-    too_few = n_unique_editorial < XAI_MIN_UNIQUE_SOURCES and n_unique < XAI_MIN_UNIQUE_SOURCES
-    too_concentrated = top_editorial_share > XAI_SOURCE_CONCENTRATION_THRESHOLD
+    too_few = n_unique_editorial < 2 and n_unique < 2
+    too_concentrated = top_editorial_share > 0.60
     flagged = too_few or too_concentrated
-
-    # Count how many articles come through aggregators
-    n_aggregator = sum(1 for d in domains if d in _AGGREGATOR_DOMAINS)
 
     if flagged:
         parts = []
@@ -139,18 +107,9 @@ def _check_source_diversity(
             )
         msg = "Source diversity concern: " + "; ".join(parts) + "."
     else:
-        agg_note = ""
-        if n_aggregator > 0:
-            agg_pct = round(n_aggregator / total * 100)
-            agg_note = (
-                f" ({agg_pct}% via aggregators like Yahoo/Finnhub"
-                f" - these collect from many editorial sources)"
-            )
         msg = (
-            f"{n_unique} sources ({n_unique_editorial} editorial + "
-            f"{len([d for d in unique if d in _AGGREGATOR_DOMAINS])} aggregators), "
+            f"{n_unique} sources ({n_unique_editorial} editorial), "
             f"top editorial share {top_editorial_share * 100:.0f}%."
-            f"{agg_note}"
         )
 
     return {
@@ -162,62 +121,69 @@ def _check_source_diversity(
     }
 
 
-def _check_timing_alignment(
-    merged_articles: list[dict[str, Any]],
-    prediction_window_days: int,
-) -> dict[str, Any]:
-    """Check whether market-close timestamp alignment was applied."""
-    ages = [a.get("days_ago", 0) for a in merged_articles]
-    if not ages:
-        return {
-            "flagged": True,
-            "message": "No article timing data available.",
-            "market_close_aligned": False,
-            "oldest_days": 0,
-            "newest_days": 0,
-        }
-
-    oldest = max(ages)
-    newest = min(ages)
-
-    # Check if articles have market_date (indicates ET alignment was applied)
-    has_market_date = any(a.get("market_date") for a in merged_articles)
-
-    if has_market_date:
-        flagged = False
-        if oldest > prediction_window_days:
-            msg = (
-                    f"Articles span {newest}-{oldest} days old (ET market-close aligned); "
-                f"oldest exceeds the {prediction_window_days}-day window and is "
-                f"down-weighted by recency."
-            )
-        else:
-            msg = (
-                f"Articles are {newest}-{oldest} days old (ET market-close aligned), "
-                f"down-weighted by the recency function where applicable."
-            )
-    else:
-        # Fallback: no market_date -> still UTC, flag it
-        flagged = True
-        if oldest > prediction_window_days:
-            msg = (
-                f"Articles span {newest}-{oldest} days old; oldest exceeds the "
-                f"{prediction_window_days}-day window and is down-weighted by recency."
-            )
-        else:
-            msg = (
-                f"Most articles are {newest}-{oldest} days old, "
-                f"down-weighted by the recency function where applicable."
-            )
-        msg += " Market-close time alignment is not applied (UTC timestamps used)."
-
+def _check_label_margin(normalized_scores: dict[str, float]) -> dict[str, Any]:
+    """Flag when the margin between the top two sentiment labels is too narrow."""
+    threshold = XAI_MARGIN_THRESHOLD
+    sorted_labels = sorted(normalized_scores.items(), key=lambda x: x[1], reverse=True)
+    top_label, top_score = sorted_labels[0]
+    second_label, second_score = sorted_labels[1]
+    margin = round(top_score - second_score, 4)
+    flagged = margin < threshold
     return {
         "flagged": flagged,
-        "market_close_aligned": has_market_date,
-        "oldest_days": oldest,
-        "newest_days": newest,
-        "prediction_window_days": prediction_window_days,
-        "message": msg,
+        "top_label": top_label,
+        "second_label": second_label,
+        "margin": margin,
+        "threshold": threshold,
+        "message": (
+            f"Narrow margin between {top_label} ({top_score:.3f}) and "
+            f"{second_label} ({second_score:.3f}): margin={margin:.3f}."
+            if flagged
+            else f"Clear margin between top two labels ({margin:.3f})."
+        ),
+    }
+
+
+def _check_flip_sensitivity(flip_set_data: dict[str, Any] | None) -> dict[str, Any]:
+    """Flag when the prediction can be flipped by removing a small number of articles."""
+    threshold = XAI_FLIP_SENSITIVITY_THRESHOLD
+
+    if not flip_set_data:
+        return {
+            "flagged": False,
+            "flip_set_size": None,
+            "threshold": threshold,
+            "message": "Flip-set data not available.",
+        }
+
+    flip_possible = flip_set_data.get("flip_possible", False)
+    flip_set_size = flip_set_data.get("flip_set_size")
+    articles_total = flip_set_data.get("articles_total", 0)
+
+    if not flip_possible or flip_set_size is None:
+        return {
+            "flagged": False,
+            "flip_set_size": articles_total,
+            "threshold": threshold,
+            "message": (
+                f"Prediction is robust: no feasible combination of article "
+                f"removals would change the label ({articles_total} articles)."
+            ),
+        }
+
+    flagged = flip_set_size <= threshold
+    return {
+        "flagged": flagged,
+        "flip_set_size": flip_set_size,
+        "articles_total": articles_total,
+        "threshold": threshold,
+        "message": (
+            f"Prediction is sensitive: removing {flip_set_size} of "
+            f"{articles_total} articles would change the label."
+            if flagged
+            else f"Prediction requires removing {flip_set_size} of "
+            f"{articles_total} articles to change the label."
+        ),
     }
 
 
@@ -237,9 +203,7 @@ def _check_horizon_coverage(
             "message": "No article timing data available to assess horizon coverage.",
         }
 
-    lookback_span = max(ages) - min(ages) + 1   # +1 for inclusive day counting
-    # The intended lookback comes from the square root W scaling algorithm in the fetcher.
-    # Compare actual span against the intended window, not the forecast horizon.
+    lookback_span = max(ages) - min(ages) + 1
     intended = max_backward_days if max_backward_days else prediction_window_days
     flagged = lookback_span < intended
 
@@ -247,7 +211,7 @@ def _check_horizon_coverage(
         msg = (
             f"News lookback is {lookback_span} days but the intended "
             f"backward window was {intended} days "
-            f"(√W scaling, W={prediction_window_days}), "
+            f"(sqrt(W) scaling, W={prediction_window_days}), "
             f"signal may be incomplete."
         )
     else:
@@ -271,11 +235,11 @@ def compute_reliability(
     merged_articles: list[dict[str, Any]] | None = None,
     prediction_window_days: int = 7,
     max_backward_days: int | None = None,
+    flip_set_data: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Run all evidence-quality checks and return an overall rating with flag details."""
     articles_analyzed = prediction_result.get("articles_analyzed", 0)
     normalized_scores = prediction_result.get("normalized_scores", {})
-    final_confidence = prediction_result.get("final_confidence", 0.0)
 
     # Skip label_margin when decision thresholds overrode the raw argmax -
     # the margin between raw scores is irrelevant when the decision was
@@ -287,7 +251,6 @@ def compute_reliability(
         and prediction_result.get("final_label") != argmax_label
     )
     if threshold_override:
-        # Still compute the raw margin for display, but never flag it
         sorted_labels = sorted(normalized_scores.items(), key=lambda x: x[1], reverse=True)
         raw_margin = round(sorted_labels[0][1] - sorted_labels[1][1], 4) if len(sorted_labels) >= 2 else 0.0
         label_margin_result = {
@@ -303,10 +266,8 @@ def compute_reliability(
         "thin_evidence":        _check_thin_evidence(articles_analyzed),
         "weight_concentration": _check_weight_concentration(herfindahl_index),
         "label_margin":         label_margin_result,
+        "flip_sensitivity":     _check_flip_sensitivity(flip_set_data),
         "source_diversity":     _check_source_diversity(merged_articles or []),
-        "timing_alignment":     _check_timing_alignment(
-            merged_articles or [], prediction_window_days
-        ),
         "horizon_coverage":     _check_horizon_coverage(
             merged_articles or [], prediction_window_days, max_backward_days
         ),
@@ -316,7 +277,7 @@ def compute_reliability(
 
     if flags_triggered <= 1:
         overall = "HIGH"
-    elif flags_triggered <= 2:
+    elif flags_triggered == 2:
         overall = "MEDIUM"
     else:
         overall = "LOW"
@@ -326,8 +287,8 @@ def compute_reliability(
         summary = f"Prediction has {overall} evidence quality: " + " ".join(flagged_messages)
     else:
         summary = (
-            f"Prediction has HIGH evidence quality: {articles_analyzed} articles analyzed "
-            f"with clear {prediction_result.get('final_label', '')} margin."
+            f"Prediction has HIGH evidence quality: {articles_analyzed} articles analyzed, "
+            f"prediction is robust and horizon coverage is sufficient."
         )
 
     logger.info("Evidence quality: %s (%d flags)", overall, flags_triggered)

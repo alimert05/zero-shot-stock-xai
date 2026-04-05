@@ -658,12 +658,12 @@ def _render_reliability(result: dict) -> None:
     flags = reliability.get("flags", {})
 
     _FLAG_DESCRIPTIONS = {
-        "thin evidence":      "Are there enough articles to make a reliable prediction?",
+        "thin evidence":       "Are there enough articles to make a reliable prediction?",
         "weight concentration": "Is the prediction driven by too few articles?",
-        "label margin":       "Is the gap between the top two labels large enough?",
-        "source diversity":   "Do the articles come from diverse editorial sources?",
-        "timing alignment":   "Are article timestamps aligned to market-close sessions?",
-        "horizon coverage":   "Does the news span cover the intended backward window?",
+        "label margin":        "Is the gap between the top two labels large enough?",
+        "flip sensitivity":    "Could removing a small number of articles change the prediction?",
+        "source diversity":    "Do the articles come from diverse editorial sources?",
+        "horizon coverage":    "Does the news span cover the intended backward window?",
     }
 
     for name, info in flags.items():

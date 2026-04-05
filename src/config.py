@@ -82,15 +82,13 @@ XAI_LIME_NUM_FEATURES          = 20    # max tokens to report per article
 XAI_THIN_EVIDENCE_THRESHOLD    = 5
 XAI_CONCENTRATION_THRESHOLD    = 0.4
 XAI_MARGIN_THRESHOLD           = 0.15
+XAI_FLIP_SENSITIVITY_THRESHOLD = 5     # flag if flip-set size <= 5 articles
 
 XAI_LLAMA_MODEL                = "llama3.2:3b"
 XAI_LLAMA_TEMPERATURE          = 0.1
 XAI_LLAMA_MAX_TOKENS           = 200
 XAI_LLAMA_ENABLED              = True
 
-# Evidence quality - source diversity & timing
-XAI_SOURCE_CONCENTRATION_THRESHOLD = 0.60   # flag if top domain > 60% of articles
-XAI_MIN_UNIQUE_SOURCES             = 2      # flag if fewer unique domains
 
 # Aggregation & Post-Processing
 COVERAGE_COUNT_BOOST           = True    # boost multi-source articles via log2(1 + coverage)
