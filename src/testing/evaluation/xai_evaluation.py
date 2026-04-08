@@ -174,7 +174,7 @@ def compute_quality_flags(holdout_cases, articles_base, flipset_sizes=None):
                 flag_counts["flip_sensitivity"] += 1
                 n_flags += 1
 
-        # 4. Source diversity
+        # 5. Source diversity
         domains = [a.get("domain", "unknown") for a in articles]
         domain_counts = Counter(domains)
         if domain_counts:
@@ -183,7 +183,7 @@ def compute_quality_flags(holdout_cases, articles_base, flipset_sizes=None):
                 flag_counts["source_diversity"] += 1
                 n_flags += 1
 
-        # 5. Horizon coverage
+        # 6. Horizon coverage
         ages = [a.get("days_ago", 0) for a in articles]
         if ages:
             lookback_span = max(ages) - min(ages) + 1
