@@ -87,8 +87,16 @@ def _apply_thresholds(
     tau_neg: float,
 ) -> str:
     """Apply decision thresholds to normalised scores."""
-    label, _ = apply_decision_thresholds(scores, tau_pos=tau_pos, tau_neg=tau_neg)
-    return label
+    if scores["positive"] >= tau_pos and scores["positive"] >= scores["negative"]:
+        return "positive"
+    elif scores["negative"] >= tau_neg and scores["negative"] >= scores["positive"]:
+        return "negative"
+    elif scores["positive"] >= tau_pos:
+        return "positive"
+    elif scores["negative"] >= tau_neg:
+        return "negative"
+    else:
+        return "neutral"
 
 
 # Grid search
