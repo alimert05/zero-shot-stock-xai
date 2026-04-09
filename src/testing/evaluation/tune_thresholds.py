@@ -23,6 +23,7 @@ import json
 import sys
 from collections import defaultdict
 from pathlib import Path
+from predictors.abstention import apply_decision_thresholds
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
@@ -86,12 +87,8 @@ def _apply_thresholds(
     tau_neg: float,
 ) -> str:
     """Apply decision thresholds to normalised scores."""
-    if scores["positive"] >= tau_pos:
-        return "positive"
-    elif scores["negative"] >= tau_neg:
-        return "negative"
-    else:
-        return "neutral"
+    label, _ = apply_decision_thresholds(scores, tau_pos=tau_pos, tau_neg=tau_neg)
+    return label
 
 
 # Grid search

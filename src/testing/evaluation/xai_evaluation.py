@@ -33,6 +33,11 @@ from config import (
     DECISION_THRESHOLD_POS,
     DECISION_THRESHOLD_NEG,
     DECISION_THRESHOLD_ENABLED,
+    XAI_THIN_EVIDENCE_THRESHOLD,
+    XAI_CONCENTRATION_THRESHOLD,
+    XAI_MARGIN_THRESHOLD,
+    XAI_FLIP_SENSITIVITY_THRESHOLD,
+    XAI_SOURCE_CONCENTRATION_THRESHOLD,
 )
 
 logging.basicConfig(
@@ -140,12 +145,12 @@ def compute_quality_flags(holdout_cases, articles_base, flipset_sizes=None):
         n_flags = 0
 
         # 1. Thin evidence
-        if n_articles < 5:
+        if n_articles < XAI_THIN_EVIDENCE_THRESHOLD:
             flag_counts["thin_evidence"] += 1
             n_flags += 1
 
         # 2. Weight concentration
-        if hhi > 0.4:
+        if hhi > XAI_CONCENTRATION_THRESHOLD:
             flag_counts["weight_concentration"] += 1
             n_flags += 1
 
@@ -163,14 +168,14 @@ def compute_quality_flags(holdout_cases, articles_base, flipset_sizes=None):
             sorted_scores = sorted(scores.values(), reverse=True)
             if len(sorted_scores) >= 2:
                 margin = sorted_scores[0] - sorted_scores[1]
-                if margin < 0.15:
+                if margin < XAI_MARGIN_THRESHOLD:
                     flag_counts["label_margin"] += 1
                     n_flags += 1
 
         # 4. Flip-set sensitivity
         if flipset_sizes and case_id in flipset_sizes:
             fs_size = flipset_sizes[case_id]
-            if fs_size <= 5:
+            if fs_size <= XAI_FLIP_SENSITIVITY_THRESHOLD:
                 flag_counts["flip_sensitivity"] += 1
                 n_flags += 1
 
@@ -179,7 +184,7 @@ def compute_quality_flags(holdout_cases, articles_base, flipset_sizes=None):
         domain_counts = Counter(domains)
         if domain_counts:
             max_domain_share = max(domain_counts.values()) / n_articles
-            if max_domain_share > 0.6:
+            if max_domain_share > XAI_SOURCE_CONCENTRATION_THRESHOLD:
                 flag_counts["source_diversity"] += 1
                 n_flags += 1
 
