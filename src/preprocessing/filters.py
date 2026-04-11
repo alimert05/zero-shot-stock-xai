@@ -47,7 +47,10 @@ def _is_question_headline(title: str) -> bool:
     return "?" in t or bool(_QUESTION_WORDS_RE.search(t))
 
 def filter_company_related(articles: list[dict], company_name: str, ticker: str | None) -> list[dict]:
-    """Keep only articles that mention the company name or ticker in headline or body."""
+    """Keep only articles that mention the company name or ticker in headline or body.
+
+    Also drops question-only headlines that have no body content.
+    """
     kept: list[dict] = []
     ticker_re = _ticker_regex(ticker) if ticker else None
 
