@@ -14,6 +14,7 @@ from config import (
     XAI_CONCENTRATION_THRESHOLD,
     XAI_MARGIN_THRESHOLD,
     XAI_FLIP_SENSITIVITY_THRESHOLD,
+    XAI_SOURCE_CONCENTRATION_THRESHOLD
 )
 
 logger = logging.getLogger(__name__)
@@ -93,7 +94,7 @@ def _check_source_diversity(
     n_unique_editorial = len(set(non_agg_domains)) if non_agg_domains else 0
 
     too_few = n_unique_editorial < 2 and n_unique < 2
-    too_concentrated = top_editorial_share > 0.60
+    too_concentrated = top_editorial_share > XAI_SOURCE_CONCENTRATION_THRESHOLD
     flagged = too_few or too_concentrated
 
     if flagged:

@@ -270,7 +270,7 @@ def _build_comprehensive_summary(result: dict) -> str:
     # Weight concentration (HHI)
     hhi = layer2.get("weight_concentration", 0)
     if hhi:
-        if hhi > 0.4:
+        if hhi > XAI_CONCENTRATION_THRESHOLD:
             parts.append(
                 f"Evidence is <b>concentrated</b> (Herfindahl index: {hhi:.4f}) "
                 f"- a small number of articles dominate the prediction."
