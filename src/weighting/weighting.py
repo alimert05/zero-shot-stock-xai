@@ -78,6 +78,10 @@ def calculate_impact_horizon_weight(
     )
 
     confidence = _clamp(float(confidence), 0.0, 1.0)
+    # Blend primary and secondary horizons based on classifier confidence.
+    # High confidence (1.0) -> 85% primary, low confidence (0.0) -> 60% primary.
+    # Primary always dominates since even an uncertain classification is more
+    # informative than a uniform prior.
     primary_mix = 0.60 + (0.25 * confidence)   # 0.60 .. 0.85
     secondary_mix = 1.0 - primary_mix
 

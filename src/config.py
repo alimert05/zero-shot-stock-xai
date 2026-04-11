@@ -44,6 +44,8 @@ IMPACT_HORIZON_DEVICE = 0
 
 SENTIMENT_DEVICE = 0 
 
+NOISE_RELEVANCE_THRESHOLD = 0.5
+
 # Model Selection
 
 # # finbert config
