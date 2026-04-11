@@ -126,6 +126,8 @@ def _check_label_margin(normalized_scores: dict[str, float]) -> dict[str, Any]:
     """Flag when the margin between the top two sentiment labels is too narrow."""
     threshold = XAI_MARGIN_THRESHOLD
     sorted_labels = sorted(normalized_scores.items(), key=lambda x: x[1], reverse=True)
+    if len(sorted_labels) < 2:
+        return {"flagged": False, "margin": 1.0, "message": "Fewer than 2 labels."}
     top_label, top_score = sorted_labels[0]
     second_label, second_score = sorted_labels[1]
     margin = round(top_score - second_score, 4)

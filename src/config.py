@@ -31,6 +31,7 @@ OLLAMA_PREDS   = PREDS_PATH / "ollama_result.json"
 
 TEMP_PATH.mkdir(parents=True, exist_ok=True)
 LOG_DIR.mkdir(parents=True, exist_ok=True)
+PREDS_PATH.mkdir(parents=True, exist_ok=True)
 
 REQUEST_TIMEOUT_LIMIT = 30
 

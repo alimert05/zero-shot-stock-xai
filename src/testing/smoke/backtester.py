@@ -158,7 +158,7 @@ def run_backtest():
     print("-" * 35)
     print("Correct:", report["correct"])
     print("-" * 35)
-    print(f"Change: {round(float(meta['pct_change']), 5) * 100}%", warn if warn is not None else "")
+    print(f"Change: {meta['pct_change'] * 100:.3f}%", warn if warn is not None else "")
     print("-" * 35)
 
 

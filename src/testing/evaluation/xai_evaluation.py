@@ -484,7 +484,7 @@ def main():
         holdout = json.load(f)
     holdout_ids = set(c["id"] for c in holdout["test_cases"])
 
-    with open(EVAL_DEBERTA_PATH) as f:
+    with open(EVAL_RESULTS_FILE) as f:
         eval_data = json.load(f)
     holdout_cases = [c for c in eval_data["case_results"] if c["id"] in holdout_ids]
 
