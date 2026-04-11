@@ -160,6 +160,7 @@ def predict_sentiment(
         "articles_analyzed": len(article_sentiments),
         "articles_total": len(articles),
         "total_weight": round(total_weight, 4),
+        "enhanced_weighting": True,
         "weighted_scores": {
             k: round(v, 4) for k, v in weighted_scores.items()
         },
