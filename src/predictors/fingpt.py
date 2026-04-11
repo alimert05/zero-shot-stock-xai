@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import json
 import logging
-import torch
 from typing import Any
 
 from predictors.abstention import apply_abstention
@@ -38,6 +37,7 @@ def _get_fingpt_model():
         try:
             from transformers import LlamaForCausalLM, LlamaTokenizerFast
             from peft import PeftModel
+            import torch
 
             device = f"cuda:{SENTIMENT_DEVICE}" if SENTIMENT_DEVICE >= 0 else "cpu"
 

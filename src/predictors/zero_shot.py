@@ -12,8 +12,6 @@ import json
 import logging
 from typing import Any
 
-from transformers import pipeline
-
 from config import (
     SENTIMENT_DEVICE,
     MODEL_NAME,
@@ -44,6 +42,8 @@ def _get_nli_pipeline():
     global _nli_pipeline
     if _nli_pipeline is None:
         try:
+            from transformers import pipeline
+            
             logger.info("Loading %s zero-shot classifier...", _display_model)
             _nli_pipeline = pipeline(
                 "zero-shot-classification",
