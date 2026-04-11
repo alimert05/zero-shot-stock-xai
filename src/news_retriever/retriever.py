@@ -356,7 +356,7 @@ class Fetcher:
             company_name=company_name,
             ticker=ticker)
 
-        # raw_fetch_only: stop here (no recency, no impact horizon, no weighting)
+        # raw_fetch_only: stop here (no impact horizon classification, no final_weight computation)
         if raw_fetch_only:
             # Clean content whitespace before caching
             for article in filtered_after_rules:

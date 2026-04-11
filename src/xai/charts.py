@@ -679,7 +679,7 @@ def plot_cumulative_score(
 
 def generate_all_charts(result: dict[str, Any], charts_dir: Path) -> dict[str, Path]:
     """
-    Generate all 10 charts and return a dict mapping chart name -> Path.
+    Generate all 9 charts and return a dict mapping chart name -> Path.
     If matplotlib is not installed, logs a warning and returns empty dict.
     """
     try:

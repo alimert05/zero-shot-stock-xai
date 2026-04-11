@@ -1,5 +1,5 @@
 """
-zero_shot.py - DeBERTa-based zero-shot NLI sentiment predictor.
+zero_shot.py - Zero-shot NLI sentiment predictor.
 
 Uses Natural Language Inference to classify financial news articles as
 positive, negative, or neutral without task-specific fine-tuning. 

@@ -9,7 +9,7 @@ from .utils import safe_round, get_dominant_label
 
 logger = logging.getLogger(__name__)
 
-# Anchors from fetcher/utils.py _compute_ewma_lambda
+#  Anchors from news_retriever/fetcher_utils.py _compute_ewma_lambda
 _EWMA_ANCHORS = [(1, 0.89), (5, 0.92), (10, 0.95), (21, 0.97)]
 
 

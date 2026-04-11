@@ -32,8 +32,8 @@ def _single_horizon_weight(
     min_weight: float = 0.05,
 ) -> float:
     """
-    Same core weighting shape you already used, but extracted so that
-    primary and secondary horizons can be combined.
+    Gaussian decay weight for a single horizon, 
+    extracted so primary and secondary horizons can be combined.
     """
     W = max(int(prediction_window_days), 1)
     impact_day = int(impact_horizon_days) - int(days_ago)
