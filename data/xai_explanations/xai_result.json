@@ -2,10 +2,10 @@
   "meta": {
     "query": "Apple",
     "ticker": "AAPL",
-    "xai_timestamp": "2026-04-05 14:27:35",
+    "xai_timestamp": "2026-04-11 02:17:33",
     "articles_analyzed": 262,
     "prediction_window_days": 31,
-    "news_lookback": "2026-03-08 to 2026-04-04 (ET market-close aligned)",
+    "news_lookback": "2026-03-14 to 2026-04-10 (ET market-close aligned)",
     "xai_version": "1.0.0"
   },
   "prediction_summary": {
@@ -22859,7 +22859,7 @@
   },
   "narrative": {
     "model": "llama3.2:3b",
-    "summary": "The model predicted a NEGATIVE label with a 29.1% score share based on 262 articles over 31 days, where decision thresholds selected this label over the higher-scoring positive due to calibrated bias correction.\nThe model's evidence quality is HIGH with no concerns.",
+    "summary": "The model predicted a NEGATIVE label with a 29.1% score share based on 262 articles over 31 days, where decision thresholds selected this label over the higher-scoring positive due to bias correction.\nThe model predicted that evidence quality is HIGH with no concerns.",
     "prompt_used": "DATA (read-only - narrate these facts, do not add any others):\nCompany: Apple (AAPL)\nPrediction label: NEGATIVE with a 29.1% score share, based on 262 articles over 31 days.\nScore breakdown: Positive 42.4%, Negative 29.1%, Neutral 15.8%.\nDecision thresholds overrode the raw scores: positive scored highest (42.4%) but did not reach its threshold (56% for positive, 26% for negative). The negative score (29.1%) exceeded its lower threshold, reflecting calibrated bias correction.\nTop article: \"Warren Buffett Added a Big Chunk of This Tech Stock. Should You Add It Too?\" (POSITIVE sentiment, 0.8% of total weight). Removing it would NOT change the label.\nAverage article age: 15.4 days.\n- Key words supporting negative: Fails, Letdown, Cringe, stumbled, underwhelming\nEvidence quality is HIGH with no concerns.\n\nWrite exactly 2 sentences starting with \"The model predicted\":\n- Sentence 1: state the predicted label in ALL-CAPS exactly as given (e.g. \"a NEUTRAL label\"), score share (not \"confidence\"), and article count. Mention that decision thresholds selected this label over the higher-scoring positive due to bias correction. The label must appear in UPPER CASE.\n- Sentence 2: state that evidence quality is HIGH with no concerns.\n\nGRAMMAR RULE: \"due to\" must be followed by noun phrases (e.g. \"due to a narrow decision margin; source concentration\"), NOT by clauses (e.g. NOT \"due to the label was decided\").",
     "ollama_available": true,
     "fallback_used": false,
@@ -22939,7 +22939,7 @@
         ]
       },
       {
-        "label": "AI development and challenges ahead.",
+        "label": "AI-powered technology poses significant challenges ahead.",
         "keyword_label": "apple, 2026, ai",
         "articles_count": 5,
         "weighted_score": 3.3,
@@ -22960,7 +22960,7 @@
         ]
       },
       {
-        "label": "Warren Buffett sells large portion of shares.",
+        "label": "Warren Buffett sells large portion of stock holdings.",
         "keyword_label": "selling, selling apple, apple",
         "articles_count": 4,
         "weighted_score": 2.9441,
@@ -23042,7 +23042,7 @@
         ]
       },
       {
-        "label": "Investors flock to trendy tech stock surge",
+        "label": "Investors flock to tech giant's trending stock.",
         "keyword_label": "know, apple, stock",
         "articles_count": 5,
         "weighted_score": 2.373,
@@ -23063,7 +23063,7 @@
         ]
       },
       {
-        "label": "Investor advises holding onto stocks for long-term gains.",
+        "label": "Investor advises sticking with winning stocks.",
         "keyword_label": "jim, jim cramer, cramer",
         "articles_count": 4,
         "weighted_score": 1.7516,
@@ -23083,7 +23083,7 @@
         ]
       },
       {
-        "label": "Tim Cook faces leadership challenges and scrutiny.",
+        "label": "Apple faces leadership transition and scrutiny.",
         "keyword_label": "tim cook, tim, cook",
         "articles_count": 4,
         "weighted_score": 1.465,
@@ -23103,7 +23103,7 @@
         ]
       },
       {
-        "label": "Mobile health app developer gains traction.",
+        "label": "Mobile health app developer gains traction globally.",
         "keyword_label": "apple, app store, app",
         "articles_count": 5,
         "weighted_score": 2.2084,
@@ -23164,7 +23164,7 @@
         ]
       },
       {
-        "label": "Investor sentiment remains cautious on tech giant.",
+        "label": "Investor confidence wavers over tech giant's future.",
         "keyword_label": "apple, ubs reiterates, reiterates neutral",
         "articles_count": 2,
         "weighted_score": 0.4387,
@@ -23182,7 +23182,7 @@
         ]
       },
       {
-        "label": "Executive stays on despite rumors of departure.",
+        "label": "Executive stays on despite rumors of departure",
         "keyword_label": "apple, apple chip, chip",
         "articles_count": 2,
         "weighted_score": 0.4016,

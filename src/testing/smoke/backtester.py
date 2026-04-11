@@ -125,6 +125,8 @@ elif SENTIMENT_MODEL == "ProsusAI/finbert":
     json_path = FINBERT_PREDS
 elif SENTIMENT_MODEL == "zero-shot":
     json_path = ZEROSHOT_PREDS
+elif SENTIMENT_MODEL in ("ollama-llama3", "ollama-mistral"):
+    json_path = OLLAMA_PREDS
 
 with open(json_path, 'r', encoding="utf-8") as f:
     sentiment_data = json.load(f)

@@ -482,10 +482,13 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
                 f" included: {', '.join(top_words[:5])}."
             )
 
+    horizon_dist = layer3.get("horizon_distribution", {})
+    dominant_horizon = max(horizon_dist, key=horizon_dist.get).replace("_", " ").lower() if horizon_dist else "immediate"
+
     weight_sentence = (
         f"Articles were weighted by recency and prediction-horizon relevance -"
         f" the average article was {layer3['avg_days_ago']} days old,"
-        f" with most classified as short-term horizon."
+        f" with most classified as {dominant_horizon} horizon."
     )
 
     # Contrastive sentence - why winner instead of runner-up (from shared helper)
@@ -778,7 +781,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "  How much to trust this prediction",
         w,
         f"  Overall : [{rel_icon}] {overall_rel}  ({reliability['flags_triggered']} concern(s) found)",
-        "  Rating rule : HIGH if 0 flags, MEDIUM if 1, LOW if 2+.",
+        "  Rating rule : HIGH if 0-1 flags, MEDIUM if 2, LOW if 3+.",
     ]
     lines.append("")
     for flag_name, flag_data in flags.items():
@@ -878,7 +881,8 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         lines.append("")
 
     # Top-10 table with weight bar chart
-    # "Weight" is the raw recency x horizon factor (0-1 scale).
+    # "Weight" is the effective article weight used in the sentiment aggregation
+    # (geometric mean of recency and horizon weights, with coverage boost and headline-only discount applied).
     # "Share" is the article's percentage of total weight across all articles.
     lines += [
         "  Top 10 most influential articles:",
