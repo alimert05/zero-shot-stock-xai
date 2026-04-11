@@ -102,6 +102,53 @@ def fig_confusion_matrix(output_dir: Path) -> None:
     plt.close()
     print("  Saved: confusion_matrix.png")
 
+# Confusion Matrices for All Models (Appendix)
+
+def fig_all_model_confusion_matrices(output_dir: Path) -> None:
+    """Confusion matrix heatmaps for all non-primary models (appendix)."""
+    models = {
+        "FinBERT": "evaluation_results_finbert.json",
+        "FinGPT": "evaluation_results_fingpt.json",
+        "Llama 3.1 8B": "evaluation_results_llama.json",
+        "Mistral 7B": "evaluation_results_mistral.json",
+    }
+    labels = ["negative", "neutral", "positive"]
+
+    fig, axes = plt.subplots(2, 2, figsize=(10, 9))
+    axes = axes.flatten()
+
+    for idx, (model_name, filename) in enumerate(models.items()):
+        path = EVAL_RESULTS_PATH / filename
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        cm = data["overall_metrics"]["confusion_matrix"]
+        matrix = np.array([[cm[actual][pred] for pred in labels] for actual in labels])
+
+        ax = axes[idx]
+        im = ax.imshow(matrix, cmap="Blues", aspect="auto")
+
+        for i in range(3):
+            for j in range(3):
+                color = "white" if matrix[i, j] > matrix.max() * 0.6 else "black"
+                ax.text(j, i, str(matrix[i, j]), ha="center", va="center",
+                        fontsize=13, fontweight="bold", color=color)
+
+        ax.set_xticks([0, 1, 2])
+        ax.set_yticks([0, 1, 2])
+        ax.set_xticklabels(["Neg", "Neu", "Pos"], fontsize=9)
+        ax.set_yticklabels(["Neg", "Neu", "Pos"], fontsize=9)
+        ax.set_xlabel("Predicted", fontsize=10)
+        ax.set_ylabel("Actual", fontsize=10)
+        ax.set_title(model_name, fontsize=11, fontweight="bold")
+
+    plt.tight_layout()
+    plt.savefig(output_dir / "all_model_confusion_matrices.png", dpi=200,
+                bbox_inches="tight", facecolor="white")
+    plt.close()
+    print("  Saved: all_model_confusion_matrices.png")
+
+
 
 # Gaussian Horizon Weighting Curves
 
@@ -231,6 +278,7 @@ def main() -> None:
 
     fig_per_horizon(output_dir)
     fig_confusion_matrix(output_dir)
+    fig_all_model_confusion_matrices(output_dir)
     fig_gaussian_horizon(output_dir)
     fig_recency_decay(output_dir)
     fig_quality_accuracy(output_dir)
