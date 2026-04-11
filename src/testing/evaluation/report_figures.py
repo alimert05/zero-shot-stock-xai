@@ -189,8 +189,8 @@ def fig_quality_accuracy(output_dir: Path) -> None:
     fig, ax = plt.subplots(figsize=(7, 5))
 
     ratings = ["HIGH\n(0-1 flags)", "MEDIUM\n(2 flags)", "LOW\n(3+ flags)"]
-    cases = [108, 75, 9]
-    accuracies = [49.1, 25.3, 0.0]
+    cases = [83, 90, 19]
+    accuracies = [49.4, 28.9, 26.3]
     colors = ["#5BA85B", "#D9A84A", "#D94A4A"]
 
     bars = ax.bar(ratings, accuracies, color=colors, edgecolor="white", width=0.5)
