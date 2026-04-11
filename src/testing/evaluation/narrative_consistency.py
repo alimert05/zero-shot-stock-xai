@@ -21,6 +21,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from config import (
     ARTICLE_CACHE_PATH,
     DATASET_PATH,
+    EVAL_RESULTS_PATH,
     TEMP_PATH,
     JSON_PATH,
     PRED_JSON_PATH,
@@ -214,7 +215,7 @@ def run_experiment(n_cases: int = 5, n_runs: int = 3):
         print(f"  {case_id:<35} {r['fallback_count']:>5}/{r['n_runs']:<4} {r['violation_count']:>11} {r['avg_similarity']:>10.4f} {r['min_similarity']:>10.4f}")
 
     # Save full results
-    output_path = TEMP_PATH / "narrative_consistency_results.json"
+    output_path = EVAL_RESULTS_PATH / "narrative_consistency_results.json"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, default=str)
     print(f"\n  Full results saved to: {output_path}")

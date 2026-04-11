@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "run_timestamp": "2026-03-27 12:00:00",
+    "model": "FinGPT (Llama-2-13B + LoRA)",
+    "config_name": "default",
+    "hypothesis_template": "N/A",
+    "candidate_labels": [
+      "positive",
+      "negative",
+      "neutral"
+    ],
+    "datasets": [
+      "C:/Users/alime/DissertationProject/zero-shot-stock-xai/data/financial_phrasebank_datasets/financial_phrasebank_sentences_50agree.csv",
+      "C:/Users/alime/DissertationProject/zero-shot-stock-xai/data/financial_phrasebank_datasets/financial_phrasebank_sentences_75agree.csv",
+      "C:/Users/alime/DissertationProject/zero-shot-stock-xai/data/financial_phrasebank_datasets/financial_phrasebank_sentences_allagree.csv"
+    ],
+    "max_samples": null,
+    "device": 0,
+    "decision_threshold_enabled": false,
+    "dynamic_margin_enabled": false
+  },
+  "results": {
+    "financial_phrasebank_sentences_50agree.csv": {
+      "dataset_path": "C:/Users/alime/DissertationProject/zero-shot-stock-xai/data/financial_phrasebank_datasets/financial_phrasebank_sentences_50agree.csv",
+      "samples": 4846,
+      "metrics": {
+        "accuracy": 0.9199,
+        "macro_precision": 0.9218,
+        "macro_recall": 0.9125,
+        "macro_f1": 0.9157,
+        "f1_scores": {
+          "positive": 0.8771,
+          "negative": 0.9344,
+          "neutral": 0.9355
+        },
+        "total": 4846,
+        "correct": 4458
+      }
+    },
+    "financial_phrasebank_sentences_75agree.csv": {
+      "dataset_path": "C:/Users/alime/DissertationProject/zero-shot-stock-xai/data/financial_phrasebank_datasets/financial_phrasebank_sentences_75agree.csv",
+      "samples": 3453,
+      "metrics": {
+        "accuracy": 0.9676,
+        "macro_precision": 0.9654,
+        "macro_recall": 0.9645,
+        "macro_f1": 0.9648,
+        "f1_scores": {
+          "positive": 0.9495,
+          "negative": 0.9706,
+          "neutral": 0.9743
+        },
+        "total": 3453,
+        "correct": 3341
+      }
+    },
+    "financial_phrasebank_sentences_allagree.csv": {
+      "dataset_path": "C:/Users/alime/DissertationProject/zero-shot-stock-xai/data/financial_phrasebank_datasets/financial_phrasebank_sentences_allagree.csv",
+      "samples": 2264,
+      "metrics": {
+        "accuracy": 0.9872,
+        "macro_precision": 0.9855,
+        "macro_recall": 0.9865,
+        "macro_f1": 0.986,
+        "f1_scores": {
+          "positive": 0.9815,
+          "negative": 0.9869,
+          "neutral": 0.9896
+        },
+        "total": 2264,
+        "correct": 2235
+      }
+    }
+  }
+}
