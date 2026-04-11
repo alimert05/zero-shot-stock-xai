@@ -97,7 +97,7 @@ LLM_LABEL_CONFIDENCE = 0.90
 LLM_LABEL_RESIDUAL = 0.05
 
 # Aggregation & Post-Processing
-COVERAGE_COUNT_BOOST           = True    # boost multi-source articles via log2(1 + coverage)
+COVERAGE_COUNT_BOOST           = True    # boost articles with higher coverage counts via log2(1 + count)
 HEADLINE_ONLY_WEIGHT           = 0.5     # discount for headline-only articles (no body content)
 
 # Decision thresholds (tuned on tune set via grid search, macro F1)

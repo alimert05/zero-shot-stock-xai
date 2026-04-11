@@ -58,7 +58,7 @@ def fig_per_horizon(output_dir: Path) -> None:
     ax.set_xlabel("Prediction Window (days)", fontsize=11)
     ax.set_ylabel("Score", fontsize=11)
     ax.set_ylim(0.15, 0.5)
-    ax.axhline(y=0.484, color="#333333", linestyle="--", linewidth=1, alpha=0.5)
+    ax.axhline(y=0.484, color="#333333", linestyle="--", linewidth=1, alpha=0.5) # majority-class baseline (holdout set)
     ax.text(5, 0.488, "Majority baseline", fontsize=8, color="#333333")
     ax.legend(fontsize=9)
     ax.spines["top"].set_visible(False)
@@ -236,6 +236,7 @@ def fig_quality_accuracy(output_dir: Path) -> None:
     fig, ax = plt.subplots(figsize=(7, 5))
 
     ratings = ["HIGH\n(0-1 flags)", "MEDIUM\n(2 flags)", "LOW\n(3+ flags)"]
+    # Values from evaluation_results_zero_shot.json (holdout set)
     cases = [83, 90, 19]
     accuracies = [49.4, 28.9, 26.3]
     colors = ["#5BA85B", "#D9A84A", "#D94A4A"]

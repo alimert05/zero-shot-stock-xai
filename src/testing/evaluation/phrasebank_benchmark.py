@@ -32,6 +32,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from config import (
     FPB_PATH, FPB_DATASETS_PATH, SENTIMENT_DEVICE,
     DECISION_THRESHOLD_ENABLED,
+    MODEL_NAME,
+    SENTIMENT_MODEL,
 )
 
 logger = logging.getLogger(__name__)
@@ -42,8 +44,9 @@ DEFAULT_DATASETS = [
     str(FPB_DATASETS_PATH / "financial_phrasebank_sentences_allagree.csv"),
 ]
 
-DEFAULT_OUTPUT = FPB_PATH / "phrasebank_model_benchmark.json"
-CHECKPOINT_PATH = FPB_PATH / "label_tuning_checkpoint.json"
+_MODEL_TAG = SENTIMENT_MODEL.replace("/", "_").replace("-", "_")
+DEFAULT_OUTPUT = FPB_PATH / f"phrasebank_benchmark_{_MODEL_TAG}.json"
+CHECKPOINT_PATH = FPB_PATH / f"label_tuning_checkpoint_{_MODEL_TAG}.json"
 LABELS = ["positive", "negative", "neutral"]
 
 # Coarse screen uses the largest dataset (50agree) for stable estimates.
@@ -740,6 +743,7 @@ class FinGPTPredictor:
 
         return predictions
 
+Predictor = DeBERTaPredictor | RoBERTaPredictor | OllamaPredictor | FinBERTPredictor | FinGPTPredictor
 
 # Benchmark mode
 
@@ -951,7 +955,7 @@ def load_checkpoint(path: Path = CHECKPOINT_PATH) -> dict[str, Any] | None:
 # Stage 1: Coarse Screen
 
 def run_coarse_screen(
-    predictor: DeBERTaPredictor,
+    predictor: Predictor,
     configs: list[dict[str, Any]],
     dev_texts: list[str],
     dev_labels: list[str],
@@ -1011,7 +1015,7 @@ def run_coarse_screen(
 # Stage 2: Full Cross-Validation
 
 def run_cross_validation(
-    predictor: DeBERTaPredictor,
+    predictor: Predictor,
     configs: list[dict[str, Any]],
     dataset_splits: list[dict[str, Any]],
     n_folds: int,
@@ -1154,7 +1158,7 @@ def _aggregate_cv_results(
 # Stage 3: Final Test Evaluation
 
 def run_final_test(
-    predictor: DeBERTaPredictor,
+    predictor: Predictor,
     best_config: dict[str, Any],
     dataset_splits: list[dict[str, Any]],
 ) -> dict[str, Any]:
@@ -1388,7 +1392,7 @@ def _build_metadata(
     """Build the metadata dict saved alongside benchmark results."""
     return {
         "run_timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "model": "microsoft/deberta-large-mnli",
+        "model": MODEL_NAME,
         "datasets": [ds["path"] for ds in dataset_splits],
         "dataset_names": [ds["name"] for ds in dataset_splits],
         "total_configs": len(configs),

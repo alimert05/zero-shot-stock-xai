@@ -26,9 +26,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from config import EVAL_RESULTS_PATH, THRESHOLD_PATH
+from config import EVAL_RESULTS_PATH, THRESHOLD_PATH, SENTIMENT_MODEL
 
-DEFAULT_RESULTS =  EVAL_RESULTS_PATH / f"evaluation_results_zero_shot.json"
+_MODEL_TAG = SENTIMENT_MODEL.replace("/", "_").replace("-", "_")
+DEFAULT_RESULTS = EVAL_RESULTS_PATH / f"evaluation_results_{_MODEL_TAG}.json"
 
 
 # Metrics

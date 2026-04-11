@@ -40,6 +40,7 @@ from config import (
     XAI_SOURCE_CONCENTRATION_THRESHOLD,
     COVERAGE_COUNT_BOOST,
     HEADLINE_ONLY_WEIGHT,
+    SENTIMENT_MODEL,
 )
 
 logging.basicConfig(
@@ -50,7 +51,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 HOLDOUT_PATH = DATASET_PATH / "holdout_set.json"
-EVAL_DEBERTA_PATH = EVAL_RESULTS_PATH / "evaluation_results_zero_shot.json"
+_MODEL_TAG = SENTIMENT_MODEL.replace("/", "_").replace("-", "_")
+EVAL_RESULTS_FILE = EVAL_RESULTS_PATH / f"evaluation_results_{_MODEL_TAG}.json"
 
 # Helpers
 

@@ -3,7 +3,7 @@
 from datetime import datetime, timedelta
 import json
 import yfinance as yf
-from config import PRED_JSON_PATH, JSON_PATH, SENTIMENT_MODEL, FINBERT_PREDS, FINGPT_PREDS, ZEROSHOT_PREDS
+from config import PRED_JSON_PATH, JSON_PATH, SENTIMENT_MODEL, FINBERT_PREDS, FINGPT_PREDS, ZEROSHOT_PREDS, OLLAMA_PREDS
 
 
 def _parse_date(d: str) -> datetime:

@@ -76,8 +76,8 @@ COMPANIES = [
 PREDICTION_WINDOWS = [1, 3, 5, 7, 14, 31]
 
 # Four date groups sampled across the available 9-month window to ensure
-# temporal diversity. Each group provides 5 start dates, giving 4 cases
-# per company-window pair (20 companies x 6 windows x 4 dates = 480 cases).
+# temporal diversity. Each company picks one date per group (round-robin),
+# giving 4 cases per company-window pair (20 companies x 6 windows x 4 groups = 480 cases).
 DATE_GROUPS = [
     {
         "label": "bull_run",
