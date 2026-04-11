@@ -45,7 +45,7 @@ DEFAULT_DATASETS = [
 ]
 
 _MODEL_TAG = SENTIMENT_MODEL.replace("/", "_").replace("-", "_")
-DEFAULT_OUTPUT = FPB_PATH / f"phrasebank_benchmark_{_MODEL_TAG}.json"
+DEFAULT_OUTPUT = FPB_PATH / f"phrasebank_model_benchmark_{_MODEL_TAG}.json"
 CHECKPOINT_PATH = FPB_PATH / f"label_tuning_checkpoint_{_MODEL_TAG}.json"
 LABELS = ["positive", "negative", "neutral"]
 
@@ -1696,10 +1696,12 @@ def main() -> None:
 
     args = parse_args()
 
+    # Derive model tag from CLI --model (overrides config default)
+    model_tag = getattr(args, "model", _MODEL_TAG)
+
     if args.mode == "tune":
         report = run_label_tuning(args)
 
-        model_tag = getattr(args, "model", "deberta")
         output_path = FPB_PATH / f"phrasebank_label_tuning_{model_tag}.json"
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with open(output_path, "w", encoding="utf-8") as f:
@@ -1709,7 +1711,11 @@ def main() -> None:
     else:
         report = run_benchmark(args)
 
-        output_path = Path(args.output)
+        # Use CLI --output if explicitly provided, otherwise derive from model tag
+        if args.output != str(DEFAULT_OUTPUT):
+            output_path = Path(args.output)
+        else:
+            output_path = FPB_PATH / f"phrasebank_model_benchmark_{model_tag}.json"
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(report, f, indent=2, ensure_ascii=False)

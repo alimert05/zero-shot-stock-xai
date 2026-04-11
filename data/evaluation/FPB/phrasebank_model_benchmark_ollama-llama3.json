@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "run_timestamp": "2026-04-11 18:19:35",
-    "model": "FinGPT (Llama-2-13B + LoRA)",
+    "run_timestamp": "2026-04-11 19:52:41",
+    "model": "llama3.1:8b (Ollama)",
     "config_name": "default (argmax)",
     "hypothesis_template": "N/A",
     "candidate_labels": [
@@ -27,65 +27,65 @@
         "negative": 604,
         "positive": 1363
       },
-      "duration_seconds": 1465.63,
+      "duration_seconds": 1144.72,
       "metrics": {
-        "accuracy": 0.9199,
-        "macro_precision": 0.9218,
-        "macro_recall": 0.9125,
-        "macro_f1": 0.9157,
+        "accuracy": 0.804,
+        "macro_precision": 0.8167,
+        "macro_recall": 0.7731,
+        "macro_f1": 0.7868,
         "f1_scores": {
-          "positive": 0.8771,
-          "negative": 0.9344,
-          "neutral": 0.9355
+          "positive": 0.6687,
+          "negative": 0.8448,
+          "neutral": 0.847
         },
         "per_class": {
           "negative": {
-            "precision": 0.9144,
-            "recall": 0.9553,
-            "f1": 0.9344,
+            "precision": 0.8469,
+            "recall": 0.8427,
+            "f1": 0.8448,
             "support": 604,
-            "tp": 577,
-            "fp": 54,
-            "fn": 27
+            "tp": 509,
+            "fp": 92,
+            "fn": 95
           },
           "neutral": {
-            "precision": 0.9144,
-            "recall": 0.9576,
-            "f1": 0.9355,
+            "precision": 0.7948,
+            "recall": 0.9066,
+            "f1": 0.847,
             "support": 2879,
-            "tp": 2757,
-            "fp": 258,
-            "fn": 122
+            "tp": 2610,
+            "fp": 674,
+            "fn": 269
           },
           "positive": {
-            "precision": 0.9367,
-            "recall": 0.8247,
-            "f1": 0.8771,
+            "precision": 0.8085,
+            "recall": 0.5701,
+            "f1": 0.6687,
             "support": 1363,
-            "tp": 1124,
-            "fp": 76,
-            "fn": 239
+            "tp": 777,
+            "fp": 184,
+            "fn": 586
           }
         },
         "confusion_matrix": {
           "negative": {
-            "negative": 577,
-            "neutral": 23,
-            "positive": 4
+            "negative": 509,
+            "neutral": 94,
+            "positive": 1
           },
           "neutral": {
-            "negative": 50,
-            "neutral": 2757,
-            "positive": 72
+            "negative": 86,
+            "neutral": 2610,
+            "positive": 183
           },
           "positive": {
-            "negative": 4,
-            "neutral": 235,
-            "positive": 1124
+            "negative": 6,
+            "neutral": 580,
+            "positive": 777
           }
         },
         "total": 4846,
-        "correct": 4458
+        "correct": 3896
       }
     },
     "financial_phrasebank_sentences_75agree.csv": {
@@ -96,65 +96,65 @@
         "positive": 887,
         "negative": 420
       },
-      "duration_seconds": 1052.25,
+      "duration_seconds": 796.2,
       "metrics": {
-        "accuracy": 0.9676,
-        "macro_precision": 0.9654,
-        "macro_recall": 0.9645,
-        "macro_f1": 0.9648,
+        "accuracy": 0.8787,
+        "macro_precision": 0.8901,
+        "macro_recall": 0.8504,
+        "macro_f1": 0.8647,
         "f1_scores": {
-          "positive": 0.9495,
-          "negative": 0.9706,
-          "neutral": 0.9743
+          "positive": 0.7785,
+          "negative": 0.9078,
+          "neutral": 0.908
         },
         "per_class": {
           "negative": {
-            "precision": 0.9604,
-            "recall": 0.981,
-            "f1": 0.9706,
+            "precision": 0.9014,
+            "recall": 0.9143,
+            "f1": 0.9078,
             "support": 420,
-            "tp": 412,
-            "fp": 17,
-            "fn": 8
+            "tp": 384,
+            "fp": 42,
+            "fn": 36
           },
           "neutral": {
-            "precision": 0.9695,
-            "recall": 0.979,
-            "f1": 0.9743,
+            "precision": 0.8682,
+            "recall": 0.9515,
+            "f1": 0.908,
             "support": 2146,
-            "tp": 2101,
-            "fp": 66,
-            "fn": 45
+            "tp": 2042,
+            "fp": 310,
+            "fn": 104
           },
           "positive": {
-            "precision": 0.9662,
-            "recall": 0.9335,
-            "f1": 0.9495,
+            "precision": 0.9007,
+            "recall": 0.6855,
+            "f1": 0.7785,
             "support": 887,
-            "tp": 828,
-            "fp": 29,
-            "fn": 59
+            "tp": 608,
+            "fp": 67,
+            "fn": 279
           }
         },
         "confusion_matrix": {
           "negative": {
-            "negative": 412,
-            "neutral": 8,
-            "positive": 0
+            "negative": 384,
+            "neutral": 35,
+            "positive": 1
           },
           "neutral": {
-            "negative": 16,
-            "neutral": 2101,
-            "positive": 29
+            "negative": 38,
+            "neutral": 2042,
+            "positive": 66
           },
           "positive": {
-            "negative": 1,
-            "neutral": 58,
-            "positive": 828
+            "negative": 4,
+            "neutral": 275,
+            "positive": 608
           }
         },
         "total": 3453,
-        "correct": 3341
+        "correct": 3034
       }
     },
     "financial_phrasebank_sentences_allagree.csv": {
@@ -165,65 +165,65 @@
         "positive": 570,
         "negative": 303
       },
-      "duration_seconds": 682.79,
+      "duration_seconds": 510.43,
       "metrics": {
-        "accuracy": 0.9872,
-        "macro_precision": 0.9855,
-        "macro_recall": 0.9865,
-        "macro_f1": 0.986,
+        "accuracy": 0.9205,
+        "macro_precision": 0.9371,
+        "macro_recall": 0.8996,
+        "macro_f1": 0.9147,
         "f1_scores": {
-          "positive": 0.9815,
-          "negative": 0.9869,
-          "neutral": 0.9896
+          "positive": 0.8508,
+          "negative": 0.9554,
+          "neutral": 0.9381
         },
         "per_class": {
           "negative": {
-            "precision": 0.9805,
-            "recall": 0.9934,
-            "f1": 0.9869,
+            "precision": 0.957,
+            "recall": 0.9538,
+            "f1": 0.9554,
             "support": 303,
-            "tp": 301,
-            "fp": 6,
-            "fn": 2
+            "tp": 289,
+            "fp": 13,
+            "fn": 14
           },
           "neutral": {
-            "precision": 0.9885,
-            "recall": 0.9907,
-            "f1": 0.9896,
+            "precision": 0.904,
+            "recall": 0.9748,
+            "f1": 0.9381,
             "support": 1391,
-            "tp": 1378,
-            "fp": 16,
-            "fn": 13
+            "tp": 1356,
+            "fp": 144,
+            "fn": 35
           },
           "positive": {
-            "precision": 0.9876,
-            "recall": 0.9754,
-            "f1": 0.9815,
+            "precision": 0.9502,
+            "recall": 0.7702,
+            "f1": 0.8508,
             "support": 570,
-            "tp": 556,
-            "fp": 7,
-            "fn": 14
+            "tp": 439,
+            "fp": 23,
+            "fn": 131
           }
         },
         "confusion_matrix": {
           "negative": {
-            "negative": 301,
-            "neutral": 2,
-            "positive": 0
+            "negative": 289,
+            "neutral": 13,
+            "positive": 1
           },
           "neutral": {
-            "negative": 6,
-            "neutral": 1378,
-            "positive": 7
+            "negative": 13,
+            "neutral": 1356,
+            "positive": 22
           },
           "positive": {
             "negative": 0,
-            "neutral": 14,
-            "positive": 556
+            "neutral": 131,
+            "positive": 439
           }
         },
         "total": 2264,
-        "correct": 2235
+        "correct": 2084
       }
     }
   },
