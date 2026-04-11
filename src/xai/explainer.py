@@ -216,7 +216,6 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "article_weights":         "Top-10 article weight chart",
         "horizon_breakdown":       "Timing horizon breakdown chart",
         "lime_tokens":             "Word-level attribution (LIME) chart",
-        "reliability":             "Evidence quality dashboard",
         "storyline_contribution":  "Narrative storyline contribution chart",
         "contrastive_waterfall":   "Contrastive waterfall (why A not B?)",
         "article_timeline":        "Article timeline (recency vs influence)",

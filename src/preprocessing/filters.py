@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 def _ticker_regex(ticker: str) -> re.Pattern:
     """Build a compiled regex that matches common ticker formats."""
     t = re.escape(ticker.upper())
-    return re.compile(rf"(?i)(\${t}\b|\({t}\)|\b{t}\b|\b{t}[-\.][A-Z]{{1,6}}\b)")
+    return re.compile(rf"(?i)(\${t}\b|\({t}\)|\b{t}\b|\b{t}[-\.][A-Z]{{1,9}}\b)")
 
 def _normalize_spaces(s: str) -> str:
     """Collapse consecutive whitespace into a single space."""

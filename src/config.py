@@ -46,7 +46,7 @@ SENTIMENT_DEVICE = 0
 
 NOISE_RELEVANCE_THRESHOLD = 0.5
 
-# Model Selection
+# Model Selection - uncomment to use (only one of them should be uncommented)
 
 # # finbert config
 # SENTIMENT_MODEL = "ProsusAI/finbert"

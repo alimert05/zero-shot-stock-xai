@@ -51,9 +51,6 @@ EVENT_FAMILY_LABELS = [
     "financial distress, credit downgrade, or going concern warning",
 ]
 
-# Backward-compatible alias
-EVENT_TYPE_LABELS = EVENT_FAMILY_LABELS
-
 HORIZON_TO_DAYS: dict[str, int] = {
     "D1_IMMEDIATE": 1,
     "D2_5_SHORT": 5,
@@ -116,16 +113,6 @@ EVENT_FAMILY_TO_PRIOR_HORIZON: dict[str, dict[str, str | None]] = {
         "primary": "D21_31_PERSISTENT",
         "secondary": "D11_20_EXTENDED",
     },
-}
-
-# Backward-compatible alias
-EVENT_TYPE_TO_HORIZON: dict[str, dict] = {
-    event_family: {
-        "days": HORIZON_TO_DAYS[prior["primary"]],
-        "category": HORIZON_LABEL_TO_CATEGORY[prior["primary"]],
-        "horizon_label": prior["primary"],
-    }
-    for event_family, prior in EVENT_FAMILY_TO_PRIOR_HORIZON.items()
 }
 
 FALLBACK_EVENT_FAMILY = "market commentary, sector outlook, or opinion piece"

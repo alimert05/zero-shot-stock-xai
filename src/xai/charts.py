@@ -711,7 +711,6 @@ def generate_all_charts(result: dict[str, Any], charts_dir: Path) -> dict[str, P
         if lime_articles:
             paths["lime_tokens"]      = plot_lime_tokens(lime_articles, predicted_label, charts_dir)
 
-        # New charts (7-10)
         if storylines.get("storylines"):
             paths["storyline_contribution"] = plot_storyline_contribution(
                 storylines, predicted_label, charts_dir,
