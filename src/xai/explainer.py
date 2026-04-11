@@ -1001,6 +1001,9 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         for art in lime_articles:
             supporting_tokens = art["top_tokens_supporting"]
             opposing_tokens   = art["top_tokens_opposing"]
+            # Second-pass check: the token_explainer already filters noise tokens,
+            # but its noise set may differ slightly from this one (different
+            # company_name source), so re-check as a safety net.
             artefacts         = [t for t in opposing_tokens if is_lime_noise_token(t, noise_set)]
 
             lines += [
@@ -1148,22 +1151,6 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     lines += [w]
 
     return "\n".join(lines)
-
-
-# File I/O (Summary)
-
-def _save_summary(
-    result: dict[str, Any],
-    summary_path: str,
-    chart_paths: dict | None = None,
-) -> None:
-    """Render the summary text and write it to the given file path."""
-    path = Path(summary_path)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    text = _build_summary_text(result, chart_paths=chart_paths)
-    with open(path, "w", encoding="utf-8") as f:
-        f.write(text)
-    logger.info("XAI summary saved to %s", summary_path)
 
 
 # Main Orchestrator

@@ -180,6 +180,8 @@ def add_impact_horizon_data(
                 recency_weight = float(raw_recency_weight)
             except (TypeError, ValueError):
                 recency_weight = 1.0
+            # No title to classify — skip event classification,
+            # fall back to recency weight only.
             article["impact_horizon"] = None
             article["impact_horizon_weight"] = 1.0
             article["final_weight"] = recency_weight

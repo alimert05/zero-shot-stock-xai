@@ -38,6 +38,8 @@ from config import (
     XAI_MARGIN_THRESHOLD,
     XAI_FLIP_SENSITIVITY_THRESHOLD,
     XAI_SOURCE_CONCENTRATION_THRESHOLD,
+    COVERAGE_COUNT_BOOST,
+    HEADLINE_ONLY_WEIGHT,
 )
 
 logging.basicConfig(
@@ -49,9 +51,6 @@ logger = logging.getLogger(__name__)
 
 HOLDOUT_PATH = DATASET_PATH / "holdout_set.json"
 EVAL_DEBERTA_PATH = EVAL_RESULTS_PATH / "evaluation_results_zero_shot.json"
-COVERAGE_COUNT_BOOST = True
-HEADLINE_ONLY_WEIGHT = 0.5
-
 
 # Helpers
 

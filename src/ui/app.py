@@ -512,10 +512,6 @@ def _render_overview(result: dict) -> None:
         m3.metric("Articles Analysed", n_articles)
         m4.metric("Prediction Window", f"{window} days")
         m5.metric("Total Weight", f"{total_weight:.2f}" if isinstance(total_weight, (int, float)) else "?")
-        # Small caption explaining the threshold
-        if threshold_gap:
-            tau = threshold_gap["threshold"]
-            nearest = threshold_gap["nearest_label"]
     else:
         m1, m2, m3, m4 = st.columns(4)
         m1.metric("Score", f"{confidence:.2%}")
