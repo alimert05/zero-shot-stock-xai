@@ -92,6 +92,9 @@ XAI_LLAMA_TEMPERATURE          = 0.1
 XAI_LLAMA_MAX_TOKENS           = 200
 XAI_LLAMA_ENABLED              = True
 
+# When LLM returns a label without probabilities, assign synthetic scores
+LLM_LABEL_CONFIDENCE = 0.90
+LLM_LABEL_RESIDUAL = 0.05
 
 # Aggregation & Post-Processing
 COVERAGE_COUNT_BOOST           = True    # boost multi-source articles via log2(1 + coverage)

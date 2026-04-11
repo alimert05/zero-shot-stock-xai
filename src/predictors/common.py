@@ -51,7 +51,7 @@ def build_input_text(
     article: dict,
     include_title: bool,
     company_name: str,
-    max_chars: int = 1500,
+    max_chars: int = 1500, # truncation limit for model input text
     prefix: str = "Sentiment for",
 ) -> str:
     """Build model-ready text from an article's title and content.

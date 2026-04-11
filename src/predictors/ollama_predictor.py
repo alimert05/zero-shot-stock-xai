@@ -8,7 +8,7 @@ from typing import Any
 
 from predictors.abstention import apply_abstention
 from predictors.common import title_matches, build_input_text, print_summary, compute_effective_weight
-from config import OLLAMA_SENTIMENT_MODEL
+from config import OLLAMA_SENTIMENT_MODEL, LLM_LABEL_CONFIDENCE, LLM_LABEL_RESIDUAL
 
 logger = logging.getLogger(__name__)
 
@@ -54,8 +54,8 @@ def _classify_sentiment(text: str) -> dict[str, float]:
         )
         label = "neutral"
 
-    scores = {"positive": 0.05, "negative": 0.05, "neutral": 0.05}
-    scores[label] = 0.90
+    scores = {"positive": LLM_LABEL_RESIDUAL, "negative": LLM_LABEL_RESIDUAL, "neutral": LLM_LABEL_RESIDUAL}
+    scores[label] = LLM_LABEL_CONFIDENCE
     return scores
 
 
