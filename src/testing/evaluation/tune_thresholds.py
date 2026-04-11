@@ -210,7 +210,7 @@ def _print_report(result: dict, baseline_metrics: dict | None = None) -> None:
         print(f"  Accuracy        : {result['accuracy']:.4f}")
         print(f"  Macro Precision : {result['macro_precision']:.4f}")
         print(f"  Macro Recall    : {result['macro_recall']:.4f}")
-        print(f"  Macro F1        : {result['best_macro_f1']:.4f}")
+        print(f"  Macro F1        : {result['macro_f1']:.4f}")
         print(f"  Pos. Rate       : {result['positive_rate']:.4f}")
 
     print()
