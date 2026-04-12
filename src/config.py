@@ -1,8 +1,8 @@
 """Central configuration for the sentiment analysis pipeline."""
-import torch
 from __future__ import annotations
 
 from pathlib import Path
+import torch
 
 # Paths
 PROJECT_ROOT = Path(__file__).parent.parent
