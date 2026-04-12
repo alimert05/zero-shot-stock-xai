@@ -102,12 +102,20 @@ def _build_prompt(
     # Pre-build the margin fact as a complete sentence fragment so LLaMA
     # reads it as data, not an instruction to copy a phrase.
     if threshold_override:
+        if final_label.lower() == "neutral":
+            threshold_detail = (
+                f"Neither directional score reached its threshold "
+                f"({tau_pos * 100:.0f}% for positive, {tau_neg * 100:.0f}% for negative), "
+                f"so the prediction defaults to neutral."
+            )
+        else:
+            threshold_detail = (
+                f"The {final_label.lower()} score ({conf_pct}%) exceeded its threshold, "
+                f"while {argmax_label} ({normalized.get(argmax_label, 0) * 100:.1f}%) did not."
+            )
         margin_fact = (
             f"Decision thresholds overrode the raw scores: {argmax_label} scored highest "
-            f"({normalized.get(argmax_label, 0) * 100:.1f}%) but did not reach its threshold "
-            f"({tau_pos * 100:.0f}% for positive, {tau_neg * 100:.0f}% for negative). "
-            f"The {final_label.lower()} score ({conf_pct}%) exceeded its lower threshold, "
-            f"reflecting calibrated bias correction."
+            f"({normalized.get(argmax_label, 0) * 100:.1f}%). {threshold_detail}"
         )
     else:
         margin_fact = f"The label margin is {margin_qualifier} ({margin:.3f}), meaning a {margin_qualifier} gap between the top two sentiment scores."

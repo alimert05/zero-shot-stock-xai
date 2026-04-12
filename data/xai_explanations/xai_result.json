@@ -2,7 +2,7 @@
   "meta": {
     "query": "Apple",
     "ticker": "AAPL",
-    "xai_timestamp": "2026-04-12 03:08:07",
+    "xai_timestamp": "2026-04-12 04:18:07",
     "articles_analyzed": 262,
     "prediction_window_days": 31,
     "news_lookback": "2026-03-15 to 2026-04-11 (ET market-close aligned)",
@@ -88,102 +88,102 @@
         "token_weights": [
           {
             "token": "Fails",
-            "weight": 0.149362,
+            "weight": 0.189726,
+            "direction": "supports"
+          },
+          {
+            "token": "Letdown",
+            "weight": 0.12216,
             "direction": "supports"
           },
           {
             "token": "Headlines",
-            "weight": -0.114941,
+            "weight": -0.120866,
             "direction": "opposes"
           },
           {
-            "token": "Letdown",
-            "weight": 0.078876,
-            "direction": "supports"
-          },
-          {
             "token": "Cringe",
-            "weight": 0.070799,
+            "weight": 0.085678,
             "direction": "supports"
           },
           {
-            "token": "stumbled",
-            "weight": 0.068228,
-            "direction": "supports"
-          },
-          {
-            "token": "Meta",
-            "weight": -0.055812,
+            "token": "News",
+            "weight": -0.08346,
             "direction": "opposes"
           },
           {
             "token": "Made",
-            "weight": -0.050635,
+            "weight": -0.073612,
+            "direction": "opposes"
+          },
+          {
+            "token": "stumbled",
+            "weight": 0.06832,
+            "direction": "supports"
+          },
+          {
+            "token": "Meta",
+            "weight": -0.067777,
+            "direction": "opposes"
+          },
+          {
+            "token": "s",
+            "weight": 0.063888,
+            "direction": "supports"
+          },
+          {
+            "token": "underwhelming",
+            "weight": 0.055864,
+            "direction": "supports"
+          },
+          {
+            "token": "In",
+            "weight": -0.053983,
+            "direction": "opposes"
+          },
+          {
+            "token": "That",
+            "weight": 0.0444,
+            "direction": "supports"
+          },
+          {
+            "token": "between",
+            "weight": -0.036052,
             "direction": "opposes"
           },
           {
             "token": "execution",
-            "weight": 0.047755,
-            "direction": "supports"
-          },
-          {
-            "token": "Cloud",
-            "weight": -0.045178,
-            "direction": "opposes"
-          },
-          {
-            "token": "hype",
-            "weight": 0.041584,
-            "direction": "supports"
-          },
-          {
-            "token": "growing",
-            "weight": -0.038651,
-            "direction": "opposes"
-          },
-          {
-            "token": "News",
-            "weight": -0.037511,
-            "direction": "opposes"
-          },
-          {
-            "token": "gaps",
-            "weight": 0.036389,
-            "direction": "supports"
-          },
-          {
-            "token": "OpenAI",
-            "weight": 0.035413,
-            "direction": "supports"
-          },
-          {
-            "token": "massive",
-            "weight": 0.034772,
+            "weight": 0.035159,
             "direction": "supports"
           },
           {
             "token": "Tech",
-            "weight": 0.034665,
+            "weight": 0.034605,
             "direction": "supports"
           },
           {
-            "token": "in",
-            "weight": 0.025608,
+            "token": "5",
+            "weight": 0.033655,
             "direction": "supports"
           },
           {
-            "token": "including",
-            "weight": -0.024824,
+            "token": "outages",
+            "weight": -0.030923,
             "direction": "opposes"
+          },
+          {
+            "token": "GPT",
+            "weight": -0.029667,
+            "direction": "opposes"
+          },
+          {
+            "token": "players",
+            "weight": 0.029331,
+            "direction": "supports"
           },
           {
             "token": "about",
-            "weight": -0.024312,
-            "direction": "opposes"
-          },
-          {
-            "token": "39",
-            "weight": -0.019862,
+            "weight": -0.028781,
             "direction": "opposes"
           }
         ],
@@ -192,14 +192,14 @@
           "Letdown",
           "Cringe",
           "stumbled",
-          "execution"
+          "underwhelming"
         ],
         "top_tokens_opposing": [
           "Headlines",
-          "Meta",
           "Made",
-          "Cloud",
-          "growing"
+          "Meta",
+          "between",
+          "outages"
         ]
       },
       {
@@ -213,118 +213,117 @@
         "token_weights": [
           {
             "token": "problem",
-            "weight": 0.445152,
+            "weight": 0.51415,
             "direction": "supports"
           },
           {
             "token": "Too",
-            "weight": 0.080118,
-            "direction": "supports"
-          },
-          {
-            "token": "MSFT",
-            "weight": 0.064343,
-            "direction": "supports"
-          },
-          {
-            "token": "S",
-            "weight": 0.060969,
-            "direction": "supports"
-          },
-          {
-            "token": "Is",
-            "weight": 0.05669,
+            "weight": 0.073525,
             "direction": "supports"
           },
           {
             "token": "concentration",
-            "weight": -0.051683,
+            "weight": -0.043526,
             "direction": "opposes"
           },
           {
             "token": "Exposed",
-            "weight": 0.049671,
+            "weight": 0.040453,
             "direction": "supports"
-          },
-          {
-            "token": "39",
-            "weight": 0.047927,
-            "direction": "supports"
-          },
-          {
-            "token": "AAPL",
-            "weight": 0.045153,
-            "direction": "supports"
-          },
-          {
-            "token": "ETF",
-            "weight": -0.041429,
-            "direction": "opposes"
-          },
-          {
-            "token": "34",
-            "weight": -0.03898,
-            "direction": "opposes"
-          },
-          {
-            "token": "portfolio",
-            "weight": -0.036759,
-            "direction": "opposes"
-          },
-          {
-            "token": "a",
-            "weight": 0.036589,
-            "direction": "supports"
-          },
-          {
-            "token": "exposure",
-            "weight": 0.036177,
-            "direction": "supports"
-          },
-          {
-            "token": "investors",
-            "weight": -0.033799,
-            "direction": "opposes"
           },
           {
             "token": "JPMorgan",
-            "weight": 0.029332,
+            "weight": 0.040311,
             "direction": "supports"
           },
           {
-            "token": "To",
-            "weight": 0.028285,
+            "token": "s",
+            "weight": 0.039231,
             "direction": "supports"
           },
           {
-            "token": "NVIDIA",
-            "weight": -0.015402,
+            "token": "Instead",
+            "weight": 0.035727,
+            "direction": "supports"
+          },
+          {
+            "token": "like",
+            "weight": -0.033233,
             "direction": "opposes"
           },
           {
-            "token": "accounting",
-            "weight": -0.014824,
+            "token": "Buy",
+            "weight": 0.032466,
+            "direction": "supports"
+          },
+          {
+            "token": "Communication",
+            "weight": 0.029795,
+            "direction": "supports"
+          },
+          {
+            "token": "NVDA",
+            "weight": -0.029401,
             "direction": "opposes"
           },
           {
-            "token": "Mid",
-            "weight": -0.013915,
+            "token": "20",
+            "weight": -0.02927,
             "direction": "opposes"
+          },
+          {
+            "token": "Tech",
+            "weight": 0.027278,
+            "direction": "supports"
+          },
+          {
+            "token": "holdings",
+            "weight": -0.022152,
+            "direction": "opposes"
+          },
+          {
+            "token": "The",
+            "weight": 0.021799,
+            "direction": "supports"
+          },
+          {
+            "token": "Time",
+            "weight": 0.021504,
+            "direction": "supports"
+          },
+          {
+            "token": "Technology",
+            "weight": 0.0211,
+            "direction": "supports"
+          },
+          {
+            "token": "Services",
+            "weight": 0.019715,
+            "direction": "supports"
+          },
+          {
+            "token": "with",
+            "weight": -0.019481,
+            "direction": "opposes"
+          },
+          {
+            "token": "past",
+            "weight": 0.019212,
+            "direction": "supports"
           }
         ],
         "top_tokens_supporting": [
           "problem",
           "Too",
-          "MSFT",
           "Exposed",
-          "exposure"
+          "JPMorgan",
+          "Instead"
         ],
         "top_tokens_opposing": [
           "concentration",
-          "ETF",
-          "portfolio",
-          "investors",
-          "NVIDIA"
+          "like",
+          "NVDA",
+          "holdings"
         ]
       },
       {
@@ -338,102 +337,102 @@
         "token_weights": [
           {
             "token": "risky",
-            "weight": 0.32126,
+            "weight": 0.315542,
             "direction": "supports"
           },
           {
             "token": "reconsider",
-            "weight": 0.220526,
+            "weight": 0.306696,
             "direction": "supports"
           },
           {
             "token": "lack",
-            "weight": 0.140356,
-            "direction": "supports"
-          },
-          {
-            "token": "t",
-            "weight": 0.130074,
+            "weight": 0.14302,
             "direction": "supports"
           },
           {
             "token": "Don",
-            "weight": 0.129231,
-            "direction": "supports"
-          },
-          {
-            "token": "to",
-            "weight": -0.104646,
-            "direction": "opposes"
-          },
-          {
-            "token": "Learn",
-            "weight": -0.10031,
-            "direction": "opposes"
-          },
-          {
-            "token": "about",
-            "weight": -0.094629,
-            "direction": "opposes"
-          },
-          {
-            "token": "Apple",
-            "weight": 0.090224,
-            "direction": "supports"
-          },
-          {
-            "token": "growth",
-            "weight": 0.054098,
+            "weight": 0.12609,
             "direction": "supports"
           },
           {
             "token": "why",
-            "weight": -0.052595,
+            "weight": -0.071911,
+            "direction": "opposes"
+          },
+          {
+            "token": "Click",
+            "weight": -0.064294,
             "direction": "opposes"
           },
           {
             "token": "want",
-            "weight": 0.05005,
+            "weight": -0.060565,
+            "direction": "opposes"
+          },
+          {
+            "token": "about",
+            "weight": -0.056479,
+            "direction": "opposes"
+          },
+          {
+            "token": "Apple",
+            "weight": -0.052656,
+            "direction": "opposes"
+          },
+          {
+            "token": "Expect",
+            "weight": 0.051967,
             "direction": "supports"
           },
           {
-            "token": "Discover",
-            "weight": -0.047362,
-            "direction": "opposes"
+            "token": "valuation",
+            "weight": 0.047959,
+            "direction": "supports"
           },
           {
             "token": "today",
-            "weight": 0.047208,
-            "direction": "supports"
-          },
-          {
-            "token": "investment",
-            "weight": -0.043467,
+            "weight": -0.04524,
             "direction": "opposes"
           },
           {
-            "token": "Here",
-            "weight": 0.036948,
+            "token": "investment",
+            "weight": -0.043234,
+            "direction": "opposes"
+          },
+          {
+            "token": "read",
+            "weight": 0.037125,
             "direction": "supports"
           },
           {
             "token": "and",
-            "weight": -0.031788,
+            "weight": -0.036541,
             "direction": "opposes"
           },
           {
-            "token": "News",
-            "weight": -0.03141,
-            "direction": "opposes"
-          },
-          {
-            "token": "it",
-            "weight": 0.030009,
+            "token": "growth",
+            "weight": 0.035767,
             "direction": "supports"
           },
           {
             "token": "buying",
-            "weight": -0.025145,
+            "weight": -0.034307,
+            "direction": "opposes"
+          },
+          {
+            "token": "Much",
+            "weight": 0.031213,
+            "direction": "supports"
+          },
+          {
+            "token": "make",
+            "weight": 0.03055,
+            "direction": "supports"
+          },
+          {
+            "token": "stock",
+            "weight": -0.026043,
             "direction": "opposes"
           }
         ],
@@ -442,14 +441,14 @@
           "reconsider",
           "lack",
           "Don",
-          "growth"
+          "Expect"
         ],
         "top_tokens_opposing": [
-          "Learn",
           "why",
-          "Discover",
-          "investment",
-          "buying"
+          "Click",
+          "want",
+          "today",
+          "investment"
         ]
       },
       {
@@ -463,117 +462,118 @@
         "token_weights": [
           {
             "token": "misses",
-            "weight": 0.371038,
+            "weight": 0.348415,
             "direction": "supports"
           },
           {
             "token": "missteps",
-            "weight": 0.138057,
-            "direction": "supports"
-          },
-          {
-            "token": "2025",
-            "weight": 0.067773,
-            "direction": "supports"
-          },
-          {
-            "token": "discuss",
-            "weight": -0.043952,
-            "direction": "opposes"
-          },
-          {
-            "token": "to",
-            "weight": -0.036782,
-            "direction": "opposes"
-          },
-          {
-            "token": "Kovach",
-            "weight": 0.033178,
+            "weight": 0.146208,
             "direction": "supports"
           },
           {
             "token": "year",
-            "weight": 0.026665,
+            "weight": 0.066482,
             "direction": "supports"
           },
           {
-            "token": "about",
-            "weight": -0.025644,
-            "direction": "opposes"
-          },
-          {
-            "token": "News",
-            "weight": 0.023331,
-            "direction": "supports"
-          },
-          {
-            "token": "the",
-            "weight": -0.02271,
-            "direction": "opposes"
-          },
-          {
-            "token": "this",
-            "weight": 0.021417,
-            "direction": "supports"
-          },
-          {
-            "token": "Squawk",
-            "weight": 0.02049,
+            "token": "2025",
+            "weight": 0.045737,
             "direction": "supports"
           },
           {
             "token": "Steve",
-            "weight": -0.018926,
+            "weight": -0.032131,
             "direction": "opposes"
           },
           {
-            "token": "on",
-            "weight": 0.017427,
-            "direction": "supports"
-          },
-          {
-            "token": "s",
-            "weight": -0.016702,
-            "direction": "opposes"
-          },
-          {
-            "token": "challenges",
-            "weight": -0.01492,
+            "token": "discuss",
+            "weight": -0.030985,
             "direction": "opposes"
           },
           {
             "token": "in",
-            "weight": 0.01348,
+            "weight": 0.029289,
             "direction": "supports"
+          },
+          {
+            "token": "challenges",
+            "weight": -0.02682,
+            "direction": "opposes"
+          },
+          {
+            "token": "AI",
+            "weight": 0.026256,
+            "direction": "supports"
+          },
+          {
+            "token": "Apple",
+            "weight": 0.025854,
+            "direction": "supports"
+          },
+          {
+            "token": "on",
+            "weight": 0.025181,
+            "direction": "supports"
+          },
+          {
+            "token": "and",
+            "weight": -0.022529,
+            "direction": "opposes"
+          },
+          {
+            "token": "about",
+            "weight": -0.016404,
+            "direction": "opposes"
           },
           {
             "token": "joins",
-            "weight": 0.007355,
+            "weight": 0.015835,
             "direction": "supports"
           },
           {
-            "token": "CNBC",
-            "weight": 0.006186,
-            "direction": "supports"
+            "token": "ahead",
+            "weight": -0.014577,
+            "direction": "opposes"
           },
           {
-            "token": "next",
-            "weight": -0.005203,
+            "token": "Squawk",
+            "weight": -0.013779,
+            "direction": "opposes"
+          },
+          {
+            "token": "Kovach",
+            "weight": -0.013437,
+            "direction": "opposes"
+          },
+          {
+            "token": "the",
+            "weight": -0.013207,
+            "direction": "opposes"
+          },
+          {
+            "token": "to",
+            "weight": -0.012326,
+            "direction": "opposes"
+          },
+          {
+            "token": "s",
+            "weight": -0.007998,
             "direction": "opposes"
           }
         ],
         "top_tokens_supporting": [
           "misses",
           "missteps",
-          "Kovach",
           "year",
-          "Squawk"
+          "AI",
+          "joins"
         ],
         "top_tokens_opposing": [
-          "discuss",
           "Steve",
+          "discuss",
           "challenges",
-          "next"
+          "ahead",
+          "Squawk"
         ]
       },
       {
@@ -587,115 +587,118 @@
         "token_weights": [
           {
             "token": "harm",
-            "weight": 0.435663,
+            "weight": 0.452046,
             "direction": "supports"
           },
           {
-            "token": "at",
-            "weight": 0.062543,
+            "token": "may",
+            "weight": 0.05007,
             "direction": "supports"
           },
           {
-            "token": "this",
-            "weight": 0.062289,
+            "token": "Advanced",
+            "weight": 0.049263,
             "direction": "supports"
           },
           {
             "token": "in",
-            "weight": 0.056511,
+            "weight": 0.045808,
             "direction": "supports"
           },
           {
-            "token": "IATI",
-            "weight": 0.053715,
+            "token": "from",
+            "weight": 0.043137,
             "direction": "supports"
           },
           {
-            "token": "Requests",
-            "weight": 0.052808,
+            "token": "technological",
+            "weight": 0.042808,
+            "direction": "supports"
+          },
+          {
+            "token": "year",
+            "weight": 0.041954,
+            "direction": "supports"
+          },
+          {
+            "token": "noting",
+            "weight": -0.037101,
+            "direction": "opposes"
+          },
+          {
+            "token": "against",
+            "weight": 0.036861,
+            "direction": "supports"
+          },
+          {
+            "token": "53",
+            "weight": 0.036658,
+            "direction": "supports"
+          },
+          {
+            "token": "s",
+            "weight": 0.033873,
             "direction": "supports"
           },
           {
             "token": "over",
-            "weight": 0.048181,
+            "weight": 0.033479,
             "direction": "supports"
           },
           {
-            "token": "relocate",
-            "weight": 0.047905,
+            "token": "Hamas",
+            "weight": 0.030616,
             "direction": "supports"
           },
           {
-            "token": "was",
-            "weight": 0.047358,
-            "direction": "supports"
-          },
-          {
-            "token": "Industries",
-            "weight": 0.044265,
-            "direction": "supports"
-          },
-          {
-            "token": "on",
-            "weight": -0.041338,
+            "token": "leadership",
+            "weight": -0.030497,
             "direction": "opposes"
           },
           {
-            "token": "employees",
-            "weight": 0.03965,
+            "token": "The",
+            "weight": 0.030333,
             "direction": "supports"
           },
           {
-            "token": "group",
-            "weight": 0.034745,
+            "token": "Technology",
+            "weight": 0.026817,
             "direction": "supports"
+          },
+          {
+            "token": "multinationals",
+            "weight": -0.023487,
+            "direction": "opposes"
+          },
+          {
+            "token": "reported",
+            "weight": -0.02214,
+            "direction": "opposes"
+          },
+          {
+            "token": "Meta",
+            "weight": -0.0216,
+            "direction": "opposes"
           },
           {
             "token": "local",
-            "weight": 0.030677,
-            "direction": "supports"
-          },
-          {
-            "token": "about",
-            "weight": -0.028522,
+            "weight": -0.01989,
             "direction": "opposes"
-          },
-          {
-            "token": "by",
-            "weight": -0.026829,
-            "direction": "opposes"
-          },
-          {
-            "token": "year",
-            "weight": -0.026329,
-            "direction": "opposes"
-          },
-          {
-            "token": "showed",
-            "weight": 0.022144,
-            "direction": "supports"
-          },
-          {
-            "token": "militant",
-            "weight": -0.021753,
-            "direction": "opposes"
-          },
-          {
-            "token": "relocation",
-            "weight": 0.016778,
-            "direction": "supports"
           }
         ],
         "top_tokens_supporting": [
           "harm",
-          "IATI",
-          "Requests",
-          "over",
-          "relocate"
+          "Advanced",
+          "technological",
+          "year",
+          "against"
         ],
         "top_tokens_opposing": [
-          "year",
-          "militant"
+          "noting",
+          "leadership",
+          "multinationals",
+          "reported",
+          "Meta"
         ]
       }
     ]
@@ -22859,8 +22862,8 @@
   },
   "narrative": {
     "model": "llama3.2:3b",
-    "summary": "The model predicted a NEGATIVE label with a 29.1% score share based on 262 articles over 31 days, where decision thresholds selected this label over the higher-scoring positive due to bias correction.\nThe model's evidence quality is HIGH with no concerns.",
-    "prompt_used": "DATA (read-only - narrate these facts, do not add any others):\nCompany: Apple (AAPL)\nPrediction label: NEGATIVE with a 29.1% score share, based on 262 articles over 31 days.\nScore breakdown: Positive 42.4%, Negative 29.1%, Neutral 15.8%.\nDecision thresholds overrode the raw scores: positive scored highest (42.4%) but did not reach its threshold (56% for positive, 26% for negative). The negative score (29.1%) exceeded its lower threshold, reflecting calibrated bias correction.\nTop article: \"Warren Buffett Added a Big Chunk of This Tech Stock. Should You Add It Too?\" (POSITIVE sentiment, 0.8% of total weight). Removing it would NOT change the label.\nAverage article age: 15.4 days.\n- Key words supporting negative: Fails, Letdown, Cringe, stumbled, execution\nEvidence quality is HIGH with no concerns.\n\nWrite exactly 2 sentences starting with \"The model predicted\":\n- Sentence 1: state the predicted label in ALL-CAPS exactly as given (e.g. \"a NEUTRAL label\"), score share (not \"confidence\"), and article count. Mention that decision thresholds selected this label over the higher-scoring positive due to bias correction. The label must appear in UPPER CASE.\n- Sentence 2: state that evidence quality is HIGH with no concerns.\n\nGRAMMAR RULE: \"due to\" must be followed by noun phrases (e.g. \"due to a narrow decision margin; source concentration\"), NOT by clauses (e.g. NOT \"due to the label was decided\").",
+    "summary": "The model predicted a NEGATIVE label with a 29.1% score share based on 262 articles over 31 days, which was selected over the higher-scoring positive due to bias correction.\nEvidence quality is HIGH with no concerns regarding article sentiment distribution.",
+    "prompt_used": "DATA (read-only - narrate these facts, do not add any others):\nCompany: Apple (AAPL)\nPrediction label: NEGATIVE with a 29.1% score share, based on 262 articles over 31 days.\nScore breakdown: Positive 42.4%, Negative 29.1%, Neutral 15.8%.\nDecision thresholds overrode the raw scores: positive scored highest (42.4%). The negative score (29.1%) exceeded its threshold, while positive (42.4%) did not.\nTop article: \"Warren Buffett Added a Big Chunk of This Tech Stock. Should You Add It Too?\" (POSITIVE sentiment, 0.8% of total weight). Removing it would NOT change the label.\nAverage article age: 15.4 days.\n- Key words supporting negative: Fails, Letdown, Cringe, stumbled, underwhelming\nEvidence quality is HIGH with no concerns.\n\nWrite exactly 2 sentences starting with \"The model predicted\":\n- Sentence 1: state the predicted label in ALL-CAPS exactly as given (e.g. \"a NEUTRAL label\"), score share (not \"confidence\"), and article count. Mention that decision thresholds selected this label over the higher-scoring positive due to bias correction. The label must appear in UPPER CASE.\n- Sentence 2: state that evidence quality is HIGH with no concerns.\n\nGRAMMAR RULE: \"due to\" must be followed by noun phrases (e.g. \"due to a narrow decision margin; source concentration\"), NOT by clauses (e.g. NOT \"due to the label was decided\").",
     "ollama_available": true,
     "fallback_used": false,
     "fallback_summary": null,
@@ -22894,7 +22897,7 @@
         ]
       },
       {
-        "label": "Apple stock surges due to growth prospects",
+        "label": "Apple stock surges due to growth potential",
         "keyword_label": "apple, stock, apple stock",
         "articles_count": 7,
         "weighted_score": 3.0611,
@@ -22939,7 +22942,7 @@
         ]
       },
       {
-        "label": "AI competition heats up in 2026.",
+        "label": "AI development and challenges ahead.",
         "keyword_label": "apple, 2026, ai",
         "articles_count": 5,
         "weighted_score": 3.3,
@@ -22960,7 +22963,7 @@
         ]
       },
       {
-        "label": "Warren Buffett sells large portion of shares.",
+        "label": "Warren Buffett sells off tech stocks rapidly.",
         "keyword_label": "selling, selling apple, apple",
         "articles_count": 4,
         "weighted_score": 2.9441,
@@ -22980,7 +22983,7 @@
         ]
       },
       {
-        "label": "Apple stock underperforms market expectations lately.",
+        "label": "Apple stock underperforms market expectations overall.",
         "keyword_label": "aapl, apple, apple aapl",
         "articles_count": 5,
         "weighted_score": 2.2644,
@@ -23042,7 +23045,7 @@
         ]
       },
       {
-        "label": "Investors flock to tech giant's stock surge.",
+        "label": "Investors flock to trendy tech stock",
         "keyword_label": "know, apple, stock",
         "articles_count": 5,
         "weighted_score": 2.373,
@@ -23083,7 +23086,7 @@
         ]
       },
       {
-        "label": "Apple faces leadership transition and scrutiny.",
+        "label": "Tim Cook faces leadership challenges and scrutiny.",
         "keyword_label": "tim cook, tim, cook",
         "articles_count": 4,
         "weighted_score": 1.465,
@@ -23103,7 +23106,7 @@
         ]
       },
       {
-        "label": "Mobile health app developer gains traction worldwide.",
+        "label": "Mobile health app developer gains traction.",
         "keyword_label": "apple, app store, app",
         "articles_count": 5,
         "weighted_score": 2.2084,
@@ -23144,7 +23147,7 @@
         ]
       },
       {
-        "label": "Tech giants face growing regulatory scrutiny.",
+        "label": "Big tech giants face regulatory scrutiny.",
         "keyword_label": "apple google, apple, google",
         "articles_count": 4,
         "weighted_score": 1.7327,
@@ -23164,7 +23167,7 @@
         ]
       },
       {
-        "label": "Investor sentiment remains mixed on tech giant.",
+        "label": "Investor confidence wavers over tech giant's future.",
         "keyword_label": "apple, ubs reiterates, reiterates neutral",
         "articles_count": 2,
         "weighted_score": 0.4387,

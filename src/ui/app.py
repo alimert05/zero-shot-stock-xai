@@ -237,15 +237,24 @@ def _build_comprehensive_summary(result: dict) -> str:
     # Contrastive explanation
     if cont["has_data"]:
         if cont["is_threshold_override"]:
-            parts.append(
-                f'Decision thresholds selected <b>{cont["winner"].upper()}</b> over '
-                f'<b>{cont["runner_up"].upper()}</b>: {cont["runner_up"]} scored higher '
-                f"but did not reach its confidence threshold "
-                f'({cont["tau_pos"] * 100:.0f}% for positive, '
-                f'{cont["tau_neg"] * 100:.0f}% for negative), '
-                f'while {cont["winner"]} exceeded its lower threshold. '
-                f"This reflects calibrated positive-bias correction."
-            )
+            if cont["winner"].lower() == "neutral":
+                parts.append(
+                    f'Decision thresholds selected <b>NEUTRAL</b>: '
+                    f'{cont["runner_up"]} scored highest but neither directional score '
+                    f'reached its threshold '
+                    f'({cont["tau_pos"] * 100:.0f}% for positive, '
+                    f'{cont["tau_neg"] * 100:.0f}% for negative), '
+                    f'so the prediction defaults to neutral.'
+                )
+            else:
+                parts.append(
+                    f'Decision thresholds selected <b>{cont["winner"].upper()}</b> over '
+                    f'<b>{cont["runner_up"].upper()}</b>: {cont["runner_up"]} scored higher '
+                    f"but did not reach its confidence threshold "
+                    f'({cont["tau_pos"] * 100:.0f}% for positive, '
+                    f'{cont["tau_neg"] * 100:.0f}% for negative), '
+                    f'while {cont["winner"]} exceeded its threshold.'
+                )
         else:
             n_w = cont["n_favouring_winner"]
             parts.append(
