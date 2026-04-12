@@ -24,7 +24,7 @@ _SYSTEM_MESSAGE = (
     "3. When describing article sentiment distribution, use ONLY the counts provided. Do NOT say 'majority' or 'most' unless the data says so.\n"
     "4. Do not use phrases like 'I think', 'likely', 'probably', 'may', 'seems', or 'appears'.\n"
     "5. Do not mention technical method names like LIME, SHAP, NLI, or transformer.\n"
-    "6. Respond in exactly 3 sentences.\n"
+    "6. Respond in exactly 2 sentences.\n"
     "7. Start your first sentence with 'The model predicted'."
 )
 

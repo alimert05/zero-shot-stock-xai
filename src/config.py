@@ -1,5 +1,5 @@
 """Central configuration for the sentiment analysis pipeline."""
-
+import torch
 from __future__ import annotations
 
 from pathlib import Path
@@ -41,9 +41,8 @@ FINNHUB_API_KEY = "d5rvt19r01qq2th0b8sgd5rvt19r01qq2th0b8t0"
 NOISE_REDUCTION_MODEL = "microsoft/deberta-large-mnli" 
 
 IMPACT_HORIZON_MODEL = "microsoft/deberta-large-mnli"
-IMPACT_HORIZON_DEVICE = 0
-
-SENTIMENT_DEVICE = 0 
+IMPACT_HORIZON_DEVICE = 0 if torch.cuda.is_available() else -1
+SENTIMENT_DEVICE = 0 if torch.cuda.is_available() else -1
 
 NOISE_RELEVANCE_THRESHOLD = 0.5
 

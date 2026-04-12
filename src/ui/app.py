@@ -813,8 +813,8 @@ def _render_event_types(result: dict) -> None:
         secondary_counts: dict[str, int] = {}
         for art in articles:
             ih = art.get("impact_horizon", {}) if isinstance(art.get("impact_horizon"), dict) else {}
-            pri_label = ih.get("primary", "")
-            sec_label = ih.get("secondary", "")
+            pri_label = ih.get("primary_horizon_label", "")
+            sec_label = ih.get("secondary_horizon_label", "")
             pri_cat = HORIZON_LABEL_TO_CATEGORY.get(pri_label, pri_label)
             sec_cat = HORIZON_LABEL_TO_CATEGORY.get(sec_label, sec_label)
             if pri_cat:

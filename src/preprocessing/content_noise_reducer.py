@@ -6,6 +6,8 @@ import logging
 import nltk
 from config import SENTIMENT_DEVICE, NOISE_REDUCTION_MODEL, NOISE_RELEVANCE_THRESHOLD
 
+nltk.download('punkt_tab', quiet=True)
+
 logger = logging.getLogger(__name__)
 
 _deberta_classifier = None

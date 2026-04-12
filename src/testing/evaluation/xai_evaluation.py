@@ -175,7 +175,7 @@ def compute_quality_flags(holdout_cases, articles_base, flipset_sizes=None):
         # 4. Flip-set sensitivity
         if flipset_sizes and case_id in flipset_sizes:
             fs_size = flipset_sizes[case_id]
-            if fs_size <= XAI_FLIP_SENSITIVITY_THRESHOLD:
+            if fs_size is not None and fs_size <= XAI_FLIP_SENSITIVITY_THRESHOLD:
                 flag_counts["flip_sensitivity"] += 1
                 n_flags += 1
 
@@ -361,7 +361,7 @@ def compute_flipsets(holdout_cases, articles_base):
 
         if not flipped:
             no_flip_count += 1
-            flipset_sizes.append(len(article_data_list))  # all articles needed
+            flipset_sizes.append(None)  # all articles needed
 
         cases_processed += 1
         if (ci + 1) % 20 == 0:
