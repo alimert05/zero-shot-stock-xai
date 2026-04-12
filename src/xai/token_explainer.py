@@ -42,6 +42,7 @@ def _build_predict_fn(pipeline_callable, company_name: str = ""):
             candidate_labels=_CANDIDATE_LABELS,
             hypothesis_template=_HYPOTHESIS_TEMPLATE,
             batch_size=4,
+            multi_label=True,
         )
         # pipeline returns dict when given single string, list when given list
         if isinstance(results, dict):
@@ -144,7 +145,7 @@ def explain_tokens(
         include_title = title_matches(title, company_name, ticker)
         text_to_explain = build_input_text(
             article, include_title=include_title,
-            company_name=company_name, max_chars=1500,
+            company_name=company_name, max_chars=1500, prefix="News about"
         )
 
         if not text_to_explain.strip():
