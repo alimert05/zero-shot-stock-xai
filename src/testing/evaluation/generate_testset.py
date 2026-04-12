@@ -146,7 +146,7 @@ def compute_point_in_time_ewma_threshold(
     lookback_calendar_days: int = EWMA_LOOKBACK_CALENDAR_DAYS,
 ) -> float:
     """
-    Compute point-in-time EWMA daily volatility as of `asof_date`,
+    Compute point-in-time EWMA daily volatility as of 'asof_date',
     then scale it to the requested horizon with sqrt(window_days).
 
     Uses only data strictly before asof_date.
@@ -220,7 +220,7 @@ def _parse_date(d: str) -> datetime:
 def _next_open_day_close(
     ticker: str, day: datetime, max_lookahead: int = MAX_LOOKAHEAD_DAYS
 ) -> tuple[datetime, float]:
-    """Find the next trading day close price on or after `day`."""
+    """Find the next trading day close price on or after 'day'."""
     df = yf.download(
         ticker,
         start=day.strftime("%Y-%m-%d"),

@@ -78,7 +78,7 @@ def _batch_classify_sentiment(
     """Classify multiple texts in a single batched GPU call.
 
     Instead of N individual forward passes (one per article), this creates
-    N × 3 NLI pairs and processes them in chunks of *batch_size*, dramatically
+    N x 3 NLI pairs and processes them in chunks of *batch_size*, dramatically
     reducing GPU kernel-launch overhead and Python-loop latency.
     """
     pipe = _get_nli_pipeline()

@@ -10,7 +10,6 @@ Computes:
 
 Usage:
     python -m testing.evaluation.xai_evaluation
-    python -m testing.evaluation.xai_evaluation --skip-flipset   # quality flags only (no GPU)
 """
 
 from __future__ import annotations

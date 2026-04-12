@@ -49,7 +49,7 @@ NOISE_RELEVANCE_THRESHOLD = 0.5
 
 # Model Selection - uncomment to use (only one of them should be uncommented)
 
-# # finbert config
+# finbert config
 # SENTIMENT_MODEL = "ProsusAI/finbert"
 
 #fingpt config
