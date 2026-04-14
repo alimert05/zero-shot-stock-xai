@@ -1,7 +1,8 @@
 """Narrative storyline clustering for XAI reports.
 
-Groups articles into storylines by TF-IDF similarity on titles,
-then optionally labels each cluster with a one-phrase Ollama summary.
+Splits articles by dominant sentiment, then groups them into storylines
+by TF-IDF similarity on titles within each sentiment group. Clusters
+are optionally labelled with a one-phrase Ollama summary.
 """
 from __future__ import annotations
 

@@ -1,8 +1,8 @@
 """Evidence-quality flags for sentiment predictions.
 
-Checks evidence volume, weight concentration, flip-set sensitivity, and
-horizon coverage to produce an overall HIGH / MEDIUM / LOW evidence-quality
-rating.
+Checks evidence volume, weight concentration, label margin, source diversity,
+flip-set sensitivity, and horizon coverage to produce an overall
+HIGH / MEDIUM / LOW evidence-quality rating.
 """
 from __future__ import annotations
 

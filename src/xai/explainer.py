@@ -885,7 +885,7 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     # "Share" is the article's percentage of total weight across all articles.
     lines += [
         "  Top 10 most influential articles:",
-        "  (Weight = recency \u00d7 horizon factor, 0-1 scale;  Share = % of total pool weight)",
+        "  (Weight = √(recency x horizon) x coverage boost x headline discount;  Share = % of total pool weight)",
         f"    {'#':<4} {'Sent':>4}  {'Weight':>6}  {'Share':>6}  {'Weight chart':<32}  Title",
         f"    {w[:78]}",
     ]

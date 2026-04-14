@@ -45,7 +45,7 @@ EVENT_FAMILY_LABELS = [
     "merger, acquisition, takeover, or corporate restructuring",
     # 7 - Significant in 3-5 day windows, varies with succession type
     "CEO change, executive departure, or board appointment",
-    # 8 - Short-lived effects with exponential decay
+    # 8 - Short-lived effects, typically reflected within one trading session
     "market commentary, sector outlook, or opinion piece",
     # 9 - Ongoing conditions without clean event dates, longer persistence
     "financial distress, credit downgrade, or going concern warning",

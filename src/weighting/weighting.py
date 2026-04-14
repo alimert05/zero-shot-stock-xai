@@ -163,7 +163,8 @@ def add_impact_horizon_data(
     """Classify articles and attach impact horizon data with batched GPU inference.
 
     Instead of N individual GPU calls, collects all classifiable texts and
-    runs a single batched pipeline call, then post-processes per article.
+    runs them through a single pipeline call (internally batched at batch_size=32),
+    then post-processes per article.
     """
     logger.info(
         "Adding impact horizon data to %d articles (prediction window: %d days)",

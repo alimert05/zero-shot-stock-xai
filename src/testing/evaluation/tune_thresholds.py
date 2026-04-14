@@ -4,8 +4,10 @@ Reads per-case normalised scores from a saved evaluation_results.json
 and finds the (tau_pos, tau_neg) thresholds that maximise macro F1.
 
 Decision logic:
-    if normalized_scores["positive"] >= tau_pos -> positive
-    elif normalized_scores["negative"] >= tau_neg -> negative
+    if positive >= tau_pos and positive >= negative -> positive
+    elif negative >= tau_neg and negative >= positive -> negative
+    elif positive >= tau_pos -> positive
+    elif negative >= tau_neg -> negative
     else -> neutral
 
 This operates purely on saved scores - no GPU inference needed.

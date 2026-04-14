@@ -1,4 +1,4 @@
-"""Ollama-based LLM sentiment prediction (Llama 3.1 8B, Mistral 7B)."""
+"""Ollama-based LLM sentiment prediction (model configured via OLLAMA_SENTIMENT_MODEL in config.py)."""
 
 from __future__ import annotations
 

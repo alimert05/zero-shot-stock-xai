@@ -1574,7 +1574,7 @@ def print_significance(significance: dict[str, Any]) -> None:
 def parse_args() -> argparse.Namespace:
     """Parse command-line arguments for benchmark and tune modes."""
     parser = argparse.ArgumentParser(
-        description="Benchmark DeBERTa zero-shot NLI on Financial PhraseBank datasets.",
+        description="Benchmark zero-shot and baseline sentiment models on Financial PhraseBank datasets.",
     )
 
     # Mode
@@ -1583,8 +1583,8 @@ def parse_args() -> argparse.Namespace:
         choices=["benchmark", "tune"],
         default="benchmark",
         help=(
-            "'benchmark' (default): evaluate DeBERTa on full datasets.  "
-            "'tune': find the best label config with K-fold CV."
+            "'benchmark' (default): evaluate the selected model on full datasets. "
+            "'tune': find the best label config with K-fold CV.",
         ),
     )
 
@@ -1593,7 +1593,7 @@ def parse_args() -> argparse.Namespace:
         "--max-samples",
         type=int,
         default=None,
-        help="Optional cap per dataset for quick runs.",
+        help="Batch size for NLI model inference.",
     )
     parser.add_argument(
         "--batch-size",

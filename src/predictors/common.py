@@ -57,8 +57,8 @@ def build_input_text(
     """Build model-ready text from an article's title and content.
 
     Args:
-         prefix: Text prepended before the company name when constructing the model input. 
-        Used by the zero-shot predictor ("News about").
+        prefix: Text prepended before the company name (default: "Sentiment for";
+                 overridden to "News about" by the zero-shot predictor).
     """
     title = article.get("title", "").strip()
     content = (article.get("content") or "").strip()

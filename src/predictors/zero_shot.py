@@ -57,7 +57,6 @@ def _get_nli_pipeline():
     return _nli_pipeline
 
 
-# Article filtering (delegated to predictors.common)
 
 
 _CLASS_TO_LABEL = {
@@ -139,7 +138,7 @@ def predict_sentiment(
 
     # Phase 1: Collect texts and metadata (CPU only)
     batch_texts: list[str] = []
-    batch_meta: list[dict] = []  # parallel list: article index, weight, source_label
+    batch_meta: list[dict] = []  # per-article metadata: idx, title, final_weight, source_label, coverage_count, is_headline_only
 
     for i, article in enumerate(articles):
         title = article.get("title", "")
