@@ -41,33 +41,60 @@ data/
 ## Requirements
 
 - Python 3.11+
-- CUDA-compatible GPU (recommended for inference speed)
+- CUDA-compatible GPU recommended. The pipeline will fall back to CPU automatically if no GPU is available, but inference will be significantly slower.
 - Ollama (for narrative synthesis and LLM-based model evaluation)
-- Finnhub API key (free tier)
+- Finnhub API key (free tier, obtain from [finnhub.io](https://finnhub.io/))
 
 ## Installation
 
-1. Clone the repository and install dependencies:
+1. Clone the repository and create a virtual environment:
+
+```bash
+git clone <repository-url>
+cd zero-shot-stock-xai
+python -m venv venv
+venv\Scripts\activate        # Windows
+# source venv/bin/activate   # macOS/Linux
+```
+
+2. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Configure the Finnhub API key in `src/config.py`:
+3. Download the required NLTK data:
+
+```bash
+python -c "import nltk; nltk.download('punkt_tab')"
+```
+
+4. Configure the Finnhub API key in `src/config.py`:
 
 ```python
 FINNHUB_API_KEY = "your_api_key_here"
 ```
 
-3. Install Ollama and pull the required models:
+5. Install Ollama from [ollama.com](https://ollama.com/), then start the server and pull the required models:
 
 ```bash
-ollama pull llama3.2:3b      # narrative synthesis
-ollama pull llama3.1:8b      # baseline evaluation (optional)
-ollama pull mistral:7b       # baseline evaluation (optional)
+ollama serve                  # start the Ollama server (keep running)
+ollama pull llama3.2:3b       # narrative synthesis
+ollama pull llama3.1:8b       # baseline evaluation (optional)
+ollama pull mistral:7b        # baseline evaluation (optional)
 ```
 
+**Note:** The first run will automatically download the HuggingFace models (RoBERTa-Large-MNLI, DeBERTa-Large-MNLI), which requires approximately 1.5 GB of disk space.
+
 ## Usage
+
+### Web Interface (Streamlit)
+
+```bash
+streamlit run src/ui/app.py
+```
+
+The dashboard will open in your browser. Enter a company name (e.g., "Apple" or "AAPL"), a start date, and an end date, then click Analyse. Results are presented across nine tabs covering the prediction, evidence quality, storylines, event types, article analysis, robustness, weighting, LIME tokens, and interactive charts. A single prediction typically takes 1-3 minutes depending on the number of articles retrieved and the available hardware.
 
 ### Terminal (CLI)
 
@@ -77,15 +104,13 @@ python src/main.py
 
 The system will prompt for a company name (or ticker), start date, and end date.
 
-### Web Interface (Streamlit)
-
-```bash
-streamlit run src/ui/app.py
-```
-
 ### Evaluation
 
+All evaluation commands should be run from the `src/` directory:
+
 ```bash
+cd src
+
 # Run holdout evaluation with the configured model
 python -m testing.evaluation.test_runner --mode evaluate --test-set ../data/evaluation/pipeline_evaluation_dataset/holdout_set.json
 
@@ -135,6 +160,16 @@ The dataset is split into:
 - **Holdout set**: 192 cases (8 companies) for final evaluation
 
 The split is performed at the ticker level to prevent information leakage.
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| `CUDA not available` warning | The pipeline will use CPU automatically. For GPU inference, ensure CUDA-compatible drivers and PyTorch with CUDA support are installed. |
+| `ConnectionError` from Ollama | Ensure the Ollama server is running (`ollama serve`) before starting the application. |
+| Finnhub API rate limit errors | The free tier allows 60 calls per minute. The pipeline includes a built-in rate limiter (55/min), but if multiple runs overlap, wait briefly before retrying. |
+| `nltk.download` errors | Run `python -c "import nltk; nltk.download('punkt_tab')"` manually. |
+| HuggingFace model download fails | Ensure a stable internet connection. Models are cached after the first download in `~/.cache/huggingface/`. |
 
 ## Disclaimer
 
