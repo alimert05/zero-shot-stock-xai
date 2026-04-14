@@ -361,7 +361,7 @@ def compute_flipsets(holdout_cases, articles_base):
 
         if not flipped:
             no_flip_count += 1
-            flipset_sizes.append(9999)  # all articles needed
+            flipset_sizes.append(9999)  # unflippable
 
         cases_processed += 1
         if (ci + 1) % 20 == 0:

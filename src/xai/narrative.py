@@ -1,7 +1,7 @@
 """LLM-generated narrative summaries for XAI prediction reports.
 
 Builds a constrained prompt from pre-computed prediction data, calls Ollama
-(LLaMA) to produce a 3-sentence narrative, and validates the output against
+(LLaMA) to produce a 2-sentence narrative, and validates the output against
 hallucination guards. Falls back to a deterministic template when the LLM
 is unavailable or produces invalid text.
 """

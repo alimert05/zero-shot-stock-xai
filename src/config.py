@@ -13,7 +13,7 @@ TEMP_PATH = DATA_PATH / "temp"
 EVAL_PATH = DATA_PATH / "evaluation"
 ARTICLE_CACHE_PATH = DATA_PATH / "articles" / "articles_with_noise_reduction_deberta"
 
-# Sub-directories under evaluation/
+# Sub-directories under data/
 EVAL_RESULTS_PATH       = EVAL_PATH / "evaluation_results"
 FPB_PATH                = EVAL_PATH / "FPB"
 DATASET_PATH            = EVAL_PATH / "pipeline_evaluation_dataset"
