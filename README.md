@@ -118,7 +118,13 @@ From the project root:
 streamlit run src/ui/app.py
 ```
 
-The dashboard will open in your browser. Enter a company name (e.g., "Apple" or "AAPL"), a start date, and an end date, then click Analyse. Results are presented across nine tabs covering the prediction, evidence quality, storylines, event types, article analysis, robustness, weighting, LIME tokens, and interactive charts. A single prediction typically takes 1-3 minutes depending on the number of articles retrieved and the available hardware.
+The dashboard will open in your browser. Enter a company name (e.g., "Apple" or "AAPL"), a start date, and an end date, then click Analyse. Results are presented across nine tabs covering the prediction, evidence quality, storylines, event types, article analysis, robustness, weighting, LIME tokens, and interactive charts.
+
+**Expected runtime (end-to-end pipeline, 31-day prediction window):**
+- Desktop with CUDA GPU (e.g., Ryzen 7 9800X3D, RTX 4060 Ti 16 GB, 64 GB RAM): **1-2 minutes**
+- Apple Silicon laptop without CUDA (e.g., MacBook Air M2, 16 GB RAM, CPU-only): **10-15 minutes**
+
+Longer prediction windows retrieve more articles and therefore take longer. The dashboard displays a progress status panel during execution so you can track which stage is running.
 
 ### Terminal (CLI)
 
@@ -185,12 +191,19 @@ The dataset is split into:
 
 The split is performed at the ticker level to prevent information leakage.
 
+The complete test set and its tune/holdout split are provided in the repository:
+
+- Full set: `data/evaluation/pipeline_evaluation_dataset/test_set.json`
+- Tune set: `data/evaluation/pipeline_evaluation_dataset/tune_set.json`
+- Holdout set: `data/evaluation/pipeline_evaluation_dataset/holdout_set.json`
+
 ## Troubleshooting
 
 | Issue | Solution |
 |-------|----------|
 | `CUDA not available` warning | The pipeline will use CPU automatically. For GPU inference, ensure CUDA-compatible drivers and PyTorch with CUDA support are installed. |
 | `ConnectionError` from Ollama | Ensure the Ollama server is running (`ollama serve`) before starting the application. |
+| Storyline labels show as comma-separated keywords (e.g., "Cook, Nike, Tim Cook") instead of narrative phrases | This indicates Ollama is not reachable. Verify the Ollama server is running (`ollama serve` in a separate terminal) and that the `llama3.2:3b` model has been pulled (`ollama pull llama3.2:3b`). The narrative summary on the Overview tab will also fall back to a template in this case. |
 | Finnhub API rate limit errors | The free tier allows 60 calls per minute. The pipeline includes a built-in rate limiter (55/min), but if multiple runs overlap, wait briefly before retrying. |
 | `nltk.download` errors | Run `python -c "import nltk; nltk.download('punkt_tab')"` manually. |
 | HuggingFace model download fails | Ensure a stable internet connection. Models are cached after the first download in `~/.cache/huggingface/`. |
