@@ -2,7 +2,7 @@
 common.py - Shared utilities for all sentiment predictor modules.
 
 Contains article-matching, text-preparation, and summary-printing logic
-used identically across DeBERTa zero-shot, FinBERT, FinGPT, and Ollama
+used identically across NLI zero-shot, FinBERT, FinGPT, and Ollama
 predictors.
 """
 

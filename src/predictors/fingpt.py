@@ -110,6 +110,8 @@ def _classify_sentiment(text: str) -> dict[str, float]:
         logger.warning("FinGPT unexpected answer: '%s', defaulting to neutral", answer)
         label = "neutral"
 
+    # Assign synthetic probability distribution: full confidence to predicted label,
+    # residual split across the other two (sums to 1.0)
     scores = {"positive": LLM_LABEL_RESIDUAL, "negative": LLM_LABEL_RESIDUAL, "neutral": LLM_LABEL_RESIDUAL}
     scores[label] = LLM_LABEL_CONFIDENCE
     return scores

@@ -85,7 +85,11 @@ def _filter_relevant_sentences(
     scored_sentences: list[tuple[str, float]],
     threshold: float = NOISE_RELEVANCE_THRESHOLD,
 ) -> list[str]:
-    """Keep only sentences whose relevance score meets the threshold."""
+    """Filter article content to retain only company-relevant sentences.
+    
+    If no sentence passes the relevance threshold, the highest-scoring
+    sentence is retained as a safeguard against losing all content.
+    """
     return [sent for sent, score in scored_sentences if score >= threshold]
 
 def reduce_content_noise(

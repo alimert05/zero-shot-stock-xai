@@ -209,7 +209,8 @@ def _build_group_storylines(
         key = f"{sent_group}_{cid}"
         cluster_title_map[key] = [t for t, l in zip(titles, labels) if l == cid]
 
-    # Determine runner-up sentiment for gap contribution scoring
+    # Runner-up for gap scoring: for neutral, use positive as the opposing
+    # label since positive is typically the dominant directional class.
     _runner_up = {"positive": "negative", "negative": "positive", "neutral": "positive"}
     opposing = _runner_up.get(sent_group, "positive")
 

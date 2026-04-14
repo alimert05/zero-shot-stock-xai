@@ -93,6 +93,7 @@ XAI_LLAMA_MAX_TOKENS           = 200
 XAI_LLAMA_ENABLED              = True
 
 # When LLM returns a label without probabilities, assign synthetic scores
+# (confidence for predicted class + residual for each of the other two = 1.0)
 LLM_LABEL_CONFIDENCE = 0.90
 LLM_LABEL_RESIDUAL = 0.05
 

@@ -38,7 +38,7 @@ def _single_horizon_weight(
     W = max(int(prediction_window_days), 1)
     impact_day = int(impact_horizon_days) - int(days_ago)
     mu = W / 2.0
-    sigma = max(W / 2.0, 3.0)
+    sigma = max(W / 2.0, 3.0) # floor of 3.0 prevents excessive penalty for short windows
     raw = math.exp(-((impact_day - mu) ** 2) / (2.0 * sigma ** 2))
     return max(raw, min_weight)
 
