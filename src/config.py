@@ -103,7 +103,7 @@ HEADLINE_ONLY_WEIGHT           = 0.5     # discount for headline-only articles (
 
 # Decision thresholds (tuned on tune set via grid search, macro F1)
 # positive must exceed tau_pos, negative must exceed tau_neg, else neutral.
-DECISION_THRESHOLD_ENABLED     = False
+DECISION_THRESHOLD_ENABLED     = True
 DECISION_THRESHOLD_POS         = 0.56
 DECISION_THRESHOLD_NEG         = 0.26
 
