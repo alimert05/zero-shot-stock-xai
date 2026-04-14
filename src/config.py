@@ -36,7 +36,7 @@ PREDS_PATH.mkdir(parents=True, exist_ok=True)
 REQUEST_TIMEOUT_LIMIT = 30
 
 # Api and Network
-FINNHUB_API_KEY = "d5rvt19r01qq2th0b8sgd5rvt19r01qq2th0b8t0"
+FINNHUB_API_KEY = "your_api_key_here"
 
 NOISE_REDUCTION_MODEL = "microsoft/deberta-large-mnli" 
 

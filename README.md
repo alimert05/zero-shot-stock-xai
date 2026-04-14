@@ -31,57 +31,79 @@ src/
         evaluation/            # Test runner, FPB benchmark, threshold tuning, XAI evaluation
         smoke/                 # Quick backtesting sanity checks
 data/
-    temp/                      # Transient pipeline outputs (articles.json, predictions.json)
-    articles/                  # Cached preprocessed article sets
-    evaluation/                # Test sets, evaluation results, threshold calibration, FPB
+    articles/                  # Cached preprocessed article sets (DeBERTa and RoBERTa pipelines)
+    evaluation/                # Test sets, per-model results, tune-set configurations, FPB benchmarks
     financial_phrasebank_datasets/  # FPB CSV files (50agree, 75agree, allagree)
-    xai_explanations/          # XAI output files and charts
+    temp/                      # Transient pipeline outputs (created at runtime)
+    xai_explanations/          # XAI output files and charts (created at runtime)
+logs/                          # Runtime logs (fetch.logs)
+requirements.txt               # Python dependencies
 ```
 
 ## Requirements
 
 - Python 3.11+
-- CUDA-compatible GPU recommended. The pipeline will fall back to CPU automatically if no GPU is available, but inference will be significantly slower.
+- CUDA-compatible GPU with at least 6 GB VRAM recommended (8 GB for comfortable operation). The pipeline will fall back to CPU automatically if no GPU is available, but inference will be significantly slower.
 - Ollama (for narrative synthesis and LLM-based model evaluation)
 - Finnhub API key (free tier, obtain from [finnhub.io](https://finnhub.io/))
 
 ## Installation
 
-1. Clone the repository and create a virtual environment:
+1. Obtain the source code:
+
+**Option A — From GitHub:**
 
 ```bash
 git clone <repository-url>
 cd zero-shot-stock-xai
+```
+
+**Option B — From the submitted ZIP file:**
+
+Extract the ZIP archive and navigate to the extracted folder:
+
+```bash
+cd zero-shot-stock-xai
+```
+
+2. (Recommended) Create a virtual environment to isolate dependencies:
+
+```bash
 python -m venv venv
 venv\Scripts\activate        # Windows
 # source venv/bin/activate   # macOS/Linux
 ```
 
-2. Install dependencies:
+3. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Download the required NLTK data:
+4. Download the required NLTK data:
 
 ```bash
 python -c "import nltk; nltk.download('punkt_tab')"
 ```
 
-4. Configure the Finnhub API key in `src/config.py`:
+5. Configure the Finnhub API key in `src/config.py`:
 
 ```python
 FINNHUB_API_KEY = "your_api_key_here"
 ```
 
-5. Install Ollama from [ollama.com](https://ollama.com/), then start the server and pull the required models:
+6. Install Ollama from [ollama.com](https://ollama.com/). Open a separate terminal and keep it running throughout your session:
 
 ```bash
-ollama serve                  # start the Ollama server (keep running)
-ollama pull llama3.2:3b       # narrative synthesis
-ollama pull llama3.1:8b       # baseline evaluation (optional)
-ollama pull mistral:7b        # baseline evaluation (optional)
+ollama serve
+```
+
+Then in your main terminal, pull the required models:
+
+```bash
+ollama pull llama3.2:3b       # required for narrative synthesis (falls back to a deterministic template if unavailable)
+ollama pull llama3.1:8b       # optional, only needed for baseline model evaluation
+ollama pull mistral:7b        # optional, only needed for baseline model evaluation
 ```
 
 **Note:** The first run will automatically download the HuggingFace models (RoBERTa-Large-MNLI, DeBERTa-Large-MNLI), which requires approximately 1.5 GB of disk space.
@@ -89,6 +111,8 @@ ollama pull mistral:7b        # baseline evaluation (optional)
 ## Usage
 
 ### Web Interface (Streamlit)
+
+From the project root:
 
 ```bash
 streamlit run src/ui/app.py
@@ -114,7 +138,7 @@ cd src
 # Run holdout evaluation with the configured model
 python -m testing.evaluation.test_runner --mode evaluate --test-set ../data/evaluation/pipeline_evaluation_dataset/holdout_set.json
 
-# FPB benchmark
+# FPB benchmark (model options: deberta, roberta, finbert, fingpt, ollama-llama3, ollama-mistral)
 python -m testing.evaluation.phrasebank_benchmark --model <model_name>
 
 # FPB label tuning (112 configs, K-fold CV)
