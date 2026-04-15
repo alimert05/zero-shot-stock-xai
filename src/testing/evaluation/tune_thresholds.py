@@ -4,8 +4,10 @@ Reads per-case normalised scores from a saved evaluation_results.json
 and finds the (tau_pos, tau_neg) thresholds that maximise macro F1.
 
 Decision logic:
-    if normalized_scores["positive"] >= tau_pos -> positive
-    elif normalized_scores["negative"] >= tau_neg -> negative
+    if positive >= tau_pos and positive >= negative -> positive
+    elif negative >= tau_neg and negative >= positive -> negative
+    elif positive >= tau_pos -> positive
+    elif negative >= tau_neg -> negative
     else -> neutral
 
 This operates purely on saved scores - no GPU inference needed.
@@ -26,9 +28,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from config import EVAL_RESULTS_PATH, THRESHOLD_PATH
+from config import EVAL_RESULTS_PATH, THRESHOLD_PATH, SENTIMENT_MODEL
 
-DEFAULT_RESULTS =  EVAL_RESULTS_PATH / f"evaluation_results_zero_shot.json"
+_MODEL_TAG = SENTIMENT_MODEL.replace("/", "_").replace("-", "_")
+DEFAULT_RESULTS = EVAL_RESULTS_PATH / f"evaluation_results_{_MODEL_TAG}.json"
 
 
 # Metrics
@@ -86,7 +89,11 @@ def _apply_thresholds(
     tau_neg: float,
 ) -> str:
     """Apply decision thresholds to normalised scores."""
-    if scores["positive"] >= tau_pos:
+    if scores["positive"] >= tau_pos and scores["positive"] >= scores["negative"]:
+        return "positive"
+    elif scores["negative"] >= tau_neg and scores["negative"] >= scores["positive"]:
+        return "negative"
+    elif scores["positive"] >= tau_pos:
         return "positive"
     elif scores["negative"] >= tau_neg:
         return "negative"
@@ -205,7 +212,7 @@ def _print_report(result: dict, baseline_metrics: dict | None = None) -> None:
         print(f"  Accuracy        : {result['accuracy']:.4f}")
         print(f"  Macro Precision : {result['macro_precision']:.4f}")
         print(f"  Macro Recall    : {result['macro_recall']:.4f}")
-        print(f"  Macro F1        : {result['best_macro_f1']:.4f}")
+        print(f"  Macro F1        : {result['macro_f1']:.4f}")
         print(f"  Pos. Rate       : {result['positive_rate']:.4f}")
 
     print()

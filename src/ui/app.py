@@ -237,15 +237,24 @@ def _build_comprehensive_summary(result: dict) -> str:
     # Contrastive explanation
     if cont["has_data"]:
         if cont["is_threshold_override"]:
-            parts.append(
-                f'Decision thresholds selected <b>{cont["winner"].upper()}</b> over '
-                f'<b>{cont["runner_up"].upper()}</b>: {cont["runner_up"]} scored higher '
-                f"but did not reach its confidence threshold "
-                f'({cont["tau_pos"] * 100:.0f}% for positive, '
-                f'{cont["tau_neg"] * 100:.0f}% for negative), '
-                f'while {cont["winner"]} exceeded its lower threshold. '
-                f"This reflects calibrated positive-bias correction."
-            )
+            if cont["winner"].lower() == "neutral":
+                parts.append(
+                    f'Decision thresholds selected <b>NEUTRAL</b>: '
+                    f'{cont["runner_up"]} scored highest but neither directional score '
+                    f'reached its threshold '
+                    f'({cont["tau_pos"] * 100:.0f}% for positive, '
+                    f'{cont["tau_neg"] * 100:.0f}% for negative), '
+                    f'so the prediction defaults to neutral.'
+                )
+            else:
+                parts.append(
+                    f'Decision thresholds selected <b>{cont["winner"].upper()}</b> over '
+                    f'<b>{cont["runner_up"].upper()}</b>: {cont["runner_up"]} scored higher '
+                    f"but did not reach its confidence threshold "
+                    f'({cont["tau_pos"] * 100:.0f}% for positive, '
+                    f'{cont["tau_neg"] * 100:.0f}% for negative), '
+                    f'while {cont["winner"]} exceeded its threshold.'
+                )
         else:
             n_w = cont["n_favouring_winner"]
             parts.append(
@@ -270,7 +279,7 @@ def _build_comprehensive_summary(result: dict) -> str:
     # Weight concentration (HHI)
     hhi = layer2.get("weight_concentration", 0)
     if hhi:
-        if hhi > 0.4:
+        if hhi > XAI_CONCENTRATION_THRESHOLD:
             parts.append(
                 f"Evidence is <b>concentrated</b> (Herfindahl index: {hhi:.4f}) "
                 f"- a small number of articles dominate the prediction."
@@ -512,10 +521,6 @@ def _render_overview(result: dict) -> None:
         m3.metric("Articles Analysed", n_articles)
         m4.metric("Prediction Window", f"{window} days")
         m5.metric("Total Weight", f"{total_weight:.2f}" if isinstance(total_weight, (int, float)) else "?")
-        # Small caption explaining the threshold
-        if threshold_gap:
-            tau = threshold_gap["threshold"]
-            nearest = threshold_gap["nearest_label"]
     else:
         m1, m2, m3, m4 = st.columns(4)
         m1.metric("Score", f"{confidence:.2%}")
@@ -658,12 +663,12 @@ def _render_reliability(result: dict) -> None:
     flags = reliability.get("flags", {})
 
     _FLAG_DESCRIPTIONS = {
-        "thin evidence":      "Are there enough articles to make a reliable prediction?",
+        "thin evidence":       "Are there enough articles to make a reliable prediction?",
         "weight concentration": "Is the prediction driven by too few articles?",
-        "label margin":       "Is the gap between the top two labels large enough?",
-        "source diversity":   "Do the articles come from diverse editorial sources?",
-        "timing alignment":   "Are article timestamps aligned to market-close sessions?",
-        "horizon coverage":   "Does the news span cover the intended backward window?",
+        "label margin":        "Is the gap between the top two labels large enough?",
+        "flip sensitivity":    "Could removing a small number of articles change the prediction?",
+        "source diversity":    "Do the articles come from diverse editorial sources?",
+        "horizon coverage":    "Does the news span cover the intended backward window?",
     }
 
     for name, info in flags.items():
@@ -771,7 +776,7 @@ def _render_event_types(result: dict) -> None:
     st.markdown("### Event Type Distribution")
     st.write(
         "Each article is classified into an event type using zero-shot NLI. "
-        "The event type determines the article's **impact horizon**  - "
+        "The event type determines the article's impact horizon "
         "how many days the market typically takes to fully price in that type of news. "
         "Articles whose horizon aligns with the prediction window receive higher weight."
     )
@@ -817,8 +822,8 @@ def _render_event_types(result: dict) -> None:
         secondary_counts: dict[str, int] = {}
         for art in articles:
             ih = art.get("impact_horizon", {}) if isinstance(art.get("impact_horizon"), dict) else {}
-            pri_label = ih.get("primary", "")
-            sec_label = ih.get("secondary", "")
+            pri_label = ih.get("primary_horizon_label", "")
+            sec_label = ih.get("secondary_horizon_label", "")
             pri_cat = HORIZON_LABEL_TO_CATEGORY.get(pri_label, pri_label)
             sec_cat = HORIZON_LABEL_TO_CATEGORY.get(sec_label, sec_label)
             if pri_cat:
@@ -1606,10 +1611,12 @@ def main() -> None:
         st.caption(f"Pipeline: `{SENTIMENT_MODEL}`")
         st.divider()
         st.caption(
-            "WARNING:️ The Finnhub API provides up to 1 year of historical news. "
+            "WARNING: The Finnhub API provides up to 1 year of historical news. "
             "Start dates should be within the last 11 months, as the backward "
             "lookback window extends further back and may exceed the API's "
-            "1-year limit if dates are too far in the past."
+            "1-year limit if dates are too far in the past.\n\n"
+            "Please select a prediction window between 1 and 31 days. The system "
+            "is designed for short-horizon prediction within this range."
         )
 
     if run_btn:

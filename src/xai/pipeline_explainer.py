@@ -9,7 +9,7 @@ from .utils import safe_round, get_dominant_label
 
 logger = logging.getLogger(__name__)
 
-# Anchors from fetcher/utils.py _compute_ewma_lambda
+#  Anchors from news_retriever/fetcher_utils.py _compute_ewma_lambda
 _EWMA_ANCHORS = [(1, 0.89), (5, 0.92), (10, 0.95), (21, 0.97)]
 
 
@@ -63,7 +63,7 @@ def _explain_impact_horizon_weight(
 
     impact_day = horizon_days - days_ago
     mu = W / 2.0
-    sigma = W / 2.0
+    sigma = max(W / 2.0, 3.0)
 
     event_type = impact_horizon.get("event_type", "unknown")
 
@@ -173,7 +173,7 @@ def explain_pipeline(
     avg_horizon = round(sum(horizon_weights) / n, 4)
 
     weight_formula = (
-        "final_weight = sqrt(recency_weight * impact_horizon_weight); "
+        "final_weight = sqrt(recency_weight * impact_horizon_weight) * log2(1 + coverage_count) * headline_discount; "
         "recency_weight = lambda^days_ago (EWMA, lambda interpolated by window size); "
         "impact_horizon_weight = exp(-((horizon_days - days_ago - W/2)^2) / (2*(W/2)^2))"
     )

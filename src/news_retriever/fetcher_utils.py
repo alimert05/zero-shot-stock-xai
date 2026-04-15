@@ -1,4 +1,4 @@
-"""Shared utilities: ticker resolution, date validation, recency weighting, and market-date alignment."""
+"""Shared utilities: ticker resolution, date validation, recency weighting, and market-date alignment.""" #a
 
 from __future__ import annotations
 
@@ -157,6 +157,8 @@ def assign_market_date(utc_dt: datetime) -> datetime:
 
 def _compute_ewma_lambda(prediction_window_days: int) -> float:
     """Interpolate the EWMA decay parameter from horizon anchor points."""
+    # Assign synthetic probability distribution: full confidence to predicted label,
+    # residual split across the other two (sums to 1.0)
     anchors = [(1, 0.89), (5, 0.92), (10, 0.95), (21, 0.97)]
     W = prediction_window_days
 

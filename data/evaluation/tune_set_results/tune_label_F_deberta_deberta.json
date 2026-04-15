@@ -1,0 +1,458 @@
+{
+  "overall_metrics": {
+    "accuracy": 0.2917,
+    "total": 288,
+    "correct": 84,
+    "macro_precision": 0.1026,
+    "macro_recall": 0.3043,
+    "macro_f1": 0.1534,
+    "per_class": {
+      "negative": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 56
+      },
+      "neutral": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 140
+      },
+      "positive": {
+        "precision": 0.3077,
+        "recall": 0.913,
+        "f1": 0.4603,
+        "support": 92
+      }
+    },
+    "confusion_matrix": {
+      "negative": {
+        "negative": 0,
+        "neutral": 0,
+        "positive": 56
+      },
+      "neutral": {
+        "negative": 7,
+        "neutral": 0,
+        "positive": 133
+      },
+      "positive": {
+        "negative": 8,
+        "neutral": 0,
+        "positive": 84
+      }
+    }
+  },
+  "per_window_metrics": {
+    "W=1": {
+      "accuracy": 0.3542,
+      "macro_precision": 0.1232,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1799,
+      "total": 48,
+      "correct": 17
+    },
+    "W=3": {
+      "accuracy": 0.25,
+      "macro_precision": 0.0889,
+      "macro_recall": 0.2857,
+      "macro_f1": 0.1356,
+      "total": 48,
+      "correct": 12
+    },
+    "W=5": {
+      "accuracy": 0.2292,
+      "macro_precision": 0.0815,
+      "macro_recall": 0.2821,
+      "macro_f1": 0.1264,
+      "total": 48,
+      "correct": 11
+    },
+    "W=7": {
+      "accuracy": 0.25,
+      "macro_precision": 0.087,
+      "macro_recall": 0.2857,
+      "macro_f1": 0.1333,
+      "total": 48,
+      "correct": 12
+    },
+    "W=14": {
+      "accuracy": 0.2917,
+      "macro_precision": 0.1037,
+      "macro_recall": 0.2917,
+      "macro_f1": 0.153,
+      "total": 48,
+      "correct": 14
+    },
+    "W=31": {
+      "accuracy": 0.375,
+      "macro_precision": 0.1304,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1875,
+      "total": 48,
+      "correct": 18
+    }
+  },
+  "per_company_metrics": {
+    "AAPL": {
+      "accuracy": 0.375,
+      "macro_precision": 0.125,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1818,
+      "total": 24,
+      "correct": 9
+    },
+    "AMZN": {
+      "accuracy": 0.0833,
+      "macro_precision": 0.0278,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.0513,
+      "total": 24,
+      "correct": 2
+    },
+    "CVX": {
+      "accuracy": 0.2917,
+      "macro_precision": 0.0972,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1505,
+      "total": 24,
+      "correct": 7
+    },
+    "GS": {
+      "accuracy": 0.375,
+      "macro_precision": 0.125,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1818,
+      "total": 24,
+      "correct": 9
+    },
+    "JNJ": {
+      "accuracy": 0.5417,
+      "macro_precision": 0.2063,
+      "macro_recall": 0.2708,
+      "macro_f1": 0.2342,
+      "total": 24,
+      "correct": 13
+    },
+    "JPM": {
+      "accuracy": 0.3333,
+      "macro_precision": 0.1111,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1667,
+      "total": 24,
+      "correct": 8
+    },
+    "MCD": {
+      "accuracy": 0.2917,
+      "macro_precision": 0.0972,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1505,
+      "total": 24,
+      "correct": 7
+    },
+    "META": {
+      "accuracy": 0.375,
+      "macro_precision": 0.125,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1818,
+      "total": 24,
+      "correct": 9
+    },
+    "NKE": {
+      "accuracy": 0.125,
+      "macro_precision": 0.0556,
+      "macro_recall": 0.1667,
+      "macro_f1": 0.0833,
+      "total": 24,
+      "correct": 3
+    },
+    "PFE": {
+      "accuracy": 0.2083,
+      "macro_precision": 0.0926,
+      "macro_recall": 0.2381,
+      "macro_f1": 0.1333,
+      "total": 24,
+      "correct": 5
+    },
+    "V": {
+      "accuracy": 0.125,
+      "macro_precision": 0.0417,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.0741,
+      "total": 24,
+      "correct": 3
+    },
+    "WMT": {
+      "accuracy": 0.375,
+      "macro_precision": 0.125,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1818,
+      "total": 24,
+      "correct": 9
+    }
+  },
+  "per_sector_metrics": {
+    "Consumer": {
+      "accuracy": 0.2639,
+      "macro_precision": 0.096,
+      "macro_recall": 0.2879,
+      "macro_f1": 0.1439,
+      "total": 72,
+      "correct": 19
+    },
+    "Energy": {
+      "accuracy": 0.2917,
+      "macro_precision": 0.0972,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1505,
+      "total": 24,
+      "correct": 7
+    },
+    "Finance": {
+      "accuracy": 0.2778,
+      "macro_precision": 0.0926,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1449,
+      "total": 72,
+      "correct": 20
+    },
+    "Healthcare": {
+      "accuracy": 0.375,
+      "macro_precision": 0.1538,
+      "macro_recall": 0.2609,
+      "macro_f1": 0.1935,
+      "total": 48,
+      "correct": 18
+    },
+    "Tech": {
+      "accuracy": 0.2778,
+      "macro_precision": 0.0926,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1449,
+      "total": 72,
+      "correct": 20
+    }
+  },
+  "per_period_metrics": {
+    "bull_run": {
+      "accuracy": 0.2222,
+      "macro_precision": 0.0936,
+      "macro_recall": 0.2222,
+      "macro_f1": 0.1317,
+      "total": 72,
+      "correct": 16
+    },
+    "earnings_season": {
+      "accuracy": 0.375,
+      "macro_precision": 0.125,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1818,
+      "total": 72,
+      "correct": 27
+    },
+    "recent_stable": {
+      "accuracy": 0.2083,
+      "macro_precision": 0.0694,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1149,
+      "total": 72,
+      "correct": 15
+    },
+    "volatile": {
+      "accuracy": 0.3611,
+      "macro_precision": 0.1204,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1769,
+      "total": 72,
+      "correct": 26
+    }
+  },
+  "threshold_tuning": {
+    "candidates_evaluated": 1558,
+    "best_tau_pos": 0.7,
+    "best_tau_neg": 0.58,
+    "metrics": {
+      "baseline_accuracy": 0.2917,
+      "tuned_accuracy": 0.3021,
+      "baseline_macro_precision": 0.1026,
+      "tuned_macro_precision": 0.248,
+      "baseline_macro_recall": 0.3043,
+      "tuned_macro_recall": 0.3016,
+      "baseline_macro_f1": 0.1534,
+      "tuned_macro_f1": 0.1926,
+      "baseline_positive_rate": 0.9479,
+      "tuned_positive_rate": 0.8681
+    },
+    "tuned_per_class": {
+      "negative": {
+        "precision": 0.0,
+        "recall": 4.0,
+        "f1": 52.0
+      },
+      "neutral": {
+        "precision": 7.0,
+        "recall": 11.0,
+        "f1": 122.0
+      },
+      "positive": {
+        "precision": 6.0,
+        "recall": 10.0,
+        "f1": 76.0
+      }
+    },
+    "tuned_confusion_matrix": {
+      "negative": {
+        "negative": 0,
+        "neutral": 4,
+        "positive": 52
+      },
+      "neutral": {
+        "negative": 7,
+        "neutral": 11,
+        "positive": 122
+      },
+      "positive": {
+        "negative": 6,
+        "neutral": 10,
+        "positive": 76
+      }
+    },
+    "top_10": [
+      {
+        "rank": 1,
+        "tau_pos": 0.7,
+        "tau_neg": 0.58,
+        "macro_f1": 0.1926,
+        "accuracy": 0.3021,
+        "positive_rate": 0.8681,
+        "neg_recall": 0.0,
+        "neu_recall": 0.0786,
+        "pos_recall": 0.8261
+      },
+      {
+        "rank": 2,
+        "tau_pos": 0.7,
+        "tau_neg": 0.59,
+        "macro_f1": 0.1923,
+        "accuracy": 0.3021,
+        "positive_rate": 0.8681,
+        "neg_recall": 0.0,
+        "neu_recall": 0.0786,
+        "pos_recall": 0.8261
+      },
+      {
+        "rank": 3,
+        "tau_pos": 0.7,
+        "tau_neg": 0.6,
+        "macro_f1": 0.1923,
+        "accuracy": 0.3021,
+        "positive_rate": 0.8681,
+        "neg_recall": 0.0,
+        "neu_recall": 0.0786,
+        "pos_recall": 0.8261
+      },
+      {
+        "rank": 4,
+        "tau_pos": 0.66,
+        "tau_neg": 0.52,
+        "macro_f1": 0.1907,
+        "accuracy": 0.2986,
+        "positive_rate": 0.8993,
+        "neg_recall": 0.0714,
+        "neu_recall": 0.0071,
+        "pos_recall": 0.8804
+      },
+      {
+        "rank": 5,
+        "tau_pos": 0.7,
+        "tau_neg": 0.56,
+        "macro_f1": 0.1893,
+        "accuracy": 0.2986,
+        "positive_rate": 0.8681,
+        "neg_recall": 0.0,
+        "neu_recall": 0.0714,
+        "pos_recall": 0.8261
+      },
+      {
+        "rank": 6,
+        "tau_pos": 0.67,
+        "tau_neg": 0.52,
+        "macro_f1": 0.1888,
+        "accuracy": 0.2951,
+        "positive_rate": 0.8958,
+        "neg_recall": 0.0714,
+        "neu_recall": 0.0071,
+        "pos_recall": 0.8696
+      },
+      {
+        "rank": 7,
+        "tau_pos": 0.68,
+        "tau_neg": 0.52,
+        "macro_f1": 0.1888,
+        "accuracy": 0.2951,
+        "positive_rate": 0.8958,
+        "neg_recall": 0.0714,
+        "neu_recall": 0.0071,
+        "pos_recall": 0.8696
+      },
+      {
+        "rank": 8,
+        "tau_pos": 0.7,
+        "tau_neg": 0.57,
+        "macro_f1": 0.1888,
+        "accuracy": 0.2986,
+        "positive_rate": 0.8681,
+        "neg_recall": 0.0,
+        "neu_recall": 0.0714,
+        "pos_recall": 0.8261
+      },
+      {
+        "rank": 9,
+        "tau_pos": 0.7,
+        "tau_neg": 0.52,
+        "macro_f1": 0.1873,
+        "accuracy": 0.2847,
+        "positive_rate": 0.8681,
+        "neg_recall": 0.0714,
+        "neu_recall": 0.0143,
+        "pos_recall": 0.8261
+      },
+      {
+        "rank": 10,
+        "tau_pos": 0.69,
+        "tau_neg": 0.52,
+        "macro_f1": 0.187,
+        "accuracy": 0.2917,
+        "positive_rate": 0.8924,
+        "neg_recall": 0.0714,
+        "neu_recall": 0.0071,
+        "pos_recall": 0.8587
+      }
+    ]
+  },
+  "metadata": {
+    "test_cases": 288,
+    "errors": 0,
+    "issues": 0,
+    "duration_seconds": 1327,
+    "positive_rate": 0.9479000000000001,
+    "workers": 1,
+    "label_config": "F",
+    "hypothesis_template": "The implication of this statement is {}.",
+    "candidate_labels": [
+      "bullish",
+      "bearish",
+      "neutral"
+    ],
+    "label_mapping": {
+      "positive": "bullish",
+      "negative": "bearish",
+      "neutral": "neutral"
+    },
+    "pipeline_model": "DeBERTa",
+    "classifier_model": "DeBERTa",
+    "test_set": "tune_set",
+    "sentiment_model": "zero-shot"
+  }
+}

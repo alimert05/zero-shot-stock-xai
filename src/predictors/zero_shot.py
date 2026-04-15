@@ -1,5 +1,5 @@
 """
-zero_shot.py - DeBERTa-based zero-shot NLI sentiment predictor.
+zero_shot.py - Zero-shot NLI sentiment predictor.
 
 Uses Natural Language Inference to classify financial news articles as
 positive, negative, or neutral without task-specific fine-tuning. 
@@ -11,8 +11,6 @@ from __future__ import annotations
 import json
 import logging
 from typing import Any
-
-from transformers import pipeline
 
 from config import (
     SENTIMENT_DEVICE,
@@ -44,6 +42,8 @@ def _get_nli_pipeline():
     global _nli_pipeline
     if _nli_pipeline is None:
         try:
+            from transformers import pipeline
+            
             logger.info("Loading %s zero-shot classifier...", _display_model)
             _nli_pipeline = pipeline(
                 "zero-shot-classification",
@@ -57,7 +57,6 @@ def _get_nli_pipeline():
     return _nli_pipeline
 
 
-# Article filtering (delegated to predictors.common)
 
 
 _CLASS_TO_LABEL = {
@@ -78,7 +77,7 @@ def _batch_classify_sentiment(
     """Classify multiple texts in a single batched GPU call.
 
     Instead of N individual forward passes (one per article), this creates
-    N × 3 NLI pairs and processes them in chunks of *batch_size*, dramatically
+    N x 3 NLI pairs and processes them in chunks of *batch_size*, dramatically
     reducing GPU kernel-launch overhead and Python-loop latency.
     """
     pipe = _get_nli_pipeline()
@@ -139,7 +138,7 @@ def predict_sentiment(
 
     # Phase 1: Collect texts and metadata (CPU only)
     batch_texts: list[str] = []
-    batch_meta: list[dict] = []  # parallel list: article index, weight, source_label
+    batch_meta: list[dict] = []  # per-article metadata: idx, title, final_weight, source_label, coverage_count, is_headline_only
 
     for i, article in enumerate(articles):
         title = article.get("title", "")

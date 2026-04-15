@@ -169,20 +169,15 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     flags       = rel_info["flags"]
     rel_icon    = {"HIGH": "\u2713", "MEDIUM": "!", "LOW": "\u2717"}.get(overall_rel, "?")
 
-    margin_flag  = flags.get("label_margin", {}).get("flagged", False)
     thin_flag    = flags.get("thin_evidence", {}).get("flagged", False)
     conc_flag    = flags.get("weight_concentration", {}).get("flagged", False)
+    margin_flag  = flags.get("label_margin", {}).get("flagged", False)
+    flip_flag    = flags.get("flip_sensitivity", {}).get("flagged", False)
     source_flag  = flags.get("source_diversity", {}).get("flagged", False)
-    timing_flag  = flags.get("timing_alignment", {}).get("flagged", False)
     horizon_flag = flags.get("horizon_coverage", {}).get("flagged", False)
 
     # Terminal-specific verbose caution parts (more detail than UI)
     caution_parts: list[str] = []
-    if margin_flag:
-        caution_parts.append(
-            "the positive and negative scores are very close - "
-            "a small shift in news could change the verdict"
-        )
     if thin_flag:
         caution_parts.append("the prediction is based on very few articles")
     if conc_flag:
@@ -190,27 +185,28 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
             "weight is concentrated in one article, "
             "making the result sensitive to that single source"
         )
+    if margin_flag:
+        caution_parts.append(
+            "the positive and negative scores are very close - "
+            "a small shift in news could change the verdict"
+        )
+    if flip_flag:
+        fs = flags.get("flip_sensitivity", {})
+        caution_parts.append(
+            f"prediction is sensitive: removing {fs.get('flip_set_size', '?')} of "
+            f"{fs.get('articles_total', '?')} articles would change the label"
+        )
     if source_flag:
         caution_parts.append(
             "most articles come from the same editorial source, "
-            "reducing editorial independence. "
-            "Note: aggregators (Yahoo, Finnhub) are excluded from this check "
-            "because they collect from many independent editorial desks. "
-            "Mitigation: articles are de-duplicated across all domains by title "
-            "(keeping the oldest copy - the first to break the news); "
-            "weighting is content-based (not source-based)"
-        )
-    if timing_flag:
-        caution_parts.append(
-            "market-close time alignment is not applied (UTC timestamps used), "
-            "which can introduce timing noise or leakage risk"
+            "reducing editorial independence"
         )
     if horizon_flag:
         hc = flags.get("horizon_coverage", {})
         caution_parts.append(
             f"news lookback ({hc.get('lookback_days', '?')} days) is shorter than "
             f"the intended backward window ({hc.get('intended_lookback_days', '?')} days, "
-            f"\u221aW scaling), signal may be incomplete"
+            f"sqrt(W) scaling), signal may be incomplete"
         )
 
     # Chart label map (used in Charts + Advanced sections)
@@ -220,7 +216,6 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "article_weights":         "Top-10 article weight chart",
         "horizon_breakdown":       "Timing horizon breakdown chart",
         "lime_tokens":             "Word-level attribution (LIME) chart",
-        "reliability":             "Evidence quality dashboard",
         "storyline_contribution":  "Narrative storyline contribution chart",
         "contrastive_waterfall":   "Contrastive waterfall (why A not B?)",
         "article_timeline":        "Article timeline (recency vs influence)",
@@ -486,10 +481,13 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
                 f" included: {', '.join(top_words[:5])}."
             )
 
+    horizon_dist = layer3.get("horizon_distribution", {})
+    dominant_horizon = max(horizon_dist, key=horizon_dist.get).replace("_", " ").lower() if horizon_dist else "immediate"
+
     weight_sentence = (
         f"Articles were weighted by recency and prediction-horizon relevance -"
         f" the average article was {layer3['avg_days_ago']} days old,"
-        f" with most classified as short-term horizon."
+        f" with most classified as {dominant_horizon} horizon."
     )
 
     # Contrastive sentence - why winner instead of runner-up (from shared helper)
@@ -782,35 +780,19 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         "  How much to trust this prediction",
         w,
         f"  Overall : [{rel_icon}] {overall_rel}  ({reliability['flags_triggered']} concern(s) found)",
-        "  Rating rule : HIGH evidence quality if 0 concerns, MEDIUM if 1, LOW if \u22652.",
+        "  Rating rule : HIGH if 0-1 flags, MEDIUM if 2, LOW if 3+.",
     ]
-    # Clarify when LOW is driven by data quality, not model uncertainty
-    margin_is_clear = not flags.get("label_margin", {}).get("flagged", False)
-    if overall_rel == "LOW" and margin_is_clear:
-        lines.append(
-            "  Note : Evidence quality is LOW due to data-quality risks (source concentration,"
-        )
-        lines.append(
-            "         timing alignment, short lookback), not because the model is"
-        )
-        lines.append(
-            "         uncertain about the label."
-        )
     lines.append("")
     for flag_name, flag_data in flags.items():
         is_skipped = flag_name == "label_margin" and "skipped" in flag_data.get("message", "").lower()
         if is_skipped:
             icon = "-"
-            status = "N/A"
         elif flag_data["flagged"]:
             icon = "\u26a0"
-            status = ""
         else:
             icon = "\u2713"
-            status = ""
         label = flag_name.replace("_", " ")
-        status_suffix = f"  {status}" if status else ""
-        lines.append(f"    [{icon}] {label:<22} {flag_data['message']}{status_suffix}")
+        lines.append(f"    [{icon}] {label:<22} {flag_data['message']}")
     lines += [
         "",
     ]
@@ -898,11 +880,12 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         lines.append("")
 
     # Top-10 table with weight bar chart
-    # "Weight" is the raw recency x horizon factor (0-1 scale).
+    # "Weight" is the effective article weight used in the sentiment aggregation
+    # (geometric mean of recency and horizon weights, with coverage boost and headline-only discount applied).
     # "Share" is the article's percentage of total weight across all articles.
     lines += [
         "  Top 10 most influential articles:",
-        "  (Weight = recency \u00d7 horizon factor, 0-1 scale;  Share = % of total pool weight)",
+        "  (Weight = √(recency x horizon) x coverage boost x headline discount;  Share = % of total pool weight)",
         f"    {'#':<4} {'Sent':>4}  {'Weight':>6}  {'Share':>6}  {'Weight chart':<32}  Title",
         f"    {w[:78]}",
     ]
@@ -1017,6 +1000,9 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
         for art in lime_articles:
             supporting_tokens = art["top_tokens_supporting"]
             opposing_tokens   = art["top_tokens_opposing"]
+            # Second-pass check: the token_explainer already filters noise tokens,
+            # but its noise set may differ slightly from this one (different
+            # company_name source), so re-check as a safety net.
             artefacts         = [t for t in opposing_tokens if is_lime_noise_token(t, noise_set)]
 
             lines += [
@@ -1166,22 +1152,6 @@ def _build_summary_text(result: dict[str, Any], chart_paths: dict | None = None)
     return "\n".join(lines)
 
 
-# File I/O (Summary)
-
-def _save_summary(
-    result: dict[str, Any],
-    summary_path: str,
-    chart_paths: dict | None = None,
-) -> None:
-    """Render the summary text and write it to the given file path."""
-    path = Path(summary_path)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    text = _build_summary_text(result, chart_paths=chart_paths)
-    with open(path, "w", encoding="utf-8") as f:
-        f.write(text)
-    logger.info("XAI summary saved to %s", summary_path)
-
-
 # Main Orchestrator
 
 def run_xai(
@@ -1238,11 +1208,13 @@ def run_xai(
 
     # Evidence quality (needs HHI from article_explanation + merged_articles)
     hhi = article_explanation.get("weight_concentration", 0.0)
+    flip_set_data = article_explanation.get("minimum_flip_set")
     reliability = compute_reliability(
         prediction_result, hhi,
         merged_articles=merged_articles,
         prediction_window_days=prediction_window_days,
         max_backward_days=max_backward_days,
+        flip_set_data=flip_set_data,
     )
 
     # Layer 1 

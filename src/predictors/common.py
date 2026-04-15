@@ -2,7 +2,7 @@
 common.py - Shared utilities for all sentiment predictor modules.
 
 Contains article-matching, text-preparation, and summary-printing logic
-used identically across DeBERTa zero-shot, FinBERT, FinGPT, and Ollama
+used identically across NLI zero-shot, FinBERT, FinGPT, and Ollama
 predictors.
 """
 
@@ -51,14 +51,14 @@ def build_input_text(
     article: dict,
     include_title: bool,
     company_name: str,
-    max_chars: int = 1500,
+    max_chars: int = 1500, # truncation limit for model input text
     prefix: str = "Sentiment for",
 ) -> str:
     """Build model-ready text from an article's title and content.
 
     Args:
-        prefix: Text prepended before the company name.  DeBERTa uses
-                "News about", all other models use "Sentiment for".
+        prefix: Text prepended before the company name (default: "Sentiment for";
+                 overridden to "News about" by the zero-shot predictor).
     """
     title = article.get("title", "").strip()
     content = (article.get("content") or "").strip()

@@ -1,8 +1,8 @@
 """Central configuration for the sentiment analysis pipeline."""
-
 from __future__ import annotations
 
 from pathlib import Path
+import torch
 
 # Paths
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -13,7 +13,7 @@ TEMP_PATH = DATA_PATH / "temp"
 EVAL_PATH = DATA_PATH / "evaluation"
 ARTICLE_CACHE_PATH = DATA_PATH / "articles" / "articles_with_noise_reduction_deberta"
 
-# Sub-directories under evaluation/
+# Sub-directories under data/
 EVAL_RESULTS_PATH       = EVAL_PATH / "evaluation_results"
 FPB_PATH                = EVAL_PATH / "FPB"
 DATASET_PATH            = EVAL_PATH / "pipeline_evaluation_dataset"
@@ -31,29 +31,31 @@ OLLAMA_PREDS   = PREDS_PATH / "ollama_result.json"
 
 TEMP_PATH.mkdir(parents=True, exist_ok=True)
 LOG_DIR.mkdir(parents=True, exist_ok=True)
+PREDS_PATH.mkdir(parents=True, exist_ok=True)
 
 REQUEST_TIMEOUT_LIMIT = 30
 
 # Api and Network
-FINNHUB_API_KEY = "d5rvt19r01qq2th0b8sgd5rvt19r01qq2th0b8t0"
+FINNHUB_API_KEY = "your_api_key_here"
 
 NOISE_REDUCTION_MODEL = "microsoft/deberta-large-mnli" 
 
 IMPACT_HORIZON_MODEL = "microsoft/deberta-large-mnli"
-IMPACT_HORIZON_DEVICE = 0
+IMPACT_HORIZON_DEVICE = 0 if torch.cuda.is_available() else -1
+SENTIMENT_DEVICE = 0 if torch.cuda.is_available() else -1
 
-SENTIMENT_DEVICE = 0 
+NOISE_RELEVANCE_THRESHOLD = 0.5
 
-# Model Selection
+# Model Selection - uncomment to use (only one of them should be uncommented)
 
-# # finbert config
+# finbert config
 # SENTIMENT_MODEL = "ProsusAI/finbert"
 
 #fingpt config
 # SENTIMENT_MODEL = "fingpt"
-# FINGPT_BASE_MODEL = "NousResearch/Llama-2-13b-hf"
-# FINGPT_LORA_MODEL = "FinGPT/fingpt-sentiment_llama2-13b_lora"
-# FINGPT_LOAD_IN_8BIT = True
+FINGPT_BASE_MODEL = "NousResearch/Llama-2-13b-hf"
+FINGPT_LORA_MODEL = "FinGPT/fingpt-sentiment_llama2-13b_lora"
+FINGPT_LOAD_IN_8BIT = True
 
 # zero-shot config
 
@@ -82,18 +84,21 @@ XAI_LIME_NUM_FEATURES          = 20    # max tokens to report per article
 XAI_THIN_EVIDENCE_THRESHOLD    = 5
 XAI_CONCENTRATION_THRESHOLD    = 0.4
 XAI_MARGIN_THRESHOLD           = 0.15
+XAI_FLIP_SENSITIVITY_THRESHOLD = 5     # flag if flip-set size <= 5 articles
+XAI_SOURCE_CONCENTRATION_THRESHOLD = 0.60
 
 XAI_LLAMA_MODEL                = "llama3.2:3b"
 XAI_LLAMA_TEMPERATURE          = 0.1
 XAI_LLAMA_MAX_TOKENS           = 200
 XAI_LLAMA_ENABLED              = True
 
-# Evidence quality - source diversity & timing
-XAI_SOURCE_CONCENTRATION_THRESHOLD = 0.60   # flag if top domain > 60% of articles
-XAI_MIN_UNIQUE_SOURCES             = 2      # flag if fewer unique domains
+# When LLM returns a label without probabilities, assign synthetic scores
+# (confidence for predicted class + residual for each of the other two = 1.0)
+LLM_LABEL_CONFIDENCE = 0.90
+LLM_LABEL_RESIDUAL = 0.05
 
 # Aggregation & Post-Processing
-COVERAGE_COUNT_BOOST           = True    # boost multi-source articles via log2(1 + coverage)
+COVERAGE_COUNT_BOOST           = True    # boost articles with higher coverage counts via log2(1 + count)
 HEADLINE_ONLY_WEIGHT           = 0.5     # discount for headline-only articles (no body content)
 
 # Decision thresholds (tuned on tune set via grid search, macro F1)

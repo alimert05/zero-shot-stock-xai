@@ -9,6 +9,14 @@ from typing import Any
 
 from predictors.abstention import apply_abstention
 from predictors.common import title_matches, build_input_text, print_summary, compute_effective_weight
+from config import (
+    FINGPT_BASE_MODEL,
+    FINGPT_LORA_MODEL,
+    FINGPT_LOAD_IN_8BIT,
+    SENTIMENT_DEVICE,
+    LLM_LABEL_CONFIDENCE,
+    LLM_LABEL_RESIDUAL,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -30,13 +38,7 @@ def _get_fingpt_model():
         try:
             from transformers import LlamaForCausalLM, LlamaTokenizerFast
             from peft import PeftModel
-            from config import (
-                FINGPT_BASE_MODEL,
-                FINGPT_LORA_MODEL,
-                FINGPT_LOAD_IN_8BIT,
-                SENTIMENT_DEVICE,
-            )
-
+            
             device = f"cuda:{SENTIMENT_DEVICE}" if SENTIMENT_DEVICE >= 0 else "cpu"
 
             logger.info(
@@ -108,8 +110,10 @@ def _classify_sentiment(text: str) -> dict[str, float]:
         logger.warning("FinGPT unexpected answer: '%s', defaulting to neutral", answer)
         label = "neutral"
 
-    scores = {"positive": 0.05, "negative": 0.05, "neutral": 0.05}
-    scores[label] = 0.90
+    # Assign synthetic probability distribution: full confidence to predicted label,
+    # residual split across the other two (sums to 1.0)
+    scores = {"positive": LLM_LABEL_RESIDUAL, "negative": LLM_LABEL_RESIDUAL, "neutral": LLM_LABEL_RESIDUAL}
+    scores[label] = LLM_LABEL_CONFIDENCE
     return scores
 
 
@@ -218,6 +222,7 @@ def predict_sentiment(
         "articles_analyzed": len(article_sentiments),
         "articles_total": len(articles),
         "total_weight": round(total_weight, 4),
+        "enhanced_weighting": True,
         "weighted_scores": {
             k: round(v, 4) for k, v in weighted_scores.items()
         },

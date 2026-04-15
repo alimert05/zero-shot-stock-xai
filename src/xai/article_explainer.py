@@ -203,14 +203,13 @@ def _compute_minimum_flip_set(
     current_label = prediction_result.get("final_label", "neutral")
 
     sorted_labels = sorted(normalized, key=normalized.get, reverse=True)
-    winner = sorted_labels[0]
-    runner_up = sorted_labels[1]
+    runner_up = sorted_labels[1]  # raw argmax runner-up; flip-set targets the score gap regardless of threshold override
 
     # Sort articles by how much they favour the winner (most helpful first)
     scored = []
     for article in merged_articles:
         ws = article.get("weighted_scores", {})
-        net = ws.get(winner, 0.0) - ws.get(runner_up, 0.0)
+        net = ws.get(current_label, 0.0) - ws.get(runner_up, 0.0)
         scored.append((net, article))
     scored.sort(key=lambda x: x[0], reverse=True)
 

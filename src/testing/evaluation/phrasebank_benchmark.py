@@ -32,6 +32,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from config import (
     FPB_PATH, FPB_DATASETS_PATH, SENTIMENT_DEVICE,
     DECISION_THRESHOLD_ENABLED,
+    MODEL_NAME,
+    SENTIMENT_MODEL,
 )
 
 logger = logging.getLogger(__name__)
@@ -42,8 +44,9 @@ DEFAULT_DATASETS = [
     str(FPB_DATASETS_PATH / "financial_phrasebank_sentences_allagree.csv"),
 ]
 
-DEFAULT_OUTPUT = FPB_PATH / "phrasebank_model_benchmark.json"
-CHECKPOINT_PATH = FPB_PATH / "label_tuning_checkpoint.json"
+_MODEL_TAG = SENTIMENT_MODEL.replace("/", "_").replace("-", "_")
+DEFAULT_OUTPUT = FPB_PATH / f"phrasebank_model_benchmark_{_MODEL_TAG}.json"
+CHECKPOINT_PATH = FPB_PATH / f"label_tuning_checkpoint_{_MODEL_TAG}.json"
 LABELS = ["positive", "negative", "neutral"]
 
 # Coarse screen uses the largest dataset (50agree) for stable estimates.
@@ -491,7 +494,7 @@ class DeBERTaPredictor:
                 batch,
                 candidate_labels=self.candidate_labels,
                 hypothesis_template=self.hypothesis_template,
-                multi_label=False,
+                multi_label=True,
                 batch_size=self.batch_size,
                 truncation=True,
                 max_length=512,
@@ -536,7 +539,7 @@ class DeBERTaPredictor:
                 batch,
                 candidate_labels=candidate_labels,
                 hypothesis_template=hypothesis_template,
-                multi_label=False,
+                multi_label=True,
                 batch_size=self.batch_size,
                 truncation=True,
                 max_length=512,
@@ -580,7 +583,7 @@ class RoBERTaPredictor:
             outputs = self.pipe(
                 batch,
                 candidate_labels=["positive", "negative", "neutral"],
-                multi_label=False,
+                multi_label=True,
                 batch_size=self.batch_size,
                 truncation=True,
                 max_length=512,
@@ -609,7 +612,7 @@ class RoBERTaPredictor:
                 batch,
                 candidate_labels=candidate_labels,
                 hypothesis_template=hypothesis_template,
-                multi_label=False,
+                multi_label=True,
                 batch_size=self.batch_size,
                 truncation=True,
                 max_length=512,
@@ -740,6 +743,7 @@ class FinGPTPredictor:
 
         return predictions
 
+Predictor = DeBERTaPredictor | RoBERTaPredictor | OllamaPredictor | FinBERTPredictor | FinGPTPredictor
 
 # Benchmark mode
 
@@ -951,7 +955,7 @@ def load_checkpoint(path: Path = CHECKPOINT_PATH) -> dict[str, Any] | None:
 # Stage 1: Coarse Screen
 
 def run_coarse_screen(
-    predictor: DeBERTaPredictor,
+    predictor: Predictor,
     configs: list[dict[str, Any]],
     dev_texts: list[str],
     dev_labels: list[str],
@@ -1011,7 +1015,7 @@ def run_coarse_screen(
 # Stage 2: Full Cross-Validation
 
 def run_cross_validation(
-    predictor: DeBERTaPredictor,
+    predictor: Predictor,
     configs: list[dict[str, Any]],
     dataset_splits: list[dict[str, Any]],
     n_folds: int,
@@ -1154,7 +1158,7 @@ def _aggregate_cv_results(
 # Stage 3: Final Test Evaluation
 
 def run_final_test(
-    predictor: DeBERTaPredictor,
+    predictor: Predictor,
     best_config: dict[str, Any],
     dataset_splits: list[dict[str, Any]],
 ) -> dict[str, Any]:
@@ -1388,7 +1392,7 @@ def _build_metadata(
     """Build the metadata dict saved alongside benchmark results."""
     return {
         "run_timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "model": "microsoft/deberta-large-mnli",
+        "model": MODEL_NAME,
         "datasets": [ds["path"] for ds in dataset_splits],
         "dataset_names": [ds["name"] for ds in dataset_splits],
         "total_configs": len(configs),
@@ -1570,7 +1574,7 @@ def print_significance(significance: dict[str, Any]) -> None:
 def parse_args() -> argparse.Namespace:
     """Parse command-line arguments for benchmark and tune modes."""
     parser = argparse.ArgumentParser(
-        description="Benchmark DeBERTa zero-shot NLI on Financial PhraseBank datasets.",
+        description="Benchmark zero-shot and baseline sentiment models on Financial PhraseBank datasets.",
     )
 
     # Mode
@@ -1579,8 +1583,8 @@ def parse_args() -> argparse.Namespace:
         choices=["benchmark", "tune"],
         default="benchmark",
         help=(
-            "'benchmark' (default): evaluate DeBERTa on full datasets.  "
-            "'tune': find the best label config with K-fold CV."
+            "'benchmark' (default): evaluate the selected model on full datasets. "
+            "'tune': find the best label config with K-fold CV.",
         ),
     )
 
@@ -1589,7 +1593,7 @@ def parse_args() -> argparse.Namespace:
         "--max-samples",
         type=int,
         default=None,
-        help="Optional cap per dataset for quick runs.",
+        help="Batch size for NLI model inference.",
     )
     parser.add_argument(
         "--batch-size",
@@ -1692,10 +1696,12 @@ def main() -> None:
 
     args = parse_args()
 
+    # Derive model tag from CLI --model (overrides config default)
+    model_tag = getattr(args, "model", _MODEL_TAG)
+
     if args.mode == "tune":
         report = run_label_tuning(args)
 
-        model_tag = getattr(args, "model", "deberta")
         output_path = FPB_PATH / f"phrasebank_label_tuning_{model_tag}.json"
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with open(output_path, "w", encoding="utf-8") as f:
@@ -1705,7 +1711,11 @@ def main() -> None:
     else:
         report = run_benchmark(args)
 
-        output_path = Path(args.output)
+        # Use CLI --output if explicitly provided, otherwise derive from model tag
+        if args.output != str(DEFAULT_OUTPUT):
+            output_path = Path(args.output)
+        else:
+            output_path = FPB_PATH / f"phrasebank_model_benchmark_{model_tag}.json"
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(report, f, indent=2, ensure_ascii=False)

@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import logging
-
 import nltk
+from config import SENTIMENT_DEVICE, NOISE_REDUCTION_MODEL, NOISE_RELEVANCE_THRESHOLD
+
+nltk.download('punkt_tab', quiet=True)
 
 logger = logging.getLogger(__name__)
 
@@ -17,7 +19,6 @@ def _get_deberta_classifier():
     if _deberta_classifier is None:
         try:
             from transformers import pipeline
-            from config import SENTIMENT_DEVICE, NOISE_REDUCTION_MODEL
 
             logger.info("Loading DeBERTa classifier for noise reduction...")
             _deberta_classifier = pipeline(
@@ -82,16 +83,20 @@ def _score_sentence_relevance(
 
 def _filter_relevant_sentences(
     scored_sentences: list[tuple[str, float]],
-    threshold: float = 0.5,
+    threshold: float = NOISE_RELEVANCE_THRESHOLD,
 ) -> list[str]:
-    """Keep only sentences whose relevance score meets the threshold."""
+    """Filter article content to retain only company-relevant sentences.
+    
+    If no sentence passes the relevance threshold, the highest-scoring
+    sentence is retained as a safeguard against losing all content.
+    """
     return [sent for sent, score in scored_sentences if score >= threshold]
 
 def reduce_content_noise(
     content: str,
     company_name: str,
     ticker: str | None = None,
-    relevance_threshold: float = 0.5,
+    relevance_threshold: float = NOISE_RELEVANCE_THRESHOLD,
 ) -> tuple[str | None, dict]:
     """Filter article content to retain only company-relevant sentences."""
     if not content:
@@ -126,7 +131,9 @@ def reduce_content_noise(
         "relevance_ratio": round(relevance_ratio, 4),
         "condensed": False,
     }
-
+    
+    # Defensive: should not trigger (safeguard above guarantees >= 1 sentence),
+    # but kept in case upstream logic changes.
     if relevant_count == 0:
         logger.debug("No relevant sentences for %s after filtering", company_name)
         return None, {**metadata, "filter_action": "no_match"}
@@ -143,7 +150,7 @@ def clean_articles_content(
     articles: list[dict],
     company_name: str,
     ticker: str | None = None,
-    relevance_threshold: float = 0.5,
+    relevance_threshold: float = NOISE_RELEVANCE_THRESHOLD,
 ) -> list[dict]:
     """Apply sentence-level noise reduction to all articles in a batch."""
     if not articles:

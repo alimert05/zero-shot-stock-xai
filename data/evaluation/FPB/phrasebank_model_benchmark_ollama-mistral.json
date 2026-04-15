@@ -1,0 +1,231 @@
+{
+  "metadata": {
+    "run_timestamp": "2026-04-11 20:51:52",
+    "model": "mistral:7b (Ollama)",
+    "config_name": "default (argmax)",
+    "hypothesis_template": "N/A",
+    "candidate_labels": [
+      "positive",
+      "negative",
+      "neutral"
+    ],
+    "datasets": [
+      "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\financial_phrasebank_datasets\\financial_phrasebank_sentences_50agree.csv",
+      "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\financial_phrasebank_datasets\\financial_phrasebank_sentences_75agree.csv",
+      "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\financial_phrasebank_datasets\\financial_phrasebank_sentences_allagree.csv"
+    ],
+    "max_samples": null,
+    "device": 0,
+    "decision_threshold_enabled": false
+  },
+  "results": {
+    "financial_phrasebank_sentences_50agree.csv": {
+      "dataset_path": "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\financial_phrasebank_datasets\\financial_phrasebank_sentences_50agree.csv",
+      "samples": 4846,
+      "label_distribution": {
+        "neutral": 2879,
+        "negative": 604,
+        "positive": 1363
+      },
+      "duration_seconds": 461.18,
+      "metrics": {
+        "accuracy": 0.8044,
+        "macro_precision": 0.8175,
+        "macro_recall": 0.7627,
+        "macro_f1": 0.7837,
+        "f1_scores": {
+          "positive": 0.6812,
+          "negative": 0.8208,
+          "neutral": 0.8491
+        },
+        "per_class": {
+          "negative": {
+            "precision": 0.8603,
+            "recall": 0.7848,
+            "f1": 0.8208,
+            "support": 604,
+            "tp": 474,
+            "fp": 77,
+            "fn": 130
+          },
+          "neutral": {
+            "precision": 0.7982,
+            "recall": 0.9069,
+            "f1": 0.8491,
+            "support": 2879,
+            "tp": 2611,
+            "fp": 660,
+            "fn": 268
+          },
+          "positive": {
+            "precision": 0.7939,
+            "recall": 0.5965,
+            "f1": 0.6812,
+            "support": 1363,
+            "tp": 813,
+            "fp": 211,
+            "fn": 550
+          }
+        },
+        "confusion_matrix": {
+          "negative": {
+            "negative": 474,
+            "neutral": 123,
+            "positive": 7
+          },
+          "neutral": {
+            "negative": 64,
+            "neutral": 2611,
+            "positive": 204
+          },
+          "positive": {
+            "negative": 13,
+            "neutral": 537,
+            "positive": 813
+          }
+        },
+        "total": 4846,
+        "correct": 3898
+      }
+    },
+    "financial_phrasebank_sentences_75agree.csv": {
+      "dataset_path": "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\financial_phrasebank_datasets\\financial_phrasebank_sentences_75agree.csv",
+      "samples": 3453,
+      "label_distribution": {
+        "neutral": 2146,
+        "positive": 887,
+        "negative": 420
+      },
+      "duration_seconds": 323.23,
+      "metrics": {
+        "accuracy": 0.8795,
+        "macro_precision": 0.8831,
+        "macro_recall": 0.8467,
+        "macro_f1": 0.8623,
+        "f1_scores": {
+          "positive": 0.7975,
+          "negative": 0.88,
+          "neutral": 0.9095
+        },
+        "per_class": {
+          "negative": {
+            "precision": 0.8963,
+            "recall": 0.8643,
+            "f1": 0.88,
+            "support": 420,
+            "tp": 363,
+            "fp": 42,
+            "fn": 57
+          },
+          "neutral": {
+            "precision": 0.8781,
+            "recall": 0.9432,
+            "f1": 0.9095,
+            "support": 2146,
+            "tp": 2024,
+            "fp": 281,
+            "fn": 122
+          },
+          "positive": {
+            "precision": 0.8748,
+            "recall": 0.7328,
+            "f1": 0.7975,
+            "support": 887,
+            "tp": 650,
+            "fp": 93,
+            "fn": 237
+          }
+        },
+        "confusion_matrix": {
+          "negative": {
+            "negative": 363,
+            "neutral": 54,
+            "positive": 3
+          },
+          "neutral": {
+            "negative": 32,
+            "neutral": 2024,
+            "positive": 90
+          },
+          "positive": {
+            "negative": 10,
+            "neutral": 227,
+            "positive": 650
+          }
+        },
+        "total": 3453,
+        "correct": 3037
+      }
+    },
+    "financial_phrasebank_sentences_allagree.csv": {
+      "dataset_path": "C:\\Users\\alime\\DissertationProject\\zero-shot-stock-xai\\data\\financial_phrasebank_datasets\\financial_phrasebank_sentences_allagree.csv",
+      "samples": 2264,
+      "label_distribution": {
+        "neutral": 1391,
+        "positive": 570,
+        "negative": 303
+      },
+      "duration_seconds": 210.98,
+      "metrics": {
+        "accuracy": 0.9196,
+        "macro_precision": 0.9285,
+        "macro_recall": 0.8943,
+        "macro_f1": 0.9095,
+        "f1_scores": {
+          "positive": 0.8655,
+          "negative": 0.9244,
+          "neutral": 0.9387
+        },
+        "per_class": {
+          "negative": {
+            "precision": 0.9418,
+            "recall": 0.9076,
+            "f1": 0.9244,
+            "support": 303,
+            "tp": 275,
+            "fp": 17,
+            "fn": 28
+          },
+          "neutral": {
+            "precision": 0.9108,
+            "recall": 0.9684,
+            "f1": 0.9387,
+            "support": 1391,
+            "tp": 1347,
+            "fp": 132,
+            "fn": 44
+          },
+          "positive": {
+            "precision": 0.9331,
+            "recall": 0.807,
+            "f1": 0.8655,
+            "support": 570,
+            "tp": 460,
+            "fp": 33,
+            "fn": 110
+          }
+        },
+        "confusion_matrix": {
+          "negative": {
+            "negative": 275,
+            "neutral": 26,
+            "positive": 2
+          },
+          "neutral": {
+            "negative": 13,
+            "neutral": 1347,
+            "positive": 31
+          },
+          "positive": {
+            "negative": 4,
+            "neutral": 106,
+            "positive": 460
+          }
+        },
+        "total": 2264,
+        "correct": 2082
+      }
+    }
+  },
+  "failures": []
+}

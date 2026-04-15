@@ -76,8 +76,8 @@ COMPANIES = [
 PREDICTION_WINDOWS = [1, 3, 5, 7, 14, 31]
 
 # Four date groups sampled across the available 9-month window to ensure
-# temporal diversity. Each group provides 5 start dates, giving 4 cases
-# per company-window pair (20 companies x 6 windows x 4 dates = 480 cases).
+# temporal diversity. Each company picks one date per group (round-robin),
+# giving 4 cases per company-window pair (20 companies x 6 windows x 4 groups = 480 cases).
 DATE_GROUPS = [
     {
         "label": "bull_run",
@@ -146,7 +146,7 @@ def compute_point_in_time_ewma_threshold(
     lookback_calendar_days: int = EWMA_LOOKBACK_CALENDAR_DAYS,
 ) -> float:
     """
-    Compute point-in-time EWMA daily volatility as of `asof_date`,
+    Compute point-in-time EWMA daily volatility as of 'asof_date',
     then scale it to the requested horizon with sqrt(window_days).
 
     Uses only data strictly before asof_date.
@@ -220,7 +220,7 @@ def _parse_date(d: str) -> datetime:
 def _next_open_day_close(
     ticker: str, day: datetime, max_lookahead: int = MAX_LOOKAHEAD_DAYS
 ) -> tuple[datetime, float]:
-    """Find the next trading day close price on or after `day`."""
+    """Find the next trading day close price on or after 'day'."""
     df = yf.download(
         ticker,
         start=day.strftime("%Y-%m-%d"),

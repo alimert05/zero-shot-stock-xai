@@ -32,13 +32,13 @@ def _single_horizon_weight(
     min_weight: float = 0.05,
 ) -> float:
     """
-    Same core weighting shape you already used, but extracted so that
-    primary and secondary horizons can be combined.
+    Gaussian decay weight for a single horizon, 
+    extracted so primary and secondary horizons can be combined.
     """
     W = max(int(prediction_window_days), 1)
     impact_day = int(impact_horizon_days) - int(days_ago)
     mu = W / 2.0
-    sigma = max(W / 2.0, 3.0)
+    sigma = max(W / 2.0, 3.0) # floor of 3.0 prevents excessive penalty for short windows
     raw = math.exp(-((impact_day - mu) ** 2) / (2.0 * sigma ** 2))
     return max(raw, min_weight)
 
@@ -78,6 +78,10 @@ def calculate_impact_horizon_weight(
     )
 
     confidence = _clamp(float(confidence), 0.0, 1.0)
+    # Blend primary and secondary horizons based on classifier confidence.
+    # High confidence (1.0) -> 85% primary, low confidence (0.0) -> 60% primary.
+    # Primary always dominates since even an uncertain classification is more
+    # informative than a uniform prior.
     primary_mix = 0.60 + (0.25 * confidence)   # 0.60 .. 0.85
     secondary_mix = 1.0 - primary_mix
 
@@ -159,7 +163,8 @@ def add_impact_horizon_data(
     """Classify articles and attach impact horizon data with batched GPU inference.
 
     Instead of N individual GPU calls, collects all classifiable texts and
-    runs a single batched pipeline call, then post-processes per article.
+    runs them through a single pipeline call (internally batched at batch_size=32),
+    then post-processes per article.
     """
     logger.info(
         "Adding impact horizon data to %d articles (prediction window: %d days)",
@@ -180,6 +185,8 @@ def add_impact_horizon_data(
                 recency_weight = float(raw_recency_weight)
             except (TypeError, ValueError):
                 recency_weight = 1.0
+            # No title to classify — skip event classification,
+            # fall back to recency weight only.
             article["impact_horizon"] = None
             article["impact_horizon_weight"] = 1.0
             article["final_weight"] = recency_weight

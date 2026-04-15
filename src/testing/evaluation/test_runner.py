@@ -536,7 +536,7 @@ def run_fetch(
     print("=" * 60)
 
     if zero_article_count > 0:
-        print(f"\n  WARNING: WARNING: {zero_article_count} cases had 0 articles fetched:")
+        print(f"\n  WARNING: {zero_article_count} cases had 0 articles fetched:")
         for r in sorted(all_results, key=lambda x: x["id"]):
             if r["cached"] and r["article_count"] == 0:
                 print(f"    - {r['id']} ({r.get('ticker', '?')})")

@@ -679,7 +679,7 @@ def plot_cumulative_score(
 
 def generate_all_charts(result: dict[str, Any], charts_dir: Path) -> dict[str, Path]:
     """
-    Generate all 10 charts and return a dict mapping chart name -> Path.
+    Generate all 9 charts and return a dict mapping chart name -> Path.
     If matplotlib is not installed, logs a warning and returns empty dict.
     """
     try:
@@ -711,7 +711,6 @@ def generate_all_charts(result: dict[str, Any], charts_dir: Path) -> dict[str, P
         if lime_articles:
             paths["lime_tokens"]      = plot_lime_tokens(lime_articles, predicted_label, charts_dir)
 
-        # New charts (7-10)
         if storylines.get("storylines"):
             paths["storyline_contribution"] = plot_storyline_contribution(
                 storylines, predicted_label, charts_dir,

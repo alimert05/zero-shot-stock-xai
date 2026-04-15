@@ -1,0 +1,458 @@
+{
+  "overall_metrics": {
+    "accuracy": 0.2986,
+    "total": 288,
+    "correct": 86,
+    "macro_precision": 0.1527,
+    "macro_recall": 0.3209,
+    "macro_f1": 0.187,
+    "per_class": {
+      "negative": {
+        "precision": 0.1429,
+        "recall": 0.0714,
+        "f1": 0.0952,
+        "support": 56
+      },
+      "neutral": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 140
+      },
+      "positive": {
+        "precision": 0.3154,
+        "recall": 0.8913,
+        "f1": 0.4659,
+        "support": 92
+      }
+    },
+    "confusion_matrix": {
+      "negative": {
+        "negative": 4,
+        "neutral": 0,
+        "positive": 52
+      },
+      "neutral": {
+        "negative": 14,
+        "neutral": 0,
+        "positive": 126
+      },
+      "positive": {
+        "negative": 10,
+        "neutral": 0,
+        "positive": 82
+      }
+    }
+  },
+  "per_window_metrics": {
+    "W=1": {
+      "accuracy": 0.3542,
+      "macro_precision": 0.1907,
+      "macro_recall": 0.3394,
+      "macro_f1": 0.2148,
+      "total": 48,
+      "correct": 17
+    },
+    "W=3": {
+      "accuracy": 0.2708,
+      "macro_precision": 0.1597,
+      "macro_recall": 0.3228,
+      "macro_f1": 0.188,
+      "total": 48,
+      "correct": 13
+    },
+    "W=5": {
+      "accuracy": 0.2708,
+      "macro_precision": 0.2,
+      "macro_recall": 0.3494,
+      "macro_f1": 0.1985,
+      "total": 48,
+      "correct": 13
+    },
+    "W=7": {
+      "accuracy": 0.25,
+      "macro_precision": 0.1667,
+      "macro_recall": 0.2952,
+      "macro_f1": 0.1741,
+      "total": 48,
+      "correct": 12
+    },
+    "W=14": {
+      "accuracy": 0.2917,
+      "macro_precision": 0.1085,
+      "macro_recall": 0.2917,
+      "macro_f1": 0.1582,
+      "total": 48,
+      "correct": 14
+    },
+    "W=31": {
+      "accuracy": 0.3542,
+      "macro_precision": 0.1349,
+      "macro_recall": 0.3148,
+      "macro_f1": 0.1889,
+      "total": 48,
+      "correct": 17
+    }
+  },
+  "per_company_metrics": {
+    "AAPL": {
+      "accuracy": 0.5417,
+      "macro_precision": 0.3542,
+      "macro_recall": 0.4667,
+      "macro_f1": 0.3881,
+      "total": 24,
+      "correct": 13
+    },
+    "AMZN": {
+      "accuracy": 0.0417,
+      "macro_precision": 0.0145,
+      "macro_recall": 0.1667,
+      "macro_f1": 0.0267,
+      "total": 24,
+      "correct": 1
+    },
+    "CVX": {
+      "accuracy": 0.2917,
+      "macro_precision": 0.0972,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1505,
+      "total": 24,
+      "correct": 7
+    },
+    "GS": {
+      "accuracy": 0.2917,
+      "macro_precision": 0.1061,
+      "macro_recall": 0.2593,
+      "macro_f1": 0.1505,
+      "total": 24,
+      "correct": 7
+    },
+    "JNJ": {
+      "accuracy": 0.5833,
+      "macro_precision": 0.2222,
+      "macro_recall": 0.2917,
+      "macro_f1": 0.2523,
+      "total": 24,
+      "correct": 14
+    },
+    "JPM": {
+      "accuracy": 0.3333,
+      "macro_precision": 0.1111,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1667,
+      "total": 24,
+      "correct": 8
+    },
+    "MCD": {
+      "accuracy": 0.2917,
+      "macro_precision": 0.0972,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1505,
+      "total": 24,
+      "correct": 7
+    },
+    "META": {
+      "accuracy": 0.375,
+      "macro_precision": 0.125,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1818,
+      "total": 24,
+      "correct": 9
+    },
+    "NKE": {
+      "accuracy": 0.125,
+      "macro_precision": 0.0556,
+      "macro_recall": 0.1667,
+      "macro_f1": 0.0833,
+      "total": 24,
+      "correct": 3
+    },
+    "PFE": {
+      "accuracy": 0.2083,
+      "macro_precision": 0.0926,
+      "macro_recall": 0.2381,
+      "macro_f1": 0.1333,
+      "total": 24,
+      "correct": 5
+    },
+    "V": {
+      "accuracy": 0.125,
+      "macro_precision": 0.0417,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.0741,
+      "total": 24,
+      "correct": 3
+    },
+    "WMT": {
+      "accuracy": 0.375,
+      "macro_precision": 0.1364,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1935,
+      "total": 24,
+      "correct": 9
+    }
+  },
+  "per_sector_metrics": {
+    "Consumer": {
+      "accuracy": 0.2639,
+      "macro_precision": 0.099,
+      "macro_recall": 0.2879,
+      "macro_f1": 0.1473,
+      "total": 72,
+      "correct": 19
+    },
+    "Energy": {
+      "accuracy": 0.2917,
+      "macro_precision": 0.0972,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1505,
+      "total": 24,
+      "correct": 7
+    },
+    "Finance": {
+      "accuracy": 0.25,
+      "macro_precision": 0.0857,
+      "macro_recall": 0.3,
+      "macro_f1": 0.1333,
+      "total": 72,
+      "correct": 18
+    },
+    "Healthcare": {
+      "accuracy": 0.3958,
+      "macro_precision": 0.1624,
+      "macro_recall": 0.2754,
+      "macro_f1": 0.2043,
+      "total": 48,
+      "correct": 19
+    },
+    "Tech": {
+      "accuracy": 0.3194,
+      "macro_precision": 0.2487,
+      "macro_recall": 0.3907,
+      "macro_f1": 0.2514,
+      "total": 72,
+      "correct": 23
+    }
+  },
+  "per_period_metrics": {
+    "bull_run": {
+      "accuracy": 0.25,
+      "macro_precision": 0.1527,
+      "macro_recall": 0.2646,
+      "macro_f1": 0.1926,
+      "total": 72,
+      "correct": 18
+    },
+    "earnings_season": {
+      "accuracy": 0.375,
+      "macro_precision": 0.125,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1818,
+      "total": 72,
+      "correct": 27
+    },
+    "recent_stable": {
+      "accuracy": 0.2083,
+      "macro_precision": 0.0694,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1149,
+      "total": 72,
+      "correct": 15
+    },
+    "volatile": {
+      "accuracy": 0.3611,
+      "macro_precision": 0.1238,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1806,
+      "total": 72,
+      "correct": 26
+    }
+  },
+  "threshold_tuning": {
+    "candidates_evaluated": 1558,
+    "best_tau_pos": 0.57,
+    "best_tau_neg": 0.29,
+    "metrics": {
+      "baseline_accuracy": 0.2986,
+      "tuned_accuracy": 0.4375,
+      "baseline_macro_precision": 0.1527,
+      "tuned_macro_precision": 0.3764,
+      "baseline_macro_recall": 0.3209,
+      "tuned_macro_recall": 0.3543,
+      "baseline_macro_f1": 0.187,
+      "tuned_macro_f1": 0.3382,
+      "baseline_positive_rate": 0.9028,
+      "tuned_positive_rate": 0.1181
+    },
+    "tuned_per_class": {
+      "negative": {
+        "precision": 10.0,
+        "recall": 41.0,
+        "f1": 5.0
+      },
+      "neutral": {
+        "precision": 25.0,
+        "recall": 101.0,
+        "f1": 14.0
+      },
+      "positive": {
+        "precision": 22.0,
+        "recall": 55.0,
+        "f1": 15.0
+      }
+    },
+    "tuned_confusion_matrix": {
+      "negative": {
+        "negative": 10,
+        "neutral": 41,
+        "positive": 5
+      },
+      "neutral": {
+        "negative": 25,
+        "neutral": 101,
+        "positive": 14
+      },
+      "positive": {
+        "negative": 22,
+        "neutral": 55,
+        "positive": 15
+      }
+    },
+    "top_10": [
+      {
+        "rank": 1,
+        "tau_pos": 0.57,
+        "tau_neg": 0.29,
+        "macro_f1": 0.3382,
+        "accuracy": 0.4375,
+        "positive_rate": 0.1181,
+        "neg_recall": 0.1786,
+        "neu_recall": 0.7214,
+        "pos_recall": 0.163
+      },
+      {
+        "rank": 2,
+        "tau_pos": 0.55,
+        "tau_neg": 0.29,
+        "macro_f1": 0.3367,
+        "accuracy": 0.4201,
+        "positive_rate": 0.1667,
+        "neg_recall": 0.1786,
+        "neu_recall": 0.6643,
+        "pos_recall": 0.1957
+      },
+      {
+        "rank": 3,
+        "tau_pos": 0.57,
+        "tau_neg": 0.28,
+        "macro_f1": 0.3365,
+        "accuracy": 0.4271,
+        "positive_rate": 0.1181,
+        "neg_recall": 0.1964,
+        "neu_recall": 0.6929,
+        "pos_recall": 0.163
+      },
+      {
+        "rank": 4,
+        "tau_pos": 0.55,
+        "tau_neg": 0.28,
+        "macro_f1": 0.3347,
+        "accuracy": 0.4097,
+        "positive_rate": 0.1667,
+        "neg_recall": 0.1964,
+        "neu_recall": 0.6357,
+        "pos_recall": 0.1957
+      },
+      {
+        "rank": 5,
+        "tau_pos": 0.56,
+        "tau_neg": 0.29,
+        "macro_f1": 0.3331,
+        "accuracy": 0.4236,
+        "positive_rate": 0.1424,
+        "neg_recall": 0.1786,
+        "neu_recall": 0.6857,
+        "pos_recall": 0.1739
+      },
+      {
+        "rank": 6,
+        "tau_pos": 0.56,
+        "tau_neg": 0.28,
+        "macro_f1": 0.3313,
+        "accuracy": 0.4132,
+        "positive_rate": 0.1424,
+        "neg_recall": 0.1964,
+        "neu_recall": 0.6571,
+        "pos_recall": 0.1739
+      },
+      {
+        "rank": 7,
+        "tau_pos": 0.58,
+        "tau_neg": 0.29,
+        "macro_f1": 0.3295,
+        "accuracy": 0.434,
+        "positive_rate": 0.1007,
+        "neg_recall": 0.1786,
+        "neu_recall": 0.7286,
+        "pos_recall": 0.1413
+      },
+      {
+        "rank": 8,
+        "tau_pos": 0.57,
+        "tau_neg": 0.25,
+        "macro_f1": 0.329,
+        "accuracy": 0.3819,
+        "positive_rate": 0.1181,
+        "neg_recall": 0.3036,
+        "neu_recall": 0.5571,
+        "pos_recall": 0.163
+      },
+      {
+        "rank": 9,
+        "tau_pos": 0.54,
+        "tau_neg": 0.29,
+        "macro_f1": 0.3288,
+        "accuracy": 0.4028,
+        "positive_rate": 0.2083,
+        "neg_recall": 0.1786,
+        "neu_recall": 0.6214,
+        "pos_recall": 0.2065
+      },
+      {
+        "rank": 10,
+        "tau_pos": 0.58,
+        "tau_neg": 0.28,
+        "macro_f1": 0.3278,
+        "accuracy": 0.4236,
+        "positive_rate": 0.1007,
+        "neg_recall": 0.1964,
+        "neu_recall": 0.7,
+        "pos_recall": 0.1413
+      }
+    ]
+  },
+  "metadata": {
+    "test_cases": 288,
+    "errors": 0,
+    "issues": 0,
+    "duration_seconds": 842,
+    "positive_rate": 0.9028,
+    "workers": 1,
+    "label_config": "F",
+    "hypothesis_template": "The implication of this statement is {}.",
+    "candidate_labels": [
+      "bullish",
+      "bearish",
+      "neutral"
+    ],
+    "label_mapping": {
+      "positive": "bullish",
+      "negative": "bearish",
+      "neutral": "neutral"
+    },
+    "pipeline_model": "RoBERTa",
+    "classifier_model": "RoBERTa",
+    "test_set": "tune_set",
+    "sentiment_model": "zero-shot"
+  }
+}

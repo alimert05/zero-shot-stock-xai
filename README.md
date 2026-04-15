@@ -31,43 +31,100 @@ src/
         evaluation/            # Test runner, FPB benchmark, threshold tuning, XAI evaluation
         smoke/                 # Quick backtesting sanity checks
 data/
-    temp/                      # Transient pipeline outputs (articles.json, predictions.json)
-    articles/                  # Cached preprocessed article sets
-    evaluation/                # Test sets, evaluation results, threshold calibration, FPB
+    articles/                  # Cached preprocessed article sets (DeBERTa and RoBERTa pipelines)
+    evaluation/                # Test sets, per-model results, tune-set configurations, FPB benchmarks
     financial_phrasebank_datasets/  # FPB CSV files (50agree, 75agree, allagree)
-    xai_explanations/          # XAI output files and charts
+    temp/                      # Transient pipeline outputs (created at runtime)
+    xai_explanations/          # XAI output files and charts (created at runtime)
+logs/                          # Runtime logs (fetch.logs)
+requirements.txt               # Python dependencies
 ```
 
 ## Requirements
 
 - Python 3.11+
-- CUDA-compatible GPU (recommended for inference speed)
+- CUDA-compatible GPU with at least 6 GB VRAM recommended (8 GB for comfortable operation). The pipeline will fall back to CPU automatically if no GPU is available, but inference will be significantly slower.
 - Ollama (for narrative synthesis and LLM-based model evaluation)
-- Finnhub API key (free tier)
+- Finnhub API key (free tier, obtain from [finnhub.io](https://finnhub.io/))
 
 ## Installation
 
-1. Clone the repository and install dependencies:
+1. Obtain the source code:
+
+**Option A — From GitHub:**
+
+```bash
+git clone <repository-url>
+cd zero-shot-stock-xai
+```
+
+**Option B — From the submitted ZIP file:**
+
+Extract the ZIP archive and navigate to the extracted folder:
+
+```bash
+cd zero-shot-stock-xai
+```
+
+2. (Recommended) Create a virtual environment to isolate dependencies:
+
+```bash
+python -m venv venv
+venv\Scripts\activate        # Windows
+# source venv/bin/activate   # macOS/Linux
+```
+
+3. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Configure the Finnhub API key in `src/config.py`:
+4. Download the required NLTK data:
+
+```bash
+python -c "import nltk; nltk.download('punkt_tab')"
+```
+
+5. Configure the Finnhub API key in `src/config.py`:
 
 ```python
 FINNHUB_API_KEY = "your_api_key_here"
 ```
 
-3. Install Ollama and pull the required models:
+6. Install Ollama from [ollama.com](https://ollama.com/). Open a separate terminal and keep it running throughout your session:
 
 ```bash
-ollama pull llama3.2:3b      # narrative synthesis
-ollama pull llama3.1:8b      # baseline evaluation (optional)
-ollama pull mistral:7b       # baseline evaluation (optional)
+ollama serve
 ```
 
+Then in your main terminal, pull the required models:
+
+```bash
+ollama pull llama3.2:3b       # required for narrative synthesis (falls back to a deterministic template if unavailable)
+ollama pull llama3.1:8b       # optional, only needed for baseline model evaluation
+ollama pull mistral:7b        # optional, only needed for baseline model evaluation
+```
+
+**Note:** The first run will automatically download the HuggingFace models (RoBERTa-Large-MNLI, DeBERTa-Large-MNLI), which requires approximately 1.5 GB of disk space.
+
 ## Usage
+
+### Web Interface (Streamlit)
+
+From the project root:
+
+```bash
+streamlit run src/ui/app.py
+```
+
+The dashboard will open in your browser. Enter a company name (e.g., "Apple" or "AAPL"), a start date, and an end date, then click Analyse. Results are presented across nine tabs covering the prediction, evidence quality, storylines, event types, article analysis, robustness, weighting, LIME tokens, and interactive charts.
+
+**Expected runtime (end-to-end pipeline, 31-day prediction window):**
+- Desktop with CUDA GPU (e.g., Ryzen 7 9800X3D, RTX 4060 Ti 16 GB, 64 GB RAM): **1-2 minutes**
+- Apple Silicon laptop without CUDA (e.g., MacBook Air M2, 16 GB RAM, CPU-only): **10-15 minutes**
+
+Longer prediction windows retrieve more articles and therefore take longer. The dashboard displays a progress status panel during execution so you can track which stage is running.
 
 ### Terminal (CLI)
 
@@ -77,19 +134,17 @@ python src/main.py
 
 The system will prompt for a company name (or ticker), start date, and end date.
 
-### Web Interface (Streamlit)
-
-```bash
-streamlit run src/ui/app.py
-```
-
 ### Evaluation
 
+All evaluation commands should be run from the `src/` directory:
+
 ```bash
+cd src
+
 # Run holdout evaluation with the configured model
 python -m testing.evaluation.test_runner --mode evaluate --test-set ../data/evaluation/pipeline_evaluation_dataset/holdout_set.json
 
-# FPB benchmark
+# FPB benchmark (model options: deberta, roberta, finbert, fingpt, ollama-llama3, ollama-mistral)
 python -m testing.evaluation.phrasebank_benchmark --model <model_name>
 
 # FPB label tuning (112 configs, K-fold CV)
@@ -135,6 +190,23 @@ The dataset is split into:
 - **Holdout set**: 192 cases (8 companies) for final evaluation
 
 The split is performed at the ticker level to prevent information leakage.
+
+The complete test set and its tune/holdout split are provided in the repository:
+
+- Full set: `data/evaluation/pipeline_evaluation_dataset/test_set.json`
+- Tune set: `data/evaluation/pipeline_evaluation_dataset/tune_set.json`
+- Holdout set: `data/evaluation/pipeline_evaluation_dataset/holdout_set.json`
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| `CUDA not available` warning | The pipeline will use CPU automatically. For GPU inference, ensure CUDA-compatible drivers and PyTorch with CUDA support are installed. |
+| `ConnectionError` from Ollama | Ensure the Ollama server is running (`ollama serve`) before starting the application. |
+| Storyline labels show as comma-separated keywords (e.g., "Cook, Nike, Tim Cook") instead of narrative phrases | This indicates Ollama is not reachable. Verify the Ollama server is running (`ollama serve` in a separate terminal) and that the `llama3.2:3b` model has been pulled (`ollama pull llama3.2:3b`). The narrative summary on the Overview tab will also fall back to a template in this case. |
+| Finnhub API rate limit errors | The free tier allows 60 calls per minute. The pipeline includes a built-in rate limiter (55/min), but if multiple runs overlap, wait briefly before retrying. |
+| `nltk.download` errors | Run `python -c "import nltk; nltk.download('punkt_tab')"` manually. |
+| HuggingFace model download fails | Ensure a stable internet connection. Models are cached after the first download in `~/.cache/huggingface/`. |
 
 ## Disclaimer
 

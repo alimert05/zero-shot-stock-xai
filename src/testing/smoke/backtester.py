@@ -3,7 +3,7 @@
 from datetime import datetime, timedelta
 import json
 import yfinance as yf
-from config import PRED_JSON_PATH, JSON_PATH, SENTIMENT_MODEL, FINBERT_PREDS, FINGPT_PREDS, ZEROSHOT_PREDS
+from config import PRED_JSON_PATH, JSON_PATH, SENTIMENT_MODEL, FINBERT_PREDS, FINGPT_PREDS, ZEROSHOT_PREDS, OLLAMA_PREDS
 
 
 def _parse_date(d: str) -> datetime:
@@ -28,7 +28,7 @@ def _next_open_day_close(ticker: str, day: datetime, max_lookahead_days: int = 1
     for idx in df.index:
         if idx.date() >= day.date():
             close_val = df.loc[idx, "Close"]
-            if hasattr(close_val, "iloc"):  
+            if hasattr(close_val, "iloc"):
                 close_val = close_val.iloc[0]
             return idx.to_pydatetime(), float(close_val)
 
@@ -98,57 +98,57 @@ def evaluate_one(predicted_label: str, actual_label: str) -> dict:
         "correct": predicted_label == actual_label,
     }
 
-with open(JSON_PATH, 'r', encoding="utf-8") as f:
-    query_data = json.load(f)
-
-
-company_name = query_data["query"]
-ticker = query_data["ticker"]
-start_date = query_data["start_date"]
-end_date = query_data["end_date"]
-
-# Guard: skip backtest if end_date is in the future
-_end_dt = _parse_date(end_date)
-_backtest_skipped = _end_dt.date() > datetime.now().date()
-
-if _backtest_skipped:
-    print(f"WARNING: Backtest skipped: end_date {end_date} is in the future. Price data not yet available.")
-    actual_label, meta, warn = "unknown", {}, None
-else:
-    actual_label, meta, warn = get_real_label_yfinance(ticker, start_date, end_date)
-    if warn:
-        print(warn)
-
-if SENTIMENT_MODEL == "fingpt":
-    json_path = FINGPT_PREDS
-elif SENTIMENT_MODEL == "ProsusAI/finbert":
-    json_path = FINBERT_PREDS
-elif SENTIMENT_MODEL == "zero-shot":
-    json_path = ZEROSHOT_PREDS
-
-with open(json_path, 'r', encoding="utf-8") as f:
-    sentiment_data = json.load(f)
-
-predicted_label = sentiment_data["final_label"]
-
-pred_record = {
-    "company_name": company_name,
-    "ticker": ticker,
-    "start_date": start_date,
-    "end_date": end_date,
-    "predicted_label": predicted_label,
-}
-store_predictions_jsonl(PRED_JSON_PATH, pred_record)
 
 def run_backtest():
     """Run a quick backtest comparing pipeline predictions to actual returns."""
-    if _backtest_skipped:
+    with open(JSON_PATH, 'r', encoding="utf-8") as f:
+        query_data = json.load(f)
+
+    company_name = query_data["query"]
+    ticker = query_data["ticker"]
+    start_date = query_data["start_date"]
+    end_date = query_data["end_date"]
+
+    # Guard: skip backtest if end_date is in the future
+    end_dt = _parse_date(end_date)
+    if end_dt.date() > datetime.now().date():
         print("-" * 35)
-        print("WARNING: Backtest not available  - prediction window ends in the future.")
+        print("WARNING: Backtest not available - prediction window ends in the future.")
         print(f"  End date: {end_date}  |  Today: {datetime.now().date()}")
         print("  Re-run after the prediction window closes to compare with actual price.")
         print("-" * 35)
         return
+
+    actual_label, meta, warn = get_real_label_yfinance(ticker, start_date, end_date)
+    if warn:
+        print(warn)
+
+    # Select the prediction file for the configured model
+    if SENTIMENT_MODEL == "fingpt":
+        pred_path = FINGPT_PREDS
+    elif SENTIMENT_MODEL == "ProsusAI/finbert":
+        pred_path = FINBERT_PREDS
+    elif SENTIMENT_MODEL == "zero-shot":
+        pred_path = ZEROSHOT_PREDS
+    elif SENTIMENT_MODEL in ("ollama-llama3", "ollama-mistral"):
+        pred_path = OLLAMA_PREDS
+    else:
+        print(f"ERROR: Unknown SENTIMENT_MODEL: {SENTIMENT_MODEL}")
+        return
+
+    with open(pred_path, 'r', encoding="utf-8") as f:
+        sentiment_data = json.load(f)
+
+    predicted_label = sentiment_data["final_label"]
+
+    pred_record = {
+        "company_name": company_name,
+        "ticker": ticker,
+        "start_date": start_date,
+        "end_date": end_date,
+        "predicted_label": predicted_label,
+    }
+    store_predictions_jsonl(PRED_JSON_PATH, pred_record)
 
     report = evaluate_one(predicted_label, actual_label)
     print("-" * 35)
@@ -158,6 +158,9 @@ def run_backtest():
     print("-" * 35)
     print("Correct:", report["correct"])
     print("-" * 35)
-    print(f"Change: {round(float(meta['pct_change']), 5) * 100}%", warn if warn is not None else "")
+    print(f"Change: {meta['pct_change'] * 100:.3f}%", warn if warn is not None else "")
     print("-" * 35)
 
+
+if __name__ == "__main__":
+    run_backtest()

@@ -58,7 +58,7 @@ def fig_per_horizon(output_dir: Path) -> None:
     ax.set_xlabel("Prediction Window (days)", fontsize=11)
     ax.set_ylabel("Score", fontsize=11)
     ax.set_ylim(0.15, 0.5)
-    ax.axhline(y=0.484, color="#333333", linestyle="--", linewidth=1, alpha=0.5)
+    ax.axhline(y=0.484, color="#333333", linestyle="--", linewidth=1, alpha=0.5) # majority-class baseline (holdout set)
     ax.text(5, 0.488, "Majority baseline", fontsize=8, color="#333333")
     ax.legend(fontsize=9)
     ax.spines["top"].set_visible(False)
@@ -101,6 +101,53 @@ def fig_confusion_matrix(output_dir: Path) -> None:
     plt.savefig(output_dir / "confusion_matrix.png", dpi=200, bbox_inches="tight", facecolor="white")
     plt.close()
     print("  Saved: confusion_matrix.png")
+
+# Confusion Matrices for All Models (Appendix)
+
+def fig_all_model_confusion_matrices(output_dir: Path) -> None:
+    """Confusion matrix heatmaps for all non-primary models (appendix)."""
+    models = {
+        "FinBERT": "evaluation_results_finbert.json",
+        "FinGPT": "evaluation_results_fingpt.json",
+        "Llama 3.1 8B": "evaluation_results_llama.json",
+        "Mistral 7B": "evaluation_results_mistral.json",
+    }
+    labels = ["negative", "neutral", "positive"]
+
+    fig, axes = plt.subplots(2, 2, figsize=(10, 9))
+    axes = axes.flatten()
+
+    for idx, (model_name, filename) in enumerate(models.items()):
+        path = EVAL_RESULTS_PATH / filename
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        cm = data["overall_metrics"]["confusion_matrix"]
+        matrix = np.array([[cm[actual][pred] for pred in labels] for actual in labels])
+
+        ax = axes[idx]
+        im = ax.imshow(matrix, cmap="Blues", aspect="auto")
+
+        for i in range(3):
+            for j in range(3):
+                color = "white" if matrix[i, j] > matrix.max() * 0.6 else "black"
+                ax.text(j, i, str(matrix[i, j]), ha="center", va="center",
+                        fontsize=13, fontweight="bold", color=color)
+
+        ax.set_xticks([0, 1, 2])
+        ax.set_yticks([0, 1, 2])
+        ax.set_xticklabels(["Neg", "Neu", "Pos"], fontsize=9)
+        ax.set_yticklabels(["Neg", "Neu", "Pos"], fontsize=9)
+        ax.set_xlabel("Predicted", fontsize=10)
+        ax.set_ylabel("Actual", fontsize=10)
+        ax.set_title(model_name, fontsize=11, fontweight="bold")
+
+    plt.tight_layout()
+    plt.savefig(output_dir / "all_model_confusion_matrices.png", dpi=200,
+                bbox_inches="tight", facecolor="white")
+    plt.close()
+    print("  Saved: all_model_confusion_matrices.png")
+
 
 
 # Gaussian Horizon Weighting Curves
@@ -189,8 +236,9 @@ def fig_quality_accuracy(output_dir: Path) -> None:
     fig, ax = plt.subplots(figsize=(7, 5))
 
     ratings = ["HIGH\n(0-1 flags)", "MEDIUM\n(2 flags)", "LOW\n(3+ flags)"]
-    cases = [108, 75, 9]
-    accuracies = [49.1, 25.3, 0.0]
+    # Values from evaluation_results_zero_shot.json (holdout set)
+    cases = [83, 90, 19]
+    accuracies = [49.4, 28.9, 26.3]
     colors = ["#5BA85B", "#D9A84A", "#D94A4A"]
 
     bars = ax.bar(ratings, accuracies, color=colors, edgecolor="white", width=0.5)
@@ -231,6 +279,7 @@ def main() -> None:
 
     fig_per_horizon(output_dir)
     fig_confusion_matrix(output_dir)
+    fig_all_model_confusion_matrices(output_dir)
     fig_gaussian_horizon(output_dir)
     fig_recency_decay(output_dir)
     fig_quality_accuracy(output_dir)

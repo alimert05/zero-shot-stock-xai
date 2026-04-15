@@ -24,7 +24,9 @@ def apply_decision_thresholds(
     """Apply per-class decision thresholds to aggregated scores.
 
     Logic:
-        if positive >= tau_pos -> positive
+        if positive >= tau_pos and positive >= negative -> positive
+        elif negative >= tau_neg and negative >= positive -> negative
+        elif positive >= tau_pos -> positive
         elif negative >= tau_neg -> negative
         else -> neutral
 

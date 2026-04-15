@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 
 
 def main() -> None:
-    """Fetch articles, run sentiment prediction, and generate XAI output."""
+    """Fetch articles, run sentiment prediction, and optionally generate an XAI report."""
     fetcher = Fetcher()
     has_articles = fetcher.run_fetcher()
     if not has_articles:

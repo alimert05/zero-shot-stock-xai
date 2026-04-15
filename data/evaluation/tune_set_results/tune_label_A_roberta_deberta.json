@@ -1,0 +1,458 @@
+{
+  "overall_metrics": {
+    "accuracy": 0.2986,
+    "total": 288,
+    "correct": 86,
+    "macro_precision": 0.1042,
+    "macro_recall": 0.3116,
+    "macro_f1": 0.1562,
+    "per_class": {
+      "negative": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 56
+      },
+      "neutral": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 140
+      },
+      "positive": {
+        "precision": 0.3127,
+        "recall": 0.9348,
+        "f1": 0.4687,
+        "support": 92
+      }
+    },
+    "confusion_matrix": {
+      "negative": {
+        "negative": 0,
+        "neutral": 0,
+        "positive": 56
+      },
+      "neutral": {
+        "negative": 7,
+        "neutral": 0,
+        "positive": 133
+      },
+      "positive": {
+        "negative": 6,
+        "neutral": 0,
+        "positive": 86
+      }
+    }
+  },
+  "per_window_metrics": {
+    "W=1": {
+      "accuracy": 0.3542,
+      "macro_precision": 0.1232,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1799,
+      "total": 48,
+      "correct": 17
+    },
+    "W=3": {
+      "accuracy": 0.2708,
+      "macro_precision": 0.0942,
+      "macro_recall": 0.3095,
+      "macro_f1": 0.1444,
+      "total": 48,
+      "correct": 13
+    },
+    "W=5": {
+      "accuracy": 0.25,
+      "macro_precision": 0.087,
+      "macro_recall": 0.3077,
+      "macro_f1": 0.1356,
+      "total": 48,
+      "correct": 12
+    },
+    "W=7": {
+      "accuracy": 0.25,
+      "macro_precision": 0.087,
+      "macro_recall": 0.2857,
+      "macro_f1": 0.1333,
+      "total": 48,
+      "correct": 12
+    },
+    "W=14": {
+      "accuracy": 0.2917,
+      "macro_precision": 0.1037,
+      "macro_recall": 0.2917,
+      "macro_f1": 0.153,
+      "total": 48,
+      "correct": 14
+    },
+    "W=31": {
+      "accuracy": 0.375,
+      "macro_precision": 0.1304,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1875,
+      "total": 48,
+      "correct": 18
+    }
+  },
+  "per_company_metrics": {
+    "AAPL": {
+      "accuracy": 0.375,
+      "macro_precision": 0.125,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1818,
+      "total": 24,
+      "correct": 9
+    },
+    "AMZN": {
+      "accuracy": 0.0833,
+      "macro_precision": 0.0278,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.0513,
+      "total": 24,
+      "correct": 2
+    },
+    "CVX": {
+      "accuracy": 0.2917,
+      "macro_precision": 0.0972,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1505,
+      "total": 24,
+      "correct": 7
+    },
+    "GS": {
+      "accuracy": 0.375,
+      "macro_precision": 0.125,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1818,
+      "total": 24,
+      "correct": 9
+    },
+    "JNJ": {
+      "accuracy": 0.625,
+      "macro_precision": 0.2174,
+      "macro_recall": 0.3125,
+      "macro_f1": 0.2564,
+      "total": 24,
+      "correct": 15
+    },
+    "JPM": {
+      "accuracy": 0.3333,
+      "macro_precision": 0.1111,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1667,
+      "total": 24,
+      "correct": 8
+    },
+    "MCD": {
+      "accuracy": 0.2917,
+      "macro_precision": 0.0972,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1505,
+      "total": 24,
+      "correct": 7
+    },
+    "META": {
+      "accuracy": 0.375,
+      "macro_precision": 0.125,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1818,
+      "total": 24,
+      "correct": 9
+    },
+    "NKE": {
+      "accuracy": 0.125,
+      "macro_precision": 0.0556,
+      "macro_recall": 0.1667,
+      "macro_f1": 0.0833,
+      "total": 24,
+      "correct": 3
+    },
+    "PFE": {
+      "accuracy": 0.2083,
+      "macro_precision": 0.0926,
+      "macro_recall": 0.2381,
+      "macro_f1": 0.1333,
+      "total": 24,
+      "correct": 5
+    },
+    "V": {
+      "accuracy": 0.125,
+      "macro_precision": 0.0417,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.0741,
+      "total": 24,
+      "correct": 3
+    },
+    "WMT": {
+      "accuracy": 0.375,
+      "macro_precision": 0.125,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1818,
+      "total": 24,
+      "correct": 9
+    }
+  },
+  "per_sector_metrics": {
+    "Consumer": {
+      "accuracy": 0.2639,
+      "macro_precision": 0.096,
+      "macro_recall": 0.2879,
+      "macro_f1": 0.1439,
+      "total": 72,
+      "correct": 19
+    },
+    "Energy": {
+      "accuracy": 0.2917,
+      "macro_precision": 0.0972,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1505,
+      "total": 24,
+      "correct": 7
+    },
+    "Finance": {
+      "accuracy": 0.2778,
+      "macro_precision": 0.0926,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1449,
+      "total": 72,
+      "correct": 20
+    },
+    "Healthcare": {
+      "accuracy": 0.4167,
+      "macro_precision": 0.1626,
+      "macro_recall": 0.2899,
+      "macro_f1": 0.2083,
+      "total": 48,
+      "correct": 20
+    },
+    "Tech": {
+      "accuracy": 0.2778,
+      "macro_precision": 0.0926,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1449,
+      "total": 72,
+      "correct": 20
+    }
+  },
+  "per_period_metrics": {
+    "bull_run": {
+      "accuracy": 0.25,
+      "macro_precision": 0.1017,
+      "macro_recall": 0.25,
+      "macro_f1": 0.1446,
+      "total": 72,
+      "correct": 18
+    },
+    "earnings_season": {
+      "accuracy": 0.375,
+      "macro_precision": 0.125,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1818,
+      "total": 72,
+      "correct": 27
+    },
+    "recent_stable": {
+      "accuracy": 0.2083,
+      "macro_precision": 0.0694,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1149,
+      "total": 72,
+      "correct": 15
+    },
+    "volatile": {
+      "accuracy": 0.3611,
+      "macro_precision": 0.1204,
+      "macro_recall": 0.3333,
+      "macro_f1": 0.1769,
+      "total": 72,
+      "correct": 26
+    }
+  },
+  "threshold_tuning": {
+    "candidates_evaluated": 1558,
+    "best_tau_pos": 0.6,
+    "best_tau_neg": 0.29,
+    "metrics": {
+      "baseline_accuracy": 0.2986,
+      "tuned_accuracy": 0.4271,
+      "baseline_macro_precision": 0.1042,
+      "tuned_macro_precision": 0.3431,
+      "baseline_macro_recall": 0.3116,
+      "tuned_macro_recall": 0.3366,
+      "baseline_macro_f1": 0.1562,
+      "tuned_macro_f1": 0.321,
+      "baseline_positive_rate": 0.9549,
+      "tuned_positive_rate": 0.1667
+    },
+    "tuned_per_class": {
+      "negative": {
+        "precision": 6.0,
+        "recall": 43.0,
+        "f1": 7.0
+      },
+      "neutral": {
+        "precision": 18.0,
+        "recall": 99.0,
+        "f1": 23.0
+      },
+      "positive": {
+        "precision": 11.0,
+        "recall": 63.0,
+        "f1": 18.0
+      }
+    },
+    "tuned_confusion_matrix": {
+      "negative": {
+        "negative": 6,
+        "neutral": 43,
+        "positive": 7
+      },
+      "neutral": {
+        "negative": 18,
+        "neutral": 99,
+        "positive": 23
+      },
+      "positive": {
+        "negative": 11,
+        "neutral": 63,
+        "positive": 18
+      }
+    },
+    "top_10": [
+      {
+        "rank": 1,
+        "tau_pos": 0.6,
+        "tau_neg": 0.29,
+        "macro_f1": 0.321,
+        "accuracy": 0.4271,
+        "positive_rate": 0.1667,
+        "neg_recall": 0.1071,
+        "neu_recall": 0.7071,
+        "pos_recall": 0.1957
+      },
+      {
+        "rank": 2,
+        "tau_pos": 0.61,
+        "tau_neg": 0.29,
+        "macro_f1": 0.3192,
+        "accuracy": 0.434,
+        "positive_rate": 0.1424,
+        "neg_recall": 0.1071,
+        "neu_recall": 0.7357,
+        "pos_recall": 0.1739
+      },
+      {
+        "rank": 3,
+        "tau_pos": 0.6,
+        "tau_neg": 0.27,
+        "macro_f1": 0.3176,
+        "accuracy": 0.4097,
+        "positive_rate": 0.1667,
+        "neg_recall": 0.125,
+        "neu_recall": 0.6643,
+        "pos_recall": 0.1957
+      },
+      {
+        "rank": 4,
+        "tau_pos": 0.63,
+        "tau_neg": 0.29,
+        "macro_f1": 0.3171,
+        "accuracy": 0.4479,
+        "positive_rate": 0.0972,
+        "neg_recall": 0.1071,
+        "neu_recall": 0.7857,
+        "pos_recall": 0.1413
+      },
+      {
+        "rank": 5,
+        "tau_pos": 0.6,
+        "tau_neg": 0.3,
+        "macro_f1": 0.3161,
+        "accuracy": 0.441,
+        "positive_rate": 0.1667,
+        "neg_recall": 0.0714,
+        "neu_recall": 0.75,
+        "pos_recall": 0.1957
+      },
+      {
+        "rank": 6,
+        "tau_pos": 0.61,
+        "tau_neg": 0.27,
+        "macro_f1": 0.3161,
+        "accuracy": 0.4167,
+        "positive_rate": 0.1424,
+        "neg_recall": 0.125,
+        "neu_recall": 0.6929,
+        "pos_recall": 0.1739
+      },
+      {
+        "rank": 7,
+        "tau_pos": 0.6,
+        "tau_neg": 0.23,
+        "macro_f1": 0.3156,
+        "accuracy": 0.3611,
+        "positive_rate": 0.1667,
+        "neg_recall": 0.25,
+        "neu_recall": 0.5143,
+        "pos_recall": 0.1957
+      },
+      {
+        "rank": 8,
+        "tau_pos": 0.61,
+        "tau_neg": 0.23,
+        "macro_f1": 0.3152,
+        "accuracy": 0.3681,
+        "positive_rate": 0.1424,
+        "neg_recall": 0.25,
+        "neu_recall": 0.5429,
+        "pos_recall": 0.1739
+      },
+      {
+        "rank": 9,
+        "tau_pos": 0.63,
+        "tau_neg": 0.23,
+        "macro_f1": 0.3151,
+        "accuracy": 0.3819,
+        "positive_rate": 0.0972,
+        "neg_recall": 0.25,
+        "neu_recall": 0.5929,
+        "pos_recall": 0.1413
+      },
+      {
+        "rank": 10,
+        "tau_pos": 0.63,
+        "tau_neg": 0.27,
+        "macro_f1": 0.3143,
+        "accuracy": 0.4306,
+        "positive_rate": 0.0972,
+        "neg_recall": 0.125,
+        "neu_recall": 0.7429,
+        "pos_recall": 0.1413
+      }
+    ]
+  },
+  "metadata": {
+    "test_cases": 288,
+    "errors": 0,
+    "issues": 0,
+    "duration_seconds": 1261,
+    "positive_rate": 0.9549,
+    "workers": 1,
+    "label_config": "A",
+    "hypothesis_template": "This text is {} about the financial outlook.",
+    "candidate_labels": [
+      "positive financial outlook",
+      "negative financial outlook",
+      "neutral financial outlook"
+    ],
+    "label_mapping": {
+      "positive": "positive financial outlook",
+      "negative": "negative financial outlook",
+      "neutral": "neutral financial outlook"
+    },
+    "pipeline_model": "RoBERTa",
+    "classifier_model": "DeBERTa",
+    "test_set": "tune_set",
+    "sentiment_model": "zero-shot"
+  }
+}
