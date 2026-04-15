@@ -776,7 +776,7 @@ def _render_event_types(result: dict) -> None:
     st.markdown("### Event Type Distribution")
     st.write(
         "Each article is classified into an event type using zero-shot NLI. "
-        "The event type determines the article's **impact horizon**  - "
+        "The event type determines the article's impact horizon "
         "how many days the market typically takes to fully price in that type of news. "
         "Articles whose horizon aligns with the prediction window receive higher weight."
     )
