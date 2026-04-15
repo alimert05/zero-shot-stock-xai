@@ -1,4 +1,4 @@
-"""Shared utilities: ticker resolution, date validation, recency weighting, and market-date alignment.""" #a
+"""Shared utilities: ticker resolution, date validation, recency weighting, and market-date alignment."""
 
 from __future__ import annotations
 
